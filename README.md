@@ -1,1 +1,2 @@
-# sl-website-fe
+# Website Scouting Sint-Pieter Lommel
+## Frontend
