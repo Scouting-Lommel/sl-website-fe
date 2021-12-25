@@ -1,8 +1,8 @@
-import SmallLeader from "../molecules/SmallLeader"
+import SmallLeader from "../molecules/smallLeader"
 
 export default function LeaderCard({persons}){
     return (
-    <div className="flex flex-row justify-around ">
+    <div className="flex flex-row flex-nowrap justify-around border-4 rounded-2xl">
         {persons.map((person)=>{
             return <SmallLeader person={person} key={person}></SmallLeader>
         })}
