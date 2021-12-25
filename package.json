@@ -3,7 +3,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "compile tailwind": "npx tailwindcss -i ./src/pages/styles/globals.css -o ./src/pages/styles/output.css",
     "start": "next start"
   },
   "dependencies": {

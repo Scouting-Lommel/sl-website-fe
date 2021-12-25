@@ -3,7 +3,7 @@ import LeaderCard from '../components/organisms/LeaderCard';
 import Layout from './styles/Layout';
 
 export default function Welpen() {
-    let leaders = ["a", "b", "c"];
+    let leaders = ["a", "b", "c", "d", "e"];
     return (
         <Layout>
             <Head>
