@@ -1,16 +1,33 @@
 import Link from "next/link";
+import React from "react";
 
 export default function Takken(){
+    // honestly no idea why this works
+    const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
+    const btnDropdownRef = React.createRef();
+    const popoverDropdownRef = React.createRef();
+    const openDropdownPopover = () => {
+      setDropdownPopoverShow(true);
+    };
+    const closeDropdownPopover = () => {
+      setDropdownPopoverShow(false);
+    };
     return (
         <>
-        <button id="TakkenDropDownButton" data-dropdown-toggle="TakkenDropDown" className="flex-none px-2 inline-flex items-center" type="button">
+        <button id="TakkenDropDownButton" ref={btnDropdownRef} onClick={() => {
+                dropdownPopoverShow
+                  ? closeDropdownPopover()
+                  : openDropdownPopover();
+              }} className="flex-none px-2 inline-flex items-center" type="button">
             Takken
             <svg className="ml-2 w-2 h-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
             </svg>
         </button>
 
-        <div id="TakkenDropDown" className="hidden z-10 w-44 text-base list-none divide-y shadow">
+        <div id="TakkenDropDown" ref={popoverDropdownRef} className={
+           (dropdownPopoverShow ? "block " : "hidden ") +
+        "z-10 w-44 list-none divide-y shadow"}>
             <ul className="py-1" aria-labelledby="TakkenDropDownButton">
             <li>
                 <Link href="/kapoenen">
