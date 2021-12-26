@@ -14,6 +14,7 @@ export default function Takken(){
     };
     return (
         <>
+        <div className="flex-none px-2 inline-flex items-center">
         <button id="TakkenDropDownButton" ref={btnDropdownRef} onClick={() => {
                 dropdownPopoverShow
                   ? closeDropdownPopover()
@@ -60,6 +61,7 @@ export default function Takken(){
                 </Link>
             </li>
             </ul>
+        </div>
         </div>
         </>
     )
