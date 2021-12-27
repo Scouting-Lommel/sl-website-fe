@@ -1,31 +1,20 @@
-import Head from 'next/head'
-import LeaderCard from '../components/organisms/LeaderCard';
-import Layout from './styles/Layout';
-import TakInfo from '../components/organisms/takInfo';
-import TakFiles from '../components/organisms/takFiles';
-import Activiteiten from '../components/organisms/activiteiten';
+import Takpagina from './takpagina';
 
 export default function Welpen() {
-    let leaders = ["a", "b", "c", "d", "e"];
-    let info = "Info over deze tak blablablatttttttttttttttttttttttttttttttt ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt";
-    let files = "filenamen enzo dingen";
-    let acts = [{date:"morgen", info:"die activiteit dinges"}, {date:"andere keer", info:"Ja nog zo een activiteit dinges"}];
+    // get data from backend
+    let data = {}
+    data.leaders = ["a", "b", "c", "d", "e"];
+    data.info = "Info over deze tak blablablatttttttttttttttttttttttttttttttt ttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt";
+    data.files = "filenamen enzo dingen";
+    data.activities = [{date:"morgen", info:"die activiteit dinges"}, {date:"andere keer", info:"Ja nog zo een activiteit dinges"}];
+    
+    // check access rights, something like this (I know this is not how it works, but just for demo purposes):
+    // if(cookie.acces == "welpen" || "groepsleiding"){
+    //     return (
+    //         <TakAdminpagina tak={"Welpen"} data={data}></TakAdminpagina>
+    //     );
+    // }
     return (
-        <Layout>
-            <Head>
-                <title>Welpen</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <div className='py-4'>
-            <LeaderCard persons={leaders}></LeaderCard>
-            </div>
-            <div className='grid grid-cols-2 gap-2 py-4'>
-                <TakInfo info={info}></TakInfo>
-                <TakFiles files={files}></TakFiles>
-            </div>
-            <div className='py-4'>
-            <Activiteiten acts={acts}></Activiteiten>
-            </div>
-        </Layout>
+        <Takpagina tak={"Welpen"} data={data}></Takpagina>
     );
 }    
