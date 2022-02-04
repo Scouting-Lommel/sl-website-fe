@@ -3,6 +3,32 @@
  * If there is a referal to an image, the url of this image is meant
  */
 
+/**
+ * How to use:
+ * 
+ * In the component define a function at the BOTTOM of the code, then add a {props} parameter to the header of the component:
+ * 
+        getStaticProps() {
+            const client = new ApolloClient({
+                uri:`${process.env.REACT_APP_BACKEND_URL}/graphql`,
+                cache: new InMemoryCache()
+            })
+
+            const { data } = await client.query({
+                query: ENTER_QUERY_HERE
+            })
+
+            return {
+                props:{
+                    propperties: data.QUERRIED_TABLE
+                }
+            }
+        }
+ * 
+ */
+
+// TODO: add gql`query/mutation` to all queries
+
 // Querries
 
 /**

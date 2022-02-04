@@ -6,6 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.8",
+    "graphql": "^16.3.0",
     "next": "latest",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^7.1.0",
