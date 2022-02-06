@@ -1,14 +1,26 @@
-/**
- * This is only for the graphql queries, the real requests are made in strapi.js.
- * If there is a referal to an image, the url of this image is meant
- */
+import {gql} from '@apollo/client';
 
 /**
  * How to use:
  * 
- * In the component define a function at the BOTTOM of the code, then add a {props} parameter to the header of the component:
+ * There are 3 usefull types of rendering of pages: static, client-side rendering and server-side rendering.
+ * -> Static rendering will render only once onnbuild time, and then never again, this means that it should be used
+ *    on elements that change very infrequently because it requires a rebuild off the website
+ *    for example: FAQ, verhuur page things, home page info, jaarthema info...
+ * -> client side rendering will re-query every time the page loads and will thus be used for things that change
+ *    frequently, an extra step can be used here for when the data is still loading, you can have a 'loading screen'.
+ *    for example: activiteiten
+ * -> server side rendering will be used for things that will update, but not very frequently, every time a page is loaded,
+ *    the data is reloaded on server, but caching is used, this can only be used on page level, not on component level
  * 
-        getStaticProps() {
+ * implementation:
+ * -> Static rendering
+ * 
+ * define a function at the BOTTOM of the code, then add a {props} parameter to the header of the function:
+ * 
+        import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+
+        export async function getStaticProps() {
             const client = new ApolloClient({
                 uri:`${process.env.REACT_APP_BACKEND_URL}/graphql`,
                 cache: new InMemoryCache()
@@ -19,36 +31,117 @@
             })
 
             return {
-                props:{
-                    propperties: data.QUERRIED_TABLE
-                }
+                props:data
             }
         }
  * 
+ * -> client side rendering
+ *  The swr library handles caching and other advanced things, so it is highly recommened:
+ *  we try to avoid this method
+ * 
+        import { request } from 'graphql-request'
+
+        const fetcher = query => request('${process.env.REACT_APP_BACKEND_URL}/graphql', query)
+
+        function Profile() {
+          const { data, error } = useSWR(ENTER_QUERY_HERE, fetcher)
+
+          if (error) return <div>Failed to load</div>
+          if (!data) return <div>Loading...</div>
+
+          return (
+            <div>data</div>
+          )
+        }
+        
+ * -> server side rendering
+
+
+
+
+    IMPORTANT: learn more via: https://nextjs.org/docs/basic-features/data-fetching/overview
+
  */
 
-// TODO: add gql`query/mutation` to all queries
-
 // Querries
+
+export function getHomePageAttributes(n){
+  return gql`query {
+    jaarthema {
+      data {
+        attributes {
+          Jaarthema
+        }
+      }
+    }
+    home {
+      data {
+        attributes {
+          Welkomtekst
+          Welkomfoto {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          Sfeerfotos (pagination: {page: 1, pageSize:6}){
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+    scoutsgazets(sort: "Date:desc", pagination: {page:1, pageSize:${n}}) {
+      data {
+        id
+        attributes {
+          Title
+          PreviewText
+          Date
+          Image {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          Files {
+            data {
+              attributes {
+                name
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  }`
+}
 
 /**
  * gets only the theme
  */
 export function getJaarThema(){
-    return `jaarthema {
+    return gql`query{ jaarthema {
         data {
           attributes {
             Jaarthema
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * gets the welcome message plus image from home page
  */
 export function getWelcomeMessage(){
-    return `home {
+    return gql`query{ home {
         data {
           attributes {
             Welkomtekst
@@ -61,14 +154,15 @@ export function getWelcomeMessage(){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets 6 (predefined) images for the home page
  */
 export function getSfeerFotos(){
-    return `home {
+    return gql` query{ home {
         data {
           attributes {
             Sfeerfotos (pagination: {page: 1, pageSize:6}){
@@ -80,14 +174,15 @@ export function getSfeerFotos(){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * gets the preview for the scoutsgazet for the home page == the first n gazets sorted by date
  */
 export function getScoutsGazetPreview(n){
-    return `scoutsgazets(sort: "Date:desc", pagination: {page:1, pageSize:${n}}) {
+    return gql`query{ scoutsgazets(sort: "Date:desc", pagination: {page:1, pageSize:${n}}) {
         data {
           attributes {
             Title
@@ -102,14 +197,15 @@ export function getScoutsGazetPreview(n){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * gets all posts for the scoutsgazet
  */
  export function getScoutsGazetAll(){
-    return `scoutsgazets(sort: "Date:desc") {
+    return gql`query{ scoutsgazets(sort: "Date:desc") {
         data {
           attributes {
             Title
@@ -124,14 +220,15 @@ export function getScoutsGazetPreview(n){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets the full article from the gazets given title
  */
 export function getDetailedScoutsGazet(title){
-    return `scoutsgazets(filters: {Title: {eq: "${title}"}}) {
+    return gql`query{ scoutsgazets(filters: {Title: {eq: "${title}"}}) {
         data {
           attributes {
             Title
@@ -154,14 +251,15 @@ export function getDetailedScoutsGazet(title){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Get the upper info title + description + image on the global takken page
  */
 export function getTakkenInfo1(){
-    return `takken {
+    return gql`query{ takken {
         data {
           attributes {
             Title1
@@ -175,14 +273,15 @@ export function getTakkenInfo1(){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Get the second info title + description + image on the globel takken page
  */
  export function getTakkenInfo2(){
-    return `takken {
+    return gql`query{ takken {
         data {
           attributes {
             Title2
@@ -196,14 +295,15 @@ export function getTakkenInfo1(){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Get the first title + description + image for the verhuur page
  */
 export function getVerhuurInfo1(){
-    return `verhuur {
+    return gql`query{ verhuur {
         data {
           attributes {
             Title1
@@ -217,14 +317,15 @@ export function getVerhuurInfo1(){
               }
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
  * Get the second title + description + image for the verhuur page
  */
  export function getVerhuurInfo2(){
-    return `verhuur {
+    return gql`query{ verhuur {
         data {
           attributes {
             Title2
@@ -238,14 +339,15 @@ export function getVerhuurInfo1(){
               }
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
  * Get the third title + description + image for the verhuur page
  */
  export function getVerhuurInfo3(){
-    return `verhuur {
+    return gql`query{ verhuur {
         data {
           attributes {
             Title3
@@ -259,27 +361,29 @@ export function getVerhuurInfo1(){
               }
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
  * Get the pricing part for the verhuur page
  */
 export function getVerhuurPricing(){
-    return `verhuur {
+    return gql`query{ verhuur {
         data {
           attributes {
               Pricing
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
  * Gets the image sfor the verhuur page
  */
 export function getVerhuurImages(){
-    return `verhuur {
+    return gql`query{ verhuur {
         data {
           attributes {
             Images {
@@ -291,14 +395,15 @@ export function getVerhuurImages(){
               }
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
  * Gets the jaarthema + info + image for the info page
  */
 export function getInfoJaarthema(){
-    return `jaarthema {
+    return gql`query{ jaarthema {
         data {
           attributes {
             Jaarthema
@@ -312,54 +417,58 @@ export function getInfoJaarthema(){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets all FAQ questions and answers
  */
 export function getInfoQenA(){
-    return `qenAs {
+    return gql`query{ qenAs {
         data {
           attributes {
             Question
             Answer
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets the location info for the info page
  */
 export function getInfoLocation(){
-    return `info {
+    return gql`query{ info {
         data {
           attributes {
             LocationExplanation
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets the drugs and alcohpol beleid
  */
 export function getDrugsAndAlcohol(){
-    return `drugsAndAlcohol{
+    return gql`query{ drugsAndAlcohol{
         data{
           attributes{
             Beleid
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets the first info title + description + image for the given tak page
  */
 export function getTakpageInfo1(takname){
-    return `groups(filters: { name: { eq: "${takname}" } }) {
+    return gql`query{ groups(filters: { name: { eq: "${takname}" } }) {
         data {
           attributes {
             Title1
@@ -373,14 +482,15 @@ export function getTakpageInfo1(takname){
               }
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
  * Gets the second info title + description + image for the given tak page
  */
  export function getTakpageInfo2(takname){
-    return `groups(filters: { name: { eq: "${takname}" } }) {
+    return gql`query{ groups(filters: { name: { eq: "${takname}" } }) {
         data {
           attributes {
             Title2
@@ -394,14 +504,15 @@ export function getTakpageInfo1(takname){
               }
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
  * Gets the files name + extension + url for the given tak
  */
  export function getTakpageFiles(takname){
-    return `groups(filters: { name: { eq: "${takname}" } }) {
+    return gql`query{ groups(filters: { name: { eq: "${takname}" } }) {
         data {
           attributes {
             Files {
@@ -415,7 +526,8 @@ export function getTakpageInfo1(takname){
               }
             }
           }
-        }`
+        }
+      }`
 }
 
 /**
@@ -423,7 +535,7 @@ export function getTakpageInfo1(takname){
  * Note: will only return active leaders
  */
 export function getTakPageSmallLeader(takname){
-    return `leaders(filters: { group: { name: { eq: "${takname}" } }, Active: {eq: true} }) {
+    return gql`query{ leaders(filters: { group: { name: { eq: "${takname}" } }, Active: {eq: true} }) {
         data {
           attributes {
             FirstName
@@ -444,7 +556,8 @@ export function getTakPageSmallLeader(takname){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
@@ -452,7 +565,7 @@ export function getTakPageSmallLeader(takname){
  * Note: will not check for active or inactive leader
  */
 export function getTakPageLargeLeader(FirstName, LastName){
-    return `leaders(filters: { FirstName: { eq: "${FirstName}" }, LastName: { eq: "${LastName}" }) {
+    return gql`query{ leaders(filters: { FirstName: { eq: "${FirstName}" }, LastName: { eq: "${LastName}" }) {
         data {
           attributes {
             FirstName
@@ -477,27 +590,29 @@ export function getTakPageLargeLeader(FirstName, LastName){
             }
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets the description for the given leader function
  */
 export function getTakPageFunctionDescription(func){
-    return `group_roles(filters: { Name: {eq: "${func}"}}) {
+    return gql`query{ group_roles(filters: { Name: {eq: "${func}"}}) {
         data {
           attributes {
             description
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets the activities for the given tak with description startTime and endTime
  */
 export function getTakPageActivities(takname){
-    return `activities(filters: { groups: { name: { eq: "${takname}" } } }, sort: "startTime") {
+    return gql`query{ activities(filters: { groups: { name: { eq: "${takname}" } } }, sort: "startTime") {
         data {
           attributes {
             Title
@@ -506,14 +621,15 @@ export function getTakPageActivities(takname){
             endTime
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Gets the id + title + description + startime + endtime for the activity in the given tak with the given title
  */
 export function getTakPageActivity(takname, title){
-    return `activities(filters: { groups: { name: {eq:"${takname}"} },  Title:{eq: "${title}"}}){
+    return gql`query{ activities(filters: { groups: { name: {eq:"${takname}"} },  Title:{eq: "${title}"}}){
         data{
           id
           attributes{
@@ -523,18 +639,20 @@ export function getTakPageActivity(takname, title){
             description
           }
         }
-      }`
+      }
+    }`
 }
 
 /**
  * Get the id for the given takname
  */
 export function getTakPageID(takname){
-    return `groups(filters: { name: { eq: "${takname}" } }) {
+    return gql`query{ groups(filters: { name: { eq: "${takname}" } }) {
         data {
             id
           }
-        }`
+        }
+      }`
 }
 
 // Mutations
@@ -543,22 +661,24 @@ export function getTakPageID(takname){
  * Lets the user log in given the correct username/email and password
  */
 export function login(username, password){
-    return `login(input: { identifier: "${username}", password: "${password}" }) {
+    return gql`mutation{ login(input: { identifier: "${username}", password: "${password}" }) {
         jwt
-      }`
+      }
+    }`
 }
 
 /**
  * Create a user with a username, email and password
  */
 export function createUser(username, email, pwd){
-    return `register(input: { username: "${username}", email: "${email}", password: "${pwd}" }) {
+    return gql`mutation{ register(input: { username: "${username}", email: "${email}", password: "${pwd}" }) {
         jwt
         user {
           username
           email
         }
-      }`
+      }
+    }`
 }
 
 /**
@@ -567,7 +687,7 @@ export function createUser(username, email, pwd){
  * startdate and enddate must be in format: yyyy-mm-ddThh:mm:ss.sssZ
  */
 export function createActivity(takID, title, description, startdate, enddate){
-    return `createActivity(
+    return gql`mutation{ createActivity(
         data: {
           startTime: "${startdate}"
           endTime: "${enddate}"
@@ -579,7 +699,8 @@ export function createActivity(takID, title, description, startdate, enddate){
         data{
           id
         }
-      }`
+      }
+    }`
 }
 
 /**
@@ -588,7 +709,7 @@ export function createActivity(takID, title, description, startdate, enddate){
  * startdate and enddate must be in format: yyy-mm-ddThh:mm:ss.sssZ
  */
 export function editActivity(actID, title, description, startdate, enddate){
-    return `updateActivity(
+    return gql`mutation{ updateActivity(
         id: ${actID}
         data: {
           startTime: "${startdate}"
@@ -600,7 +721,8 @@ export function editActivity(actID, title, description, startdate, enddate){
         data{
           id
         }
-      }`
+      }
+    }`
 }
 
 /**
@@ -609,11 +731,12 @@ export function editActivity(actID, title, description, startdate, enddate){
  * startdate and enddate must be in format: yyy-mm-ddThh:mm:ss.sssZ
  */
 export function deleteActivity(actID){
-    return `deleteActivity(
+    return gql`mutation{ deleteActivity(
         id: ${actID}
       ){
         data{
           id
         }
-      }`
+      }
+    }`
 }
