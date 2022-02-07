@@ -1,3 +1,3 @@
-export default function Contact(){
-    return <div>Neem contact met ons op als je vrgaen hebt</div>
+export default function Contact({text}){
+    return <div>{text}</div>
 }

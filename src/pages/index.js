@@ -17,6 +17,7 @@ export default function Home({fin}) {
             <title>Scouting Lommel</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
+        <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
         <JaarthemaSmall jaarthema={fin.jaarthema.data.attributes.Jaarthema} />
         <Socials />
         <InfoText title="Welkom" text={fin.home.data.attributes.Welkomtekst} image={fin.home.data.attributes.Welkomfoto.data.attributes.url}/>
