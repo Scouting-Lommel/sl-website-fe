@@ -3,7 +3,7 @@ import ScoutsGazetArticle from '../molecules/ScoutsGazetArticle'
 
 export default function ScoutgazetSmall({gazets}){
     //todo image
-    console.log(gazets)
+
     return (
         <div>
         <span>scoutsgazet</span>

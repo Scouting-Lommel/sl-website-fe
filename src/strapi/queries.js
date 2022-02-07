@@ -4,14 +4,13 @@ import {gql} from '@apollo/client';
  * How to use:
  * 
  * There are 3 usefull types of rendering of pages: static, client-side rendering and server-side rendering.
- * -> Static rendering will render only once onnbuild time, and then never again, this means that it should be used
- *    on elements that change very infrequently because it requires a rebuild off the website
+ * -> Static rendering will render only once on build time, and then after a set time, so it should be used with large timers
+ *    (24 hours +) and with data that does not change freqently
  *    for example: FAQ, verhuur page things, home page info, jaarthema info...
- * -> client side rendering will re-query every time the page loads and will thus be used for things that change
- *    frequently, an extra step can be used here for when the data is still loading, you can have a 'loading screen'.
+ * -> static path rendering will render on a non static path, so for example the gezets in the scoutsgazet
+ * -> server side rendering will be used for things that will update very frequently, every time a page is loaded,
+ *    the data is reloaded on server, this can only be used on page level, not on component level
  *    for example: activiteiten
- * -> server side rendering will be used for things that will update, but not very frequently, every time a page is loaded,
- *    the data is reloaded on server, but caching is used, this can only be used on page level, not on component level
  * 
  * implementation:
  * -> Static rendering
@@ -31,7 +30,8 @@ import {gql} from '@apollo/client';
             })
 
             return {
-                props:data
+                props:data,
+                revalidate: TIME_IN_SECONDS
             }
         }
  * 
@@ -255,6 +255,34 @@ export function getDetailedScoutsGazet(title){
     }`
 }
 
+export function getTakkenInfo(){
+  return gql`query{ takken {
+    data {
+      attributes {
+        Title2
+        Title1
+        Text2
+        Text1
+        Image2 {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        Image1 {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}`
+}
+
 /**
  * Get the upper info title + description + image on the global takken page
  */
@@ -297,6 +325,51 @@ export function getTakkenInfo1(){
         }
       }
     }`
+}
+
+export function getVerhuurInfo(){
+  return gql`query{ verhuur {
+    data {
+      attributes {
+        Title1
+        Text1
+        Image1 {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          Title2
+          Text2
+          Image2 {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            Title3
+            Text3
+            Image3 {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              Pricing
+              Images {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+        }
+      }
+    }
+  }`
 }
 
 /**
@@ -397,6 +470,40 @@ export function getVerhuurImages(){
           }
         }
       }`
+}
+
+export function getInfoPage(){
+  return gql`query{ jaarthema {
+    data {
+      attributes {
+        Jaarthema
+        JaarthemaExplanation
+        JaarthemaImage {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+  qenAs {
+    data {
+      attributes {
+        Question
+        Answer
+      }
+    }
+  }
+  info {
+    data {
+      attributes {
+        LocationExplanation
+      }
+    }
+  }
+}`
 }
 
 /**
