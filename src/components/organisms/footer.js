@@ -3,10 +3,10 @@ import Instagram from "../molecules/Instagram";
 
 export default function Footer() {
     return (
-      <div className="pl-10 pr-10 pt-10 grid grid-rows-6 gap-5">
-        <div className="row-span-5 pb-10 grid grid-cols-6 gap-5">
+      <div className="pl-10 pr-10 pt-10 grid grid-rows-6 gap-1">
+        <div className="row-span-5 pb-10 grid grid-cols-6 gap-3">
           <div className="col-span-1">Image</div>
-          <div className="col-span-3 grid grid-rows-4 gap-5">
+          <div className="col-span-3 grid grid-rows-4 gap-1">
             <div className="row-span-1">Scouting sint-pieter lommel</div>
             <div className="row-span-1">info@scoutinglommel.be</div>
             <div className="row-span-1">Nieuwe Kopen 4, 3920 Lommel</div>

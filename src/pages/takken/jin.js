@@ -4,12 +4,12 @@ import Layout from '../styles/Layout'
 import { ApolloClient, InMemoryCache} from "@apollo/client";
 import TakPage from '../../components/organisms/TakPage';
 
-export default function Welpen({fin}) {
+export default function jin({fin}) {
     
     return (
         <Layout>
             <Head>
-                <title>Welpen</title>
+                <title>Jin</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <TakPage fin={fin} />
@@ -24,7 +24,7 @@ export async function getStaticProps() {
     })
   
     const { data } = await client.query({
-        query: getTakPageInfo("Welpen")
+        query: getTakPageInfo("Jin")
     })
   
     let fin = data
