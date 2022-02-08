@@ -11,9 +11,8 @@ export default function login(){
             password: "placeholder",
           },
         onCompleted(fin){
-            setJwtToken(fin.login.jwt)
             setUserID(decodeJWT(fin.login.jwt).id)
-
+            setJwtToken(fin.login.jwt)
         },
         onError(fin){
             console.error(fin)
