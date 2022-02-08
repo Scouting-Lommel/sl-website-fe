@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from './styles/Layout'
-import { ApolloClient, InMemoryCache} from "@apollo/client";
+import client from '../apollo-client'
 import { getInfoPage } from '../strapi/queries';
 import InfoTextReversed from '../components/organisms/InfoTextReversed';
 import Contact from '../components/organisms/Contact';
@@ -22,10 +22,6 @@ export default function Info({fin}) {
 }
 
 export async function getStaticProps() {
-    const client = new ApolloClient({
-        uri:`${process.env.REACT_APP_BACKEND_URL}/graphql`,
-        cache: new InMemoryCache()
-    })
   
     const { data } = await client.query({
         query: getInfoPage()

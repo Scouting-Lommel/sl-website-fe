@@ -1,6 +1,6 @@
 import Layout from "./styles/Layout";
 import Head from 'next/head'
-import { ApolloClient, InMemoryCache} from "@apollo/client";
+import client from '../apollo-client'
 import { getVerhuurInfo } from "../strapi/queries";
 import InfoText from "../components/organisms/InfoText";
 import Contact from "../components/organisms/Contact";
@@ -23,10 +23,6 @@ export default function takken({fin}){
 }
 
 export async function getStaticProps() {
-    const client = new ApolloClient({
-        uri:`${process.env.REACT_APP_BACKEND_URL}/graphql`,
-        cache: new InMemoryCache()
-    })
   
     const { data } = await client.query({
         query: getVerhuurInfo()

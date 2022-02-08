@@ -844,8 +844,8 @@ export function getTakPageID(takname){
 /**
  * Lets the user log in given the correct username/email and password
  */
-export function login(username, password){
-    return gql`mutation{ login(input: { identifier: "${username}", password: "${password}" }) {
+export function loginQuery(){
+    return gql`mutation{ login(input: { identifier: $username, password: $password }) {
         jwt
       }
     }`

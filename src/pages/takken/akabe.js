@@ -1,7 +1,7 @@
 import { getTakPageInfo } from '../../strapi/queries';
 import Head from 'next/head'
 import Layout from '../styles/Layout'
-import { ApolloClient, InMemoryCache} from "@apollo/client";
+import client from '../../apollo-client'
 import TakPage from '../../components/organisms/TakPage';
 
 export default function akabe({fin}) {
@@ -18,10 +18,6 @@ export default function akabe({fin}) {
 }    
 
 export async function getStaticProps() {
-    const client = new ApolloClient({
-        uri:`${process.env.REACT_APP_BACKEND_URL}/graphql`,
-        cache: new InMemoryCache()
-    })
   
     const { data } = await client.query({
         query: getTakPageInfo("Akabe")

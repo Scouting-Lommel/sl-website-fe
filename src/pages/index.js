@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from './styles/Layout'
-import { ApolloClient, InMemoryCache} from "@apollo/client";
+import client from '../apollo-client'
 import { getHomePageAttributes, getJaarThema } from '../strapi/queries';
 import JaarthemaSmall from '../components/organisms/JaarthemaSmall'
 import InfoText from '../components/organisms/InfoText'
@@ -8,9 +8,10 @@ import ScoutgazetSmall from '../components/organisms/ScoutgazetSmall'
 import Socials from '../components/organisms/Socials'
 import InschrijfSmall from '../components/organisms/InschrijfSmall'
 import TakkenSlider from '../components/organisms/TakkenSlider';
+import { login } from '../strapi/strapi';
 
 export default function Home({fin}) {
-
+  //login("blablafout", "fouterst")
   return (
     <Layout>
         <Head>
@@ -29,10 +30,6 @@ export default function Home({fin}) {
 }
 
 export async function getStaticProps() {
-  const client = new ApolloClient({
-      uri:`${process.env.REACT_APP_BACKEND_URL}/graphql`,
-      cache: new InMemoryCache()
-  })
 
   const { data } = await client.query({
       query: getHomePageAttributes(2)
