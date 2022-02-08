@@ -11,11 +11,12 @@ export default function login(){
             password: "placeholder",
           },
         onCompleted(fin){
-            setUserID(decodeJWT(fin.login.jwt).id)
-            setJwtToken(fin.login.jwt)
+            setUserID(decodeJWT(fin.login.jwt).id);
+            setJwtToken(fin.login.jwt);
+            window.location.href = '/';
         },
         onError(fin){
-            console.error(fin)
+            console.error(fin);
         },
     });
 
