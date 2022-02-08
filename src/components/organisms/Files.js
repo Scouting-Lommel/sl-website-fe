@@ -7,7 +7,7 @@ export default function Files({files}){
                 Bestanden
             </div>
             <div className="px-10 py-1">
-                <div className="flex flex-row justify-center">
+                <div className="flex flex-row justify-evenly">
                         {files.map(file => <File info={file}/>)}
                 </div>                                      
             </div>
