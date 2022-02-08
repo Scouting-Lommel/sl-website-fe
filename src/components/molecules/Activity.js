@@ -16,7 +16,6 @@ function parseDateTime(startDate, endDate){
     endDate = endDate.split("T");
     startDate[1] = startDate[1].substring(0, startDate[1].length-8);
     endDate[1] = endDate[1].substring(0, endDate[1].length-8);
-    console.log(endDate)
     if(startDate[0] == endDate[0]){
         return startDate[0] + " " + startDate[1] + " - " + endDate[1]
     }

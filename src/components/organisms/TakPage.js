@@ -13,7 +13,7 @@ export default function TakPage({fin}){
             <Activities activities={fin.activities.data} />
             <Leaders leaders={fin.leaders.data} />
             <InfoTextReversed title={fin.groups.data[0].attributes.Title2} text={fin.groups.data[0].attributes.Text2} image={fin.groups.data[0].attributes.Image2.data.attributes.url}  />
-            <Files files={fin.activities.data}/>
+            <Files files={fin.groups.data[0].attributes.Files.data}/>
         </div>
     )
 }
