@@ -8,10 +8,8 @@ import ScoutgazetSmall from '../components/organisms/ScoutgazetSmall'
 import Socials from '../components/organisms/Socials'
 import InschrijfSmall from '../components/organisms/InschrijfSmall'
 import TakkenSlider from '../components/organisms/TakkenSlider';
-import { login } from '../strapi/strapi';
 
 export default function Home({fin}) {
-  //login("blablafout", "fouterst")
   return (
     <Layout>
         <Head>

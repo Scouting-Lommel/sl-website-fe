@@ -827,6 +827,31 @@ export function getTakPageActivity(takname, title){
     }`
 }
 
+export function getGroupNameFromUserId(UID){
+  return gql`query{
+    usersPermissionsUsers(filters: {id: {eq: 4}}){
+      data{
+        id
+        attributes{
+          leader{
+            data{
+              attributes{
+                group{
+                  data{
+                    attributes{
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`
+}
+
 /**
  * Get the id for the given takname
  */
@@ -844,12 +869,12 @@ export function getTakPageID(takname){
 /**
  * Lets the user log in given the correct username/email and password
  */
-export function loginQuery(){
-    return gql`mutation{ login(input: { identifier: $username, password: $password }) {
+export const loginQuery = 
+    gql`mutation Login($username: String!, $password: String!)
+      { login(input: { identifier: $username, password: $password}) {
         jwt
       }
     }`
-}
 
 /**
  * Create a user with a username, email and password

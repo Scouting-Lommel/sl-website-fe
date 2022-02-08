@@ -1,5 +1,4 @@
 export default function ScoutsGazetArticle({info}){
-    console.log(info)
     return <div>
         <div>Title: {info.attributes.Title}</div>
         <div>PreviewText: {info.attributes.PreviewText}</div>
