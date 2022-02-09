@@ -748,9 +748,10 @@ export function getTakPageSmallLeader(takname){
  * gets for the given leader (firstname, lastname) the firstname, lastname, email, phone, totem, image, info, function
  * Note: will not check for active or inactive leader
  */
-export function getTakPageLargeLeader(FirstName, LastName){
-    return gql`query{ leaders(filters: { FirstName: { eq: "${FirstName}" }, LastName: { eq: "${LastName}" }) {
+export function getTakPageLargeLeader(UID){
+    return gql`query{ leaders(filters: { id: {eq: ${UID}} }) {
         data {
+          id
           attributes {
             FirstName
             LastName
@@ -827,9 +828,26 @@ export function getTakPageActivity(takname, title){
     }`
 }
 
+export function getLeaderIdFromUserId(UID){
+  return gql`query{
+    usersPermissionsUsers(filters: {id: {eq: ${UID}}}){
+      data{
+        id
+        attributes{
+          leader{
+            data{
+              id
+            }
+          }
+        }
+      }
+    }
+  }`
+}
+
 export function getGroupNameFromUserId(UID){
   return gql`query{
-    usersPermissionsUsers(filters: {id: {eq: 4}}){
+    usersPermissionsUsers(filters: {id: {eq: ${UID}}}){
       data{
         id
         attributes{
@@ -847,6 +865,16 @@ export function getGroupNameFromUserId(UID){
             }
           }
         }
+      }
+    }
+  }`
+}
+
+export function getAllUserIds(){
+  return gql`query{
+    leaders{
+      data{
+        id
       }
     }
   }`

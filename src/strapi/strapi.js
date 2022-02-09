@@ -1,5 +1,5 @@
 import client from "../apollo-client";
-import { getGroupNameFromUserId } from "./queries";
+import { getGroupNameFromUserId, getLeaderIdFromUserId } from "./queries";
 
 const ISSERVER = typeof window === "undefined";
 
@@ -20,8 +20,8 @@ async function setUserGroup(UID){
     const { data } = await client.query({
         query: getGroupNameFromUserId(UID)
     })
-    
-    console.log(data)
+
+    console.log(data);
 
     if(!ISSERVER) {
         sessionStorage.setItem("UserGroup", data.usersPermissionsUsers.data[0].attributes.leader.data.attributes.group.data.attributes.name)
@@ -38,8 +38,15 @@ export function getUserGroup(){
 export async function setUserID(id){
     // with the users id we also want the group name it is part of
     if(!ISSERVER) {
-        setUserGroup(id)
-        sessionStorage.setItem("UID", id)
+        await setUserGroup(id)
+
+        const { data } = await client.query({
+            query: getLeaderIdFromUserId(id)
+        })
+
+        console.log(data)
+    
+        sessionStorage.setItem("UID", data.usersPermissionsUsers.data[0].attributes.leader.data.id)
     }
 }
 
