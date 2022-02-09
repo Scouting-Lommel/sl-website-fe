@@ -16,7 +16,7 @@ export default function takken({fin}){
         <Contact />
         <InfoTextReversed title={fin.Title2} text={fin.Text2} image={fin.Image2.data.attributes.url} />
         <InfoText title={fin.Title3} text={fin.Text3} image={fin.Image3.data.attributes.url}/>
-        <div>{fin.Pricing}</div>
+        <div>Alles is duur</div>
         
 
     </Layout>)

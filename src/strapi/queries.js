@@ -347,7 +347,6 @@ export function getVerhuurInfo(){
                   }
                 }
               }
-              Pricing
               Images {
                 data {
                   attributes {
@@ -421,20 +420,6 @@ export function getVerhuurInfo1(){
                   }
                 }
               }
-            }
-          }
-        }
-      }`
-}
-
-/**
- * Get the pricing part for the verhuur page
- */
-export function getVerhuurPricing(){
-    return gql`query{ verhuur {
-        data {
-          attributes {
-              Pricing
             }
           }
         }
