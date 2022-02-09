@@ -204,21 +204,10 @@ export function getScoutsGazetPreview(n){
 /**
  * gets all posts for the scoutsgazet
  */
- export function getScoutsGazetAll(){
+ export function getScoutsGazetAllIds(){
     return gql`query{ scoutsgazets(sort: "Date:desc") {
         data {
-          attributes {
-            Title
-            PreviewText
-            Date
-            Image {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
+          id
         }
       }
     }`
@@ -227,8 +216,8 @@ export function getScoutsGazetPreview(n){
 /**
  * Gets the full article from the gazets given title
  */
-export function getDetailedScoutsGazet(title){
-    return gql`query{ scoutsgazets(filters: {Title: {eq: "${title}"}}) {
+export function getDetailedScoutsGazet(id){
+    return gql`query{ scoutsgazets(filters: {id: {eq: ${id}}}) {
         data {
           attributes {
             Title
