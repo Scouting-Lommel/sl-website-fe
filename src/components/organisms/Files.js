@@ -1,6 +1,8 @@
+import { getUserGroup, isLoggedIn } from "../../strapi/strapi"
 import File from '../molecules/File'
+import FileModal from '../molecules/FileModal'
 
-export default function Files({files}){
+export default function Files({files, groupName}){
     return (
         <div className="grid-cols-2">
             <div className="text-4xl text-center">
@@ -11,6 +13,9 @@ export default function Files({files}){
                         {files.map(file => <File info={file}/>)}
                 </div>                                      
             </div>
+            {isLoggedIn() && getUserGroup() == groupName && <div className="flex justify-center"> 
+                <FileModal></FileModal>
+            </div>}
         </div>
     )
 }
