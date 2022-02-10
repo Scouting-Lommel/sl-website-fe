@@ -21,8 +21,6 @@ async function setUserGroup(UID){
         query: getGroupNameFromUserId(UID)
     })
 
-    console.log(data);
-
     if(!ISSERVER) {
         sessionStorage.setItem("UserGroup", data.usersPermissionsUsers.data[0].attributes.leader.data.attributes.group.data.attributes.name)
     }
@@ -43,8 +41,6 @@ export async function setUserID(id){
         const { data } = await client.query({
             query: getLeaderIdFromUserId(id)
         })
-
-        console.log(data)
     
         sessionStorage.setItem("UID", data.usersPermissionsUsers.data[0].attributes.leader.data.id)
     }

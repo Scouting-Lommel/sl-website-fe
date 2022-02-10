@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { gql } from '@apollo/client';
+import { gql, useMutation } from '@apollo/client';
 import { uploadClient } from '../../apollo-client';
 
 
-export default function AddFileButton({takname}){
+export default function AddFileButton({takID, files}){
     // modal stuff
     let [isOpen, setIsOpen] = useState(false)
 
@@ -25,6 +25,36 @@ export default function AddFileButton({takname}){
     }
   `
 
+  const LINK_FILE = 
+    gql` mutation($groupID: ID!, $fileIDs: [ID]) {
+        updateGroup(id: $groupID, data: {Files: $fileIDs}){
+          data{
+            id
+          }
+        }
+      }
+  `
+
+// TODO: if user uploads 2 files at the same time, they will not both be added because only the latest file id will be added to
+// the list, so a better practice would be to get all file ids on each request, n=but thats not very important right now
+
+//linking file to page logic
+    const [linkFiles, { data }] = useMutation(LINK_FILE, {
+        variables: {
+            groupID: takID,
+            fileIDs: [],
+          },
+        onCompleted(fin){
+            alert("Added file successfuly")
+            console.log(`${fin}`)
+            closeModal()
+        },
+        onError(fin){
+            console.error(fin);
+            alert(`an error occured trying to upload the file: ${fin}`)
+        },
+    });
+
   //file data stuff
   let [getImage, setImage] = useState(null)
 
@@ -42,11 +72,19 @@ export default function AddFileButton({takname}){
                 file: getImage
             }
         }).then(res => {
-            console.log(res);
+            console.log(res.data.upload.data.id);   
             // need to link file to this tak
+            // we need group id and all current file ids + new file id
+            console.log(getFIleIDs(files, res.data.upload.data.id))
+            linkFiles({
+                variables: {
+                    groupID: takID,
+                    fileIDs: getFIleIDs(files, res.data.upload.data.id),
+                },
+            })
           })
           .catch(err => {
-            alert(`an error occured trying to upload the file: ${err}`);
+            alert(`an error occured trying to link the file: ${err}`);
           });
     }
 
@@ -67,7 +105,7 @@ export default function AddFileButton({takname}){
                     Add a file
                 </h3>
                 <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={closeModal}>
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>  
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>  
                 </button>
             </div>
             {/* <!-- Modal body --> */}
@@ -95,4 +133,14 @@ export default function AddFileButton({takname}){
     }    
     </>
   )
+}
+
+function getFIleIDs(files, newFileID){
+    let IDstring = []
+    files.map(file => {
+        IDstring.push(file.id.toString())
+    })
+    IDstring.push(newFileID)
+
+    return IDstring
 }

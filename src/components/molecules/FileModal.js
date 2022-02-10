@@ -4,7 +4,7 @@ import { getUserGroup, isLoggedIn } from '../../strapi/strapi'
 import AddFileButton from '../atoms/AddFileButton'
 import { useMutation } from "@apollo/client";
 
-export default function FileModal({files, takname}) {
+export default function FileModal({files, takname, takID}) {
   let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
@@ -72,7 +72,7 @@ export default function FileModal({files, takname}) {
             </div>
             {/* <!-- Modal footer --> */}
             <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                <AddFileButton takname={takname}/>
+                <AddFileButton takID={takID} files={files}/>
                <button onClick={closeModal} type="button" className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600">Cancel</button>
             </div>
         </div>
