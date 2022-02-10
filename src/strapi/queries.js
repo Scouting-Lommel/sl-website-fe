@@ -947,8 +947,8 @@ export function editActivity(actID, title, description, startdate, enddate){
 }
 
 export const deleteFile = 
-  gql`mutation{ deleteFile(
-    id: $fileID
+  gql`mutation($id: ID!){ deleteUploadFile(
+    id: $id
   ){
     data{
       id

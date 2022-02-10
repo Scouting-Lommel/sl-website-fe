@@ -98,7 +98,7 @@ export default function AddFileButton({takID, files}){
 <div id="defaultModal" aria-hidden="true" className="fixed flex justify-center z-50 items-center h-full w-full h-modal md:h-full inset-0">
     <div className="relative px-4 w-full max-w-2xl h-full md:h-auto">
         {/* <!-- Modal content --> */}
-        <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <div className="relative bg-rose-400 rounded-lg shadow">
             {/* <!-- Modal header --> */}
             <div className="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
                 <h3 className="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
