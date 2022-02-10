@@ -4,7 +4,7 @@ export default function SmallLeader({info}){
         <div className={"text-center grid grid-rows-"+ size}>
             <div>Image</div>
             <div className="text-2xl">{info.attributes.FirstName}</div>
-            {info.attributes.group_roles.data.map(role => <div>{role.attributes.Name}</div>)}
+            {info.attributes.group_roles.data.map(role => <div key={role.attributes.Name}>{role.attributes.Name}</div>)}
         </div>
     )
 }

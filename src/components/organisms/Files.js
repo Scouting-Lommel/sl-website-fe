@@ -10,11 +10,11 @@ export default function Files({files, groupName}){
             </div>
             <div className="px-10 py-1">
                 <div className="flex flex-row justify-evenly">
-                        {files.map(file => <File info={file}/>)}
+                        {files.map(file => <File info={file} key={file.id}/>)}
                 </div>                                      
             </div>
             {isLoggedIn() && getUserGroup() == groupName && <div className="flex justify-center"> 
-                <FileModal></FileModal>
+                <FileModal files={files} takname={groupName}></FileModal>
             </div>}
         </div>
     )

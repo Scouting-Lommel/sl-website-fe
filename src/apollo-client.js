@@ -1,9 +1,14 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { getJwtToken } from './strapi/strapi';
+import { createUploadLink } from "apollo-upload-client";
 
 const httpLink = createHttpLink({
   uri: `http://localhost:1337/graphql`,
+});
+
+const uploadLink = createUploadLink({
+  uri: "http://localhost:1337/graphql"
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -17,6 +22,11 @@ const authLink = setContext((_, { headers }) => {
     }
   }
 });
+
+export const uploadClient = new ApolloClient({
+  link: authLink.concat(uploadLink),
+  cache: new InMemoryCache()
+})
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),

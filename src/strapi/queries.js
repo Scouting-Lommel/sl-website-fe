@@ -571,6 +571,7 @@ export function getTakPageInfo(takname){
             }
             Files {
               data {
+                id
                 attributes {
                   name
                   ext
@@ -892,6 +893,15 @@ export function createUser(username, email, pwd){
     }`
 }
 
+export const UPLOAD_FILE = 
+    gql` mutation($file: Upload!) {
+      upload(file: $file) {
+        name
+        id
+      }
+    }
+  `
+
 /**
  * create an activity for the given takID with the given title, description, startdate and enddate
  * NOTE: bearer token of verfied user must be in header: "Authorization": "Bearer YOUR_JWT_GOES_HERE"
@@ -935,6 +945,16 @@ export function editActivity(actID, title, description, startdate, enddate){
       }
     }`
 }
+
+export const deleteFile = 
+  gql`mutation{ deleteFile(
+    id: $fileID
+  ){
+    data{
+      id
+    }
+  }
+}`
 
 /**
  * Removes the activity with the given id
