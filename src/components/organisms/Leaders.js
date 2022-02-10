@@ -8,7 +8,7 @@ export default function Leaders({leaders}){
             </div>
             <div className="px-10 py-4">
                 <div className="flex flex-row justify-evenly">
-                        {leaders.map(leader => <SmallLeader info={leader}/>)}
+                        {leaders.map((leader, i) => <SmallLeader info={leader} key={i}/>)}
                 </div>                                      
             </div>
         </div>

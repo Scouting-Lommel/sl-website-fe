@@ -1,5 +1,5 @@
-import { Fragment, useState } from 'react'
-import {gql, useMutation} from '@apollo/client';
+import { useState } from 'react'
+import { gql } from '@apollo/client';
 import { uploadClient } from '../../apollo-client';
 
 
@@ -16,8 +16,8 @@ export default function AddFileButton({takname}){
   }
 
   const UPLOAD_FILE = 
-    gql` mutation($file: Upload!) {
-        upload(file: $file) {
+    gql` mutation($file: Upload!, $name: String) {
+        upload(info: {name: $name}, file: $file) {
             data{
                 id
             }
@@ -29,7 +29,6 @@ export default function AddFileButton({takname}){
   let [getImage, setImage] = useState(null)
 
   function onFileChange(event) {
-      console.log(event.target.files[0])
     setImage(event.target.files[0])
   }
 
@@ -47,7 +46,7 @@ export default function AddFileButton({takname}){
             // need to link file to this tak
           })
           .catch(err => {
-            console.error(err);
+            alert(`an error occured trying to upload the file: ${err}`);
           });
     }
 
