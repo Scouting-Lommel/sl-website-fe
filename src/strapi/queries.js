@@ -961,13 +961,12 @@ export const deleteFile =
  * NOTE: bearer token of verfied user must be in header
  * startdate and enddate must be in format: yyy-mm-ddThh:mm:ss.sssZ
  */
-export function deleteActivity(actID){
-    return gql`mutation{ deleteActivity(
-        id: ${actID}
+ export const deleteActivity = 
+    gql`mutation($actID: ID!){ deleteActivity(
+        id: $actID
       ){
         data{
           id
         }
       }
     }`
-}

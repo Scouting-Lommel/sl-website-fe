@@ -17,10 +17,11 @@ export default function FileModal({files, takname, takID}) {
 
   const [removeFileFunc, { loading, error }] = useMutation(deleteFile, {
     variables: {
-      id: 0,
+        id: 0,
       },
     onCompleted(fin){
         alert("succesfully removed file")
+        closeModal();
     },
     onError(fin){
         console.error(fin);
