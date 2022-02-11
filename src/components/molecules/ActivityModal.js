@@ -3,6 +3,7 @@ import { deleteActivity } from '../../strapi/queries'
 import { getUserGroup, isLoggedIn } from '../../strapi/strapi'
 import AddActivityButton from '../atoms/AddActivityButton'
 import { useMutation } from "@apollo/client";
+import EditActivityButton from '../atoms/EditActivityButton';
 
 export default function ActivityModal({takName, takID, activities}) {
   let [isOpen, setIsOpen] = useState(false)
@@ -54,8 +55,9 @@ export default function ActivityModal({takName, takID, activities}) {
             {activities.map(act => {
                   return(
                    
-                  <div className="flex flex-row">
+                  <div className="flex flex-row" key={act.id}>
                     <div className="grow text-white">{act.attributes.Title}</div>
+                    <EditActivityButton act={act}/>
                     <div className="flex-none">
                     <button onClick={() => {
                       if(!isLoggedIn() || takName != getUserGroup()){
