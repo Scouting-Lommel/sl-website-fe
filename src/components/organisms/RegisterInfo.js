@@ -4,13 +4,13 @@ export default function RegisterInfo(){
         <div className="flex flex-row justify-center gap-4">
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="street">
-                  Straat
+                  Straat*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="street" type="text" placeholder="sraat"/>
             </div>
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="number">
-                  Nummer
+                  Nummer*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="number" type="text" placeholder="nummer"/>
             </div>
@@ -24,13 +24,13 @@ export default function RegisterInfo(){
         <div className="flex flex-row justify-center gap-4">
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="postcode">
-                  Postcode
+                  Postcode*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="postcode" type="text" placeholder="postcode" defaultValue="3920"/>
             </div>
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="city">
-                  Stad
+                  Stad*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="city" type="text" placeholder="Stad" defaultValue="Lommel"/>
             </div>
@@ -38,7 +38,7 @@ export default function RegisterInfo(){
         <div className="flex flex-row justify-center gap-4">
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="tel">
-                  Telefoon
+                  Telefoon*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="tel" type="text" placeholder="Telefoon"/>
             </div>
@@ -52,7 +52,7 @@ export default function RegisterInfo(){
         <div className="flex flex-row justify-center gap-4">
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="email">
-                  E-mail
+                  E-mail*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id="email" type="text" placeholder="E-mail"/>
             </div>
@@ -60,7 +60,7 @@ export default function RegisterInfo(){
         <div className="flex flex-row justify-center gap-1">
               <input id="privacy" name="privacy" type="checkbox" />
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="privacy">
-              Ik heb de privacyverklaring van Scouting Lommel gelezen en ga hiermee akkoord. (Deze is conform de GDPR regels)
+              * Ik heb de privacyverklaring van Scouting Lommel gelezen en ga hiermee akkoord. (Deze is conform de GDPR regels)
               </label>
             </div>
             </>

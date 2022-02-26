@@ -1,8 +1,10 @@
 import RegisterChild from '../components/organisms/RegisterChild'
 import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
+import { useState } from 'react';
 
 export default function inschrijven() {
+  const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
   return (
     <Layout>
     <div className="flex flex-row justify-center py-32 ">
@@ -11,16 +13,23 @@ export default function inschrijven() {
        <RegisterChild id={0}/>
       </div>
       <RegisterInfo />
+      <div className="flex flex-col justify-center">
+        {isNotAllFilledIn && <label className="text-red-600 text-sm font-bold mb-2 flex flex-row justify-center">Vul alle vereiste velden in</label>}
       <div className="flex flex-row justify-center">
-        <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {register()}}>Inschrijven</button>
+        <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {register(setNotAllFilledIn)}}>Inschrijven</button>
       </div>
+      <label className="flex flex-row justify-center text-sm pt-5">
+        (*) = vereist veld
+      </label>
+      </div>
+
       </div>
     </div>
     </Layout>
   )
 }
 
-function register(){
+function register(setNotAllFilledIn){
   const streetName = document.getElementById("street").value
   const houseNumber = document.getElementById("number").value
   const bus = document.getElementById("bus").value
@@ -31,21 +40,26 @@ function register(){
   const email = document.getElementById("email").value
   const privacy = document.getElementById("privacy").checked
   if(!privacy){
-    console.log("not checked privacy aggreement")
+    setNotAllFilledIn(true)
     return
   }
-  // todo add requirement specifics for some
   if(!streetName){
+    setNotAllFilledIn(true)
     return
   }else if(!houseNumber){
+    setNotAllFilledIn(true)
     return
   }else if(!postCode){
+    setNotAllFilledIn(true)
     return
   }else if(!city){
+    setNotAllFilledIn(true)
     return
   }else if(!phone){
+    setNotAllFilledIn(true)
     return
   }else if(!email){
+    setNotAllFilledIn(true)
     return
   }
   // get every child info
@@ -60,12 +74,14 @@ function register(){
     const lastName =  document.getElementById("lastName"+i).value
     const birthday = document.getElementById("birthday"+i).value
     const akabe = document.getElementById("akabe"+i).checked
-    // TODO: add required info for each
     if(!firstName){
+      setNotAllFilledIn(true)
       return
     }else if(!lastName){
+      setNotAllFilledIn(true)
       return
     }else if(!birthday){
+      setNotAllFilledIn(true)
       return
     }
     firstnames.push(firstName)

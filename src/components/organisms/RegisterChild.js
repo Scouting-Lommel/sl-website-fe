@@ -7,13 +7,13 @@ export default function RegisterChild({id}){
         <div className="flex flex-row justify-center gap-4">
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="firstName">
-                  Voornaam
+                  Voornaam*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id={"firstName"+id} type="text" placeholder="Voornaam"/>
             </div>
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="lastName">
-                  Achternaam
+                  Achternaam*
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id={"lastName"+id} type="text" placeholder="Achternaam"/>
             </div>
@@ -21,7 +21,7 @@ export default function RegisterChild({id}){
         <div className="flex flex-row justify-center gap-4">
           <div className="flex flex-col justify-center">
             <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="birthday">
-                Geboortedatum
+                Geboortedatum*
             </label>
             <input onChange={() => {guessTak(id)}} className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id={"birthday"+id} type="date"/>
           </div>
