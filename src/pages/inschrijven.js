@@ -2,6 +2,8 @@ import RegisterChild from '../components/organisms/RegisterChild'
 import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
 import { useState } from 'react';
+import { uploadClient } from '../apollo-client';
+import { registerQuery } from "../strapi/queries";
 
 export default function inschrijven() {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
@@ -63,6 +65,7 @@ function register(setNotAllFilledIn){
     return
   }
   // get every child info
+  const currYear = new Date().getFullYear()
   let firstnames = []
   let lastnames = []
   let birthdays = []
@@ -90,8 +93,35 @@ function register(setNotAllFilledIn){
     akabeLst.push(akabe)
   }
   //TODO: send to server
-  console.log(firstnames)
-  console.log(lastnames)
-  console.log(birthdays)
-  console.log(akabeLst)
+  for (let i = 0; i < firstnames.length; i++) {
+    const fn = firstnames[i];
+    const ln = lastnames[i];
+    const bd = birthdays[i];
+    const ak = akabeLst[i];
+
+    // something is wrong, i have no clue what it is but should be looked at later
+    uploadClient.mutate({
+      mutation: registerQuery,
+      variables: {
+        fname: fn,
+        lname: ln,
+        bday: bd,
+        street: streetName,
+        number: houseNumber,
+        bus: bus,
+        postcode: postCode,
+        city: city,
+        phone: phone,
+        gsm: gsm,
+        email: email,
+        akb: ak,
+        year: currYear,
+      }
+    }).then(res => {
+      alert("registered succesfully " + res)
+    })
+    .catch(err => {
+      alert(`an error occured trying to register: ${err}`);
+    });
+  }
 }
