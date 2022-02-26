@@ -33,7 +33,7 @@ export default function RegisterChild({id}){
               </label>
             </div>
           </div>
-          <input className=" appearance-none text-center rounded max-w-md py-2 px-3 text-grey-darker" type="text" id={"tak"+id} value="None" readOnly/>
+          <input className=" appearance-none text-center rounded max-w-md py-2 px-3 text-grey-darker" type="text" id={"tak"+id} readOnly/>
         </div>
         <hr className="shadow fill-black"></hr>
         {isVisible && 
@@ -54,5 +54,22 @@ function guessTak(id){
     tak.value="Akabe"
     return;
   }
- tak.value = "TODO"
+  if(!calender.value) return
+  const diff = new Date().getFullYear() - new Date(calender.value).getFullYear();
+  if(diff <= 0) return
+  if(diff < 6){
+    tak.value = "Niet oud genoeg"
+  }else if(diff == 6 || diff == 7){
+    tak.value = "Kapoenen"
+  }else if(diff > 7 && diff < 11){
+    tak.value = "Welpen"
+  }else if(diff > 10 && diff < 14){
+    tak.value = "Jonggivers"
+  }else if(diff > 13 && diff < 17){
+    tak.value = "Givers"
+  }else if(diff == 17){
+    tak.value = "Jin"
+  }else{
+    tak.value = "Leiding"
+  }
 }
