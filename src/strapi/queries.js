@@ -881,30 +881,30 @@ export const loginQuery =
 
 export const registerQuery = 
     gql`mutation($fname: String, $lname: String, $street: String, $number: String, $bus: String,
-            $postcode: String, $city: String, $phone: String, $gsm: String, $email: String, $year: String,
-            $bday: Date, $akb: Boolean){
-      createMember(
-      data: {
-        FirstName: $fname
-        LastName: $lname
-        BirthDay: $bday
-        Street: $street
-        Number: $number
-        Bus: $bus
-        PostCode: $postcode
-        City: $city
-        Phone: $phone
-        gsm: $gsm
-        email: $email
-        Akabe: $akb
-        Year: $year
-      }
-      ){
-        data{
-          id
-        }
-      } 
-    }`    
+      $postcode: String, $city: String, $phone: String, $gsm: String, $email: String, $year: String,
+      $bday: Date, $akb: Boolean){
+createMember(
+  data: {
+  FirstName: $fname
+  LastName: $lname
+  BirthDay: $bday
+  Street: $street
+  Number: $number
+  Bus: $bus
+  PostCode: $postcode
+  City: $city
+  Phone: $phone
+  gsm: $gsm
+  email: $email
+  Akabe: $akb
+  Year: $year
+  }
+){
+  data{
+    id
+  }
+} 
+}`    
 
 /**
  * Create a user with a username, email and password

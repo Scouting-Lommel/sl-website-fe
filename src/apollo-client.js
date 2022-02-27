@@ -4,11 +4,11 @@ import { getJwtToken } from './strapi/strapi';
 import { createUploadLink } from "apollo-upload-client";
 
 const httpLink = createHttpLink({
-  uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`,
+  uri: `${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/graphql`,
 });
 
 const uploadLink = createUploadLink({
-  uri: `${process.env.REACT_APP_BACKEND_URL}/graphql`
+  uri: `${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/graphql`
 });
 
 const authLink = setContext((_, { headers }) => {

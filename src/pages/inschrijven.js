@@ -3,7 +3,7 @@ import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
 import { useState } from 'react';
 import { uploadClient } from '../apollo-client';
-import { registerQuery } from "../strapi/queries";
+import { registerQuery } from '../strapi/queries';
 
 export default function inschrijven() {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
