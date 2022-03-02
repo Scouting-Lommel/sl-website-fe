@@ -1,15 +1,17 @@
-import Image from "next/image"
-import ScoutsGazetArticle from '../molecules/ScoutsGazetArticle'
+import Image from "next/image";
+import ScoutsGazetArticle from "../molecules/ScoutsGazetArticle";
 
-export default function ScoutgazetSmall({gazets}){
-    //todo image
+export default function ScoutgazetSmall({ gazets }) {
+  //todo image
 
-    return (
-        <div>
-        <span>scoutsgazet</span>
-        <div>
-            {gazets.map((gazet) => <ScoutsGazetArticle info={gazet} key={gazet.id}/>)}
-        </div>
-        </div>
-    )
+  return (
+    <div>
+      <span>scoutsgazet</span>
+      <div>
+        {gazets.map((gazet) => (
+          <ScoutsGazetArticle info={gazet} key={gazet.id} />
+        ))}
+      </div>
+    </div>
+  );
 }
