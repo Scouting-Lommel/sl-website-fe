@@ -70,6 +70,7 @@ function register(setNotAllFilledIn){
   let lastnames = []
   let birthdays = []
   let akabeLst = []
+  let sexList = []
   for (let i = 0; i < 200; i++) {
     const fName = document.getElementById("firstName"+i)
     if(!fName) break
@@ -77,6 +78,9 @@ function register(setNotAllFilledIn){
     const lastName =  document.getElementById("lastName"+i).value
     const birthday = document.getElementById("birthday"+i).value
     const akabe = document.getElementById("akabe"+i).checked
+    const isM = document.getElementById("sexM"+i).checked
+    const isF = document.getElementById("sexF"+i).checked
+    const isX = document.getElementById("sexX"+i).checked
     if(!firstName){
       setNotAllFilledIn(true)
       return
@@ -86,11 +90,15 @@ function register(setNotAllFilledIn){
     }else if(!birthday){
       setNotAllFilledIn(true)
       return
+    }else if(!isM && !isF && !isX){
+      setNotAllFilledIn(true)
+      return
     }
     firstnames.push(firstName)
     lastnames.push(lastName)
     birthdays.push(birthday)
     akabeLst.push(akabe)
+    sexList.push(isM ? "M" : () => {isF ? "F" : "X"})
   }
   //TODO: send to server
   for (let i = 0; i < firstnames.length; i++) {
@@ -98,6 +106,7 @@ function register(setNotAllFilledIn){
     const ln = lastnames[i];
     const bd = birthdays[i];
     const ak = akabeLst[i];
+    const sx = sexList[i];
 
     // something is wrong, i have no clue what it is but should be looked at later
     uploadClient.mutate({
@@ -116,6 +125,7 @@ function register(setNotAllFilledIn){
         email: email,
         akb: ak,
         year: currYear,
+        sex: sx,
       }
     }).then(res => {
       alert("registered succesfully " + res)

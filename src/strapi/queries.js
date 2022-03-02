@@ -881,7 +881,7 @@ export const loginQuery =
 
 export const registerQuery = 
     gql`mutation($fname: String, $lname: String, $street: String, $number: String, $bus: String,
-      $postcode: String, $city: String, $phone: String, $gsm: String, $email: String, $year: String,
+      $postcode: String, $city: String, $phone: String, $gsm: String, $email: String, $year: String, $sex: String,
       $bday: Date, $akb: Boolean){
 createMember(
   data: {
@@ -898,6 +898,7 @@ createMember(
   email: $email
   Akabe: $akb
   Year: $year
+  Sex: $sex
   }
 ){
   data{

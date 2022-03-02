@@ -17,6 +17,19 @@ export default function RegisterChild({id}){
               </label>
               <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" id={"lastName"+id} type="text" placeholder="Achternaam"/>
             </div>
+            <div className="flex flex-col justify-center">
+            <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="birthday">
+                Geslacht*
+            </label>
+            <div className="flex flex-row justify-center">
+              <input className="" defaultChecked={false} id={"sexM"+id} type="radio" value="M" onChange={() => {checkSex("M", id)}}/>
+              <div className="pr-2">M</div>
+              <input className="" defaultChecked={false} id={"sexF"+id} type="radio" value="M" onChange={() => {checkSex("F", id)}}/>
+              <div className="pr-2">F</div>
+              <input className="" defaultChecked={false} id={"sexX"+id} type="radio" value="M" onChange={() => {checkSex("X", id)}}/>
+              <div className="pr-2">X</div>
+            </div>
+          </div>
         </div>
         <div className="flex flex-row justify-center gap-4">
           <div className="flex flex-col justify-center">
@@ -44,6 +57,19 @@ export default function RegisterChild({id}){
         </div>}
     </div>
     )
+}
+
+const checkSex = (sex, id) => {
+  if(sex == "M"){
+    document.getElementById(`sexF${id}`).checked = false
+    document.getElementById(`sexX${id}`).checked = false
+  }else if(sex == "F"){
+    document.getElementById(`sexM${id}`).checked = false
+    document.getElementById(`sexX${id}`).checked = false
+  }else{
+    document.getElementById(`sexF${id}`).checked = false
+    document.getElementById(`sexM${id}`).checked = false
+  }
 }
 
 function guessTak(id){
