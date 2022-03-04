@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../styles/Layout'
-import client from '../../apollo-client' 
-import { getDetailedScoutsGazet, getScoutsGazetAllIds } from '../../strapi/queries'
+import client from '../../lib/api/apollo/client' 
+import { getDetailedScoutsGazet, getScoutsGazetAllIds } from '../../lib/api/gazet/queries'
 import ScoutsGazetLarge from '../../components/organisms/ScoutsGazetLarge'
 
 export default function user({fin}) {

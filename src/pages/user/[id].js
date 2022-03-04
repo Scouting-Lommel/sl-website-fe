@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Layout from '../styles/Layout'
-import client from '../../apollo-client' 
-import { getAllUserIds, getTakPageLargeLeader } from '../../strapi/queries'
-import { getUserID, isLoggedIn } from '../../strapi/strapi'
+import client from '../../lib/api/apollo/client' 
+import { getAllUserIds, getTakPageLargeLeader } from '../../lib/api/user/queries'
+import { getUserID, isLoggedIn } from '../../lib/api/security/security'
 import LargeLeaderEditor from '../../components/organisms/LargeLeaderEditor'
 
 export default function user({fin}) {

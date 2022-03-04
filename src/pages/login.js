@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
-import { loginQuery } from "../strapi/queries";
-import { setJwtToken, setUserID } from "../strapi/strapi";
+import { loginQuery } from "../lib/api/login/mutations";
+import { setJwtToken, setUserID } from "../lib/api/security/security";
 import decodeJWT from "jwt-decode"
 import Layout from "./styles/Layout";
 

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from './styles/Layout'
-import client from '../apollo-client'
-import { getHomePageAttributes, getJaarThema } from '../strapi/queries';
+import client from '../lib/api/apollo/client'
+import { getHomePageAttributes } from '../lib/api/home/queries';
 import JaarthemaSmall from '../components/organisms/JaarthemaSmall'
 import InfoText from '../components/organisms/InfoText'
 import ScoutgazetSmall from '../components/organisms/ScoutgazetSmall'

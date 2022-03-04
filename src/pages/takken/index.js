@@ -1,7 +1,7 @@
 import Layout from "../styles/Layout";
 import Head from 'next/head'
-import client from '../../apollo-client'
-import { getTakkenInfo } from "../../strapi/queries";
+import client from '../../lib/api/apollo/client'
+import { getTakkenInfo } from "../../lib/api/groups/queries";
 import InfoText from "../../components/organisms/InfoText";
 import InfoTextReversed from '../../components/organisms/InfoTextReversed'
 import TakkenSlider from "../../components/organisms/TakkenSlider";

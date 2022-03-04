@@ -1,7 +1,7 @@
 import Layout from "./styles/Layout";
 import Head from 'next/head'
-import client from '../apollo-client'
-import { getVerhuurInfo } from "../strapi/queries";
+import client from '../lib/api/apollo/client'
+import { getVerhuurInfo } from "../lib/api/booking/queries";
 import InfoText from "../components/organisms/InfoText";
 import Contact from "../components/organisms/Contact";
 import InfoTextReversed from "../components/organisms/InfoTextReversed";

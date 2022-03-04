@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Layout from '../styles/Layout'
-import client from '../../apollo-client'
+import client from '../../lib/api/apollo/client'
 import ScoutgazetSmall from '../../components/organisms/ScoutgazetSmall'
-import { getScoutsGazetPreview } from '../../strapi/queries';
+import { getScoutsGazetPreview } from '../../lib/api/gazet/queries';
 
 export default function Home({fin}) {
   return (

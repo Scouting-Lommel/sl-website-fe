@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getUserID, isLoggedIn } from "../../strapi/strapi";
+import { getUserID, isLoggedIn } from "../../lib/api/security/security";
 import Contact from "../molecules/navbar/contact";
 import Home from "../molecules/navbar/home";
 import Info from "../molecules/navbar/info";

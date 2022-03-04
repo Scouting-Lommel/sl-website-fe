@@ -1,7 +1,7 @@
-import { getTakPageInfo } from '../../strapi/queries';
+import { getTakPageInfo } from '../../lib/api/groups/queries';
 import Head from 'next/head'
 import Layout from '../styles/Layout'
-import client from '../../apollo-client'
+import client from '../../lib/api/apollo/client'
 import TakPage from '../../components/organisms/TakPage';
 
 export default function jonggivers({fin}) {

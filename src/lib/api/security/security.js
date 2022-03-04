@@ -1,4 +1,4 @@
-import client from "../apollo-client";
+import client from "../apollo/client";
 import { getGroupNameFromUserId, getLeaderIdFromUserId } from "./queries";
 
 const ISSERVER = typeof window === "undefined";

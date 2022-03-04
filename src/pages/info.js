@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from './styles/Layout'
-import client from '../apollo-client'
-import { getInfoPage } from '../strapi/queries';
+import client from '../lib/api/apollo/client'
+import { getInfoPage } from '../lib/api/info/queries';
 import InfoTextReversed from '../components/organisms/InfoTextReversed';
 import Contact from '../components/organisms/Contact';
 import FAQ from '../components/organisms/FAQ';
