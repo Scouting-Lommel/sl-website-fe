@@ -71,6 +71,7 @@ function register(setNotAllFilledIn){
   let birthdays = []
   let akabeLst = []
   let sexList = []
+  let count = 0;
   for (let i = 0; i < 200; i++) {
     const fName = document.getElementById("firstName"+i)
     if(!fName) break
@@ -134,8 +135,10 @@ function register(setNotAllFilledIn){
         sex: sx,
       }
     }).then(res => {
-      // TODO count children and go to paying page
-      alert("registered succesfully ")
+      count += 1;
+      if(count == firstnames.length){
+        alert("registered succesfully")
+      }
     })
     .catch(err => {
       alert(`an error occured trying to register: ${err}`);
