@@ -9,8 +9,8 @@ import Takken from "../molecules/navbar/takken";
 import Verhuur from "../molecules/navbar/verhuur";
 
 export default function Navbar() {
-    return (
-      <>
+  return (
+    <>
       <div className="flex h-14 items-center justify-cente px-10">
         <ScoutingLommel></ScoutingLommel>
         <div className="flex-1"></div>
@@ -20,13 +20,9 @@ export default function Navbar() {
         <Info></Info>
         <Inschrijven></Inschrijven>
         <Contact></Contact>
-        {!isLoggedIn() && <Link href="/login">
-          login
-        </Link>}
-        {isLoggedIn() && <Link href={"/user/"+getUserID()}>
-          user
-        </Link>}
+        {!isLoggedIn() && <Link href="/login">login</Link>}
+        {isLoggedIn() && <Link href={"/user/" + getUserID()}>user</Link>}
       </div>
-      </>
-    )
+    </>
+  );
 }
