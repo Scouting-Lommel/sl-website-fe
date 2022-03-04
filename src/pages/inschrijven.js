@@ -7,9 +7,13 @@ import { registerQuery } from '../strapi/queries';
 
 export default function inschrijven() {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
+  const [isPaying, setIsPaying] = useState(false);
+  const [getFinalChildren, setFinalChildren] = useState([]);
+  const [getFinalLeaders, setFinalLeaders] = useState([]);
   return (
     <Layout>
     <div className="flex flex-row justify-center py-32 ">
+    {!isPaying &&
     <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">
       <div id="childrenHeader">
        <RegisterChild id={0}/>
@@ -18,20 +22,33 @@ export default function inschrijven() {
       <div className="flex flex-col justify-center">
         {isNotAllFilledIn && <label className="text-red-600 text-sm font-bold mb-2 flex flex-row justify-center">Vul alle vereiste velden in</label>}
       <div className="flex flex-row justify-center">
-        <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {register(setNotAllFilledIn)}}>Inschrijven</button>
+        <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLeaders)}}>Inschrijven</button>
       </div>
       <label className="flex flex-row justify-center text-sm pt-5">
         (*) = vereist veld
       </label>
       </div>
-
-      </div>
+      </div>}
+    {isPaying && 
+    <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">
+      <div>Succesvolle inschrijving van de volgende Personen:</div>
+      {getFinalChildren.map((info) => {
+        return <div>{info}</div>
+      })}
+      {getFinalLeaders.map((info) => {
+        return <div>{info}</div>
+      })}
+      <div>Gelieve {getFinalLeaders.length*10 + getFinalChildren.length*20} euro over te schrijven op het volgende rekeningnummer:</div>
+      <div>BExxxxxxxxxxxxxx</div>
+      <div>Met vermelding:</div>
+      <div>Inschrijving {getFinalChildren.join() +","+ getFinalLeaders.join()}</div>
+    </div>}
     </div>
     </Layout>
   )
 }
 
-function register(setNotAllFilledIn){
+function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLeaders){
   const streetName = document.getElementById("street").value
   const houseNumber = document.getElementById("number").value
   const bus = document.getElementById("bus").value
@@ -71,6 +88,7 @@ function register(setNotAllFilledIn){
   let birthdays = []
   let akabeLst = []
   let sexList = []
+  let leaderList = []
   let count = 0;
   for (let i = 0; i < 200; i++) {
     const fName = document.getElementById("firstName"+i)
@@ -99,6 +117,7 @@ function register(setNotAllFilledIn){
     lastnames.push(lastName)
     birthdays.push(birthday)
     akabeLst.push(akabe)
+    leaderList.push(document.getElementById("tak"+i).value == "Leiding")
     if(isM){
       sexList.push("M")
     }else if(isF){
@@ -137,11 +156,22 @@ function register(setNotAllFilledIn){
     }).then(res => {
       count += 1;
       if(count == firstnames.length){
-        alert("registered succesfully")
+        let finChilds = []
+        let finLeaders = []
+        for (let j = 0; j < firstnames.length; j++) {
+          if(leaderList[j]){
+            finLeaders.push(firstnames[j] + " " + lastnames[j])
+          }else{
+            finChilds.push(firstnames[j] + " " + lastnames[j])          
+          }
+        }
+        setFinalChildren(finChilds);
+        setFinalLeaders(finLeaders);
+        setIsPaying(true)
       }
     })
     .catch(err => {
-      alert(`an error occured trying to register: ${err}`);
+      alert(`an error occured trying to register: ${err} \n Please contact us with this error message for further information`);
     });
   }
 }
