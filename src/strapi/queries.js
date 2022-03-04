@@ -887,15 +887,15 @@ createMember(
   data: {
   FirstName: $fname
   LastName: $lname
-  BirthDay: $bday
+  Birthday: $bday
   Street: $street
   Number: $number
   Bus: $bus
   PostCode: $postcode
   City: $city
   Phone: $phone
-  gsm: $gsm
-  email: $email
+  GSM: $gsm
+  Email: $email
   Akabe: $akb
   Year: $year
   Sex: $sex

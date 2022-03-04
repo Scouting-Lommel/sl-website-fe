@@ -65,7 +65,7 @@ function register(setNotAllFilledIn){
     return
   }
   // get every child info
-  const currYear = new Date().getFullYear()
+  const currYear = new Date().getFullYear().toString()
   let firstnames = []
   let lastnames = []
   let birthdays = []
@@ -98,9 +98,15 @@ function register(setNotAllFilledIn){
     lastnames.push(lastName)
     birthdays.push(birthday)
     akabeLst.push(akabe)
-    sexList.push(isM ? "M" : () => {isF ? "F" : "X"})
+    if(isM){
+      sexList.push("M")
+    }else if(isF){
+      sexList.push("F")
+    }else{
+      sexList.push("X")
+    }
   }
-  //TODO: send to server
+
   for (let i = 0; i < firstnames.length; i++) {
     const fn = firstnames[i];
     const ln = lastnames[i];
@@ -108,7 +114,7 @@ function register(setNotAllFilledIn){
     const ak = akabeLst[i];
     const sx = sexList[i];
 
-    // something is wrong, i have no clue what it is but should be looked at later
+
     uploadClient.mutate({
       mutation: registerQuery,
       variables: {
@@ -128,7 +134,8 @@ function register(setNotAllFilledIn){
         sex: sx,
       }
     }).then(res => {
-      alert("registered succesfully " + res)
+      // TODO count children and go to paying page
+      alert("registered succesfully ")
     })
     .catch(err => {
       alert(`an error occured trying to register: ${err}`);
