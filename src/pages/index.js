@@ -30,7 +30,7 @@ export default function Home({fin}) {
 export async function getStaticProps() {
 
   const { data } = await client.query({
-      query: getHomePageAttributes(2)
+      query: getHomePageAttributes()
   })
 
   let fin = data
