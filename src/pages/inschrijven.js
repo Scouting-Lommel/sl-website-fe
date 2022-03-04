@@ -3,9 +3,10 @@ import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
 import { useState } from 'react';
 import { uploadClient } from '../apollo-client';
-import { registerQuery } from '../strapi/queries';
+import { getRegisterInfo, registerQuery } from '../strapi/queries';
+import client from '../apollo-client'
 
-export default function inschrijven() {
+export default function inschrijven({fin}) {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
   const [isPaying, setIsPaying] = useState(false);
   const [getFinalChildren, setFinalChildren] = useState([]);
@@ -38,14 +39,28 @@ export default function inschrijven() {
       {getFinalLeaders.map((info) => {
         return <div>{info}</div>
       })}
-      <div>Gelieve {getFinalLeaders.length*10 + getFinalChildren.length*20} euro over te schrijven op het volgende rekeningnummer:</div>
-      <div>BExxxxxxxxxxxxxx</div>
+      <div>Gelieve {getFinalLeaders.length*fin.LeaderPrice + getFinalChildren.length*fin.ChildPrice} euro over te schrijven op het volgende rekeningnummer:</div>
+      <div>{fin.AcountNr}</div>
       <div>Met vermelding:</div>
       <div>Inschrijving {getFinalChildren.join() +","+ getFinalLeaders.join()}</div>
     </div>}
     </div>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  
+  const { data } = await client.query({
+      query: getRegisterInfo()
+  })
+
+  let fin = data.registerPage.data.attributes.RegisterPage[0]
+
+  return {
+      props: {fin},
+      revalidate: 2592000 // 60*60*24*30 = every 30 days
+  }
 }
 
 function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLeaders){

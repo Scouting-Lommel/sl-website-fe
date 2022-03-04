@@ -867,6 +867,24 @@ export function getTakPageID(takname){
       }`
 }
 
+export const getRegisterInfo = () => {
+  return gql`query{
+    registerPage{
+      data{
+        attributes{
+          RegisterPage{
+              ...on ComponentContentBlocksBilling{
+                ChildPrice
+                LeaderPrice
+                AcountNr
+            }
+          }
+        }
+      }
+    }
+  }`
+}
+
 // Mutations
 
 /**
