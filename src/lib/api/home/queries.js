@@ -1,6 +1,6 @@
 import {gql} from '@apollo/client';
 
-const getHomePageAttributes = () => {
+const getHomePage = () => {
     return gql`query {
         homePage {
           data {
@@ -116,7 +116,7 @@ const getHomePageAttributes = () => {
             }
           }
         }
-      }
+      }      
       `
   }
 

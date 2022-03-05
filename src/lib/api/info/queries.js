@@ -6,7 +6,7 @@ const getInfoPage = () => {
           data {
             attributes {
               InfoPage {
-                ...on ComponentContentBlocksImageText {
+                ... on ComponentContentBlocksImageText {
                   __typename
                   Title
                   Content
@@ -19,7 +19,7 @@ const getInfoPage = () => {
                   }
                   ImageLeftAligned
                 }
-                ...on ComponentContentBlocksCallToAction {
+                ... on ComponentContentBlocksCallToAction {
                   __typename
                   Title
                   Content
@@ -29,7 +29,7 @@ const getInfoPage = () => {
                     Page
                   }
                 }
-                ...on ComponentContentBlocksFaq {
+                ... on ComponentContentBlocksFaq {
                   __typename
                   Title
                   Info {
@@ -42,7 +42,7 @@ const getInfoPage = () => {
                     }
                   }
                 }
-                ...on ComponentContentBlocksMap{
+                ... on ComponentContentBlocksMap {
                   __typename
                   Title
                   Coords
@@ -52,7 +52,7 @@ const getInfoPage = () => {
             }
           }
         }
-      }
+      }      
       `
   }
 
