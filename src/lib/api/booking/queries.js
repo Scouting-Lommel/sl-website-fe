@@ -62,4 +62,4 @@ const getBookingPage = () => {
       `
   }
 
-  export default getVerhuurInfo;
+  export {getBookingPage};

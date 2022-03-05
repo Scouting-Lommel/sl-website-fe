@@ -120,4 +120,4 @@ const getHomePage = () => {
       `
   }
 
-  export{getHomePageAttributes};
+  export{getHomePage};
