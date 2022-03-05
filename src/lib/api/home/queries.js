@@ -5,6 +5,9 @@ const getHomePage = () => {
         homePage {
           data {
             attributes {
+              Title
+              NoIndex
+              URL
               HomePage {
                 ... on ComponentContentBlocksHero {
                   __typename
@@ -88,9 +91,9 @@ const getHomePage = () => {
                           }
                         }
                         Content
-                        Published
-                        DatePosted
-                        DateEdited
+                        publishedAt
+                        createdAt
+                      	updatedAt
                       }
                     }
                   }
