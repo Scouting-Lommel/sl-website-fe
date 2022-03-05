@@ -58,32 +58,106 @@ const getGroupsPage = (takname) => {
       `
   }
 
-  const getTakkenInfo = () => {
-    return gql`query{ takken {
-      data {
-        attributes {
-          Title2
-          Title1
-          Text2
-          Text1
-          Image2 {
-            data {
-              attributes {
-                url
-              }
-            }
-          }
-          Image1 {
-            data {
-              attributes {
-                url
+  const getTakPage = (tak) => {
+    return gql`query {
+        groupPage {
+          data {
+            attributes {
+              ${tak} {
+                ... on ComponentGeneralPageInfo {
+                  __typename
+                  Title
+                  URL
+                  NoIndex
+                }
+                ... on ComponentContentBlocksHero {
+                  __typename
+                  Title
+                  IsHomePage
+                  Image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  Links {
+                    Label
+                    IsButton
+                    Page
+                  }
+                }
+                ... on ComponentContentBlocksCarousel {
+                  __typename
+                  Title
+                  IsSmall
+                  Items {
+                    Title
+                    Description
+                    Image {
+                      data {
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    Href {
+                      Label
+                      IsButton
+                      Page
+                    }
+                  }
+                }
+                ... on ComponentContentBlocksImageText {
+                  __typename
+                  Title
+                  Content
+                  Image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  ImageLeftAligned
+                }
+                ... on ComponentContentBlocksFileSection {
+                  __typename
+                  Title
+                  Files {
+                    data {
+                      attributes {
+                        name
+                        url
+                      }
+                    }
+                  }
+                }
+                ... on ComponentContentBlocksActivitiesSection {
+                  __typename
+                  Title
+                  Button {
+                    Page
+                    Label
+                    IsButton
+                  }
+                }
               }
             }
           }
         }
+        activities(filters: { Group: { Name: { eq: "${tak}" } } }) {
+          data {
+            attributes {
+              Title
+              StartTime
+              EndTime
+              Description
+            }
+          }
+        }
       }
-    }
-  }`
+      `
   }
 
-  export{getGroupsPage}
+  export{getGroupsPage, getTakPage}
