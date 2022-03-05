@@ -1,81 +1,61 @@
 import {gql} from '@apollo/client';
 
-const getTakPageInfo = (takname) => {
-    return gql`query{ groups(filters: { name: { eq: "${takname}" } }) {
-      data {
-        id
-        attributes {
-          name
-          Title1
-          Text1
-          Image1 {
-              data {
-                attributes {
-                  url
+const getGroupsPage = (takname) => {
+    return gql`query {
+        groupsPage {
+          data {
+            attributes {
+              GroupsPage {
+                ... on ComponentContentBlocksImageText {
+                  __typename
+                  Title
+                  Content
+                  Image {
+                    data {
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  ImageLeftAligned
                 }
-              }
-            }
-            Title2
-            Text2
-            Image2 {
-                data {
-                  attributes {
-                    url
+                ... on ComponentContentBlocksCallToAction {
+                  __typename
+                  Title
+                  Content
+                  Button {
+                    Label
+                    IsButton
+                    Page
+                  }
+                }
+                ... on ComponentContentBlocksCarousel {
+                  __typename
+                  Title
+                  IsSmall
+                  Items {
+                    Title
+                    Description
+                    Image {
+                      data {
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    Href {
+                      Label
+                      IsButton
+                      Page
+                    }
                   }
                 }
               }
-              Files {
-                data {
-                  id
-                  attributes {
-                    name
-                    ext
-                    url
-                  }
-                }
-              } 
-          }
-        }
-      }
-      leaders(filters: { group: { name: { eq: "${takname}" } }, Active: {eq: true} }) {
-        data {
-          attributes {
-            FirstName
-            LastName
-            Email
-            Phone
-            Totem
-            Image {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-            Info
-            group_roles {
-              data {
-                attributes {
-                  Name
-                  description
-                }
-              }
             }
           }
         }
       }
-      activities(filters: { groups: { name: { eq: "${takname}" } } }, sort: "startTime") {
-        data {
-          id
-          attributes {
-            Title
-            description
-            startTime
-            endTime
-          }
-        }
-      }
-    }`
+      `
   }
 
   const getTakkenInfo = () => {
@@ -106,4 +86,4 @@ const getTakPageInfo = (takname) => {
   }`
   }
 
-  export{getTakPageInfo, getTakkenInfo}
+  export{getGroupsPage}
