@@ -7,6 +7,7 @@ const getInfoPage = () => {
             attributes {
               InfoPage {
                 ...on ComponentContentBlocksImageText {
+                  __typename
                   Title
                   Content
                   Image {
@@ -19,6 +20,7 @@ const getInfoPage = () => {
                   ImageLeftAligned
                 }
                 ...on ComponentContentBlocksCallToAction {
+                  __typename
                   Title
                   Content
                   Button {
@@ -28,6 +30,7 @@ const getInfoPage = () => {
                   }
                 }
                 ...on ComponentContentBlocksFaq {
+                  __typename
                   Title
                   Info {
                     data {
@@ -40,6 +43,7 @@ const getInfoPage = () => {
                   }
                 }
                 ...on ComponentContentBlocksMap{
+                  __typename
                   Title
                   Coords
                   Content

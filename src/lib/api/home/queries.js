@@ -1,83 +1,88 @@
 import {gql} from '@apollo/client';
 
 const getHomePageAttributes = () => {
-    return gql`query{
-        homePage{
-          data{
-            attributes{
-              HomePage{
-                ...on ComponentContentBlocksHero{
+    return gql`query {
+        homePage {
+          data {
+            attributes {
+              HomePage {
+                ... on ComponentContentBlocksHero {
+                  __typename
                   Title
                   IsHomePage
-                  Image{
-                    data{
-                      attributes{
+                  Image {
+                    data {
+                      attributes {
                         url
                       }
                     }
                   }
-                  Links{
+                  Links {
                     Label
                     IsButton
                     Page
                   }
                 }
-                ...on ComponentContentBlocksCallToAction{
+                ... on ComponentContentBlocksCallToAction {
+                  __typename
                   Title
                   Content
-                  Button{
+                  Button {
                     Label
                     IsButton
                     Page
                   }
                 }
-                ...on ComponentContentBlocksImageText{
+                ... on ComponentContentBlocksImageText {
+                  __typename
                   Title
                   Content
-                  Image{
-                    data{
-                      attributes{
+                  Image {
+                    data {
+                      attributes {
                         url
                       }
                     }
                   }
                   ImageLeftAligned
                 }
-                ...on ComponentContentBlocksCarousel{
+                ... on ComponentContentBlocksCarousel {
+                  __typename
                   Title
                   IsSmall
-                  Items{
+                  Items {
                     Title
                     Description
-                    Image{
-                      data{
-                        attributes{
+                    Image {
+                      data {
+                        attributes {
                           url
                         }
                       }
                     }
-                    Href{
+                    Href {
                       Label
                       IsButton
                       Page
                     }
                   }
                 }
-                ...on ComponentContentBlocksBlog{
+                ... on ComponentContentBlocksBlog {
+                  __typename
                   Title
                   InitialItems
-                  Button{
+                  Button {
                     Label
                     IsButton
                     Page
                   }
-                  Articles{
-                    data{
-                      attributes{
+                  Articles {
+                    data {
+                      attributes {
                         Title
-                        Image{
-                          data{
-                            attributes{
+                        Image {
+                          data {
+                            attributes {
                               url
                             }
                           }
@@ -90,17 +95,18 @@ const getHomePageAttributes = () => {
                     }
                   }
                 }
-                ...on ComponentContentBlocksGallery{
+                ... on ComponentContentBlocksGallery {
+                  __typename
                   Title
                   InitialItems
-                  Images{
-                    data{
-                      attributes{
+                  Images {
+                    data {
+                      attributes {
                         url
                       }
                     }
                   }
-                  Button{
+                  Button {
                     Label
                     IsButton
                     Page
@@ -110,7 +116,8 @@ const getHomePageAttributes = () => {
             }
           }
         }
-      }`
+      }
+      `
   }
 
   export{getHomePageAttributes};
