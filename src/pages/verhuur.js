@@ -1,34 +1,22 @@
 import Layout from "./styles/Layout";
 import Head from 'next/head'
 import client from '../lib/api/apollo/client'
-import { getVerhuurInfo } from "../lib/api/booking/queries";
-import InfoText from "../components/organisms/InfoText";
-import Contact from "../components/organisms/Contact";
-import InfoTextReversed from "../components/organisms/InfoTextReversed";
+import { getBookingPage } from "../lib/api/booking/queries";
 
 export default function takken({fin}){
     return (<Layout>
         <Head>
-            <title>Verhuur</title>
-            <link rel="icon" href="/favicon.ico" />
         </Head>
-        <InfoText title={fin.Title1} text={fin.Text1} image={fin.Image1.data.attributes.url}/>
-        <Contact />
-        <InfoTextReversed title={fin.Title2} text={fin.Text2} image={fin.Image2.data.attributes.url} />
-        <InfoText title={fin.Title3} text={fin.Text3} image={fin.Image3.data.attributes.url}/>
-        <div>Alles is duur</div>
-        
-
     </Layout>)
 }
 
 export async function getStaticProps() {
   
     const { data } = await client.query({
-        query: getVerhuurInfo()
+        query: getBookingPage()
     })
   
-    let fin = data.verhuur.data.attributes
+    let fin = data.bookingsPage.data.attributes.BookingsPage
   
     return {
         props: {fin},

@@ -38,7 +38,7 @@ export const getStaticProps = async (context) => {
         query: getGroupPage(group)
     })
 
-    let fin = data.groupsPage.attributes.GroupsPage
+    let fin = {data: data, group: group}
 
     return {
         props: {fin},

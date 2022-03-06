@@ -2,17 +2,12 @@ import Head from 'next/head'
 import Layout from '../styles/Layout'
 import client from '../../lib/api/apollo/client'
 import ScoutgazetSmall from '../../components/organisms/ScoutgazetSmall'
-import { getScoutsGazetPreview } from '../../lib/api/gazet/queries';
 
 export default function Home({fin}) {
   return (
     <Layout>
         <Head>
-            <title>Scouts gazet</title>
-            <link rel="icon" href="/favicon.ico" />
         </Head>
-        
-        <ScoutgazetSmall gazets={fin.scoutsgazets.data}/>
     </Layout>
   )
 }
