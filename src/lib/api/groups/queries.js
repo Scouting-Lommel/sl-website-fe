@@ -1,6 +1,6 @@
 import {gql} from '@apollo/client';
 
-const getGroupsPage = (takname) => {
+const getGroupsPage = () => {
     return gql`query {
         groupsPage {
           data {
@@ -58,7 +58,7 @@ const getGroupsPage = (takname) => {
       `
   }
 
-  const getTakPage = (tak) => {
+  const getGroupPage = (tak) => {
     return gql`query {
         groupPage {
           data {
@@ -160,4 +160,16 @@ const getGroupsPage = (takname) => {
       `
   }
 
-  export{getGroupsPage, getTakPage}
+  const getAllGroups = () => {
+    return gql`query {
+      groups {
+        data {
+          attributes {
+            Name
+          }
+        }
+      }
+    }`
+  }
+
+  export{getGroupsPage, getGroupPage, getAllGroups}

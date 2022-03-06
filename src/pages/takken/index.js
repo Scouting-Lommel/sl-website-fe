@@ -1,33 +1,37 @@
 import Layout from "../styles/Layout";
 import Head from 'next/head'
 import client from '../../lib/api/apollo/client'
-import { getTakkenInfo } from "../../lib/api/groups/queries";
-import InfoText from "../../components/organisms/InfoText";
-import InfoTextReversed from '../../components/organisms/InfoTextReversed'
-import TakkenSlider from "../../components/organisms/TakkenSlider";
-import Contact from '../../components/organisms/Contact'
+import { getGroupsPage } from "../../lib/api/groups/queries";
 
 export default function takken({fin}){
     return (<Layout>
         <Head>
-            <title>Takken</title>
-            <link rel="icon" href="/favicon.ico" />
         </Head>
-        <h1>Takken</h1>
-        <InfoText title={fin.Title1} text={fin.Text1} image={fin.Image1.data.attributes.url}/>
-        <InfoTextReversed title={fin.Title2} text={fin.Text2} image={fin.Image2.data.attributes.url}/>
-        <Contact />
-        <TakkenSlider />
+        {fin.map((component) => {
+          switch (component.__typename) {
+            case "ComponentContentBlocksImageText":
+              
+              break;
+            case "ComponentContentBlocksCallToAction":
+            
+              break;
+            case "ComponentContentBlocksCarousel":
+          
+              break;
+            default:
+              break;
+          }
+        })}
     </Layout>)
 }
 
 export async function getStaticProps() {
   
     const { data } = await client.query({
-        query: getTakkenInfo()
+        query: getGroupsPage()
     })
   
-    let fin = data.takken.data.attributes
+    let fin = data.groupsPage.data.attributes.GroupsPage
   
     return {
         props: {fin},
