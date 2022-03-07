@@ -4,12 +4,35 @@ import client from '../../lib/api/apollo/client'
 import { getAllGroups, getGroupPage } from '../../lib/api/groups/queries'
 
 export default function group({fin}) {
-    console.log(fin)
+    const generalInfo = fin.filter(component => component.__typename == "ComponentGeneralPageInfo")[0]
+    const Title = generalInfo.Title
+    const noIndex = generalInfo.NoIndex
+    const URL = generalInfo.URL
   return (
     <Layout>
         <Head>
         </Head>
+        {fin.map((component) => {
+          switch (component.__typename) {
+            case "ComponentContentBlocksHero":
+              
+              break;
+            case "ComponentContentBlocksCarousel":
+            
+              break;
+            case "ComponentContentBlocksImageText":
+          
+              break;
+            case "ComponentContentBlocksFileSection":
         
+              break;
+            case "ComponentContentBlocksActivitiesSection":
+        
+              break;
+            default:
+              break;
+          }
+        })}
     </Layout>
   )
 }
@@ -38,7 +61,7 @@ export const getStaticProps = async (context) => {
         query: getGroupPage(group)
     })
 
-    let fin = {data: data, group: group}
+    let fin = data.groupPage.data.attributes[group]
 
     return {
         props: {fin},

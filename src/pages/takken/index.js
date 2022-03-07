@@ -4,10 +4,13 @@ import client from '../../lib/api/apollo/client'
 import { getGroupsPage } from "../../lib/api/groups/queries";
 
 export default function takken({fin}){
+  const Title = fin.Title
+  const noIndex = fin.NoIndex
+  const URL = fin.URL
     return (<Layout>
         <Head>
         </Head>
-        {fin.map((component) => {
+        {fin.GroupsPage.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":
               
@@ -31,7 +34,7 @@ export async function getStaticProps() {
         query: getGroupsPage()
     })
   
-    let fin = data.groupsPage.data.attributes.GroupsPage
+    let fin = data.groupsPage.data.attributes
   
     return {
         props: {fin},
