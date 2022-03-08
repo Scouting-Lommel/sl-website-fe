@@ -28,6 +28,10 @@ export default function takken({fin}){
     </Layout>)
 }
 
+function reRender(){
+  fetch('/api/groups/revalidateGroups')
+}
+
 export async function getStaticProps() {
   
     const { data } = await client.query({

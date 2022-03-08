@@ -32,6 +32,10 @@ export default function Info({fin}) {
         </Layout>)
 }
 
+function reRender(){
+  fetch('/api/revalidateInfo')
+}
+
 export async function getStaticProps() {
   
     const { data } = await client.query({

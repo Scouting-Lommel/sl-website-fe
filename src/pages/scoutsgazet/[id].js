@@ -4,7 +4,7 @@ import client from '../../lib/api/apollo/client'
 import { getDetailedScoutsGazet, getScoutsGazetAllIds } from '../../lib/api/gazet/queries'
 import ScoutsGazetLarge from '../../components/organisms/ScoutsGazetLarge'
 
-export default function user({fin}) {
+export default function ScoutsGazetLarge({fin}) {
     console.log(fin)
   return (
     <Layout>

@@ -90,7 +90,6 @@ const getGroupsPage = () => {
                 ... on ComponentContentBlocksCarousel {
                   __typename
                   Title
-                  IsSmall
                   Items {
                     Title
                     Description
@@ -124,14 +123,6 @@ const getGroupsPage = () => {
                 ... on ComponentContentBlocksFileSection {
                   __typename
                   Title
-                  Files {
-                    data {
-                      attributes {
-                        name
-                        url
-                      }
-                    }
-                  }
                 }
                 ... on ComponentContentBlocksActivitiesSection {
                   __typename

@@ -5,9 +5,9 @@ import { getAllGroups, getGroupPage } from '../../lib/api/groups/queries'
 
 export default function group({fin}) {
     const generalInfo = fin.filter(component => component.__typename == "ComponentGeneralPageInfo")[0]
-    const Title = generalInfo.Title
-    const noIndex = generalInfo.NoIndex
-    const URL = generalInfo.URL
+    // const Title = generalInfo.Title
+    // const noIndex = generalInfo.NoIndex
+    // const URL = generalInfo.URL
   return (
     <Layout>
         <Head>
@@ -33,8 +33,13 @@ export default function group({fin}) {
               break;
           }
         })}
+        <button onClick={() => reRender()}>revalidate</button>
     </Layout>
   )
+}
+
+function reRender(){
+  fetch('/api/groups/revalidateGroup')
 }
 
 export const getStaticPaths = async () => {

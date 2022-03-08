@@ -3,7 +3,7 @@ import Layout from '../styles/Layout'
 import client from '../../lib/api/apollo/client'
 import ScoutgazetSmall from '../../components/organisms/ScoutgazetSmall'
 
-export default function Home({fin}) {
+export default function Gazet({fin}) {
   return (
     <Layout>
         <Head>

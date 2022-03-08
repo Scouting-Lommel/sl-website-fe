@@ -40,6 +40,10 @@ export default function Home({fin}) {
   )
 }
 
+function reRender(){
+  fetch('/api/revalidateHome')
+}
+
 export async function getStaticProps() {
 
   const { data } = await client.query({

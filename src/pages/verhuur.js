@@ -3,7 +3,7 @@ import Head from 'next/head'
 import client from '../lib/api/apollo/client'
 import { getBookingPage } from "../lib/api/booking/queries";
 
-export default function takken({fin}){
+export default function verhuur({fin}){
     const Title = fin.Title
     const noIndex = fin.NoIndex
     const URL = fin.URL
@@ -32,6 +32,10 @@ export default function takken({fin}){
           }
         })}
     </Layout>)
+}
+
+function reRender(){
+  fetch('/api/revalidateVerhuur')
 }
 
 export async function getStaticProps() {

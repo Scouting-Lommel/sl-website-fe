@@ -52,7 +52,6 @@ const getHomePage = () => {
                 ... on ComponentContentBlocksCarousel {
                   __typename
                   Title
-                  IsSmall
                   Items {
                     Title
                     Description
