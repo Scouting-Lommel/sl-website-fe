@@ -2,7 +2,7 @@ import { getUserGroup, isLoggedIn } from "../../strapi/strapi";
 import Activity from "../molecules/Activity";
 import ActivityModal from "../molecules/ActivityModal";
 
-export default function Activities({ activities, groupName, takID }) {
+const ActivitiesSection = ({ activities, groupName, takID }) => {
   return (
     <div className="p-10">
       <div className="text-center text-4xl pb-20">Activiteiten</div>
@@ -25,3 +25,5 @@ export default function Activities({ activities, groupName, takID }) {
     </div>
   );
 }
+
+export {ActivitiesSection}

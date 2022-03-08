@@ -2,7 +2,7 @@ import { getUserGroup, isLoggedIn } from "../../strapi/strapi";
 import File from "../molecules/File";
 import FileModal from "../molecules/FileModal";
 
-export default function Files({ files, groupName, groupID }) {
+const FileSection = ({ files, groupName, groupID }) => {
   return (
     <div className="grid-cols-2">
       <div className="text-4xl text-center">Bestanden</div>
@@ -25,3 +25,5 @@ export default function Files({ files, groupName, groupID }) {
     </div>
   );
 }
+
+export {FileSection}

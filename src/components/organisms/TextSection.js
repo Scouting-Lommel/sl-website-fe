@@ -1,0 +1,5 @@
+const TextSection = () => {
+
+}
+
+export {TextSection}

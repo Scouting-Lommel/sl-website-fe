@@ -1,0 +1,5 @@
+const ImageText = () => {
+
+}
+
+export {ImageText}

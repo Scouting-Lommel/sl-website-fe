@@ -1,0 +1,5 @@
+const Socials = () => {
+
+}
+
+export {Socials}

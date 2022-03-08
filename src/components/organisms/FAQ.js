@@ -1,6 +1,6 @@
 import Question from "../molecules/Question";
 
-export default function FAQ({ questions }) {
+const FAQ = ({ questions }) => {
   return (
     <div className="accordion" id="accordionExample">
       {questions.map((info) => (
@@ -9,3 +9,5 @@ export default function FAQ({ questions }) {
     </div>
   );
 }
+
+return {FAQ}
