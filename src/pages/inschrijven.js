@@ -2,9 +2,8 @@ import RegisterChild from '../components/organisms/RegisterChild'
 import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
 import { useState } from 'react';
-import { uploadClient } from '../apollo-client';
-import { getRegisterInfo, registerQuery } from '../strapi/queries';
-import client from '../apollo-client'
+import { registerUser } from '../lib/api/register/mutations';
+import { getRegisterInfo } from '../lib/api/register/queries';
 
 export default function inschrijven({fin}) {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
@@ -61,6 +60,10 @@ export async function getStaticProps() {
       props: {fin},
       revalidate: 2592000 // 60*60*24*30 = every 30 days
   }
+}
+
+function reRender(){
+  fetch('/api/revalidateRegister')
 }
 
 function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLeaders){
@@ -151,7 +154,7 @@ function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLead
 
 
     uploadClient.mutate({
-      mutation: registerQuery,
+      mutation: registerUser,
       variables: {
         fname: fn,
         lname: ln,
