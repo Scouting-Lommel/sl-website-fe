@@ -1,5 +1,8 @@
-const Gallery = () => {
-
+const Gallery = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Gallery}

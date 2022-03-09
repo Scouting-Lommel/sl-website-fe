@@ -1,5 +1,8 @@
-const Navigation = () => {
-
+const Navigation = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Navigation}

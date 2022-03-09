@@ -1,5 +1,8 @@
-const Address = () => {
-
+const Address = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Address}

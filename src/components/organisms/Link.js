@@ -1,5 +1,8 @@
-const Link = () => {
-
+const Link = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Link}

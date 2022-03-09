@@ -1,5 +1,8 @@
-const Hero = () => {
-
+const Hero = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Hero}

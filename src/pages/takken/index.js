@@ -3,6 +3,9 @@ import Head from 'next/head'
 import client from '../../lib/api/apollo/client'
 import { getGroupsPage } from "../../lib/api/groups/queries";
 import { getGeneralData } from "../lib/api/general/queries";
+import { ImageText } from "../../components/organisms/ImageText";
+import { CallToAction } from "../../components/organisms/CallToAction";
+import { Carousel } from "../../components/organisms/Carousel";
 
 export default function takken({fin, general}){
   const Title = fin.Title
@@ -14,13 +17,13 @@ export default function takken({fin, general}){
         {fin.GroupsPage.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":
-              
+              <ImageText info={component}/>
               break;
             case "ComponentContentBlocksCallToAction":
-            
+              <CallToAction info={component}/>
               break;
             case "ComponentContentBlocksCarousel":
-          
+              <Carousel info={component}/>
               break;
             default:
               break;

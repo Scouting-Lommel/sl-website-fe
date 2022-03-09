@@ -1,5 +1,8 @@
-const CallToAction = () => {
-
+const CallToAction = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {CallToAction}

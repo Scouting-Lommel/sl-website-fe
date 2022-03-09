@@ -3,6 +3,11 @@ import Layout from '../styles/Layout'
 import client from '../../lib/api/apollo/client' 
 import { getAllGroups, getGroupPage } from '../../lib/api/groups/queries'
 import { getGeneralData } from "../lib/api/general/queries";
+import { Hero } from '../../components/organisms/Hero';
+import { Carousel } from '../../components/organisms/Carousel';
+import { ImageText } from '../../components/organisms/ImageText';
+import { FileSection } from '../../components/organisms/FileSection';
+import { ActivitiesSection } from '../../components/organisms/ActivitiesSection';
 
 export default function group({fin, general}) {
     const generalInfo = fin.filter(component => component.__typename == "ComponentGeneralPageInfo")[0]
@@ -16,19 +21,19 @@ export default function group({fin, general}) {
         {fin.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":
-              
+              <Hero info={component}/>
               break;
             case "ComponentContentBlocksCarousel":
-            
+              <Carousel info={component}/>
               break;
             case "ComponentContentBlocksImageText":
-          
+              <ImageText info={component}/>
               break;
             case "ComponentContentBlocksFileSection":
-        
-              break;
+              <FileSection info={component}/>
+              break;  
             case "ComponentContentBlocksActivitiesSection":
-        
+              <ActivitiesSection info={component}/>
               break;
             default:
               break;

@@ -1,5 +1,8 @@
-const Map = () => {
-
+const Map = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Map}

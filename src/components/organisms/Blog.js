@@ -1,5 +1,8 @@
-const Blog = () => {
-
+const Blog = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Blog}

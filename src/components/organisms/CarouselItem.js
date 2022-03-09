@@ -1,5 +1,8 @@
-const CarouselItem = () => {
-
+const CarouselItem = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {CarouselItem}

@@ -1,5 +1,8 @@
-const Calendar = () => {
-
+const Calendar = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {Calendar}

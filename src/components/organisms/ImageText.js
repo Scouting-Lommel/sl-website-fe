@@ -1,5 +1,8 @@
-const ImageText = () => {
-
+const ImageText = ({info}) => {
+    return(
+        <>
+        </>
+    )
 }
 
 export {ImageText}
