@@ -4,14 +4,15 @@ import Layout from './styles/Layout'
 import { useState } from 'react';
 import { registerUser } from '../lib/api/register/mutations';
 import { getRegisterInfo } from '../lib/api/register/queries';
+import { getGeneralData } from "../lib/api/general/queries";
 
-export default function inschrijven({fin}) {
+export default function inschrijven({fin, general}) {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
   const [isPaying, setIsPaying] = useState(false);
   const [getFinalChildren, setFinalChildren] = useState([]);
   const [getFinalLeaders, setFinalLeaders] = useState([]);
   return (
-    <Layout>
+    <Layout generalData={general}>
     <div className="flex flex-row justify-center py-32 ">
     {!isPaying &&
     <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">
@@ -53,11 +54,16 @@ export async function getStaticProps() {
   const { data } = await client.query({
       query: getRegisterInfo()
   })
+  const layoutData = await client.query({
+    query: getGeneralData()
+  })
+  
+  let general = layoutData.data.generalData.data.attributes.GeneralData
 
   let fin = data.registerPage.data.attributes.RegisterPage[0]
 
   return {
-      props: {fin},
+      props: {fin: fin, general: general},
       revalidate: 2592000 // 60*60*24*30 = every 30 days
   }
 }

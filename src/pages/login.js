@@ -3,8 +3,9 @@ import { loginQuery } from "../lib/api/login/mutations";
 import { setJwtToken, setUserID } from "../lib/api/security/security";
 import decodeJWT from "jwt-decode"
 import Layout from "./styles/Layout";
+import { getGeneralData } from "../lib/api/general/queries";
 
-export default function login(){
+export default function login({general}){
     const [loginFunc, { loading, error }] = useMutation(loginQuery, {
         variables: {
             username: "placeholder",
@@ -21,7 +22,7 @@ export default function login(){
     });
 
   return (
-      <Layout>
+      <Layout generalData={general}>
       <div className="flex flex-row justify-center py-32">
     <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center max-w-lg">
         <div className="mb-4">
@@ -59,3 +60,17 @@ export default function login(){
     </Layout>
   );
 }
+
+export async function getStaticProps() {
+
+    const layoutData = await client.query({
+      query: getGeneralData()
+    })
+    
+    let general = layoutData.data.generalData.data.attributes.GeneralData
+  
+    return {
+        props: {general},
+        revalidate: 86400 // 60*60*24 = every 24 hours
+    }
+  }

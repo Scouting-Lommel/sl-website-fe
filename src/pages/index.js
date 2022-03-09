@@ -2,13 +2,14 @@ import Head from 'next/head'
 import Layout from './styles/Layout'
 import client from '../lib/api/apollo/client'
 import { getHomePage } from '../lib/api/home/queries';
+import { getGeneralData } from "../lib/api/general/queries";
 
-export default function Home({fin}) {
+export default function Home({fin, general}) {
   const Title = fin.Title
   const noIndex = fin.NoIndex
   const URL = fin.URL
   return (
-    <Layout>
+    <Layout generalData={general}>
       <Head>
       </Head>
         {fin.HomePage.map((component) => {
@@ -52,8 +53,14 @@ export async function getStaticProps() {
 
   let fin = data.homePage.data.attributes
 
+  const layoutData = await client.query({
+    query: getGeneralData()
+  })
+  
+  let general = layoutData.data.generalData.data.attributes.GeneralData
+
   return {
-      props: {fin},
+      props: {fin: fin, general: general},
       revalidate: 86400 // 60*60*24 = every 24 hours
   }
 }
