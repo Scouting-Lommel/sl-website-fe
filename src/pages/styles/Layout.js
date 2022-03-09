@@ -3,7 +3,6 @@ import { Footer } from '../../components/organisms/Footer';
 // layout is everything that is the same on each page, header, footer, navigation bar...
 
 export default function Layout({ children, generalData}) {
-  console.log(generalData)
   let header = {}
   let footer = {}
   let socials = {}
