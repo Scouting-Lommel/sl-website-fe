@@ -3,95 +3,80 @@ import {gql} from '@apollo/client';
 
 const getGeneralData = () => {
     return gql`query {
-    generalData {
-      data {
-        attributes {
-          GeneralData {
-            ... on ComponentGeneralHeader {
-              __typename
-              Logo {
-                data {
-                  attributes {
-                    name
-                    url
+      generalData {
+        data {
+          attributes {
+            GeneralData {
+              ... on ComponentGeneralHeader {
+                __typename
+                Logo {
+                  data {
+                    attributes {
+                      name
+                      url
+                    }
+                  }
+                }
+                Navigation {
+                  NavigationItems {
+                    Label
+                    Page
+                    IsButton
                   }
                 }
               }
-              Navigation {
+              ... on ComponentGeneralSocials {
+                __typename
+                Socials {
+                  data {
+                    attributes {
+                      Link
+                      Label
+                    }
+                  }
+                }
+              }
+              ... on ComponentGeneralFooter {
+                __typename
+                Logo {
+                  data {
+                    attributes {
+                      url
+                      name
+                    }
+                  }
+                }
+                Socials {
+                  data {
+                    attributes {
+                      Label
+                      Link
+                    }
+                  }
+                }
                 NavigationItems {
-                  Label
                   Page
+                  Label
+                  IsButton
+                }
+                Link {
+                  Page
+                  Label
                   IsButton
                 }
               }
-            }
-            ... on ComponentGeneralSocials {
-              __typename
-              Socials {
-                data {
-                  attributes {
-                    Logo {
-                      data {
-                        attributes {
-                          name
-                          url
-                        }
-                      }
-                    }
-                    Label
-                    Link
-                  }
-                }
-              }
-            }
-            ... on ComponentGeneralFooter {
-              __typename
-              Logo {
-                data {
-                  attributes {
-                    url
-                    name
-                  }
-                }
-              }
-              Socials {
-                data {
-                  attributes {
-                    Logo {
-                      data {
-                        attributes {
-                          name
-                          url
-                        }
-                      }
-                    }
-                    Label
-                    Link
-                  }
-                }
-              }
-              Address {
+              ... on ComponentContentBlocksAddress {
+                __typename
                 Title
                 Email
                 Address
-              }
-              NavigationItems {
-                Page
-                Label
-                IsButton
-              }
-              Link {
-                Page
-                Label
-                IsButton
               }
             }
           }
         }
       }
     }
-  }
-  `
+    `
 }
 
 export {getGeneralData}

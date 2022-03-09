@@ -2,14 +2,45 @@ import {gql} from '@apollo/client';
 
 const getGroupsPage = () => {
     return gql`query {
-        groupsPage {
-          data {
-            attributes {
-              GroupsPage {
-                ... on ComponentContentBlocksImageText {
-                  __typename
+      groupsPage {
+        data {
+          attributes {
+            Title
+            URL
+            NoIndex
+            GroupsPage {
+              ... on ComponentContentBlocksImageText {
+                __typename
+                Title
+                Content
+                Image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
+                }
+                ImageLeftAligned
+              }
+              ... on ComponentContentBlocksCallToAction {
+                __typename
+                Title
+                Content
+                Button {
+                  Label
+                  IsButton
+                  Page
+                }
+                Socials
+              }
+              ... on ComponentContentBlocksCarousel {
+                __typename
+                IsLeaderShowcase
+                IsGroupsShowcase
+                Title
+                Items {
                   Title
-                  Content
+                  Description
                   Image {
                     data {
                       attributes {
@@ -17,63 +48,75 @@ const getGroupsPage = () => {
                       }
                     }
                   }
-                  ImageLeftAligned
-                }
-                ... on ComponentContentBlocksCallToAction {
-                  __typename
-                  Title
-                  Content
-                  Button {
+                  Href {
                     Label
                     IsButton
                     Page
                   }
                 }
-                ... on ComponentContentBlocksCarousel {
-                  __typename
-                  Title
-                  IsSmall
-                  Items {
-                    Title
-                    Description
-                    Image {
-                      data {
-                        attributes {
-                          url
-                        }
-                      }
-                    }
-                    Href {
-                      Label
-                      IsButton
-                      Page
+              }
+              ... on ComponentContentBlocksHero {
+                __typename
+                IsHomePage
+                Title
+                Image {
+                  data {
+                    attributes {
+                      url
                     }
                   }
+                }
+                Links {
+                  Page
+                  Label
+                  IsButton
                 }
               }
             }
           }
         }
       }
-      `
+    }
+    `
   }
 
   const getGroupPage = (tak) => {
     return gql`query {
-        groupPage {
-          data {
-            attributes {
-              ${tak} {
-                ... on ComponentGeneralPageInfo {
-                  __typename
-                  Title
-                  URL
-                  NoIndex
+      groupPage {
+        data {
+          attributes {
+            ${tak} {
+              ... on ComponentGeneralPageInfo {
+                __typename
+                Title
+                URL
+                NoIndex
+              }
+              ... on ComponentContentBlocksHero {
+                __typename
+                IsHomePage
+                Title
+                Image {
+                  data {
+                    attributes {
+                      url
+                    }
+                  }
                 }
-                ... on ComponentContentBlocksHero {
-                  __typename
+                Links {
+                  Page
+                  Label
+                  IsButton
+                }
+              }
+              ... on ComponentContentBlocksCarousel {
+                __typename
+                IsLeaderShowcase
+                IsGroupsShowcase
+                Title
+                Items {
                   Title
-                  IsHomePage
+                  Description
                   Image {
                     data {
                       attributes {
@@ -81,74 +124,78 @@ const getGroupsPage = () => {
                       }
                     }
                   }
-                  Links {
+                  Href {
                     Label
                     IsButton
                     Page
                   }
                 }
-                ... on ComponentContentBlocksCarousel {
-                  __typename
-                  Title
-                  Items {
-                    Title
-                    Description
-                    Image {
-                      data {
-                        attributes {
-                          url
-                        }
-                      }
-                    }
-                    Href {
-                      Label
-                      IsButton
-                      Page
+              }
+              ... on ComponentContentBlocksImageText {
+                __typename
+                Title
+                Content
+                Image {
+                  data {
+                    attributes {
+                      url
                     }
                   }
                 }
-                ... on ComponentContentBlocksImageText {
-                  __typename
-                  Title
-                  Content
-                  Image {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                  ImageLeftAligned
-                }
-                ... on ComponentContentBlocksFileSection {
-                  __typename
-                  Title
-                }
-                ... on ComponentContentBlocksActivitiesSection {
-                  __typename
-                  Title
-                  Button {
-                    Page
-                    Label
-                    IsButton
-                  }
+                ImageLeftAligned
+              }
+              ... on ComponentContentBlocksFileSection {
+                __typename
+                Title
+              }
+              ... on ComponentContentBlocksActivitiesSection {
+                __typename
+                Title
+                Button {
+                  Page
+                  Label
+                  IsButton
                 }
               }
             }
           }
         }
-        activities(filters: { Group: { Name: { eq: "${tak}" } } }) {
-          data {
-            attributes {
-              Title
-              StartTime
-              EndTime
-              Description
+      }
+      activities(filters: { Group: { Name: { eq: "${tak}" } } }) {
+        data {
+          attributes {
+            Title
+            StartTime
+            EndTime
+            Description
+          }
+        }
+      }
+      groups(filters: { Name: { eq: "${tak}" } }) {
+        data {
+          attributes {
+            Name
+            Description
+            Files {
+              data {
+                attributes {
+                  url
+                  name
+                }
+              }
+            }
+            Image {
+              data {
+                attributes {
+                  url
+                }
+              }
             }
           }
         }
       }
-      `
+    }
+    `
   }
 
   const getAllGroups = () => {
