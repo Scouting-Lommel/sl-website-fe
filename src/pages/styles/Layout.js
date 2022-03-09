@@ -28,7 +28,7 @@ export default function Layout({ children, generalData}) {
   return (
     <>
       <Header />
-      <main className='py-6 px-8 border-2'>{children}</main>
+      <main>{children}</main>
       <Footer />
     </>
   )
