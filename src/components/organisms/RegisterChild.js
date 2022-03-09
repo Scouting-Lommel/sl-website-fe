@@ -3,7 +3,7 @@ import { useState } from 'react';
 export default function RegisterChild({id}){
   const [isVisible, setVisible] = useState(false);
   return (
-        <div className="bg-white rounded basis-1/2 px-8 =mb-4 flex flex-col justify-center gap-4 max-w-lg">
+        <div className="bg-white rounded basis-1/2  =mb-4 flex flex-col justify-center gap-4 max-w-lg">
         <div className="flex flex-row justify-center gap-4">
             <div className="flex flex-col justify-center">
               <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="firstName">

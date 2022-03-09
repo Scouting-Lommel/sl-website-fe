@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { getJwtToken } from './strapi/strapi';
+import { getJwtToken } from '../security/security';
 import { createUploadLink } from "apollo-upload-client";
 
 const uploadLink = createUploadLink({
@@ -24,4 +24,4 @@ const uploadLink = createUploadLink({
     cache: new InMemoryCache()
   })
 
-  export default uploadClient;
+  export {uploadClient};

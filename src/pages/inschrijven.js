@@ -1,6 +1,8 @@
 import RegisterChild from '../components/organisms/RegisterChild'
 import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
+import client from '../lib/api/apollo/client'
+import { uploadClient } from "../lib/api/apollo/mutationClient";
 import { useState } from 'react';
 import { registerUser } from '../lib/api/register/mutations';
 import { getRegisterInfo } from '../lib/api/register/queries';
@@ -60,7 +62,7 @@ export async function getStaticProps() {
   
   let general = layoutData.data.generalData.data.attributes.GeneralData
 
-  let fin = data.registerPage.data.attributes.RegisterPage[0]
+  let fin = data.registerPage.data.attributes
 
   return {
       props: {fin: fin, general: general},
@@ -160,7 +162,7 @@ function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLead
 
 
     uploadClient.mutate({
-      mutation: registerUser,
+      mutation: registerUser(),
       variables: {
         fname: fn,
         lname: ln,
