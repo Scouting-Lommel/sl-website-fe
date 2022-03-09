@@ -1,9 +1,9 @@
 import { useMutation } from "@apollo/client";
-import { loginQuery } from "../lib/api/login/mutations";
-import { setJwtToken, setUserID } from "../lib/api/security/security";
-import decodeJWT from "jwt-decode"
 import Layout from "./styles/Layout";
 import { getGeneralData } from "../lib/api/general/queries";
+import client from '../lib/api/apollo/client'
+import {loginQuery} from '../lib/api/login/mutations'
+import { setCredentials } from "../lib/api/security/security";
 
 export default function login({general}){
     const [loginFunc, { loading, error }] = useMutation(loginQuery, {
@@ -12,8 +12,7 @@ export default function login({general}){
             password: "placeholder",
           },
         onCompleted(fin){
-            setJwtToken(fin.login.jwt);
-            setUserID(decodeJWT(fin.login.jwt).id);
+            setCredentials(fin.login.jwt)
             window.location.href = '/';
         },
         onError(fin){

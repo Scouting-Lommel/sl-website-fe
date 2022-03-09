@@ -1,18 +1,19 @@
 import {gql} from '@apollo/client';
 
-const getGroupNameFromUserId = (UID) => {
-    return gql`query{
-      usersPermissionsUsers(filters: {id: {eq: ${UID}}}){
-        data{
-          id
-          attributes{
-            leader{
-              data{
-                attributes{
-                  group{
-                    data{
-                      attributes{
-                        name
+const getDataFromUserId = (UID) => {
+    return gql`query {
+      usersPermissionsUser(id: ${UID}) {
+        data {
+          attributes {
+            leader {
+              data {
+                id
+                attributes {
+                  IsGroupLeader
+                  group {
+                    data {
+                      attributes {
+                        Name
                       }
                     }
                   }
@@ -25,21 +26,4 @@ const getGroupNameFromUserId = (UID) => {
     }`
   }
 
-  const getLeaderIdFromUserId = (UID) => {
-    return gql`query{
-      usersPermissionsUsers(filters: {id: {eq: ${UID}}}){
-        data{
-          id
-          attributes{
-            leader{
-              data{
-                id
-              }
-            }
-          }
-        }
-      }
-    }`
-  }
-
-  export{getLeaderIdFromUserId, getGroupNameFromUserId}
+  export{getDataFromUserId}

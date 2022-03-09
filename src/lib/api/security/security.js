@@ -1,59 +1,77 @@
 import client from "../apollo/client";
-import { getGroupNameFromUserId, getLeaderIdFromUserId } from "./queries";
+import { getDataFromUserId } from "./queries";
+import decodeJWT from "jwt-decode"
 
 const ISSERVER = typeof window === "undefined";
 
-export function getJwtToken() {
+async function setCredentials(jwt){
+    if(!ISSERVER){
+        const id = decodeJWT(jwt).id
+        const { data } = await client.query({
+            query: getDataFromUserId(id)
+        })
+        setJwtToken(jwt);
+        setUserGroup(data.usersPermissionsUser.data.attributes.leader.data.attributes.group.data.attributes.name)
+        setGroupLeader(data.usersPermissionsUser.data.attributes.leader.data.attributes.IsGroupLeader)
+        setUserID(data.usersPermissionsUser.data.attributes.leader.data.id)
+    }
+}
+
+async function setGroupLeader(groupleader){
+    if(!ISSERVER) {
+        sessionStorage.setItem("groupLeader", groupleader)
+    }
+}
+
+function getGroupLeader(){
+    if(!ISSERVER) {
+        return sessionStorage.getItem("groupLeader")
+    }
+    return undefined
+}
+
+function getJwtToken() {
     if(!ISSERVER) {
         return sessionStorage.getItem("jwt")
     }
     return undefined
 }
 
-export function setJwtToken(token) {
+function setJwtToken(token) {
     if(!ISSERVER) {
         sessionStorage.setItem("jwt", token)
     }
 }
 
-async function setUserGroup(UID){
-    const { data } = await client.query({
-        query: getGroupNameFromUserId(UID)
-    })
-
+async function setUserGroup(name){
     if(!ISSERVER) {
-        sessionStorage.setItem("UserGroup", data.usersPermissionsUsers.data[0].attributes.leader.data.attributes.group.data.attributes.name)
+        sessionStorage.setItem("UserGroup", name)
     }
 }
 
-export function getUserGroup(){
+function getUserGroup(){
     if(!ISSERVER) {
         return sessionStorage.getItem("UserGroup")
     }
     return undefined
 }
 
-export async function setUserID(id){
-    // with the users id we also want the group name it is part of
+async function setUserID(id){
     if(!ISSERVER) {
-        await setUserGroup(id)
-
-        const { data } = await client.query({
-            query: getLeaderIdFromUserId(id)
-        })
-    
-        sessionStorage.setItem("UID", data.usersPermissionsUsers.data[0].attributes.leader.data.id)
+        sessionStorage.setItem("UID", id)
     }
 }
 
-export function getUserID(){
+function getUserID(){
     if(!ISSERVER) {
         return sessionStorage.getItem("UID")
     }
     return undefined
 }
 
-export function isLoggedIn(){
+function isLoggedIn(){
     const jwtToken = getJwtToken();
     return jwtToken ? true : false
 }
+
+export{getJwtToken, getUserID, getUserGroup, getGroupLeader, isLoggedIn, setCredentials}
