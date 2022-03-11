@@ -21,20 +21,15 @@ export default function group({fin, general}) {
         {fin.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":
-              <Hero info={component}/>
-              break;
+              return <Hero info={component}/>
             case "ComponentContentBlocksCarousel":
-              <Carousel info={component}/>
-              break;
+              return <Carousel info={component}/>
             case "ComponentContentBlocksImageText":
-              <ImageText info={component}/>
-              break;
+              return <ImageText info={component}/>
             case "ComponentContentBlocksFileSection":
-              <FileSection info={component}/>
-              break;  
+              return <FileSection info={component}/> 
             case "ComponentContentBlocksActivitiesSection":
-              <ActivitiesSection info={component}/>
-              break;
+              return <ActivitiesSection info={component}/>
             default:
               break;
           }

@@ -21,23 +21,17 @@ export default function Home({fin, general}) {
         {fin.HomePage.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":
-              <Hero info={component}/>
-              break;
+              return <Hero info={component}/>
             case "ComponentContentBlocksCallToAction":
-              <CallToAction info={component}/>
-              break;
+              return <CallToAction info={component}/>
             case "ComponentContentBlocksImageText":
-              <ImageText info={component}/>
-              break;
+              return <ImageText info={component}/>
             case "ComponentContentBlocksCarousel":
-              <Carousel info={component}/>
-              break;
+              return <Carousel info={component}/>
             case "ComponentContentBlocksBlog":
-              <Blog info={component}/>
-              break;
+              return <Blog info={component}/>
             case "ComponentContentBlocksGallery":
-              <Gallery info={component}/>
-              break;
+              return <Gallery info={component}/>
             default:
               break;
           }

@@ -19,17 +19,13 @@ export default function Info({fin, general}) {
             {fin.InfoPage.map((component) => {
             switch (component.__typename) {
             case "ComponentContentBlocksImageText":
-              <ImageText info={component}/>
-              break;
+              return <ImageText info={component}/>
             case "ComponentContentBlocksCallToAction":
-              <CallToAction info={component}/>
-              break;
+              return <CallToAction info={component}/>
             case "ComponentContentBlocksFaq":
-              <FAQ info={component}/>
-              break;
+              return <FAQ info={component}/>
             case "ComponentContentBlocksMap":
-              <Map info={component}/>
-              break;
+              return <Map info={component}/>
             default:
               break;
           }

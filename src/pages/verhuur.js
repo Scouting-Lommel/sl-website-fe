@@ -19,20 +19,15 @@ export default function verhuur({fin, general}){
         {fin.BookingsPage.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":
-              <ImageText info={component}/>
-              break;
+              return <ImageText info={component}/>
             case "ComponentContentBlocksCallToAction":
-              <CallToAction info={component}/>
-              break;
+              return <CallToAction info={component}/>
             case "ComponentContentBlocksCalendar":
-              <Calendar info={component}/>
-              break;
+              return <Calendar info={component}/>
             case "ComponentContentBlocksTextSection":
-              <TextSection info={component}/>
-              break;
+              return <TextSection info={component}/>
             case "ComponentContentBlocksGallery":
-              <Gallery info={component}/>
-              break;
+              return <Gallery info={component}/>
             default:
               break;
           }

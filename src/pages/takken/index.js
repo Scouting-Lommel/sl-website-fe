@@ -17,14 +17,11 @@ export default function takken({fin, general}){
         {fin.GroupsPage.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":
-              <ImageText info={component}/>
-              break;
+              return <ImageText info={component}/>
             case "ComponentContentBlocksCallToAction":
-              <CallToAction info={component}/>
-              break;
+              return <CallToAction info={component}/>
             case "ComponentContentBlocksCarousel":
-              <Carousel info={component}/>
-              break;
+              return <Carousel info={component}/>
             default:
               break;
           }
