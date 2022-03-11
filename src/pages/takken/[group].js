@@ -2,15 +2,15 @@ import Head from 'next/head'
 import Layout from '../styles/Layout'
 import client from '../../lib/api/apollo/client' 
 import { getAllGroups, getGroupPage } from '../../lib/api/groups/queries'
-import { getGeneralData } from "../lib/api/general/queries";
+import { getGeneralData } from '../../lib/api/general/queries'
 import { Hero } from '../../components/organisms/Hero';
 import { Carousel } from '../../components/organisms/Carousel';
 import { ImageText } from '../../components/organisms/ImageText';
 import { FileSection } from '../../components/organisms/FileSection';
 import { ActivitiesSection } from '../../components/organisms/ActivitiesSection';
 
-export default function group({fin, general}) {
-    const generalInfo = fin.filter(component => component.__typename == "ComponentGeneralPageInfo")[0]
+export default function group({fin, general, group}) {
+    const generalInfo = fin.groupPage.data.attributes[group].filter(component => component.__typename == "ComponentGeneralPageInfo")[0]
     // const Title = generalInfo.Title
     // const noIndex = generalInfo.NoIndex
     // const URL = generalInfo.URL
@@ -18,7 +18,7 @@ export default function group({fin, general}) {
     <Layout generalData={general}>
         <Head>
         </Head>
-        {fin.map((component) => {
+        {fin.groupPage.data.attributes[group].map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":
               return <Hero info={component}/>
@@ -29,12 +29,11 @@ export default function group({fin, general}) {
             case "ComponentContentBlocksFileSection":
               return <FileSection info={component}/> 
             case "ComponentContentBlocksActivitiesSection":
-              return <ActivitiesSection info={component}/>
+              return <ActivitiesSection info={component} activities={fin.activities.data} group={group}/>
             default:
               break;
           }
         })}
-        <button onClick={() => reRender()}>revalidate</button>
     </Layout>
   )
 }
@@ -72,10 +71,10 @@ export const getStaticProps = async (context) => {
     
     let general = layoutData.data.generalData.data.attributes.GeneralData
 
-    let fin = data.groupPage.data.attributes[group]
+    let fin = data
 
     return {
-        props: {fin: fin, general: general },
+        props: {fin: fin, general: general, group: group },
         revalidate: 60 // 60 = every minute
     }
 }
