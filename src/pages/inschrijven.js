@@ -5,8 +5,9 @@ import client from '../lib/api/apollo/client'
 import { uploadClient } from "../lib/api/apollo/mutationClient";
 import { useState } from 'react';
 import { registerUser } from '../lib/api/register/mutations';
-import { getRegisterInfo } from '../lib/api/register/queries';
+import { getAllMembers, getRegisterInfo } from '../lib/api/register/queries';
 import { getGeneralData } from "../lib/api/general/queries";
+import { getGroupLeader, isLoggedIn } from '../lib/api/security/security';
 
 export default function inschrijven({fin, general}) {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
@@ -30,6 +31,12 @@ export default function inschrijven({fin, general}) {
       <label className="flex flex-row justify-center text-sm pt-5">
         (*) = vereist veld
       </label>
+      {
+        isLoggedIn() && getGroupLeader() &&
+        <div className="flex flex-row justify-center pt-5">
+          <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {downloadAllMemebers()}}>Download</button>
+        </div>
+      }
       </div>
       </div>}
     {isPaying && 
@@ -200,4 +207,37 @@ function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLead
       alert(`an error occured trying to register: ${err} \n Please contact us with this error message for further information`);
     });
   }
+}
+
+async function downloadAllMemebers(){
+  const { data } = await client.query({
+    query: getAllMembers(new Date().getFullYear())
+  })
+  let arrayData = [["voornaam", "achternaam", "geslacht", "email", "geboortedatum", 
+                    "akabe?", "postcode", "stad", "straat", "straatnummer", "bus", 
+                    "telefoonnummer", "gsm", "inschrijf datum"]]
+  for (let i = 0; i < data.members.data.length; i++) {
+    const element = data.members.data[i].attributes;
+    let row = []
+    row.push(element.FirstName)
+    row.push(element.LastName)
+    row.push(element.Sex)
+    row.push(element.Email)
+    row.push(element.Birthday)
+    row.push(element.Akabe)
+    row.push(element.PostCode)
+    row.push(element.City)
+    row.push(element.Street)
+    row.push(element.Number)
+    row.push(element.Bus)
+    row.push(element.Phone)
+    row.push(element.GSM)
+    row.push(element.createdAt)
+    arrayData.push(row)
+  }
+  let csvContent = "data:text/csv;charset=utf-8," 
+    + arrayData.map(e => e.join(",")).join("\n");
+  
+  var encodedUri = encodeURI(csvContent);
+  window.open(encodedUri);
 }
