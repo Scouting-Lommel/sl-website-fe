@@ -27,7 +27,7 @@ export default function group({fin, general, group}) {
             case "ComponentContentBlocksImageText":
               return <ImageText info={component}/>
             case "ComponentContentBlocksFileSection":
-              return <FileSection info={component}/> 
+              return <FileSection info={component} files={fin.groups.data[0].attributes.Files.data} group={group}/> 
             case "ComponentContentBlocksActivitiesSection":
               return <ActivitiesSection info={component} activities={fin.activities.data} group={group}/>
             default:
