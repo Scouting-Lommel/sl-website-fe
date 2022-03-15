@@ -178,6 +178,7 @@ const getGroupsPage = () => {
             Description
             Files {
               data {
+                id
                 attributes {
                   url
                   name

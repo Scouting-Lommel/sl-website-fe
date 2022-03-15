@@ -18,10 +18,10 @@ const FileSection = ({info, files, group}) => {
       <ol className="flex flex-nowrap justify-around">
         {files.map((file, i) => {
           return (
-          <li id={i}>
-            <File id={i} file={file.attributes}/>
+          <li key={i}>
+            <File file={file.attributes}/>
             {
-              isLoggedIn() && getUserGroup() == group &&
+              // isLoggedIn() && getUserGroup() == group &&
               <div className="flex justify-around">
                 {/* edit file and removing file button */}
                   <button
@@ -34,7 +34,8 @@ const FileSection = ({info, files, group}) => {
                   title="Edit File"
                   buttonID={"editFileButton"+i}
                   index={i}
-                  callBack={editActivity}
+                  idRef={file.id}
+                  callBack={editFile}
                   params={
                     [
                       {
@@ -49,6 +50,7 @@ const FileSection = ({info, files, group}) => {
                   <button
                   id={"removeFileButton"+i}
                   type="button"
+                  onClick={removeFile(file.id)}
                   >
                     Delete
                   </button>
@@ -70,7 +72,15 @@ const FileSection = ({info, files, group}) => {
   );
 }
 
-const editActivity = (index) => {
+const editFile = (fileID, index) => {
+  console.log(fileID)
+  if (typeof window !== "undefined") {
+    const newName = document.getElementById("name"+index).value
+    console.log(newName)
+  }
+}
+
+const removeFile = (fileID) => {
 
 }
 
