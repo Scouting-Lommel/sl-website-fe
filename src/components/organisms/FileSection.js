@@ -1,8 +1,16 @@
 import { getUserGroup, isLoggedIn } from "../../lib/api/security/security";
-import {File} from "../molecules/File";
-import {Modal} from "../molecules/Modal"
+import { File } from "../molecules/File";
+import { Modal } from "../molecules/Modal"
+import { useState } from "react";
 
 const FileSection = ({info, files, group}) => {
+
+  let [getFile, setFile] = useState(null);
+
+  function onFileChange(event) {
+    setFile(event.target.files[0]);
+  }
+
   return (
     <>
     <div className="bg-sky-600 flex flex-col justify-center items-center">
@@ -21,7 +29,7 @@ const FileSection = ({info, files, group}) => {
           <li key={i}>
             <File file={file.attributes}/>
             {
-              // isLoggedIn() && getUserGroup() == group &&
+              isLoggedIn() && getUserGroup() == group &&
               <div className="flex justify-around">
                 {/* edit file and removing file button */}
                   <button
@@ -65,6 +73,34 @@ const FileSection = ({info, files, group}) => {
       isLoggedIn() && getUserGroup() == group &&
       <div className="flex justify-center">
           {/* add file button */}
+          <button
+            id={"addFileButton"}
+            type="button"
+            >
+              Add
+            </button>
+            <Modal 
+            title="Add File"
+            buttonID={"addFileButton"}
+            index={0}
+            idRef={0}
+            callBack={addFile}
+            params={
+              [
+                {
+                  id: "addName",
+                  type: "input",
+                  name: "Name",
+                  defaultValue: ""
+                },
+                {
+                  id: "addFile",
+                  type: "file",
+                  name: "File",                
+                }
+              ]
+            }
+            />
       </div>
     }
     </div>
@@ -73,7 +109,6 @@ const FileSection = ({info, files, group}) => {
 }
 
 const editFile = (fileID, index) => {
-  console.log(fileID)
   if (typeof window !== "undefined") {
     const newName = document.getElementById("name"+index).value
     console.log(newName)
@@ -82,6 +117,15 @@ const editFile = (fileID, index) => {
 
 const removeFile = (fileID) => {
 
+}
+
+const addFile = (fileID, index) => {
+  if (typeof window !== "undefined") {
+    const name = document.getElementById("addName").value
+    const file = document.getElementById("addFile").files[0]
+    console.log(name)
+    console.log(file)
+  }
 }
 
 export {FileSection}
