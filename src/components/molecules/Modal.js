@@ -11,7 +11,7 @@ import { useState } from "react";
  *      }
  * ]
  */
-const Modal = ({title, params, callBack, buttonID}) => {
+const Modal = ({title, params, callBack, buttonID, index}) => {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -22,7 +22,12 @@ const Modal = ({title, params, callBack, buttonID}) => {
         setIsOpen(true);
     }
 
-    document.getElementById(buttonID).onClick = openModal()
+    if (typeof window !== "undefined") {
+        console.log(document.getElementById(buttonID))
+        document.getElementById(buttonID).onclick = () => openModal()
+        console.log(document.getElementById(buttonID))
+    }
+
     return(
         <>
          {isOpen && (
@@ -59,18 +64,18 @@ const Modal = ({title, params, callBack, buttonID}) => {
                 </button>
               </div>
               {/* <!-- Modal body --> */}
-              <div className="p-6 space-y-6 flex flex-col text-white">
+              <div className="p-6 space-y-6 flex flex-col">
                 {params.map((ip) => {
                     return(
                         <>
-                        <label htmlFor={ip.name}>{ip.name}</label>
-                        <br />
+                        <label htmlFor={ip.name} className="text-white">{ip.name+":"}</label>
                         <input
                             type={ip.type}
                             name={ip.name}
                             id={ip.id}
                             defaultValue={ip.defaultValue}
                         />
+                        <br/>
                         </>
                     )
                 })}
@@ -78,7 +83,7 @@ const Modal = ({title, params, callBack, buttonID}) => {
               {/* <!-- Modal footer --> */}
               <div className="flex flex-row items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
                 <button
-                  onClick={callBack}
+                  onClick={callBack(index)}
                   type="button"
                   className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
                 >

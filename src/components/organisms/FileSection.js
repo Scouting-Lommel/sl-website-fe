@@ -1,5 +1,6 @@
 import { getUserGroup, isLoggedIn } from "../../lib/api/security/security";
 import {File} from "../molecules/File";
+import {Modal} from "../molecules/Modal"
 
 const FileSection = ({info, files, group}) => {
   return (
@@ -14,17 +15,47 @@ const FileSection = ({info, files, group}) => {
     }
     {
       files.length != 0 &&
-      <ol className="flex flex-nowrap">
-        {files.map(file => {
-          <li>
-            <File file={file}/>
+      <ol className="flex flex-nowrap justify-around">
+        {files.map((file, i) => {
+          return (
+          <li id={i}>
+            <File id={i} file={file.attributes}/>
             {
               isLoggedIn() && getUserGroup() == group &&
-              <div className="flex justify-center">
-                  {/* edit / remove File button */}
+              <div className="flex justify-around">
+                {/* edit file and removing file button */}
+                  <button
+                  id={"editFileButton"+i}
+                  type="button"
+                  >
+                    Edit
+                  </button>
+                  <Modal 
+                  title="Edit File"
+                  buttonID={"editFileButton"+i}
+                  index={i}
+                  callBack={editActivity}
+                  params={
+                    [
+                      {
+                        id: "name"+i,
+                        type: "input",
+                        name: "Name",
+                        defaultValue: file.attributes.name
+                      }
+                    ]
+                  }
+                  />
+                  <button
+                  id={"removeFileButton"+i}
+                  type="button"
+                  >
+                    Delete
+                  </button>
               </div>
             }
           </li>
+          )
         })}
       </ol>
     }
@@ -37,6 +68,10 @@ const FileSection = ({info, files, group}) => {
     </div>
     </>
   );
+}
+
+const editActivity = (index) => {
+
 }
 
 export {FileSection}

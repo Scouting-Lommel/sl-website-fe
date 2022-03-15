@@ -28,7 +28,7 @@ export default function Layout({ children, generalData}) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="px-60">{children}</main>
       <Footer />
     </>
   )
