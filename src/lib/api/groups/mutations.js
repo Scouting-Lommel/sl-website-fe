@@ -87,4 +87,15 @@ const linkFileToGroup = () => {
   `
 }
 
-export {createActivity, editActivity, createFile, linkFileToGroup, deleteFile}
+const editFile = () => {
+  return gql`
+  mutation($id: ID!, $name: String){
+    updateUploadFile(id: $id, data: {name: $name}){
+      data{
+        id
+      }
+    }
+  }`;
+}
+
+export {createActivity, editActivity, createFile, linkFileToGroup, deleteFile, editFile}

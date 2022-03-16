@@ -2,7 +2,7 @@ import { getUserGroup, isLoggedIn } from "../../lib/api/security/security";
 import { File } from "../molecules/File";
 import { Modal } from "../molecules/Modal"
 import { uploadClient } from "../../lib/api/apollo/mutationClient";
-import { createFile, linkFileToGroup, deleteFile } from "../../lib/api/groups/mutations";
+import { createFile, linkFileToGroup, deleteFile, editFile } from "../../lib/api/groups/mutations";
 import { getGroupID, getGroupFileIDs } from "../../lib/api/groups/queries"
 import { useMutation } from "@apollo/client";
 
@@ -16,7 +16,6 @@ const FileSection = ({info, files, group, rerender}) => {
       },
       onCompleted(fin) {
         alert("Added file successfuly");
-        console.log(`${fin}`);
         rerender();
       },
       onError(fin) {
@@ -40,6 +39,22 @@ const FileSection = ({info, files, group, rerender}) => {
       },
     });
 
+    // edit file
+    const [editFileFunc] = useMutation(editFile(), {
+      variables: {
+        id: 0,
+        name: ""
+      },
+      onCompleted(fin) {
+        alert("succesfully edited file");
+        rerender();
+      },
+      onError(fin) {
+        console.error(fin);
+        alert(`something went wrong while editing this file: ${fin}`);
+      },
+    });
+
   return (
     <>
     <div className="bg-sky-600 flex flex-col justify-center items-center">
@@ -58,7 +73,7 @@ const FileSection = ({info, files, group, rerender}) => {
           <li key={i}>
             <File file={file.attributes}/>
             {
-              // isLoggedIn() && getUserGroup() == group &&
+              isLoggedIn() && getUserGroup() == group &&
               <div className="flex justify-around">
                 {/* edit file and removing file button */}
                   <button
@@ -70,9 +85,8 @@ const FileSection = ({info, files, group, rerender}) => {
                   <Modal 
                   title="Edit File"
                   buttonID={"editFileButton"+i}
-                  index={i}
-                  idRef={file.id}
-                  callBack={editFile}
+                  callBack={editFileCallback}
+                  callBackParams={[i, file.id, editFileFunc]}
                   params={
                     [
                       {
@@ -89,7 +103,7 @@ const FileSection = ({info, files, group, rerender}) => {
                   type="button"
                   onClick={(e) => {
                     e.preventDefault()
-                    removeFile(file, removeFileFunc)
+                    removeFile([file, removeFileFunc])
                   }}
                   >
                     Delete
@@ -114,9 +128,8 @@ const FileSection = ({info, files, group, rerender}) => {
             <Modal 
             title="Add File"
             buttonID={"addFileButton"}
-            index={linkFiles}
-            idRef={group}
             callBack={addFile}
+            callBackParams={[group, linkFiles]}
             params={
               [
                 {
@@ -140,32 +153,37 @@ const FileSection = ({info, files, group, rerender}) => {
   );
 }
 
-const editFile = (fileID, index) => {
+const editFileCallback = (params) => {
   if (typeof window !== "undefined") {
-    const newName = document.getElementById("name"+index).value
-    console.log(newName)
+    const newName = document.getElementById("name"+params[0]).value
+    params[2]({
+      variables: {
+        id: params[1],
+        name: newName,
+      },
+    });
   }
 }
 
-const removeFile = (file, func) => {
+const removeFile = (params) => {
   if (typeof window !== "undefined") {
-    if (confirm(`are you sure you want to delete ${file.attributes.name}?`)) {
-      func({
+    if (confirm(`are you sure you want to delete ${params[0].attributes.name}?`)) {
+      params[1]({
         variables: {
-          id: file.id,
+          id: params[0].id,
         },
       });
     }
   }
 }
 
-const addFile = async (group, linkFiles) => {
+const addFile = async (params) => {
 
   if (typeof window !== "undefined") {
     const name = document.getElementById("addName").value
     const file = document.getElementById("addFile").files[0]
-    const groupID = await getGroupID(group);
-    const fileIDs = await getGroupFileIDs(group);
+    const groupID = await getGroupID(params[0]);
+    const fileIDs = await getGroupFileIDs(params[0]);
     // upload the file to the BE
     uploadClient
       .mutate({
@@ -176,11 +194,9 @@ const addFile = async (group, linkFiles) => {
         },
       })
       .then((res) => {
-        console.log(res.data.upload.data.id);
         // need to link file to this tak
         // we need group id and all current file ids + new file id
-        // console.log(getFIleIDs(files, res.data.upload.data.id));
-        linkFiles({
+        params[1]({
           variables: {
             groupID: groupID,
             fileIDs: getFileIDs(fileIDs, res.data.upload.data.id),

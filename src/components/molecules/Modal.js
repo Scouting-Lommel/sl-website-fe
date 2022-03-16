@@ -12,11 +12,10 @@ import { useState } from "react";
  * ]
  * title: the title on the top of the modal
  * callback: the function to call when confirming, has 2 parameters: idRed and index
- * idRef: the id off the refered to object in the DB
- * index: the index used for naming and getting the correct edited values
+ * callBackParams: the params given in the callback function
  * buttonID: the id off the button to click when wanting to open the modal
  */
-const Modal = ({title, params, callBack, buttonID, index, idRef}) => {
+const Modal = ({title, params, callBack, buttonID, callBackParams}) => {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
@@ -86,7 +85,7 @@ const Modal = ({title, params, callBack, buttonID, index, idRef}) => {
               {/* <!-- Modal footer --> */}
               <div className="flex flex-row items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
                 <button
-                  onClick={() => {callBack(idRef, index); closeModal()}}
+                  onClick={() => {callBack(callBackParams); closeModal()}}
                   type="button"
                   className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
                 >
