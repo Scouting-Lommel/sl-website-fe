@@ -1,15 +1,28 @@
 import { getUserGroup, isLoggedIn } from "../../lib/api/security/security";
 import { File } from "../molecules/File";
 import { Modal } from "../molecules/Modal"
-import { useState } from "react";
+import { uploadClient } from "../../lib/api/apollo/mutationClient";
+import { createFile, linkFileToGroup } from "../../lib/api/groups/mutations";
+import { getGroupID, getGroupFileIDs } from "../../lib/api/groups/queries"
+import { useMutation } from "@apollo/client";
 
 const FileSection = ({info, files, group}) => {
 
-  let [getFile, setFile] = useState(null);
-
-  function onFileChange(event) {
-    setFile(event.target.files[0]);
-  }
+    // link the new file to the group
+    const [linkFiles, { data }] = useMutation(linkFileToGroup(), {
+      variables: {
+        groupID: 0,
+        fileIDs: [],
+      },
+      onCompleted(fin) {
+        alert("Added file successfuly");
+        console.log(`${fin}`);
+      },
+      onError(fin) {
+        console.error(fin);
+        alert(`an error occured trying to upload the file: ${fin}`);
+      },
+    });
 
   return (
     <>
@@ -70,7 +83,7 @@ const FileSection = ({info, files, group}) => {
       </ol>
     }
     {
-      isLoggedIn() && getUserGroup() == group &&
+      // isLoggedIn() && getUserGroup() == group &&
       <div className="flex justify-center">
           {/* add file button */}
           <button
@@ -82,8 +95,8 @@ const FileSection = ({info, files, group}) => {
             <Modal 
             title="Add File"
             buttonID={"addFileButton"}
-            index={0}
-            idRef={0}
+            index={linkFiles}
+            idRef={group}
             callBack={addFile}
             params={
               [
@@ -119,12 +132,47 @@ const removeFile = (fileID) => {
 
 }
 
-const addFile = (fileID, index) => {
+const addFile = async (group, linkFiles) => {
+
   if (typeof window !== "undefined") {
     const name = document.getElementById("addName").value
     const file = document.getElementById("addFile").files[0]
-    console.log(name)
-    console.log(file)
+    const groupID = await getGroupID(group);
+    const fileIDs = await getGroupFileIDs(group);
+    // upload the file to the BE
+    uploadClient
+      .mutate({
+        mutation: createFile(),
+        variables: {
+          file: file,
+          name: name
+        },
+      })
+      .then((res) => {
+        console.log(res.data.upload.data.id);
+        // need to link file to this tak
+        // we need group id and all current file ids + new file id
+        // console.log(getFIleIDs(files, res.data.upload.data.id));
+        linkFiles({
+          variables: {
+            groupID: groupID,
+            fileIDs: getFileIDs(fileIDs, res.data.upload.data.id),
+          },
+        });
+      })
+      .catch((err) => {
+        alert(`an error occured trying to link the file: ${err}`);
+      });
+  }
+
+  function getFileIDs(files, newFileID) {
+    let IDstring = [];
+    files.map((file) => {
+      IDstring.push(file.id.toString());
+    });
+    IDstring.push(newFileID);
+  
+    return IDstring;
   }
 }
 

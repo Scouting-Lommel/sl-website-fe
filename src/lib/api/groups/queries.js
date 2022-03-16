@@ -1,4 +1,5 @@
 import {gql} from '@apollo/client';
+import client from "../apollo/client"
 
 const getGroupsPage = () => {
     return gql`query {
@@ -199,6 +200,41 @@ const getGroupsPage = () => {
     `
   }
 
+  const getGroupID = async (groupName) => {
+    const { data } = await client.query({
+        query: gql`query {
+          groups (filters: {Name: {eq: "${groupName}"}}){
+            data {
+              id
+            }
+          }
+        }`
+    })
+
+
+    return data.groups.data[0].id
+  }
+
+  const getGroupFileIDs = async (groupName) => {
+    const { data } = await client.query({
+      query: gql`query {
+        groups(filters: {Name: {eq: "${groupName}"}}){
+          data{
+            attributes{
+              Files{
+                data{
+                  id
+                }
+              }
+            }
+          }
+        }
+      }`
+    })
+
+    return data.groups.data[0].attributes.Files.data
+  }
+
   const getAllGroups = () => {
     return gql`query {
       groups {
@@ -211,4 +247,4 @@ const getGroupsPage = () => {
     }`
   }
 
-  export{getGroupsPage, getGroupPage, getAllGroups}
+  export{getGroupsPage, getGroupPage, getAllGroups, getGroupID, getGroupFileIDs}
