@@ -1,13 +1,13 @@
 import {gql} from '@apollo/client';
 
-const createActivity = () => {
+const createAct = () => {
     return gql`
         mutation (
                 $title: String
                 $description: String
                 $startTime: DateTime
                 $endTime: DateTime
-                $takID: ID!
+                $groupID: ID!
             ) {
             createActivity(
                 data: {
@@ -15,7 +15,7 @@ const createActivity = () => {
                 endTime: $endTime
                 description: $description
                 Title: $title
-                groups: $takID
+                groups: $groupID
                 }
             ) {
                 data {
@@ -25,17 +25,17 @@ const createActivity = () => {
         }`
 }
 
-const editActivity = () => {
+const editAct = () => {
     return gql`
     mutation (
       $title: String
       $description: String
       $startTime: DateTime
       $endTime: DateTime
-      $actID: ID!
+      $id: ID!
     ) {
       updateActivity(
-        id: $actID
+        id: $id
         data: {
           startTime: $startTime
           endTime: $endTime
@@ -49,6 +49,18 @@ const editActivity = () => {
       }
     }
   `
+}
+
+const deleteAct = () => {
+  return gql`
+  mutation($id: ID!) {
+    deleteActivity(id: $id) {
+      data {
+        id
+      }
+    }
+  }
+`;
 }
 
 const createFile = () => {
@@ -98,4 +110,4 @@ const editFile = () => {
   }`;
 }
 
-export {createActivity, editActivity, createFile, linkFileToGroup, deleteFile, editFile}
+export {createAct, editAct, createFile, linkFileToGroup, deleteFile, editFile, deleteAct}

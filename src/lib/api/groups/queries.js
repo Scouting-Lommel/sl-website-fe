@@ -164,6 +164,7 @@ const getGroupsPage = () => {
       }
       activities(filters: { Group: { Name: { eq: "${tak}" } } }) {
         data {
+          id
           attributes {
             Title
             StartTime
