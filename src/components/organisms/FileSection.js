@@ -2,14 +2,14 @@ import { getUserGroup, isLoggedIn } from "../../lib/api/security/security";
 import { File } from "../molecules/File";
 import { Modal } from "../molecules/Modal"
 import { uploadClient } from "../../lib/api/apollo/mutationClient";
-import { createFile, linkFileToGroup } from "../../lib/api/groups/mutations";
+import { createFile, linkFileToGroup, deleteFile } from "../../lib/api/groups/mutations";
 import { getGroupID, getGroupFileIDs } from "../../lib/api/groups/queries"
 import { useMutation } from "@apollo/client";
 
-const FileSection = ({info, files, group}) => {
+const FileSection = ({info, files, group, rerender}) => {
 
     // link the new file to the group
-    const [linkFiles, { data }] = useMutation(linkFileToGroup(), {
+    const [linkFiles] = useMutation(linkFileToGroup(), {
       variables: {
         groupID: 0,
         fileIDs: [],
@@ -17,10 +17,26 @@ const FileSection = ({info, files, group}) => {
       onCompleted(fin) {
         alert("Added file successfuly");
         console.log(`${fin}`);
+        rerender();
       },
       onError(fin) {
         console.error(fin);
         alert(`an error occured trying to upload the file: ${fin}`);
+      },
+    });
+
+    // delete file
+    const [removeFileFunc] = useMutation(deleteFile(), {
+      variables: {
+        id: 0,
+      },
+      onCompleted(fin) {
+        alert("succesfully removed file");
+        rerender();
+      },
+      onError(fin) {
+        console.error(fin);
+        alert(`something went wrong deleting this file: ${fin}`);
       },
     });
 
@@ -42,7 +58,7 @@ const FileSection = ({info, files, group}) => {
           <li key={i}>
             <File file={file.attributes}/>
             {
-              isLoggedIn() && getUserGroup() == group &&
+              // isLoggedIn() && getUserGroup() == group &&
               <div className="flex justify-around">
                 {/* edit file and removing file button */}
                   <button
@@ -71,7 +87,10 @@ const FileSection = ({info, files, group}) => {
                   <button
                   id={"removeFileButton"+i}
                   type="button"
-                  onClick={removeFile(file.id)}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    removeFile(file, removeFileFunc)
+                  }}
                   >
                     Delete
                   </button>
@@ -83,7 +102,7 @@ const FileSection = ({info, files, group}) => {
       </ol>
     }
     {
-      // isLoggedIn() && getUserGroup() == group &&
+      isLoggedIn() && getUserGroup() == group &&
       <div className="flex justify-center">
           {/* add file button */}
           <button
@@ -128,8 +147,16 @@ const editFile = (fileID, index) => {
   }
 }
 
-const removeFile = (fileID) => {
-
+const removeFile = (file, func) => {
+  if (typeof window !== "undefined") {
+    if (confirm(`are you sure you want to delete ${file.attributes.name}?`)) {
+      func({
+        variables: {
+          id: file.id,
+        },
+      });
+    }
+  }
 }
 
 const addFile = async (group, linkFiles) => {

@@ -63,6 +63,18 @@ const createFile = () => {
   `;
 }
 
+const deleteFile = () => {
+  return gql`
+  mutation($id: ID!){
+    deleteUploadFile(id: $id){
+      data{
+        id
+      }
+    }
+  }
+`;
+}
+
 const linkFileToGroup = () => {
     return gql`
     mutation ($groupID: ID!, $fileIDs: [ID]) {
@@ -75,4 +87,4 @@ const linkFileToGroup = () => {
   `
 }
 
-export {createActivity, editActivity, createFile, linkFileToGroup}
+export {createActivity, editActivity, createFile, linkFileToGroup, deleteFile}
