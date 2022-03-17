@@ -29,7 +29,7 @@ export default function group({fin, general, group}) {
             case "ComponentContentBlocksFileSection":
               return <FileSection info={component} files={fin.groups.data[0].attributes.Files.data} group={group} rerender={reRender}/> 
             case "ComponentContentBlocksActivitiesSection":
-              return <ActivitiesSection info={component} activities={fin.activities.data} group={group}/>
+              return <ActivitiesSection info={component} activities={fin.activities.data} group={group} rerender={reRender}/>
             default:
               break;
           }

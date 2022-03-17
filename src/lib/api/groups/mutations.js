@@ -2,27 +2,27 @@ import {gql} from '@apollo/client';
 
 const createAct = () => {
     return gql`
-        mutation (
-                $title: String
-                $description: String
-                $startTime: DateTime
-                $endTime: DateTime
-                $groupID: ID!
-            ) {
-            createActivity(
-                data: {
-                startTime: $startTime
-                endTime: $endTime
-                description: $description
-                Title: $title
-                groups: $groupID
-                }
-            ) {
-                data {
-                id
-                }
-            }
-        }`
+    mutation(
+      $title: String
+      $description: String
+      $startTime: DateTime
+      $endTime: DateTime
+      $groupID: ID!
+    ) {
+      createActivity(
+        data: {
+          StartTime: $startTime
+          EndTime: $endTime
+          Description: $description
+          Title: $title
+          Group: $groupID
+        }
+      ) {
+        data {
+          id
+        }
+      }
+    }`
 }
 
 const editAct = () => {
@@ -37,9 +37,9 @@ const editAct = () => {
       updateActivity(
         id: $id
         data: {
-          startTime: $startTime
-          endTime: $endTime
-          description: $description
+          StartTime: $startTime
+          EndTime: $endTime
+          Description: $description
           Title: $title
         }
       ) {

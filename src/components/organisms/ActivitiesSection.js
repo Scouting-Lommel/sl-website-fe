@@ -57,7 +57,8 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
     {
       activities.length != 0 &&
       <ol className="relative border-l border-gray-200 dark:border-gray-700">
-        {activities.map(act => {
+        {activities.map((act, i) => {
+          return(
           <li className="mb-10 ml-4">
             <Activity activity={act.attributes} />
             {
@@ -117,11 +118,12 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
               </div>
             }
           </li>
+          )
         })}
       </ol>
     }
     {
-      // isLoggedIn() && getUserGroup() == group &&
+      isLoggedIn() && getUserGroup() == group &&
       <div className="flex justify-center">
           {/* add activity button */}
           <button
@@ -177,6 +179,15 @@ const editActCallback = (params) => {
     const newDescription = document.getElementById("description"+params[0]).value
     const newStartDate = document.getElementById("startTime"+params[0]).value
     const newEndDate = document.getElementById("endTime"+params[0]).value
+    if (!newTitle || !newDescription || !newStartDate || !newEndDate) {
+      return alert("all info must be filled in");
+    }
+    if (!newStartDate.toString().includes("Z")) {
+      newStartDate = newStartDate.toString() + ":00.000Z";
+    }
+    if (!newEndDate.toString().includes("Z")) {
+      newEndDate = newEndDate.toString() + ":00.000Z";
+    }
     params[2]({
       variables: {
         id: params[1],
@@ -191,7 +202,7 @@ const editActCallback = (params) => {
 
 const removeAct = (params) => {
   if (typeof window !== "undefined") {
-    if (confirm(`are you sure you want to delete ${params[0].attributes.Title}?`)) {
+    if (confirm(`are you sure you want to delete: "${params[0].attributes.Title}"?`)) {
       params[1]({
         variables: {
           id: params[0].id,
@@ -231,7 +242,7 @@ const addAct = async (params) => {
         },
       })
       .then((res) => {
-        
+        alert(`Succesfully uploaded activity`);
       })
       .catch((err) => {
         alert(`an error occured trying to upload the act: ${err}`);

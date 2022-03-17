@@ -2,7 +2,7 @@ import Layout from "../styles/Layout";
 import Head from 'next/head'
 import client from '../../lib/api/apollo/client'
 import { getGroupsPage } from "../../lib/api/groups/queries";
-import { getGeneralData } from "../lib/api/general/queries";
+import { getGeneralData } from '../../lib/api/general/queries'
 import { ImageText } from "../../components/organisms/ImageText";
 import { CallToAction } from "../../components/organisms/CallToAction";
 import { Carousel } from "../../components/organisms/Carousel";
