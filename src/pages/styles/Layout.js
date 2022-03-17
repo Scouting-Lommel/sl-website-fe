@@ -27,9 +27,9 @@ export default function Layout({ children, generalData}) {
   });
   return (
     <>
-      <Header />
-      <main className="px-60">{children}</main>
-      <Footer />
+      <Header info={header}/>
+        <main className="px-60">{children}</main>
+      <Footer footInfo={footer} address={address} socials={socials}/>
     </>
   )
   }
