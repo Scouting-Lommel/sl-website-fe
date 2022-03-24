@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ComponentInput from "../atoms/ComponentInput";
 
 /**
  * params:
@@ -70,14 +71,9 @@ const Modal = ({title, params, callBack, buttonID, callBackParams}) => {
                 {params.map((ip) => {
                     return(
                         <>
-                        <label htmlFor={ip.name} className="text-white">{ip.name+":"}</label>
-                        <input
-                            type={ip.type}
-                            name={ip.name}
-                            id={ip.id}
-                            defaultValue={ip.defaultValue}
-                        />
-                        <br/>
+                          <label htmlFor={ip.name} className="text-white">{ip.name+":"}</label>
+                          <ComponentInput args={ip}/>
+                          <br/>
                         </>
                     )
                 })}
