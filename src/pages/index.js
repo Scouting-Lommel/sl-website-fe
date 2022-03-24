@@ -9,6 +9,7 @@ import { ImageText } from '../components/organisms/ImageText';
 import { Carousel } from '../components/organisms/Carousel';
 import { Blog } from '../components/organisms/Blog';
 import { Gallery } from '../components/organisms/Gallery';
+import { Socials } from '../components/organisms/Socials';
 
 export default function Home({fin, general}) {
   const Title = fin.Title
@@ -32,6 +33,8 @@ export default function Home({fin, general}) {
               return <Blog info={component}/>
             case "ComponentContentBlocksGallery":
               return <Gallery info={component}/>
+            case "ComponentGeneralSocials":
+              return <Socials info={component}/>
             default:
               break;
           }
