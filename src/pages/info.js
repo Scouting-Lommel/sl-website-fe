@@ -15,6 +15,8 @@ export default function Info({fin, general}) {
     return(
         <Layout generalData={general}>
             <Head>
+              <title>{fin.Title}</title>
+              {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
             </Head>
             {fin.InfoPage.map((component) => {
             switch (component.__typename) {

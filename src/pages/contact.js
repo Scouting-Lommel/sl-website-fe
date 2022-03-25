@@ -5,8 +5,8 @@ export default function contact({fin}) {
   return (
     <Layout>
         <Head>
-            <title>contact</title>
-            <link rel="icon" href="/favicon.ico" />
+          <title>{fin.Title}</title>
+          {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
         <div>
             Neem contact met ons op:

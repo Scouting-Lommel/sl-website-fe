@@ -13,6 +13,8 @@ export default function takken({fin, general}){
   const URL = fin.URL
     return (<Layout generalData={general}>
         <Head>
+          <title>{fin.Title}</title>
+          {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
         {fin.GroupsPage.map((component) => {
           switch (component.__typename) {

@@ -18,6 +18,8 @@ export default function Home({fin, general}) {
   return (
     <Layout generalData={general}>
       <Head>
+        <title>{fin.Title}</title>
+        {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
       </Head>
         {fin.HomePage.map((component) => {
           switch (component.__typename) {

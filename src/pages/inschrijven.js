@@ -16,6 +16,10 @@ export default function inschrijven({fin, general}) {
   const [getFinalLeaders, setFinalLeaders] = useState([]);
   return (
     <Layout generalData={general}>
+      <Head>
+        <title>{fin.Title}</title>
+        {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
+      </Head>
     <div className="flex flex-row justify-center py-32 ">
     {!isPaying &&
     <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">

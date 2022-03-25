@@ -22,6 +22,10 @@ export default function login({general}){
 
   return (
       <Layout generalData={general}>
+        <Head>
+            <title>Login</title>
+            <meta name="googlebot" content="noindex"/>
+        </Head>
       <div className="flex flex-row justify-center py-32">
     <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center max-w-lg">
         <div className="mb-4">

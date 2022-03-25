@@ -15,6 +15,8 @@ export default function verhuur({fin, general}){
     const URL = fin.URL
     return (<Layout generalData={general}>
         <Head>
+          <title>{fin.Title}</title>
+          {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
         {fin.BookingsPage.map((component) => {
           switch (component.__typename) {

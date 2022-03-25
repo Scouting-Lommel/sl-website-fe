@@ -17,6 +17,8 @@ export default function group({fin, general, group}) {
   return (
     <Layout generalData={general}>
         <Head>
+          <title>{generalInfo.Title}</title>
+          {generalInfo.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
         {fin.groupPage.data.attributes[group].map((component) => {
           switch (component.__typename) {
