@@ -7,8 +7,8 @@ const ImageText = ({info}) => {
         <>
         <div className={leftAlligned}>
             <div>
-                <h1 className="text-5xl font-bold">{info.Title}</h1>
-                <p>{info.Content}</p>
+                <h1 className="text-5xl font-bold py-2">{info.Title}</h1>
+                <pre className="whitespace-pre-wrap">{info.Content}</pre>
             </div>
             <ComponentImage args={info.Image}/>
         </div>

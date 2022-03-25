@@ -1,5 +1,6 @@
 import { useMutation } from "@apollo/client";
 import Layout from "./styles/Layout";
+import Head from 'next/head'
 import { getGeneralData } from "../lib/api/general/queries";
 import client from '../lib/api/apollo/client'
 import {loginQuery} from '../lib/api/login/mutations'
