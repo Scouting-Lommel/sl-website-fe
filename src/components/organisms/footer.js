@@ -46,10 +46,10 @@ const Footer = ({footInfo, socials, address}) => {
             </div>
             <hr className="my-6 border-gray-600" />
             <div className="flex flex-row justify-between">
-                <div classname="text-gray-400">
+                <div className="text-gray-500">
                     { "© 2022 " + address.Title + "™. All Rights Reserved."}
                 </div>
-                <div classname="space-x-6">
+                <div className="space-x-6 px-4">
                     <Socials info={socials}/>
                 </div>
                 </div>

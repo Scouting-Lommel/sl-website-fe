@@ -46,7 +46,7 @@ export default function RegisterChild({id}){
               </label>
             </div>
           </div>
-          <input className=" appearance-none text-center rounded max-w-md py-2 px-3 text-grey-darker" type="text" id={"tak"+id} readOnly/>
+          <input className=" appearance-none text-center rounded w-1/2 py-2 px-3 text-grey-darker" type="text" id={"tak"+id} readOnly/>
         </div>
         <hr className="shadow fill-black"></hr>
         {isVisible && 

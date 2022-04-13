@@ -2,6 +2,7 @@ import RegisterChild from '../components/organisms/RegisterChild'
 import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
 import client from '../lib/api/apollo/client'
+import Head from 'next/head'
 import { uploadClient } from "../lib/api/apollo/mutationClient";
 import { useState } from 'react';
 import { registerUser } from '../lib/api/register/mutations';
@@ -10,10 +11,10 @@ import { getGeneralData } from "../lib/api/general/queries";
 import { getGroupLeader, isLoggedIn } from '../lib/api/security/security';
 
 export default function inschrijven({fin, general}) {
-  const [isNotAllFilledIn, setNotAllFilledIn] = useState(false);
-  const [isPaying, setIsPaying] = useState(false);
-  const [getFinalChildren, setFinalChildren] = useState([]);
-  const [getFinalLeaders, setFinalLeaders] = useState([]);
+  const [isNotAllFilledIn, setNotAllFilledIn] = useState(false); // is everythin filled in?
+  const [isPaying, setIsPaying] = useState(false); // filling out the form or paying?
+  const [getFinalChildren, setFinalChildren] = useState([]); // all children who will be registered
+  const [getFinalLeaders, setFinalLeaders] = useState([]); // all leaders who will be resgistered
   return (
     <Layout generalData={general}>
       <Head>
