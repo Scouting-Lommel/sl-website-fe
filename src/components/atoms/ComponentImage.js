@@ -1,8 +1,7 @@
 import Image from 'next/image'
 
 export default function ComponentImage({args}){
-    if(!args || !args.data || !args.data.attributes) return (<></>);
-    console.log(args)
+    if(!args || !args.data || !args.data.attributes) return (<>not a valid image</>);
     return(
         <>
         <div className="basis-1/2 h-auto relative">

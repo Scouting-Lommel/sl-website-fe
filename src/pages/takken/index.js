@@ -5,7 +5,7 @@ import { getGroupsPage } from "../../lib/api/groups/queries";
 import { getGeneralData } from '../../lib/api/general/queries'
 import { ImageText } from "../../components/organisms/ImageText";
 import { CallToAction } from "../../components/organisms/CallToAction";
-import { Carousel } from "../../components/organisms/Carousel";
+import { ItemCarousel } from "../../components/organisms/Carousel";
 
 export default function takken({fin, general}){
   const Title = fin.Title
@@ -23,7 +23,7 @@ export default function takken({fin, general}){
             case "ComponentContentBlocksCallToAction":
               return <CallToAction info={component}/>
             case "ComponentContentBlocksCarousel":
-              return <Carousel info={component}/>
+              return <ItemCarousel info={component}/>
             default:
               break;
           }

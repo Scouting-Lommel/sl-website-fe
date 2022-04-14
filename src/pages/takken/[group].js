@@ -4,7 +4,7 @@ import client from '../../lib/api/apollo/client'
 import { getAllGroups, getGroupPage } from '../../lib/api/groups/queries'
 import { getGeneralData } from '../../lib/api/general/queries'
 import { Hero } from '../../components/organisms/Hero';
-import { Carousel } from '../../components/organisms/Carousel';
+import { ItemCarousel } from '../../components/organisms/Carousel';
 import { ImageText } from '../../components/organisms/ImageText';
 import { FileSection } from '../../components/organisms/FileSection';
 import { ActivitiesSection } from '../../components/organisms/ActivitiesSection';
@@ -25,7 +25,7 @@ export default function group({fin, general, group}) {
             case "ComponentContentBlocksHero":
               return <Hero info={component}/>
             case "ComponentContentBlocksCarousel":
-              return <Carousel info={component}/>
+              return <ItemCarousel info={component}/>
             case "ComponentContentBlocksImageText":
               return <ImageText info={component}/>
             case "ComponentContentBlocksFileSection":

@@ -6,7 +6,7 @@ import { getGeneralData } from "../lib/api/general/queries";
 import { Hero } from '../components/organisms/Hero';
 import { CallToAction } from '../components/organisms/CallToAction';
 import { ImageText } from '../components/organisms/ImageText';
-import { Carousel } from '../components/organisms/Carousel';
+import { ItemCarousel } from '../components/organisms/Carousel';
 import { Blog } from '../components/organisms/Blog';
 import { Gallery } from '../components/organisms/Gallery';
 import { Socials } from '../components/organisms/Socials';
@@ -30,7 +30,7 @@ export default function Home({fin, general}) {
             case "ComponentContentBlocksImageText":
               return <ImageText info={component}/>
             case "ComponentContentBlocksCarousel":
-              return <Carousel info={component}/>
+              return <ItemCarousel info={component}/>
             case "ComponentContentBlocksBlog":
               return <Blog info={component}/>
             case "ComponentContentBlocksGallery":

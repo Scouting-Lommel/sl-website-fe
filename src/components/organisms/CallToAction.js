@@ -1,7 +1,6 @@
 import ComponentLink from "../atoms/ComponentLink"
 
 const CallToAction = ({info}) => {
-    console.log(info)
     return(
         <>
         <div className="px-11 py-4">
