@@ -51,11 +51,6 @@ const mapContent = async (info) => {
   });
 
   var marker = new tt.Marker().setLngLat(latAndLong).addTo(map);
-  
-  // FOR CUSTOM MARKER
-  //var customMarker = document.createElement('div');
-  //customMarker.id = 'marker';
-  //var marker = new tt.Marker({element: customMarker}).setLngLat(latAndLong).addTo(map);
 
   var popupOffsets = {
     top: [0, 0],
