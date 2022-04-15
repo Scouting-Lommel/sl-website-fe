@@ -1,6 +1,7 @@
 import Question from "../molecules/Question";
 
 const FAQ = ({ info }) => {
+  return(<></>)
   console.log(info.Infos.data)
   return (
     <>
