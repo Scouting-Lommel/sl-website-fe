@@ -84,4 +84,18 @@ const getBookingPage = () => {
       `
   }
 
-  export {getBookingPage};
+  const getCalendarDates = () => {
+    return gql`
+    query {
+      rentedDates {
+        data {
+          attributes {
+            StartDate
+            EndDate
+          }
+        }
+      }
+    }`
+  }
+
+  export {getBookingPage, getCalendarDates};

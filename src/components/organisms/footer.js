@@ -3,8 +3,6 @@ import { Address } from "./Address"
 import { Socials } from "./Socials"
 
 const Footer = ({footInfo, socials, address}) => {
-    // console.log("foorinfo: \n")
-    console.log(socials.Socials.data)
     return(
         <>
         <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">

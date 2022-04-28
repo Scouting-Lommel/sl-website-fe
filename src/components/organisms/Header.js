@@ -1,28 +1,28 @@
 import Logo from "../molecules/Logo"
-import ComponentLink from "../atoms/ComponentLink"
 import { isLoggedIn } from "../../lib/api/security/security"
+import { Navigation } from "./Navigation"
 
 const Header = ({info}) => {
     const loginBtn = {
-        Page: "login",
+        Href: "/login",
         IsButton: false,
-        Label: "Login"
+        Title: "Login"
     }
     return(
         <>
         <div className="flex flex-row pr-5 py-2 border-b-2 border-black">
-            <Logo info={info.Logo}/>
-            <div className="grow"></div>
+        <Logo info={info.Logo}/>
+        <div className="grow"></div>
             {
-                info.Navigation.NavigationItems.map((item, i) => {
+                info.NavigationItems.map((item, i) => {
                     return(
-                        <ComponentLink info={item} key={i}/>
+                        <Navigation info={item} key={i}/>
                     )
                 })
             }
             {
                 !isLoggedIn() && 
-                <ComponentLink info={loginBtn} key="loginBtn"/>
+                <Navigation info={loginBtn} key="loginBtn"/>
             }
         </div>
         </>

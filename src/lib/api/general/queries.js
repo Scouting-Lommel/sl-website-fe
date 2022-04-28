@@ -17,10 +17,13 @@ const getGeneralData = () => {
                     }
                   }
                 }
-                Navigation {
-                  NavigationItems {
-                    Label
+                NavigationItems{
+                  Title
+                  Href
+                  IsDropdown
+                  DropdownComponents{
                     Page
+                    Label
                     IsButton
                   }
                 }
@@ -75,7 +78,7 @@ const getGeneralData = () => {
           }
         }
       }
-    }
+    }    
     `
 }
 
