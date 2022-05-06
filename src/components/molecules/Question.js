@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export default function Question({ info }) {
+  const [isVisible, setVisible] = useState(false);
   return (
     <div className="accordion-item bg-white border border-gray-200">
       <h2 className="accordion-header mb-0" id="headingOne">
@@ -11,8 +14,9 @@ export default function Question({ info }) {
           w-full
           py-4
           px-5
-          text-base text-gray-800 text-left
+          text-base text-left
           bg-white
+          text-black
           border-0
           rounded-none
           transition
@@ -23,10 +27,12 @@ export default function Question({ info }) {
           data-bs-target="#collapseOne"
           aria-expanded="true"
           aria-controls="collapseOne"
+          onClick={() => setVisible(!isVisible)}
         >
           {info.Question}
         </button>
       </h2>
+      {isVisible && 
       <div
         id="collapseOne"
         className="accordion-collapse collapse show"
@@ -35,6 +41,7 @@ export default function Question({ info }) {
       >
         <div className="accordion-body py-4 px-5">{info.Answer}</div>
       </div>
+      }
     </div>
   );
 }

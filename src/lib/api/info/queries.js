@@ -36,7 +36,7 @@ const getInfoPage = () => {
               ... on ComponentContentBlocksFaq {
                 __typename
                 Title
-                Info {
+                QenAs {
                   data {
                     attributes {
                       Question
