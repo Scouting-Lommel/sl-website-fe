@@ -84,10 +84,10 @@ const getBookingPage = () => {
       `
   }
 
-  const getCalendarDates = () => {
+  const getCalendarDates = (page) => {
     return gql`
     query {
-      rentedDates {
+      rentedDates(pagination: {pageSize: 10, page:${page}}) {
         data {
           attributes {
             StartDate

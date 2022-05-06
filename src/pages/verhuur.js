@@ -49,16 +49,22 @@ export async function getStaticProps() {
     const layoutData = await client.query({
       query: getGeneralData()
     })
-    const calenderData = await client.query({
-      query: getCalendarDates()
-    })
-    // TODO: get all dates on all pages
-    
+    let datesList = [];
+    let response = ["none"]
+    let index = 1;
+    while(index <= 10){ // set to response.length > 0
+      let calenderData = await client.query({
+        query: getCalendarDates(index++)
+      })
+      response = calenderData.data.rentedDates.data;
+      datesList = datesList.concat(response);
+    }
+
     let general = layoutData.data.generalData.data.attributes.GeneralData;
     let fin = data.bookingsPage.data.attributes;
 
     return {
-        props: {fin: fin, general: general, calendarDates: calenderData.data.rentedDates.data},
+        props: {fin: fin, general: general, calendarDates: datesList},
         revalidate: 86400 // 60*60*24 = every 24 hours
     }
   }
