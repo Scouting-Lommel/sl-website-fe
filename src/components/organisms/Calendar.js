@@ -23,7 +23,7 @@ const Calendar = ({info, calendarData}) => {
     }
     // put all days of the month into CalendarDays
     if(getDayList.length == 0){
-        setDayList(calcDayList(getMonth, getYear, getRentedDayList));
+        setDayList(calcDayList(getMonth, getYear, rentedDates));
     }
     return(
         <>

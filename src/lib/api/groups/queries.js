@@ -27,7 +27,7 @@ const getGroupsPage = () => {
                 __typename
                 Title
                 Content
-                Button {
+                CTAButton: Button {
                   Label
                   IsButton
                   Page

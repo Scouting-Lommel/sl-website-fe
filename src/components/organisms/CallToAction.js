@@ -1,6 +1,20 @@
 import ComponentLink from "../atoms/ComponentLink"
+import Social from "../molecules/Social"
 
 const CallToAction = ({info}) => {
+    let socials = []
+    if(info.Socials){
+        for (let i = 0; i < info.CTAButton.length; i++) {
+            const element = info.CTAButton[i];
+            let args = {
+                attributes: {
+                    Link: element.Page,
+                    Label: element.Label
+                }
+            }
+            socials.push(<Social args={args}/>)
+        }
+    }
     return(
         <>
         <div className="px-11 py-4">
@@ -9,9 +23,19 @@ const CallToAction = ({info}) => {
                     <h1 className="text-3xl font-bold pl-2">{info.Title}</h1>
                     <p className="pl-2">{info.Content}</p>
                 </div>
-                <div className="flex flex-col justify-center px-2">
-                    <ComponentLink info={info.Button}/>
-                </div>
+                {
+                    !info.Socials && 
+                    <div className="flex flex-col justify-center px-2">
+                        <ComponentLink info={info.CTAButton[0]}/>
+                    </div>
+                }
+                {
+
+                    info.Socials &&
+                    <div className="flex justify-center px-2">
+                        {socials.map(sozial => sozial)}
+                    </div>
+                }
             </div>
         </div>
         </>
