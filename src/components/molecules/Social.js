@@ -9,6 +9,9 @@ export default function Social({args}){
         case "Instagram":
             pictogram = "fa fa-instagram";
             break;
+        case "Troll":
+            pictogram = "fa fa-youtube";
+            break;
         default:
             break;
     }
@@ -35,6 +38,10 @@ export default function Social({args}){
 
         .fa-instagram {
         color: black;
+        }
+
+        .fa-youtube {
+        color: black;    
         }
         `}
         </style>

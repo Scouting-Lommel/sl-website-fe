@@ -48,7 +48,7 @@ const Footer = ({footInfo, socials, address}) => {
                     { "© 2022 " + address.Title + "™. All Rights Reserved."}
                 </div>
                 <div className="space-x-6 px-4">
-                    <Socials info={socials}/>
+                    <Socials info={footInfo.Socials}/>
                 </div>
                 </div>
         </footer>
