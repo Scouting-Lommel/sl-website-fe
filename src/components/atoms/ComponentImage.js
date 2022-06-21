@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 export default function ComponentImage({args}){
-    if(!args || !args.data || !args.data.attributes) return (<>not a valid image</>);
+    if(!args || !args.data || !args.data.attributes) return (<>not a valid image</>); 
     return(
         <>
         <div className="basis-1/2 h-auto relative">
@@ -9,8 +9,9 @@ export default function ComponentImage({args}){
                 loader={myLoader}
                 src={args.data.attributes.url}
                 quality={100}
-                layout={!args.data.attributes.width && !args.data.attributes.height && "fill"}
-                
+                layout="intrinsic"
+                width={300}
+                height={300}
             />
         </div>
         </>
@@ -18,5 +19,5 @@ export default function ComponentImage({args}){
 }
 
 const myLoader = ({ src, width, quality }) => {
-    return `${process.env.NEXT_PUBLIC_APP_BACKEND_URL}${src}?w=${width}&q=${quality || 75}`
+    return `${src}?w=${width}`
   }
