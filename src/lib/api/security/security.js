@@ -11,7 +11,7 @@ async function setCredentials(jwt){
             query: getDataFromUserId(id)
         })
         setJwtToken(jwt);
-        setUserGroup(data.usersPermissionsUser.data.attributes.leader.data.attributes.group.data.attributes.name)
+        setUserGroup(data.usersPermissionsUser.data.attributes.leader.data.attributes.group.data.attributes.Name)
         setGroupLeader(data.usersPermissionsUser.data.attributes.leader.data.attributes.IsGroupLeader)
         setUserID(data.usersPermissionsUser.data.attributes.leader.data.id)
     }

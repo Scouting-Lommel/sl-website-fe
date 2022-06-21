@@ -120,14 +120,14 @@ const FileSection = ({info, files, group, rerender}) => {
       <div className="flex justify-center">
           {/* add file button */}
           <button
-            id={"addFileButton"}
+            id="addFileButton"
             type="button"
             >
               Add
             </button>
             <Modal 
             title="Add File"
-            buttonID={"addFileButton"}
+            buttonID="addFileButton"
             callBack={addFile}
             callBackParams={[group, linkFiles]}
             params={

@@ -127,14 +127,14 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
       <div className="flex justify-center">
           {/* add activity button */}
           <button
-            id={"addActButton"}
+            id="addActButton"
             type="button"
             >
               Add
             </button>
             <Modal 
             title="Add Activity"
-            buttonID={"addActButton"}
+            buttonID="addActButton"
             callBack={addAct}
             callBackParams={[group]}
             params={

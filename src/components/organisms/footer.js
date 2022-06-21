@@ -1,3 +1,4 @@
+import ComponentImage from "../atoms/ComponentImage"
 import ComponentLink from "../atoms/ComponentLink"
 import { Address } from "./Address"
 import { Socials } from "./Socials"
@@ -9,7 +10,7 @@ const Footer = ({footInfo, socials, address}) => {
             <div className="flex flex-row justify-around">
                 <div className="mb-6 md:mb-0 ">
                     <a href="/" className="flex items-center text-white">
-                        Logo hierzo
+                        <ComponentImage args={footInfo.Logo} />
                     </a>
                 </div>
                 <Address info={address}/>
