@@ -1,4 +1,4 @@
-import { getUserGroup, isLoggedIn } from "../../lib/api/security/security";
+import { useAuthContext } from "../../lib/api/security/security";
 import Activity from "../molecules/Activity";
 import { Modal } from "../molecules/Modal"
 import { deleteAct, createAct, editAct } from "../../lib/api/groups/mutations"
@@ -42,6 +42,7 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
     },
   });
   
+  const [auth, setAuth] = useAuthContext();
   return(
     <>
     <div className="bg-cyan-50 flex flex-col justify-center items-center">
@@ -62,7 +63,7 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
           <li className="mb-10 ml-4">
             <Activity activity={act.attributes} />
             {
-              isLoggedIn() && getUserGroup() == group &&
+              auth.loggedIn && auth.group == group &&
               <div className="flex justify-around">
                   {/* edit / remove Activity button */}
                   <button
@@ -123,7 +124,7 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
       </ol>
     }
     {
-      isLoggedIn() && getUserGroup() == group &&
+      auth.loggedIn && auth.group == group &&
       <div className="flex justify-center">
           {/* add activity button */}
           <button

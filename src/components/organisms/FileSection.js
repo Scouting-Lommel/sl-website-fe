@@ -1,4 +1,4 @@
-import { getUserGroup, isLoggedIn } from "../../lib/api/security/security";
+import { getUserGroup, isLoggedIn, useAuthContext } from "../../lib/api/security/security";
 import { File } from "../molecules/File";
 import { Modal } from "../molecules/Modal"
 import { uploadClient } from "../../lib/api/apollo/mutationClient";
@@ -55,6 +55,7 @@ const FileSection = ({info, files, group, rerender}) => {
       },
     });
 
+    const [auth, setAuth] = useAuthContext();
   return (
     <>
     <div className="bg-sky-600 flex flex-col justify-center items-center">
@@ -73,7 +74,7 @@ const FileSection = ({info, files, group, rerender}) => {
           <li key={i}>
             <File file={file.attributes}/>
             {
-              isLoggedIn() && getUserGroup() == group &&
+              auth.loggedIn && auth.group == group &&
               <div className="flex justify-around">
                 {/* edit file and removing file button */}
                   <button
@@ -116,7 +117,7 @@ const FileSection = ({info, files, group, rerender}) => {
       </ol>
     }
     {
-      isLoggedIn() && getUserGroup() == group &&
+      auth.loggedIn && auth.group == group &&
       <div className="flex justify-center">
           {/* add file button */}
           <button

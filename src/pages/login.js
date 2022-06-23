@@ -7,13 +7,13 @@ import {loginQuery} from '../lib/api/login/mutations'
 import { setCredentials } from "../lib/api/security/security";
 
 export default function login({general}){
-    const [loginFunc, { loading, error }] = useMutation(loginQuery, {
+    const [loginFunc, { loading, error, data }] = useMutation(loginQuery, {
         variables: {
             username: "placeholder",
             password: "placeholder",
           },
-        onCompleted(fin){
-            setCredentials(fin.login.jwt)
+        onCompleted(data){
+            setCredentials(data.login.jwt)
             window.location.href = '/';
         },
         onError(fin){

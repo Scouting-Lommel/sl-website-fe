@@ -1,8 +1,10 @@
 import { Header } from '../../components/organisms/Header';
 import { Footer } from '../../components/organisms/Footer';
+import { UpdateAuth } from '../../lib/api/security/security';
 // layout is everything that is the same on each page, header, footer, navigation bar...
 
 export default function Layout({ children, generalData}) {
+  UpdateAuth();
   let header = {}
   let footer = {}
   let socials = {}

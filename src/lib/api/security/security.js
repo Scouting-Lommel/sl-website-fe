@@ -1,23 +1,57 @@
 import client from "../apollo/client";
 import { getDataFromUserId } from "./queries";
 import decodeJWT from "jwt-decode"
+import { createContext, useContext, useState } from "react";
 
 const ISSERVER = typeof window === "undefined";
+
+const authContext = createContext();
+
+export function AuthProvider({ children }) {
+    const [auth, setAuth] = useState({
+        loggedIn: false,
+        group: undefined,
+        groupLeader: false
+    });
+    return (
+      <authContext.Provider value={[auth, setAuth]}>{children}</authContext.Provider>
+    );
+  }
+
+export function useAuthContext() {
+    return useContext(authContext); 
+}
+
+async function UpdateAuth(){
+    console.log("updating auth:")
+    const [auth, setAuth] = useAuthContext()
+    console.log(auth)
+    if(auth.group != getUserGroup() || auth.loggedIn != isLoggedIn() || auth.groupLeader != getGroupLeader()){
+        setAuth({
+            loggedIn: isLoggedIn(),
+            group: getUserGroup(),
+            groupLeader: getGroupLeader()
+        })
+        console.log("updated to:")
+        console.log(auth)
+    }
+}
 
 async function setCredentials(jwt){
     if(!ISSERVER){
         const id = decodeJWT(jwt).id
-        const { data } = await client.query({
+        await client.query({
             query: getDataFromUserId(id)
+        }).then(res => {
+            SetJwtToken(jwt);
+            SetUserGroup(res.data.usersPermissionsUser.data.attributes.leader.data.attributes.group.data.attributes.Name)
+            SetGroupLeader(res.data.usersPermissionsUser.data.attributes.leader.data.attributes.IsGroupLeader)
+            setUserID(res.data.usersPermissionsUser.data.attributes.leader.data.id)
         })
-        setJwtToken(jwt);
-        setUserGroup(data.usersPermissionsUser.data.attributes.leader.data.attributes.group.data.attributes.Name)
-        setGroupLeader(data.usersPermissionsUser.data.attributes.leader.data.attributes.IsGroupLeader)
-        setUserID(data.usersPermissionsUser.data.attributes.leader.data.id)
     }
 }
 
-async function setGroupLeader(groupleader){
+async function SetGroupLeader(groupleader){
     if(!ISSERVER) {
         sessionStorage.setItem("groupLeader", groupleader)
     }
@@ -37,13 +71,13 @@ function getJwtToken() {
     return undefined
 }
 
-function setJwtToken(token) {
+function SetJwtToken(token) {
     if(!ISSERVER) {
         sessionStorage.setItem("jwt", token)
     }
 }
 
-async function setUserGroup(name){
+async function SetUserGroup(name){
     if(!ISSERVER) {
         sessionStorage.setItem("UserGroup", name)
     }
@@ -74,4 +108,4 @@ function isLoggedIn(){
     return jwtToken ? true : false
 }
 
-export{getJwtToken, getUserID, getUserGroup, getGroupLeader, isLoggedIn, setCredentials}
+export{getJwtToken, getUserID, getUserGroup, getGroupLeader, setCredentials, UpdateAuth}
