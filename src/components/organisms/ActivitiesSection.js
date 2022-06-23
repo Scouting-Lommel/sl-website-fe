@@ -66,15 +66,10 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
               auth.loggedIn && auth.group == group &&
               <div className="flex justify-around">
                   {/* edit / remove Activity button */}
-                  <button
-                  id={"editActButton"+i}
-                  type="button"
-                  >
-                    Edit
-                  </button>
                   <Modal 
                   title="Edit Activity"
                   buttonID={"editActButton"+i}
+                  buttonText="Edit"
                   callBack={editActCallback}
                   callBackParams={[i, act.id, editActFunc]}
                   params={
@@ -127,15 +122,10 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
       auth.loggedIn && auth.group == group &&
       <div className="flex justify-center">
           {/* add activity button */}
-          <button
-            id="addActButton"
-            type="button"
-            >
-              Add
-            </button>
             <Modal 
             title="Add Activity"
             buttonID="addActButton"
+            buttonText="Add"
             callBack={addAct}
             callBackParams={[group]}
             params={

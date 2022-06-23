@@ -16,23 +16,27 @@ import ComponentInput from "../atoms/ComponentInput";
  * callBackParams: the params given in the callback function
  * buttonID: the id off the button to click when wanting to open the modal
  */
-const Modal = ({title, params, callBack, buttonID, callBackParams}) => {
+const Modal = ({title, params, callBack, buttonID, buttonText, callBackParams}) => {
     let [isOpen, setIsOpen] = useState(false);
 
     function closeModal() {
         setIsOpen(false);
     }
 
-    function openModal() {
+    const openModal = () => {
         setIsOpen(true);
-    }
-
-    if (typeof window !== "undefined") {
-        document.getElementById(buttonID).onclick = () => openModal()
+        console.log("opening modal")
     }
 
     return(
         <>
+         <button
+            id={buttonID}
+            type="button"
+            onClick={() => openModal()}
+            >
+              {buttonText}
+            </button>
          {isOpen && (
         <div
           id="defaultModal"

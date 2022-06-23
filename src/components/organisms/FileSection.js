@@ -77,15 +77,10 @@ const FileSection = ({info, files, group, rerender}) => {
               auth.loggedIn && auth.group == group &&
               <div className="flex justify-around">
                 {/* edit file and removing file button */}
-                  <button
-                  id={"editFileButton"+i}
-                  type="button"
-                  >
-                    Edit
-                  </button>
                   <Modal 
                   title="Edit File"
                   buttonID={"editFileButton"+i}
+                  buttonText="Edit"
                   callBack={editFileCallback}
                   callBackParams={[i, file.id, editFileFunc]}
                   params={
@@ -120,15 +115,10 @@ const FileSection = ({info, files, group, rerender}) => {
       auth.loggedIn && auth.group == group &&
       <div className="flex justify-center">
           {/* add file button */}
-          <button
-            id="addFileButton"
-            type="button"
-            >
-              Add
-            </button>
             <Modal 
             title="Add File"
             buttonID="addFileButton"
+            buttonText="Add"
             callBack={addFile}
             callBackParams={[group, linkFiles]}
             params={
