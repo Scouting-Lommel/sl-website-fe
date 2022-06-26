@@ -1,8 +1,8 @@
 const File = ({ file }) => {
+  const url = file.url
   return (
     <>
       {file.name}
-      {file.url}
     </>
   );
 }

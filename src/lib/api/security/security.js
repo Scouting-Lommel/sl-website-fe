@@ -23,17 +23,13 @@ export function useAuthContext() {
 }
 
 async function UpdateAuth(){
-    console.log("updating auth:")
     const [auth, setAuth] = useAuthContext()
-    console.log(auth)
     if(auth.group != getUserGroup() || auth.loggedIn != isLoggedIn() || auth.groupLeader != getGroupLeader()){
         setAuth({
             loggedIn: isLoggedIn(),
             group: getUserGroup(),
             groupLeader: getGroupLeader()
         })
-        console.log("updated to:")
-        console.log(auth)
     }
 }
 

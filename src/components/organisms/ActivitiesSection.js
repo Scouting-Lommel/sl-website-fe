@@ -82,7 +82,7 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
                       },
                       {
                         id: "description"+i,
-                        type: "input",
+                        type: "wysiwyg",
                         name: "Description",
                         defaultValue: act.attributes.Description
                       },
@@ -127,7 +127,7 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
             buttonID="addActButton"
             buttonText="Add"
             callBack={addAct}
-            callBackParams={[group]}
+            callBackParams={[group, rerender]}
             params={
               [
                 {
@@ -138,7 +138,7 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
                 },
                 {
                   id: "addDescription",
-                  type: "input",
+                  type: "wysiwyg",
                   name: "Description",
                   defaultValue: ""
                 },
@@ -207,6 +207,7 @@ const addAct = async (params) => {
   if (typeof window !== "undefined") {
     const title = document.getElementById("addTitle").value
     const description = document.getElementById("addDescription").value
+    console.log(description)
     const startTime = document.getElementById("addStartTime").value
     const endTime = document.getElementById("addEndTime").value
     const groupID = await getGroupID(params[0]);
@@ -234,6 +235,7 @@ const addAct = async (params) => {
       })
       .then((res) => {
         alert(`Succesfully uploaded activity`);
+        params[1]();
       })
       .catch((err) => {
         alert(`an error occured trying to upload the act: ${err}`);

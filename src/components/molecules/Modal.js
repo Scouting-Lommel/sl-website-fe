@@ -25,7 +25,6 @@ const Modal = ({title, params, callBack, buttonID, buttonText, callBackParams}) 
 
     const openModal = () => {
         setIsOpen(true);
-        console.log("opening modal")
     }
 
     return(
@@ -71,11 +70,11 @@ const Modal = ({title, params, callBack, buttonID, buttonText, callBackParams}) 
                 </button>
               </div>
               {/* <!-- Modal body --> */}
-              <div className="p-6 space-y-6 flex flex-col">
+              <div className="p-6 space-y-1 flex flex-col">
                 {params.map((ip) => {
                     return(
                         <>
-                          <label htmlFor={ip.name} className="text-white">{ip.name+":"}</label>
+                          <label htmlFor={ip.id} className="text-white">{ip.name+":"}</label>
                           <ComponentInput args={ip}/>
                           <br/>
                         </>

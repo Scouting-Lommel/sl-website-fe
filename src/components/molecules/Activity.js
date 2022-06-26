@@ -1,3 +1,5 @@
+import { Markup } from 'interweave';
+
 export default function Activity({ activity }) {
   return (
     <>
@@ -12,7 +14,7 @@ export default function Activity({ activity }) {
         {activity.Title}
       </div>
       <p className="mb-4 text-base font-normal text-gray-500 ">
-        {activity.Description}
+        <Markup content={activity.Description}/>
       </p>
     </>
   );
