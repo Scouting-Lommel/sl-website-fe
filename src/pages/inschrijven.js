@@ -8,13 +8,14 @@ import { useState } from 'react';
 import { registerUser } from '../lib/api/register/mutations';
 import { getAllMembers, getRegisterInfo } from '../lib/api/register/queries';
 import { getGeneralData } from "../lib/api/general/queries";
-import { getGroupLeader, isLoggedIn } from '../lib/api/security/security';
+import { useAuthContext } from "../lib/api/security/security";
 
 export default function inschrijven({fin, general}) {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false); // is everythin filled in?
   const [isPaying, setIsPaying] = useState(false); // filling out the form or paying?
   const [getFinalChildren, setFinalChildren] = useState([]); // all children who will be registered
   const [getFinalLeaders, setFinalLeaders] = useState([]); // all leaders who will be resgistered
+  const [auth, setAuth] = useAuthContext();
   return (
     <Layout generalData={general}>
       <Head>
@@ -37,7 +38,7 @@ export default function inschrijven({fin, general}) {
         (*) = vereist veld
       </label>
       {
-        isLoggedIn() && getGroupLeader() &&
+         auth.loggedIn && auth.groupLeader &&
         <div className="flex flex-row justify-center pt-5">
           <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {downloadAllMemebers()}}>Download</button>
         </div>
