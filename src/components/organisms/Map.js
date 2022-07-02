@@ -27,9 +27,11 @@ const Map = ({info}) => {
           `}
         </style>
         <h2 className="text-3xl text-center font-bold py-3">{info.Title}</h2>
-        <div className="flex pb-3">
-          <div className="whitespace-pre-wrap max-w-md p-3">{info.Content}</div>
+        <div className="flex pb-3 justify-evenly">
+          <div className="whitespace-pre-wrap max-w-lg p-3">{info.Content}</div>
+          <div className="flex flex-col justify-center">
           <div className="items-center p-3 max-w-md max-h-fit border-4 border-double border-black" id='map'></div>
+          </div>
         </div>
         </>
     )

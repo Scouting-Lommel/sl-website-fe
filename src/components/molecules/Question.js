@@ -39,7 +39,9 @@ export default function Question({ info }) {
         aria-labelledby="headingOne"
         data-bs-parent="#accordionExample"
       >
-        <div className="accordion-body py-4 px-5">{info.Answer}</div>
+        <div className="accordion-body py-4 px-5">
+          <pre className="whitespace-pre-wrap">{info.Answer}</pre>
+        </div>
       </div>
       }
     </div>
