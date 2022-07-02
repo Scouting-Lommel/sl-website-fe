@@ -20,7 +20,7 @@ const Footer = ({footInfo, socials, address}) => {
                     {
                         footInfo.NavigationItems.map((link, i) => {
                             return(
-                                <li key={i} className="mb-4">
+                                <li key={"footnav" + i} className="mb-4">
                                     <ComponentLink info={link}/>
                                 </li>
                             )
@@ -34,7 +34,7 @@ const Footer = ({footInfo, socials, address}) => {
                     {
                         footInfo.Link.map((link, i) => {
                             return(
-                                <li key={i} className="mb-4">
+                                <li key={"footinf" + i} className="mb-4">
                                     <ComponentLink info={link}/>
                                 </li>
                             )

@@ -60,7 +60,7 @@ const ActivitiesSection = ({info, activities, group, rerender}) => {
       <ol className="relative border-l border-gray-200 dark:border-gray-700">
         {activities.map((act, i) => {
           return(
-          <li className="mb-10 ml-4">
+          <li className="mb-10 ml-4" key={"act" + i}>
             <Activity activity={act.attributes} />
             {
               auth.loggedIn && auth.group == group &&

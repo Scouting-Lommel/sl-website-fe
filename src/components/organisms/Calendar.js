@@ -74,7 +74,7 @@ const Calendar = ({info, calendarData}) => {
                 {/* calendar days/body */}
                 <ol className="grid grid-cols-7 border-2 text-center">
                     {getDayList.map((day, i) => {
-                        return(<li key={i}>{day}</li>)})}
+                        return(<li key={"calendar" + i}>{day}</li>)})}
                 </ol>
             </div>
         </div>

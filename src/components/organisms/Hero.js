@@ -10,7 +10,7 @@ const Hero = ({info}) => {
                     <h1 className="text-5xl font-bold">{info.Title}</h1>
                     <div className="flex flex-row">
                         {info.Links !== undefined && info.Links.map((link, i) => {
-                            return <ComponentLink args={link} key={i}/>
+                            return <ComponentLink args={link} key={"hero"+i}/>
                         })}
                     </div>
                 </div>

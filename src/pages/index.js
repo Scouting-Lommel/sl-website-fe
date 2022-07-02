@@ -21,22 +21,22 @@ export default function Home({fin, general}) {
         <title>{fin.Title}</title>
         {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
       </Head>
-        {fin.HomePage.map((component) => {
+        {fin.HomePage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":
-              return <Hero info={component}/>
+              return <Hero info={component} key={"Home" + i}/>
             case "ComponentContentBlocksCallToAction":
-              return <CallToAction info={component}/>
+              return <CallToAction info={component} key={"Home" + i}/>
             case "ComponentContentBlocksImageText":
-              return <ImageText info={component}/>
+              return <ImageText info={component} key={"Home" + i}/>
             case "ComponentContentBlocksCarousel":
-              return <ItemCarousel info={component}/>
+              return <ItemCarousel info={component} key={"Home" + i}/>
             case "ComponentContentBlocksBlog":
-              return <Blog info={component}/>
+              return <Blog info={component} key={"Home" + i}/>
             case "ComponentContentBlocksGallery":
-              return <Gallery info={component}/>
+              return <Gallery info={component} key={"Home" + i}/>
             case "ComponentGeneralSocials":
-              return <Socials info={component}/>
+              return <Socials info={component} key={"Home" + i}/>
             default:
               break;
           }

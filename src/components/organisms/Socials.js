@@ -5,7 +5,7 @@ const Socials = ({info}) => {
         <>
         <div className="flex flex-row">
             {info.data.map((soc, i) => {
-                return <Social key={i} args={soc}/>
+                return <Social key={"SOCC" + i} args={soc}/>
             })}
         </div>
         </>

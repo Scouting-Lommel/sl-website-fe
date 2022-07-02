@@ -18,16 +18,16 @@ export default function Info({fin, general}) {
               <title>{fin.Title}</title>
               {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
             </Head>
-            {fin.InfoPage.map((component) => {
+            {fin.InfoPage.map((component, i) => {
             switch (component.__typename) {
             case "ComponentContentBlocksImageText":
-              return <ImageText info={component}/>
+              return <ImageText info={component} key={"info"+i}/>
             case "ComponentContentBlocksCallToAction":
-              return <CallToAction info={component}/>
+              return <CallToAction info={component} key={"info"+i}/>
             case "ComponentContentBlocksFaq":
-              return <FAQ info={component}/>
+              return <FAQ info={component} key={"info"+i}/>
             case "ComponentContentBlocksMap":
-              return <Map info={component}/>
+              return <Map info={component} key={"info"+i}/>
             default:
               break;
           }

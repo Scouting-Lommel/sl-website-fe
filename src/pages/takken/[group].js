@@ -20,18 +20,18 @@ export default function group({fin, general, group}) {
           <title>{generalInfo.Title}</title>
           {generalInfo.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
-        {fin.groupPage.data.attributes[group].map((component) => {
+        {fin.groupPage.data.attributes[group].map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":
-              return <Hero info={component}/>
+              return <Hero info={component} key={"Tak" + i}/>
             case "ComponentContentBlocksCarousel":
-              return <ItemCarousel info={component}/>
+              return <ItemCarousel info={component} key={"Tak" + i}/>
             case "ComponentContentBlocksImageText":
-              return <ImageText info={component}/>
+              return <ImageText info={component} key={"Tak" + i}/>
             case "ComponentContentBlocksFileSection":
               return <FileSection info={component} files={fin.groups.data[0].attributes.Files.data} group={group} rerender={reRender}/> 
             case "ComponentContentBlocksActivitiesSection":
-              return <ActivitiesSection info={component} activities={fin.activities.data} group={group} rerender={reRender}/>
+              return <ActivitiesSection info={component} activities={fin.activities.data} group={group} rerender={reRender} key={"Tak" + i}/>
             default:
               break;
           }

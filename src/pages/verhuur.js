@@ -21,15 +21,15 @@ export default function verhuur({fin, general, calendarDates}){
         {fin.BookingsPage.map((component) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":
-              return <ImageText info={component}/>
+              return <ImageText info={component} key={"verhuur"+i}/>
             case "ComponentContentBlocksCallToAction":
-              return <CallToAction info={component}/>
+              return <CallToAction info={component} key={"verhuur"+i}/>
             case "ComponentContentBlocksCalendar":
-              return <Calendar info={component} calendarData={calendarDates}/>
+              return <Calendar info={component} calendarData={calendarDates} key={"verhuur"+i}/>
             case "ComponentContentBlocksTextSection":
-              return <TextSection info={component}/>
+              return <TextSection info={component} key={"verhuur"+i}/>
             case "ComponentContentBlocksGallery":
-              return <Gallery info={component}/>
+              return <Gallery info={component} key={"verhuur"+i}/>
             default:
               break;
           }

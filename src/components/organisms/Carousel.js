@@ -47,7 +47,7 @@ const ItemCarousel = ({info}) => {
         >
             {
                 info.Items.map((item, index) => {
-                    return <CarouselItem index={index} info={item}/>
+                    return <CarouselItem index={index} info={item} key={"carItem" + index}/>
                 })
             }
         </Carousel> 

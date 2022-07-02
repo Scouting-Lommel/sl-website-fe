@@ -25,7 +25,7 @@ const Navigation = ({info}) => {
                 focusable="false"
                 data-prefix="fas"
                 data-icon="caret-down"
-                class="w-2 ml-2"
+                className="w-2 ml-2"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
@@ -44,9 +44,9 @@ const Navigation = ({info}) => {
                 aria-labelledby="dropdownMenuButton2"
                 >
                     {
-                        info.DropdownComponents.map(component => {
+                        info.DropdownComponents.map((component, i) => {
                             return(
-                            <li>
+                            <li key={"dropdown"+i}>
                                 <a
                                 className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
                                 href={component.Page}

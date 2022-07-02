@@ -71,12 +71,14 @@ const Modal = ({title, params, callBack, buttonID, buttonText, callBackParams}) 
               </div>
               {/* <!-- Modal body --> */}
               <div className="p-6 space-y-1 flex flex-col">
-                {params.map((ip) => {
+                {params.map((ip, i) => {
                     return(
                         <>
+                        <div key={"modal"+i}>
                           <label htmlFor={ip.id} className="text-white">{ip.name+":"}</label>
                           <ComponentInput args={ip}/>
                           <br/>
+                        </div>
                         </>
                     )
                 })}

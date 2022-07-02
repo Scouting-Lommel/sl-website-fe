@@ -71,8 +71,8 @@ const FileSection = ({info, files, group, rerender}) => {
       <ol className="flex flex-nowrap justify-around">
         {files.map((file, i) => {
           return (
-          <li key={i}>
-            <File file={file.attributes}/>
+          <li key={"file" + i}>
+            <File file={file.attributes} key={"fileComp" + i}/>
             {
               auth.loggedIn && auth.group == group &&
               <div className="flex justify-around">

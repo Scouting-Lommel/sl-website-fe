@@ -16,14 +16,14 @@ export default function takken({fin, general}){
           <title>{fin.Title}</title>
           {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
-        {fin.GroupsPage.map((component) => {
+        {fin.GroupsPage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":
-              return <ImageText info={component}/>
+              return <ImageText info={component} key={"Takken" + i}/>
             case "ComponentContentBlocksCallToAction":
-              return <CallToAction info={component}/>
+              return <CallToAction info={component} key={"Takken" + i}/>
             case "ComponentContentBlocksCarousel":
-              return <ItemCarousel info={component}/>
+              return <ItemCarousel info={component} key={"Takken" + i}/>
             default:
               break;
           }

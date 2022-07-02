@@ -12,7 +12,7 @@ const CallToAction = ({info}) => {
                     Label: element.Label
                 }
             }
-            socials.push(<Social args={args}/>)
+            socials.push(<Social args={args} key={"SOC" + i}/>)
         }
     }
     return(

@@ -13,10 +13,10 @@ export default function contact({fin, general}) {
           <title>{fin.Title}</title>
           {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
-        {fin.ContactPage.map((component) => {
+        {fin.ContactPage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksTextSection":
-              return <TextSection info={component}/>
+              return <TextSection info={component} key={"contact" + i}/>
             default:
               break;
           }

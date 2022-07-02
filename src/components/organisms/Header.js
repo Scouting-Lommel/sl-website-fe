@@ -1,5 +1,5 @@
 import ComponentImage from "../atoms/ComponentImage"
-import { isLoggedIn, useAuthContext} from "../../lib/api/security/security"
+import { useAuthContext} from "../../lib/api/security/security"
 import { Navigation } from "./Navigation"
 
 const Header = ({info}) => {
@@ -19,7 +19,7 @@ const Header = ({info}) => {
             {
                 info.NavigationItems.map((item, i) => {
                     return(
-                        <Navigation info={item} key={i}/>
+                        <Navigation info={item} key={"Headernav" + i}/>
                     )
                 })
             }
