@@ -6,7 +6,6 @@ import getContactInfo from '../lib/api/contact/queries';
 import {TextSection} from '../components/organisms/TextSection'
 
 export default function contact({fin, general}) {
-  console.log(fin)
   return (
     <Layout generalData={general}>
         <Head>
