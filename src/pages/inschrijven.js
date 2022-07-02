@@ -38,9 +38,9 @@ export default function inschrijven({fin, general}) {
         (*) = vereist veld
       </label>
       {
-         auth.loggedIn && auth.groupLeader &&
+        auth.groupLeader && auth.loggedIn &&
         <div className="flex flex-row justify-center pt-5">
-          <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {downloadAllMemebers()}}>Download</button>
+          <button type="button" className="border shadow rounded max-w-fit p-2" onClick={() =>  {downloadAllMemebers(auth)}}>Download</button>
         </div>
       }
       </div>
@@ -215,7 +215,11 @@ function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLead
   }
 }
 
-async function downloadAllMemebers(){
+async function downloadAllMemebers(auth){
+  if(!auth.loggedIn || !auth.groupLeader){
+    alert("not allowed to perform this action")
+    return;
+  }
   const { data } = await client.query({
     query: getAllMembers(new Date().getFullYear())
   })

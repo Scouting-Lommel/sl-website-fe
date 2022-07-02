@@ -55,7 +55,7 @@ async function SetGroupLeader(groupleader){
 
 function getGroupLeader(){
     if(!ISSERVER) {
-        return sessionStorage.getItem("groupLeader")
+        return sessionStorage.getItem("groupLeader") == "true" ? true : false;
     }
     return undefined
 }
