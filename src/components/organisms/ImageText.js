@@ -2,7 +2,6 @@ import ComponentImage from "../atoms/ComponentImage"
 import ComponentLink from "../atoms/ComponentLink"
 
 const ImageText = ({info}) => {
-    console.log(info)
     const leftAlligned = info.ImageLeftAligned ? "flex-row-reverse" : "flex-row";
     return(
         <>

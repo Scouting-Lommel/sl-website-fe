@@ -1,25 +1,35 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import ComponentImage from '../atoms/ComponentImage'
 import ComponentLink from '../atoms/ComponentLink'
 
 const CarouselItem = ({info, index}) => {
     if(!info.Href) return <div>Invalid carousel item input</div>
     return (
-        <div
-          key={index}
-          className="text-center relative w-64 h-64"
-        >
-            <Link href={info.Href.Page}>
-                <a className="flex flex-col h-4/6 align-top">
-                    <div className="flex-auto justify-center">
-                        <ComponentImage args={info.Image}/>
+        <Link href={info.Href.Page}>
+            <a className="w-64 h-64 relative rounded-full overflow-hidden hover:border-2 border-black top-0">
+                <Image
+                    loader={myLoader}
+                    src={info.Image.data.attributes.url}
+                    quality={100}
+                    layout="fill"
+                    className="rounded-full"
+                />
+                <div className="absolute px-6 py-4 flex justify-center w-full h-full rounded-full">
+                    <div className="flex flex-col justify-center">
+                        <div className="bg-violet-300 bg-opacity-70">
+                            <h3 className="text-2xl font-bold">{info.Title}</h3>
+                            <h4>{info.Description}</h4>
+                        </div>
                     </div>
-                    <h3 className="text-2xl">{info.Title}</h3>
-                    <h4>{info.Description}</h4>
-                </a>
-            </Link>
-        </div>
+                </div>
+            </a>
+        </Link>
       );
 }
+
+const myLoader = ({ src, width, quality }) => {
+    return `${src}?w=${width}`
+  }
 
 export {CarouselItem}

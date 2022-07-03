@@ -18,7 +18,7 @@ export default function verhuur({fin, general, calendarDates}){
           <title>{fin.Title}</title>
           {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
         </Head>
-        {fin.BookingsPage.map((component) => {
+        {fin.BookingsPage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":
               return <ImageText info={component} key={"verhuur"+i}/>
