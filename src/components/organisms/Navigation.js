@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ComponentLink from "../atoms/ComponentLink"
-import Link from 'next/link'
 
 const Navigation = ({info}) => {
     if(!info.IsDropdown){
@@ -15,51 +14,33 @@ const Navigation = ({info}) => {
     }
     // is dropdown
     const [active, setActive] = useState(false);
+    const showDropdownStyle = active ? "" : " hidden";
     return(
         <>
-        <div className="flex flex-col">
-            <Link href={info.Href}>
-                <a className="text-center flex font-bold py-2 px-4 dropdown-toggle">{info.Title}
-                <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="caret-down"
-                className="w-2 ml-2"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-                >
-                <path
-                    fill="currentColor"
-                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                ></path>
+        <div className="relative inline-block text-left">
+            <div>
+                <button type="button" className="text-center flex py-2 px-4 font-bold" id="menu-button" aria-expanded="true" aria-haspopup="true" onClick={() => {setActive(~active)}}>
+                {info.Title}
+                {/* <!-- Heroicon name: solid/chevron-down --> */}
+                <svg className="-mr-1 ml-1 h-5 w-5 mt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
-                </a>
-            </Link>
-            {
-                active && 
-                <ul
-                class="dropdown-menu min-w-max relative inline-block text-base z-50 py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding border-none bg-gray-800"
-                aria-labelledby="dropdownMenuButton2"
-                >
-                    {
-                        info.DropdownComponents.map((component, i) => {
-                            return(
-                            <li key={"dropdown"+i}>
-                                <a
-                                className="dropdown-item text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-gray-300 hover:bg-gray-700 hover:text-white focus:text-white focus:bg-gray-700"
-                                href={component.Page}
-                                >
-                                {component.Label}
-                                </a>
-                            </li>
-                            )
-                        })
-                    }
-                </ul>
-            }
+                </button>
             </div>
+
+            <div className={"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-75 focus:outline-none z-10 " + showDropdownStyle} role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                <div className="py-1" role="none">
+                {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
+                {
+                    info.DropdownComponents.map((component, i) => {
+                        return(
+                        <a href={component.Page} className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="menu-item-0" key={"dropdown"+i}>{component.Label}</a>
+                        )
+                    })
+                }
+                </div>
+            </div>
+        </div>
         </>
     )
 }
