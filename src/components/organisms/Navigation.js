@@ -8,7 +8,9 @@ const Navigation = ({info}) => {
             Label: info.Title
         };
         return (
+            <div className="flex flex-col justify-center">
             <ComponentLink info={data} />
+            </div>
         );
 
     }
@@ -17,6 +19,7 @@ const Navigation = ({info}) => {
     const showDropdownStyle = active ? "" : " hidden";
     return(
         <>
+        <div className="flex flex-col justify-center">
         <div className="relative inline-block text-left">
             <div>
                 <button type="button" className="text-center flex py-2 px-4 font-bold" id="menu-button" aria-expanded="true" aria-haspopup="true" onClick={() => {setActive(~active)}}>
@@ -40,6 +43,7 @@ const Navigation = ({info}) => {
                 }
                 </div>
             </div>
+        </div>
         </div>
         </>
     )
