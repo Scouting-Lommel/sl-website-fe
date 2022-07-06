@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../styles/Layout'
 import client from '../../lib/api/apollo/client' 
-import { getAllGroups, getGroupPage } from '../../lib/api/groups/queries'
+import { getAllGroups, getGroupLeaders, getGroupPage } from '../../lib/api/groups/queries'
 import { getGeneralData } from '../../lib/api/general/queries'
 import { Hero } from '../../components/organisms/Hero';
 import { ItemCarousel } from '../../components/organisms/Carousel';
@@ -9,16 +9,16 @@ import { ImageText } from '../../components/organisms/ImageText';
 import { FileSection } from '../../components/organisms/FileSection';
 import { ActivitiesSection } from '../../components/organisms/ActivitiesSection';
 
-export default function group({fin, general, group}) {
+export default function group({fin, general, group, leaders}) {
     const generalInfo = fin.groupPage.data.attributes[group].filter(component => component.__typename == "ComponentGeneralPageInfo")[0]
-  return (
+    return (
     <Layout generalData={general} title={generalInfo.Title} url={generalInfo.URL} noIndex={ generalInfo.NoIndex}>
         {fin.groupPage.data.attributes[group].map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":
               return <Hero info={component} key={"Tak" + i}/>
             case "ComponentContentBlocksCarousel":
-              return <ItemCarousel info={component} key={"Tak" + i}/>
+              return <ItemCarousel info={component} key={"Tak" + i} leaders={leaders}/>
             case "ComponentContentBlocksImageText":
               return <ImageText info={component} key={"Tak" + i}/>
             case "ComponentContentBlocksFileSection":
@@ -68,8 +68,10 @@ export const getStaticProps = async (context) => {
 
     let fin = data
 
+    let leaders = await getGroupLeaders(group)
+
     return {
-        props: {fin: fin, general: general, group: group },
+        props: {fin: fin, general: general, group: group, leaders: leaders},
         revalidate: 60 // 60 = every minute
     }
 }

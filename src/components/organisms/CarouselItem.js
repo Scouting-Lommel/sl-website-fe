@@ -3,8 +3,31 @@ import Image from 'next/image'
 import ComponentImage from '../atoms/ComponentImage'
 import ComponentLink from '../atoms/ComponentLink'
 
-const CarouselItem = ({info, index}) => {
-    if(!info.Href) return <div>Invalid carousel item input</div>
+const CarouselItem = ({info}) => {
+    console.log(info)
+    if(!info.Href) {
+        return (
+            <>
+            <div className="w-32 h-32 relative rounded-full overflow-hidden hover:border-2 border-black top-0">
+                <Image
+                    loader={myLoader}
+                    src={info.Image.data.attributes.url}
+                    quality={100}
+                    layout="fill"
+                    className="rounded-full"
+                />
+                <div className="absolute px-6 py-4 flex justify-center w-full h-full rounded-full hover:hidden">
+                    <div className="flex flex-col justify-center">
+                        <div className="bg-violet-300 bg-opacity-70">
+                            <h3 className="text-base font-bold">{info.FirstName + " " + info.LastName}</h3>
+                            <h4>{}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </>
+        )
+    }
     return (
         <Link href={info.Href.Page}>
             <a className="w-64 h-64 relative rounded-full overflow-hidden hover:border-2 border-black top-0">

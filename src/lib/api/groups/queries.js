@@ -249,4 +249,38 @@ const getGroupsPage = () => {
     }`
   }
 
-  export{getGroupsPage, getGroupPage, getAllGroups, getGroupID, getGroupFileIDs}
+  const getGroupLeaders = async (group) => {
+    const { data } = await client.query({
+      query: gql`query {
+        leaders(filters: {group: {Name: {eq: "${group}"}}}){
+          data{
+            attributes{
+              FirstName
+              LastName
+              Email
+              Totem
+              Phone
+              Image{
+                data{
+                  attributes{
+                    url
+                  }
+                }
+              }
+              GroupRoles{
+                data{
+                  attributes{
+                    Name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`
+    })
+
+    return data.leaders
+  }
+
+  export{getGroupsPage, getGroupPage, getAllGroups, getGroupID, getGroupFileIDs, getGroupLeaders}
