@@ -1,5 +1,4 @@
 import Layout from "../styles/Layout";
-import Head from 'next/head'
 import client from '../../lib/api/apollo/client'
 import { getGroupsPage } from "../../lib/api/groups/queries";
 import { getGeneralData } from '../../lib/api/general/queries'
@@ -8,14 +7,7 @@ import { CallToAction } from "../../components/organisms/CallToAction";
 import { ItemCarousel } from "../../components/organisms/Carousel";
 
 export default function takken({fin, general}){
-  const Title = fin.Title
-  const noIndex = fin.NoIndex
-  const URL = fin.URL
-    return (<Layout generalData={general}>
-        <Head>
-          <title>{fin.Title}</title>
-          {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
-        </Head>
+    return (<Layout generalData={general} title={fin.Title} url={fin.URL} noIndex={fin.NoIndex}>
         {fin.GroupsPage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":

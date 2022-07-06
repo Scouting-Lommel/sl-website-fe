@@ -11,15 +11,8 @@ import { ActivitiesSection } from '../../components/organisms/ActivitiesSection'
 
 export default function group({fin, general, group}) {
     const generalInfo = fin.groupPage.data.attributes[group].filter(component => component.__typename == "ComponentGeneralPageInfo")[0]
-    // const Title = generalInfo.Title
-    // const noIndex = generalInfo.NoIndex
-    // const URL = generalInfo.URL
   return (
-    <Layout generalData={general}>
-        <Head>
-          <title>{generalInfo.Title}</title>
-          {generalInfo.NoIndex && <meta name="googlebot" content="noindex"/>}
-        </Head>
+    <Layout generalData={general} title={generalInfo.Title} url={generalInfo.URL} noIndex={ generalInfo.NoIndex}>
         {fin.groupPage.data.attributes[group].map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":

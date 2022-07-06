@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Layout from './styles/Layout'
 import client from '../lib/api/apollo/client'
 import { getGeneralData } from "../lib/api/general/queries";
@@ -7,11 +6,7 @@ import {TextSection} from '../components/organisms/TextSection'
 
 export default function contact({fin, general}) {
   return (
-    <Layout generalData={general}>
-        <Head>
-          <title>{fin.Title}</title>
-          {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
-        </Head>
+    <Layout generalData={general} title={fin.Title} noIndex={fin.NoIndex} url={fin.URL}>
         {fin.ContactPage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksTextSection":

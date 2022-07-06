@@ -1,5 +1,4 @@
 import Layout from "./styles/Layout";
-import Head from 'next/head'
 import client from '../lib/api/apollo/client'
 import { getBookingPage, getCalendarDates } from "../lib/api/booking/queries";
 import { getGeneralData } from "../lib/api/general/queries";
@@ -10,14 +9,7 @@ import { TextSection } from "../components/organisms/TextSection";
 import { Gallery } from "../components/organisms/Gallery";
 
 export default function verhuur({fin, general, calendarDates}){
-    const Title = fin.Title
-    const noIndex = fin.NoIndex
-    const URL = fin.URL
-    return (<Layout generalData={general}>
-        <Head>
-          <title>{fin.Title}</title>
-          {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
-        </Head>
+    return (<Layout generalData={general} title={fin.Title} noIndex={fin.NoIndex} url={fin.URL}>
         {fin.BookingsPage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksImageText":

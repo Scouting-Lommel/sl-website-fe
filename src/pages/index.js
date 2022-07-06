@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Layout from './styles/Layout'
 import client from '../lib/api/apollo/client'
 import { getHomePage } from '../lib/api/home/queries';
@@ -12,15 +11,8 @@ import { Gallery } from '../components/organisms/Gallery';
 import { Socials } from '../components/organisms/Socials';
 
 export default function Home({fin, general}) {
-  const Title = fin.Title
-  const noIndex = fin.NoIndex
-  const URL = fin.URL
   return (
-    <Layout generalData={general}>
-      <Head>
-        <title>{fin.Title}</title>
-        {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
-      </Head>
+    <Layout generalData={general} title={fin.Title} noIndex={fin.NoIndex} url={fin.URL}>
         {fin.HomePage.map((component, i) => {
           switch (component.__typename) {
             case "ComponentContentBlocksHero":

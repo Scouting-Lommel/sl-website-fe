@@ -1,9 +1,10 @@
 import { Header } from '../../components/organisms/Header';
 import { Footer } from '../../components/organisms/Footer';
 import { UpdateAuth } from '../../lib/api/security/security';
+import Head from 'next/head';
 // layout is everything that is the same on each page, header, footer, navigation bar...
 
-export default function Layout({ children, generalData}) {
+export default function Layout({ children, generalData, title, noIndex, url}) {
   UpdateAuth();
   let header = {}
   let footer = {}
@@ -29,6 +30,10 @@ export default function Layout({ children, generalData}) {
   });
   return (
     <>
+      <Head>
+        <title>{title}</title>
+        {noIndex && <meta name="googlebot" content="noindex"/>}
+      </Head>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
       <script src="https://cdn.tailwindcss.com"></script>
       <Header info={header}/>

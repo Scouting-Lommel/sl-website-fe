@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Layout from './styles/Layout'
 import client from '../lib/api/apollo/client'
 import { getInfoPage } from '../lib/api/info/queries';
@@ -9,15 +8,8 @@ import { FAQ } from '../components/organisms/FAQ';
 import { Map } from '../components/organisms/Map';
 
 export default function Info({fin, general}) {
-    const Title = fin.Title
-    const noIndex = fin.NoIndex
-    const URL = fin.URL
     return(
-        <Layout generalData={general}>
-            <Head>
-              <title>{fin.Title}</title>
-              {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
-            </Head>
+        <Layout generalData={general} title={fin.Title} noIndex={fin.NoIndex} url={fin.URL}>
             {fin.InfoPage.map((component, i) => {
             switch (component.__typename) {
             case "ComponentContentBlocksImageText":

@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Custom404({general}) {
   return(
-    <Layout generalData={general}>
+    <Layout generalData={general} title="404">
         <div className="flex flex-col justify-center items-center bg-[#1A2238] h-screen">
     <h1 className="text-9xl font-extrabold text-white tracking-widest">404</h1>
 	<div className="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute">

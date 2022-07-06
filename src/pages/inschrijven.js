@@ -2,7 +2,6 @@ import RegisterChild from '../components/organisms/RegisterChild'
 import RegisterInfo from '../components/organisms/RegisterInfo'
 import Layout from './styles/Layout'
 import client from '../lib/api/apollo/client'
-import Head from 'next/head'
 import { uploadClient } from "../lib/api/apollo/mutationClient";
 import { useState } from 'react';
 import { registerUser } from '../lib/api/register/mutations';
@@ -17,11 +16,7 @@ export default function inschrijven({fin, general}) {
   const [getFinalLeaders, setFinalLeaders] = useState([]); // all leaders who will be resgistered
   const [auth, setAuth] = useAuthContext();
   return (
-    <Layout generalData={general}>
-      <Head>
-        <title>{fin.Title}</title>
-        {fin.NoIndex && <meta name="googlebot" content="noindex"/>}
-      </Head>
+    <Layout generalData={general} title={fin.Title} noIndex={fin.NoIndex} url={fin.URL}>
     <div className="flex flex-row justify-center py-14 ">
     {!isPaying &&
     <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">
