@@ -4,7 +4,6 @@ import ComponentImage from '../atoms/ComponentImage'
 import ComponentLink from '../atoms/ComponentLink'
 
 const CarouselItem = ({info}) => {
-    console.log(info)
     if(!info.Href) {
         return (
             <>
