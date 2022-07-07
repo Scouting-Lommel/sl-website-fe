@@ -19,7 +19,7 @@ const CarouselItem = ({info}) => {
                 </div>
                 <div className="flex flex-col justify-center pt-4">
                     <div>
-                        <h3 className="text-base font-bold">{info.FirstName + " " + info.LastName}</h3>
+                        <h3 className="text-base font-bold text-center">{info.FirstName + " " + info.LastName}</h3>
                         <h4>{}</h4>
                     </div>
                 </div>
