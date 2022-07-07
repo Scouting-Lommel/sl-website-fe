@@ -7,20 +7,20 @@ const CarouselItem = ({info}) => {
     if(!info.Href) {
         return (
             <>
-            <div className="w-32 h-32 relative rounded-full overflow-hidden hover:border-2 border-black top-0">
-                <Image
-                    loader={myLoader}
-                    src={info.Image.data.attributes.url}
-                    quality={100}
-                    layout="fill"
-                    className="rounded-full"
-                />
-                <div className="absolute px-6 py-4 flex justify-center w-full h-full rounded-full hover:hidden">
-                    <div className="flex flex-col justify-center">
-                        <div className="bg-violet-300 bg-opacity-70">
-                            <h3 className="text-base font-bold">{info.FirstName + " " + info.LastName}</h3>
-                            <h4>{}</h4>
-                        </div>
+            <div className="hover:bg-gray-200 rounded-md hover:border-2 border-black py-3 px-2">
+                <div className="w-32 h-32 relative rounded-full overflow-hidden top-0">
+                    <Image
+                        loader={myLoader}
+                        src={info.Image.data.attributes.url}
+                        quality={100}
+                        layout="fill"
+                        className="rounded-full"
+                    />
+                </div>
+                <div className="flex flex-col justify-center pt-4">
+                    <div>
+                        <h3 className="text-base font-bold">{info.FirstName + " " + info.LastName}</h3>
+                        <h4>{}</h4>
                     </div>
                 </div>
             </div>
