@@ -11,7 +11,7 @@ const ImageText = ({info}) => {
             </div>
             <div className="flex flex-col justify-center flex-auto px-24 py-4">
                 <div className="flex justify-center relative w-full h-full">
-                    {info.Image && info.Image.data && info.Image.data.attibutes && <ComponentImage src={info.Image.data.attributes.url}/>}
+                    {info.Image && info.Image.data && info.Image.data.attributes && <ComponentImage src={info.Image.data.attributes.url}/>}
                 </div>
             </div>
         </div>
