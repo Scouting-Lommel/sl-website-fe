@@ -2,16 +2,19 @@ import ComponentImage from "../atoms/ComponentImage"
 import ComponentLink from "../atoms/ComponentLink"
 import { Address } from "./Address"
 import { Socials } from "./Socials"
+import Link from 'next/link'
 
 const Footer = ({footInfo, socials, address}) => {
     return(
         <>
         <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
             <div className="flex flex-row justify-around">
-                <div className="mb-6 md:mb-0 ">
-                    <a href="/" className="flex items-center text-white">
-                        <ComponentImage args={footInfo.Logo} />
+                <div className="mb-6 md:mb-0 relative flex items-center">
+                    <Link href="/">
+                    <a className=" text-white relative w-32 h-32">
+                        <ComponentImage src={footInfo.Logo.data.attributes.url} />
                     </a>
+                    </Link>
                 </div>
                 <Address info={address}/>
                 <div>

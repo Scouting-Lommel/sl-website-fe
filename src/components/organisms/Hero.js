@@ -1,5 +1,5 @@
 import ComponentLink from "../atoms/ComponentLink"
-import Image from 'next/image'
+import ComponentImage from "../atoms/ComponentImage"
 
 const Hero = ({info}) => {
     return(
@@ -7,12 +7,7 @@ const Hero = ({info}) => {
         {info.IsHomePage && 
         <div className="flex justify-center pt-4">
             <div className="h-64 w-10/12 relative">
-                <Image
-                    loader={myLoader}
-                    src={info.Image.data.attributes.url}
-                    quality={100}
-                    layout="fill"
-                />
+                <ComponentImage src={info.Image.data.attributes.url}/>
                 <div className="absolute bottom-0 px-6 py-4 flex justify-center w-full">
                     <div className="bg-green-600 text-lg rounded text-white hover:bg-green-700 opacity-60 hover:opacity-100">
                         {info.Links !== undefined && info.Links.map((link, i) => {
@@ -26,9 +21,5 @@ const Hero = ({info}) => {
         </>
     )
 }
-
-const myLoader = ({ src, width, quality }) => {
-    return `${src}?w=${width}`
-  }
 
 export {Hero}

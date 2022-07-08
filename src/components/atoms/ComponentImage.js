@@ -1,10 +1,18 @@
 import Image from 'next/image'
 
-export default function ComponentImage({args}){
-    if(!args || !args.data || !args.data.attributes) return (<>not a valid image</>); 
+// to use this properly, the encompasing div needs a relative style attribute and a size attribute
+export default function ComponentImage({src, styling}){
+    if(!src) return (<>not a valid image</>); 
     return(
         <>
-        <div className="basis-1/2 h-auto relative">
+        <Image
+            loader={myLoader}
+            src={src}
+            quality={100}
+            layout="fill"
+            className={styling}
+        />
+        {/* <div className="basis-1/2 h-auto relative">
             <Image
                 loader={myLoader}
                 src={args.data.attributes.url}
@@ -13,7 +21,7 @@ export default function ComponentImage({args}){
                 width={300}
                 height={300}
             />
-        </div>
+        </div> */}
         </>
     )
 }

@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import ComponentImage from '../atoms/ComponentImage'
-import ComponentLink from '../atoms/ComponentLink'
 
 const CarouselItem = ({info}) => {
     if(!info.Href) {
@@ -9,13 +7,7 @@ const CarouselItem = ({info}) => {
             <>
             <div className="hover:bg-gray-200 rounded-md hover:border-2 border-black py-3 px-2">
                 <div className="w-32 h-32 relative rounded-full overflow-hidden top-0">
-                    <Image
-                        loader={myLoader}
-                        src={info.Image.data.attributes.url}
-                        quality={100}
-                        layout="fill"
-                        className="rounded-full"
-                    />
+                <ComponentImage src={info.Image.data.attributes.url} styling="rounded-full"/>
                 </div>
                 <div className="flex flex-col justify-center pt-4">
                     <div>
@@ -30,13 +22,7 @@ const CarouselItem = ({info}) => {
     return (
         <Link href={info.Href.Page}>
             <a className="w-64 h-64 relative rounded-full overflow-hidden hover:border-2 border-black top-0">
-                <Image
-                    loader={myLoader}
-                    src={info.Image.data.attributes.url}
-                    quality={100}
-                    layout="fill"
-                    className="rounded-full"
-                />
+                <ComponentImage src={info.Image.data.attributes.url} styling="rounded-full"/>
                 <div className="absolute px-6 py-4 flex justify-center w-full h-full rounded-full">
                     <div className="flex flex-col justify-center">
                         <div className="bg-violet-300 bg-opacity-70">
@@ -49,9 +35,5 @@ const CarouselItem = ({info}) => {
         </Link>
       );
 }
-
-const myLoader = ({ src, width, quality }) => {
-    return `${src}?w=${width}`
-  }
 
 export {CarouselItem}
