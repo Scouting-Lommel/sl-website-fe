@@ -6,7 +6,7 @@ import client from '../lib/api/apollo/client'
 import {loginQuery} from '../lib/api/login/mutations'
 import { setCredentials } from "../lib/api/security/security";
 
-export default function login({general}){
+export default function Login({general}){
     const [loginFunc, { loading, error, data }] = useMutation(loginQuery, {
         variables: {
             username: "placeholder",

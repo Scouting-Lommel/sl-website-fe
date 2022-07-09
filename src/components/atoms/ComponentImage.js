@@ -11,6 +11,7 @@ export default function ComponentImage({src, styling}){
             quality={100}
             layout="fill"
             className={styling}
+            alt="No valid image"
         />
         {/* <div className="basis-1/2 h-auto relative">
             <Image

@@ -1,5 +1,6 @@
 import Layout from './styles/Layout'
 import client from '../lib/api/apollo/client'
+import Script from 'next/script'
 import { getHomePage } from '../lib/api/home/queries';
 import { getGeneralData } from "../lib/api/general/queries";
 import { Hero } from '../components/organisms/Hero';
@@ -33,7 +34,7 @@ export default function Home({fin, general}) {
               break;
           }
         })}
-        <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+        <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></Script>
     </Layout>
   )
 }

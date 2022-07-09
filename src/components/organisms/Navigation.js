@@ -2,6 +2,8 @@ import { useState } from "react";
 import ComponentLink from "../atoms/ComponentLink"
 
 const Navigation = ({info}) => {
+    // is dropdown
+    const [active, setActive] = useState(false);
     if(!info.IsDropdown){
         const data = {
             Page: info.Href,
@@ -14,8 +16,6 @@ const Navigation = ({info}) => {
         );
 
     }
-    // is dropdown
-    const [active, setActive] = useState(false);
     const showDropdownStyle = active ? "" : " hidden";
     return(
         <>

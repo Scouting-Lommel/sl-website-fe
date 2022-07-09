@@ -9,7 +9,7 @@ import { getAllMembers, getRegisterInfo } from '../lib/api/register/queries';
 import { getGeneralData } from "../lib/api/general/queries";
 import { useAuthContext } from "../lib/api/security/security";
 
-export default function inschrijven({fin, general}) {
+export default function Inschrijven({fin, general}) {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false); // is everythin filled in?
   const [isPaying, setIsPaying] = useState(false); // filling out the form or paying?
   const [getFinalChildren, setFinalChildren] = useState([]); // all children who will be registered
@@ -43,11 +43,11 @@ export default function inschrijven({fin, general}) {
     {isPaying && 
     <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">
       <div>Succesvolle inschrijving van de volgende Personen:</div>
-      {getFinalChildren.map((info) => {
-        return <div>{info}</div>
+      {getFinalChildren.map((info, i) => {
+        return <div key={"child" + i}>{info}</div>
       })}
-      {getFinalLeaders.map((info) => {
-        return <div>{info}</div>
+      {getFinalLeaders.map((info, i) => {
+        return <div key={"leader" + i}>{info}</div>
       })}
       <div>Gelieve {getFinalLeaders.length*fin.LeaderPrice + getFinalChildren.length*fin.ChildPrice} euro over te schrijven op het volgende rekeningnummer:</div>
       <div>{fin.AcountNr}</div>
