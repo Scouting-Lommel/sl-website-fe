@@ -10,6 +10,7 @@ export default function Layout({ children, generalData, title, noIndex, url}) {
   let footer = {}
   let socials = {}
   let address = {}
+  if(!generalData) return <>{children}</>
   generalData.forEach(component => {
     switch (component.__typename) {
       case "ComponentGeneralHeader":

@@ -2,32 +2,25 @@ import Head from 'next/head'
 import Layout from '../styles/Layout'
 import client from '../../lib/api/apollo/client' 
 import { getDetailedScoutsGazet, getScoutsGazetAllIds } from '../../lib/api/gazet/queries'
-import ScoutsGazetLarge from '../../components/organisms/ScoutsGazetLarge'
 
-export default function ScoutsGazetLarge({fin}) {
-    console.log(fin)
+export default function ScoutsGazet({fin}) {
   return (
-    <Layout>
-        <Head>
-            <title>Scouts gazet</title>
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <ScoutsGazetLarge article={fin.scoutsgazets.data[0].attributes}/>
-    </Layout>
+    <></>
   )
 }
 
 export const getStaticPaths = async () => {
-    const { data } = await client.query({
-        query: getScoutsGazetAllIds()
-    })
+    // const { data } = await client.query({
+    //     query: getScoutsGazetAllIds()
+    // })
 
-    const paths = data.scoutsgazets.data.map(gazetId => {
-        return {
-            params: { id: gazetId.id }
-        }
-    })
+    // const paths = data.scoutsgazets.data.map(gazetId => {
+    //     return {
+    //         params: { id: gazetId.id }
+    //     }
+    // })
 
+    const paths = [];
     return {
         paths,
         fallback: false
