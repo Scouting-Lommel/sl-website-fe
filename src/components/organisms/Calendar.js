@@ -13,13 +13,14 @@ const Calendar = ({info, calendarData}) => {
         let tmp1 = new Date(element.attributes.StartDate);
         let tmp2 = new Date(element.attributes.EndDate);
         rentedDates.push({
-            start: new Date(monthMap[tmp1.getMonth()] + " " + tmp1.getDay() + ", " + tmp1.getFullYear()).getTime(),
-            end: new Date(monthMap[tmp2.getMonth()] + " " + tmp2.getDay() + ", " + tmp2.getFullYear()).getTime()
+            start: new Date(monthMap[tmp1.getMonth()] + " " + tmp1.getDate() + ", " + tmp1.getFullYear()).getTime(),
+            end: new Date(monthMap[tmp2.getMonth()] + " " + tmp2.getDate() + ", " + tmp2.getFullYear()).getTime()
         })
     });
 
     if(getRentedDayList.length == 0){
         setRentedDayList(rentedDates);
+        console.log(rentedDates[0])
     }
     // put all days of the month into CalendarDays
     if(getDayList.length == 0){
