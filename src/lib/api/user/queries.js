@@ -10,8 +10,9 @@ const getAllUserIds = () => {
     }`
   }
 
-const  getTakPageLargeLeader = (UID) => {
-    return gql`query{ leaders(filters: { id: {eq: ${UID}} }) {
+const  getUser = (UID) => {
+    return gql`query {
+      leaders(filters: { id: { eq: ${UID} } }) {
         data {
           id
           attributes {
@@ -27,8 +28,7 @@ const  getTakPageLargeLeader = (UID) => {
                 }
               }
             }
-            Info
-            group_roles {
+            GroupRoles {
               data {
                 attributes {
                   Name
@@ -41,4 +41,4 @@ const  getTakPageLargeLeader = (UID) => {
     }`
 }
 
-  export {getAllUserIds, getTakPageLargeLeader}
+  export {getAllUserIds, getUser}

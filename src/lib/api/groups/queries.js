@@ -254,6 +254,7 @@ const getGroupsPage = () => {
       query: gql`query {
         leaders(filters: {group: {Name: {eq: "${group}"}}}){
           data{
+            id
             attributes{
               FirstName
               LastName

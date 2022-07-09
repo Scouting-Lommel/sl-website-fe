@@ -14,7 +14,7 @@ const ItemCarousel = ({info, leaders}) => {
       {info.IsLeaderShowcase && !info.IsGroupsShowcase && leaders != undefined &&
           <div className="flex justify-around py-4">
             {leaders.data.map((item, index) => {
-              return <CarouselItem info={item.attributes} key={"carItem" + index}/>
+              return <CarouselItem info={item.attributes} key={"carItem" + index} id={item.id}/>
             })}
           </div>}
       {!info.IsLeaderShowcase && info.IsGroupsShowcase && 

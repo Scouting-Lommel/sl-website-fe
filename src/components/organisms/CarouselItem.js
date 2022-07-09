@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import ComponentImage from '../atoms/ComponentImage'
 
-const CarouselItem = ({info}) => {
+const CarouselItem = ({info, id}) => {
     if(!info.Href) {
         return (
-            <>
+        <Link href={"/user/" + id}>
+            <a>
             <div className="hover:bg-gray-200 rounded-md hover:border-2 border-black py-3 px-2">
                 <div className="w-32 h-32 relative rounded-full overflow-hidden top-0">
                 <ComponentImage src={info.Image.data.attributes.url} styling="rounded-full"/>
@@ -16,7 +17,8 @@ const CarouselItem = ({info}) => {
                     </div>
                 </div>
             </div>
-            </>
+            </a>
+        </Link>
         )
     }
     return (
