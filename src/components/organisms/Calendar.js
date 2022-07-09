@@ -30,7 +30,7 @@ const Calendar = ({info, calendarData}) => {
         <>
         <h1 className="text-5xl font-bold text-center py-3">{info.Title}</h1>
         {/* calendar */}
-        <div className="pb-3">
+        <div className="pb-3 px-36">
             <div className="flex justify-between">
                 {/* calendar header */}
                 <div>
