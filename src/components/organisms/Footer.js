@@ -1,6 +1,6 @@
-import Link from "next/link";
+import NextLink from "next/link";
 import Image from "@/components/atoms/Image";
-import ComponentLink from "@/atoms/ComponentLink";
+import Link from "@/components/atoms/Link";
 import { Address } from "@/organisms/Address";
 import { Socials } from "@/organisms/Socials";
 
@@ -10,11 +10,11 @@ const Footer = ({ footInfo, socials, address }) => {
       <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
         <div className="flex flex-row justify-around">
           <div className="mb-6 md:mb-0 relative flex items-center">
-            <Link href="/">
+            <NextLink href="/">
               <a className=" text-white relative w-32 h-32">
                 <Image src={footInfo.Logo.data.attributes.url} alt="" />
               </a>
-            </Link>
+            </NextLink>
           </div>
           <Address info={address} />
           <div>
@@ -25,7 +25,7 @@ const Footer = ({ footInfo, socials, address }) => {
               {footInfo.NavigationItems.map((link, i) => {
                 return (
                   <li key={"footnav" + i} className="mb-4">
-                    <ComponentLink info={link} />
+                    <Link info={link} />
                   </li>
                 );
               })}
@@ -39,7 +39,7 @@ const Footer = ({ footInfo, socials, address }) => {
               {footInfo.Link.map((link, i) => {
                 return (
                   <li key={"footinf" + i} className="mb-4">
-                    <ComponentLink info={link} />
+                    <Link info={link} />
                   </li>
                 );
               })}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ComponentLink from "@/atoms/ComponentLink";
+import Link from "@/components/atoms/Link";
 
 const Navigation = ({ info }) => {
   // is dropdown
@@ -11,7 +11,7 @@ const Navigation = ({ info }) => {
     };
     return (
       <div className="flex flex-col justify-center">
-        <ComponentLink info={data} />
+        <Link info={data} />
       </div>
     );
   }

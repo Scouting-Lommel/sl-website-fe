@@ -1,4 +1,4 @@
-import ComponentLink from "@/atoms/ComponentLink";
+import Link from "@/components/atoms/Link";
 import Image from "@/components/atoms/Image";
 
 const Hero = ({ info }) => {
@@ -12,7 +12,7 @@ const Hero = ({ info }) => {
               <div className="bg-green-600 text-lg rounded text-white hover:bg-green-700 opacity-60 hover:opacity-100">
                 {info.Links !== undefined &&
                   info.Links.map((link, i) => {
-                    return <ComponentLink info={link} key={"hero" + i} />;
+                    return <Link info={link} key={"hero" + i} />;
                   })}
               </div>
             </div>

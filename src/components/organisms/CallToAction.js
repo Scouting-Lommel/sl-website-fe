@@ -1,4 +1,4 @@
-import ComponentLink from "@/atoms/ComponentLink";
+import Link from "@/components/atoms/Link";
 import Social from "@/molecules/Social";
 
 const CallToAction = ({ info }) => {
@@ -25,7 +25,7 @@ const CallToAction = ({ info }) => {
           </div>
           {!info.Socials && (
             <div className="flex flex-col justify-center px-2">
-              <ComponentLink info={info.CTAButton[0]} />
+              <Link info={info.CTAButton[0]} />
             </div>
           )}
           {info.Socials && (
