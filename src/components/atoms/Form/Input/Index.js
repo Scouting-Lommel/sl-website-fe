@@ -1,6 +1,6 @@
 import WYSIWYG from "@/atoms/WYSIWYG";
 
-export default function ComponentInput({ args }) {
+const Input = ({ args }) => {
   if (args.type == "wysiwyg") {
     return (
       <>
@@ -19,4 +19,6 @@ export default function ComponentInput({ args }) {
       />
     </>
   );
-}
+};
+
+export default Input;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ComponentInput from "@/atoms/ComponentInput";
+import Input from "@/components/atoms/Form/Input";
 
 /**
  * params:
@@ -81,7 +81,7 @@ const Modal = ({
                         <label htmlFor={ip.id} className="text-white">
                           {ip.name + ":"}
                         </label>
-                        <ComponentInput args={ip} />
+                        <Input args={ip} />
                         <br />
                       </div>
                     </>
