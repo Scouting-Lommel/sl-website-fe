@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-function WYSIWYG({ args }) {
+const WYSIWYG = ({ args }) => {
   let editorRef = useRef();
   const { CKEditor, ClassicEditor } = editorRef.current || {}; // if it don't find any document then it will be an empty object
 
@@ -42,6 +42,6 @@ function WYSIWYG({ args }) {
   } else {
     return <h2> loading... </h2>;
   }
-}
+};
 
 export default WYSIWYG;

@@ -1,4 +1,4 @@
-import WYSIWYG from "@/atoms/WYSIWYG";
+import WYSIWYG from "@/components/atoms/WYSIWYG";
 
 const Input = ({ args }) => {
   if (args.type == "wysiwyg") {
