@@ -1,5 +1,5 @@
 import { Markup } from "interweave";
-import ComponentImage from "@/atoms/ComponentImage";
+import Image from "@/components/atoms/Image";
 
 const ImageText = ({ info }) => {
   const leftAlligned = info.ImageLeftAligned ? "flex-row-reverse" : "flex-row";
@@ -13,7 +13,7 @@ const ImageText = ({ info }) => {
         <div className="flex flex-col justify-center flex-auto px-24 py-4">
           <div className="flex justify-center relative w-full h-full">
             {info.Image && info.Image.data && info.Image.data.attributes && (
-              <ComponentImage src={info.Image.data.attributes.url} />
+              <Image src={info.Image.data.attributes.url} alt="" />
             )}
           </div>
         </div>

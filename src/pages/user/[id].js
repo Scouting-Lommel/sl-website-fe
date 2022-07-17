@@ -2,7 +2,7 @@ import client from "@/lib/api/apollo/client";
 import { getAllUserIds, getUser } from "@/lib/api/user/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import Layout from "@/pages/styles/Layout";
-import ComponentImage from "@/atoms/ComponentImage";
+import Image from "@/components/atoms/Image";
 
 export default function user({ fin, general }) {
   if (fin.leaders.data.length == 0)
@@ -41,7 +41,7 @@ export default function user({ fin, general }) {
             {leader.Image &&
               leader.Image.data &&
               leader.Image.data.attributes && (
-                <ComponentImage src={leader.Image.data.attributes.url} />
+                <Image src={leader.Image.data.attributes.url} alt="" />
               )}
           </div>
         </div>

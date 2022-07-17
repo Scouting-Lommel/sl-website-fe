@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ComponentImage from "@/atoms/ComponentImage";
+import Image from "@/components/atoms/Image";
 import ComponentLink from "@/atoms/ComponentLink";
 import { Address } from "@/organisms/Address";
 import { Socials } from "@/organisms/Socials";
@@ -12,7 +12,7 @@ const Footer = ({ footInfo, socials, address }) => {
           <div className="mb-6 md:mb-0 relative flex items-center">
             <Link href="/">
               <a className=" text-white relative w-32 h-32">
-                <ComponentImage src={footInfo.Logo.data.attributes.url} />
+                <Image src={footInfo.Logo.data.attributes.url} alt="" />
               </a>
             </Link>
           </div>

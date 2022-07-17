@@ -1,12 +1,13 @@
-import Image from "next/image";
+import NextImage from "next/image";
 
 // to use this properly, the encompasing div needs a relative style attribute and a size attribute
-export default function ComponentImage({ src, styling }) {
+const Image = ({ src, styling }) => {
   if (!src) return <>not a valid image</>;
+
   return (
     <>
-      <Image
-        loader={myLoader}
+      <NextImage
+        loader={Loader}
         src={src}
         quality={100}
         layout="fill"
@@ -25,8 +26,10 @@ export default function ComponentImage({ src, styling }) {
         </div> */}
     </>
   );
-}
+};
 
-const myLoader = ({ src, width, quality }) => {
+const Loader = ({ src, width, quality }) => {
   return `${src}?w=${width}`;
 };
+
+export default Image;

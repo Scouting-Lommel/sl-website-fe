@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ComponentImage from "@/atoms/ComponentImage";
+import Image from "@/components/atoms/Image";
 import { useAuthContext } from "@/lib/api/security/security";
 import { Navigation } from "@/organisms/Navigation";
 
@@ -14,7 +14,7 @@ const Header = ({ info }) => {
     <>
       <div className="flex flex-row pr-5 py-2 border-b-2 border-black pl-5">
         <div className=" h-14 w-1/12 relative">
-          <ComponentImage src={info.Logo.data.attributes.url} />
+          <Image src={info.Logo.data.attributes.url} alt="image" />
         </div>
         <div className="grow"></div>
         {info.NavigationItems.map((item, i) => {

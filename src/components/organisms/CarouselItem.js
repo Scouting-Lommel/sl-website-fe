@@ -1,5 +1,5 @@
 import Link from "next/link";
-import ComponentImage from "@/atoms/ComponentImage";
+import Image from "@/components/atoms/Image";
 
 const CarouselItem = ({ info, id }) => {
   if (!info.Href) {
@@ -8,9 +8,10 @@ const CarouselItem = ({ info, id }) => {
         <a>
           <div className="hover:bg-gray-200 rounded-md hover:border-2 border-black py-3 px-2">
             <div className="w-32 h-32 relative rounded-full overflow-hidden top-0">
-              <ComponentImage
+              <Image
                 src={info.Image.data.attributes.url}
                 styling="rounded-full"
+                alt=""
               />
             </div>
             <div className="flex flex-col justify-center pt-4">
@@ -29,9 +30,10 @@ const CarouselItem = ({ info, id }) => {
   return (
     <Link href={info.Href.Page}>
       <a className="w-64 h-64 relative rounded-full overflow-hidden hover:border-2 border-black top-0">
-        <ComponentImage
+        <Image
           src={info.Image.data.attributes.url}
           styling="rounded-full"
+          alt=""
         />
         <div className="absolute px-6 py-4 flex justify-center w-full h-full rounded-full">
           <div className="flex flex-col justify-center">
