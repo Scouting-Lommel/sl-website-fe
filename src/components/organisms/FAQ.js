@@ -1,4 +1,4 @@
-import Question from "@/molecules/Question";
+import Question from "@/components/molecules/Question";
 
 const FAQ = ({ info }) => {
   return (

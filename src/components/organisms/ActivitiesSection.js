@@ -3,8 +3,8 @@ import { uploadClient } from "@/lib/api/apollo/mutationClient";
 import { useAuthContext } from "@/lib/api/security/security";
 import { deleteAct, createAct, editAct } from "@/lib/api/groups/mutations";
 import { getGroupID } from "@/lib/api/groups/queries";
-import Activity from "@/molecules/Activity";
-import { Modal } from "@/molecules/Modal";
+import Activity from "@/components/molecules/Activity";
+import { Modal } from "@/components/molecules/Modal";
 
 const ActivitiesSection = ({ info, activities, group, rerender }) => {
   // delete act

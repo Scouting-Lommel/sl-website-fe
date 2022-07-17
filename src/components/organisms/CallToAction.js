@@ -1,5 +1,5 @@
 import Link from "@/components/atoms/Link";
-import Social from "@/molecules/Social";
+import Social from "@/components/molecules/Social";
 
 const CallToAction = ({ info }) => {
   let socials = [];

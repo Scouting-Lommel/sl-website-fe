@@ -1,4 +1,4 @@
-import Social from "@/molecules/Social";
+import Social from "@/components/molecules/Social";
 
 const Socials = ({ info }) => {
   return (

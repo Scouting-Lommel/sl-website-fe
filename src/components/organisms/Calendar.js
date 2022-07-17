@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CalendarDay from "@/molecules/CalendarDay";
+import CalendarDay from "@/components/molecules/CalendarDay";
 
 const Calendar = ({ info, calendarData }) => {
   // the states that the calendar can be in

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 export default function Social({ args }) {
   let pictogram = "";
+
   switch (args.attributes.Label) {
     case "Facebook":
       pictogram = "fa fa-facebook";
@@ -15,12 +16,14 @@ export default function Social({ args }) {
     default:
       break;
   }
+
   return (
     <>
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
       />
+
       <style>
         {`
         .fa {
@@ -49,6 +52,7 @@ export default function Social({ args }) {
         }
         `}
       </style>
+
       <div className="px-2">
         <div className="rounded-full border-black border-2">
           <Link href={args.attributes.Link}>

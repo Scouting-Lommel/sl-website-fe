@@ -12,8 +12,8 @@ import {
   // isLoggedIn,
   useAuthContext,
 } from "@/lib/api/security/security";
-import { File } from "@/molecules/File";
-import { Modal } from "@/molecules/Modal";
+import { File } from "@/components/molecules/File";
+import { Modal } from "@/components/molecules/Modal";
 
 const FileSection = ({ info, files, group, rerender }) => {
   // link the new file to the group
