@@ -1,10 +1,10 @@
-import { CommingSoon } from "@/organisms/CommingSoon";
+import { ComingSoon } from "@/components/organisms/ComingSoon";
 
 const Gallery = ({ info }) => {
   // not a priority
   return (
     <>
-      <CommingSoon item={"Gallery"}></CommingSoon>
+      <ComingSoon item={"Gallery"}></ComingSoon>
     </>
   );
 };
