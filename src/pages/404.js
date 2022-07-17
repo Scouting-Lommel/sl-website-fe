@@ -1,12 +1,12 @@
 // import Head from "next/head";
 import Link from "next/link";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import client from "@/lib/api/apollo/client";
 import { getGeneralData } from "@/lib/api/general/queries";
 
 export default function Custom404({ general }) {
   return (
-    <Layout generalData={general} title="404">
+    <BaseLayout generalData={general} title="404">
       <div className="flex flex-col justify-center items-center bg-[#1A2238] h-screen">
         <h1 className="text-9xl font-extrabold text-white tracking-widest">
           404
@@ -26,7 +26,7 @@ export default function Custom404({ general }) {
           </button>
         </Link>
       </div>
-    </Layout>
+    </BaseLayout>
   );
 }
 

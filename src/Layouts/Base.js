@@ -4,15 +4,16 @@ import { Header } from "@/organisms/Header";
 import { Footer } from "@/organisms/Footer";
 import { UpdateAuth } from "@/lib/api/security/security";
 
-// layout is everything that is the same on each page, header, footer, navigation bar...
-
-export default function Layout({ children, generalData, title, noIndex, url }) {
+const BaseLayout = ({ children, generalData, title, noIndex, url }) => {
   UpdateAuth();
+
   let header = {};
   let footer = {};
   let socials = {};
   let address = {};
+
   if (!generalData) return <>{children}</>;
+
   generalData.forEach((component) => {
     switch (component.__typename) {
       case "ComponentGeneralHeader":
@@ -31,6 +32,7 @@ export default function Layout({ children, generalData, title, noIndex, url }) {
         break;
     }
   });
+
   return (
     <>
       <Head>
@@ -47,4 +49,6 @@ export default function Layout({ children, generalData, title, noIndex, url }) {
       <Footer footInfo={footer} address={address} socials={socials} />
     </>
   );
-}
+};
+
+export default BaseLayout;

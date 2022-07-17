@@ -1,12 +1,12 @@
 import client from "@/lib/api/apollo/client";
 import { getGeneralData } from "@/lib/api/general/queries";
 import getContactInfo from "@/lib/api/contact/queries";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import { TextSection } from "@/organisms/TextSection";
 
 export default function contact({ fin, general }) {
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={fin.Title}
       noIndex={fin.NoIndex}
@@ -20,7 +20,7 @@ export default function contact({ fin, general }) {
             break;
         }
       })}
-    </Layout>
+    </BaseLayout>
   );
 }
 

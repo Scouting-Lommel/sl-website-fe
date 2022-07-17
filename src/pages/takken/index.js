@@ -1,14 +1,14 @@
 import client from "@/lib/api/apollo/client";
 import { getGroupsPage } from "@/lib/api/groups/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import { ImageText } from "@/organisms/ImageText";
 import { CallToAction } from "@/organisms/CallToAction";
 import { ItemCarousel } from "@/organisms/Carousel";
 
 export default function takken({ fin, general }) {
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={fin.Title}
       url={fin.URL}
@@ -26,7 +26,7 @@ export default function takken({ fin, general }) {
             break;
         }
       })}
-    </Layout>
+    </BaseLayout>
   );
 }
 

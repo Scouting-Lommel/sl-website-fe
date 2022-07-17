@@ -1,7 +1,7 @@
 import client from "@/lib/api/apollo/client";
 import { getInfoPage } from "@/lib/api/info/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import { ImageText } from "@/organisms/ImageText";
 import { CallToAction } from "@/organisms/CallToAction";
 import { FAQ } from "@/organisms/FAQ";
@@ -9,7 +9,7 @@ import { Map } from "@/organisms/Map";
 
 export default function Info({ fin, general }) {
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={fin.Title}
       noIndex={fin.NoIndex}
@@ -29,7 +29,7 @@ export default function Info({ fin, general }) {
             break;
         }
       })}
-    </Layout>
+    </BaseLayout>
   );
 }
 

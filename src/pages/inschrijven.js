@@ -5,7 +5,7 @@ import { registerUser } from "@/lib/api/register/mutations";
 import { getAllMembers, getRegisterInfo } from "@/lib/api/register/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import { useAuthContext } from "@/lib/api/security/security";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import RegisterChild from "@/organisms/RegisterChild";
 import RegisterInfo from "@/organisms/RegisterInfo";
 
@@ -16,7 +16,7 @@ export default function Inschrijven({ fin, general }) {
   const [getFinalLeaders, setFinalLeaders] = useState([]); // all leaders who will be resgistered
   const [auth, setAuth] = useAuthContext();
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={fin.Title}
       noIndex={fin.NoIndex}
@@ -93,7 +93,7 @@ export default function Inschrijven({ fin, general }) {
           </div>
         )}
       </div>
-    </Layout>
+    </BaseLayout>
   );
 }
 

@@ -2,7 +2,7 @@ import Script from "next/script";
 import client from "@/lib/api/apollo/client";
 import { getHomePage } from "@/lib/api/home/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import { Hero } from "@/organisms/Hero";
 import { CallToAction } from "@/organisms/CallToAction";
 import { ImageText } from "@/organisms/ImageText";
@@ -13,7 +13,7 @@ import { Socials } from "@/organisms/Socials";
 
 export default function Home({ fin, general }) {
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={fin.Title}
       noIndex={fin.NoIndex}
@@ -40,7 +40,7 @@ export default function Home({ fin, general }) {
         }
       })}
       <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></Script>
-    </Layout>
+    </BaseLayout>
   );
 }
 

@@ -4,7 +4,7 @@ import { getGeneralData } from "@/lib/api/general/queries";
 import client from "@/lib/api/apollo/client";
 import { loginQuery } from "@/lib/api/login/mutations";
 import { setCredentials } from "@/lib/api/security/security";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 
 export default function Login({ general }) {
   const [loginFunc, { loading, error, data }] = useMutation(loginQuery, {
@@ -22,7 +22,7 @@ export default function Login({ general }) {
   });
 
   return (
-    <Layout generalData={general} title="Login" noIndex={true}>
+    <BaseLayout generalData={general} title="Login" noIndex={true}>
       <div className="flex flex-row justify-center py-32">
         <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center max-w-lg">
           <div className="mb-4">
@@ -79,7 +79,7 @@ export default function Login({ general }) {
           </div>
         </div>
       </div>
-    </Layout>
+    </BaseLayout>
   );
 }
 

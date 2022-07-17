@@ -1,18 +1,18 @@
 import client from "@/lib/api/apollo/client";
 import { getGroupLeaders } from "@/lib/api/groups/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import { ItemCarousel } from "@/organisms/Carousel";
 
 export default function leaders({ fin, general, leaderList }) {
   return (
-    <Layout generalData={general} title="Leiding" url="" noIndex={true}>
+    <BaseLayout generalData={general} title="Leiding" url="" noIndex={true}>
       {leaderList.map((component, i) => {
         return (
           <ItemCarousel info={fin[i]} key={"Takken" + i} leaders={component} />
         );
       })}
-    </Layout>
+    </BaseLayout>
   );
 }
 

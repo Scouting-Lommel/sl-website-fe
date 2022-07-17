@@ -1,7 +1,7 @@
 import client from "@/lib/api/apollo/client";
 import { getBookingPage, getCalendarDates } from "@/lib/api/booking/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import { ImageText } from "@/organisms/ImageText";
 import { CallToAction } from "@/organisms/CallToAction";
 import { Calendar } from "@/organisms/Calendar";
@@ -10,7 +10,7 @@ import { Gallery } from "@/organisms/Gallery";
 
 export default function verhuur({ fin, general, calendarDates }) {
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={fin.Title}
       noIndex={fin.NoIndex}
@@ -38,7 +38,7 @@ export default function verhuur({ fin, general, calendarDates }) {
             break;
         }
       })}
-    </Layout>
+    </BaseLayout>
   );
 }
 

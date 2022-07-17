@@ -11,14 +11,14 @@ import { ItemCarousel } from "@/organisms/Carousel";
 import { ImageText } from "@/organisms/ImageText";
 import { FileSection } from "@/organisms/FileSection";
 import { ActivitiesSection } from "@/organisms/ActivitiesSection";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 
 export default function group({ fin, general, group, leaders }) {
   const generalInfo = fin.groupPage.data.attributes[group].filter(
     (component) => component.__typename == "ComponentGeneralPageInfo"
   )[0];
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={generalInfo.Title}
       url={generalInfo.URL}
@@ -61,7 +61,7 @@ export default function group({ fin, general, group, leaders }) {
             break;
         }
       })}
-    </Layout>
+    </BaseLayout>
   );
 }
 

@@ -1,15 +1,15 @@
 import client from "@/lib/api/apollo/client";
 import { getAllUserIds, getUser } from "@/lib/api/user/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import Layout from "@/pages/styles/Layout";
+import BaseLayout from "@/Layouts/Base";
 import Image from "@/components/atoms/Image";
 
 export default function user({ fin, general }) {
   if (fin.leaders.data.length == 0)
-    return <Layout generalData={general}></Layout>;
+    return <BaseLayout generalData={general}></BaseLayout>;
   const leader = fin.leaders.data[0].attributes;
   return (
-    <Layout
+    <BaseLayout
       generalData={general}
       title={leader.FirstName + " " + leader.LastName}
       url=""
@@ -46,7 +46,7 @@ export default function user({ fin, general }) {
           </div>
         </div>
       </div>
-    </Layout>
+    </BaseLayout>
   );
 }
 
