@@ -1,8 +1,8 @@
-import {gql} from '@apollo/client';
-
+import { gql } from "@apollo/client";
 
 const getGeneralData = () => {
-    return gql`query {
+  return gql`
+    query {
       generalData {
         data {
           attributes {
@@ -17,11 +17,11 @@ const getGeneralData = () => {
                     }
                   }
                 }
-                NavigationItems{
+                NavigationItems {
                   Title
                   Href
                   IsDropdown
-                  DropdownComponents{
+                  DropdownComponents {
                     Page
                     Label
                     IsButton
@@ -78,8 +78,8 @@ const getGeneralData = () => {
           }
         }
       }
-    }    
-    `
-}
+    }
+  `;
+};
 
-export {getGeneralData}
+export { getGeneralData };

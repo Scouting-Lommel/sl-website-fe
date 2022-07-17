@@ -1,7 +1,7 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getDataFromUserId = (UID) => {
-    return gql`query {
+  return gql`query {
       usersPermissionsUser(id: ${UID}) {
         data {
           attributes {
@@ -23,7 +23,7 @@ const getDataFromUserId = (UID) => {
           }
         }
       }
-    }`
-  }
+    }`;
+};
 
-  export{getDataFromUserId}
+export { getDataFromUserId };

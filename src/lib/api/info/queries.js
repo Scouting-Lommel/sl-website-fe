@@ -1,7 +1,8 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getInfoPage = () => {
-    return gql`query {
+  return gql`
+    query {
       infoPage {
         data {
           attributes {
@@ -73,7 +74,7 @@ const getInfoPage = () => {
         }
       }
     }
-    `
-  }
+  `;
+};
 
-  export{getInfoPage}
+export { getInfoPage };

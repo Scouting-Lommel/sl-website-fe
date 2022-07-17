@@ -1,7 +1,8 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getHomePage = () => {
-    return gql`query {
+  return gql`
+    query {
       homePage {
         data {
           attributes {
@@ -122,7 +123,7 @@ const getHomePage = () => {
         }
       }
     }
-    `
-  }
+  `;
+};
 
-  export{getHomePage};
+export { getHomePage };

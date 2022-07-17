@@ -1,8 +1,8 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const createAct = () => {
-    return gql`
-    mutation(
+  return gql`
+    mutation (
       $title: String
       $description: String
       $startTime: DateTime
@@ -22,11 +22,12 @@ const createAct = () => {
           id
         }
       }
-    }`
-}
+    }
+  `;
+};
 
 const editAct = () => {
-    return gql`
+  return gql`
     mutation (
       $title: String
       $description: String
@@ -48,23 +49,23 @@ const editAct = () => {
         }
       }
     }
-  `
-}
+  `;
+};
 
 const deleteAct = () => {
   return gql`
-  mutation($id: ID!) {
-    deleteActivity(id: $id) {
-      data {
-        id
+    mutation ($id: ID!) {
+      deleteActivity(id: $id) {
+        data {
+          id
+        }
       }
     }
-  }
-`;
-}
+  `;
+};
 
 const createFile = () => {
-    return gql`
+  return gql`
     mutation ($file: Upload!, $name: String) {
       upload(info: { name: $name }, file: $file) {
         data {
@@ -73,22 +74,22 @@ const createFile = () => {
       }
     }
   `;
-}
+};
 
 const deleteFile = () => {
   return gql`
-  mutation($id: ID!){
-    deleteUploadFile(id: $id){
-      data{
-        id
+    mutation ($id: ID!) {
+      deleteUploadFile(id: $id) {
+        data {
+          id
+        }
       }
     }
-  }
-`;
-}
+  `;
+};
 
 const linkFileToGroup = () => {
-    return gql`
+  return gql`
     mutation ($groupID: ID!, $fileIDs: [ID]) {
       updateGroup(id: $groupID, data: { Files: $fileIDs }) {
         data {
@@ -96,18 +97,27 @@ const linkFileToGroup = () => {
         }
       }
     }
-  `
-}
+  `;
+};
 
 const editFile = () => {
   return gql`
-  mutation($id: ID!, $name: String){
-    updateUploadFile(id: $id, data: {name: $name}){
-      data{
-        id
+    mutation ($id: ID!, $name: String) {
+      updateUploadFile(id: $id, data: { name: $name }) {
+        data {
+          id
+        }
       }
     }
-  }`;
-}
+  `;
+};
 
-export {createAct, editAct, createFile, linkFileToGroup, deleteFile, editFile, deleteAct}
+export {
+  createAct,
+  editAct,
+  createFile,
+  linkFileToGroup,
+  deleteFile,
+  editFile,
+  deleteAct,
+};

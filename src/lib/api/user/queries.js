@@ -1,17 +1,19 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getAllUserIds = () => {
-    return gql`query{
-      leaders{
-        data{
+  return gql`
+    query {
+      leaders {
+        data {
           id
         }
       }
-    }`
-  }
+    }
+  `;
+};
 
-const  getUser = (UID) => {
-    return gql`query {
+const getUser = (UID) => {
+  return gql`query {
       leaders(filters: { id: { eq: ${UID} } }) {
         data {
           id
@@ -38,7 +40,7 @@ const  getUser = (UID) => {
           }
         }
       }
-    }`
-}
+    }`;
+};
 
-  export {getAllUserIds, getUser}
+export { getAllUserIds, getUser };

@@ -1,22 +1,22 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 const File = ({ file }) => {
-  let fileType = ""
+  let fileType = "";
   switch (file.ext) {
     case ".docx":
-      fileType = "fa-file-word"
+      fileType = "fa-file-word";
       break;
     case ".pdf":
-      fileType = "fa-file-pdf"
+      fileType = "fa-file-pdf";
       break;
     case ".pptx":
-      fileType = "fa-file-powerpoint"
+      fileType = "fa-file-powerpoint";
       break;
     case ".xlsx":
-      fileType = "fa-file-excel"
+      fileType = "fa-file-excel";
       break;
     default:
-      fileType = "fa-file"
+      fileType = "fa-file";
       break;
   }
   return (
@@ -31,6 +31,6 @@ const File = ({ file }) => {
       </div>
     </>
   );
-}
+};
 
-export {File}
+export { File };

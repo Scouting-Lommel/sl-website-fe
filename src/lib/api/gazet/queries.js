@@ -1,7 +1,7 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getScoutsGazetPreview = (n) => {
-    return gql`query{ scoutsgazets(sort: "Date:desc", pagination: {page:1, pageSize:${n}}) {
+  return gql`query{ scoutsgazets(sort: "Date:desc", pagination: {page:1, pageSize:${n}}) {
         data {
           attributes {
             Title
@@ -17,20 +17,23 @@ const getScoutsGazetPreview = (n) => {
           }
         }
       }
-    }`
-}
+    }`;
+};
 
 const getScoutsGazetAllIds = () => {
-    return gql`query{ scoutsgazets(sort: "Date:desc") {
+  return gql`
+    query {
+      scoutsgazets(sort: "Date:desc") {
         data {
           id
         }
       }
-    }`
-}
+    }
+  `;
+};
 
 const getDetailedScoutsGazet = (id) => {
-    return gql`query{ scoutsgazets(filters: {id: {eq: ${id}}}) {
+  return gql`query{ scoutsgazets(filters: {id: {eq: ${id}}}) {
         data {
           attributes {
             Title
@@ -54,7 +57,7 @@ const getDetailedScoutsGazet = (id) => {
           }
         }
       }
-    }`
-}
+    }`;
+};
 
-export{getScoutsGazetPreview, getScoutsGazetAllIds, getDetailedScoutsGazet}
+export { getScoutsGazetPreview, getScoutsGazetAllIds, getDetailedScoutsGazet };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Markup } from 'interweave';
+import { Markup } from "interweave";
 
 export default function Question({ info }) {
   const [isVisible, setVisible] = useState(false);
@@ -33,18 +33,18 @@ export default function Question({ info }) {
           {info.Question}
         </button>
       </h2>
-      {isVisible && 
-      <div
-        id="collapseOne"
-        className="accordion-collapse collapse show"
-        aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample"
-      >
-        <div className="accordion-body py-4 px-5">
-          <Markup content={info.Answer}/>
+      {isVisible && (
+        <div
+          id="collapseOne"
+          className="accordion-collapse collapse show"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample"
+        >
+          <div className="accordion-body py-4 px-5">
+            <Markup content={info.Answer} />
+          </div>
         </div>
-      </div>
-      }
+      )}
     </div>
   );
 }

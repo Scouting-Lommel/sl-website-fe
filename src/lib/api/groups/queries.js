@@ -1,8 +1,9 @@
-import {gql} from '@apollo/client';
-import client from "../apollo/client"
+import { gql } from "@apollo/client";
+import client from "../apollo/client";
 
 const getGroupsPage = () => {
-    return gql`query {
+  return gql`
+    query {
       groupsPage {
         data {
           attributes {
@@ -78,11 +79,11 @@ const getGroupsPage = () => {
         }
       }
     }
-    `
-  }
+  `;
+};
 
-  const getGroupPage = (tak) => {
-    return gql`query {
+const getGroupPage = (tak) => {
+  return gql`query {
       groupPage {
         data {
           attributes {
@@ -199,27 +200,26 @@ const getGroupsPage = () => {
         }
       }
     }
-    `
-  }
+    `;
+};
 
-  const getGroupID = async (groupName) => {
-    const { data } = await client.query({
-        query: gql`query {
+const getGroupID = async (groupName) => {
+  const { data } = await client.query({
+    query: gql`query {
           groups (filters: {Name: {eq: "${groupName}"}}){
             data {
               id
             }
           }
-        }`
-    })
+        }`,
+  });
 
+  return data.groups.data[0].id;
+};
 
-    return data.groups.data[0].id
-  }
-
-  const getGroupFileIDs = async (groupName) => {
-    const { data } = await client.query({
-      query: gql`query {
+const getGroupFileIDs = async (groupName) => {
+  const { data } = await client.query({
+    query: gql`query {
         groups(filters: {Name: {eq: "${groupName}"}}){
           data{
             attributes{
@@ -231,14 +231,15 @@ const getGroupsPage = () => {
             }
           }
         }
-      }`
-    })
+      }`,
+  });
 
-    return data.groups.data[0].attributes.Files.data
-  }
+  return data.groups.data[0].attributes.Files.data;
+};
 
-  const getAllGroups = () => {
-    return gql`query {
+const getAllGroups = () => {
+  return gql`
+    query {
       groups {
         data {
           attributes {
@@ -246,12 +247,13 @@ const getGroupsPage = () => {
           }
         }
       }
-    }`
-  }
+    }
+  `;
+};
 
-  const getGroupLeaders = async (group) => {
-    const { data } = await client.query({
-      query: gql`query {
+const getGroupLeaders = async (group) => {
+  const { data } = await client.query({
+    query: gql`query {
         leaders(filters: {group: {Name: {eq: "${group}"}}}){
           data{
             id
@@ -278,10 +280,17 @@ const getGroupsPage = () => {
             }
           }
         }
-      }`
-    })
+      }`,
+  });
 
-    return data.leaders
-  }
+  return data.leaders;
+};
 
-  export{getGroupsPage, getGroupPage, getAllGroups, getGroupID, getGroupFileIDs, getGroupLeaders}
+export {
+  getGroupsPage,
+  getGroupPage,
+  getAllGroups,
+  getGroupID,
+  getGroupFileIDs,
+  getGroupLeaders,
+};

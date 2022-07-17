@@ -1,21 +1,23 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getContactInfo = () => {
-    return gql`query {
-        contactPage{
-          data{
-            attributes{
-              ContactPage{
-                ... on ComponentContentBlocksTextSection{
-                  __typename
-                  Title
-                  Text
-                }
+  return gql`
+    query {
+      contactPage {
+        data {
+          attributes {
+            ContactPage {
+              ... on ComponentContentBlocksTextSection {
+                __typename
+                Title
+                Text
               }
             }
           }
         }
-      }`
-}
+      }
+    }
+  `;
+};
 
-export default getContactInfo
+export default getContactInfo;

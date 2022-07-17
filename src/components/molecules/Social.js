@@ -1,24 +1,28 @@
 import Link from "next/link";
 
-export default function Social({args}){
-    let pictogram = "";
-    switch (args.attributes.Label) {
-        case "Facebook":
-            pictogram = "fa fa-facebook";
-            break;
-        case "Instagram":
-            pictogram = "fa fa-instagram";
-            break;
-        case "Troll":
-            pictogram = "fa fa-youtube";
-            break;
-        default:
-            break;
-    }
-    return (
-        <>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <style>{`
+export default function Social({ args }) {
+  let pictogram = "";
+  switch (args.attributes.Label) {
+    case "Facebook":
+      pictogram = "fa fa-facebook";
+      break;
+    case "Instagram":
+      pictogram = "fa fa-instagram";
+      break;
+    case "Troll":
+      pictogram = "fa fa-youtube";
+      break;
+    default:
+      break;
+  }
+  return (
+    <>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <style>
+        {`
         .fa {
         padding: 5px;
         font-size: 20px;
@@ -44,14 +48,14 @@ export default function Social({args}){
         color: black;    
         }
         `}
-        </style>
-        <div className="px-2">
-            <div className="rounded-full border-black border-2">
-                <Link href={args.attributes.Link}>
-                    <a className={pictogram}></a>
-                </Link>
-            </div>
+      </style>
+      <div className="px-2">
+        <div className="rounded-full border-black border-2">
+          <Link href={args.attributes.Link}>
+            <a className={pictogram}></a>
+          </Link>
         </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }

@@ -1,22 +1,23 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getRegisterInfo = () => {
-    return gql`query {
-        registerPage {
-          data {
-            attributes {
-              AcountNr
-              ChildPrice
-              LeaderPrice
-            }
+  return gql`
+    query {
+      registerPage {
+        data {
+          attributes {
+            AcountNr
+            ChildPrice
+            LeaderPrice
           }
         }
       }
-      `
-  }
+    }
+  `;
+};
 
-  const getAllMembers = (year) => {
-    return gql`query{
+const getAllMembers = (year) => {
+  return gql`query{
       members(filters: {Year: {eq: "${year}"}}){
         data{
           attributes{
@@ -37,7 +38,7 @@ const getRegisterInfo = () => {
           }
         }
       }
-    }`
-  }
+    }`;
+};
 
-  export {getRegisterInfo, getAllMembers}
+export { getRegisterInfo, getAllMembers };

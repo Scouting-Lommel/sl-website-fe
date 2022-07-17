@@ -1,7 +1,8 @@
-import {gql} from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const getBookingPage = () => {
-    return gql`query {
+  return gql`
+    query {
       bookingsPage {
         data {
           attributes {
@@ -80,12 +81,12 @@ const getBookingPage = () => {
           }
         }
       }
-    }    
-      `
-  }
+    }
+  `;
+};
 
-  const getCalendarDates = (page) => {
-    return gql`
+const getCalendarDates = (page) => {
+  return gql`
     query {
       rentedDates(pagination: {pageSize: 10, page:${page}}) {
         data {
@@ -95,7 +96,7 @@ const getBookingPage = () => {
           }
         }
       }
-    }`
-  }
+    }`;
+};
 
-  export {getBookingPage, getCalendarDates};
+export { getBookingPage, getCalendarDates };

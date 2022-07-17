@@ -1,12 +1,12 @@
-import { CommingSoon } from "./CommingSoon"
+import { CommingSoon } from "@/organisms/CommingSoon";
 
-const Blog = ({info}) => {
-    // not a priority
-    return(
-        <>
-            <CommingSoon item={"Blog"}></CommingSoon>
-        </>
-    )
-}
+const Blog = ({ info }) => {
+  // not a priority
+  return (
+    <>
+      <CommingSoon item={"Blog"}></CommingSoon>
+    </>
+  );
+};
 
-export {Blog}
+export { Blog };
