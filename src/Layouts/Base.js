@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
-import { Header } from "@/organisms/Header";
-import { Footer } from "@/organisms/Footer";
+import { Header } from "@/components/organisms/Header";
+import { Footer } from "@/components/organisms/Footer";
 import { UpdateAuth } from "@/lib/api/security/security";
 
 const BaseLayout = ({ children, generalData, title, noIndex, url }) => {

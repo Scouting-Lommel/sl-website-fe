@@ -3,13 +3,13 @@ import client from "@/lib/api/apollo/client";
 import { getHomePage } from "@/lib/api/home/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/Layouts/Base";
-import { Hero } from "@/organisms/Hero";
-import { CallToAction } from "@/organisms/CallToAction";
-import { ImageText } from "@/organisms/ImageText";
-import { ItemCarousel } from "@/organisms/Carousel";
-import { Blog } from "@/organisms/Blog";
-import { Gallery } from "@/organisms/Gallery";
-import { Socials } from "@/organisms/Socials";
+import { Hero } from "@/components/organisms/Hero";
+import { CallToAction } from "@/components/organisms/CallToAction";
+import { ImageText } from "@/components/organisms/ImageText";
+import { ItemCarousel } from "@/components/organisms/Carousel";
+import { Blog } from "@/components/organisms/Blog";
+import { Gallery } from "@/components/organisms/Gallery";
+import { Socials } from "@/components/organisms/Socials";
 
 export default function Home({ fin, general }) {
   return (

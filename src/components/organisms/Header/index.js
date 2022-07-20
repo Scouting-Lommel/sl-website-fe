@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "@/components/atoms/Image";
 import { useAuthContext } from "@/lib/api/security/security";
-import { Navigation } from "@/organisms/Navigation";
+import { Navigation } from "@/components/organisms/Navigation";
 
 const Header = ({ info }) => {
   const loginBtn = {

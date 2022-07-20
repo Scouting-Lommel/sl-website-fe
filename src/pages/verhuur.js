@@ -2,11 +2,11 @@ import client from "@/lib/api/apollo/client";
 import { getBookingPage, getCalendarDates } from "@/lib/api/booking/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/Layouts/Base";
-import { ImageText } from "@/organisms/ImageText";
-import { CallToAction } from "@/organisms/CallToAction";
-import { Calendar } from "@/organisms/Calendar";
-import { TextSection } from "@/organisms/TextSection";
-import { Gallery } from "@/organisms/Gallery";
+import { ImageText } from "@/components/organisms/ImageText";
+import { CallToAction } from "@/components/organisms/CallToAction";
+import { Calendar } from "@/components/organisms/Calendar";
+import { TextSection } from "@/components/organisms/TextSection";
+import { Gallery } from "@/components/organisms/Gallery";
 
 export default function verhuur({ fin, general, calendarDates }) {
   return (

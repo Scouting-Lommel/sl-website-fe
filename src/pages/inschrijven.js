@@ -6,8 +6,8 @@ import { getAllMembers, getRegisterInfo } from "@/lib/api/register/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import { useAuthContext } from "@/lib/api/security/security";
 import BaseLayout from "@/Layouts/Base";
-import RegisterChild from "@/organisms/RegisterChild";
-import RegisterInfo from "@/organisms/RegisterInfo";
+import RegisterChild from "@/components/organisms/RegisterChild";
+import RegisterInfo from "@/components/organisms/RegisterInfo";
 
 export default function Inschrijven({ fin, general }) {
   const [isNotAllFilledIn, setNotAllFilledIn] = useState(false); // is everythin filled in?

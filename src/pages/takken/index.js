@@ -2,9 +2,9 @@ import client from "@/lib/api/apollo/client";
 import { getGroupsPage } from "@/lib/api/groups/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/Layouts/Base";
-import { ImageText } from "@/organisms/ImageText";
-import { CallToAction } from "@/organisms/CallToAction";
-import { ItemCarousel } from "@/organisms/Carousel";
+import { ImageText } from "@/components/organisms/ImageText";
+import { CallToAction } from "@/components/organisms/CallToAction";
+import { ItemCarousel } from "@/components/organisms/Carousel";
 
 export default function takken({ fin, general }) {
   return (

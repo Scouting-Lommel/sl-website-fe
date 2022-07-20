@@ -1,4 +1,4 @@
-import { CarouselItem } from "@/organisms/CarouselItem";
+import { CarouselItem } from "@/components/molecules/CarouselItem";
 // import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
