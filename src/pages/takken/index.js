@@ -1,7 +1,7 @@
 import client from "@/lib/api/apollo/client";
 import { getGroupsPage } from "@/lib/api/groups/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import BaseLayout from "@/Layouts/Base";
+import BaseLayout from "@/layouts/Base";
 import { ImageText } from "@/components/organisms/ImageText";
 import { CallToAction } from "@/components/organisms/CallToAction";
 import { ItemCarousel } from "@/components/organisms/Carousel";

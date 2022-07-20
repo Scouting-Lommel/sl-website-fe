@@ -1,7 +1,7 @@
 import client from "@/lib/api/apollo/client";
 import { getAllUserIds, getUser } from "@/lib/api/user/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import BaseLayout from "@/Layouts/Base";
+import BaseLayout from "@/layouts/Base";
 import Image from "@/components/atoms/Image";
 
 export default function user({ fin, general }) {

@@ -11,7 +11,7 @@ import { ItemCarousel } from "@/components/organisms/Carousel";
 import { ImageText } from "@/components/organisms/ImageText";
 import { FileSection } from "@/components/organisms/FileSection";
 import { ActivitiesSection } from "@/components/organisms/ActivitiesSection";
-import BaseLayout from "@/Layouts/Base";
+import BaseLayout from "@/layouts/Base";
 
 export default function group({ fin, general, group, leaders }) {
   const generalInfo = fin.groupPage.data.attributes[group].filter(

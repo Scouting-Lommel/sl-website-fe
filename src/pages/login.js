@@ -4,7 +4,7 @@ import { getGeneralData } from "@/lib/api/general/queries";
 import client from "@/lib/api/apollo/client";
 import { loginQuery } from "@/lib/api/login/mutations";
 import { setCredentials } from "@/lib/api/security/security";
-import BaseLayout from "@/Layouts/Base";
+import BaseLayout from "@/layouts/Base";
 
 export default function Login({ general }) {
   const [loginFunc, { loading, error, data }] = useMutation(loginQuery, {

@@ -2,7 +2,7 @@ import Script from "next/script";
 import client from "@/lib/api/apollo/client";
 import { getHomePage } from "@/lib/api/home/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import BaseLayout from "@/Layouts/Base";
+import BaseLayout from "@/layouts/Base";
 import { Hero } from "@/components/organisms/Hero";
 import { CallToAction } from "@/components/organisms/CallToAction";
 import { ImageText } from "@/components/organisms/ImageText";

@@ -1,6 +1,6 @@
 // import Head from "next/head";
 import Link from "next/link";
-import BaseLayout from "@/Layouts/Base";
+import BaseLayout from "@/layouts/Base";
 import client from "@/lib/api/apollo/client";
 import { getGeneralData } from "@/lib/api/general/queries";
 

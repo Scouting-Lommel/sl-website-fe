@@ -1,7 +1,7 @@
 import client from "@/lib/api/apollo/client";
 import { getGeneralData } from "@/lib/api/general/queries";
 import getContactInfo from "@/lib/api/contact/queries";
-import BaseLayout from "@/Layouts/Base";
+import BaseLayout from "@/layouts/Base";
 import { TextSection } from "@/components/organisms/TextSection";
 
 export default function contact({ fin, general }) {
