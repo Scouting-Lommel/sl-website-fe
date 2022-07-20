@@ -22,4 +22,4 @@ const ImageText = ({ info }) => {
   );
 };
 
-export { ImageText };
+export default ImageText;

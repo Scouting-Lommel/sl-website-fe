@@ -12,4 +12,4 @@ const Socials = ({ info }) => {
   );
 };
 
-export { Socials };
+export default Socials;

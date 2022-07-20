@@ -23,4 +23,4 @@ const Hero = ({ info }) => {
   );
 };
 
-export { Hero };
+export default Hero;

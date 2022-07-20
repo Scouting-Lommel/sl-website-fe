@@ -9,4 +9,4 @@ const Gallery = ({ info }) => {
   );
 };
 
-export { Gallery };
+export default Gallery;

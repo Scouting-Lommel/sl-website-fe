@@ -39,4 +39,4 @@ const CallToAction = ({ info }) => {
   );
 };
 
-export { CallToAction };
+export default CallToAction;

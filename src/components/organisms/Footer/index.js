@@ -2,7 +2,7 @@ import NextLink from "next/link";
 import Image from "@/components/atoms/Image";
 import Link from "@/components/atoms/Link";
 import { Address } from "@/components/organisms/Address";
-import { Socials } from "@/components/organisms/Socials";
+import Socials from "@/components/organisms/Socials";
 
 const Footer = ({ footInfo, socials, address }) => {
   return (

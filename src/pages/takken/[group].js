@@ -6,9 +6,9 @@ import {
   getGroupPage,
 } from "@/lib/api/groups/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import { Hero } from "@/components/organisms/Hero";
-import { ItemCarousel } from "@/components/organisms/Carousel";
-import { ImageText } from "@/components/organisms/ImageText";
+import Hero from "@/components/organisms/Hero";
+import ItemCarousel from "@/components/organisms/Carousel";
+import ImageText from "@/components/organisms/ImageText";
 import { FileSection } from "@/components/organisms/FileSection";
 import { ActivitiesSection } from "@/components/organisms/ActivitiesSection";
 import BaseLayout from "@/layouts/Base";

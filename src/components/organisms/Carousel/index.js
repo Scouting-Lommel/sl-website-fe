@@ -52,4 +52,4 @@ const ItemCarousel = ({ info, leaders }) => {
   );
 };
 
-export { ItemCarousel };
+export default ItemCarousel;

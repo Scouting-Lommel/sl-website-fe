@@ -9,4 +9,4 @@ const Blog = ({ info }) => {
   );
 };
 
-export { Blog };
+export default Blog;
