@@ -40,7 +40,8 @@ export default function Home({ fin, general }) {
             break;
         }
       })}
-      <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></Script>
+      {/* <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></Script> */}
+      <Blocks content={fin.HomePage} />
     </BaseLayout>
   );
 }
