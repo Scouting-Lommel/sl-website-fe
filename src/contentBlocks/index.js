@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 const blockList = {
   ComponentContentBlocksHero: dynamic(() => import("./Hero")),
   ComponentContentBlocksCallToAction: dynamic(() => import("./CallToAction")),
+  ComponentContentBlocksImageText: dynamic(() => import("./ImageText")),
 };
 
 const Blocks = ({ content }) => {
