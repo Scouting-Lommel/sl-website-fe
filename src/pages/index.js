@@ -2,13 +2,6 @@ import client from "@/lib/api/apollo/client";
 import { getHomePage } from "@/lib/api/home/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/layouts/Base";
-import Hero from "@/components/organisms/Hero";
-import CallToAction from "@/components/organisms/CallToAction";
-import ImageText from "@/components/organisms/ImageText";
-import ItemCarousel from "@/components/organisms/Carousel";
-import Blog from "@/components/organisms/Blog";
-import Gallery from "@/components/organisms/Gallery";
-import Socials from "@/components/organisms/Socials";
 import Blocks from "@/contentBlocks";
 
 export default function Home({ fin, general }) {
