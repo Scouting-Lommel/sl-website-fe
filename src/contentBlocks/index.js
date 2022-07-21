@@ -4,6 +4,10 @@ const blockList = {
   ComponentContentBlocksHero: dynamic(() => import("./Hero")),
   ComponentContentBlocksCallToAction: dynamic(() => import("./CallToAction")),
   ComponentContentBlocksImageText: dynamic(() => import("./ImageText")),
+  ComponentContentBlocksCarousel: dynamic(() => import("./Carousel")),
+  ComponentContentBlocksBlog: dynamic(() => import("./Blog")),
+  ComponentContentBlocksGallery: dynamic(() => import("./Gallery")),
+  ComponentGeneralSocials: dynamic(() => import("./Socials")),
 };
 
 const Blocks = ({ content }) => {

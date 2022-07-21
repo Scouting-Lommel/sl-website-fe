@@ -19,27 +19,6 @@ export default function Home({ fin, general }) {
       noIndex={fin.NoIndex}
       url={fin.URL}
     >
-      {fin.HomePage.map((component, i) => {
-        switch (component.__typename) {
-          case "ComponentContentBlocksHero":
-            return <Hero info={component} key={"Home" + i} />;
-          case "ComponentContentBlocksCallToAction":
-            return <CallToAction info={component} key={"Home" + i} />;
-          case "ComponentContentBlocksImageText":
-            return <ImageText info={component} key={"Home" + i} />;
-          case "ComponentContentBlocksCarousel":
-            return <ItemCarousel info={component} key={"Home" + i} />;
-          case "ComponentContentBlocksBlog":
-            return <Blog info={component} key={"Home" + i} />;
-          case "ComponentContentBlocksGallery":
-            return <Gallery info={component} key={"Home" + i} />;
-          case "ComponentGeneralSocials":
-            return <Socials info={component} key={"Home" + i} />;
-          default:
-            break;
-        }
-      })}
-      {/* <Script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></Script> */}
       <Blocks content={fin.HomePage} />
     </BaseLayout>
   );
