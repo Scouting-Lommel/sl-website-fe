@@ -2,7 +2,7 @@ import client from "@/lib/api/apollo/client";
 import { getGeneralData } from "@/lib/api/general/queries";
 import getContactInfo from "@/lib/api/contact/queries";
 import BaseLayout from "@/layouts/Base";
-import { TextSection } from "@/components/organisms/TextSection";
+import Blocks from "@/contentBlocks";
 
 export default function contact({ fin, general }) {
   return (
@@ -12,14 +12,7 @@ export default function contact({ fin, general }) {
       noIndex={fin.NoIndex}
       url={fin.URL}
     >
-      {fin.ContactPage.map((component, i) => {
-        switch (component.__typename) {
-          case "ComponentContentBlocksTextSection":
-            return <TextSection info={component} key={"contact" + i} />;
-          default:
-            break;
-        }
-      })}
+      <Blocks content={fin.ContactPage} />
     </BaseLayout>
   );
 }

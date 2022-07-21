@@ -8,6 +8,7 @@ const blockList = {
   ComponentContentBlocksBlog: dynamic(() => import("./Blog")),
   ComponentContentBlocksGallery: dynamic(() => import("./Gallery")),
   ComponentGeneralSocials: dynamic(() => import("./Socials")),
+  ComponentContentBlocksTextSection: dynamic(() => import("./TextSection")),
 };
 
 const Blocks = ({ content }) => {
