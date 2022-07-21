@@ -10,7 +10,7 @@ import ItemCarousel from "@/components/organisms/Carousel";
 import Blog from "@/components/organisms/Blog";
 import Gallery from "@/components/organisms/Gallery";
 import Socials from "@/components/organisms/Socials";
-import Blocks from "@/components/organisms/ContentBlocks";
+import Blocks from "@/contentBlocks";
 
 export default function Home({ fin, general }) {
   return (
