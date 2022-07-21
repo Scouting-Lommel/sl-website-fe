@@ -1,4 +1,3 @@
-import Script from "next/script";
 import client from "@/lib/api/apollo/client";
 import { getHomePage } from "@/lib/api/home/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
