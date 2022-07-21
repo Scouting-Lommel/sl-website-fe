@@ -1,9 +1,7 @@
 import dynamic from "next/dynamic";
 
 const blockList = {
-  ComponentContentBlocksHero: dynamic(() =>
-    import("@/components/organisms/Hero")
-  ),
+  ComponentContentBlocksHero: dynamic(() => import("./Hero")),
 };
 
 const Blocks = ({ content }) => {

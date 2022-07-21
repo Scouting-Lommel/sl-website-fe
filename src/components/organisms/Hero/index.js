@@ -4,9 +4,7 @@ import Image from "@/components/atoms/Image";
 const Hero = ({ info }) => {
   return (
     <>
-      Hero
-      {/* TODO: Fix spread properties on dynamically imported blocks */}
-      {/* {(info?.IsHomePage || IsHomePage) && (
+      {info?.IsHomePage && (
         <div className="flex justify-center pt-4">
           <div className="h-64 w-10/12 relative">
             <Image src={info.Image.data.attributes.url} alt="" />
@@ -20,7 +18,7 @@ const Hero = ({ info }) => {
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 };
