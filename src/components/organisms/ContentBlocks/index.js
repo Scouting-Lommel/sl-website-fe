@@ -14,7 +14,7 @@ const Blocks = ({ content }) => {
 
     if (!(key in blockList)) {
       console.warn(
-        `Missing Component for: '${key}', you should create one first in your section folder.`
+        `Missing component for: '${key}', you should create one first.`
       );
       return false;
     }
