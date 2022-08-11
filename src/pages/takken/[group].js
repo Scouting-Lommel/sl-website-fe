@@ -1,4 +1,12 @@
-// import Head from "next/head";
+// --------------------------------------------------------------------------------- //
+
+// Takpagina mag statisch opgebouwd worden. Geen gebruik maken van content blocks.
+// Omdat er gefilterd moet worden per groep gaat het anders te messy worden.
+
+// TODO: Takpagina statisch opbouwen.
+
+// --------------------------------------------------------------------------------- //
+
 import client from "@/lib/api/apollo/client";
 import {
   getAllGroups,

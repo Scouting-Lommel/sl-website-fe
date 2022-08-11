@@ -2,9 +2,7 @@ import client from "@/lib/api/apollo/client";
 import { getGroupsPage } from "@/lib/api/groups/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/layouts/Base";
-import ImageText from "@/components/organisms/ImageText";
-import CallToAction from "@/components/organisms/CallToAction";
-import ItemCarousel from "@/components/organisms/Carousel";
+import Blocks from "@/contentBlocks";
 
 export default function takken({ fin, general }) {
   return (
@@ -14,18 +12,7 @@ export default function takken({ fin, general }) {
       url={fin.URL}
       noIndex={fin.NoIndex}
     >
-      {fin.GroupsPage.map((component, i) => {
-        switch (component.__typename) {
-          case "ComponentContentBlocksImageText":
-            return <ImageText info={component} key={"Takken" + i} />;
-          case "ComponentContentBlocksCallToAction":
-            return <CallToAction info={component} key={"Takken" + i} />;
-          case "ComponentContentBlocksCarousel":
-            return <ItemCarousel info={component} key={"Takken" + i} />;
-          default:
-            break;
-        }
-      })}
+      <Blocks content={fin.GroupsPage} />
     </BaseLayout>
   );
 }
