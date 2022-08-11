@@ -6,6 +6,7 @@ import ImageText from "@/components/organisms/ImageText";
 import CallToAction from "@/components/organisms/CallToAction";
 import { FAQ } from "@/components/organisms/FAQ";
 import { Map } from "@/components/organisms/Map";
+import Blocks from "@/contentBlocks";
 
 export default function Info({ fin, general }) {
   return (
@@ -15,20 +16,7 @@ export default function Info({ fin, general }) {
       noIndex={fin.NoIndex}
       url={fin.URL}
     >
-      {fin.InfoPage.map((component, i) => {
-        switch (component.__typename) {
-          case "ComponentContentBlocksImageText":
-            return <ImageText info={component} key={"info" + i} />;
-          case "ComponentContentBlocksCallToAction":
-            return <CallToAction info={component} key={"info" + i} />;
-          case "ComponentContentBlocksFaq":
-            return <FAQ info={component} key={"info" + i} />;
-          case "ComponentContentBlocksMap":
-            return <Map info={component} key={"info" + i} />;
-          default:
-            break;
-        }
-      })}
+      <Blocks content={fin.InfoPage} />
     </BaseLayout>
   );
 }
