@@ -2,10 +2,6 @@ import client from "@/lib/api/apollo/client";
 import { getInfoPage } from "@/lib/api/info/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/layouts/Base";
-import ImageText from "@/components/organisms/ImageText";
-import CallToAction from "@/components/organisms/CallToAction";
-import { FAQ } from "@/components/organisms/FAQ";
-import { Map } from "@/components/organisms/Map";
 import Blocks from "@/contentBlocks";
 
 export default function Info({ fin, general }) {
