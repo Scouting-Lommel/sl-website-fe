@@ -216,4 +216,4 @@ const prevMonth = (
   }
 };
 
-export { Calendar };
+export default Calendar;

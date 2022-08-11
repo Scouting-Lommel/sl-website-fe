@@ -1,16 +1,9 @@
-import Question from "@/components/molecules/Question";
+import FAQ from "@/components/organisms/FAQ";
 
-const FAQ = ({ Title, QenAs }) => {
-  return (
-    <>
-      <h1 className="text-5xl font-bold text-center py-3">{Title}</h1>
-      <div className="accordion" id="accordionExample">
-        {QenAs.data.map((QA, i) => (
-          <Question info={QA.attributes} key={"QenA" + i} />
-        ))}
-      </div>
-    </>
-  );
+const FAQBlock = ({ Title, QenAs }) => {
+  const data = { Title, QenAs };
+
+  return <FAQ info={data} />;
 };
 
-export default FAQ;
+export default FAQBlock;

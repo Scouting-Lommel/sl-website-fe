@@ -82,4 +82,4 @@ const mapContent = async (info) => {
   marker.setPopup(popup).togglePopup();
 };
 
-export { Map };
+export default Map;
