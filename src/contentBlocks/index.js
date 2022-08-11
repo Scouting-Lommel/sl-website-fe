@@ -11,9 +11,10 @@ const blockList = {
   ComponentContentBlocksTextSection: dynamic(() => import("./TextSection")),
   ComponentContentBlocksFaq: dynamic(() => import("./FAQ")),
   ComponentContentBlocksMap: dynamic(() => import("./Map")),
+  ComponentContentBlocksCalendar: dynamic(() => import("./Calendar")),
 };
 
-const Blocks = ({ content }) => {
+const Blocks = ({ content, data }) => {
   if (!content || !content.length) return <></>;
 
   const contentBlocks = content.map((block, i) => {
@@ -32,7 +33,11 @@ const Blocks = ({ content }) => {
   return (
     <>
       {contentBlocks?.map((Component, i) => {
-        return Component ? <Component key={i} {...content[i]} /> : false;
+        return Component ? (
+          <Component key={i} {...content[i]} data={data} />
+        ) : (
+          false
+        );
       })}
     </>
   );

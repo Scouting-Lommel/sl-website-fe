@@ -2,11 +2,7 @@ import client from "@/lib/api/apollo/client";
 import { getBookingPage, getCalendarDates } from "@/lib/api/booking/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/layouts/Base";
-import ImageText from "@/components/organisms/ImageText";
-import CallToAction from "@/components/organisms/CallToAction";
-import { Calendar } from "@/components/organisms/Calendar";
-import { TextSection } from "@/components/organisms/TextSection";
-import Gallery from "@/components/organisms/Gallery";
+import Blocks from "@/contentBlocks";
 
 export default function verhuur({ fin, general, calendarDates }) {
   return (
@@ -16,28 +12,7 @@ export default function verhuur({ fin, general, calendarDates }) {
       noIndex={fin.NoIndex}
       url={fin.URL}
     >
-      {fin.BookingsPage.map((component, i) => {
-        switch (component.__typename) {
-          case "ComponentContentBlocksImageText":
-            return <ImageText info={component} key={"verhuur" + i} />;
-          case "ComponentContentBlocksCallToAction":
-            return <CallToAction info={component} key={"verhuur" + i} />;
-          case "ComponentContentBlocksCalendar":
-            return (
-              <Calendar
-                info={component}
-                calendarData={calendarDates}
-                key={"verhuur" + i}
-              />
-            );
-          case "ComponentContentBlocksTextSection":
-            return <TextSection info={component} key={"verhuur" + i} />;
-          case "ComponentContentBlocksGallery":
-            return <Gallery info={component} key={"verhuur" + i} />;
-          default:
-            break;
-        }
-      })}
+      <Blocks content={fin.BookingsPage} data={{ calendarDates }} />
     </BaseLayout>
   );
 }
