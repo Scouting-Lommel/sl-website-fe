@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "@/components/atoms/Image";
-import { useAuthContext } from "@/lib/api/security/security";
+import { isLoggedIn, useAuthContext } from "@/lib/api/security/security";
 import { Navigation } from "@/components/organisms/Navigation";
 
 const Header = ({ info }) => {
@@ -23,7 +23,7 @@ const Header = ({ info }) => {
         {info.NavigationItems.map((item, i) => {
           return <Navigation info={item} key={"Headernav" + i} />;
         })}
-        {!auth.loggedIn && (
+        {!isLoggedIn() && (
           <Link href={loginBtn.Href}>
             <a className="flex flex-col justify-center px-4">
               <i className="fa-solid fa-key text-xl"></i>
