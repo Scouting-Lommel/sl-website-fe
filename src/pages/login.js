@@ -16,7 +16,7 @@ export default function Login({ general }) {
       console.log('loged in with data:')
       console.log(data)
       setCredentials(data.login.jwt);
-      window.location.href = "/";
+      // window.location.href = "/";
     },
     onError(fin) {
       console.error(fin);
