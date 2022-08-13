@@ -33,7 +33,7 @@ const Header = ({ info }) => {
         {auth.loggedIn && (
           <button onClick={() => logout()}>
             <a className="flex flex-col justify-center px-4">
-              <i class="fa-solid fa-right-from-bracket text-xl"></i>
+              <i className="fa-solid fa-right-from-bracket text-xl"></i>
             </a>
           </button>
         )}
