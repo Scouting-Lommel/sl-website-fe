@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "@/components/atoms/Image";
-import { useAuthContext } from "@/lib/api/security/security";
+import { useAuthContext, logout } from "@/lib/api/security/security";
 import { Navigation } from "@/components/organisms/Navigation";
 
 const Header = ({ info }) => {
@@ -29,6 +29,13 @@ const Header = ({ info }) => {
               <i className="fa-solid fa-key text-xl"></i>
             </a>
           </Link>
+        )}
+        {auth.loggedIn && (
+          <button onClick={() => logout()}>
+            <a className="flex flex-col justify-center px-4">
+              <i class="fa-solid fa-right-from-bracket text-xl"></i>
+            </a>
+          </button>
         )}
       </div>
     </>

@@ -7,7 +7,7 @@ const ISSERVER = typeof window === "undefined";
 
 const authContext = createContext();
 
-export function AuthProvider({ children }) {
+function AuthProvider({ children }) {
   const [auth, setAuth] = useState({
     loggedIn: false,
     group: undefined,
@@ -20,8 +20,13 @@ export function AuthProvider({ children }) {
   );
 }
 
-export function useAuthContext() {
+function useAuthContext() {
   return useContext(authContext);
+}
+
+const logout = async () => {
+  sessionStorage.clear();
+  location.reload()
 }
 
 async function UpdateAuth() {
@@ -126,4 +131,7 @@ export {
   getGroupLeader,
   setCredentials,
   UpdateAuth,
+  AuthProvider,
+  useAuthContext,
+  logout,
 };
