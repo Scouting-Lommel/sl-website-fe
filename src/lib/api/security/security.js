@@ -47,9 +47,6 @@ async function setCredentials(jwt) {
         query: getDataFromUserId(id),
       })
       .then((res) => {
-        console.log("jwt: " + jwt)
-        console.log("User info: ")
-        console.log(res);
         SetJwtToken(jwt);
         SetUserGroup(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
