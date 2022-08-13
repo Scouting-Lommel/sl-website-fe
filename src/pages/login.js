@@ -13,8 +13,6 @@ export default function Login({ general }) {
       password: "placeholder",
     },
     onCompleted(data) {
-      console.log('loged in with data:')
-      console.log(data)
       setCredentials(data.login.jwt);
       // window.location.href = "/";
     },
