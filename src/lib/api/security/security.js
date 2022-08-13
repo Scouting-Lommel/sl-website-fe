@@ -126,5 +126,4 @@ export {
   getGroupLeader,
   setCredentials,
   UpdateAuth,
-  isLoggedIn,
 };
