@@ -48,7 +48,8 @@ async function setCredentials(jwt) {
       })
       .then((res) => {
         console.log("jwt: " + jwt)
-        console.log("User info: " + res)
+        console.log("User info: ")
+        console.log(res);
         SetJwtToken(jwt);
         SetUserGroup(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
@@ -59,11 +60,12 @@ async function setCredentials(jwt) {
             .IsGroupLeader
         );
         setUserID(res.data.usersPermissionsUser.data.attributes.leader.data.id);
+        window.location.href = "/";
       });
   }
 }
 
-async function SetGroupLeader(groupleader) {
+function SetGroupLeader(groupleader) {
   if (!ISSERVER) {
     sessionStorage.setItem("groupLeader", groupleader);
   }
@@ -89,7 +91,7 @@ function SetJwtToken(token) {
   }
 }
 
-async function SetUserGroup(name) {
+function SetUserGroup(name) {
   if (!ISSERVER) {
     sessionStorage.setItem("UserGroup", name);
   }
@@ -102,7 +104,7 @@ function getUserGroup() {
   return undefined;
 }
 
-async function setUserID(id) {
+function setUserID(id) {
   if (!ISSERVER) {
     sessionStorage.setItem("UID", id);
   }
