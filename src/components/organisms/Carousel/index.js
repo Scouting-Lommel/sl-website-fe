@@ -19,7 +19,7 @@ const ItemCarousel = ({ info, leaders }) => {
             return (
               <CarouselItem
                 info={item.attributes}
-                key={"carItem" + index}
+                key={"carItem" + index} 
                 id={item.id}
               />
             );
