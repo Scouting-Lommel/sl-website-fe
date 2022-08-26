@@ -83,6 +83,22 @@ const getGroupsPage = () => {
 };
 
 const getGroupPage = (tak) => {
+  let d = new Date()
+  let prev = new Date(d.getTime())
+  prev.setDate(d.getDate()-1)
+  let month
+  if(prev.getMonth() + 1 > 9){
+    month = `${prev.getMonth() + 1}`
+  }else{
+    month = `0${prev.getMonth() + 1}`
+  }
+  let day
+  if(prev.getDate() > 9){
+    day = `${prev.getDate()}`
+  }else{
+    day = `0${prev.getDate()}`
+  }
+  const dateFilter = `${prev.getFullYear()}-${month}-${day}T00:00:00.000Z`
   return gql`query {
       groupPage {
         data {
@@ -163,7 +179,12 @@ const getGroupPage = (tak) => {
           }
         }
       }
-      activities(filters: { Group: { Name: { eq: "${tak}" } } }) {
+      activities(
+        filters: {
+          Group: { Name: { eq: "${tak}" } }
+          EndTime: { gt: "${dateFilter}" }
+        }
+      ) {
         data {
           id
           attributes {

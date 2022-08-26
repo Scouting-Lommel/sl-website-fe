@@ -30,7 +30,10 @@ const ItemCarousel = ({ info, leaders }) => {
         <div className="grid grid-rows-2 gap-2 bg-green-700 py-2">
           <div className="flex flex-row justify-center gap-x-2">
             {topRow.map((item, index) => {
-              return <CarouselItem info={item} key={"carItemTop" + index} />;
+              return <CarouselItem 
+                        info={item} 
+                        key={"carItemTop" + index}
+                      />;
             })}
           </div>
           <div className="">
