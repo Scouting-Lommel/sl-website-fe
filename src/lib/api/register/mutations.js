@@ -44,4 +44,12 @@ const registerUser = () => {
   `;
 };
 
-export { registerUser };
+const createNewLeader = gql`mutation CreateUsersPermissionsUser ($username: String!, $email: String!, $password: String!){
+    createUsersPermissionsUser (data: {username: $username, password: $password, email: $email, role: 2}){
+      data{
+        id
+      }
+    }
+  }`;
+
+export { registerUser, createNewLeader };
