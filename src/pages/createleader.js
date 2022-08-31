@@ -5,6 +5,7 @@ import { createNewLeader } from "@/lib/api/register/mutations";
 import BaseLayout from "@/layouts/Base";
 
 export default function createleader({ general }) {
+
     const [createUserFunc, { loading, error, data }] = useMutation(createNewLeader, {
         variables: {
           username: "placeholder",
@@ -13,6 +14,10 @@ export default function createleader({ general }) {
         },
         onCompleted(data) {
           alert("Succes")
+          document.getElementById("username").value = ""
+          document.getElementById("email").value = ""
+          document.getElementById("password1").value = ""
+          document.getElementById("password2").value = ""
         },
         onError(fin) {
           console.error(fin);
