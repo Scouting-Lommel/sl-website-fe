@@ -9,6 +9,11 @@ const Header = ({ info }) => {
     IsButton: false,
     Title: "Login",
   };
+  const registerNewLeaderButton = {
+    Href: "/createleader",
+    IsButton: false,
+    Title: "registreer nieuwe leiding",
+  };
   const [auth, setAuth] = useAuthContext();
   return (
     <>
@@ -30,6 +35,11 @@ const Header = ({ info }) => {
             </a>
           </Link>
         )}
+        { auth.loggedIn && auth.groupLeader && (
+          <Navigation info={registerNewLeaderButton}/>
+        )
+
+        }
         {auth.loggedIn && (
           <button onClick={() => logout()}>
             <a className="flex flex-col justify-center px-4">
