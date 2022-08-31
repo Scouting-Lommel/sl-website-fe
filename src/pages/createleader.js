@@ -4,7 +4,7 @@ import client from "@/lib/api/apollo/client";
 import { createNewLeader } from "@/lib/api/register/mutations";
 import BaseLayout from "@/layouts/Base";  
 
-export default function createleader({ general }) {
+export default function Createleader({ general }) {
 
     const [createUserFunc, { loading, error, data }] = useMutation(createNewLeader, {
         variables: {
