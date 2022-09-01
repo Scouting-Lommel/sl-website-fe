@@ -1,5 +1,6 @@
 import Input from "@/components/atoms/Form/Input";
 import WYSIWYG from "@/components/atoms/WYSIWYG";
+import Image from "@/components/atoms/Image";
 // type: Input (default), wysiwyg, title, subtitle, richtext, image 
 /*
 {
@@ -16,13 +17,32 @@ const ModalBody = ({bodyElements}) => {
         {bodyElements.map((ip, i) => {
             switch (ip.type) {
                 case "bigtext":
-                    break;
+                    return (
+                        <>
+                            <div key={"modal" + i} className="flex flex-row justify-center">
+                            <label htmlFor={ip.id} className="text-white text-xl">
+                                {ip.text}
+                            </label>
+                            <br />
+                            </div>
+                        </>
+                    )
                 case "text":
                     break;
                 case "richtext":
                     break;
                 case "image":
-                    break;
+                    return (
+                        <div className="flex justify-center">
+                        <div className="w-64 h-64 relative">
+                        <Image
+                            src={ip.image.data.attributes.url}
+                            styling="rounded-xl"
+                            alt=""
+                        />
+                        </div>
+                        </div>
+                    )
                 case "wysiwyg":
                     return (
                         <>
