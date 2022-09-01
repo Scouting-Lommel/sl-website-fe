@@ -7,15 +7,17 @@ import WYSIWYG from "@/components/atoms/WYSIWYG";
     type: string
     name: string
     defaultValue: string
+    image: string
+    text: string
  }
 */
 const ModalBody = ({bodyElements}) => {
     return (<>
         {bodyElements.map((ip, i) => {
             switch (ip.type) {
-                case "title":
+                case "bigtext":
                     break;
-                case "subtitle":
+                case "text":
                     break;
                 case "richtext":
                     break;

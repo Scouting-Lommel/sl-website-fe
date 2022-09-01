@@ -9,6 +9,8 @@ import { ModalBody } from "@/components/molecules/Modal/ModalBody"
  *          type: string
  *          name: string
  *          defaultValue: string
+ *          image: string
+ *          text: string
  *      }
  * ]
  * title: the title on the top of the modal
