@@ -1,6 +1,7 @@
-import { CarouselItem } from "@/components/molecules/CarouselItem";
 // import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { GroupCarousel } from "./GroupCarousel";
+import { LeaderCarousel } from "./LeaderCarousel";
 
 // src = https://www.npmjs.com/package/react-multi-carousel
 
@@ -14,42 +15,10 @@ const ItemCarousel = ({ info, leaders }) => {
         {info.Title}
       </h2>
       {info.IsLeaderShowcase && !info.IsGroupsShowcase && leaders != undefined && (
-        <div className="flex justify-around py-4">
-          {leaders.data.map((item, index) => {
-            return (
-              <CarouselItem
-                info={item.attributes}
-                key={"carItem" + index} 
-                id={item.id}
-              />
-            );
-          })}
-        </div>
+        <LeaderCarousel leaders={leaders}/>
       )}
       {!info.IsLeaderShowcase && info.IsGroupsShowcase && (
-        <div className="grid grid-rows-2 gap-2 bg-green-700 py-2">
-          <div className="flex flex-row justify-center gap-x-2">
-            {topRow.map((item, index) => {
-              return <CarouselItem 
-                        info={item} 
-                        key={"carItemTop" + index}
-                      />;
-            })}
-          </div>
-          <div className="">
-            <div className="flex flex-row justify-center gap-x-2 -mt-5">
-              {bottomRow.map((item, index) => {
-                return (
-                  <CarouselItem
-                    index={index}
-                    info={item}
-                    key={"carItemBottom" + index}
-                  />
-                );
-              })}
-            </div>
-          </div>
-        </div>
+        <GroupCarousel topRow={topRow} bottomRow={bottomRow} />
       )}
     </div>
   );
