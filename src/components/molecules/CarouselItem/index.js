@@ -1,5 +1,5 @@
-import { Leader } from "./Leader";
-import { Tak } from "./tak";
+import { Leader } from "@/components/molecules/CarouselItem/Leader";
+import { Tak } from "@/components/molecules/CarouselItem/Tak";
 
 const CarouselItem = ({ info, id }) => {
   if (!info.Href) { // leader
