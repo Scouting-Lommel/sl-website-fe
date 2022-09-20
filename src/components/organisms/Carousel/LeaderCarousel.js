@@ -1,19 +1,19 @@
 import { CarouselItem } from "@/components/molecules/CarouselItem";
 
-const LeaderCarousel = ({leaders}) => {
-    return (
+const LeaderCarousel = ({ leaders }) => {
+  return (
     <div className="flex justify-around py-4">
-        {leaders.data.map((item, index) => {
+      {leaders.data.map((item, index) => {
         return (
-            <CarouselItem
+          <CarouselItem
             info={item.attributes}
-            key={"carItem" + index} 
+            key={"carItem" + index}
             id={item.id}
-            />
+          />
         );
-        })}
+      })}
     </div>
-    )
-}
+  );
+};
 
-export { LeaderCarousel }
+export { LeaderCarousel };

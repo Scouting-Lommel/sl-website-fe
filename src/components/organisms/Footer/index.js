@@ -12,7 +12,9 @@ const Footer = ({ footInfo, socials, address }) => {
           <div className="mb-6 md:mb-0 relative flex items-center">
             <NextLink href="/">
               <a className=" text-white relative w-32 h-32">
-                <Image src={footInfo.Logo.data.attributes.url} alt="" />
+                {footInfo.Logo.data && (
+                  <Image src={footInfo.Logo.data.attributes.url} alt="" />
+                )}
               </a>
             </NextLink>
           </div>

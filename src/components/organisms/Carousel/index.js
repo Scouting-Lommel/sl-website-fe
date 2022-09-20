@@ -14,9 +14,9 @@ const ItemCarousel = ({ info, leaders }) => {
       <h2 className="py-3 flex justify-around text-4xl font-bold border-b-2 border-black">
         {info.Title}
       </h2>
-      {info.IsLeaderShowcase && !info.IsGroupsShowcase && leaders != undefined && (
-        <LeaderCarousel leaders={leaders}/>
-      )}
+      {info.IsLeaderShowcase &&
+        !info.IsGroupsShowcase &&
+        leaders != undefined && <LeaderCarousel leaders={leaders} />}
       {!info.IsLeaderShowcase && info.IsGroupsShowcase && (
         <GroupCarousel topRow={topRow} bottomRow={bottomRow} />
       )}
