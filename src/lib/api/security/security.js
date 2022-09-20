@@ -26,8 +26,8 @@ function useAuthContext() {
 
 const logout = async () => {
   sessionStorage.clear();
-  location.reload()
-}
+  location.reload();
+};
 
 async function UpdateAuth() {
   const [auth, setAuth] = useAuthContext();

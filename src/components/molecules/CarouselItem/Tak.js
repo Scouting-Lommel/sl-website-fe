@@ -2,14 +2,17 @@ import Link from "next/link";
 import Image from "@/components/atoms/Image";
 
 const Tak = ({ info }) => {
-    return (
+  return (
     <Link href={info.Href.Page}>
       <a className="w-64 h-64 relative rounded-full overflow-hidden hover:border-2 border-black top-0">
-        <Image
-          src={info.Image.data.attributes.url}
-          styling="rounded-full"
-          alt=""
-        />
+        {info.Image.data && (
+          <Image
+            src={info.Image.data.attributes.url}
+            styling="rounded-full"
+            alt=""
+          />
+        )}
+
         <div className="absolute px-6 py-4 flex justify-center w-full h-full rounded-full">
           <div className="flex flex-col justify-center">
             <div className="bg-violet-300 bg-opacity-70">
@@ -20,7 +23,7 @@ const Tak = ({ info }) => {
         </div>
       </a>
     </Link>
-    );
-}
+  );
+};
 
-export { Tak }
+export { Tak };
