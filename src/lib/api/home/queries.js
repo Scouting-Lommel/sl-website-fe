@@ -1,123 +1,54 @@
 import { gql } from "@apollo/client";
 
+import HERO_BLOCK_FRAGMENT from "../fragments/hero-block.gql";
+
 const getHomePage = () => {
   return gql`
+    ${HERO_BLOCK_FRAGMENT}
+
     query {
       homePage {
         data {
           attributes {
-            Title
-            NoIndex
-            URL
-            HomePage {
-              ... on ComponentContentBlocksHero {
-                __typename
-                IsHomePage
-                Title
-                Image {
+            pageMeta {
+              pageTitle
+              pageDescription
+              noIndex
+              metaImage {
+                data {
+                  attributes {
+                    name
+                    width
+                    height
+                    url
+                    alternativeText
+                    caption
+                    formats
+                  }
+                }
+              }
+              metaSocial {
+                socialNetwork
+                title
+                description
+                image {
                   data {
                     attributes {
+                      name
+                      width
+                      height
                       url
-                    }
-                  }
-                }
-                Links {
-                  Page
-                  Label
-                  IsButton
-                }
-              }
-              ... on ComponentContentBlocksCallToAction {
-                __typename
-                Title
-                Content
-                CTAButton: Button {
-                  Label
-                  IsButton
-                  Page
-                }
-                Socials
-              }
-              ... on ComponentContentBlocksImageText {
-                __typename
-                Title
-                Content
-                Image {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-                ImageLeftAligned
-              }
-              ... on ComponentContentBlocksCarousel {
-                __typename
-                IsLeaderShowcase
-                IsGroupsShowcase
-                Title
-                Items {
-                  Title
-                  Description
-                  Image {
-                    data {
-                      attributes {
-                        url
-                      }
-                    }
-                  }
-                  Href {
-                    Label
-                    IsButton
-                    Page
-                  }
-                }
-              }
-              ... on ComponentContentBlocksBlog {
-                __typename
-                Title
-                InitialItems
-                Button {
-                  Label
-                  IsButton
-                  Page
-                }
-                Articles {
-                  data {
-                    attributes {
-                      Title
-                      Image {
-                        data {
-                          attributes {
-                            url
-                          }
-                        }
-                      }
-                      Content
-                      publishedAt
-                      createdAt
-                      updatedAt
+                      alternativeText
+                      caption
+                      formats
                     }
                   }
                 }
               }
-              ... on ComponentContentBlocksGallery {
-                __typename
-                Title
-                InitialItems
-                Images {
-                  data {
-                    attributes {
-                      url
-                    }
-                  }
-                }
-                Button {
-                  Label
-                  IsButton
-                  Page
-                }
-              }
+            }
+            blocks {
+              __typename
+              ...HeroBlockFragment
             }
           }
         }
