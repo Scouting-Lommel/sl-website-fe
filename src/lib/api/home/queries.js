@@ -2,11 +2,13 @@ import { gql } from "@apollo/client";
 
 import HERO_BLOCK_FRAGMENT from "../fragments/hero-block.gql";
 import TEXT_IMAGE_BLOCK_FRAGMENT from "../fragments/text-image-block.gql";
+import GROUPS_BLOCK_FRAGMENT from "../fragments/groups-block.gql";
 
 const getHomePage = () => {
   return gql`
     ${HERO_BLOCK_FRAGMENT}
     ${TEXT_IMAGE_BLOCK_FRAGMENT}
+    ${GROUPS_BLOCK_FRAGMENT}
 
     query {
       homePage {
@@ -52,6 +54,7 @@ const getHomePage = () => {
               __typename
               ...HeroBlockFragment
               ...TextImageBlockFragment
+              ...GroupsBlockFragment
             }
           }
         }
