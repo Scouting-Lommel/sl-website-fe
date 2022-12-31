@@ -8,15 +8,9 @@ export default function Home({ data }) {
   console.log(data);
 
   return (
-    <>Home</>
-    // <BaseLayout
-    //   generalData={general}
-    //   title={fin.Title}
-    //   noIndex={fin.NoIndex}
-    //   url={fin.URL}
-    // >
-    //   <Blocks content={fin.HomePage} />
-    // </BaseLayout>
+    <BaseLayout>
+      <Blocks content={data.blocks} />
+    </BaseLayout>
   );
 }
 

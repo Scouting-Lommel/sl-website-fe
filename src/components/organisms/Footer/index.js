@@ -1,13 +1,14 @@
-import NextLink from "next/link";
-import Image from "@/components/atoms/Image";
-import Link from "@/components/atoms/Link";
-import { Address } from "@/components/organisms/Address";
-import Socials from "@/components/organisms/Socials";
+// import NextLink from "next/link";
+// import Image from "@/components/atoms/Image";
+// import Link from "@/components/atoms/Link";
+// import { Address } from "@/components/organisms/Address";
+// import Socials from "@/components/organisms/Socials";
 
 const Footer = ({ footInfo, socials, address }) => {
   return (
     <>
-      <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
+      Footer
+      {/* <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
         <div className="flex flex-row justify-around">
           <div className="mb-6 md:mb-0 relative flex items-center">
             <NextLink href="/">
@@ -57,7 +58,7 @@ const Footer = ({ footInfo, socials, address }) => {
             <Socials info={footInfo.Socials} />
           </div>
         </div>
-      </footer>
+      </footer> */}
     </>
   );
 };

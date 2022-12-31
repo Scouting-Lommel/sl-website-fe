@@ -1,23 +1,24 @@
-import Link from "next/link";
-import Image from "@/components/atoms/Image";
-import { useAuthContext, logout } from "@/lib/api/security/security";
-import { Navigation } from "@/components/organisms/Navigation";
+// import Link from "next/link";
+// import Image from "@/components/atoms/Image";
+// import { useAuthContext, logout } from "@/lib/api/security/security";
+// import { Navigation } from "@/components/organisms/Navigation";
 
 const Header = ({ info }) => {
-  const loginBtn = {
-    Href: "/login",
-    IsButton: false,
-    Title: "Login",
-  };
-  const registerNewLeaderButton = {
-    Href: "/createleader",
-    IsButton: false,
-    Title: "registreer nieuwe leiding",
-  };
+  // const loginBtn = {
+  //   Href: "/login",
+  //   IsButton: false,
+  //   Title: "Login",
+  // };
+  // const registerNewLeaderButton = {
+  //   Href: "/createleader",
+  //   IsButton: false,
+  //   Title: "registreer nieuwe leiding",
+  // };
   const [auth, setAuth] = useAuthContext();
   return (
     <>
-      <div className="flex flex-row pr-5 py-2 border-b-2 border-black pl-5">
+      Header
+      {/* <div className="flex flex-row pr-5 py-2 border-b-2 border-black pl-5">
         <Link href="/">
           <a className=" h-14 w-1/12 relative">
             {info.Logo.data && (
@@ -47,7 +48,7 @@ const Header = ({ info }) => {
             </a>
           </button>
         )}
-      </div>
+      </div> */}
     </>
   );
 };

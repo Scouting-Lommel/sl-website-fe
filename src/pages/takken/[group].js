@@ -16,7 +16,7 @@ import {
 import { getGeneralData } from "@/lib/api/general/queries";
 import Hero from "@/components/organisms/Hero";
 import ItemCarousel from "@/components/organisms/Carousel";
-import ImageText from "@/components/organisms/ImageText";
+import ImageText from "@/components/organisms/TextImage";
 import { FileSection } from "@/components/organisms/FileSection";
 import { ActivitiesSection } from "@/components/organisms/ActivitiesSection";
 import BaseLayout from "@/layouts/Base";
