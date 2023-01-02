@@ -1,12 +1,15 @@
 import { ApolloProvider } from "@apollo/client";
 import client from "@/lib/api/apollo/client";
 import { AuthProvider } from "@/lib/api/security/security";
+import { GeneralProvider } from "@/context/GeneralContext";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
       <AuthProvider>
-        <Component {...pageProps} />
+        <GeneralProvider value={{ ...pageProps?.general }}>
+          <Component {...pageProps} />
+        </GeneralProvider>
       </AuthProvider>
     </ApolloProvider>
   );

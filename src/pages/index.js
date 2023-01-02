@@ -9,7 +9,7 @@ export default function Home({ data, general }) {
   console.log(general);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta} generalData={general}>
+    <BaseLayout pageMeta={data.pageMeta}>
       <Blocks content={data.blocks} />
     </BaseLayout>
   );

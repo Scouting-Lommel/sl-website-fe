@@ -5,10 +5,10 @@ import PageHead from "@/components/organisms/PageHead";
 
 const BaseLayout = ({
   children,
+  pageTitle,
   pageMeta,
   slug,
   path,
-  generalData,
   structuredData,
 }) => {
   UpdateAuth();
@@ -16,6 +16,7 @@ const BaseLayout = ({
   return (
     <>
       <PageHead
+        pageTitle={pageTitle}
         pageMeta={pageMeta}
         slug={slug}
         path={path}

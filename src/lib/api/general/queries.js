@@ -31,7 +31,6 @@ const getGeneralData = () => {
             }
             mainNavigation {
               label
-              page
               link
               isButton
               dropdownItems {

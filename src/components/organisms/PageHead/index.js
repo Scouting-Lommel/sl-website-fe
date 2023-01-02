@@ -1,14 +1,24 @@
 import Head from "next/head";
+import { useContext } from "react";
+import { GeneralContext } from "@/context/GeneralContext";
 
-const PageHead = ({ pageMeta, slug, path, structuredData }) => {
+const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
+  const { general } = useContext(GeneralContext);
+
   return (
     <Head>
       {/* PageMeta & SEO */}
       <title>
-        {pageMeta?.pageTitle
-          ? `${pageMeta.pageTitle} • Scouting Sint-Pieter Lommel`
+        {pageTitle
+          ? `${pageTitle} • ${
+              general.siteName || "Scouting Sint-Pieter Lommel"
+            }`
+          : pageMeta?.pageTitle && general?.siteName
+          ? `${pageMeta.pageTitle} • ${general.siteName}`
           : "Scouting Sint-Pieter Lommel"}
       </title>
+
+      {/* Robots */}
       {pageMeta?.noIndex && <meta name="googlebot" content="noindex" />}
 
       {/* Favicon */}
