@@ -6,73 +6,44 @@ const getGeneralData = () => {
       generalData {
         data {
           attributes {
-            GeneralData {
-              ... on ComponentGeneralHeader {
-                __typename
-                Logo {
-                  data {
-                    attributes {
-                      name
-                      url
-                    }
-                  }
-                }
-                NavigationItems {
-                  Title
-                  Href
-                  IsDropdown
-                  DropdownComponents {
-                    Page
-                    Label
-                    IsButton
-                  }
+            siteName
+            url
+            logo {
+              data {
+                attributes {
+                  name
+                  width
+                  height
+                  url
+                  alternativeText
+                  caption
+                  formats
                 }
               }
-              ... on ComponentGeneralSocials {
-                __typename
-                Socials {
-                  data {
-                    attributes {
-                      Link
-                      Label
-                    }
-                  }
-                }
+            }
+            address
+            groupNumber
+            bankAccountNumber
+            vatNumber
+            contactItems {
+              label
+              link
+            }
+            mainNavigation {
+              label
+              page
+              link
+              isButton
+              dropdownItems {
+                label
+                link
               }
-              ... on ComponentGeneralFooter {
-                __typename
-                Logo {
-                  data {
-                    attributes {
-                      url
-                      name
-                    }
-                  }
-                }
-                Socials {
-                  data {
-                    attributes {
-                      Label
-                      Link
-                    }
-                  }
-                }
-                NavigationItems {
-                  Page
-                  Label
-                  IsButton
-                }
-                Link {
-                  Page
-                  Label
-                  IsButton
-                }
-              }
-              ... on ComponentContentBlocksAddress {
-                __typename
-                Title
-                Email
-                Address
+            }
+            footerNavigation {
+              title
+              navItems {
+                label
+                link
               }
             }
           }

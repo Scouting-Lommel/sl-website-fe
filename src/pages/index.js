@@ -4,11 +4,12 @@ import { getGeneralData } from "@/lib/api/general/queries";
 import BaseLayout from "@/layouts/base";
 import Blocks from "@/contentBlocks";
 
-export default function Home({ data }) {
+export default function Home({ data, general }) {
   console.log(data);
+  console.log(general);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} generalData={general}>
       <Blocks content={data.blocks} />
     </BaseLayout>
   );
@@ -21,22 +22,22 @@ export default function Home({ data }) {
 export async function getStaticProps() {
   const notFound = { notFound: true };
 
-  const { data } = await client.query({
+  const general = await client.query({
+    query: getGeneralData(),
+  });
+  const homePage = await client.query({
     query: getHomePage(),
   });
 
-  if (!data.homePage) {
+  if (!homePage?.data?.homePage || !general?.data?.generalData) {
     return notFound;
   }
 
-  // const layoutData = await client.query({
-  //   query: getGeneralData(),
-  // });
-
-  // let general = layoutData.data.generalData.data.attributes.GeneralData;
-
   return {
-    props: { data: data.homePage.data.attributes },
+    props: {
+      data: homePage.data.homePage.data.attributes,
+      general: general.data.generalData.data.attributes,
+    },
     // revalidate: 86400, // 60*60*24 = every 24 hours
   };
 }

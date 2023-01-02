@@ -3,7 +3,14 @@ import { Footer } from "@/components/organisms/Footer";
 import { UpdateAuth } from "@/lib/api/security/security";
 import PageHead from "@/components/organisms/PageHead";
 
-const BaseLayout = ({ children, pageMeta, slug, path, structuredData }) => {
+const BaseLayout = ({
+  children,
+  pageMeta,
+  slug,
+  path,
+  generalData,
+  structuredData,
+}) => {
   UpdateAuth();
 
   return (
