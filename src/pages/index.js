@@ -8,8 +8,26 @@ export default function Home({ data, general }) {
   console.log(data);
   console.log(general);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: general?.siteName,
+    email: "info@scoutinglommel.be",
+    logo: general?.logo?.data?.attributes?.url,
+    image: general?.image?.data?.attributes?.url,
+    description: general?.siteDescription,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Nieuwe Kopen 4",
+      addressLocality: "Lommel",
+      postalCode: "3920",
+      addressCountry: "Belgium",
+    },
+    url: general?.url,
+  };
+
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} structuredData={structuredData}>
       <Blocks content={data.blocks} />
     </BaseLayout>
   );
