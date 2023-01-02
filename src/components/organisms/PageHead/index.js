@@ -15,31 +15,31 @@ const PageHead = ({ pageMeta, slug, path, structuredData }) => {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/assets/favicon/apple-touch-icon.png"
+        href="/assets/head/apple-touch-icon.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/assets/favicon/favicon-32x32.png"
+        href="/assets/head/favicon-32x32.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/assets/favicon/favicon-16x16.png"
+        href="/assets/head/favicon-16x16.png"
       />
-      <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+      <link rel="manifest" href="/assets/head/site.webmanifest" />
       <link
         rel="mask-icon"
-        href="/assets/favicon/safari-pinned-tab.svg"
+        href="/assets/head/safari-pinned-tab.svg"
         color="#eeb531"
       />
-      <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+      <link rel="shortcut icon" href="/assets/head/favicon.ico" />
       <meta name="msapplication-TileColor" content="#eeb531" />
       <meta
         name="msapplication-config"
-        content="/assets/favicon/browserconfig.xml"
+        content="/assets/head/browserconfig.xml"
       />
       <meta name="theme-color" content="#ffffff" />
 
