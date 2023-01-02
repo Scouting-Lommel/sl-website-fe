@@ -14,7 +14,7 @@ const Header = ({ info }) => {
   //   IsButton: false,
   //   Title: "registreer nieuwe leiding",
   // };
-  const [auth, setAuth] = useAuthContext();
+  // const [auth, setAuth] = useAuthContext();
   return (
     <>
       Header
