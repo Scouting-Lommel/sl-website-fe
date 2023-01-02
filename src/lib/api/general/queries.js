@@ -7,6 +7,7 @@ const getGeneralData = () => {
         data {
           attributes {
             siteName
+            siteDescription
             url
             logo {
               data {
@@ -32,9 +33,11 @@ const getGeneralData = () => {
             mainNavigation {
               label
               link
+              page
               isButton
               dropdownItems {
                 label
+                page
                 link
               }
             }

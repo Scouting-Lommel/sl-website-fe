@@ -17,6 +17,9 @@ const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
           ? `${pageMeta.pageTitle} • ${general.siteName}`
           : "Scouting Sint-Pieter Lommel"}
       </title>
+      {general?.siteDescription && (
+        <meta name="description" content={general.siteDescription} />
+      )}
 
       {/* Robots */}
       {pageMeta?.noIndex && <meta name="googlebot" content="noindex" />}
