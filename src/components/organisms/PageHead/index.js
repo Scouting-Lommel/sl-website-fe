@@ -20,13 +20,11 @@ const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
           ? `${pageMeta.pageTitle} • ${general.siteName}`
           : "Scouting Sint-Pieter Lommel"}
       </title>
-      {general?.siteDescription && (
-        <meta name="description" content={general.siteDescription} />
-      )}
+      <meta name="description" content={general.siteDescription} />
       <link rel="canonical" href={getUrl(locale, defaultLocale, path, slug)} />
 
       {/* Robots */}
-      {pageMeta?.noIndex && <meta name="googlebot" content="noindex" />}
+      {pageMeta?.noIndex && <meta name="robots" content="noindex,nofollow" />}
 
       {/* Favicon */}
       <link
