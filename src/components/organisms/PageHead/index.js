@@ -1,9 +1,12 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useContext } from "react";
+import { getUrl } from "@/lib/helpers/getUrl";
 import { GeneralContext } from "@/context/GeneralContext";
 
 const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
   const { general } = useContext(GeneralContext);
+  const { locale, defaultLocale } = useRouter();
 
   return (
     <Head>
@@ -20,6 +23,7 @@ const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
       {general?.siteDescription && (
         <meta name="description" content={general.siteDescription} />
       )}
+      <link rel="canonical" href={getUrl(locale, defaultLocale, path, slug)} />
 
       {/* Robots */}
       {pageMeta?.noIndex && <meta name="googlebot" content="noindex" />}

@@ -5,7 +5,7 @@ import { getGeneralData } from "@/lib/api/general/queries";
 
 export default function Custom404({}) {
   return (
-    <BaseLayout pageTitle={"Pagina niet gevonden"}>
+    <BaseLayout pageTitle={"Pagina niet gevonden"} slug="404">
       <section>
         <h1>404</h1>
         <div>Page Not Found</div>
