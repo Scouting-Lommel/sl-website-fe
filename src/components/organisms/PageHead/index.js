@@ -8,23 +8,58 @@ const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
   const { general } = useContext(GeneralContext);
   const { locale, defaultLocale } = useRouter();
 
+  const title = pageTitle
+    ? `${pageTitle} • ${general.siteName || "Scouting Sint-Pieter Lommel"}`
+    : pageMeta?.pageTitle && general?.siteName
+    ? `${pageMeta.pageTitle} • ${general.siteName}`
+    : "Scouting Sint-Pieter Lommel";
+
   return (
     <Head>
       {/* PageMeta & SEO */}
-      <title>
-        {pageTitle
-          ? `${pageTitle} • ${
-              general.siteName || "Scouting Sint-Pieter Lommel"
-            }`
-          : pageMeta?.pageTitle && general?.siteName
-          ? `${pageMeta.pageTitle} • ${general.siteName}`
-          : "Scouting Sint-Pieter Lommel"}
-      </title>
+      <title>{title}</title>
       <meta name="description" content={general.siteDescription} />
       <link rel="canonical" href={getUrl(locale, defaultLocale, path, slug)} />
 
       {/* Robots */}
       {pageMeta?.noIndex && <meta name="robots" content="noindex,nofollow" />}
+
+      {/* Open Graph Meta  */}
+      <meta property="og:locale" content={locale} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content={general?.siteName} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={general?.siteDescription} />
+      <meta
+        property="og:image"
+        content={general?.image?.data?.attributes?.url}
+      />
+
+      {/* Article Metadata */}
+      <meta
+        property="article:publisher"
+        content="https://www.facebook.com/ScoutingLommel"
+      />
+      <meta property="article:modified_time" content={general?.updatedAt} />
+
+      {/* Twitter Metadata */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={general?.siteDescription} />
+      <meta
+        name="twitter:image"
+        content={general?.image?.data?.attributes?.url}
+      />
+
+      {/* Structured Data */}
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      )}
 
       {/* Favicon */}
       <link
@@ -57,16 +92,6 @@ const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
         content="/assets/head/browserconfig.xml"
       />
       <meta name="theme-color" content="#ffffff" />
-
-      {/* Structured Data */}
-      {structuredData && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(structuredData),
-          }}
-        />
-      )}
     </Head>
   );
 };

@@ -6,10 +6,24 @@ const getGeneralData = () => {
       generalData {
         data {
           attributes {
+            updatedAt
             siteName
             siteDescription
             url
             logo {
+              data {
+                attributes {
+                  name
+                  width
+                  height
+                  url
+                  alternativeText
+                  caption
+                  formats
+                }
+              }
+            }
+            image {
               data {
                 attributes {
                   name
