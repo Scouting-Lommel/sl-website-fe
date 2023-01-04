@@ -1,6 +1,6 @@
 import Carousel from "@/components/organisms/Carousel";
 
-const CarouselBlock = ({ title, groups, blockProperties }) => {
+const GroupsBlock = ({ title, groups, blockProperties }) => {
   return (
     <section>
       <Carousel data={groups} />
@@ -8,4 +8,4 @@ const CarouselBlock = ({ title, groups, blockProperties }) => {
   );
 };
 
-export default CarouselBlock;
+export default GroupsBlock;
