@@ -1,36 +1,36 @@
 import client from "@/lib/api/apollo/client";
-import { getGeneralData } from "@/lib/api/general/queries";
-import getContactInfo from "@/lib/api/contact/queries";
+import { getGeneralData } from "@/lib/api/general";
+import { getContactPage } from "@/lib/api/contact";
 import BaseLayout from "@/layouts/base";
-import Blocks from "@/contentBlocks";
 
-export default function contact({ fin, general }) {
+export default function contact({ data, general }) {
+  console.log(data);
+
   return (
-    <BaseLayout
-      generalData={general}
-      title={fin.Title}
-      noIndex={fin.NoIndex}
-      url={fin.URL}
-    >
-      <Blocks content={fin.ContactPage} />
+    <BaseLayout pageMeta={data.pageMeta}>
+      <section className="sl-layout">{data.pageMeta.pageTitle}</section>
     </BaseLayout>
   );
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: getContactInfo(),
-  });
-  const layoutData = await client.query({
+  const notFound = { notFound: true };
+
+  const general = await client.query({
     query: getGeneralData(),
   });
+  const contactPage = await client.query({
+    query: getContactPage(),
+  });
 
-  let general = layoutData.data.generalData.data.attributes.GeneralData;
-
-  let fin = data.contactPage.data.attributes;
+  if (!contactPage?.data?.contactPage || !general?.data?.generalData) {
+    return notFound;
+  }
 
   return {
-    props: { fin: fin, general: general },
-    revalidate: 86400, // 60*60*24 = every 24 hours
+    props: {
+      data: contactPage.data.contactPage.data.attributes,
+      general: general.data.generalData.data.attributes,
+    },
   };
 }
