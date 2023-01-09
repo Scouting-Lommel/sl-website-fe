@@ -1,7 +1,7 @@
 import client from "@/lib/api/apollo/client";
 import { getGeneralData } from "@/lib/api/general";
-import { getGroupPage } from "@/lib/api/groups";
-import { getAllGroupSlugs } from "@/lib/api/groups";
+import { getRentalLocationPage } from "@/lib/api/rental";
+import { getAllRentalLocationSlugs } from "@/lib/api/rental";
 import BaseLayout from "@/layouts/base";
 
 export default function group({ data, general }) {
@@ -15,12 +15,12 @@ export default function group({ data, general }) {
 
 export async function getStaticPaths() {
   const { data } = await client.query({
-    query: getAllGroupSlugs(),
+    query: getAllRentalLocationSlugs(),
   });
 
-  const paths = data.groups.data.map((group) => {
+  const paths = data.rentalLocations.data.map((rentalLocation) => {
     return {
-      params: { slug: group.attributes.slug },
+      params: { slug: rentalLocation.attributes.slug },
     };
   });
 
@@ -37,18 +37,23 @@ export async function getStaticProps(context) {
   const general = await client.query({
     query: getGeneralData(),
   });
-  const groupPage = await client.query({
-    query: getGroupPage(),
+  const rentalLocationPage = await client.query({
+    query: getRentalLocationPage(),
     variables: { slug: params.slug },
   });
 
-  if (!groupPage?.data?.groups || !general?.data?.generalData) {
+  console.log(rentalLocationPage);
+
+  if (
+    !rentalLocationPage?.data?.rentalLocations ||
+    !general?.data?.generalData
+  ) {
     return notFound;
   }
 
   return {
     props: {
-      data: groupPage.data.groups.data[0].attributes,
+      data: rentalLocationPage.data.rentalLocations.data[0].attributes,
       general: general.data.generalData.data.attributes,
     },
   };
