@@ -4,7 +4,14 @@ import { useContext } from "react";
 import { getUrl } from "@/lib/helpers/getUrl";
 import { GeneralContext } from "@/context/GeneralContext";
 
-const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
+const PageHead = ({
+  pageMeta,
+  noIndex,
+  pageTitle,
+  slug,
+  path,
+  structuredData,
+}) => {
   const { general } = useContext(GeneralContext);
   const { locale, defaultLocale } = useRouter();
 
@@ -25,7 +32,9 @@ const PageHead = ({ pageMeta, pageTitle, slug, path, structuredData }) => {
       <link rel="canonical" href={getUrl(locale, defaultLocale, path, slug)} />
 
       {/* Robots */}
-      {pageMeta?.noIndex && <meta name="robots" content="noindex,nofollow" />}
+      {(pageMeta?.noIndex || noIndex) && (
+        <meta name="robots" content="noindex,nofollow" />
+      )}
 
       {/* Open Graph Meta  */}
       <meta property="og:locale" content={locale} />

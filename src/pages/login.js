@@ -1,6 +1,6 @@
 // import Head from "next/head";
 import { useMutation } from "@apollo/client";
-import { getGeneralData } from "@/lib/api/general/queries";
+import { getGeneralData } from "@/lib/api/general";
 import client from "@/lib/api/apollo/client";
 import { loginQuery } from "@/lib/api/login/mutations";
 import { setCredentials } from "@/lib/api/security/security";
@@ -21,7 +21,7 @@ export default function Login({ general }) {
   });
 
   return (
-    <BaseLayout generalData={general} title="Login" noIndex={true}>
+    <BaseLayout pageTitle="Login" noIndex={true}>
       <div className="flex flex-row justify-center py-32">
         <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center max-w-lg">
           <div className="mb-4">
@@ -83,11 +83,15 @@ export default function Login({ general }) {
 }
 
 export async function getStaticProps() {
-  const layoutData = await client.query({
+  const notFound = { notFound: true };
+
+  const general = await client.query({
     query: getGeneralData(),
   });
 
-  let general = layoutData.data.generalData.data.attributes.GeneralData;
+  if (!general?.data?.generalData) {
+    return notFound;
+  }
 
   return {
     props: { general },

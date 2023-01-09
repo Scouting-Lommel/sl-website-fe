@@ -7,6 +7,7 @@ const BaseLayout = ({
   children,
   pageTitle,
   pageMeta,
+  noIndex,
   slug,
   path,
   structuredData,
@@ -18,6 +19,7 @@ const BaseLayout = ({
       <PageHead
         pageTitle={pageTitle}
         pageMeta={pageMeta}
+        noIndex={noIndex}
         slug={slug}
         path={path}
         structuredData={structuredData}
