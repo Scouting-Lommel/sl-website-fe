@@ -6,7 +6,7 @@ import { getGeneralData } from "@/lib/api/general/getGeneralData";
 export default function Custom404({}) {
   return (
     <BaseLayout pageTitle={"Pagina niet gevonden"} slug="404">
-      <section>
+      <section className="sl-layout">
         <h1>404</h1>
         <div>Page Not Found</div>
         <Link href="/">
