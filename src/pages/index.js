@@ -1,6 +1,6 @@
 import client from "@/lib/api/apollo/client";
-import { getHomePage } from "@/lib/api/home/queries";
-import { getGeneralData } from "@/lib/api/general/queries";
+import { getHomePage } from "@/lib/api/home";
+import { getGeneralData } from "@/lib/api/general";
 import BaseLayout from "@/layouts/base";
 import Blocks from "@/contentBlocks";
 
@@ -33,10 +33,6 @@ export default function Home({ data, general }) {
   );
 }
 
-// function reRender() {
-//   fetch("/api/revalidateHome");
-// }
-
 export async function getStaticProps() {
   const notFound = { notFound: true };
 
@@ -56,6 +52,5 @@ export async function getStaticProps() {
       data: homePage.data.homePage.data.attributes,
       general: general.data.generalData.data.attributes,
     },
-    // revalidate: 86400, // 60*60*24 = every 24 hours
   };
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import BaseLayout from "@/layouts/base";
 import client from "@/lib/api/apollo/client";
-import { getGeneralData } from "@/lib/api/general/queries";
+import { getGeneralData } from "@/lib/api/general/getGeneralData";
 
 export default function Custom404({}) {
   return (
