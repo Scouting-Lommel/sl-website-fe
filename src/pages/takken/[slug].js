@@ -6,6 +6,7 @@ import BaseLayout from "@/layouts/base";
 
 export default function group({ data, general }) {
   console.log(data);
+
   return (
     <BaseLayout pageMeta={data.pageMeta}>
       <section className="sl-layout">{data.pageTitle}</section>
