@@ -63,4 +63,4 @@ const getHomePage = () => {
   `;
 };
 
-export { getHomePage };
+export default getHomePage;

@@ -2,7 +2,7 @@ import client from "@/lib/api/apollo/client";
 import { getGeneralData } from "@/lib/api/general";
 import { getGroupPage } from "@/lib/api/groups";
 import BaseLayout from "@/layouts/base";
-import { getAllGroupSlugs } from "@/lib/api/groups/getAllGroupSlugs";
+import { getAllGroupSlugs } from "@/lib/api/groups";
 
 export default function group({ data, general }) {
   console.log(data);

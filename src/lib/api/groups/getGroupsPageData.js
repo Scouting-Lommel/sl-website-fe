@@ -49,4 +49,4 @@ const getGroupsPage = () => {
   `;
 };
 
-export { getGroupsPage };
+export default getGroupsPage;

@@ -14,4 +14,4 @@ const getAllGroupSlugs = () => {
   `;
 };
 
-export { getAllGroupSlugs };
+export default getAllGroupSlugs;

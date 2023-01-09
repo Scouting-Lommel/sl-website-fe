@@ -51,4 +51,4 @@ const getGroupPage = () => {
   `;
 };
 
-export { getGroupPage };
+export default getGroupPage;
