@@ -24,6 +24,5 @@ export async function getStaticProps() {
 
   return {
     props: { general: general.data.generalData.data.attributes },
-    revalidate: 86400, // 60*60*24 = every 24 hours
   };
 }
