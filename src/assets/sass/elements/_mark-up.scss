@@ -1,0 +1,11 @@
+@use '../settings/' as *;
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+i,
+em {
+  font-style: italic;
+}

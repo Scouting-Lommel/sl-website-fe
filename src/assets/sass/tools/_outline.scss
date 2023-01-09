@@ -1,0 +1,31 @@
+@use '../settings/colors' as colors;
+@use '../settings/tools' as tools;
+
+@mixin outline {
+  outline: 0;
+
+  &:focus {
+    box-shadow: 0 0 0 tools.rem(2) colors.$color-focus;
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+  }
+}
+
+@mixin outline-link {
+  @include outline;
+
+  padding: tools.rem(6);
+  margin: tools.rem(-6);
+  border-radius: tools.rem(8);
+}
+
+@mixin outline-radius(
+  $distance: 2px,
+  $color: colors.$color-action,
+  $background: colors.$color-white,
+  $outline-width: 2px
+) {
+  box-shadow: 0 0 0 $distance $background, 0 0 0 #{$distance + $outline-width} $color;
+}

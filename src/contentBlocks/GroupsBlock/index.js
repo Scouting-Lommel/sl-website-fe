@@ -2,7 +2,7 @@ import Carousel from "@/components/organisms/Carousel";
 
 const GroupsBlock = ({ title, groups, blockProperties }) => {
   return (
-    <section>
+    <section className="sl-layout">
       <Carousel data={groups} />
     </section>
   );

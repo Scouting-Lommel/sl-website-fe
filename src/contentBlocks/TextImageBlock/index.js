@@ -8,7 +8,7 @@ const ImageTextBlock = ({
   blockProperties,
 }) => {
   return (
-    <section>
+    <section className="sl-layout">
       <TextImage
         title={title}
         content={content}
