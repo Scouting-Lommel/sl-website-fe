@@ -8,7 +8,7 @@ export default function takken({ data, general }) {
   console.log(general);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} slug="takken">
       <section className="sl-layout">{data.pageMeta.pageTitle}</section>
     </BaseLayout>
   );

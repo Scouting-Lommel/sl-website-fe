@@ -4,11 +4,11 @@ import { getGroupPage } from "@/lib/api/groups";
 import { getAllGroupSlugs } from "@/lib/api/groups";
 import BaseLayout from "@/layouts/base";
 
-export default function group({ data, general }) {
+export default function group({ data, params, general }) {
   console.log(data);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} path="takken" slug={params.slug}>
       <section className="sl-layout">{data.pageTitle}</section>
     </BaseLayout>
   );
@@ -51,6 +51,7 @@ export async function getStaticProps(context) {
     props: {
       data: groupPage.data.groups.data[0].attributes,
       general: general.data.generalData.data.attributes,
+      params: params,
     },
   };
 }

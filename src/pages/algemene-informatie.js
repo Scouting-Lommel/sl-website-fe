@@ -7,7 +7,7 @@ export default function Info({ data, general }) {
   console.log(data);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} slug="algemene-informatie">
       <section className="sl-layout">{data.pageMeta.pageTitle}</section>
     </BaseLayout>
   );

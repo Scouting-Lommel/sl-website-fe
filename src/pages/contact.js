@@ -7,7 +7,7 @@ export default function contact({ data, general }) {
   console.log(data);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} slug="contact">
       <section className="sl-layout">{data.pageMeta.pageTitle}</section>
     </BaseLayout>
   );

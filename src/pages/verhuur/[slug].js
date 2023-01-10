@@ -4,10 +4,11 @@ import { getRentalLocationPage } from "@/lib/api/rental";
 import { getAllRentalLocationSlugs } from "@/lib/api/rental";
 import BaseLayout from "@/layouts/base";
 
-export default function group({ data, general }) {
+export default function group({ data, params, general }) {
   console.log(data);
+
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} path="verhuur" slug={params.slug}>
       <section className="sl-layout">{data.pageTitle}</section>
     </BaseLayout>
   );
@@ -55,6 +56,7 @@ export async function getStaticProps(context) {
     props: {
       data: rentalLocationPage.data.rentalLocations.data[0].attributes,
       general: general.data.generalData.data.attributes,
+      params: params,
     },
   };
 }

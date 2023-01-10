@@ -8,7 +8,7 @@ export default function Verhuur({ data, general }) {
   console.log(general);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta}>
+    <BaseLayout pageMeta={data.pageMeta} slug="verhuur">
       <section className="sl-layout">{data.pageMeta.pageTitle}</section>
     </BaseLayout>
   );
