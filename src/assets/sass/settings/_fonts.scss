@@ -20,8 +20,9 @@ $font-weight-extra-bold: 800;
 $font-weight-black: 900;
 
 // Sizes
-$font-size-default: tools.rem(18);
-$font-size-large: tools.rem(20);
+$font-size-large: tools.rem(22);
+$font-size-medium: tools.rem(20);
+$font-size-small: tools.rem(16);
 
 // Letter Spacings
 $letter-spacing-uppercase: 0.05em;
@@ -32,9 +33,9 @@ $font-family-text: "Nunito Sans", sans-serif;
 
 $font-titles-map: (
   h1: (
-    size: #{tools.rem(56)},
-    size-m: #{tools.rem(44)},
-    size-s: #{tools.rem(32)},
+    size: #{tools.rem(96)},
+    size-m: #{tools.rem(64)},
+    size-s: #{tools.rem(48)},
     space: 0.05em,
     weight: $font-weight-black,
     line-height: 1.2,
@@ -43,32 +44,32 @@ $font-titles-map: (
     letter-spacing: #{tools.rem(1.5)},
   ),
   "h1-alt": (
-    size: #{tools.rem(56)},
-    size-m: #{tools.rem(44)},
-    size-s: #{tools.rem(32)},
+    size: #{tools.rem(64)},
+    size-m: #{tools.rem(48)},
+    size-s: #{tools.rem(40)},
     space: 0.05em,
-    weight: 900,
+    weight: $font-weight-black,
     line-height: 1.2,
     font-family: $font-family-title,
     text-transform: uppercase,
     letter-spacing: #{tools.rem(1.5)},
   ),
   h2: (
-    size: #{tools.rem(56)},
-    size-m: #{tools.rem(44)},
-    size-s: #{tools.rem(32)},
+    size: #{tools.rem(34)},
+    size-m: #{tools.rem(28)},
+    size-s: #{tools.rem(22)},
     space: 0.5em,
-    weight: 400,
+    weight: $font-weight-regular,
     line-height: 1.2,
     text-transform: uppercase,
     font-family: $font-family-text,
   ),
   h3: (
-    size: #{tools.rem(32)},
-    size-m: #{tools.rem(28)},
-    size-s: #{tools.rem(24)},
+    size: #{tools.rem(28)},
+    size-m: #{tools.rem(24)},
+    size-s: #{tools.rem(20)},
     space: 0.5em,
-    weight: 700,
+    weight: $font-weight-bold,
     line-height: 1.2,
     font-family: $font-family-text,
   ),
