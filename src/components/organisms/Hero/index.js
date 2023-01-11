@@ -1,5 +1,6 @@
 import Link from "@/components/atoms/Link";
 import Image from "@/components/atoms/Image";
+import Title from "@/components/atoms/Title";
 
 const Hero = ({
   title,
@@ -10,7 +11,11 @@ const Hero = ({
   yearTheme,
   bgImage,
 }) => {
-  return <>Hero</>;
+  return (
+    <>
+      <Title title={title} variant="h1" />
+    </>
+  );
 };
 
 export default Hero;
