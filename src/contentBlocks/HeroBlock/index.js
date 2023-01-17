@@ -11,7 +11,6 @@ const HeroBlock = ({
 }) => {
   return (
     <section className="sl-layout">
-      <h1>Title</h1>
       <Hero
         title={title}
         subtitle={subtitle}
