@@ -16,8 +16,8 @@ const SLImage = ({ data, className }) => {
       <img
         alt={data?.alternativeText}
         src={data?.url}
-        srcSet={data?.formats.large.url}
-        sizes={`(max-width: 480px) ${data.formats.small.width}, (max-width: 768px) ${data.formats.medium.width}, ${data?.formats.large.url}`}
+        srcSet={data?.url}
+        sizes={`(max-width: 480px) ${data.formats.small.width}px, (max-width: 768px) ${data.formats.medium.width}px, (max-width: 1024px) ${data?.formats.large.width}px, ${data?.width}px`}
         loading="lazy"
       />
     </picture>
