@@ -2,5 +2,21 @@
 @use "@/assets/sass/tools/" as tools;
 
 .image {
+  position: relative;
   display: block;
+
+  &--lazy {
+    @include skeleton-animation;
+
+    & .image__img {
+      opacity: 0;
+    }
+  }
+}
+
+.image__img {
+  transition: $transition;
+  opacity: 1;
+  display: block;
+  width: 100%;
 }
