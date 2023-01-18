@@ -2,7 +2,15 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Title.module.scss";
 
-const Title = ({ title, variant, style, tagName, modLight, className }) => {
+const Title = ({
+  title,
+  variant,
+  style,
+  tagName,
+  modLight,
+  modAccent,
+  className,
+}) => {
   const titleStyle = style ? style : variant;
   const TagName = tagName ?? variant;
 
@@ -10,6 +18,7 @@ const Title = ({ title, variant, style, tagName, modLight, className }) => {
     styles["title"],
     styles[`title--${titleStyle}`],
     modLight && styles["title--light"],
+    modAccent && styles["title--accent"],
     className,
   ]);
 
