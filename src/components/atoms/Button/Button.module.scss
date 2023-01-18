@@ -1,0 +1,22 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.button {
+  display: flex;
+  padding: tools.rem(12) tools.rem(36);
+  border: tools.rem(3) solid $color-yellow;
+  border-radius: tools.rem(36);
+  background-color: $color-yellow;
+  transition: $transition;
+
+  &:hover {
+    background-color: $color-white;
+  }
+}
+
+.button__label {
+  text-transform: uppercase;
+  font-family: $font-family-title;
+  font-weight: $font-weight-semibold;
+  letter-spacing: tools.rem(0.5);
+}
