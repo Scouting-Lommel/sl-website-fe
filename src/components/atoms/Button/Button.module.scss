@@ -3,7 +3,8 @@
 
 .button {
   display: flex;
-  padding: tools.rem(16) tools.rem(36);
+  padding: tools.rem(12) tools.rem(26);
+  font-size: tools.rem(12);
   border: none;
   border-radius: tools.rem(36);
   background-color: $color-yellow;
@@ -21,6 +22,16 @@
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-medium;
+  }
+
+  @include tools.respond-from(medium) {
+    padding: tools.rem(14) tools.rem(32);
+    font-size: tools.rem(14);
+  }
+
+  @include tools.respond-from(large) {
+    padding: tools.rem(16) tools.rem(36);
+    font-size: tools.rem(16);
   }
 }
 
