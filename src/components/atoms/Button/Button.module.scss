@@ -3,14 +3,24 @@
 
 .button {
   display: flex;
-  padding: tools.rem(12) tools.rem(36);
-  border: tools.rem(3) solid $color-yellow;
+  padding: tools.rem(16) tools.rem(36);
+  border: none;
   border-radius: tools.rem(36);
   background-color: $color-yellow;
   transition: $transition;
+  box-shadow: $shadow-small;
+
+  &--primary {
+    background-color: $color-yellow;
+  }
+
+  &--light {
+    background-color: $color-white;
+  }
 
   &:hover {
-    background-color: $color-white;
+    cursor: pointer;
+    box-shadow: $shadow-medium;
   }
 }
 
