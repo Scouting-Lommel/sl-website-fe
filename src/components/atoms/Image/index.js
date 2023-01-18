@@ -2,7 +2,7 @@ import classNames from "classnames";
 import styles from "./Image.module.scss";
 
 const SLImage = ({ data, className }) => {
-  if (!data.url) {
+  if (!data?.url) {
     return "Image is not valid";
   }
 
