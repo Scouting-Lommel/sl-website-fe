@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./Title.module.scss";
+import { Markup } from "interweave";
 
 const Title = ({
   title,
@@ -9,6 +10,7 @@ const Title = ({
   tagName,
   modLight,
   modAccent,
+  modMarkup,
   className,
 }) => {
   const titleStyle = style ? style : variant;
@@ -22,7 +24,11 @@ const Title = ({
     className,
   ]);
 
-  return <TagName className={titleClassNames}>{title}</TagName>;
+  return (
+    <TagName className={titleClassNames}>
+      {modMarkup ? <Markup content={title} /> : title}
+    </TagName>
+  );
 };
 
 Title.propTypes = {
@@ -30,6 +36,7 @@ Title.propTypes = {
   variant: PropTypes.oneOf(["h1", "h1-alt", "h2", "h3"]),
   style: PropTypes.oneOf(["h1", "h1-alt", "h2", "h3"]),
   modLight: PropTypes.bool,
+  modMarkup: PropTypes.bool,
 };
 
 Title.defaultProps = {
