@@ -1,0 +1,36 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.block-container {
+  position: relative;
+  padding-top: tools.rem(108);
+  padding-bottom: tools.rem(108);
+  background-color: $color-white;
+
+  &--dark {
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 101%;
+      height: 101%;
+      background: url("/assets/images/background.svg"), $color-green;
+      background-repeat: no-repeat;
+      background-position: 100%;
+      background-size: auto 100%;
+    }
+  }
+
+  &--reversed {
+    &::before {
+      transform: scaleY(-1);
+    }
+  }
+}
+
+.block-container__content {
+  position: relative;
+}
