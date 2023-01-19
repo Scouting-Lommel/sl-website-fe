@@ -1,3 +1,4 @@
+import BlockContainer from "@/components/atoms/BlockContainer";
 import Hero from "@/components/organisms/Hero";
 
 const HeroBlock = ({
@@ -10,7 +11,7 @@ const HeroBlock = ({
   bgImage,
 }) => {
   return (
-    <section className="sl-layout">
+    <BlockContainer variant="dark" orientation="default" slug="hero">
       <Hero
         title={title}
         subtitle={subtitle}
@@ -19,8 +20,9 @@ const HeroBlock = ({
         socialsCta={socialsCta}
         yearTheme={yearTheme}
         bgImage={bgImage}
+        className="sl-layout"
       />
-    </section>
+    </BlockContainer>
   );
 };
 

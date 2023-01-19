@@ -1,3 +1,4 @@
+import BlockContainer from "@/components/atoms/BlockContainer";
 import TextImage from "@/components/organisms/TextImage";
 
 const ImageTextBlock = ({
@@ -8,14 +9,20 @@ const ImageTextBlock = ({
   blockProperties,
 }) => {
   return (
-    <section className="sl-layout">
-      <TextImage
-        title={title}
-        content={content}
-        images={images}
-        ctaButton={ctaButton}
-      />
-    </section>
+    <BlockContainer
+      variant={blockProperties?.variant}
+      orientation={blockProperties?.orientation}
+      slug={blockProperties?.slug}
+    >
+      <section className="sl-layout">
+        <TextImage
+          title={title}
+          content={content}
+          images={images}
+          ctaButton={ctaButton}
+        />
+      </section>
+    </BlockContainer>
   );
 };
 
