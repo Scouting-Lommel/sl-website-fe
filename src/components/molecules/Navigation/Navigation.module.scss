@@ -1,0 +1,30 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navigation__list {
+  display: flex;
+  list-style-type: none;
+}
+
+.navigation__list__item {
+  font-family: $font-family-title;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+  background-color: transparent;
+  border: none;
+
+  & + & {
+    margin-left: tools.rem(36);
+  }
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
