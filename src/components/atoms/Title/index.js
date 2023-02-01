@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import styles from "./Title.module.scss";
 import { Markup } from "interweave";
+import styles from "./Title.module.scss";
 
 const Title = ({
   title,
@@ -24,11 +24,15 @@ const Title = ({
     className,
   ]);
 
-  return (
-    <TagName className={titleClassNames}>
-      {modMarkup ? <Markup content={title} /> : title}
-    </TagName>
-  );
+  if (modMarkup) {
+    return (
+      <TagName className={titleClassNames}>
+        <Markup content={title} />
+      </TagName>
+    );
+  }
+
+  return <TagName className={titleClassNames}>{title}</TagName>;
 };
 
 Title.propTypes = {
