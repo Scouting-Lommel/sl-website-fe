@@ -11,7 +11,7 @@ const BlockContainer = ({ variant, orientation, slug, children }) => {
 
   return (
     <section id={slug} className={containerClassnames}>
-      <span className={styles["block-container__content"]}>{children}</span>
+      <div className={styles["block-container__content"]}>{children}</div>
     </section>
   );
 };
