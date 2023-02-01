@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding: tools.rem(12) 0;
 }
 
 .navigation__list {
@@ -13,6 +14,7 @@
 }
 
 .navigation__list__item {
+  padding: tools.rem(12) 0;
   font-family: $font-family-title;
   text-transform: uppercase;
   font-weight: $font-weight-semibold;

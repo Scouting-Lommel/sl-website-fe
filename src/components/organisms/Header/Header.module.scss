@@ -3,8 +3,7 @@
 
 .header {
   display: flex;
-  padding-top: tools.rem(24);
-  padding-bottom: tools.rem(24);
+  align-items: center;
 }
 
 .header__link {
