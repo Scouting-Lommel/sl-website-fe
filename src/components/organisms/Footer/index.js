@@ -1,5 +1,5 @@
 const Footer = ({ footInfo, socials, address }) => {
-  return <>Footer</>;
+  return <footer className="sl-layout">Footer</footer>;
 };
 
 export { Footer };
