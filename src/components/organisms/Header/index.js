@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { GeneralContext } from "@/context/GeneralContext";
 import Navigation from "@/components/molecules/Navigation";
 import styles from "./Header.module.scss";
+import SLImage from "@/components/atoms/Image";
 
 const Header = () => {
   const { general } = useContext(GeneralContext);
@@ -12,7 +13,10 @@ const Header = () => {
   return (
     <header className={headerClassNames}>
       <Link href="/" className={styles["header__link"]}>
-        Scouting Lommel
+        <SLImage
+          data={general.logo.data.attributes}
+          className={styles["header__link__logo"]}
+        />
       </Link>
       <Navigation navItems={general.mainNavigation} />
     </header>

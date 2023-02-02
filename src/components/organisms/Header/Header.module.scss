@@ -7,6 +7,11 @@
 }
 
 .header__link {
+  position: relative;
   white-space: nowrap;
   margin-right: tools.rem(48);
+  height: tools.rem(72);
+}
+
+.header__link__logo {
 }
