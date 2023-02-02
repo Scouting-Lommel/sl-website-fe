@@ -1,6 +1,6 @@
+import { Markup } from "interweave";
 import Link from "@/components/atoms/Link";
 import Title from "@/components/atoms/Title";
-import { Markup } from "interweave";
 import styles from "./FooterInfo.module.scss";
 
 const InfoCol = ({ title, address, links }) => {
