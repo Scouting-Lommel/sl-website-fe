@@ -28,6 +28,6 @@ module.exports = nextTranslate({
     return config;
   },
   async redirects() {
-    return [];
+    return [{ source: "/home", destination: "/", permanent: true }];
   },
 });
