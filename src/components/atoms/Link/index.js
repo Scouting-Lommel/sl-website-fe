@@ -1,8 +1,8 @@
 import NextLink from "next/link";
 import PropTypes from "prop-types";
 
-const Link = ({ label, href }) => {
-  return <NextLink href={href}>{label}</NextLink>;
+const Link = ({ href, children }) => {
+  return <NextLink href={href}>{children}</NextLink>;
 };
 
 Link.propTypes = {
