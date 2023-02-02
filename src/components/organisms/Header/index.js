@@ -8,15 +8,18 @@ import SLImage from "@/components/atoms/Image";
 
 const Header = () => {
   const { general } = useContext(GeneralContext);
-  const headerClassNames = classNames([styles["header"], "sl-layout"]);
 
   return (
-    <header className={headerClassNames}>
-      <Link href="/" className={styles["header__link"]}>
-        <SLImage data={general.logo.data.attributes} />
-      </Link>
-      <Navigation navItems={general.mainNavigation} />
-    </header>
+    <div className={styles["header__wrapper"]}>
+      <header className="sl-layout">
+        <div className={styles["header"]}>
+          <Link href="/" className={styles["header__link"]}>
+            <SLImage data={general.logo.data.attributes} />
+          </Link>
+          <Navigation navItems={general.mainNavigation} />
+        </div>
+      </header>
+    </div>
   );
 };
 
