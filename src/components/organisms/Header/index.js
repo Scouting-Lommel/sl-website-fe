@@ -13,10 +13,7 @@ const Header = () => {
   return (
     <header className={headerClassNames}>
       <Link href="/" className={styles["header__link"]}>
-        <SLImage
-          data={general.logo.data.attributes}
-          className={styles["header__link__logo"]}
-        />
+        <SLImage data={general.logo.data.attributes} />
       </Link>
       <Navigation navItems={general.mainNavigation} />
     </header>
