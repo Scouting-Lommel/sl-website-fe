@@ -63,7 +63,8 @@ async function setCredentials(jwt) {
         );
         setUserID(res.data.usersPermissionsUser.data.attributes.leader.data.id);
         window.location.href = "/";
-      });
+      })
+      .catch((err) => console.log(err));
   }
 }
 
