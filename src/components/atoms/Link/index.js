@@ -6,7 +6,6 @@ const Link = ({ href, children }) => {
 };
 
 Link.propTypes = {
-  label: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
 };
 
