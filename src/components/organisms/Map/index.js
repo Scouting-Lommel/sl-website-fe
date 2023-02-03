@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { Markup } from "interweave";
+import ReactMarkdown from "react-markdown";
 
 const Map = ({ info }) => {
   return (
@@ -39,7 +39,7 @@ const Map = ({ info }) => {
       <h2 className="text-3xl text-center font-bold py-3">{info.Title}</h2>
       <div className="flex pb-3 justify-evenly">
         <div className="p-3">
-          <Markup content={info.Content} />
+          <ReactMarkdown>{info.Content}</ReactMarkdown>
         </div>
         <div className="flex flex-col justify-center">
           <div

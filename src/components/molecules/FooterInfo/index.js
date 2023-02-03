@@ -1,4 +1,4 @@
-import { Markup } from "interweave";
+import ReactMarkdown from "react-markdown";
 import Link from "@/components/atoms/Link";
 import Title from "@/components/atoms/Title";
 import styles from "./FooterInfo.module.scss";
@@ -10,7 +10,7 @@ const InfoCol = ({ title, address, links }) => {
 
       {address ? (
         <div className={styles["info-col__content"]}>
-          <Markup content={address} />
+          <ReactMarkdown>{address}</ReactMarkdown>
         </div>
       ) : (
         links?.map((item, i) => {

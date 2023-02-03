@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { Markup } from "interweave";
+import ReactMarkdown from "react-markdown";
 import styles from "./Title.module.scss";
 
 const Title = ({
@@ -27,7 +27,7 @@ const Title = ({
   if (modMarkup) {
     return (
       <TagName className={titleClassNames}>
-        <Markup content={title} />
+        <ReactMarkdown>{title}</ReactMarkdown>
       </TagName>
     );
   }
