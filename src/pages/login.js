@@ -7,7 +7,7 @@ import { setCredentials } from "@/lib/api/security/security";
 import BaseLayout from "@/layouts/base";
 
 export default function Login() {
-  const [loginFunc, { loading, error, data }] = useMutation(loginQuery, {
+  const [loginFunc, { loading, error }] = useMutation(loginQuery, {
     variables: {
       username: "placeholder",
       password: "placeholder",
@@ -15,8 +15,8 @@ export default function Login() {
     onCompleted(data) {
       setCredentials(data.login.jwt);
     },
-    onError(fin) {
-      console.error(fin);
+    onError(err) {
+      console.error(err);
     },
   });
 
@@ -25,13 +25,19 @@ export default function Login() {
       <form>
         <label htmlFor="username">
           <span>Username</span>
-          <input id="username" type="text" placeholder="Username" />
+          <input
+            id="username"
+            type="text"
+            placeholder="Username"
+            autoComplete="username"
+          />
         </label>
         <label htmlFor="password">
           <span>Password</span>
           <input
             id="password"
             type="password"
+            autoComplete="current-password"
             placeholder="******************"
           />
         </label>
