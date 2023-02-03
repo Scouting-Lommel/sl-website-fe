@@ -52,14 +52,14 @@ async function setCredentials(jwt) {
         query: getDataFromUserId(id),
       })
       .then((res) => {
-        SetJwtToken(jwt);
-        SetUserGroup(
+        setJwtToken(jwt);
+        setUserGroup(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
-            .group.data.attributes.Name
+            .group.data.attributes.name
         );
-        SetGroupLeader(
+        setGroupLeader(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
-            .IsGroupLeader
+            .isGroupLeader
         );
         setUserID(res.data.usersPermissionsUser.data.attributes.leader.data.id);
         window.location.href = "/";
@@ -67,7 +67,7 @@ async function setCredentials(jwt) {
   }
 }
 
-function SetGroupLeader(groupleader) {
+function setGroupLeader(groupleader) {
   if (!ISSERVER) {
     sessionStorage.setItem("groupLeader", groupleader);
   }
@@ -87,13 +87,13 @@ function getJwtToken() {
   return undefined;
 }
 
-function SetJwtToken(token) {
+function setJwtToken(token) {
   if (!ISSERVER) {
     sessionStorage.setItem("jwt", token);
   }
 }
 
-function SetUserGroup(name) {
+function setUserGroup(name) {
   if (!ISSERVER) {
     sessionStorage.setItem("UserGroup", name);
   }
