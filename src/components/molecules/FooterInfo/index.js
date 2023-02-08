@@ -1,6 +1,5 @@
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import Link from "@/components/atoms/Link";
+import RichText from "@/components/atoms/RichtText";
 import Title from "@/components/atoms/Title";
 import styles from "./FooterInfo.module.scss";
 
@@ -11,7 +10,7 @@ const InfoCol = ({ title, address, links }) => {
 
       {address ? (
         <div className={styles["info-col__content"]}>
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{address}</ReactMarkdown>
+          <RichText data={address} />
         </div>
       ) : (
         links?.map((item, i) => {

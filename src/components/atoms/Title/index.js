@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import ReactMarkdown from "react-markdown";
 import styles from "./Title.module.scss";
+import RichText from "@/components/atoms/RichtText";
 
 const Title = ({
   title,
@@ -27,7 +28,7 @@ const Title = ({
   if (modMarkup) {
     return (
       <TagName className={titleClassNames}>
-        <ReactMarkdown>{title}</ReactMarkdown>
+        <RichText data={title} />
       </TagName>
     );
   }
