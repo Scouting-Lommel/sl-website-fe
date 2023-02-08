@@ -1,4 +1,4 @@
-const { locales, defaultLocale } = require("./src/locales");
+const { locales, defaultLocale } = require("./src/locales/");
 
 // TODO: Clean up workaround when an official fix is available
 const workaround = require("next-translate/lib/cjs/plugin/utils.js");
