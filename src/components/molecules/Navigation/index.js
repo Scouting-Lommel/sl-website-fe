@@ -14,7 +14,10 @@ const Navigation = ({ navItems }) => {
               <NavItem
                 key={`nav-item-${i}`}
                 label={navItem.label}
-                href={`/${navItem.page}` || navItem.link}
+                href={
+                  `/${navItem.page.replace(new RegExp("_", "g"), "-")}` ||
+                  navItem.link
+                }
                 dropdownItems={navItem.dropdownItems}
                 modDropdown={navItem.dropdownItems.length > 0}
               />
