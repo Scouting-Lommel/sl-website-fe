@@ -1,27 +1,29 @@
-import Link from "@/components/atoms/Link";
-import Image from "@/components/atoms/Image";
+import classNames from "classnames";
+import Title from "@/components/atoms/Title";
+import Button from "@/components/atoms/Button";
+import styles from "./Hero.module.scss";
 
-const Hero = ({ info }) => {
+const Hero = ({
+  title,
+  subtitle,
+  variant,
+  callToAction,
+  socialsCta,
+  yearTheme,
+  bgImage,
+  className,
+}) => {
+  const heroClassname = classNames([styles["hero"], className]);
+
   return (
-    <>
-      {info?.IsHomePage && (
-        <div className="flex justify-center pt-4">
-          <div className="h-64 w-10/12 relative">
-            {info.Image.data && (
-              <Image src={info.Image.data.attributes.url} alt="" />
-            )}
-            <div className="absolute bottom-0 px-6 py-4 flex justify-center w-full">
-              <div className="bg-green-600 text-lg rounded text-white hover:bg-green-700 opacity-60 hover:opacity-100">
-                {info.Links !== undefined &&
-                  info.Links.map((link, i) => {
-                    return <Link info={link} key={"hero" + i} />;
-                  })}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+    <div className={heroClassname}>
+      <Title title={title} variant="h1" modLight modMarkup />
+      {subtitle && <Title title={subtitle} style="h3" tagName="p" modAccent />}
+      <div className={styles["hero__buttons"]}>
+        <Button label="Het jaarthema" />
+        <Button label="Inschrijven" variant="light" />
+      </div>
+    </div>
   );
 };
 

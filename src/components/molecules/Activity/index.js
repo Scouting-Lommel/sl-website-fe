@@ -1,4 +1,4 @@
-import { Markup } from "interweave";
+import ReactMarkdown from "react-markdown";
 
 export default function Activity({ activity }) {
   return (
@@ -11,7 +11,7 @@ export default function Activity({ activity }) {
         {activity.Title}
       </div>
       <p className="mb-4 text-base font-normal text-gray-500 ">
-        <Markup content={activity.Description} />
+        <ReactMarkdown>{activity.Description}</ReactMarkdown>
       </p>
     </>
   );

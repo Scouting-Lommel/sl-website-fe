@@ -9,11 +9,14 @@ const getDataFromUserId = (UID) => {
               data {
                 id
                 attributes {
-                  IsGroupLeader
+                  firstName
+                  lastName
+                  totem
+                  isGroupLeader
                   group {
                     data {
                       attributes {
-                        Name
+                        name
                       }
                     }
                   }

@@ -1,0 +1,45 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.button {
+  display: flex;
+  padding: tools.rem(12) tools.rem(26);
+  font-size: tools.rem(12);
+  height: fit-content;
+  border: none;
+  border-radius: tools.rem(36);
+  background-color: $color-yellow;
+  box-shadow: $shadow-small;
+  transition: $transition;
+
+  &--primary {
+    background-color: $color-yellow;
+  }
+
+  &--light {
+    background-color: $color-white;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-large;
+    transform: translate(tools.rem(1), tools.rem(-1));
+  }
+
+  @include tools.respond-from(medium) {
+    padding: tools.rem(14) tools.rem(32);
+    font-size: tools.rem(14);
+  }
+
+  @include tools.respond-from(large) {
+    padding: tools.rem(16) tools.rem(36);
+    font-size: tools.rem(16);
+  }
+}
+
+.button__label {
+  text-transform: uppercase;
+  font-family: $font-family-title;
+  font-weight: $font-weight-semibold;
+  letter-spacing: tools.rem(0.5);
+}

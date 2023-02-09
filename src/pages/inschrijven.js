@@ -3,9 +3,9 @@ import client from "@/lib/api/apollo/client";
 import { uploadClient } from "@/lib/api/apollo/mutationClient";
 import { registerUser } from "@/lib/api/register/mutations";
 import { getAllMembers, getRegisterInfo } from "@/lib/api/register/queries";
-import { getGeneralData } from "@/lib/api/general/queries";
+import { getGeneralData } from "@/lib/api/general";
 import { useAuthContext } from "@/lib/api/security/security";
-import BaseLayout from "@/layouts/Base";
+import BaseLayout from "@/layouts/base";
 import RegisterChild from "@/components/organisms/RegisterChild";
 import RegisterInfo from "@/components/organisms/RegisterInfo";
 

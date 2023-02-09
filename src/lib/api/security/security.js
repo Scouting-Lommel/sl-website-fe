@@ -10,6 +10,7 @@ const authContext = createContext();
 function AuthProvider({ children }) {
   const [auth, setAuth] = useState({
     loggedIn: false,
+    leader: undefined,
     group: undefined,
     groupLeader: false,
   });
@@ -38,6 +39,7 @@ async function UpdateAuth() {
   ) {
     setAuth({
       loggedIn: isLoggedIn(),
+      leader: getLeader(),
       group: getUserGroup(),
       groupLeader: getGroupLeader(),
     });
@@ -52,22 +54,26 @@ async function setCredentials(jwt) {
         query: getDataFromUserId(id),
       })
       .then((res) => {
-        SetJwtToken(jwt);
-        SetUserGroup(
+        setJwtToken(jwt);
+        setUserGroup(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
-            .group.data.attributes.Name
+            .group.data.attributes.name
         );
-        SetGroupLeader(
+        setLeader(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
-            .IsGroupLeader
+        );
+        setGroupLeader(
+          res.data.usersPermissionsUser.data.attributes.leader.data.attributes
+            .isGroupLeader
         );
         setUserID(res.data.usersPermissionsUser.data.attributes.leader.data.id);
         window.location.href = "/";
-      });
+      })
+      .catch((err) => console.log(err));
   }
 }
 
-function SetGroupLeader(groupleader) {
+function setGroupLeader(groupleader) {
   if (!ISSERVER) {
     sessionStorage.setItem("groupLeader", groupleader);
   }
@@ -87,13 +93,26 @@ function getJwtToken() {
   return undefined;
 }
 
-function SetJwtToken(token) {
+function setJwtToken(token) {
   if (!ISSERVER) {
     sessionStorage.setItem("jwt", token);
   }
 }
 
-function SetUserGroup(name) {
+function setLeader(leader) {
+  if (!ISSERVER) {
+    sessionStorage.setItem("Leader", JSON.stringify(leader));
+  }
+}
+
+function getLeader() {
+  if (!ISSERVER) {
+    return JSON.parse(sessionStorage.getItem("Leader"));
+  }
+  return undefined;
+}
+
+function setUserGroup(name) {
   if (!ISSERVER) {
     sessionStorage.setItem("UserGroup", name);
   }
@@ -128,6 +147,7 @@ export {
   getJwtToken,
   getUserID,
   getUserGroup,
+  getLeader,
   getGroupLeader,
   setCredentials,
   UpdateAuth,

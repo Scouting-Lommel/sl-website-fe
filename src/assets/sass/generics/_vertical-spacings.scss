@@ -1,0 +1,32 @@
+@use '../settings/spacings' as spacings;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+h1:not([class]),
+h2:not([class]),
+h3:not([class]),
+h4:not([class]),
+h5:not([class]),
+h6:not([class]),
+p:not([class]),
+ul:not([class]),
+ol:not([class]) {
+  margin-top: 0;
+  margin-bottom: spacings.$spacing-10;
+}

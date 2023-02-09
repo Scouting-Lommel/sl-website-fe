@@ -1,7 +1,7 @@
 import client from "@/lib/api/apollo/client";
 import { getGroupLeaders } from "@/lib/api/groups/queries";
 import { getGeneralData } from "@/lib/api/general/queries";
-import BaseLayout from "@/layouts/Base";
+import BaseLayout from "@/layouts/base";
 import ItemCarousel from "@/components/organisms/Carousel";
 
 export default function leaders({ fin, general, leaderList }) {

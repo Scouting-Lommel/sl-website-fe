@@ -1,0 +1,284 @@
+// Grid tools
+@use "sass:map";
+@use "../tools/math" as math;
+@use "../tools/media-queries" as media-queries;
+
+@mixin grid($prefix, $column-gap, $row-gap, $columns) {
+  #{$prefix} {
+    display: grid;
+    column-gap: $column-gap;
+    grid-template-columns: repeat($columns, 1fr);
+    row-gap: $row-gap;
+  }
+}
+
+@mixin gap($prefix, $column-gap, $row-gap, $columns, $modifier) {
+  #{$prefix}#{$prefix + $modifier} {
+    column-gap: $column-gap;
+    row-gap: $row-gap;
+  }
+}
+
+@mixin align-items($prefix, $modifier: null) {
+  #{$prefix + "--top" + $modifier} {
+    align-items: start;
+  }
+
+  #{$prefix + "--center" + $modifier} {
+    align-items: center;
+  }
+
+  #{$prefix + "--bottom" + $modifier} {
+    align-items: end;
+  }
+
+  #{$prefix + "--stretch" + $modifier} {
+    align-items: stretch;
+  }
+}
+
+@mixin justify-items($prefix, $modifier: null) {
+  #{$prefix + "--start" + $modifier} {
+    justify-items: start;
+  }
+
+  #{$prefix + "--end" + $modifier} {
+    justify-items: end;
+  }
+
+  #{$prefix + "--center" + $modifier} {
+    justify-items: center;
+  }
+
+  #{$prefix + "--stretch" + $modifier} {
+    justify-items: stretch;
+  }
+
+  #{$prefix + "--space-between" + $modifier} {
+    justify-items: space-between;
+  }
+
+  #{$prefix + "--space-around" + $modifier} {
+    justify-items: space-around;
+  }
+}
+
+// Column related tools
+@mixin align-self($prefix, $modifier: null) {
+  #{$prefix + "--start" + $modifier} {
+    align-self: start;
+  }
+
+  #{$prefix + "--end" + $modifier} {
+    align-self: end;
+  }
+
+  #{$prefix + "--center" + $modifier} {
+    align-self: center;
+  }
+
+  #{$prefix + "--stretch" + $modifier} {
+    align-self: stretch;
+  }
+}
+
+@mixin columns($prefix: null, $modifier: null, $columns: null) {
+  // Loop through all grid columns
+  @for $i from 1 through $columns {
+    $css-classes: math.equivalent-fractions($i, $columns);
+    $column-class: null;
+
+    // Generate classes from equivalent fractions
+    @each $key, $css-class in $css-classes {
+      $full-css-class: #{$prefix + "--" + $css-class + $modifier};
+      $column-class: $column-class, $full-css-class;
+    }
+
+    // Generate span settings for column classes
+    #{$column-class} {
+      grid-column: span #{$i}/ span #{$i};
+    }
+  }
+}
+
+@mixin end($prefix: null, $modifier: null, $columns: null) {
+  // Loop through all grid columns
+  @for $i from 1 through $columns {
+    $css-classes: math.equivalent-fractions($i, $columns);
+    $end-class: null;
+
+    // Generate classes from equivalent fractions
+    @each $key, $css-class in $css-classes {
+      $full-css-class: #{$prefix + "--" + $css-class + $modifier};
+      $end-class: $end-class, $full-css-class;
+    }
+
+    // Generate end settings for column classes
+    #{$end-class} {
+      grid-column-end: $i;
+    }
+  }
+}
+
+@mixin justify-self($prefix, $modifier: null) {
+  #{$prefix + "--start" + $modifier} {
+    justify-self: start;
+  }
+
+  #{$prefix + "--end" + $modifier} {
+    justify-self: end;
+  }
+
+  #{$prefix + "--center" + $modifier} {
+    justify-self: center;
+  }
+
+  #{$prefix + "--stretch" + $modifier} {
+    justify-self: stretch;
+  }
+}
+
+@mixin start($prefix: null, $modifier: null, $columns: null) {
+  // Loop through all grid columns
+  @for $i from 1 through $columns {
+    $css-classes: math.equivalent-fractions($i, $columns);
+    $start-class: null;
+
+    // Generate classes from equivalent fractions
+    @each $key, $css-class in $css-classes {
+      $full-css-class: #{$prefix + "--" + $css-class + $modifier};
+      $start-class: $start-class, $full-css-class;
+    }
+
+    // Generate start settings for column classes
+    #{$start-class} {
+      grid-column-start: $i;
+    }
+  }
+}
+
+// Generate grid
+@mixin generate($config: null, $breakpoints: null, $gap-modifiers: null) {
+  // Let's make sure the user has provided breakpoints
+  @if not $breakpoints or length($breakpoints) < 1 {
+    @error 'No $breakpoints provided, please read the documentation.';
+  }
+
+  $config: map.merge(
+    (
+      grid-prefix: ".sl-grid",
+      align-items-prefix: null,
+      justify-items-prefix: null,
+      column-prefix: ".sl-col",
+      start-prefix: null,
+      end-prefix: null,
+      align-self-prefix: null,
+      justify-self-prefix: null,
+    ),
+    $config
+  );
+
+  // Map.get reads weird and sass does not have a spread function.
+  $grid-prefix: map.get($config, grid-prefix);
+  $align-items-prefix: map.get($config, align-items-prefix);
+  $justify-items-prefix: map.get($config, justify-items-prefix);
+
+  $column-prefix: map.get($config, column-prefix);
+  $start-prefix: map.get($config, start-prefix);
+  $end-prefix: map.get($config, end-prefix);
+  $align-self-prefix: map.get($config, align-self-prefix);
+  $justify-self-prefix: map.get($config, justify-self-prefix);
+
+  // Loop through all provided breakpoints.
+  @each $breakpoint-name, $settings in $breakpoints {
+    // Merge defaults with settings
+    $settings: map.merge(
+      (
+        columns: 12,
+        modifier: null,
+        from: null,
+        to: null,
+        column-gap: 24px,
+        row-gap: 24px,
+      ),
+      $settings
+    );
+
+    // Map.get reads weird and sass does not have a spread function.
+    $columns: map.get($settings, columns);
+    $modifier: map.get($settings, modifier);
+    $from: map.get($settings, from);
+    $to: map.get($settings, to);
+    $column-gap: map.get($settings, column-gap);
+    $row-gap: map.get($settings, row-gap);
+
+    @include media-queries.breakpoint($from, $to) {
+      // All Grid stylings
+      @include grid($grid-prefix, $column-gap, $row-gap, $columns);
+
+      @if $align-items-prefix {
+        @include align-items($align-items-prefix, $modifier);
+      }
+
+      @if $justify-items-prefix {
+        @include justify-items($justify-items-prefix, $modifier);
+      }
+
+      // All Column stylings
+      @if $column-prefix {
+        @include columns($column-prefix, $modifier, $columns);
+      }
+
+      @if $start-prefix {
+        @include start($start-prefix, $modifier, $columns);
+      }
+
+      @if $end-prefix {
+        @include end($end-prefix, $modifier, $columns);
+      }
+
+      @if $align-self-prefix {
+        @include align-self($align-self-prefix, $modifier);
+      }
+
+      @if $justify-self-prefix {
+        @include justify-self($justify-self-prefix, $modifier);
+      }
+
+      @if $gap-modifiers and length($gap-modifiers) > 0 {
+        @each $gap-modifier-name, $gap-settings in $gap-modifiers {
+          @if map.has-key($gap-settings, $breakpoint-name) and
+            map.get($gap-settings, $breakpoint-name, modifier) and
+            map.get($gap-settings, $breakpoint-name, column-gap) and
+            map.get($gap-settings, $breakpoint-name, row-gap)
+          {
+            $gap-modifier: #{map.get(
+                $gap-settings,
+                $breakpoint-name,
+                modifier
+              ) +
+              $modifier};
+            $gap-modifier-column-gap: map.get(
+              $gap-settings,
+              $breakpoint-name,
+              column-gap
+            );
+            $gap-modifier-row-gap: map.get(
+              $gap-settings,
+              $breakpoint-name,
+              row-gap
+            );
+
+            @include gap(
+              $grid-prefix,
+              $gap-modifier-column-gap,
+              $gap-modifier-row-gap,
+              $columns,
+              $gap-modifier
+            );
+          }
+        }
+      }
+    }
+  }
+}

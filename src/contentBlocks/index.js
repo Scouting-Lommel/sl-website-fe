@@ -1,17 +1,13 @@
 import dynamic from "next/dynamic";
 
 const blockList = {
-  ComponentContentBlocksHero: dynamic(() => import("./Hero")),
-  ComponentContentBlocksCallToAction: dynamic(() => import("./CallToAction")),
-  ComponentContentBlocksImageText: dynamic(() => import("./ImageText")),
-  ComponentContentBlocksCarousel: dynamic(() => import("./Carousel")),
-  ComponentContentBlocksBlog: dynamic(() => import("./Blog")),
-  ComponentContentBlocksGallery: dynamic(() => import("./Gallery")),
-  ComponentGeneralSocials: dynamic(() => import("./Socials")),
-  ComponentContentBlocksTextSection: dynamic(() => import("./TextSection")),
-  ComponentContentBlocksFaq: dynamic(() => import("./FAQ")),
-  ComponentContentBlocksMap: dynamic(() => import("./Map")),
-  ComponentContentBlocksCalendar: dynamic(() => import("./Calendar")),
+  ComponentContentBlocksHeroBlock: dynamic(() =>
+    import("./HeroBlock/index.js")
+  ),
+  ComponentContentBlocksTextImageBlock: dynamic(() =>
+    import("./TextImageBlock")
+  ),
+  ComponentContentBlocksGroupsBlock: dynamic(() => import("./GroupsBlock")),
 };
 
 const Blocks = ({ content, data }) => {

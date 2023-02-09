@@ -1,0 +1,19 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header__wrapper {
+  box-shadow: $shadow-small;
+}
+
+.header__link {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: tools.rem(48);
+  height: tools.rem(72);
+}

@@ -1,0 +1,12 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.hero {
+  position: relative;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: tools.rem(12);
+  margin-top: tools.rem(36);
+}
