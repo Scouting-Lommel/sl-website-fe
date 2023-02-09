@@ -1,0 +1,22 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.nav-item {
+  padding: tools.rem(12) 0;
+  font-family: $font-family-title;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  color: $color-black;
+  background-color: transparent;
+  border: none;
+
+  & + & {
+    margin-left: tools.rem(36);
+  }
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
