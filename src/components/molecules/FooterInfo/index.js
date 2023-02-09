@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import Link from "@/components/atoms/Link";
 import RichText from "@/components/atoms/RichtText";
 import Title from "@/components/atoms/Title";
@@ -16,7 +17,14 @@ const InfoCol = ({ title, address, links }) => {
         links?.map((item, i) => {
           return (
             <Link key={i} href={item.link || "#"}>
-              <span className={styles["info-col__content"]}>{item.label}</span>
+              <span
+                className={classNames([
+                  styles["info-col__content"],
+                  styles["info-col__content--link"],
+                ])}
+              >
+                {item.label}
+              </span>
             </Link>
           );
         })
