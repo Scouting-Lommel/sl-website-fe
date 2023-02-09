@@ -14,7 +14,9 @@ const Navigation = ({ navItems }) => {
               key={`nav-item-${i}`}
               className={styles["navigation__list__item"]}
             >
-              <Link href={`/${navItem.page}` || navItem.link}>{navItem.label}</Link>
+              <Link href={`/${navItem.page}` || navItem.link}>
+                {navItem.label}
+              </Link>
             </li>
           );
         })}
@@ -25,12 +27,17 @@ const Navigation = ({ navItems }) => {
         </Link>
       )}
       {auth.loggedIn && (
-        <button
-          onClick={() => logout()}
-          className={styles["navigation__list__item"]}
-        >
-          Uitloggen
-        </button>
+        <>
+          <div className={styles["navigation__list__item"]}>
+            Welkom, {auth.leader.firstName}
+          </div>
+          <button
+            onClick={() => logout()}
+            className={styles["navigation__list__item"]}
+          >
+            Uitloggen
+          </button>
+        </>
       )}
     </nav>
   );

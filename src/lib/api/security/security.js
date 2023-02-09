@@ -10,6 +10,7 @@ const authContext = createContext();
 function AuthProvider({ children }) {
   const [auth, setAuth] = useState({
     loggedIn: false,
+    leader: undefined,
     group: undefined,
     groupLeader: false,
   });
@@ -38,6 +39,7 @@ async function UpdateAuth() {
   ) {
     setAuth({
       loggedIn: isLoggedIn(),
+      leader: getLeader(),
       group: getUserGroup(),
       groupLeader: getGroupLeader(),
     });
@@ -56,6 +58,9 @@ async function setCredentials(jwt) {
         setUserGroup(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
             .group.data.attributes.name
+        );
+        setLeader(
+          res.data.usersPermissionsUser.data.attributes.leader.data.attributes
         );
         setGroupLeader(
           res.data.usersPermissionsUser.data.attributes.leader.data.attributes
@@ -94,6 +99,19 @@ function setJwtToken(token) {
   }
 }
 
+function setLeader(leader) {
+  if (!ISSERVER) {
+    sessionStorage.setItem("Leader", JSON.stringify(leader));
+  }
+}
+
+function getLeader() {
+  if (!ISSERVER) {
+    return JSON.parse(sessionStorage.getItem("Leader"));
+  }
+  return undefined;
+}
+
 function setUserGroup(name) {
   if (!ISSERVER) {
     sessionStorage.setItem("UserGroup", name);
@@ -129,6 +147,7 @@ export {
   getJwtToken,
   getUserID,
   getUserGroup,
+  getLeader,
   getGroupLeader,
   setCredentials,
   UpdateAuth,
