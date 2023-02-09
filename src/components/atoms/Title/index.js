@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import ReactMarkdown from "react-markdown";
-import styles from "./Title.module.scss";
 import RichText from "@/components/atoms/RichtText";
+import styles from "./Title.module.scss";
 
 const Title = ({
   title,
