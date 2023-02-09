@@ -35,6 +35,7 @@
   flex-direction: column;
   background-color: $color-white;
   box-shadow: $shadow-medium;
+  z-index: $z-index-nav-dropdown;
   top: tools.rem(58);
   padding: tools.rem(16);
   list-style-type: none;
