@@ -20,3 +20,22 @@
     text-decoration: underline;
   }
 }
+
+.nav-item__dropdown-trigger {
+  &:hover {
+    & .nav-item__dropdown {
+      display: flex;
+    }
+  }
+}
+
+.nav-item__dropdown {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  background-color: $color-white;
+  box-shadow: $shadow-medium;
+  top: tools.rem(58);
+  padding: tools.rem(16);
+  list-style-type: none;
+}

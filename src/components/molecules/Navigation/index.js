@@ -13,8 +13,10 @@ const Navigation = ({ navItems }) => {
             return (
               <NavItem
                 key={`nav-item-${i}`}
-                href={`/${navItem.page}` || navItem.link}
                 label={navItem.label}
+                href={`/${navItem.page}` || navItem.link}
+                dropdownItems={navItem.dropdownItems}
+                modDropdown={navItem.dropdownItems.length > 0}
               />
             );
           })}
