@@ -1,15 +1,7 @@
-import BlockContainer from "@/components/atoms/BlockContainer";
-import Hero from "@/components/organisms/Hero";
+import BlockContainer from '@/components/atoms/BlockContainer';
+import Hero from '@/components/organisms/Hero';
 
-const HeroBlock = ({
-  title,
-  subtitle,
-  variant,
-  callToAction,
-  socialsCta,
-  yearTheme,
-  bgImage,
-}) => {
+const HeroBlock = ({ title, subtitle, variant, callToAction, socialsCta, yearTheme, bgImage }) => {
   return (
     <BlockContainer variant="dark" orientation="default" slug="hero">
       <Hero

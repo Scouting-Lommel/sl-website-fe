@@ -1,10 +1,10 @@
-import client from "@/lib/api/apollo/client";
-import { getGeneralData } from "@/lib/api/general";
-import { getGroupPage } from "@/lib/api/groups";
-import { getAllGroupSlugs } from "@/lib/api/groups";
-import BaseLayout from "@/layouts/base";
+import client from '@/lib/api/apollo/client';
+import { getGeneralData } from '@/lib/api/general';
+import { getGroupPage } from '@/lib/api/groups';
+import { getAllGroupSlugs } from '@/lib/api/groups';
+import BaseLayout from '@/layouts/base';
 
-export default function group({ data, params, general }) {
+export default function group({ data, params }) {
   console.log(data);
 
   return (
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
     query: getAllGroupSlugs(),
   });
 
-  const paths = data.groups.data.map((group) => {
+  const paths = data?.groups?.data?.map((group) => {
     return {
       params: { slug: group.attributes.slug },
     };
@@ -34,6 +34,10 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const notFound = { notFound: true };
   const { params } = context;
+
+  if (!params.slug) {
+    return notFound;
+  }
 
   const general = await client.query({
     query: getGeneralData(),

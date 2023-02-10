@@ -1,3 +1,3 @@
-import { getGeneralData } from "./getGeneralData";
+import { getGeneralData } from './getGeneralData';
 
 export { getGeneralData };

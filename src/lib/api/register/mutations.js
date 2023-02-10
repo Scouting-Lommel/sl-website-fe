@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const registerUser = () => {
   return gql`
@@ -44,12 +44,16 @@ const registerUser = () => {
   `;
 };
 
-const createNewLeader = gql`mutation CreateUsersPermissionsUser ($username: String!, $email: String!, $password: String!){
-    createUsersPermissionsUser (data: {username: $username, password: $password, email: $email, role: 2}){
-      data{
+const createNewLeader = gql`
+  mutation CreateUsersPermissionsUser($username: String!, $email: String!, $password: String!) {
+    createUsersPermissionsUser(
+      data: { username: $username, password: $password, email: $email, role: 2 }
+    ) {
+      data {
         id
       }
     }
-  }`;
+  }
+`;
 
 export { registerUser, createNewLeader };

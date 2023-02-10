@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { ModalBody } from "@/components/molecules/Modal/ModalBody"
+import { useState } from 'react';
+import { ModalBody } from '@/components/molecules/Modal/ModalBody';
 
 /**
  * params:
@@ -18,14 +18,7 @@ import { ModalBody } from "@/components/molecules/Modal/ModalBody"
  * callBackParams: the params given in the callback function
  * buttonID: the id off the button to click when wanting to open the modal
  */
-const Modal = ({
-  title,
-  params,
-  callBack,
-  buttonID,
-  buttonText,
-  callBackParams,
-}) => {
+const Modal = ({ title, params, callBack, buttonID, buttonText, callBackParams }) => {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -76,29 +69,31 @@ const Modal = ({
               </div>
               {/* <!-- Modal body --> */}
               <div className="p-6 space-y-1 flex flex-col">
-                <ModalBody bodyElements={params}/>
+                <ModalBody bodyElements={params} />
               </div>
               {/* <!-- Modal footer --> */}
               <div className="flex flex-row items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
-                {callBack && <>
-                <button
-                  onClick={() => {
-                    callBack(callBackParams);
-                    closeModal();
-                  }}
-                  type="button"
-                  className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
-                >
-                  Confirm
-                </button>
-                <button
-                  onClick={closeModal}
-                  type="button"
-                  className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
-                >
-                  Cancel
-                </button> </>
-                }
+                {callBack && (
+                  <>
+                    <button
+                      onClick={() => {
+                        callBack(callBackParams);
+                        closeModal();
+                      }}
+                      type="button"
+                      className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
+                    >
+                      Confirm
+                    </button>
+                    <button
+                      onClick={closeModal}
+                      type="button"
+                      className="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600"
+                    >
+                      Cancel
+                    </button>{' '}
+                  </>
+                )}
               </div>
             </div>
           </div>

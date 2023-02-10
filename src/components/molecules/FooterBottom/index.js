@@ -1,10 +1,10 @@
-import styles from "./FooterBottom.module.scss";
+import styles from './FooterBottom.module.scss';
 
 const FooterBottom = ({ siteName }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <div className={styles["footer-bottom"]}>
+    <div className={styles['footer-bottom']}>
       &copy; {siteName} - {currentYear}
     </div>
   );

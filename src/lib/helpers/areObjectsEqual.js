@@ -8,10 +8,7 @@ export function areObjectsEqual(object1, object2) {
     const val1 = object1[key];
     const val2 = object2[key];
     const areObjects = isObject(val1) && isObject(val2);
-    if (
-      (areObjects && !areObjectsEqual(val1, val2)) ||
-      (!areObjects && val1 !== val2)
-    ) {
+    if ((areObjects && !areObjectsEqual(val1, val2)) || (!areObjects && val1 !== val2)) {
       return false;
     }
   }
@@ -19,5 +16,5 @@ export function areObjectsEqual(object1, object2) {
 }
 
 function isObject(object) {
-  return object != null && typeof object === "object";
+  return object != null && typeof object === 'object';
 }

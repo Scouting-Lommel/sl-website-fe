@@ -1,5 +1,5 @@
-@use "@/assets/sass/settings/" as *;
-@use "@/assets/sass/tools/" as tools;
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
 
 .block-container {
   position: relative;
@@ -9,7 +9,7 @@
 
   &--dark {
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       right: 0;
@@ -17,7 +17,7 @@
       left: 0;
       width: 101%;
       height: 101%;
-      background: url("/assets/images/background.svg"), $color-green;
+      background: url('/assets/images/background.svg'), $color-green;
       background-repeat: no-repeat;
       background-position: 100%;
       background-size: auto 100%;

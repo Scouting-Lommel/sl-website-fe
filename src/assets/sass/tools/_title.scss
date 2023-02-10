@@ -1,7 +1,7 @@
-@use "sass:map";
-@use "./media-queries" as *;
+@use 'sass:map';
+@use './media-queries' as *;
 
-@mixin title($tagStyle: "h1", $font, $titles-map) {
+@mixin title($tagStyle: 'h1', $font, $titles-map) {
   @each $size, $size-info in $titles-map {
     @if $tagStyle == $size {
       @if (map.get($size-info, size-s)) {

@@ -1,4 +1,4 @@
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from 'react-markdown';
 
 export default function Activity({ activity }) {
   return (
@@ -7,9 +7,7 @@ export default function Activity({ activity }) {
       <time className="mb-1 text-sm font-normal leading-none text-gray-400 ">
         {parseDateTime(activity.StartTime, activity.EndTime)}
       </time>
-      <div className="text-lg font-semibold text-gray-900 ">
-        {activity.Title}
-      </div>
+      <div className="text-lg font-semibold text-gray-900 ">{activity.Title}</div>
       <p className="mb-4 text-base font-normal text-gray-500 ">
         <ReactMarkdown>{activity.Description}</ReactMarkdown>
       </p>
@@ -18,14 +16,12 @@ export default function Activity({ activity }) {
 }
 
 function parseDateTime(startDate, endDate) {
-  startDate = startDate.split("T");
-  endDate = endDate.split("T");
+  startDate = startDate.split('T');
+  endDate = endDate.split('T');
   startDate[1] = startDate[1].substring(0, startDate[1].length - 8);
   endDate[1] = endDate[1].substring(0, endDate[1].length - 8);
   if (startDate[0] == endDate[0]) {
-    return startDate[0] + " " + startDate[1] + " - " + endDate[1];
+    return startDate[0] + ' ' + startDate[1] + ' - ' + endDate[1];
   }
-  return (
-    startDate[0] + " " + startDate[1] + " - " + endDate[0] + " " + endDate[1]
-  );
+  return startDate[0] + ' ' + startDate[1] + ' - ' + endDate[0] + ' ' + endDate[1];
 }

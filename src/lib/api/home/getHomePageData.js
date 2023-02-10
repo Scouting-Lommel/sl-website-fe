@@ -1,8 +1,8 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
-import HERO_BLOCK_FRAGMENT from "../fragments/hero-block.gql";
-import TEXT_IMAGE_BLOCK_FRAGMENT from "../fragments/text-image-block.gql";
-import GROUPS_BLOCK_FRAGMENT from "../fragments/groups-block.gql";
+import HERO_BLOCK_FRAGMENT from '../fragments/hero-block.gql';
+import TEXT_IMAGE_BLOCK_FRAGMENT from '../fragments/text-image-block.gql';
+import GROUPS_BLOCK_FRAGMENT from '../fragments/groups-block.gql';
 
 const getHomePage = () => {
   return gql`

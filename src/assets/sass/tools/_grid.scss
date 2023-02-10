@@ -1,7 +1,7 @@
 // Grid tools
-@use "sass:map";
-@use "../tools/math" as math;
-@use "../tools/media-queries" as media-queries;
+@use 'sass:map';
+@use '../tools/math' as math;
+@use '../tools/media-queries' as media-queries;
 
 @mixin grid($prefix, $column-gap, $row-gap, $columns) {
   #{$prefix} {
@@ -20,64 +20,64 @@
 }
 
 @mixin align-items($prefix, $modifier: null) {
-  #{$prefix + "--top" + $modifier} {
+  #{$prefix + '--top' + $modifier} {
     align-items: start;
   }
 
-  #{$prefix + "--center" + $modifier} {
+  #{$prefix + '--center' + $modifier} {
     align-items: center;
   }
 
-  #{$prefix + "--bottom" + $modifier} {
+  #{$prefix + '--bottom' + $modifier} {
     align-items: end;
   }
 
-  #{$prefix + "--stretch" + $modifier} {
+  #{$prefix + '--stretch' + $modifier} {
     align-items: stretch;
   }
 }
 
 @mixin justify-items($prefix, $modifier: null) {
-  #{$prefix + "--start" + $modifier} {
+  #{$prefix + '--start' + $modifier} {
     justify-items: start;
   }
 
-  #{$prefix + "--end" + $modifier} {
+  #{$prefix + '--end' + $modifier} {
     justify-items: end;
   }
 
-  #{$prefix + "--center" + $modifier} {
+  #{$prefix + '--center' + $modifier} {
     justify-items: center;
   }
 
-  #{$prefix + "--stretch" + $modifier} {
+  #{$prefix + '--stretch' + $modifier} {
     justify-items: stretch;
   }
 
-  #{$prefix + "--space-between" + $modifier} {
+  #{$prefix + '--space-between' + $modifier} {
     justify-items: space-between;
   }
 
-  #{$prefix + "--space-around" + $modifier} {
+  #{$prefix + '--space-around' + $modifier} {
     justify-items: space-around;
   }
 }
 
 // Column related tools
 @mixin align-self($prefix, $modifier: null) {
-  #{$prefix + "--start" + $modifier} {
+  #{$prefix + '--start' + $modifier} {
     align-self: start;
   }
 
-  #{$prefix + "--end" + $modifier} {
+  #{$prefix + '--end' + $modifier} {
     align-self: end;
   }
 
-  #{$prefix + "--center" + $modifier} {
+  #{$prefix + '--center' + $modifier} {
     align-self: center;
   }
 
-  #{$prefix + "--stretch" + $modifier} {
+  #{$prefix + '--stretch' + $modifier} {
     align-self: stretch;
   }
 }
@@ -90,7 +90,7 @@
 
     // Generate classes from equivalent fractions
     @each $key, $css-class in $css-classes {
-      $full-css-class: #{$prefix + "--" + $css-class + $modifier};
+      $full-css-class: #{$prefix + '--' + $css-class + $modifier};
       $column-class: $column-class, $full-css-class;
     }
 
@@ -109,7 +109,7 @@
 
     // Generate classes from equivalent fractions
     @each $key, $css-class in $css-classes {
-      $full-css-class: #{$prefix + "--" + $css-class + $modifier};
+      $full-css-class: #{$prefix + '--' + $css-class + $modifier};
       $end-class: $end-class, $full-css-class;
     }
 
@@ -121,19 +121,19 @@
 }
 
 @mixin justify-self($prefix, $modifier: null) {
-  #{$prefix + "--start" + $modifier} {
+  #{$prefix + '--start' + $modifier} {
     justify-self: start;
   }
 
-  #{$prefix + "--end" + $modifier} {
+  #{$prefix + '--end' + $modifier} {
     justify-self: end;
   }
 
-  #{$prefix + "--center" + $modifier} {
+  #{$prefix + '--center' + $modifier} {
     justify-self: center;
   }
 
-  #{$prefix + "--stretch" + $modifier} {
+  #{$prefix + '--stretch' + $modifier} {
     justify-self: stretch;
   }
 }
@@ -146,7 +146,7 @@
 
     // Generate classes from equivalent fractions
     @each $key, $css-class in $css-classes {
-      $full-css-class: #{$prefix + "--" + $css-class + $modifier};
+      $full-css-class: #{$prefix + '--' + $css-class + $modifier};
       $start-class: $start-class, $full-css-class;
     }
 
@@ -166,10 +166,10 @@
 
   $config: map.merge(
     (
-      grid-prefix: ".sl-grid",
+      grid-prefix: '.sl-grid',
       align-items-prefix: null,
       justify-items-prefix: null,
-      column-prefix: ".sl-col",
+      column-prefix: '.sl-col',
       start-prefix: null,
       end-prefix: null,
       align-self-prefix: null,
@@ -252,22 +252,9 @@
             map.get($gap-settings, $breakpoint-name, column-gap) and
             map.get($gap-settings, $breakpoint-name, row-gap)
           {
-            $gap-modifier: #{map.get(
-                $gap-settings,
-                $breakpoint-name,
-                modifier
-              ) +
-              $modifier};
-            $gap-modifier-column-gap: map.get(
-              $gap-settings,
-              $breakpoint-name,
-              column-gap
-            );
-            $gap-modifier-row-gap: map.get(
-              $gap-settings,
-              $breakpoint-name,
-              row-gap
-            );
+            $gap-modifier: #{map.get($gap-settings, $breakpoint-name, modifier) + $modifier};
+            $gap-modifier-column-gap: map.get($gap-settings, $breakpoint-name, column-gap);
+            $gap-modifier-row-gap: map.get($gap-settings, $breakpoint-name, row-gap);
 
             @include gap(
               $grid-prefix,

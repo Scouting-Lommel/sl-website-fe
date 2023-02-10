@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const getDataFromUserId = (UID) => {
   return gql`query {

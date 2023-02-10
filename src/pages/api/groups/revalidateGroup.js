@@ -1,13 +1,13 @@
 export default async function handler(req, res) {
-  let tak = "";
+  let tak = '';
   req.rawHeaders.forEach((header) => {
-    if (header.includes("/takken/")) {
-      const index = header.indexOf("/takken/") + "/takken/".length;
+    if (header.includes('/takken/')) {
+      const index = header.indexOf('/takken/') + '/takken/'.length;
       tak = header.substring(index);
       return;
     }
   });
-  if (tak == "") return;
+  if (tak == '') return;
   console.log(`[NEXTJS]: revalidating ${tak}`);
   let revalidated = false;
   try {

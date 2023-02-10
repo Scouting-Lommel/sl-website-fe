@@ -1,5 +1,5 @@
-import { useState } from "react";
-import CalendarDay from "@/components/molecules/CalendarDay";
+import { useState } from 'react';
+import CalendarDay from '@/components/molecules/CalendarDay';
 
 const Calendar = ({ info, calendarData }) => {
   // the states that the calendar can be in
@@ -14,18 +14,10 @@ const Calendar = ({ info, calendarData }) => {
     let tmp2 = new Date(element.attributes.EndDate);
     rentedDates.push({
       start: new Date(
-        monthMap[tmp1.getMonth()] +
-          " " +
-          tmp1.getDate() +
-          ", " +
-          tmp1.getFullYear()
+        monthMap[tmp1.getMonth()] + ' ' + tmp1.getDate() + ', ' + tmp1.getFullYear(),
       ).getTime(),
       end: new Date(
-        monthMap[tmp2.getMonth()] +
-          " " +
-          tmp2.getDate() +
-          ", " +
-          tmp2.getFullYear()
+        monthMap[tmp2.getMonth()] + ' ' + tmp2.getDate() + ', ' + tmp2.getFullYear(),
       ).getTime(),
     });
   });
@@ -49,14 +41,7 @@ const Calendar = ({ info, calendarData }) => {
             {/* prev month button */}
             <button
               onClick={() =>
-                prevMonth(
-                  getMonth,
-                  setMonth,
-                  getYear,
-                  setYear,
-                  setDayList,
-                  getRentedDayList
-                )
+                prevMonth(getMonth, setMonth, getYear, setYear, setDayList, getRentedDayList)
               }
             >
               Prev
@@ -84,14 +69,7 @@ const Calendar = ({ info, calendarData }) => {
             {/* next month button */}
             <button
               onClick={() =>
-                nextMonth(
-                  getMonth,
-                  setMonth,
-                  getYear,
-                  setYear,
-                  setDayList,
-                  getRentedDayList
-                )
+                nextMonth(getMonth, setMonth, getYear, setYear, setDayList, getRentedDayList)
               }
             >
               Next
@@ -125,7 +103,7 @@ const Calendar = ({ info, calendarData }) => {
           {/* calendar days/body */}
           <ol className="grid grid-cols-7 border-2 text-center">
             {getDayList.map((day, i) => {
-              return <li key={"calendar" + i}>{day}</li>;
+              return <li key={'calendar' + i}>{day}</li>;
             })}
           </ol>
         </div>
@@ -135,18 +113,18 @@ const Calendar = ({ info, calendarData }) => {
 };
 
 const monthMap = {
-  0: "January",
-  1: "February",
-  2: "March",
-  3: "April",
-  4: "May",
-  5: "June",
-  6: "July",
-  7: "August",
-  8: "September",
-  9: "October",
-  10: "November",
-  11: "December",
+  0: 'January',
+  1: 'February',
+  2: 'March',
+  3: 'April',
+  4: 'May',
+  5: 'June',
+  6: 'July',
+  7: 'August',
+  8: 'September',
+  9: 'October',
+  10: 'November',
+  11: 'December',
 };
 
 function daysInMonth(month, year) {
@@ -156,7 +134,7 @@ function daysInMonth(month, year) {
 function calcDayList(getMonth, getYear, getRentedDayList) {
   let dayList = [];
   // offset the dates by adding empty things in the front of the array
-  let startDate = new Date(monthMap[getMonth] + " 1, " + getYear).getDay();
+  let startDate = new Date(monthMap[getMonth] + ' 1, ' + getYear).getDay();
   let buffers = startDate == 0 ? 6 : startDate - 1;
   for (let i = 0; i < buffers; i++) {
     dayList.push(<div></div>);
@@ -164,7 +142,7 @@ function calcDayList(getMonth, getYear, getRentedDayList) {
   for (let i = 0; i < daysInMonth(getMonth, getYear); i++) {
     // check if the date is in the list of dates, if it is, color red
     const j = i + 1;
-    let day = new Date(monthMap[getMonth] + " " + j + ", " + getYear).getTime();
+    let day = new Date(monthMap[getMonth] + ' ' + j + ', ' + getYear).getTime();
     let isRented = false;
     for (let k = 0; k < getRentedDayList.length; k++) {
       const element = getRentedDayList[k];
@@ -173,21 +151,12 @@ function calcDayList(getMonth, getYear, getRentedDayList) {
         break;
       }
     }
-    dayList.push(
-      <CalendarDay number={i + 1} isBooked={isRented}></CalendarDay>
-    );
+    dayList.push(<CalendarDay number={i + 1} isBooked={isRented}></CalendarDay>);
   }
   return dayList;
 }
 
-const nextMonth = (
-  getMonth,
-  setMonth,
-  getYear,
-  setYear,
-  setDayList,
-  getRentedDayList
-) => {
+const nextMonth = (getMonth, setMonth, getYear, setYear, setDayList, getRentedDayList) => {
   if (getMonth >= 11) {
     setMonth(0);
     setYear(getYear + 1);
@@ -198,14 +167,7 @@ const nextMonth = (
   }
 };
 
-const prevMonth = (
-  getMonth,
-  setMonth,
-  getYear,
-  setYear,
-  setDayList,
-  getRentedDayList
-) => {
+const prevMonth = (getMonth, setMonth, getYear, setYear, setDayList, getRentedDayList) => {
   if (getMonth <= 0) {
     setMonth(11);
     setYear(getYear - 1);

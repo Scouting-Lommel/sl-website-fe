@@ -1,7 +1,7 @@
-import client from "@/lib/api/apollo/client";
-import { getGeneralData } from "@/lib/api/general";
-import { getContactPage } from "@/lib/api/contact";
-import BaseLayout from "@/layouts/base";
+import client from '@/lib/api/apollo/client';
+import { getGeneralData } from '@/lib/api/general';
+import { getContactPage } from '@/lib/api/contact';
+import BaseLayout from '@/layouts/base';
 
 export default function contact({ data, general }) {
   console.log(data);

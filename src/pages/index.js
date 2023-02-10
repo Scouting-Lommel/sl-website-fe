@@ -1,27 +1,27 @@
-import client from "@/lib/api/apollo/client";
-import { getHomePage } from "@/lib/api/home";
-import { getGeneralData } from "@/lib/api/general";
-import BaseLayout from "@/layouts/base";
-import Blocks from "@/contentBlocks";
+import client from '@/lib/api/apollo/client';
+import { getHomePage } from '@/lib/api/home';
+import { getGeneralData } from '@/lib/api/general';
+import BaseLayout from '@/layouts/base';
+import Blocks from '@/contentBlocks';
 
 export default function Home({ data, general }) {
   console.log(data);
   console.log(general);
 
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
     name: general?.siteName,
-    email: "info@scoutinglommel.be",
+    email: 'info@scoutinglommel.be',
     logo: general?.logo?.data?.attributes?.url,
     image: general?.image?.data?.attributes?.url,
     description: general?.siteDescription,
     address: {
-      "@type": "PostalAddress",
-      streetAddress: "Nieuwe Kopen 4",
-      addressLocality: "Lommel",
-      postalCode: "3920",
-      addressCountry: "Belgium",
+      '@type': 'PostalAddress',
+      streetAddress: 'Nieuwe Kopen 4',
+      addressLocality: 'Lommel',
+      postalCode: '3920',
+      addressCountry: 'Belgium',
     },
     url: general?.url,
   };

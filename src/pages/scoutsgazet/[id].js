@@ -1,13 +1,13 @@
 // import Head from "next/head";
 // import Layout from "@/pages/styles/Layout";
-import client from "@/lib/api/apollo/client";
+import client from '@/lib/api/apollo/client';
 import {
   getDetailedScoutsGazet,
   //   getScoutsGazetAllIds,
-} from "@/lib/api/gazet/queries";
+} from '@/lib/api/gazet/queries';
 
 export default function ScoutsGazet({ fin }) {
-  return <></>;
+  return <>scoutsgazet item</>;
 }
 
 export const getStaticPaths = async () => {

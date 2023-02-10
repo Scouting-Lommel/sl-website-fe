@@ -1,15 +1,15 @@
-import { useContext } from "react";
-import { GeneralContext } from "@/context/GeneralContext";
-import FooterHead from "@/components/molecules/FooterHead";
-import FooterBottom from "@/components/molecules/FooterBottom";
-import FooterInfo from "@/components/molecules/FooterInfo";
-import styles from "./Footer.module.scss";
+import { useContext } from 'react';
+import { GeneralContext } from '@/context/GeneralContext';
+import FooterHead from '@/components/molecules/FooterHead';
+import FooterBottom from '@/components/molecules/FooterBottom';
+import FooterInfo from '@/components/molecules/FooterInfo';
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   const { general } = useContext(GeneralContext);
 
   return (
-    <footer className={styles["footer"]}>
+    <footer className={styles['footer']}>
       <div className="sl-layout">
         <FooterHead
           siteName={general?.siteName}
