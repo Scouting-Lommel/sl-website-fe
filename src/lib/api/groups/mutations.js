@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const createAct = () => {
   return gql`
@@ -37,12 +37,7 @@ const editAct = () => {
     ) {
       updateActivity(
         id: $id
-        data: {
-          StartTime: $startTime
-          EndTime: $endTime
-          Description: $description
-          Title: $title
-        }
+        data: { StartTime: $startTime, EndTime: $endTime, Description: $description, Title: $title }
       ) {
         data {
           id
@@ -112,12 +107,4 @@ const editFile = () => {
   `;
 };
 
-export {
-  createAct,
-  editAct,
-  createFile,
-  linkFileToGroup,
-  deleteFile,
-  editFile,
-  deleteAct,
-};
+export { createAct, editAct, createFile, linkFileToGroup, deleteFile, editFile, deleteAct };

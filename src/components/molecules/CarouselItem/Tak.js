@@ -1,16 +1,12 @@
-import Link from "next/link";
-import Image from "@/components/atoms/Image";
+import Link from 'next/link';
+import Image from '@/components/atoms/Image';
 
 const Tak = ({ info }) => {
   return (
     <Link href={info.Href.Page}>
       <a className="w-64 h-64 relative rounded-full overflow-hidden hover:border-2 border-black top-0">
         {info.Image.data && (
-          <Image
-            src={info.Image.data.attributes.url}
-            styling="rounded-full"
-            alt=""
-          />
+          <Image src={info.Image.data.attributes.url} styling="rounded-full" alt="" />
         )}
 
         <div className="absolute px-6 py-4 flex justify-center w-full h-full rounded-full">

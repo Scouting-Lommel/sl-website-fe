@@ -1,5 +1,5 @@
-@use "../settings/" as *;
-@use "../tools/" as *;
+@use '../settings/' as *;
+@use '../tools/' as *;
 
 .sl-layout {
   max-width: 100%;
@@ -15,9 +15,9 @@
   }
 
   @each $breakpoint, $size-info in $breakpoints {
-    @if (map-get($size-info, "container")) {
+    @if (map-get($size-info, 'container')) {
       @include respond-from($breakpoint) {
-        max-width: map-get($size-info, "container");
+        max-width: map-get($size-info, 'container');
         padding: 0;
       }
     }

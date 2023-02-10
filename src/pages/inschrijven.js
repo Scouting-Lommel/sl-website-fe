@@ -1,11 +1,11 @@
 // import { useState } from "react";
-import client from "@/lib/api/apollo/client";
-import { uploadClient } from "@/lib/api/apollo/mutationClient";
-import { registerUser } from "@/lib/api/register/mutations";
-import { getAllMembers, getRegisterInfo } from "@/lib/api/register/queries";
-import { getGeneralData } from "@/lib/api/general";
+import client from '@/lib/api/apollo/client';
+import { uploadClient } from '@/lib/api/apollo/mutationClient';
+import { registerUser } from '@/lib/api/register/mutations';
+import { getAllMembers, getRegisterInfo } from '@/lib/api/register/queries';
+import { getGeneralData } from '@/lib/api/general';
 // import { useAuthContext } from "@/lib/api/security/security";
-import BaseLayout from "@/layouts/base";
+import BaseLayout from '@/layouts/base';
 // import RegisterChild from "@/components/organisms/RegisterChild";
 // import RegisterInfo from "@/components/organisms/RegisterInfo";
 
@@ -116,24 +116,19 @@ export async function getStaticProps() {
 }
 
 function reRender() {
-  fetch("/api/revalidateRegister");
+  fetch('/api/revalidateRegister');
 }
 
-function register(
-  setNotAllFilledIn,
-  setIsPaying,
-  setFinalChildren,
-  setFinalLeaders
-) {
-  const streetName = document.getElementById("street").value;
-  const houseNumber = document.getElementById("number").value;
-  const bus = document.getElementById("bus").value;
-  const postCode = document.getElementById("postcode").value;
-  const city = document.getElementById("city").value;
-  const phone = document.getElementById("tel").value;
-  const gsm = document.getElementById("gsm").value;
-  const email = document.getElementById("email").value;
-  const privacy = document.getElementById("privacy").checked;
+function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLeaders) {
+  const streetName = document.getElementById('street').value;
+  const houseNumber = document.getElementById('number').value;
+  const bus = document.getElementById('bus').value;
+  const postCode = document.getElementById('postcode').value;
+  const city = document.getElementById('city').value;
+  const phone = document.getElementById('tel').value;
+  const gsm = document.getElementById('gsm').value;
+  const email = document.getElementById('email').value;
+  const privacy = document.getElementById('privacy').checked;
   if (!privacy) {
     setNotAllFilledIn(true);
     return;
@@ -167,15 +162,15 @@ function register(
   let leaderList = [];
   let count = 0;
   for (let i = 0; i < 200; i++) {
-    const fName = document.getElementById("firstName" + i);
+    const fName = document.getElementById('firstName' + i);
     if (!fName) break;
     const firstName = fName.value;
-    const lastName = document.getElementById("lastName" + i).value;
-    const birthday = document.getElementById("birthday" + i).value;
-    const akabe = document.getElementById("akabe" + i).checked;
-    const isM = document.getElementById("sexM" + i).checked;
-    const isF = document.getElementById("sexF" + i).checked;
-    const isX = document.getElementById("sexX" + i).checked;
+    const lastName = document.getElementById('lastName' + i).value;
+    const birthday = document.getElementById('birthday' + i).value;
+    const akabe = document.getElementById('akabe' + i).checked;
+    const isM = document.getElementById('sexM' + i).checked;
+    const isF = document.getElementById('sexF' + i).checked;
+    const isX = document.getElementById('sexX' + i).checked;
     if (!firstName) {
       setNotAllFilledIn(true);
       return;
@@ -193,13 +188,13 @@ function register(
     lastnames.push(lastName);
     birthdays.push(birthday);
     akabeLst.push(akabe);
-    leaderList.push(document.getElementById("tak" + i).value == "Leiding");
+    leaderList.push(document.getElementById('tak' + i).value == 'Leiding');
     if (isM) {
-      sexList.push("M");
+      sexList.push('M');
     } else if (isF) {
-      sexList.push("F");
+      sexList.push('F');
     } else {
-      sexList.push("X");
+      sexList.push('X');
     }
   }
 
@@ -237,9 +232,9 @@ function register(
           let finLeaders = [];
           for (let j = 0; j < firstnames.length; j++) {
             if (leaderList[j]) {
-              finLeaders.push(firstnames[j] + " " + lastnames[j]);
+              finLeaders.push(firstnames[j] + ' ' + lastnames[j]);
             } else {
-              finChilds.push(firstnames[j] + " " + lastnames[j]);
+              finChilds.push(firstnames[j] + ' ' + lastnames[j]);
             }
           }
           setFinalChildren(finChilds);
@@ -249,7 +244,7 @@ function register(
       })
       .catch((err) => {
         alert(
-          `an error occured trying to register: ${err} \n Please contact us with this error message for further information`
+          `an error occured trying to register: ${err} \n Please contact us with this error message for further information`,
         );
       });
   }
@@ -257,7 +252,7 @@ function register(
 
 async function downloadAllMemebers(auth) {
   if (!auth.loggedIn || !auth.groupLeader) {
-    alert("not allowed to perform this action");
+    alert('not allowed to perform this action');
     return;
   }
   const { data } = await client.query({
@@ -265,20 +260,20 @@ async function downloadAllMemebers(auth) {
   });
   let arrayData = [
     [
-      "voornaam",
-      "achternaam",
-      "geslacht",
-      "email",
-      "geboortedatum",
-      "akabe?",
-      "postcode",
-      "stad",
-      "straat",
-      "straatnummer",
-      "bus",
-      "telefoonnummer",
-      "gsm",
-      "inschrijf datum",
+      'voornaam',
+      'achternaam',
+      'geslacht',
+      'email',
+      'geboortedatum',
+      'akabe?',
+      'postcode',
+      'stad',
+      'straat',
+      'straatnummer',
+      'bus',
+      'telefoonnummer',
+      'gsm',
+      'inschrijf datum',
     ],
   ];
   for (let i = 0; i < data.members.data.length; i++) {
@@ -300,9 +295,7 @@ async function downloadAllMemebers(auth) {
     row.push(element.createdAt);
     arrayData.push(row);
   }
-  let csvContent =
-    "data:text/csv;charset=utf-8," +
-    arrayData.map((e) => e.join(",")).join("\n");
+  let csvContent = 'data:text/csv;charset=utf-8,' + arrayData.map((e) => e.join(',')).join('\n');
 
   var encodedUri = encodeURI(csvContent);
   window.open(encodedUri);

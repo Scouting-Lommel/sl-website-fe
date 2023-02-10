@@ -1,8 +1,8 @@
-import React, { createContext, useEffect, useState } from "react";
-import { areObjectsEqual } from "@/lib/helpers/areObjectsEqual";
+import React, { createContext, useEffect, useState } from 'react';
+import { areObjectsEqual } from '@/lib/helpers/areObjectsEqual';
 
 const GeneralContext = createContext(null);
-GeneralContext.displayName = "General";
+GeneralContext.displayName = 'General';
 
 const GeneralProvider = ({ value = {}, children }) => {
   const [general, setGeneral] = useState(value);
@@ -13,11 +13,7 @@ const GeneralProvider = ({ value = {}, children }) => {
     }
   }, [general, value]);
 
-  return (
-    <GeneralContext.Provider value={{ general }}>
-      {children}
-    </GeneralContext.Provider>
-  );
+  return <GeneralContext.Provider value={{ general }}>{children}</GeneralContext.Provider>;
 };
 
 export { GeneralContext, GeneralProvider };

@@ -1,7 +1,7 @@
-import client from "@/lib/api/apollo/client";
-import { getRentalPageData } from "@/lib/api/rental";
-import { getGeneralData } from "@/lib/api/general";
-import BaseLayout from "@/layouts/base";
+import client from '@/lib/api/apollo/client';
+import { getRentalPageData } from '@/lib/api/rental';
+import { getGeneralData } from '@/lib/api/general';
+import BaseLayout from '@/layouts/base';
 
 export default function Verhuur({ data, general }) {
   console.log(data);

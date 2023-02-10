@@ -1,17 +1,9 @@
-import { Header } from "@/components/organisms/Header";
-import { Footer } from "@/components/organisms/Footer";
-import { UpdateAuth } from "@/lib/api/security/security";
-import PageHead from "@/components/organisms/PageHead";
+import { Header } from '@/components/organisms/Header';
+import { Footer } from '@/components/organisms/Footer';
+import { UpdateAuth } from '@/lib/api/security/security';
+import PageHead from '@/components/organisms/PageHead';
 
-const BaseLayout = ({
-  children,
-  pageTitle,
-  pageMeta,
-  noIndex,
-  slug,
-  path,
-  structuredData,
-}) => {
+const BaseLayout = ({ children, pageTitle, pageMeta, noIndex, slug, path, structuredData }) => {
   UpdateAuth();
 
   return (

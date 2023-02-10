@@ -1,8 +1,8 @@
-import client from "@/lib/api/apollo/client";
-import { getGeneralData } from "@/lib/api/general";
-import { getRentalLocationPage } from "@/lib/api/rental";
-import { getAllRentalLocationSlugs } from "@/lib/api/rental";
-import BaseLayout from "@/layouts/base";
+import client from '@/lib/api/apollo/client';
+import { getGeneralData } from '@/lib/api/general';
+import { getRentalLocationPage } from '@/lib/api/rental';
+import { getAllRentalLocationSlugs } from '@/lib/api/rental';
+import BaseLayout from '@/layouts/base';
 
 export default function group({ data, params }) {
   console.log(data);
@@ -43,10 +43,7 @@ export async function getStaticProps(context) {
     variables: { slug: params.slug },
   });
 
-  if (
-    !rentalLocationPage?.data?.rentalLocations ||
-    !general?.data?.generalData
-  ) {
+  if (!rentalLocationPage?.data?.rentalLocations || !general?.data?.generalData) {
     return notFound;
   }
 

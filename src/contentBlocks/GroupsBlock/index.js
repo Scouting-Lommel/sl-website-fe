@@ -1,5 +1,5 @@
-import BlockContainer from "@/components/atoms/BlockContainer";
-import Carousel from "@/components/organisms/Carousel";
+import BlockContainer from '@/components/atoms/BlockContainer';
+import Carousel from '@/components/organisms/Carousel';
 
 const GroupsBlock = ({ title, groups, blockProperties }) => {
   return (

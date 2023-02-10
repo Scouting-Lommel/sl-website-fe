@@ -1,8 +1,8 @@
-import client from "@/lib/api/apollo/client";
-import { getGroupLeaders } from "@/lib/api/groups/";
-import { getGeneralData } from "@/lib/api/general/";
-import BaseLayout from "@/layouts/base";
-import ItemCarousel from "@/components/organisms/Carousel";
+import client from '@/lib/api/apollo/client';
+import { getGroupLeaders } from '@/lib/api/groups/';
+import { getGeneralData } from '@/lib/api/general/';
+import BaseLayout from '@/layouts/base';
+import ItemCarousel from '@/components/organisms/Carousel';
 
 export default function leaders({ fin, general, leaderList }) {
   return (

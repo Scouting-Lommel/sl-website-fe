@@ -4,18 +4,18 @@
 
 @mixin align-items($prefix, $modifier: null) {
   #{$prefix + '--top' + $modifier} {
-      align-items: start;
+    align-items: start;
   }
 
   #{$prefix + '--center' + $modifier} {
-      align-items: center;
+    align-items: center;
   }
 
   #{$prefix + '--bottom' + $modifier} {
-      align-items: end;
+    align-items: end;
   }
 
   #{$prefix + '--stretch' + $modifier} {
-      align-items: stretch;
+    align-items: stretch;
   }
 }

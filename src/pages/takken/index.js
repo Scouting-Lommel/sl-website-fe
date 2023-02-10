@@ -1,7 +1,7 @@
-import client from "@/lib/api/apollo/client";
-import { getGroupsPage } from "@/lib/api/groups";
-import { getGeneralData } from "@/lib/api/general";
-import BaseLayout from "@/layouts/base";
+import client from '@/lib/api/apollo/client';
+import { getGroupsPage } from '@/lib/api/groups';
+import { getGeneralData } from '@/lib/api/general';
+import BaseLayout from '@/layouts/base';
 
 export default function takken({ data, general }) {
   console.log(data);

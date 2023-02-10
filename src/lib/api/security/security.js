@@ -1,9 +1,9 @@
-import decodeJWT from "jwt-decode";
-import { createContext, useContext, useState } from "react";
-import client from "@/lib/api/apollo/client";
-import { getDataFromUserId } from "@/lib/api/security/queries";
+import decodeJWT from 'jwt-decode';
+import { createContext, useContext, useState } from 'react';
+import client from '@/lib/api/apollo/client';
+import { getDataFromUserId } from '@/lib/api/security/queries';
 
-const ISSERVER = typeof window === "undefined";
+const ISSERVER = typeof window === 'undefined';
 
 const authContext = createContext();
 
@@ -14,11 +14,7 @@ function AuthProvider({ children }) {
     group: undefined,
     groupLeader: false,
   });
-  return (
-    <authContext.Provider value={[auth, setAuth]}>
-      {children}
-    </authContext.Provider>
-  );
+  return <authContext.Provider value={[auth, setAuth]}>{children}</authContext.Provider>;
 }
 
 function useAuthContext() {
@@ -56,18 +52,15 @@ async function setCredentials(jwt) {
       .then((res) => {
         setJwtToken(jwt);
         setUserGroup(
-          res.data.usersPermissionsUser.data.attributes.leader.data.attributes
-            .group.data.attributes.name
+          res.data.usersPermissionsUser.data.attributes.leader.data.attributes.group.data.attributes
+            .name,
         );
-        setLeader(
-          res.data.usersPermissionsUser.data.attributes.leader.data.attributes
-        );
+        setLeader(res.data.usersPermissionsUser.data.attributes.leader.data.attributes);
         setGroupLeader(
-          res.data.usersPermissionsUser.data.attributes.leader.data.attributes
-            .isGroupLeader
+          res.data.usersPermissionsUser.data.attributes.leader.data.attributes.isGroupLeader,
         );
         setUserID(res.data.usersPermissionsUser.data.attributes.leader.data.id);
-        window.location.href = "/";
+        window.location.href = '/';
       })
       .catch((err) => console.log(err));
   }
@@ -75,65 +68,65 @@ async function setCredentials(jwt) {
 
 function setGroupLeader(groupleader) {
   if (!ISSERVER) {
-    sessionStorage.setItem("groupLeader", groupleader);
+    sessionStorage.setItem('groupLeader', groupleader);
   }
 }
 
 function getGroupLeader() {
   if (!ISSERVER) {
-    return sessionStorage.getItem("groupLeader") == "true" ? true : false;
+    return sessionStorage.getItem('groupLeader') == 'true' ? true : false;
   }
   return undefined;
 }
 
 function getJwtToken() {
   if (!ISSERVER) {
-    return sessionStorage.getItem("jwt");
+    return sessionStorage.getItem('jwt');
   }
   return undefined;
 }
 
 function setJwtToken(token) {
   if (!ISSERVER) {
-    sessionStorage.setItem("jwt", token);
+    sessionStorage.setItem('jwt', token);
   }
 }
 
 function setLeader(leader) {
   if (!ISSERVER) {
-    sessionStorage.setItem("Leader", JSON.stringify(leader));
+    sessionStorage.setItem('Leader', JSON.stringify(leader));
   }
 }
 
 function getLeader() {
   if (!ISSERVER) {
-    return JSON.parse(sessionStorage.getItem("Leader"));
+    return JSON.parse(sessionStorage.getItem('Leader'));
   }
   return undefined;
 }
 
 function setUserGroup(name) {
   if (!ISSERVER) {
-    sessionStorage.setItem("UserGroup", name);
+    sessionStorage.setItem('UserGroup', name);
   }
 }
 
 function getUserGroup() {
   if (!ISSERVER) {
-    return sessionStorage.getItem("UserGroup");
+    return sessionStorage.getItem('UserGroup');
   }
   return undefined;
 }
 
 function setUserID(id) {
   if (!ISSERVER) {
-    sessionStorage.setItem("UID", id);
+    sessionStorage.setItem('UID', id);
   }
 }
 
 function getUserID() {
   if (!ISSERVER) {
-    return sessionStorage.getItem("UID");
+    return sessionStorage.getItem('UID');
   }
   return undefined;
 }

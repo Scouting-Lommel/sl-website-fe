@@ -1,5 +1,5 @@
-import { useState } from "react";
-import ReactMarkdown from "react-markdown";
+import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default function Question({ info }) {
   const [isVisible, setVisible] = useState(false);

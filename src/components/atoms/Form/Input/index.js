@@ -1,7 +1,7 @@
-import WYSIWYG from "@/components/atoms/WYSIWYG";
+import WYSIWYG from '@/components/atoms/WYSIWYG';
 
 const Input = ({ args }) => {
-  if (args.type == "wysiwyg") {
+  if (args.type == 'wysiwyg') {
     return (
       <>
         <WYSIWYG args={args} />

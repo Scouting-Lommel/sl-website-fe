@@ -1,7 +1,7 @@
-import client from "@/lib/api/apollo/client";
+import client from '@/lib/api/apollo/client';
 // import { getBookingPage, getCalendarDates } from "@/lib/api/booking/";
-import { getGeneralData } from "@/lib/api/general/";
-import BaseLayout from "@/layouts/base";
+import { getGeneralData } from '@/lib/api/general/';
+import BaseLayout from '@/layouts/base';
 // import Blocks from "@/contentBlocks";
 
 export default function verhuur({ fin, general, calendarDates }) {

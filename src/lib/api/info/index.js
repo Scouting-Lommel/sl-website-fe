@@ -1,3 +1,3 @@
-import getInfoPage from "./getInfoPageData";
+import getInfoPage from './getInfoPageData';
 
 export { getInfoPage };

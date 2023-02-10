@@ -1,17 +1,17 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Social({ args }) {
-  let pictogram = "";
+  let pictogram = '';
 
   switch (args.attributes.Label) {
-    case "Facebook":
-      pictogram = "fa fa-facebook";
+    case 'Facebook':
+      pictogram = 'fa fa-facebook';
       break;
-    case "Instagram":
-      pictogram = "fa fa-instagram";
+    case 'Instagram':
+      pictogram = 'fa fa-instagram';
       break;
-    case "Troll":
-      pictogram = "fa fa-youtube";
+    case 'Troll':
+      pictogram = 'fa fa-youtube';
       break;
     default:
       break;

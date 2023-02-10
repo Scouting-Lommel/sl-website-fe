@@ -1,4 +1,4 @@
-@use "../tools/" as *;
+@use '../tools/' as *;
 
 .sl-visually-hidden {
   @include visually-hidden;

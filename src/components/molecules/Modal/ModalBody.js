@@ -1,6 +1,6 @@
-import Input from "@/components/atoms/Form/Input";
-import WYSIWYG from "@/components/atoms/WYSIWYG";
-import Image from "@/components/atoms/Image";
+import Input from '@/components/atoms/Form/Input';
+import WYSIWYG from '@/components/atoms/WYSIWYG';
+import Image from '@/components/atoms/Image';
 // type: Input (default), wysiwyg, title, subtitle, richtext, image
 /*
 {
@@ -17,10 +17,10 @@ const ModalBody = ({ bodyElements }) => {
     <>
       {bodyElements.map((ip, i) => {
         switch (ip.type) {
-          case "bigtext":
+          case 'bigtext':
             return (
               <>
-                <div key={"modal" + i} className="flex flex-row justify-center">
+                <div key={'modal' + i} className="flex flex-row justify-center">
                   <label htmlFor={ip.id} className="text-white text-xl">
                     {ip.text}
                   </label>
@@ -28,30 +28,26 @@ const ModalBody = ({ bodyElements }) => {
                 </div>
               </>
             );
-          case "text":
+          case 'text':
             break;
-          case "richtext":
+          case 'richtext':
             break;
-          case "image":
+          case 'image':
             return (
               <div className="flex justify-center">
                 <div className="w-64 h-64 relative">
                   {ip.image.data && (
-                    <Image
-                      src={ip.image.data.attributes.url}
-                      styling="rounded-xl"
-                      alt=""
-                    />
+                    <Image src={ip.image.data.attributes.url} styling="rounded-xl" alt="" />
                   )}
                 </div>
               </div>
             );
-          case "wysiwyg":
+          case 'wysiwyg':
             return (
               <>
-                <div key={"modal" + i}>
+                <div key={'modal' + i}>
                   <label htmlFor={ip.id} className="text-white">
-                    {ip.name + ":"}
+                    {ip.name + ':'}
                   </label>
                   <WYSIWYG args={ip} />
                   <br />
@@ -62,9 +58,9 @@ const ModalBody = ({ bodyElements }) => {
           default: // input
             return (
               <>
-                <div key={"modal" + i}>
+                <div key={'modal' + i}>
                   <label htmlFor={ip.id} className="text-white">
-                    {ip.name + ":"}
+                    {ip.name + ':'}
                   </label>
                   <Input args={ip} />
                   <br />

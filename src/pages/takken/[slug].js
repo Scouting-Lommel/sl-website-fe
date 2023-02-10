@@ -1,8 +1,8 @@
-import client from "@/lib/api/apollo/client";
-import { getGeneralData } from "@/lib/api/general";
-import { getGroupPage } from "@/lib/api/groups";
-import { getAllGroupSlugs } from "@/lib/api/groups";
-import BaseLayout from "@/layouts/base";
+import client from '@/lib/api/apollo/client';
+import { getGeneralData } from '@/lib/api/general';
+import { getGroupPage } from '@/lib/api/groups';
+import { getAllGroupSlugs } from '@/lib/api/groups';
+import BaseLayout from '@/layouts/base';
 
 export default function group({ data, params }) {
   console.log(data);

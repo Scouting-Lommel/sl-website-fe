@@ -1,26 +1,26 @@
-import classNames from "classnames";
-import Link from "@/components/atoms/Link";
-import RichText from "@/components/atoms/RichtText";
-import Title from "@/components/atoms/Title";
-import styles from "./FooterInfo.module.scss";
+import classNames from 'classnames';
+import Link from '@/components/atoms/Link';
+import RichText from '@/components/atoms/RichtText';
+import Title from '@/components/atoms/Title';
+import styles from './FooterInfo.module.scss';
 
 const InfoCol = ({ title, address, links }) => {
   return (
-    <div className={styles["info-col"]}>
-      <Title title={title} variant="h3" className={styles["info-col__title"]} />
+    <div className={styles['info-col']}>
+      <Title title={title} variant="h3" className={styles['info-col__title']} />
 
       {address ? (
-        <div className={styles["info-col__content"]}>
+        <div className={styles['info-col__content']}>
           <RichText data={address} />
         </div>
       ) : (
         links?.map((item, i) => {
           return (
-            <Link key={i} href={item.link || "#"}>
+            <Link key={i} href={item.link || '#'}>
               <span
                 className={classNames([
-                  styles["info-col__content"],
-                  styles["info-col__content--link"],
+                  styles['info-col__content'],
+                  styles['info-col__content--link'],
                 ])}
               >
                 {item.label}
@@ -35,12 +35,12 @@ const InfoCol = ({ title, address, links }) => {
 
 const FooterInfo = ({ address, contactItems, footerNavigation }) => {
   return (
-    <div className={styles["footer-info"]}>
-      <div className={styles["footer-info__section"]}>
+    <div className={styles['footer-info']}>
+      <div className={styles['footer-info__section']}>
         <InfoCol title="Adres" address={address} />
         <InfoCol title="Contact" links={contactItems} />
       </div>
-      <div className={styles["footer-info__section"]}>
+      <div className={styles['footer-info__section']}>
         {footerNavigation.map((el, i) => {
           return <InfoCol key={i} title={el.title} links={el.navItems} />;
         })}

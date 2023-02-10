@@ -1,8 +1,8 @@
 // import { useMutation } from "@apollo/client";
-import { getGeneralData } from "@/lib/api/general/";
-import client from "@/lib/api/apollo/client";
+import { getGeneralData } from '@/lib/api/general/';
+import client from '@/lib/api/apollo/client';
 // import { createNewLeader } from "@/lib/api/register/mutations";
-import BaseLayout from "@/layouts/base";
+import BaseLayout from '@/layouts/base';
 
 export default function Createleader({ general }) {
   // const [createUserFunc, { loading, error, data }] = useMutation(
