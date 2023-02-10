@@ -29,7 +29,7 @@
 
   &:hover {
     cursor: pointer;
-    box-shadow: $shadow-large;
+    box-shadow: $shadow-medium;
     transform: translate(tools.rem(1), tools.rem(-1));
   }
 
