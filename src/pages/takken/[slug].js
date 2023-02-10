@@ -8,7 +8,7 @@ export default function group({ data, params }) {
   console.log(data);
 
   return (
-    <BaseLayout pageMeta={data.pageMeta} path="takken" slug={params.slug}>
+    <BaseLayout pageMeta={data.pageMeta} path="takken" slug={params?.slug}>
       <section className="sl-layout">{data.pageTitle}</section>
     </BaseLayout>
   );
