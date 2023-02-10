@@ -8,6 +8,9 @@ const NavItem = ({
   label,
   href,
   dropdownItems,
+  dropdownCta,
+  dropdownTitle,
+  dropdownButton,
   onClick,
   modButton,
   modDropdown,
@@ -22,7 +25,13 @@ const NavItem = ({
       >
         <Link href={href}>{label}</Link>
         <span className={styles["nav-item__dropdown"]}>
-          <Dropdown path={href} dropdownItems={dropdownItems} />
+          <Dropdown
+            path={href}
+            dropdownItems={dropdownItems}
+            dropdownTitle={dropdownTitle}
+            dropdownCta={dropdownCta}
+            dropdownButton={dropdownButton}
+          />
         </span>
       </li>
     );
@@ -36,10 +45,6 @@ const NavItem = ({
     );
   }
 
-  return <NavLink href={href} label={label} />;
-};
-
-const NavLink = ({ href, label }) => {
   return (
     <li className={styles["nav-item"]}>
       <Link href={href}>{label}</Link>
@@ -51,14 +56,12 @@ NavItem.propTypes = {
   label: PropTypes.string.isRequired,
   href: PropTypes.string,
   dropdownItems: PropTypes.array,
+  dropdownCta: PropTypes.object,
+  dropdownButton: PropTypes.object,
+  dropdownTitle: PropTypes.string,
   onClick: PropTypes.func,
   modButton: PropTypes.bool,
   modDropdown: PropTypes.bool,
-};
-
-NavLink.propTypes = {
-  label: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
 };
 
 export default NavItem;

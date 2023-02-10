@@ -17,6 +17,9 @@ const Navigation = ({ navItems }) => {
                 label={navItem.label}
                 href={`/${navItem.page.replace(new RegExp('_', 'g'), '-')}` || navItem.link}
                 dropdownItems={navItem.dropdownItems}
+                dropdownCta={navItem.dropdownCta}
+                dropdownTitle={navItem.dropdownTitle}
+                dropdownButton={navItem.dropdownButton}
                 modDropdown={navItem.dropdownItems.length > 0}
               />
             );

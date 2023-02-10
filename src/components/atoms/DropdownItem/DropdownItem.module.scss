@@ -1,0 +1,27 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.dropdown-item {
+  display: block;
+  text-transform: none;
+  border-bottom: tools.rem(1) solid $color-grey-extra-light;
+  text-decoration: none;
+  transition: $transition;
+
+  &:hover {
+    border-color: $color-grey-light;
+  }
+}
+
+.dropdown-item__title {
+  font-family: $font-family-title;
+  font-size: tools.rem(14);
+  color: $color-black;
+}
+
+.dropdown-item__description {
+  font-family: $font-family-text;
+  font-size: tools.rem(14);
+  color: $color-primary;
+  line-height: tools.rem(18);
+}
