@@ -10,14 +10,16 @@ const Header = () => {
 
   return (
     <div className={styles['header__wrapper']}>
-      <header className="sl-layout">
-        <div className={styles['header']}>
-          <Link href="/" className={styles['header__link']}>
-            <SLImage data={general.logo.data.attributes} />
-          </Link>
-          <Navigation navItems={general.mainNavigation} />
-        </div>
-      </header>
+      <div className={styles['header']}>
+        <header className="sl-layout">
+          <div className={styles['header__content']}>
+            <Link href="/" className={styles['header__link']}>
+              <SLImage data={general.logo.data.attributes} />
+            </Link>
+            <Navigation navItems={general.mainNavigation} />
+          </div>
+        </header>
+      </div>
     </div>
   );
 };

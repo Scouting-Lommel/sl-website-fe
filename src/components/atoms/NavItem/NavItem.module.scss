@@ -2,7 +2,7 @@
 @use "@/assets/sass/tools/" as tools;
 
 .nav-item {
-  padding: tools.rem(12) 0;
+  padding: tools.rem(24);
   font-family: $font-family-title;
   text-transform: uppercase;
   font-weight: $font-weight-semibold;
@@ -10,10 +10,6 @@
   color: $color-black;
   background-color: transparent;
   border: none;
-
-  & + & {
-    margin-left: tools.rem(36);
-  }
 
   &:hover {
     cursor: pointer;
@@ -23,20 +19,34 @@
 
 .nav-item__dropdown-trigger {
   &:hover {
-    & .nav-item__dropdown {
+    & .nav-item__dropdown__wrapper {
       display: flex;
     }
   }
 }
 
 .nav-item__dropdown {
+  z-index: $z-index-nav-dropdown;
+  width: 100%;
+}
+
+.nav-item__dropdown__wrapper {
   position: absolute;
   display: none;
+  padding-top: tools.rem(22);
+  top: tools.rem(48);
+  left: 0;
+  z-index: $z-index-nav-dropdown;
+  width: 100%;
+}
+
+.nav-item__dropdown__content {
+  display: flex;
   flex-direction: column;
   background-color: $color-white;
   box-shadow: $shadow-medium;
-  z-index: $z-index-nav-dropdown;
-  top: tools.rem(58);
   padding: tools.rem(16);
   list-style-type: none;
+  z-index: $z-index-nav-dropdown-content;
+  width: 100%;
 }

@@ -2,13 +2,18 @@
 @use '@/assets/sass/tools/' as tools;
 
 .header {
-  display: flex;
-  align-items: center;
-  z-index: $z-index-header;
+  width: 100%;
+  box-shadow: $shadow-medium;
 }
 
 .header__wrapper {
-  box-shadow: $shadow-small;
+  position: relative;
+  z-index: $z-index-header;
+}
+
+.header__content {
+  display: flex;
+  align-items: center;
 }
 
 .header__link {

@@ -20,18 +20,25 @@ const NavItem = ({
         ])}
       >
         <Link href={href}>{label}</Link>
-        <ul className={styles["nav-item__dropdown"]}>
-          {dropdownItems.map((item, i) => {
-            return (
-              <Link
-                key={`dropdown-${href}-${i}`}
-                href={`${href}/${item.page.replace(new RegExp("_", "g"), "-")}`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </ul>
+        <span className={styles["nav-item__dropdown__wrapper"]}>
+          <span className={styles["nav-item__dropdown"]}>
+            <ul className={styles["nav-item__dropdown__content"]}>
+              {dropdownItems.map((item, i) => {
+                return (
+                  <Link
+                    key={`dropdown-${href}-${i}`}
+                    href={`${href}/${item.page.replace(
+                      new RegExp("_", "g"),
+                      "-"
+                    )}`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </ul>
+          </span>
+        </span>
       </li>
     );
   }
