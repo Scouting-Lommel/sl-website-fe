@@ -19,7 +19,7 @@ export async function getStaticPaths() {
     query: getAllRentalLocationSlugs(),
   });
 
-  const paths = data.rentalLocations.data.map((rentalLocation) => {
+  const paths = data?.rentalLocations?.data?.map((rentalLocation) => {
     return {
       params: { slug: rentalLocation.attributes.slug },
     };

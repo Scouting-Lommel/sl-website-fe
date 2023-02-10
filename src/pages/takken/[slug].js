@@ -19,7 +19,7 @@ export async function getStaticPaths() {
     query: getAllGroupSlugs(),
   });
 
-  const paths = data.groups.data.map((group) => {
+  const paths = data?.groups?.data?.map((group) => {
     return {
       params: { slug: group.attributes.slug },
     };
