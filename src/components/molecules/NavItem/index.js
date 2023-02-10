@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import PropTypes from "prop-types";
+import Dropdown from "@/components/molecules/Dropdown";
 import styles from "./NavItem.module.scss";
 
 const NavItem = ({
@@ -20,24 +21,8 @@ const NavItem = ({
         ])}
       >
         <Link href={href}>{label}</Link>
-        <span className={styles["nav-item__dropdown__wrapper"]}>
-          <span className={styles["nav-item__dropdown"]}>
-            <ul className={styles["nav-item__dropdown__content"]}>
-              {dropdownItems.map((item, i) => {
-                return (
-                  <Link
-                    key={`dropdown-${href}-${i}`}
-                    href={`${href}/${item.page.replace(
-                      new RegExp("_", "g"),
-                      "-"
-                    )}`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </ul>
-          </span>
+        <span className={styles["nav-item__dropdown"]}>
+          <Dropdown path={href} dropdownItems={dropdownItems} />
         </span>
       </li>
     );

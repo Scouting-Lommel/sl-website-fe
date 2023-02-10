@@ -1,0 +1,20 @@
+@use "@/assets/sass/settings/" as *;
+@use "@/assets/sass/tools/" as tools;
+
+.dropdown {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.dropdown__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  box-shadow: $shadow-medium;
+  padding: tools.rem(16);
+  list-style-type: none;
+  z-index: $z-index-nav-dropdown-content;
+  width: 100%;
+}

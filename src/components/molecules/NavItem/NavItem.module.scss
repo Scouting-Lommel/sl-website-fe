@@ -19,34 +19,18 @@
 
 .nav-item__dropdown-trigger {
   &:hover {
-    & .nav-item__dropdown__wrapper {
+    & .nav-item__dropdown {
       display: flex;
     }
   }
 }
 
 .nav-item__dropdown {
-  z-index: $z-index-nav-dropdown;
-  width: 100%;
-}
-
-.nav-item__dropdown__wrapper {
   position: absolute;
   display: none;
   padding-top: tools.rem(22);
   top: tools.rem(48);
   left: 0;
   z-index: $z-index-nav-dropdown;
-  width: 100%;
-}
-
-.nav-item__dropdown__content {
-  display: flex;
-  flex-direction: column;
-  background-color: $color-white;
-  box-shadow: $shadow-medium;
-  padding: tools.rem(16);
-  list-style-type: none;
-  z-index: $z-index-nav-dropdown-content;
   width: 100%;
 }

@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { useAuthContext, logout } from '@/lib/api/security/security';
-import NavItem from '@/components/atoms/NavItem';
+import NavItem from '@/components/molecules/NavItem';
 import styles from './Navigation.module.scss';
 
 const Navigation = ({ navItems }) => {
@@ -14,10 +15,7 @@ const Navigation = ({ navItems }) => {
               <NavItem
                 key={`nav-item-${i}`}
                 label={navItem.label}
-                href={
-                  `/${navItem.page.replace(new RegExp("_", "g"), "-")}` ||
-                  navItem.link
-                }
+                href={`/${navItem.page.replace(new RegExp('_', 'g'), '-')}` || navItem.link}
                 dropdownItems={navItem.dropdownItems}
                 modDropdown={navItem.dropdownItems.length > 0}
               />
@@ -31,6 +29,10 @@ const Navigation = ({ navItems }) => {
       </ul>
     </nav>
   );
+};
+
+Navigation.propTypes = {
+  navItems: PropTypes.array,
 };
 
 export default Navigation;
