@@ -1,15 +1,15 @@
-@use "@/assets/sass/settings/" as *;
-@use "@/assets/sass/tools/" as tools;
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
 
 .dropdown-item {
   display: block;
   text-transform: none;
-  border-bottom: tools.rem(1) solid $color-grey-extra-light;
+  border-bottom: tools.rem(1) solid $color-grey-light;
   text-decoration: none;
-  transition: $transition;
+  transition: $transition-short;
 
   &:hover {
-    border-color: $color-grey-light;
+    border-color: $color-grey-extra-light;
   }
 }
 
