@@ -15,6 +15,11 @@
 .header__content {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  @include tools.respond-from(large) {
+    justify-content: flex-start;
+  }
 }
 
 .header__link {
@@ -23,4 +28,30 @@
   white-space: nowrap;
   margin-right: tools.rem(48);
   height: tools.rem(72);
+  z-index: $z-index-nav-logo;
+}
+
+.header__nav {
+  width: 100%;
+  z-index: $z-index-nav-small;
+
+  &--invisible {
+    display: none;
+  }
+
+  &--visible {
+    display: block;
+  }
+
+  @include tools.respond-from(large) {
+    display: block;
+  }
+}
+
+.header__trigger {
+  z-index: $z-index-nav-trigger;
+
+  @include tools.respond-from(large) {
+    display: none;
+  }
 }

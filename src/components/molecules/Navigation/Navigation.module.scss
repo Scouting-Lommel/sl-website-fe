@@ -1,19 +1,47 @@
-@use "@/assets/sass/settings/" as *;
-@use "@/assets/sass/tools/" as tools;
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
 
 .navigation {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   padding: tools.rem(12) 0;
   padding: 0;
+
+  @include tools.respond-from(large) {
+    flex-direction: row;
+  }
 }
 
 .navigation__wrapper {
-  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: $color-white;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @include tools.respond-from(large) {
+    position: static;
+    display: block;
+    height: fit-content;
+    width: 100%;
+  }
 }
 
 .navigation__list {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   list-style-type: none;
+
+  @include tools.respond-from(large) {
+    flex-direction: row;
+  }
 }
