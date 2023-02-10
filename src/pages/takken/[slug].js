@@ -4,7 +4,7 @@ import { getGroupPage } from "@/lib/api/groups";
 import { getAllGroupSlugs } from "@/lib/api/groups";
 import BaseLayout from "@/layouts/base";
 
-export default function group({ data, params, general }) {
+export default function group({ data, params }) {
   console.log(data);
 
   return (

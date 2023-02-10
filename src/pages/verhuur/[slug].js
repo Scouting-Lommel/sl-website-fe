@@ -4,7 +4,7 @@ import { getRentalLocationPage } from "@/lib/api/rental";
 import { getAllRentalLocationSlugs } from "@/lib/api/rental";
 import BaseLayout from "@/layouts/base";
 
-export default function group({ data, params, general }) {
+export default function group({ data, params }) {
   console.log(data);
 
   return (
@@ -42,8 +42,6 @@ export async function getStaticProps(context) {
     query: getRentalLocationPage(),
     variables: { slug: params.slug },
   });
-
-  console.log(rentalLocationPage);
 
   if (
     !rentalLocationPage?.data?.rentalLocations ||
