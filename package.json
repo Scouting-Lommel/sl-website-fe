@@ -1,9 +1,11 @@
 {
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow npm",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {
@@ -17,13 +19,10 @@
     "next": "^13.0.6",
     "next-translate": "^1.6.0",
     "normalize.css": "^8.0.1",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.5",
-    "remark-gfm": "^3.0.1",
-    "tw-elements": "^1.0.0-alpha13"
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
