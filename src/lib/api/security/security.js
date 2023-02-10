@@ -1,7 +1,7 @@
 import decodeJWT from "jwt-decode";
 import { createContext, useContext, useState } from "react";
 import client from "@/lib/api/apollo/client";
-import { getDataFromUserId } from "@/lib/api/security/queries";
+import { getDataFromUserId } from "@/lib/api/security/security";
 
 const ISSERVER = typeof window === "undefined";
 

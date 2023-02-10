@@ -1,28 +1,29 @@
-import { useState } from "react";
+// import { useState } from "react";
 import client from "@/lib/api/apollo/client";
 import { uploadClient } from "@/lib/api/apollo/mutationClient";
 import { registerUser } from "@/lib/api/register/mutations";
 import { getAllMembers, getRegisterInfo } from "@/lib/api/register/queries";
 import { getGeneralData } from "@/lib/api/general";
-import { useAuthContext } from "@/lib/api/security/security";
+// import { useAuthContext } from "@/lib/api/security/security";
 import BaseLayout from "@/layouts/base";
-import RegisterChild from "@/components/organisms/RegisterChild";
-import RegisterInfo from "@/components/organisms/RegisterInfo";
+// import RegisterChild from "@/components/organisms/RegisterChild";
+// import RegisterInfo from "@/components/organisms/RegisterInfo";
 
 export default function Inschrijven({ fin, general }) {
-  const [isNotAllFilledIn, setNotAllFilledIn] = useState(false); // is everythin filled in?
-  const [isPaying, setIsPaying] = useState(false); // filling out the form or paying?
-  const [getFinalChildren, setFinalChildren] = useState([]); // all children who will be registered
-  const [getFinalLeaders, setFinalLeaders] = useState([]); // all leaders who will be resgistered
-  const [auth, setAuth] = useAuthContext();
+  // const [isNotAllFilledIn, setNotAllFilledIn] = useState(false); // is everythin filled in?
+  // const [isPaying, setIsPaying] = useState(false); // filling out the form or paying?
+  // const [getFinalChildren, setFinalChildren] = useState([]); // all children who will be registered
+  // const [getFinalLeaders, setFinalLeaders] = useState([]); // all leaders who will be resgistered
+  // const [auth, setAuth] = useAuthContext();
   return (
     <BaseLayout
       generalData={general}
-      title={fin.Title}
-      noIndex={fin.NoIndex}
-      url={fin.URL}
+      // title={fin.Title}
+      // noIndex={fin.NoIndex}
+      // url={fin.URL}
     >
-      <div className="flex flex-row justify-center py-14 ">
+      Inschrijven
+      {/* <div className="flex flex-row justify-center py-14 ">
         {!isPaying && (
           <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">
             <div id="childrenHeader">
@@ -92,25 +93,24 @@ export default function Inschrijven({ fin, general }) {
             </div>
           </div>
         )}
-      </div>
+      </div> */}
     </BaseLayout>
   );
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: getRegisterInfo(),
-  });
-  const layoutData = await client.query({
+  // const { data } = await client.query({
+  //   query: getRegisterInfo(),
+  // });
+  const general = await client.query({
     query: getGeneralData(),
   });
 
-  let general = layoutData.data.generalData.data.attributes.GeneralData;
-
-  let fin = data.registerPage.data.attributes;
+  // let fin = data.registerPage.data.attributes;
 
   return {
-    props: { fin: fin, general: general },
+    // props: { fin: fin, general: general },
+    props: { general: general.data.generalData.data.attributes },
     revalidate: 2592000, // 60*60*24*30 = every 30 days
   };
 }

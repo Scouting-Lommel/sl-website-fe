@@ -7,7 +7,7 @@ import {
 } from "@/lib/api/gazet/queries";
 
 export default function ScoutsGazet({ fin }) {
-  return <></>;
+  return <>scoutsgazet item</>;
 }
 
 export const getStaticPaths = async () => {

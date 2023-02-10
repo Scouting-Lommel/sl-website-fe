@@ -6,7 +6,7 @@ import {
   deleteFile,
   editFile,
 } from "@/lib/api/groups/mutations";
-import { getGroupID, getGroupFileIDs } from "@/lib/api/groups/queries";
+import { getGroupID, getGroupFileIDs } from "@/lib/api/groups/";
 import {
   // getUserGroup,
   // isLoggedIn,

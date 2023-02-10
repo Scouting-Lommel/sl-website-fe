@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import { uploadClient } from "@/lib/api/apollo/mutationClient";
 import { useAuthContext } from "@/lib/api/security/security";
 import { deleteAct, createAct, editAct } from "@/lib/api/groups/mutations";
-import { getGroupID } from "@/lib/api/groups/queries";
+import { getGroupID } from "@/lib/api/groups/";
 import Activity from "@/components/molecules/Activity";
 import { Modal } from "@/components/molecules/Modal";
 
