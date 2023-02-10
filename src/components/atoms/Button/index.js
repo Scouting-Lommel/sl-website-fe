@@ -13,7 +13,7 @@ const Button = ({ label, variant, href, type, modLink, modSmall, className, ...p
 
   if (modLink) {
     return (
-      <NextLink className={buttonClassNames} {...props}>
+      <NextLink className={buttonClassNames} href={href} {...props}>
         <span className={styles['button__label']}>{label}</span>
       </NextLink>
     );
