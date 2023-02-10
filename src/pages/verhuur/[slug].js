@@ -35,6 +35,10 @@ export async function getStaticProps(context) {
   const notFound = { notFound: true };
   const { params } = context;
 
+  if (!params.slug) {
+    return notFound;
+  }
+
   const general = await client.query({
     query: getGeneralData(),
   });
