@@ -4,7 +4,7 @@
 .button {
   display: flex;
   padding: tools.rem(12) tools.rem(26);
-  font-size: tools.rem(12);
+  font-size: tools.rem(10);
   height: fit-content;
   width: fit-content;
   border: none;
@@ -23,6 +23,10 @@
     background-color: $color-white;
   }
 
+  &--small {
+    padding: tools.rem(6) tools.rem(26);
+  }
+
   &:hover {
     cursor: pointer;
     box-shadow: $shadow-large;
@@ -31,12 +35,20 @@
 
   @include tools.respond-from(medium) {
     padding: tools.rem(14) tools.rem(32);
-    font-size: tools.rem(14);
+    font-size: tools.rem(12);
+
+    &--small {
+      padding: tools.rem(8) tools.rem(28);
+    }
   }
 
   @include tools.respond-from(large) {
     padding: tools.rem(16) tools.rem(36);
-    font-size: tools.rem(16);
+    font-size: tools.rem(14);
+
+    &--small {
+      padding: tools.rem(10) tools.rem(30);
+    }
   }
 }
 
