@@ -30,7 +30,7 @@ export async function getStaticProps() {
   return {
     props: {
       data: contactPage.data.contactPage.data.attributes,
-      general: general.data.generalData.data.attributes,
+      general: general.data,
     },
   };
 }

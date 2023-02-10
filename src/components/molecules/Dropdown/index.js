@@ -1,47 +1,35 @@
-import PropTypes from "prop-types";
-import { useContext } from "react";
-import classNames from "classnames";
-import { GeneralContext } from "@/context/GeneralContext";
-import DropdownItem from "@/components/atoms/DropdownItem";
-import Title from "@/components/atoms/Title";
-import Button from "@/components/atoms/Button";
-import RichText from "@/components/atoms/RichtText";
-import styles from "./Dropdown.module.scss";
+import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import classNames from 'classnames';
+import { GeneralContext } from '@/context/GeneralContext';
+import DropdownItem from '@/components/atoms/DropdownItem';
+import Title from '@/components/atoms/Title';
+import Button from '@/components/atoms/Button';
+import RichText from '@/components/atoms/RichtText';
+import styles from './Dropdown.module.scss';
 
-const Dropdown = ({
-  path,
-  dropdownTitle,
-  dropdownButton,
-  dropdownCta,
-  dropdownItems,
-}) => {
+const Dropdown = ({ path, dropdownTitle, dropdownButton, dropdownCta, dropdownItems }) => {
   const { general } = useContext(GeneralContext);
   let navItem = undefined;
 
-  if (path === "/takken") {
+  if (path === '/takken') {
     navItem = general.groups.data;
   }
-  if (path === "/verhuur") {
+  if (path === '/verhuur') {
     navItem = general.rentalLocations.data;
   }
 
   return (
-    <span className={styles["dropdown__wrapper"]}>
-      <div className={styles["dropdown"]}>
-        <div className={classNames([styles["dropdown__content"], "sl-layout"])}>
-          <div className={styles["dropdown__nav"]}>
-            <Title
-              title={dropdownTitle}
-              variant="h2"
-              className={styles["dropdown__nav__title"]}
-            />
-            <ul className={styles["dropdown__nav__list"]}>
+    <span className={styles['dropdown__wrapper']}>
+      <div className={styles['dropdown']}>
+        <div className={classNames([styles['dropdown__content'], 'sl-layout'])}>
+          <div className={styles['dropdown__nav']}>
+            <Title title={dropdownTitle} variant="h2" className={styles['dropdown__nav__title']} />
+            <ul className={styles['dropdown__nav__list']}>
               {navItem &&
                 dropdownItems.map((item, i) => {
                   const dropdownItem = navItem.find(
-                    (el) =>
-                      el.attributes.slug ===
-                      item.page.replace(new RegExp("_", "g"), "-")
+                    (el) => el.attributes.slug === item.page.replace(new RegExp('_', 'g'), '-'),
                   );
                   return (
                     <DropdownItem
@@ -58,25 +46,22 @@ const Dropdown = ({
               href={dropdownButton.link}
               modLink
               modSmall
-              className={styles["dropdown__nav__button"]}
+              className={styles['dropdown__nav__button']}
             />
           </div>
-          <div className={styles["dropdown__cta"]}>
+          <div className={styles['dropdown__cta']}>
             <Title
               title={dropdownCta.title}
               variant="h2"
-              className={styles["dropdown__cta__title"]}
+              className={styles['dropdown__cta__title']}
             />
-            <RichText
-              data={dropdownCta.intro}
-              className={styles["dropdown__cta__intro"]}
-            />
+            <RichText data={dropdownCta.intro} className={styles['dropdown__cta__intro']} />
             <Button
               label={dropdownCta.ctaLabel}
               href={dropdownCta.ctaLink}
               modLink
               modSmall
-              className={styles["dropdown__cta__button"]}
+              className={styles['dropdown__cta__button']}
             />
           </div>
         </div>

@@ -19,13 +19,9 @@ const Footer = () => {
         <FooterInfo
           address={general?.generalData.data.attributes.address}
           contactItems={general?.generalData.data.attributes.contactItems}
-          footerNavigation={
-            general?.generalData.data.attributes.footerNavigation
-          }
+          footerNavigation={general?.generalData.data.attributes.footerNavigation}
         />
-        <FooterBottom
-          siteName={general?.generalData.data.attributes.siteName}
-        />
+        <FooterBottom siteName={general?.generalData.data.attributes.siteName} />
       </div>
     </footer>
   );

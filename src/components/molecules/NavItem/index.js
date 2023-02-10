@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import Link from "next/link";
-import PropTypes from "prop-types";
-import Dropdown from "@/components/molecules/Dropdown";
-import styles from "./NavItem.module.scss";
+import classNames from 'classnames';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import Dropdown from '@/components/molecules/Dropdown';
+import styles from './NavItem.module.scss';
 
 const NavItem = ({
   label,
@@ -17,14 +17,9 @@ const NavItem = ({
 }) => {
   if (modDropdown) {
     return (
-      <li
-        className={classNames([
-          styles["nav-item"],
-          styles["nav-item__dropdown-trigger"],
-        ])}
-      >
+      <li className={classNames([styles['nav-item'], styles['nav-item__dropdown-trigger']])}>
         <Link href={href}>{label}</Link>
-        <span className={styles["nav-item__dropdown"]}>
+        <span className={styles['nav-item__dropdown']}>
           <Dropdown
             path={href}
             dropdownItems={dropdownItems}
@@ -39,14 +34,14 @@ const NavItem = ({
 
   if (modButton) {
     return (
-      <button onClick={onClick} className={styles["nav-item"]}>
+      <button onClick={onClick} className={styles['nav-item']}>
         {label}
       </button>
     );
   }
 
   return (
-    <li className={styles["nav-item"]}>
+    <li className={styles['nav-item']}>
       <Link href={href}>{label}</Link>
     </li>
   );

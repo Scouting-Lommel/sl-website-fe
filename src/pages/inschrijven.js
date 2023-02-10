@@ -110,193 +110,193 @@ export async function getStaticProps() {
 
   return {
     // props: { fin: fin, general: general },
-    props: { general: general.data.generalData.data.attributes },
+    props: { general: general.data },
     revalidate: 2592000, // 60*60*24*30 = every 30 days
   };
 }
 
-function reRender() {
-  fetch('/api/revalidateRegister');
-}
+// function reRender() {
+//   fetch('/api/revalidateRegister');
+// }
 
-function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLeaders) {
-  const streetName = document.getElementById('street').value;
-  const houseNumber = document.getElementById('number').value;
-  const bus = document.getElementById('bus').value;
-  const postCode = document.getElementById('postcode').value;
-  const city = document.getElementById('city').value;
-  const phone = document.getElementById('tel').value;
-  const gsm = document.getElementById('gsm').value;
-  const email = document.getElementById('email').value;
-  const privacy = document.getElementById('privacy').checked;
-  if (!privacy) {
-    setNotAllFilledIn(true);
-    return;
-  }
-  if (!streetName) {
-    setNotAllFilledIn(true);
-    return;
-  } else if (!houseNumber) {
-    setNotAllFilledIn(true);
-    return;
-  } else if (!postCode) {
-    setNotAllFilledIn(true);
-    return;
-  } else if (!city) {
-    setNotAllFilledIn(true);
-    return;
-  } else if (!phone) {
-    setNotAllFilledIn(true);
-    return;
-  } else if (!email) {
-    setNotAllFilledIn(true);
-    return;
-  }
-  // get every child info
-  const currYear = new Date().getFullYear().toString();
-  let firstnames = [];
-  let lastnames = [];
-  let birthdays = [];
-  let akabeLst = [];
-  let sexList = [];
-  let leaderList = [];
-  let count = 0;
-  for (let i = 0; i < 200; i++) {
-    const fName = document.getElementById('firstName' + i);
-    if (!fName) break;
-    const firstName = fName.value;
-    const lastName = document.getElementById('lastName' + i).value;
-    const birthday = document.getElementById('birthday' + i).value;
-    const akabe = document.getElementById('akabe' + i).checked;
-    const isM = document.getElementById('sexM' + i).checked;
-    const isF = document.getElementById('sexF' + i).checked;
-    const isX = document.getElementById('sexX' + i).checked;
-    if (!firstName) {
-      setNotAllFilledIn(true);
-      return;
-    } else if (!lastName) {
-      setNotAllFilledIn(true);
-      return;
-    } else if (!birthday) {
-      setNotAllFilledIn(true);
-      return;
-    } else if (!isM && !isF && !isX) {
-      setNotAllFilledIn(true);
-      return;
-    }
-    firstnames.push(firstName);
-    lastnames.push(lastName);
-    birthdays.push(birthday);
-    akabeLst.push(akabe);
-    leaderList.push(document.getElementById('tak' + i).value == 'Leiding');
-    if (isM) {
-      sexList.push('M');
-    } else if (isF) {
-      sexList.push('F');
-    } else {
-      sexList.push('X');
-    }
-  }
+// function register(setNotAllFilledIn, setIsPaying, setFinalChildren, setFinalLeaders) {
+//   const streetName = document.getElementById('street').value;
+//   const houseNumber = document.getElementById('number').value;
+//   const bus = document.getElementById('bus').value;
+//   const postCode = document.getElementById('postcode').value;
+//   const city = document.getElementById('city').value;
+//   const phone = document.getElementById('tel').value;
+//   const gsm = document.getElementById('gsm').value;
+//   const email = document.getElementById('email').value;
+//   const privacy = document.getElementById('privacy').checked;
+//   if (!privacy) {
+//     setNotAllFilledIn(true);
+//     return;
+//   }
+//   if (!streetName) {
+//     setNotAllFilledIn(true);
+//     return;
+//   } else if (!houseNumber) {
+//     setNotAllFilledIn(true);
+//     return;
+//   } else if (!postCode) {
+//     setNotAllFilledIn(true);
+//     return;
+//   } else if (!city) {
+//     setNotAllFilledIn(true);
+//     return;
+//   } else if (!phone) {
+//     setNotAllFilledIn(true);
+//     return;
+//   } else if (!email) {
+//     setNotAllFilledIn(true);
+//     return;
+//   }
+//   // get every child info
+//   const currYear = new Date().getFullYear().toString();
+//   let firstnames = [];
+//   let lastnames = [];
+//   let birthdays = [];
+//   let akabeLst = [];
+//   let sexList = [];
+//   let leaderList = [];
+//   let count = 0;
+//   for (let i = 0; i < 200; i++) {
+//     const fName = document.getElementById('firstName' + i);
+//     if (!fName) break;
+//     const firstName = fName.value;
+//     const lastName = document.getElementById('lastName' + i).value;
+//     const birthday = document.getElementById('birthday' + i).value;
+//     const akabe = document.getElementById('akabe' + i).checked;
+//     const isM = document.getElementById('sexM' + i).checked;
+//     const isF = document.getElementById('sexF' + i).checked;
+//     const isX = document.getElementById('sexX' + i).checked;
+//     if (!firstName) {
+//       setNotAllFilledIn(true);
+//       return;
+//     } else if (!lastName) {
+//       setNotAllFilledIn(true);
+//       return;
+//     } else if (!birthday) {
+//       setNotAllFilledIn(true);
+//       return;
+//     } else if (!isM && !isF && !isX) {
+//       setNotAllFilledIn(true);
+//       return;
+//     }
+//     firstnames.push(firstName);
+//     lastnames.push(lastName);
+//     birthdays.push(birthday);
+//     akabeLst.push(akabe);
+//     leaderList.push(document.getElementById('tak' + i).value == 'Leiding');
+//     if (isM) {
+//       sexList.push('M');
+//     } else if (isF) {
+//       sexList.push('F');
+//     } else {
+//       sexList.push('X');
+//     }
+//   }
 
-  for (let i = 0; i < firstnames.length; i++) {
-    const fn = firstnames[i];
-    const ln = lastnames[i];
-    const bd = birthdays[i];
-    const ak = akabeLst[i];
-    const sx = sexList[i];
+//   for (let i = 0; i < firstnames.length; i++) {
+//     const fn = firstnames[i];
+//     const ln = lastnames[i];
+//     const bd = birthdays[i];
+//     const ak = akabeLst[i];
+//     const sx = sexList[i];
 
-    uploadClient
-      .mutate({
-        mutation: registerUser(),
-        variables: {
-          fname: fn,
-          lname: ln,
-          bday: bd,
-          street: streetName,
-          number: houseNumber,
-          bus: bus,
-          postcode: postCode,
-          city: city,
-          phone: phone,
-          gsm: gsm,
-          email: email,
-          akb: ak,
-          year: currYear,
-          sex: sx,
-        },
-      })
-      .then((res) => {
-        count += 1;
-        if (count == firstnames.length) {
-          let finChilds = [];
-          let finLeaders = [];
-          for (let j = 0; j < firstnames.length; j++) {
-            if (leaderList[j]) {
-              finLeaders.push(firstnames[j] + ' ' + lastnames[j]);
-            } else {
-              finChilds.push(firstnames[j] + ' ' + lastnames[j]);
-            }
-          }
-          setFinalChildren(finChilds);
-          setFinalLeaders(finLeaders);
-          setIsPaying(true);
-        }
-      })
-      .catch((err) => {
-        alert(
-          `an error occured trying to register: ${err} \n Please contact us with this error message for further information`,
-        );
-      });
-  }
-}
+//     uploadClient
+//       .mutate({
+//         mutation: registerUser(),
+//         variables: {
+//           fname: fn,
+//           lname: ln,
+//           bday: bd,
+//           street: streetName,
+//           number: houseNumber,
+//           bus: bus,
+//           postcode: postCode,
+//           city: city,
+//           phone: phone,
+//           gsm: gsm,
+//           email: email,
+//           akb: ak,
+//           year: currYear,
+//           sex: sx,
+//         },
+//       })
+//       .then((res) => {
+//         count += 1;
+//         if (count == firstnames.length) {
+//           let finChilds = [];
+//           let finLeaders = [];
+//           for (let j = 0; j < firstnames.length; j++) {
+//             if (leaderList[j]) {
+//               finLeaders.push(firstnames[j] + ' ' + lastnames[j]);
+//             } else {
+//               finChilds.push(firstnames[j] + ' ' + lastnames[j]);
+//             }
+//           }
+//           setFinalChildren(finChilds);
+//           setFinalLeaders(finLeaders);
+//           setIsPaying(true);
+//         }
+//       })
+//       .catch((err) => {
+//         alert(
+//           `an error occured trying to register: ${err} \n Please contact us with this error message for further information`,
+//         );
+//       });
+//   }
+// }
 
-async function downloadAllMemebers(auth) {
-  if (!auth.loggedIn || !auth.groupLeader) {
-    alert('not allowed to perform this action');
-    return;
-  }
-  const { data } = await client.query({
-    query: getAllMembers(new Date().getFullYear()),
-  });
-  let arrayData = [
-    [
-      'voornaam',
-      'achternaam',
-      'geslacht',
-      'email',
-      'geboortedatum',
-      'akabe?',
-      'postcode',
-      'stad',
-      'straat',
-      'straatnummer',
-      'bus',
-      'telefoonnummer',
-      'gsm',
-      'inschrijf datum',
-    ],
-  ];
-  for (let i = 0; i < data.members.data.length; i++) {
-    const element = data.members.data[i].attributes;
-    let row = [];
-    row.push(element.FirstName);
-    row.push(element.LastName);
-    row.push(element.Sex);
-    row.push(element.Email);
-    row.push(element.Birthday);
-    row.push(element.Akabe);
-    row.push(element.PostCode);
-    row.push(element.City);
-    row.push(element.Street);
-    row.push(element.Number);
-    row.push(element.Bus);
-    row.push(element.Phone);
-    row.push(element.GSM);
-    row.push(element.createdAt);
-    arrayData.push(row);
-  }
-  let csvContent = 'data:text/csv;charset=utf-8,' + arrayData.map((e) => e.join(',')).join('\n');
+// async function downloadAllMemebers(auth) {
+//   if (!auth.loggedIn || !auth.groupLeader) {
+//     alert('not allowed to perform this action');
+//     return;
+//   }
+//   const { data } = await client.query({
+//     query: getAllMembers(new Date().getFullYear()),
+//   });
+//   let arrayData = [
+//     [
+//       'voornaam',
+//       'achternaam',
+//       'geslacht',
+//       'email',
+//       'geboortedatum',
+//       'akabe?',
+//       'postcode',
+//       'stad',
+//       'straat',
+//       'straatnummer',
+//       'bus',
+//       'telefoonnummer',
+//       'gsm',
+//       'inschrijf datum',
+//     ],
+//   ];
+//   for (let i = 0; i < data.members.data.length; i++) {
+//     const element = data.members.data[i].attributes;
+//     let row = [];
+//     row.push(element.FirstName);
+//     row.push(element.LastName);
+//     row.push(element.Sex);
+//     row.push(element.Email);
+//     row.push(element.Birthday);
+//     row.push(element.Akabe);
+//     row.push(element.PostCode);
+//     row.push(element.City);
+//     row.push(element.Street);
+//     row.push(element.Number);
+//     row.push(element.Bus);
+//     row.push(element.Phone);
+//     row.push(element.GSM);
+//     row.push(element.createdAt);
+//     arrayData.push(row);
+//   }
+//   let csvContent = 'data:text/csv;charset=utf-8,' + arrayData.map((e) => e.join(',')).join('\n');
 
-  var encodedUri = encodeURI(csvContent);
-  window.open(encodedUri);
-}
+//   var encodedUri = encodeURI(csvContent);
+//   window.open(encodedUri);
+// }
