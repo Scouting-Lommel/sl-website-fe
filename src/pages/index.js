@@ -11,11 +11,11 @@ export default function Home({ data, general }) {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: general?.siteName,
+    name: general?.generalData.data.attributes.siteName,
     email: 'info@scoutinglommel.be',
-    logo: general?.logo?.data?.attributes?.url,
-    image: general?.image?.data?.attributes?.url,
-    description: general?.siteDescription,
+    logo: general?.generalData.data.attributes.logo?.data?.attributes?.url,
+    image: general?.generalData.data.attributes.image?.data?.attributes?.url,
+    description: general?.generalData.data.attributes.siteDescription,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Nieuwe Kopen 4',
@@ -23,7 +23,7 @@ export default function Home({ data, general }) {
       postalCode: '3920',
       addressCountry: 'Belgium',
     },
-    url: general?.url,
+    url: general?.generalData.data.attributes.url,
   };
 
   return (
@@ -50,7 +50,7 @@ export async function getStaticProps() {
   return {
     props: {
       data: homePage.data.homePage.data.attributes,
-      general: general.data.generalData.data.attributes,
+      general: general.data,
     },
   };
 }

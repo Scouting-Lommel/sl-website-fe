@@ -54,6 +54,12 @@ const getGeneralData = () => {
                 page
                 link
               }
+              dropdownCta {
+                title
+                intro
+                ctaLink
+                ctaLabel
+              }
             }
             footerNavigation {
               title
@@ -62,6 +68,24 @@ const getGeneralData = () => {
                 link
               }
             }
+          }
+        }
+      }
+      groups {
+        data {
+          attributes {
+            name
+            description
+            slug
+          }
+        }
+      }
+      rentalLocations {
+        data {
+          attributes {
+            name
+            description
+            slug
           }
         }
       }

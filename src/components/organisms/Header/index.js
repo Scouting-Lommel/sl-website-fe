@@ -14,9 +14,9 @@ const Header = () => {
         <header className="sl-layout">
           <div className={styles['header__content']}>
             <Link href="/" className={styles['header__link']}>
-              <SLImage data={general.logo.data.attributes} />
+              <SLImage data={general.generalData.data.attributes.logo.data.attributes} />
             </Link>
-            <Navigation navItems={general.mainNavigation} />
+            <Navigation navItems={general.generalData.data.attributes.mainNavigation} />
           </div>
         </header>
       </div>

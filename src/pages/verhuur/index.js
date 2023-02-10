@@ -31,7 +31,7 @@ export async function getStaticProps() {
   return {
     props: {
       data: rentalPage.data.rentalPage.data.attributes,
-      general: general.data.generalData.data.attributes,
+      general: general.data,
     },
   };
 }
