@@ -48,7 +48,6 @@ const getGeneralData = () => {
               label
               link
               page
-              isButton
               dropdownItems {
                 label
                 page
@@ -59,6 +58,12 @@ const getGeneralData = () => {
                 intro
                 ctaLink
                 ctaLabel
+              }
+              dropdownTitle
+              dropdownButton {
+                label
+                link
+                variant
               }
             }
             footerNavigation {
