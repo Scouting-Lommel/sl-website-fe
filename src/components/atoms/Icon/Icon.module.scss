@@ -1,0 +1,27 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as *;
+
+.icon {
+  display: inline-block;
+  line-height: 0;
+
+  &--block {
+    display: block;
+  }
+
+  &--inline {
+    display: inline;
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.icon__svg {
+  max-width: 100%;
+
+  .icon--inline & {
+    width: auto;
+    height: 1rem;
+    vertical-align: middle;
+  }
+}

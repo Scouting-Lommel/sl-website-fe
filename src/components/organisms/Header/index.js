@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { useContext, useState } from 'react';
 import classNames from 'classnames';
 import { GeneralContext } from '@/context/GeneralContext';
+import { IconMenu } from '@/assets/icons';
+import Icon from '@/components/atoms/Icon';
 import Navigation from '@/components/molecules/Navigation';
 import SLImage from '@/components/atoms/Image';
 import styles from './Header.module.scss';
@@ -30,7 +32,7 @@ const Header = () => {
               <Navigation navItems={general.generalData.data.attributes.mainNavigation} />
             </div>
             <button className={styles['header__trigger']} onClick={() => triggerNav()}>
-              =
+              <Icon icon={IconMenu} />
             </button>
           </div>
         </header>
