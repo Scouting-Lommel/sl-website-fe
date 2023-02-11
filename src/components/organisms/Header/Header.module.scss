@@ -34,12 +34,26 @@
 .header__nav {
   width: 100%;
 
-  &--invisible {
-    display: none;
-  }
+  @include tools.respond-up-to(large) {
+    &--invisible {
+      display: none;
+    }
 
-  &--visible {
-    display: block;
+    &--visible {
+      display: block;
+
+      & + .header__link {
+        position: fixed;
+        top: tools.rem(24);
+        left: tools.rem(24);
+      }
+
+      & + .header__trigger {
+        position: fixed;
+        top: tools.rem(24);
+        right: tools.rem(24);
+      }
+    }
   }
 
   @include tools.respond-up-to(large) {
@@ -52,7 +66,10 @@
 }
 
 .header__trigger {
+  position: relative;
   z-index: $z-index-nav-trigger;
+  background-color: $color-white;
+  border: none;
 
   @include tools.respond-from(large) {
     display: none;
