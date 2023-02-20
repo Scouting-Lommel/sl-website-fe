@@ -20,6 +20,10 @@ const NavItem = ({
 }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
   const dropdownClassnames = classNames([
     styles['nav-item__dropdown'],
     dropdownOpen && styles['nav-item__dropdown--visible'],
@@ -46,7 +50,7 @@ const NavItem = ({
             styles['nav-item__dropdown-trigger__link'],
             styles['nav-item__dropdown-trigger__link--small'],
           ])}
-          onClick={() => setDropdownOpen(!dropdownOpen)}
+          onClick={() => toggleDropdown()}
         >
           {label}
           <Icon
@@ -61,6 +65,7 @@ const NavItem = ({
             dropdownTitle={dropdownTitle}
             dropdownCta={dropdownCta}
             dropdownButton={dropdownButton}
+            toggleDropdown={toggleDropdown}
           />
         </span>
       </li>

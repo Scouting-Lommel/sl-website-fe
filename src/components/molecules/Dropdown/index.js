@@ -2,13 +2,22 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import classNames from 'classnames';
 import { GeneralContext } from '@/context/GeneralContext';
+import { IconChevronDown } from '@/assets/icons';
 import DropdownItem from '@/components/atoms/DropdownItem';
+import Icon from '@/components/atoms/Icon';
 import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
 import RichText from '@/components/atoms/RichtText';
 import styles from './Dropdown.module.scss';
 
-const Dropdown = ({ path, dropdownTitle, dropdownButton, dropdownCta, dropdownItems }) => {
+const Dropdown = ({
+  path,
+  dropdownTitle,
+  dropdownButton,
+  dropdownCta,
+  dropdownItems,
+  toggleDropdown,
+}) => {
   const { general } = useContext(GeneralContext);
   let navItem = undefined;
 
@@ -23,6 +32,16 @@ const Dropdown = ({ path, dropdownTitle, dropdownButton, dropdownCta, dropdownIt
     <span className={styles['dropdown__wrapper']}>
       <div className={styles['dropdown']}>
         <div className={classNames([styles['dropdown__content'], 'sl-layout'])}>
+          <button
+            className={styles['dropdown__content__back-button']}
+            onClick={() => toggleDropdown()}
+          >
+            <Icon
+              icon={IconChevronDown}
+              className={styles['dropdown__content__back-button__chevron']}
+            />
+            Terug
+          </button>
           <div className={styles['dropdown__nav']}>
             <Title title={dropdownTitle} variant="h2" className={styles['dropdown__nav__title']} />
             <ul className={styles['dropdown__nav__list']}>

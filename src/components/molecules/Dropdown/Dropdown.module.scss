@@ -1,34 +1,71 @@
-@use "@/assets/sass/settings/" as *;
-@use "@/assets/sass/tools/" as tools;
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
 
 .dropdown {
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: $color-white;
-  box-shadow: $shadow-medium;
   padding: tools.rem(24);
   list-style-type: none;
   z-index: $z-index-nav-dropdown-content;
   width: 100%;
+
+  @include tools.respond-from(large) {
+    box-shadow: $shadow-medium;
+  }
 }
 
 .dropdown__wrapper {
   position: relative;
   display: flex;
   width: 100%;
+
+  @include tools.respond-up-to(large) {
+    height: 100vh;
+  }
 }
 
 .dropdown__content {
   width: 100%;
   display: flex;
-  gap: tools.rem(80);
-  flex-direction: row;
+  gap: tools.rem(24);
+  flex-direction: column;
+
+  @include tools.respond-from(large) {
+    gap: tools.rem(80);
+    flex-direction: row;
+  }
+}
+
+.dropdown__content__back-button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: tools.rem(24);
+  padding: 0;
+  font-weight: $font-weight-semibold;
+
+  @include tools.respond-from(large) {
+    display: none;
+  }
+}
+
+.dropdown__content__back-button__chevron {
+  height: tools.rem(5);
+  transform: rotate(90deg);
+  margin-right: tools.rem(6);
 }
 
 .dropdown__nav {
   margin: tools.rem(24) 0;
-  width: 60%;
+
+  @include tools.respond-from(large) {
+    width: 60%;
+  }
 }
 
 .dropdown__nav__title,
@@ -43,9 +80,18 @@
   list-style-type: none;
   padding-left: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: tools.rem(80);
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: tools.rem(40);
   row-gap: tools.rem(12);
+
+  @include tools.respond-from(small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include tools.respond-from(large) {
+    column-gap: tools.rem(80);
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .dropdown__nav__button,
@@ -54,10 +100,13 @@
 }
 
 .dropdown__cta {
-  width: 40%;
   margin: tools.rem(24) 0;
-  padding-left: tools.rem(36);
-  border-left: tools.rem(1) solid $color-grey-light;
+
+  @include tools.respond-from(large) {
+    width: 40%;
+    padding-left: tools.rem(36);
+    border-left: tools.rem(1) solid $color-grey-light;
+  }
 }
 
 .dropdown__cta__intro {

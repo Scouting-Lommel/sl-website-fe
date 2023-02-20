@@ -72,12 +72,15 @@
   padding-top: tools.rem(22);
   top: tools.rem(48);
   left: 0;
-  z-index: $z-index-nav-dropdown;
   width: 100%;
 
   @include tools.respond-up-to(large) {
     &--visible {
       display: flex;
     }
+  }
+
+  @include tools.respond-from(large) {
+    z-index: $z-index-nav-dropdown;
   }
 }
