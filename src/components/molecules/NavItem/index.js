@@ -1,9 +1,10 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 import { IconChevronDown } from '@/assets/icons';
-import Dropdown from '@/components/molecules/Dropdown';
 import Icon from '@/components/atoms/Icon';
+import Dropdown from '@/components/molecules/Dropdown';
 import styles from './NavItem.module.scss';
 
 const NavItem = ({
@@ -17,14 +18,43 @@ const NavItem = ({
   modButton,
   modDropdown,
 }) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const dropdownClassnames = classNames([
+    styles['nav-item__dropdown'],
+    dropdownOpen && styles['nav-item__dropdown--visible'],
+  ]);
+
   if (modDropdown) {
     return (
       <li className={classNames([styles['nav-item'], styles['nav-item__dropdown-trigger']])}>
-        <Link href={href} className={styles['nav-item__dropdown-trigger__link']}>
+        <Link
+          href={href}
+          className={classNames([
+            styles['nav-item__dropdown-trigger__link'],
+            styles['nav-item__dropdown-trigger__link--large'],
+          ])}
+        >
           {label}
-          <Icon icon={IconChevronDown} className={styles['nav-item__dropdown-trigger__chevron']} />
+          <Icon
+            icon={IconChevronDown}
+            className={styles['nav-item__dropdown-trigger__link__chevron']}
+          />
         </Link>
-        <span className={styles['nav-item__dropdown']}>
+        <button
+          className={classNames([
+            styles['nav-item__dropdown-trigger__link'],
+            styles['nav-item__dropdown-trigger__link--small'],
+          ])}
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+        >
+          {label}
+          <Icon
+            icon={IconChevronDown}
+            className={styles['nav-item__dropdown-trigger__link__chevron']}
+          />
+        </button>
+        <span className={dropdownClassnames}>
           <Dropdown
             path={href}
             dropdownItems={dropdownItems}
