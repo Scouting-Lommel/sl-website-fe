@@ -1,7 +1,9 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { IconChevronDown } from '@/assets/icons';
 import Dropdown from '@/components/molecules/Dropdown';
+import Icon from '@/components/atoms/Icon';
 import styles from './NavItem.module.scss';
 
 const NavItem = ({
@@ -18,7 +20,10 @@ const NavItem = ({
   if (modDropdown) {
     return (
       <li className={classNames([styles['nav-item'], styles['nav-item__dropdown-trigger']])}>
-        <Link href={href}>{label}</Link>
+        <Link href={href} className={styles['nav-item__dropdown-trigger__link']}>
+          {label}
+          <Icon icon={IconChevronDown} className={styles['nav-item__dropdown-trigger__chevron']} />
+        </Link>
         <span className={styles['nav-item__dropdown']}>
           <Dropdown
             path={href}
