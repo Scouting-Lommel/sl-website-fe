@@ -42,13 +42,8 @@
 .dropdown__content__back-button {
   display: flex;
   align-items: center;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  text-decoration: underline;
   margin-top: tools.rem(24);
   padding: 0;
-  font-weight: $font-weight-semibold;
 
   @include tools.respond-from(large) {
     display: none;

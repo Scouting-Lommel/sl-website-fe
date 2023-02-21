@@ -32,16 +32,17 @@ const Dropdown = ({
     <span className={styles['dropdown__wrapper']}>
       <div className={styles['dropdown']}>
         <div className={classNames([styles['dropdown__content'], 'sl-layout'])}>
-          <button
-            className={styles['dropdown__content__back-button']}
+          <Button
+            variant="link1"
             onClick={() => toggleDropdown()}
+            className={styles['dropdown__content__back-button']}
           >
             <Icon
               icon={IconChevronDown}
               className={styles['dropdown__content__back-button__chevron']}
             />
             Terug
-          </button>
+          </Button>
           <div className={styles['dropdown__nav']}>
             <Title title={dropdownTitle} variant="h2" className={styles['dropdown__nav__title']} />
             <ul className={styles['dropdown__nav__list']}>

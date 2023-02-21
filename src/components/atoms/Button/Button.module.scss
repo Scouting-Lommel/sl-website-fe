@@ -9,11 +9,16 @@
   width: fit-content;
   border: none;
   border-radius: tools.rem(36);
-  background-color: $color-yellow;
   box-shadow: $shadow-small;
   transition: $transition-medium;
   color: $color-black;
   text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow-medium;
+    transform: translate(tools.rem(1), tools.rem(-1));
+  }
 
   &--primary {
     background-color: $color-yellow;
@@ -23,14 +28,21 @@
     background-color: $color-white;
   }
 
-  &--small {
-    padding: tools.rem(6) tools.rem(26);
+  &--link1 {
+    background-color: $color-white;
+    box-shadow: none;
+    color: $color-black;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      transform: none;
+      text-decoration: underline;
+    }
   }
 
-  &:hover {
-    cursor: pointer;
-    box-shadow: $shadow-medium;
-    transform: translate(tools.rem(1), tools.rem(-1));
+  &--small {
+    padding: tools.rem(6) tools.rem(26);
   }
 
   @include tools.respond-from(medium) {
@@ -53,6 +65,8 @@
 }
 
 .button__label {
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   font-family: $font-family-title;
   font-weight: $font-weight-semibold;

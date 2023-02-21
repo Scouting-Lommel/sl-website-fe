@@ -1,0 +1,28 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
+
+.link {
+  &--link1 {
+    color: $color-black;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--link2 {
+    color: $color-grey-medium;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--link3 {
+    color: $color-green;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
