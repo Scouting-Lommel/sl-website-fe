@@ -26,7 +26,7 @@ const Navigation = ({ navItems }) => {
           })}
         </span>
         <span className={styles['navigation__list']}>
-          {!auth.loggedIn && <NavItem href="/login" label="Inloggen" />}
+          {!auth.loggedIn && <NavItem href="/login" label="Log in" />}
           {auth.loggedIn && <NavItem label="Uitloggen" onClick={() => logout()} modButton />}
         </span>
       </ul>
