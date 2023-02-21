@@ -82,7 +82,9 @@ const NavItem = ({
 
   return (
     <li className={styles['nav-item']}>
-      <Link href={href}>{label}</Link>
+      <Link href={href} className={styles['nav-item__dropdown-trigger__link']}>
+        {label}
+      </Link>
     </li>
   );
 };

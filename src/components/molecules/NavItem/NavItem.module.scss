@@ -2,7 +2,7 @@
 @use '@/assets/sass/tools/' as tools;
 
 .nav-item {
-  padding: tools.rem(24);
+  margin: 0 tools.rem(24);
   font-family: $font-family-title;
   text-transform: uppercase;
   font-weight: $font-weight-semibold;
@@ -28,6 +28,8 @@
 }
 
 .nav-item__dropdown-trigger__link {
+  display: block;
+  padding: tools.rem(24) 0;
   align-items: center;
   text-decoration: none;
   color: $color-black;
