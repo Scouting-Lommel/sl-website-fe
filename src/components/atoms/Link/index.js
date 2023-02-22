@@ -3,12 +3,12 @@ import NextLink from 'next/link';
 import PropTypes from 'prop-types';
 import styles from './Link.module.scss';
 
-const SLLink = ({ href, variant, children }) => {
-  const linkClassnames = classNames([styles['link'], styles[`link--${variant}`]]);
+const SLLink = ({ label, href, variant, children, className }) => {
+  const linkClassnames = classNames([styles['link'], styles[`link--${variant}`], className]);
 
   return (
     <NextLink href={href} className={linkClassnames}>
-      {children}
+      {children || label}
     </NextLink>
   );
 };
