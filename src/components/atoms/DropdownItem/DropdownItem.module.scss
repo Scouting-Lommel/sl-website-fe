@@ -9,7 +9,9 @@
   transition: $transition-short;
   height: 100%;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:focus-within {
     border-color: $color-grey-extra-light;
   }
 }
