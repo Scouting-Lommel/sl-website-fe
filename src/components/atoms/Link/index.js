@@ -14,6 +14,7 @@ const SLLink = ({ label, href, variant, children, className }) => {
 };
 
 SLLink.propTypes = {
+  label: PropTypes.string,
   href: PropTypes.string.isRequired,
   variant: PropTypes.oneOf(['link1', 'link2', 'link3']),
 };
