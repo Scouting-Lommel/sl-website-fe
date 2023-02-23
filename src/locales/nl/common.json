@@ -1,6 +1,7 @@
 {
   "Navigation": {
-    "LogIn": "Log in"
+    "LogIn": "Log in",
+    "SkipToContent": "Navigatie overslaan"
   },
   "Footer": {
     "Address": "Adres",
