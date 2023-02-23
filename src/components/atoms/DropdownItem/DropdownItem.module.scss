@@ -9,10 +9,15 @@
   transition: $transition-short;
   height: 100%;
 
-  &:hover,
-  &:focus,
-  &:focus-within {
+  &:hover {
     border-color: $color-grey-extra-light;
+  }
+
+  &:focus {
+    outline: tools.rem(1) solid $color-grey-light;
+    outline-offset: tools.rem(4);
+    border-radius: tools.rem(1);
+    border: none;
   }
 }
 

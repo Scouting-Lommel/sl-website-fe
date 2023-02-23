@@ -38,6 +38,12 @@
   text-decoration: none;
   color: $color-black;
 
+  &:hover,
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
+
   &--small {
     display: flex;
     border: none;

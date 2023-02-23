@@ -10,7 +10,7 @@
   border: none;
   border-radius: tools.rem(36);
   box-shadow: $shadow-small;
-  transition: $transition-medium;
+  transition: background-color $transition-medium;
   color: $color-black;
   text-decoration: none;
 
@@ -20,12 +20,26 @@
     transform: translate(tools.rem(1), tools.rem(-1));
   }
 
+  &:focus {
+    box-shadow: none;
+    outline: tools.rem(2) solid;
+    outline-offset: tools.rem(2);
+  }
+
   &--primary {
     background-color: $color-yellow;
+
+    &:focus {
+      outline-color: $color-yellow;
+    }
   }
 
   &--light {
     background-color: $color-white;
+
+    &:focus {
+      outline-color: $color-white;
+    }
   }
 
   &--link1 {
@@ -35,6 +49,7 @@
 
     &:hover,
     &:focus {
+      outline: none;
       box-shadow: none;
       transform: none;
       text-decoration: underline;
