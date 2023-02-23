@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import useTranslation from 'next-translate/useTranslation';
 import RichText from '@/components/atoms/RichtText';
 import Title from '@/components/atoms/Title';
@@ -50,6 +51,18 @@ const FooterInfo = ({ address, contactItems, footerNavigation }) => {
       </div>
     </div>
   );
+};
+
+InfoCol.propTypes = {
+  title: PropTypes.string,
+  address: PropTypes.string,
+  links: PropTypes.array,
+};
+
+FooterInfo.propTypes = {
+  address: PropTypes.string,
+  contactItems: PropTypes.array,
+  footerNavigation: PropTypes.array,
 };
 
 export default FooterInfo;
