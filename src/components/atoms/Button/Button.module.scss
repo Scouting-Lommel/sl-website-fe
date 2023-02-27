@@ -11,6 +11,8 @@
   border-radius: tools.rem(36);
   box-shadow: $shadow-small;
   transition: background-color $transition-medium;
+  transition: box-shadow $transition-medium;
+  transition: transform $transition-medium;
   color: $color-black;
   text-decoration: none;
 
