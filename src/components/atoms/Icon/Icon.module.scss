@@ -17,7 +17,8 @@
 }
 
 .icon__svg {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
 
   .icon--inline & {
     width: auto;
