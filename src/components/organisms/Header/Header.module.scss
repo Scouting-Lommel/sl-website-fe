@@ -68,7 +68,7 @@
 .header__trigger {
   position: relative;
   z-index: $z-index-nav-trigger;
-  background-color: $color-white;
+  color: $color-black;
   border: none;
 
   @include tools.respond-from(large) {
