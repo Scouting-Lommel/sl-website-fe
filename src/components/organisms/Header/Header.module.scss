@@ -69,6 +69,9 @@
   position: relative;
   z-index: $z-index-nav-trigger;
   color: $color-black;
+  background-color: $color-white;
+  width: tools.rem(36);
+  height: tools.rem(36);
   border: none;
 
   @include tools.respond-from(large) {

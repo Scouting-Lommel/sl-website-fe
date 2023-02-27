@@ -71,6 +71,7 @@
 .nav-item__dropdown-trigger__link__chevron {
   margin-left: tools.rem(6);
   height: tools.rem(5);
+  width: tools.rem(12);
   transform: rotate(-90deg);
 
   @include tools.respond-from(large) {
