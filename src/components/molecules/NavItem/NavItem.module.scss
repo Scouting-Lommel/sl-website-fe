@@ -80,6 +80,8 @@
 
 .nav-item__dropdown {
   position: absolute;
+  overflow: auto;
+  max-height: calc(100vh - tools.rem(72));
   display: none;
   padding-top: tools.rem(22);
   top: tools.rem(48);

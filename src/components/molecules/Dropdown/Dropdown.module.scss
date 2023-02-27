@@ -10,6 +10,7 @@
   list-style-type: none;
   z-index: $z-index-nav-dropdown-content;
   width: 100%;
+  height: fit-content;
   cursor: auto;
 
   @include tools.respond-from(large) {
@@ -21,6 +22,7 @@
   position: relative;
   display: flex;
   width: 100%;
+  background-color: $color-white;
 
   @include tools.respond-up-to(large) {
     height: 100vh;
