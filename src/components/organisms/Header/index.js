@@ -33,9 +33,9 @@ const Header = () => {
             </div>
             <button className={styles['header__trigger']} onClick={() => triggerNav()}>
               {navVisible ? (
-                <Icon icon={IconClose} className={styles['header__trigger__icon']} />
+                <Icon icon={IconClose} className={styles['header__trigger__icon']} modInline />
               ) : (
-                <Icon icon={IconMenu} className={styles['header__trigger__icon']} />
+                <Icon icon={IconMenu} className={styles['header__trigger__icon']} modInline />
               )}
             </button>
           </div>
