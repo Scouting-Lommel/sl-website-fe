@@ -17,7 +17,7 @@
 }
 
 .image__img {
-  transition: $transition-medium;
+  transition: opacity $transition-medium;
   opacity: 1;
   display: block;
   max-width: 100%;

@@ -6,7 +6,7 @@
   text-transform: none;
   border-bottom: tools.rem(1) solid $color-grey-light;
   text-decoration: none;
-  transition: $transition-short;
+  transition: border-color $transition-short;
   height: 100%;
 
   &:hover {
