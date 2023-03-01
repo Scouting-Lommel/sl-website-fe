@@ -1,0 +1,27 @@
+@use '@/assets/sass/settings' as *;
+@use '@/assets/sass/tools' as tools;
+
+.skip-to-content {
+  font-family: $font-family-title;
+  font-weight: $font-weight-bold;
+  letter-spacing: tools.rem(0.6);
+  text-transform: uppercase;
+  outline: none;
+  border-radius: $border-radius;
+  background: $color-primary;
+  color: $color-white;
+  text-decoration: none;
+  padding: tools.rem(10) tools.rem(50) tools.rem(7);
+  position: absolute;
+  transition: transform $transition-medium;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -200%);
+
+  &:focus {
+    outline: tools.rem(3) solid $color-primary;
+    outline-offset: tools.rem(2);
+    z-index: $z-index-skip-to-content;
+    transform: translate(-50%, tools.rem(16));
+  }
+}

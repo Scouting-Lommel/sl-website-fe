@@ -48,7 +48,7 @@ export async function getStaticProps() {
 
   return {
     // props: { fin: fin, general: general, calendarDates: datesList },
-    props: { general: general.data.generalData.data.attributes },
+    props: { general: general.data },
     revalidate: 86400, // 60*60*24 = every 24 hours
   };
 }

@@ -1,12 +1,26 @@
+import classNames from 'classnames';
 import NextLink from 'next/link';
 import PropTypes from 'prop-types';
+import styles from './Link.module.scss';
 
-const Link = ({ href, children }) => {
-  return <NextLink href={href}>{children}</NextLink>;
+const SLLink = ({ label, href, variant, children, className }) => {
+  const linkClassnames = classNames([styles['link'], styles[`link--${variant}`], className]);
+
+  return (
+    <NextLink href={href} className={linkClassnames}>
+      {children || label}
+    </NextLink>
+  );
 };
 
-Link.propTypes = {
+SLLink.propTypes = {
+  label: PropTypes.string,
   href: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(['link1', 'link2', 'link3']),
 };
 
-export default Link;
+SLLink.defaultProps = {
+  variant: 'link1',
+};
+
+export default SLLink;

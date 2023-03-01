@@ -1,7 +1,9 @@
 import classNames from 'classnames';
-import Link from '@/components/atoms/Link';
+import PropTypes from 'prop-types';
+import useTranslation from 'next-translate/useTranslation';
 import RichText from '@/components/atoms/RichtText';
 import Title from '@/components/atoms/Title';
+import SLLink from '@/components/atoms/Link';
 import styles from './FooterInfo.module.scss';
 
 const InfoCol = ({ title, address, links }) => {
@@ -16,16 +18,16 @@ const InfoCol = ({ title, address, links }) => {
       ) : (
         links?.map((item, i) => {
           return (
-            <Link key={i} href={item.link || '#'}>
-              <span
-                className={classNames([
-                  styles['info-col__content'],
-                  styles['info-col__content--link'],
-                ])}
-              >
-                {item.label}
-              </span>
-            </Link>
+            <SLLink
+              key={i}
+              href={item.link || '#'}
+              label={item.label}
+              variant="link1"
+              className={classNames([
+                styles['info-col__content'],
+                styles['info-col__content--link'],
+              ])}
+            />
           );
         })
       )}
@@ -34,11 +36,13 @@ const InfoCol = ({ title, address, links }) => {
 };
 
 const FooterInfo = ({ address, contactItems, footerNavigation }) => {
+  const { t } = useTranslation('common');
+
   return (
     <div className={styles['footer-info']}>
       <div className={styles['footer-info__section']}>
-        <InfoCol title="Adres" address={address} />
-        <InfoCol title="Contact" links={contactItems} />
+        <InfoCol title={t('Footer.Address')} address={address} />
+        <InfoCol title={t('Footer.Contact')} links={contactItems} />
       </div>
       <div className={styles['footer-info__section']}>
         {footerNavigation.map((el, i) => {
@@ -47,6 +51,18 @@ const FooterInfo = ({ address, contactItems, footerNavigation }) => {
       </div>
     </div>
   );
+};
+
+InfoCol.propTypes = {
+  title: PropTypes.string,
+  address: PropTypes.string,
+  links: PropTypes.array,
+};
+
+FooterInfo.propTypes = {
+  address: PropTypes.string,
+  contactItems: PropTypes.array,
+  footerNavigation: PropTypes.array,
 };
 
 export default FooterInfo;

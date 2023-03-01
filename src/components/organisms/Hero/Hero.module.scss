@@ -3,6 +3,7 @@
 
 .hero {
   position: relative;
+  z-index: $z-index-hero;
 }
 
 .hero__buttons {

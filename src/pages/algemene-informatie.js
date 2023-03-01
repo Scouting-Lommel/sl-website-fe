@@ -30,7 +30,7 @@ export async function getStaticProps() {
   return {
     props: {
       data: infoPage.data.infoPage.data.attributes,
-      general: general.data.generalData.data.attributes,
+      general: general.data,
     },
   };
 }

@@ -1,36 +1,43 @@
-import Link from 'next/link';
+import PropTypes from 'prop-types';
+import useTranslation from 'next-translate/useTranslation';
 import { useAuthContext, logout } from '@/lib/api/security/security';
+import NavItem from '@/components/molecules/NavItem';
 import styles from './Navigation.module.scss';
 
 const Navigation = ({ navItems }) => {
   const [auth] = useAuthContext();
+  const { t } = useTranslation('common');
 
   return (
-    <nav className={styles['navigation']}>
-      <ul className={styles['navigation__list']}>
-        {navItems.map((navItem, i) => {
-          return (
-            <li key={`nav-item-${i}`} className={styles['navigation__list__item']}>
-              <Link href={`/${navItem.page}` || navItem.link}>{navItem.label}</Link>
-            </li>
-          );
-        })}
+    <nav className={styles['navigation__wrapper']}>
+      <ul className={styles['navigation']}>
+        <span className={styles['navigation__list']}>
+          {navItems.map((navItem, i) => {
+            return (
+              <NavItem
+                key={`nav-item-${i}`}
+                label={navItem.label}
+                href={`/${navItem.page.replace(new RegExp('_', 'g'), '-')}` || navItem.link}
+                dropdownItems={navItem.dropdownItems}
+                dropdownCta={navItem.dropdownCta}
+                dropdownTitle={navItem.dropdownTitle}
+                dropdownButton={navItem.dropdownButton}
+                modDropdown={navItem.dropdownItems.length > 0}
+              />
+            );
+          })}
+        </span>
+        <span className={styles['navigation__list']}>
+          {!auth.loggedIn && <NavItem href="/login" label={t('Navigation.LogIn')} />}
+          {auth.loggedIn && <NavItem label="Uitloggen" onClick={() => logout()} modButton />}
+        </span>
       </ul>
-      {!auth.loggedIn && (
-        <Link href="/login" className={styles['navigation__list__item']}>
-          Inloggen
-        </Link>
-      )}
-      {auth.loggedIn && (
-        <>
-          <div className={styles['navigation__list__item']}>Welkom, {auth.leader.firstName}</div>
-          <button onClick={() => logout()} className={styles['navigation__list__item']}>
-            Uitloggen
-          </button>
-        </>
-      )}
     </nav>
   );
+};
+
+Navigation.propTypes = {
+  navItems: PropTypes.array,
 };
 
 export default Navigation;

@@ -12,16 +12,16 @@ const Footer = () => {
     <footer className={styles['footer']}>
       <div className="sl-layout">
         <FooterHead
-          siteName={general?.siteName}
-          vatNumber={general?.vatNumber}
-          groupNumber={general?.groupNumber}
+          siteName={general?.generalData.data.attributes.siteName}
+          vatNumber={general?.generalData.data.attributes.vatNumber}
+          groupNumber={general?.generalData.data.attributes.groupNumber}
         />
         <FooterInfo
-          address={general?.address}
-          contactItems={general?.contactItems}
-          footerNavigation={general?.footerNavigation}
+          address={general?.generalData.data.attributes.address}
+          contactItems={general?.generalData.data.attributes.contactItems}
+          footerNavigation={general?.generalData.data.attributes.footerNavigation}
         />
-        <FooterBottom siteName={general?.siteName} />
+        <FooterBottom siteName={general?.generalData.data.attributes.siteName} />
       </div>
     </footer>
   );

@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       data: groupPage.data.groups.data[0].attributes,
-      general: general.data.generalData.data.attributes,
+      general: general.data,
       params: params,
     },
   };

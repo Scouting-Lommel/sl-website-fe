@@ -23,6 +23,6 @@ export async function getStaticProps() {
   });
 
   return {
-    props: { general: general.data.generalData.data.attributes },
+    props: { general: general.data },
   };
 }

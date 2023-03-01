@@ -1,1 +1,10 @@
-{}
+{
+  "Navigation": {
+    "LogIn": "Log in",
+    "SkipToContent": "Navigatie overslaan"
+  },
+  "Footer": {
+    "Address": "Adres",
+    "Contact": "Contact"
+  }
+}

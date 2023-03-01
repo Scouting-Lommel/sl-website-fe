@@ -127,14 +127,12 @@ export default function Createleader({ general }) {
 }
 
 export async function getStaticProps() {
-  const layoutData = await client.query({
+  const general = await client.query({
     query: getGeneralData(),
   });
 
-  let general = layoutData.data.generalData.data.attributes;
-
   return {
-    props: { general },
+    props: { general: general.data },
     revalidate: 86400, // 60*60*24 = every 24 hours
   };
 }

@@ -48,11 +48,22 @@ const getGeneralData = () => {
               label
               link
               page
-              isButton
               dropdownItems {
                 label
                 page
                 link
+              }
+              dropdownCta {
+                title
+                intro
+                ctaLink
+                ctaLabel
+              }
+              dropdownTitle
+              dropdownButton {
+                label
+                link
+                variant
               }
             }
             footerNavigation {
@@ -62,6 +73,24 @@ const getGeneralData = () => {
                 link
               }
             }
+          }
+        }
+      }
+      groups {
+        data {
+          attributes {
+            name
+            description
+            slug
+          }
+        }
+      }
+      rentalLocations {
+        data {
+          attributes {
+            name
+            description
+            slug
           }
         }
       }
