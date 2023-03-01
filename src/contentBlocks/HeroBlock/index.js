@@ -3,7 +3,12 @@ import Hero from '@/components/organisms/Hero';
 
 const HeroBlock = ({ title, subtitle, variant, callToAction, socialsCta, yearTheme, bgImage }) => {
   return (
-    <BlockContainer variant="dark" orientation="default" slug="hero">
+    <BlockContainer
+      bgImage={bgImage.data.attributes}
+      variant="dark"
+      orientation="default"
+      slug="hero"
+    >
       <Hero
         title={title}
         subtitle={subtitle}

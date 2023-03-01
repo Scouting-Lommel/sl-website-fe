@@ -6,6 +6,7 @@
   padding-top: tools.rem(108);
   padding-bottom: tools.rem(108);
   background-color: $color-white;
+  overflow: hidden;
 
   &--dark {
     &::before {
@@ -16,8 +17,8 @@
       bottom: 0;
       left: 0;
       width: 101%;
-      height: 101%;
-      background: url('/assets/images/background.svg'), $color-green;
+      height: 100%;
+      background: url('/assets/images/curve.svg'), $color-green;
       background-repeat: no-repeat;
       background-position: 100%;
       background-size: auto 100%;
@@ -27,8 +28,30 @@
   &--reversed {
     &::before {
       transform: scaleY(-1);
+      height: 101%;
     }
   }
+
+  &--opaque {
+    &::before {
+      background: url('/assets/images/curve.svg'), rgba($color-green, 0.9);
+      background-repeat: no-repeat;
+      background-position: 100%;
+      background-size: auto 100%;
+      z-index: $z-index-hero;
+    }
+  }
+}
+
+.block-container__bg-image {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .block-container__content {
