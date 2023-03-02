@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
+import YearTheme from '@/components/molecules/YearTheme';
 import styles from './Hero.module.scss';
 
 const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) => {
@@ -36,6 +37,10 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
             );
           })}
         </div>
+      )}
+
+      {yearTheme.data && (
+        <YearTheme yearTheme={yearTheme.data.attributes} className={styles['hero__year-theme']} />
       )}
     </div>
   );

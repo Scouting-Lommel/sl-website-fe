@@ -1,0 +1,24 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
+
+.year-theme {
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $shadow-large;
+}
+
+.year-theme__image {
+  width: tools.rem(156);
+
+  @include tools.respond-from(medium) {
+    width: tools.rem(156);
+  }
+
+  @include tools.respond-from(large) {
+    width: tools.rem(180);
+  }
+
+  @include tools.respond-from(xlarge) {
+    width: tools.rem(228);
+  }
+}
