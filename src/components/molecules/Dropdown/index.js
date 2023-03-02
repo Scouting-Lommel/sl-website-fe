@@ -7,7 +7,7 @@ import DropdownItem from '@/components/atoms/DropdownItem';
 import Icon from '@/components/atoms/Icon';
 import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
-import RichText from '@/components/atoms/RichtText';
+import Typography from '@/components/atoms/Typography';
 import styles from './Dropdown.module.scss';
 
 const Dropdown = ({
@@ -75,7 +75,7 @@ const Dropdown = ({
               variant="h2"
               className={styles['dropdown__cta__title']}
             />
-            <RichText data={dropdownCta.intro} className={styles['dropdown__cta__intro']} />
+            <Typography data={dropdownCta.intro} className={styles['dropdown__cta__intro']} />
             <Button
               label={dropdownCta.ctaLabel}
               href={dropdownCta.ctaLink}

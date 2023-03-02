@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import RichText from '@/components/atoms/RichtText';
+import Typography from '@/components/atoms/Typography';
 import styles from './Title.module.scss';
 
 const Title = ({
@@ -29,7 +29,7 @@ const Title = ({
   if (modMarkup) {
     return (
       <TagName className={titleClassNames}>
-        <RichText data={title} />
+        <Typography data={title} modNoStyle />
       </TagName>
     );
   }

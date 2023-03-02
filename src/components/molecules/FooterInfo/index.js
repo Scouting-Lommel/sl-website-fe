@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import useTranslation from 'next-translate/useTranslation';
-import RichText from '@/components/atoms/RichtText';
+import Typography from '@/components/atoms/Typography';
 import Title from '@/components/atoms/Title';
 import SLLink from '@/components/atoms/Link';
 import styles from './FooterInfo.module.scss';
@@ -13,7 +13,7 @@ const InfoCol = ({ title, address, links }) => {
 
       {address ? (
         <div className={styles['info-col__content']}>
-          <RichText data={address} />
+          <Typography data={address} />
         </div>
       ) : (
         links?.map((item, i) => {

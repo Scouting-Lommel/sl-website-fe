@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
+import Typography from '@/components/atoms/Typography';
 import styles from './Hero.module.scss';
 
 const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) => {
@@ -17,6 +18,11 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
         modPrimary={variant === 'simple'}
         modMarkup
       />
+      {subtitle && (
+        <Typography>
+          <p>{subtitle}</p>
+        </Typography>
+      )}
       <div className={styles['hero__buttons']}>
         {callToAction &&
           callToAction.map((cta, key) => {

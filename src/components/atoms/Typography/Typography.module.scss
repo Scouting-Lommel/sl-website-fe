@@ -1,0 +1,17 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
+
+.typography {
+  white-space: pre-wrap;
+
+  &--styled {
+    font-size: tools.rem(16);
+
+    @include tools.respond-from(medium) {
+      font-size: tools.rem(20);
+    }
+    @include tools.respond-from(large) {
+      font-size: tools.rem(22);
+    }
+  }
+}
