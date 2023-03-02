@@ -2,13 +2,14 @@ import client from '@/lib/api/apollo/client';
 import { getGeneralData } from '@/lib/api/general';
 import { getContactPage } from '@/lib/api/contact';
 import BaseLayout from '@/layouts/base';
+import Blocks from '@/contentBlocks';
 
 export default function contact({ data, general }) {
   console.log(data);
 
   return (
     <BaseLayout pageMeta={data.pageMeta} slug="contact">
-      <section className="sl-layout">{data.pageMeta.pageTitle}</section>
+      <Blocks content={data.blocks} />
     </BaseLayout>
   );
 }
