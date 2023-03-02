@@ -1,7 +1,11 @@
 import { gql } from '@apollo/client';
 
+import HERO_BLOCK_FRAGMENT from '../fragments/hero-block.gql';
+
 const getRentalLocationPage = () => {
   return gql`
+    ${HERO_BLOCK_FRAGMENT}
+
     query getRentalLocationPage($slug: String) {
       rentalLocations(filters: { slug: { eq: $slug } }) {
         data {
@@ -43,6 +47,10 @@ const getRentalLocationPage = () => {
                   }
                 }
               }
+            }
+            blocks {
+              __typename
+              ...HeroBlockFragment
             }
           }
         }

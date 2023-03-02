@@ -3,13 +3,14 @@ import { getGeneralData } from '@/lib/api/general';
 import { getRentalLocationPage } from '@/lib/api/rental';
 import { getAllRentalLocationSlugs } from '@/lib/api/rental';
 import BaseLayout from '@/layouts/base';
+import Blocks from '@/contentBlocks';
 
 export default function group({ data, params }) {
   console.log(data);
 
   return (
     <BaseLayout pageMeta={data.pageMeta} path="verhuur" slug={params.slug}>
-      <section className="sl-layout">{data.pageTitle}</section>
+      <Blocks content={data.blocks} />
     </BaseLayout>
   );
 }
