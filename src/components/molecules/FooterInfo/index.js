@@ -13,7 +13,7 @@ const InfoCol = ({ title, address, links }) => {
 
       {address ? (
         <div className={styles['info-col__content']}>
-          <Typography data={address} />
+          <Typography data={address} modNoStyle />
         </div>
       ) : (
         links?.map((item, i) => {
