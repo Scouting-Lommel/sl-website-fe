@@ -18,11 +18,16 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
         modPrimary={variant === 'simple'}
         modMarkup
       />
-      {subtitle && (
+
+      {subtitle && variant === 'simple' && (
         <Typography>
           <p>{subtitle}</p>
         </Typography>
       )}
+      {subtitle && variant !== 'simple' && (
+        <Title title={subtitle} tagName="p" style="h3" modAccent />
+      )}
+
       {callToAction.length > 0 && (
         <div className={styles['hero__buttons']}>
           {callToAction.map((cta, key) => {
