@@ -4,8 +4,9 @@ import Hero from '@/components/organisms/Hero';
 const HeroBlock = ({ title, subtitle, variant, callToAction, socialsCta, yearTheme, bgImage }) => {
   return (
     <BlockContainer
-      bgImage={bgImage.data.attributes}
-      variant="dark"
+      bgImage={bgImage?.data?.attributes}
+      socialsCta={socialsCta}
+      variant={variant === 'simple' ? 'light' : 'dark'}
       orientation="default"
       slug="hero"
     >
@@ -14,7 +15,6 @@ const HeroBlock = ({ title, subtitle, variant, callToAction, socialsCta, yearThe
         subtitle={subtitle}
         variant={variant}
         callToAction={callToAction}
-        socialsCta={socialsCta}
         yearTheme={yearTheme}
         bgImage={bgImage}
         className="sl-layout"

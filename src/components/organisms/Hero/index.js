@@ -4,13 +4,19 @@ import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
 import styles from './Hero.module.scss';
 
-const Hero = ({ title, subtitle, variant, callToAction, socialsCta, yearTheme, className }) => {
+const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) => {
   const heroClassname = classNames([styles['hero'], className]);
 
   return (
     <div className={heroClassname}>
-      <Title title={title} variant="h1" modLight modMarkup />
-      {subtitle && <Title title={subtitle} style="h3" tagName="p" modAccent />}
+      <Title
+        title={title}
+        variant="h1"
+        style={variant === 'simple' ? 'h1-alt' : 'h1'}
+        modLight={variant !== 'simple'}
+        modPrimary={variant === 'simple'}
+        modMarkup
+      />
       <div className={styles['hero__buttons']}>
         {callToAction &&
           callToAction.map((cta, key) => {
@@ -30,7 +36,6 @@ Hero.proptypes = {
   callToAction: PropTypes.arrayOf(
     PropTypes.shape({ variant: PropTypes.string, label: PropTypes.string, link: PropTypes.string }),
   ),
-  socialsCta: PropTypes.object,
   yearTheme: PropTypes.object,
 };
 
