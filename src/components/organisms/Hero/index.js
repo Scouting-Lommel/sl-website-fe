@@ -6,7 +6,7 @@ import Typography from '@/components/atoms/Typography';
 import styles from './Hero.module.scss';
 
 const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) => {
-  const heroClassname = classNames([styles['hero'], className]);
+  const heroClassname = classNames([styles['hero'], styles[`hero--${variant}`], className]);
 
   return (
     <div className={heroClassname}>
@@ -23,14 +23,15 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
           <p>{subtitle}</p>
         </Typography>
       )}
-      <div className={styles['hero__buttons']}>
-        {callToAction &&
-          callToAction.map((cta, key) => {
+      {callToAction.length > 0 && (
+        <div className={styles['hero__buttons']}>
+          {callToAction.map((cta, key) => {
             return (
               <Button key={key} label={cta.label} href={cta.link} variant={cta.variant} modLink />
             );
           })}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

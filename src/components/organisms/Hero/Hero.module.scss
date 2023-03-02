@@ -4,6 +4,10 @@
 .hero {
   position: relative;
   z-index: $z-index-hero;
+
+  &--large {
+    margin: tools.rem(48) auto;
+  }
 }
 
 .hero__buttons {
