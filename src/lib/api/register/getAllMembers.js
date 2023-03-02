@@ -1,21 +1,5 @@
 import { gql } from '@apollo/client';
 
-const getRegisterInfo = () => {
-  return gql`
-    query {
-      registerPage {
-        data {
-          attributes {
-            AcountNr
-            ChildPrice
-            LeaderPrice
-          }
-        }
-      }
-    }
-  `;
-};
-
 const getAllMembers = (year) => {
   return gql`query{
       members(filters: {Year: {eq: "${year}"}}){
@@ -41,4 +25,4 @@ const getAllMembers = (year) => {
     }`;
 };
 
-export { getRegisterInfo, getAllMembers };
+export default getAllMembers;
