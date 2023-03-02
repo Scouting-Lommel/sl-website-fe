@@ -1,18 +1,10 @@
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
 import styles from './Hero.module.scss';
 
-const Hero = ({
-  title,
-  subtitle,
-  variant,
-  callToAction,
-  socialsCta,
-  yearTheme,
-  bgImage,
-  className,
-}) => {
+const Hero = ({ title, subtitle, variant, callToAction, socialsCta, yearTheme, className }) => {
   const heroClassname = classNames([styles['hero'], className]);
 
   return (
@@ -25,6 +17,15 @@ const Hero = ({
       </div>
     </div>
   );
+};
+
+Hero.proptypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  variant: PropTypes.oneOf(['default', 'large', 'simple']),
+  callToAction: PropTypes.object,
+  socialsCta: PropTypes.object,
+  yearTheme: PropTypes.object,
 };
 
 export default Hero;
