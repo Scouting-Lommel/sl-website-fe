@@ -44,7 +44,12 @@ const Dropdown = ({
             Terug
           </Button>
           <div className={styles['dropdown__nav']}>
-            <Title title={dropdownTitle} variant="h2" className={styles['dropdown__nav__title']} />
+            <Title
+              title={dropdownTitle}
+              variant="h2"
+              tagName="p"
+              className={styles['dropdown__nav__title']}
+            />
             <ul className={styles['dropdown__nav__list']}>
               {navItem &&
                 dropdownItems.map((item, i) => {
@@ -73,6 +78,7 @@ const Dropdown = ({
             <Title
               title={dropdownCta.title}
               variant="h2"
+              tagName="p"
               className={styles['dropdown__cta__title']}
             />
             <Typography data={dropdownCta.intro} className={styles['dropdown__cta__intro']} />
