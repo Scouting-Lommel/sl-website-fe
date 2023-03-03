@@ -1,0 +1,16 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
+
+.cta {
+  width: 60%;
+  padding: tools.rem(14) tools.rem(36);
+  background-color: $color-white;
+  box-shadow: $shadow-medium;
+  border-radius: $border-radius;
+}
+
+.cta__title {
+  font-family: $font-family-title;
+  text-transform: uppercase;
+  font-weight: $font-weight-semibold;
+}

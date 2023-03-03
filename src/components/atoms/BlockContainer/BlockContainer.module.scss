@@ -6,7 +6,6 @@
   padding-top: tools.rem(108);
   padding-bottom: tools.rem(108);
   background-color: $color-white;
-  overflow: hidden;
 
   &--dark {
     &::before {
@@ -22,6 +21,7 @@
       background-repeat: no-repeat;
       background-position: 100%;
       background-size: auto 100%;
+      overflow: hidden;
     }
   }
 
@@ -56,4 +56,12 @@
 
 .block-container__content {
   position: relative;
+}
+
+.block-container__cta {
+  position: absolute;
+  z-index: $z-index-cta;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
