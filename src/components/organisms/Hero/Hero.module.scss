@@ -5,8 +5,10 @@
   position: relative;
   z-index: $z-index-hero;
 
-  &--large {
-    margin: tools.rem(48) auto;
+  @include tools.respond-from(medium) {
+    &--large {
+      margin: tools.rem(48) auto;
+    }
   }
 }
 

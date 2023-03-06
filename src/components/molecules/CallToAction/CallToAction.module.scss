@@ -3,6 +3,7 @@
 
 .cta {
   display: flex;
+  gap: tools.rem(12);
   flex-direction: column;
   justify-content: space-between;
   width: 84%;
@@ -11,7 +12,7 @@
   box-shadow: $shadow-medium;
   border-radius: $border-radius;
 
-  @include tools.respond-from(medium) {
+  @include tools.respond-from(small) {
     flex-direction: row;
     width: 72%;
     padding: tools.rem(14) tools.rem(36);
@@ -23,6 +24,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  @include tools.respond-from(small) {
+    text-align: left;
+  }
 }
 
 .cta__copy__title {
@@ -31,7 +36,7 @@
   font-size: tools.rem(12);
   text-transform: uppercase;
 
-  @include tools.respond-from(small) {
+  @include tools.respond-from(medium) {
     font-size: tools.rem(16);
   }
 }
@@ -41,11 +46,6 @@
   justify-content: center;
   align-items: center;
   gap: tools.rem(16);
-  margin-top: tools.rem(12);
-
-  @include tools.respond-from(medium) {
-    margin-top: 0;
-  }
 }
 
 .cta__socials__item {
@@ -60,10 +60,6 @@
     & .cta__socials__item__icon::after {
       opacity: 1;
     }
-  }
-
-  @include tools.respond-from(small) {
-    height: tools.rem(24);
   }
 
   @include tools.respond-from(medium) {
