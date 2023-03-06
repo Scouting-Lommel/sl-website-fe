@@ -5,9 +5,6 @@ import BaseLayout from '@/layouts/base';
 import Blocks from '@/contentBlocks';
 
 export default function takken({ data, general }) {
-  console.log(data);
-  console.log(general);
-
   return (
     <BaseLayout pageMeta={data.pageMeta} slug="takken">
       <Blocks content={data.blocks} />

@@ -23,7 +23,7 @@ const Typography = ({ data, modNoStyle, children, className }) => {
 };
 
 Typography.propTypes = {
-  data: PropTypes.string.isRequired,
+  data: PropTypes.string,
   modNoStyle: PropTypes.bool,
 };
 

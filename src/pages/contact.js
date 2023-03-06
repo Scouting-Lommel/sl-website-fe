@@ -5,8 +5,6 @@ import BaseLayout from '@/layouts/base';
 import Blocks from '@/contentBlocks';
 
 export default function contact({ data, general }) {
-  console.log(data);
-
   return (
     <BaseLayout pageMeta={data.pageMeta} slug="contact">
       <Blocks content={data.blocks} />

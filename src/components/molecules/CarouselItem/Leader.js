@@ -2,7 +2,6 @@ import Image from '@/components/atoms/Image';
 import { Modal } from '@/components/molecules/Modal';
 
 const Leader = ({ info, id }) => {
-  console.log(info);
   const button = (
     <button>
       <a>

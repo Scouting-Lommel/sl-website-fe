@@ -5,9 +5,6 @@ import BaseLayout from '@/layouts/base';
 import Blocks from '@/contentBlocks';
 
 export default function Home({ data, general }) {
-  console.log(data);
-  console.log(general);
-
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
