@@ -20,8 +20,7 @@ const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocial
               className={styles['image__img']}
               alt={bgImage?.alternativeText}
               src={bgImage?.url}
-              srcSet={bgImage?.url}
-              sizes={`100vw`}
+              sizes="100vw"
               loading="eager"
             />
           </picture>
