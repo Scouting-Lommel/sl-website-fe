@@ -73,6 +73,28 @@ const getGeneralData = () => {
                 link
               }
             }
+            socials {
+              data {
+                attributes {
+                  title
+                  link
+                  icon {
+                    data {
+                      attributes {
+                        name
+                        width
+                        height
+                        url
+                        alternativeText
+                        caption
+                        formats
+                        ext
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

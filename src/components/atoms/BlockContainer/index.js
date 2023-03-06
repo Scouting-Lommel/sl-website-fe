@@ -1,6 +1,6 @@
-import CallToAction from '@/components/molecules/CallToAction';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import CallToAction from '@/components/molecules/CallToAction';
 import styles from './BlockContainer.module.scss';
 
 const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocials, children }) => {
@@ -30,9 +30,12 @@ const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocial
       <div className={styles['block-container__content']}>{children}</div>
       {cta && (
         <CallToAction
-          cta={cta}
-          className={styles['block-container__cta']}
+          title={cta.title}
+          subtitle={cta.intro}
+          buttonLabel={cta.ctaLabel}
+          buttonLink={cta.ctaLink}
           modSocials={modCtaSocials}
+          className={styles['block-container__cta']}
         />
       )}
     </section>

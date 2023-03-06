@@ -25,6 +25,21 @@ const SLImage = ({ data, loadingStrategy, className }) => {
     return 'Image is not valid';
   }
 
+  if (data.ext === '.svg') {
+    return (
+      <picture className={imageClassNames}>
+        <img
+          ref={imageRef}
+          className={styles['image__img']}
+          alt={data?.alternativeText}
+          src={data?.url}
+          loading={loadingStrategy}
+          onLoad={imageLoad}
+        />
+      </picture>
+    );
+  }
+
   return (
     <picture className={imageClassNames}>
       <source media="(max-width: 480px)" srcSet={data?.formats.small.url} />
