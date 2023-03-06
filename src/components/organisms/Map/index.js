@@ -1,5 +1,5 @@
-import Script from "next/script";
-import { Markup } from "interweave";
+import Script from 'next/script';
+import ReactMarkdown from 'react-markdown';
 
 const Map = ({ info }) => {
   return (
@@ -39,7 +39,7 @@ const Map = ({ info }) => {
       <h2 className="text-3xl text-center font-bold py-3">{info.Title}</h2>
       <div className="flex pb-3 justify-evenly">
         <div className="p-3">
-          <Markup content={info.Content} />
+          <ReactMarkdown>{info.Content}</ReactMarkdown>
         </div>
         <div className="flex flex-col justify-center">
           <div
@@ -53,15 +53,15 @@ const Map = ({ info }) => {
 };
 
 const mapContent = async (info) => {
-  var res = await fetch("/api/map");
+  var res = await fetch('/api/map');
   var api_key = await res.json();
   api_key = api_key.data;
-  const coords = info.Coords.split(" ");
+  const coords = info.Coords.split(' ');
   var latAndLong = { lat: coords[0], lng: coords[1] };
   var zoomLevel = 16;
 
   var map = tt.map({
-    container: "map",
+    container: 'map',
     key: api_key,
     center: latAndLong,
     zoom: zoomLevel,
@@ -72,8 +72,8 @@ const mapContent = async (info) => {
   var popupOffsets = {
     top: [0, 0],
     bottom: [0, -70],
-    "bottom-right": [0, -70],
-    "bottom-left": [0, -70],
+    'bottom-right': [0, -70],
+    'bottom-left': [0, -70],
     left: [25, -35],
     right: [-25, -35],
   };

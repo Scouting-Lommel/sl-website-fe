@@ -1,21 +1,33 @@
-import NextLink from "next/link";
+import classNames from 'classnames';
+import NextLink from 'next/link';
+import PropTypes from 'prop-types';
+import styles from './Link.module.scss';
 
-const Link = ({ info }) => {
-  if (!info || !info.Page) return <>Non-good argument for link</>;
+const SLLink = ({ label, href, variant, modExternal, children, className }) => {
+  const linkClassnames = classNames([styles['link'], styles[`link--${variant}`], className]);
 
-  const style = info.IsButton
-    ? " bg-blue-600 hover:bg-white text-white hover:text-blue-600 rounded border-2 border-blue-600"
-    : "";
-
+  if (modExternal) {
+    <a href={href} className={linkClassnames}>
+      {children || label}
+    </a>;
+  }
   return (
-    <>
-      <NextLink href={info.Page}>
-        <a className={"text-center font-bold py-2 px-4" + style}>
-          {info.Label}
-        </a>
-      </NextLink>
-    </>
+    <NextLink href={href} className={linkClassnames}>
+      {children || label}
+    </NextLink>
   );
 };
 
-export default Link;
+SLLink.propTypes = {
+  label: PropTypes.string,
+  href: PropTypes.string.isRequired,
+  variant: PropTypes.oneOf(['link1', 'link2', 'link3']),
+  modExternal: PropTypes.bool,
+};
+
+SLLink.defaultProps = {
+  variant: 'link1',
+  modExternal: false,
+};
+
+export default SLLink;

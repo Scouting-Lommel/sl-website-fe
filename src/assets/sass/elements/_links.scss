@@ -1,0 +1,12 @@
+@use '../settings/' as *;
+
+a:not([class]) {
+  color: $color-black;
+  outline: 0;
+  text-decoration: none;
+
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+  }
+}

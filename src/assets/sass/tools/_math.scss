@@ -1,0 +1,20 @@
+@use 'sass:map';
+@use 'sass:math';
+
+@function equivalent-fractions($numerator, $denominator) {
+  $fractions: ();
+
+  // Count up from negative numerator to -1
+  // This makes it possible to cycle through all decimal number of columns between the numerator and 1.
+  @for $i from -$numerator through -1 {
+    // When numerator and denominator are divisible by $i, we know $i is a fraction of the current column width
+    @if ($numerator % abs($i) == 0 and $denominator % abs($i) == 0) {
+      $fraction: (
+        abs($i): #{math.div($numerator, abs($i)) + '-' + math.div($denominator, abs($i))},
+      );
+      $fractions: map.merge($fractions, $fraction);
+    }
+  }
+
+  @return $fractions;
+}

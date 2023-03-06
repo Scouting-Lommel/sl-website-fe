@@ -1,0 +1,13 @@
+@use './calculators' as calculator;
+
+@function font-ratio($large-size) {
+  @if ($large-size > calculator.rem(32)) {
+    @return $large-size - calculator.rem(8);
+  } @else if ($large-size > calculator.rem(18)) {
+    @return $large-size - calculator.rem(4);
+  } @else {
+    @return $large-size - rem(2);
+  }
+
+  @return 1;
+}

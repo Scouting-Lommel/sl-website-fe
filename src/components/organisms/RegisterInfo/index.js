@@ -3,10 +3,7 @@ export default function RegisterInfo() {
     <>
       <div className="flex flex-row justify-center gap-4">
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="street"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="street">
             Straat*
           </label>
           <input
@@ -17,10 +14,7 @@ export default function RegisterInfo() {
           />
         </div>
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="number"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="number">
             Nummer*
           </label>
           <input
@@ -31,10 +25,7 @@ export default function RegisterInfo() {
           />
         </div>
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="bus"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="bus">
             Bus
           </label>
           <input
@@ -47,10 +38,7 @@ export default function RegisterInfo() {
       </div>
       <div className="flex flex-row justify-center gap-4">
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="postcode"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="postcode">
             Postcode*
           </label>
           <input
@@ -62,10 +50,7 @@ export default function RegisterInfo() {
           />
         </div>
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="city"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="city">
             Stad*
           </label>
           <input
@@ -79,10 +64,7 @@ export default function RegisterInfo() {
       </div>
       <div className="flex flex-row justify-center gap-4">
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="tel"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="tel">
             Telefoon*
           </label>
           <input
@@ -93,10 +75,7 @@ export default function RegisterInfo() {
           />
         </div>
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="gsm"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="gsm">
             gsm-nummer
           </label>
           <input
@@ -109,10 +88,7 @@ export default function RegisterInfo() {
       </div>
       <div className="flex flex-row justify-center gap-4">
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="email"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="email">
             E-mail*
           </label>
           <input
@@ -125,12 +101,9 @@ export default function RegisterInfo() {
       </div>
       <div className="flex flex-row justify-center gap-1">
         <input id="privacy" name="privacy" type="checkbox" />
-        <label
-          className="block text-grey-darker text-sm font-bold mb-2"
-          htmlFor="privacy"
-        >
-          * Ik heb de privacyverklaring van Scouting Lommel gelezen en ga
-          hiermee akkoord. (Deze is conform de GDPR regels)
+        <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="privacy">
+          * Ik heb de privacyverklaring van Scouting Lommel gelezen en ga hiermee akkoord. (Deze is
+          conform de GDPR regels)
         </label>
       </div>
     </>

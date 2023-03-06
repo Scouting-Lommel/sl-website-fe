@@ -1,0 +1,32 @@
+// ------------------ //
+// Raw Colors  //
+// ------------------ //
+
+// Theme colors
+$color-green: #4d6e5a;
+$color-yellow: #edb942;
+
+$color-red: #ff4343;
+
+// Basic colors
+$color-white: #ffffff;
+$color-grey-dark: #414141;
+$color-grey-medium: #818181;
+$color-grey-light: #d9d9d9;
+$color-grey-extra-light: #f6f6f6;
+$color-black: #000000;
+
+// ------------------ //
+// Functional Colors  //
+// ------------------ //
+
+$color-primary: $color-green;
+$color-secondary: $color-yellow;
+$color-bg: $color-white;
+$color-dark-bg: $color-grey-dark;
+$color-text: $color-black;
+$color-focus: $color-green;
+$color-action: $color-green;
+$color-error: $color-red;
+$color-skeleton: $color-grey-light;
+$color-shadow: rgba($color-grey-dark, 0.2);

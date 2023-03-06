@@ -1,41 +1,53 @@
-import client from "@/lib/api/apollo/client";
-import { getHomePage } from "@/lib/api/home/queries";
-import { getGeneralData } from "@/lib/api/general/queries";
-import BaseLayout from "@/layouts/Base";
-import Blocks from "@/contentBlocks";
+import client from '@/lib/api/apollo/client';
+import { getHomePage } from '@/lib/api/home';
+import { getGeneralData } from '@/lib/api/general';
+import BaseLayout from '@/layouts/base';
+import Blocks from '@/contentBlocks';
 
-export default function Home({ fin, general }) {
+export default function Home({ data, general }) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: general?.generalData.data.attributes.siteName,
+    email: 'info@scoutinglommel.be',
+    logo: general?.generalData.data.attributes.logo?.data?.attributes?.url,
+    image: general?.generalData.data.attributes.image?.data?.attributes?.url,
+    description: general?.generalData.data.attributes.siteDescription,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Nieuwe Kopen 4',
+      addressLocality: 'Lommel',
+      postalCode: '3920',
+      addressCountry: 'Belgium',
+    },
+    url: general?.generalData.data.attributes.url,
+  };
+
   return (
-    <BaseLayout
-      generalData={general}
-      title={fin.Title}
-      noIndex={fin.NoIndex}
-      url={fin.URL}
-    >
-      <Blocks content={fin.HomePage} />
+    <BaseLayout pageMeta={data.pageMeta} structuredData={structuredData}>
+      <Blocks content={data.blocks} />
     </BaseLayout>
   );
 }
 
-function reRender() {
-  fetch("/api/revalidateHome");
-}
-
 export async function getStaticProps() {
-  const { data } = await client.query({
+  const notFound = { notFound: true };
+
+  const general = await client.query({
+    query: getGeneralData(),
+  });
+  const homePage = await client.query({
     query: getHomePage(),
   });
 
-  let fin = data.homePage.data.attributes;
-
-  const layoutData = await client.query({
-    query: getGeneralData(),
-  });
-
-  let general = layoutData.data.generalData.data.attributes.GeneralData;
+  if (!homePage?.data?.homePage || !general?.data?.generalData) {
+    return notFound;
+  }
 
   return {
-    props: { fin: fin, general: general },
-    revalidate: 86400, // 60*60*24 = every 24 hours
+    props: {
+      data: homePage.data.homePage.data.attributes,
+      general: general.data,
+    },
   };
 }

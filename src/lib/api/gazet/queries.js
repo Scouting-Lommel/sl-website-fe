@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const getScoutsGazetPreview = (n) => {
   return gql`query{ scoutsgazets(sort: "Date:desc", pagination: {page:1, pageSize:${n}}) {

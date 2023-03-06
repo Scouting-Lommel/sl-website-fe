@@ -1,0 +1,35 @@
+@use '../settings/' as *;
+@use '../tools/' as *;
+
+.sl-layout {
+  max-width: 100%;
+  padding: 0 $spacing-20;
+  margin: 0 auto;
+
+  .sl-layout {
+    padding: 0;
+  }
+
+  @include respond-from(large) {
+    padding: 0 $spacing-40;
+  }
+
+  @each $breakpoint, $size-info in $breakpoints {
+    @if (map-get($size-info, 'container')) {
+      @include respond-from($breakpoint) {
+        max-width: map-get($size-info, 'container');
+        padding: 0;
+      }
+    }
+  }
+
+  &--narrow {
+    max-width: rem(1280);
+    padding: 0 $spacing-20;
+    margin: 0 auto;
+
+    @include respond-from(large) {
+      padding: 0 $spacing-40;
+    }
+  }
+}

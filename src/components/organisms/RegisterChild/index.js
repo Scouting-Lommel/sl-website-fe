@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function RegisterChild({ id }) {
   const [isVisible, setVisible] = useState(false);
@@ -6,71 +6,62 @@ export default function RegisterChild({ id }) {
     <div className="bg-white rounded basis-1/2  =mb-4 flex flex-col justify-center gap-4 max-w-lg">
       <div className="flex flex-row justify-center gap-4">
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="firstName"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="firstName">
             Voornaam*
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-            id={"firstName" + id}
+            id={'firstName' + id}
             type="text"
             placeholder="Voornaam"
           />
         </div>
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="lastName"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="lastName">
             Achternaam*
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-            id={"lastName" + id}
+            id={'lastName' + id}
             type="text"
             placeholder="Achternaam"
           />
         </div>
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="birthday"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="birthday">
             Geslacht*
           </label>
           <div className="flex flex-row justify-center">
             <input
               className=""
               defaultChecked={false}
-              id={"sexM" + id}
+              id={'sexM' + id}
               type="radio"
               value="M"
               onChange={() => {
-                checkSex("M", id);
+                checkSex('M', id);
               }}
             />
             <div className="pr-2">M</div>
             <input
               className=""
               defaultChecked={false}
-              id={"sexF" + id}
+              id={'sexF' + id}
               type="radio"
               value="M"
               onChange={() => {
-                checkSex("F", id);
+                checkSex('F', id);
               }}
             />
             <div className="pr-2">F</div>
             <input
               className=""
               defaultChecked={false}
-              id={"sexX" + id}
+              id={'sexX' + id}
               type="radio"
               value="M"
               onChange={() => {
-                checkSex("X", id);
+                checkSex('X', id);
               }}
             />
             <div className="pr-2">X</div>
@@ -79,10 +70,7 @@ export default function RegisterChild({ id }) {
       </div>
       <div className="flex flex-row justify-center gap-4">
         <div className="flex flex-col justify-center">
-          <label
-            className="block text-grey-darker text-sm font-bold mb-2"
-            htmlFor="birthday"
-          >
+          <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="birthday">
             Geboortedatum*
           </label>
           <input
@@ -90,24 +78,21 @@ export default function RegisterChild({ id }) {
               guessTak(id);
             }}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
-            id={"birthday" + id}
+            id={'birthday' + id}
             type="date"
           />
         </div>
         <div className="flex flex-col justify-end gap-4">
           <div className="flex flex-row justify-center gap-1">
             <input
-              id={"akabe" + id}
+              id={'akabe' + id}
               name="akabe"
               type="checkbox"
               onChange={() => {
                 guessTak(id);
               }}
             />
-            <label
-              className="block text-grey-darker text-sm font-bold mb-2"
-              htmlFor="akabe"
-            >
+            <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="akabe">
               Akabe
             </label>
           </div>
@@ -115,7 +100,7 @@ export default function RegisterChild({ id }) {
         <input
           className=" appearance-none text-center rounded w-1/2 py-2 px-3 text-grey-darker"
           type="text"
-          id={"tak" + id}
+          id={'tak' + id}
           readOnly
         />
       </div>
@@ -139,10 +124,10 @@ export default function RegisterChild({ id }) {
 }
 
 const checkSex = (sex, id) => {
-  if (sex == "M") {
+  if (sex == 'M') {
     document.getElementById(`sexF${id}`).checked = false;
     document.getElementById(`sexX${id}`).checked = false;
-  } else if (sex == "F") {
+  } else if (sex == 'F') {
     document.getElementById(`sexM${id}`).checked = false;
     document.getElementById(`sexX${id}`).checked = false;
   } else {
@@ -152,30 +137,29 @@ const checkSex = (sex, id) => {
 };
 
 function guessTak(id) {
-  let calender = document.getElementById("birthday" + id);
-  let tak = document.getElementById("tak" + id);
-  let akabe = document.getElementById("akabe" + id);
+  let calender = document.getElementById('birthday' + id);
+  let tak = document.getElementById('tak' + id);
+  let akabe = document.getElementById('akabe' + id);
   if (akabe.checked) {
-    tak.value = "Akabe";
+    tak.value = 'Akabe';
     return;
   }
   if (!calender.value) return;
-  const diff =
-    new Date().getFullYear() - new Date(calender.value).getFullYear();
+  const diff = new Date().getFullYear() - new Date(calender.value).getFullYear();
   if (diff <= 0) return;
   if (diff < 6) {
-    tak.value = "Niet oud genoeg";
+    tak.value = 'Niet oud genoeg';
   } else if (diff == 6 || diff == 7) {
-    tak.value = "Kapoenen";
+    tak.value = 'Kapoenen';
   } else if (diff > 7 && diff < 11) {
-    tak.value = "Welpen";
+    tak.value = 'Welpen';
   } else if (diff > 10 && diff < 14) {
-    tak.value = "Jonggivers";
+    tak.value = 'Jonggivers';
   } else if (diff > 13 && diff < 17) {
-    tak.value = "Givers";
+    tak.value = 'Givers';
   } else if (diff == 17) {
-    tak.value = "Jin";
+    tak.value = 'Jin';
   } else {
-    tak.value = "Leiding";
+    tak.value = 'Leiding';
   }
 }

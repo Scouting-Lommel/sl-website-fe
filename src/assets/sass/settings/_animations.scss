@@ -1,0 +1,14 @@
+@use './colors.scss' as *;
+
+@mixin skeleton-animation {
+  width: 100%;
+  padding-bottom: 60%;
+  background-color: $color-skeleton;
+  animation: flicker 2s infinite;
+
+  @keyframes flicker {
+    50% {
+      background-color: rgba($color-skeleton, 0.6);
+    }
+  }
+}

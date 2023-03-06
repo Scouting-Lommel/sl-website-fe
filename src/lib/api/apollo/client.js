@@ -1,6 +1,6 @@
-import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import { getJwtToken } from "../security/security";
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { getJwtToken } from '../security/security';
 
 const httpLink = createHttpLink({
   uri: `${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/graphql`,
@@ -13,7 +13,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : "",
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });

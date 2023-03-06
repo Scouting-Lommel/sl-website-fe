@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 const getDataFromUserId = (UID) => {
   return gql`query {
@@ -9,11 +9,14 @@ const getDataFromUserId = (UID) => {
               data {
                 id
                 attributes {
-                  IsGroupLeader
+                  firstName
+                  lastName
+                  totem
+                  isGroupLeader
                   group {
                     data {
                       attributes {
-                        Name
+                        name
                       }
                     }
                   }

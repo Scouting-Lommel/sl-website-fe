@@ -1,0 +1,76 @@
+@use './tools' as tools;
+
+// ------------------------------------ //
+// Imports                              //
+// ------------------------------------ //
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+// ------------------------------------ //
+// Font Declarations                    //
+// ------------------------------------ //
+
+// Weights
+$font-weight-extralight: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+// Sizes
+$font-size-large: tools.rem(22);
+$font-size-medium: tools.rem(20);
+$font-size-small: tools.rem(16);
+
+// Letter Spacings
+$letter-spacing-uppercase: 0.05em;
+
+// Family Declarations
+$font-family-title: 'Montserrat', sans-serif;
+$font-family-text: 'Nunito Sans', sans-serif;
+
+$font-titles-map: (
+  h1: (
+    size: #{tools.rem(96)},
+    size-m: #{tools.rem(64)},
+    size-s: #{tools.rem(48)},
+    space: 0.05em,
+    weight: $font-weight-black,
+    line-height: 0.95,
+    font-family: $font-family-title,
+    text-transform: uppercase,
+    letter-spacing: #{tools.rem(1.5)},
+  ),
+  'h1-alt': (
+    size: #{tools.rem(64)},
+    size-m: #{tools.rem(48)},
+    size-s: #{tools.rem(40)},
+    space: 0.05em,
+    weight: $font-weight-black,
+    line-height: 1,
+    font-family: $font-family-title,
+    text-transform: uppercase,
+    letter-spacing: #{tools.rem(1.5)},
+  ),
+  h2: (
+    size: #{tools.rem(34)},
+    size-m: #{tools.rem(28)},
+    size-s: #{tools.rem(22)},
+    space: 0.5em,
+    weight: $font-weight-regular,
+    line-height: 1,
+    text-transform: uppercase,
+    font-family: $font-family-text,
+  ),
+  h3: (
+    size: #{tools.rem(28)},
+    size-m: #{tools.rem(24)},
+    size-s: #{tools.rem(20)},
+    space: 0.5em,
+    weight: $font-weight-bold,
+    line-height: 1,
+    font-family: $font-family-text,
+  ),
+);

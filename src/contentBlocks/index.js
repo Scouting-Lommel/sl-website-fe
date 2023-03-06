@@ -1,17 +1,9 @@
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 const blockList = {
-  ComponentContentBlocksHero: dynamic(() => import("./Hero")),
-  ComponentContentBlocksCallToAction: dynamic(() => import("./CallToAction")),
-  ComponentContentBlocksImageText: dynamic(() => import("./ImageText")),
-  ComponentContentBlocksCarousel: dynamic(() => import("./Carousel")),
-  ComponentContentBlocksBlog: dynamic(() => import("./Blog")),
-  ComponentContentBlocksGallery: dynamic(() => import("./Gallery")),
-  ComponentGeneralSocials: dynamic(() => import("./Socials")),
-  ComponentContentBlocksTextSection: dynamic(() => import("./TextSection")),
-  ComponentContentBlocksFaq: dynamic(() => import("./FAQ")),
-  ComponentContentBlocksMap: dynamic(() => import("./Map")),
-  ComponentContentBlocksCalendar: dynamic(() => import("./Calendar")),
+  ComponentContentBlocksHeroBlock: dynamic(() => import('./HeroBlock/index.js')),
+  ComponentContentBlocksTextImageBlock: dynamic(() => import('./TextImageBlock')),
+  ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock')),
 };
 
 const Blocks = ({ content, data }) => {
@@ -21,9 +13,7 @@ const Blocks = ({ content, data }) => {
     const key = block.__typename;
 
     if (!(key in blockList)) {
-      console.warn(
-        `Missing component for: '${key}', you should create one first.`
-      );
+      console.warn(`Missing component for: '${key}', you should create one first.`);
       return false;
     }
 
@@ -33,11 +23,7 @@ const Blocks = ({ content, data }) => {
   return (
     <>
       {contentBlocks?.map((Component, i) => {
-        return Component ? (
-          <Component key={i} {...content[i]} data={data} />
-        ) : (
-          false
-        );
+        return Component ? <Component key={i} {...content[i]} data={data} /> : false;
       })}
     </>
   );

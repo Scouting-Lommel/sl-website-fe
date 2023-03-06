@@ -1,0 +1,11 @@
+{
+  "extends": ["development"],
+  "hints": {
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": ["scroll-behavior", "width: fit-content", "height: fit-content"]
+      }
+    ]
+  }
+}

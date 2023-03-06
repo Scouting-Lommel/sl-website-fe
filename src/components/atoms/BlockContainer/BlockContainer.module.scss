@@ -1,0 +1,67 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
+
+.block-container {
+  position: relative;
+  padding-top: tools.rem(108);
+  padding-bottom: tools.rem(108);
+  background-color: $color-white;
+
+  &--dark {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 101%;
+      height: 100%;
+      background: url('/assets/images/curve.svg'), $color-green;
+      background-repeat: no-repeat;
+      background-position: 100%;
+      background-size: auto 100%;
+    }
+  }
+
+  &--reversed {
+    &::before {
+      transform: scaleY(-1);
+      height: 101%;
+    }
+  }
+
+  &--opaque {
+    &::before {
+      background: url('/assets/images/curve.svg'), rgba($color-green, 0.9);
+      background-repeat: no-repeat;
+      background-position: 100%;
+      background-size: auto 100%;
+      z-index: $z-index-hero;
+    }
+  }
+}
+
+.block-container__bg-image {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.block-container__content {
+  position: relative;
+}
+
+.block-container__cta {
+  position: absolute;
+  z-index: $z-index-cta;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}

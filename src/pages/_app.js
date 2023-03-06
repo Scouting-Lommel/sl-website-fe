@@ -1,15 +1,17 @@
-import { ApolloProvider } from "@apollo/client";
-import client from "@/lib/api/apollo/client";
-import { AuthProvider } from "@/lib/api/security/security";
-import "@/pages/styles/globals.css";
+import { ApolloProvider } from '@apollo/client';
+import client from '@/lib/api/apollo/client';
+import { AuthProvider } from '@/lib/api/security/security';
+import { GeneralProvider } from '@/context/GeneralContext';
 
-// no idea why this has to be here, but without it, the applicaiton throws an error
+import '@/assets/sass/index.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
       <AuthProvider>
-        <Component {...pageProps} />
+        <GeneralProvider value={{ ...pageProps?.general }}>
+          <Component {...pageProps} />
+        </GeneralProvider>
       </AuthProvider>
     </ApolloProvider>
   );

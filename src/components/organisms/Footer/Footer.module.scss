@@ -1,0 +1,6 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
+
+.footer {
+  border-top: tools.rem(1) solid $color-grey-light;
+}

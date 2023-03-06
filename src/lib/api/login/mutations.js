@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
 
 // DO not use the ES6 scrypt, it will throw an error
 const loginQuery = gql`

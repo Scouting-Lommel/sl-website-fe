@@ -1,32 +1,45 @@
 {
   "private": true,
   "scripts": {
+    "preinstall": "npx only-allow npm",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "export": "next export",
+    "lint": "next lint",
+    "generate-icons": "node ./script/generate-icons.js --inputFolder=./src/assets/icons/custom/ --outputFile=./src/assets/icons/index.js && npx eslint ./src/assets/icons/index.js --quiet --fix"
   },
   "dependencies": {
-    "@apollo/client": "^3.5.8",
-    "@ckeditor/ckeditor5-build-classic": "^34.1.0",
-    "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@apollo/client": "^3.7.2",
+    "@ckeditor/ckeditor5-build-classic": "^34.2.0",
+    "@ckeditor/ckeditor5-react": "^5.0.3",
+    "@svgr/webpack": "^6.5.1",
     "apollo-upload-client": "^17.0.0",
-    "graphql": "^16.3.0",
-    "interweave": "^13.0.0",
+    "classnames": "^2.3.2",
+    "graphql": "^16.6.0",
     "jwt-decode": "^3.1.2",
-    "next": "latest",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-preset-env": "^7.1.0",
-    "react": "^17.0.2",
-    "react-dom": "17.0.2",
-    "react-multi-carousel": "^2.8.0",
-    "tw-elements": "^1.0.0-alpha10"
+    "next": "^13.0.6",
+    "next-translate": "^1.6.0",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.5",
+    "remark-gfm": "^3.0.1",
+    "yargs": "^17.6.2"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.13",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.1",
-    "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.7"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.4.1",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0"
   }
 }

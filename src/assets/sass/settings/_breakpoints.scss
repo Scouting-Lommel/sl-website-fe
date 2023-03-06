@@ -1,0 +1,24 @@
+@use '@/assets/sass/tools/calculators' as calculators;
+
+$breakpoints: (
+  xsmall: (
+    size: 360,
+  ),
+  small: (
+    size: 480,
+  ),
+  medium: (
+    size: 768,
+  ),
+  large: (
+    size: 1024,
+  ),
+  xlarge: (
+    size: 1440,
+    container: calculators.rem(1260),
+  ),
+  xxlarge: (
+    size: 1600,
+    container: calculators.rem(1440),
+  ),
+);

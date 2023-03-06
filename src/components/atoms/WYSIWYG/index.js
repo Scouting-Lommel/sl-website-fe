@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from 'react';
 
 const WYSIWYG = ({ args }) => {
   let editorRef = useRef();
@@ -8,15 +8,15 @@ const WYSIWYG = ({ args }) => {
 
   useEffect(() => {
     editorRef.current = {
-      CKEditor: require("@ckeditor/ckeditor5-react").CKEditor, // v3+
-      ClassicEditor: require("@ckeditor/ckeditor5-build-classic"),
+      CKEditor: require('@ckeditor/ckeditor5-react').CKEditor, // v3+
+      ClassicEditor: require('@ckeditor/ckeditor5-build-classic'),
     };
 
     setLoaded(true);
   }, []); // run on mounting
 
   const editorConfiguration = {
-    toolbar: ["bold", "italic", "link"],
+    toolbar: ['bold', 'italic', 'link'],
   };
 
   if (loaded) {

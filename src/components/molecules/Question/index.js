@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Markup } from "interweave";
+import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export default function Question({ info }) {
   const [isVisible, setVisible] = useState(false);
@@ -41,7 +41,7 @@ export default function Question({ info }) {
           data-bs-parent="#accordionExample"
         >
           <div className="accordion-body py-4 px-5">
-            <Markup content={info.Answer} />
+            <ReactMarkdown>{info.Answer}</ReactMarkdown>
           </div>
         </div>
       )}

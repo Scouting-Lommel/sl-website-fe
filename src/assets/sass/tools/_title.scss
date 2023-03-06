@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use './media-queries' as *;
+
+@mixin title($tagStyle: 'h1', $font, $titles-map) {
+  @each $size, $size-info in $titles-map {
+    @if $tagStyle == $size {
+      @if (map.get($size-info, size-s)) {
+        font-size: map.get($size-info, size-s);
+      } @else {
+        font-size: map.get($size-info, size);
+      }
+
+      @if (map.get($size-info, space-s)) {
+        margin-bottom: map.get($size-info, space-s);
+      } @else {
+        margin-bottom: map.get($size-info, space);
+      }
+
+      margin-top: 0;
+      font-family: map.get($size-info, font-family);
+      font-weight: map.get($size-info, weight);
+      letter-spacing: map.get($size-info, letter-spacing);
+      line-height: map.get($size-info, line-height);
+      text-transform: map.get($size-info, text-transform);
+
+      @if (map.get($size-info, size-m)) {
+        @include respond-from(medium) {
+          font-size: map.get($size-info, size-m);
+        }
+      }
+
+      @if (map.get($size-info, space-m)) {
+        @include respond-from(medium) {
+          margin-bottom: map.get($size-info, space-m);
+        }
+      }
+
+      @if (map.get($size-info, size)) {
+        @include respond-from(large) {
+          font-size: map.get($size-info, size);
+        }
+      }
+
+      @if (map.get($size-info, space)) {
+        @include respond-from(large) {
+          margin-bottom: map.get($size-info, space);
+        }
+      }
+    }
+  }
+}

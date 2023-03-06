@@ -1,0 +1,40 @@
+@use '@/assets/sass/settings/' as *;
+@use '@/assets/sass/tools/' as tools;
+
+.hero {
+  position: relative;
+  z-index: $z-index-hero;
+
+  @include tools.respond-from(medium) {
+    &--large {
+      margin: tools.rem(48) auto;
+    }
+  }
+}
+
+.hero__buttons {
+  display: flex;
+  gap: tools.rem(12);
+  margin-top: tools.rem(36);
+}
+
+.hero__year-theme {
+  position: absolute;
+  display: none;
+
+  @include tools.respond-from(medium) {
+    display: block;
+    top: tools.rem(-48);
+    right: tools.rem(96);
+  }
+
+  @include tools.respond-from(large) {
+    top: tools.rem(-24);
+    right: tools.rem(108);
+  }
+
+  @include tools.respond-from(xlarge) {
+    top: tools.rem(-72);
+    right: tools.rem(108);
+  }
+}

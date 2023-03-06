@@ -3,7 +3,7 @@
 // import client from "@/lib/api/apollo/client";
 
 export default function Gazet(props) {
-  return <></>;
+  return <>scoutsgazet</>;
 }
 
 export async function getStaticProps() {

@@ -1,31 +1,34 @@
-import { useMutation } from "@apollo/client";
-import { getGeneralData } from "@/lib/api/general/queries";
-import client from "@/lib/api/apollo/client";
-import { createNewLeader } from "@/lib/api/register/mutations";
-import BaseLayout from "@/layouts/Base";  
+// import { useMutation } from "@apollo/client";
+import { getGeneralData } from '@/lib/api/general/';
+import client from '@/lib/api/apollo/client';
+// import { createNewLeader } from "@/lib/api/register/mutations";
+import BaseLayout from '@/layouts/base';
 
 export default function Createleader({ general }) {
-
-    const [createUserFunc, { loading, error, data }] = useMutation(createNewLeader, {
-        variables: {
-          username: "placeholder",
-          email: "placeholder",
-          password: "placeholder",
-        },
-        onCompleted(data) {
-          alert("Succes")
-          document.getElementById("username").value = ""
-          document.getElementById("email").value = ""
-          document.getElementById("password1").value = ""
-          document.getElementById("password2").value = ""
-        },
-        onError(fin) {
-          console.error(fin);
-        },
-      });
-    return (
-        <BaseLayout generalData={general} title="Create leader" noIndex={true}>
-            <div className="flex flex-row justify-center py-32">
+  // const [createUserFunc, { loading, error, data }] = useMutation(
+  //   createNewLeader,
+  //   {
+  //     variables: {
+  //       username: "placeholder",
+  //       email: "placeholder",
+  //       password: "placeholder",
+  //     },
+  //     onCompleted(data) {
+  //       alert("Succes");
+  //       document.getElementById("username").value = "";
+  //       document.getElementById("email").value = "";
+  //       document.getElementById("password1").value = "";
+  //       document.getElementById("password2").value = "";
+  //     },
+  //     onError(fin) {
+  //       console.error(fin);
+  //     },
+  //   }
+  // );
+  return (
+    <BaseLayout title="Create leader" noIndex={true}>
+      Registreer leider
+      {/* <div className="flex flex-row justify-center py-32">
         <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center max-w-lg">
           <div className="mb-4">
             <label
@@ -90,9 +93,12 @@ export default function Createleader({ general }) {
                   className="bg-blue-800 text-white font-bold py-2 px-4 rounded"
                   type="button"
                   onClick={() => {
-                    if(document.getElementById("password1").value != document.getElementById("password2").value){
-                        alert("passwords do not match");
-                        return;
+                    if (
+                      document.getElementById("password1").value !=
+                      document.getElementById("password2").value
+                    ) {
+                      alert("passwords do not match");
+                      return;
                     }
                     createUserFunc({
                       variables: {
@@ -108,26 +114,25 @@ export default function Createleader({ general }) {
               )}
               {loading && <div>Loading</div>}
               {error && (
-                <div className="text-red-600">An error occured, check console</div>
+                <div className="text-red-600">
+                  An error occured, check console
+                </div>
               )}
             </div>
           </div>
         </div>
-      </div>
-        </BaseLayout>
-    )
+      </div> */}
+    </BaseLayout>
+  );
 }
 
-
 export async function getStaticProps() {
-    const layoutData = await client.query({
-      query: getGeneralData(),
-    });
-  
-    let general = layoutData.data.generalData.data.attributes.GeneralData;
-  
-    return {
-      props: { general },
-      revalidate: 86400, // 60*60*24 = every 24 hours
-    };
-  }
+  const general = await client.query({
+    query: getGeneralData(),
+  });
+
+  return {
+    props: { general: general.data },
+    revalidate: 86400, // 60*60*24 = every 24 hours
+  };
+}

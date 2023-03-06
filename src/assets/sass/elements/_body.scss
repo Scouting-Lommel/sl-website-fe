@@ -1,0 +1,15 @@
+@use '../settings/' as *;
+@use '../tools/calculators' as calculator;
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background-color: $color-bg;
+  color: $color-black;
+  font-family: $font-family-text;
+  font-weight: $font-weight-regular;
+  font-size: calculator.rem(16);
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
