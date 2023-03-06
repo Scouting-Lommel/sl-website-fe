@@ -21,7 +21,6 @@
       background-repeat: no-repeat;
       background-position: 100%;
       background-size: auto 100%;
-      overflow: hidden;
     }
   }
 
@@ -52,6 +51,7 @@
   left: 0;
   min-width: 100%;
   min-height: 100%;
+  overflow: hidden;
 }
 
 .block-container__content {
