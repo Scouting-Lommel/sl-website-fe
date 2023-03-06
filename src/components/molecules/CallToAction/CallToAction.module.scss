@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 84%;
+  max-width: tools.rem(840);
   padding: tools.rem(14) tools.rem(16);
   background-color: $color-white;
   box-shadow: $shadow-medium;
@@ -16,6 +17,10 @@
     flex-direction: row;
     width: 72%;
     padding: tools.rem(14) tools.rem(36);
+  }
+
+  @include tools.respond-from(xlarge) {
+    width: 60%;
   }
 }
 
