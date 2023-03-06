@@ -1,9 +1,19 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import RichText from '@/components/atoms/RichtText';
+import Typography from '@/components/atoms/Typography';
 import styles from './Title.module.scss';
 
-const Title = ({ title, variant, style, tagName, modLight, modAccent, modMarkup, className }) => {
+const Title = ({
+  title,
+  variant,
+  style,
+  tagName,
+  modLight,
+  modAccent,
+  modPrimary,
+  modMarkup,
+  className,
+}) => {
   const titleStyle = style ? style : variant;
   const TagName = tagName ?? variant;
 
@@ -12,13 +22,14 @@ const Title = ({ title, variant, style, tagName, modLight, modAccent, modMarkup,
     styles[`title--${titleStyle}`],
     modLight && styles['title--light'],
     modAccent && styles['title--accent'],
+    modPrimary && styles['title--primary'],
     className,
   ]);
 
   if (modMarkup) {
     return (
       <TagName className={titleClassNames}>
-        <RichText data={title} />
+        <Typography data={title} modNoStyle />
       </TagName>
     );
   }
@@ -31,6 +42,8 @@ Title.propTypes = {
   variant: PropTypes.oneOf(['h1', 'h1-alt', 'h2', 'h3']),
   style: PropTypes.oneOf(['h1', 'h1-alt', 'h2', 'h3']),
   modLight: PropTypes.bool,
+  modAccent: PropTypes.bool,
+  modPrimary: PropTypes.bool,
   modMarkup: PropTypes.bool,
 };
 

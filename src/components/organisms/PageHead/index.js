@@ -10,8 +10,8 @@ const PageHead = ({ pageMeta, noIndex, pageTitle, slug, path, structuredData }) 
 
   const title = pageTitle
     ? `${pageTitle} • ${general.siteName || 'Scouting Sint-Pieter Lommel'}`
-    : pageMeta?.pageTitle && general?.siteName
-    ? `${pageMeta.pageTitle} • ${general.siteName}`
+    : pageMeta?.pageTitle && general?.generalData?.data?.attributes?.siteName
+    ? `${pageMeta.pageTitle} • ${general.generalData.data.attributes.siteName}`
     : 'Scouting Sint-Pieter Lommel';
 
   return (

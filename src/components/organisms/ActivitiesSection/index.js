@@ -198,7 +198,6 @@ const addAct = async (params) => {
   if (typeof window !== 'undefined') {
     const title = document.getElementById('addTitle').value;
     const description = document.getElementById('addDescription').value;
-    console.log(description);
     const startTime = document.getElementById('addStartTime').value;
     const endTime = document.getElementById('addEndTime').value;
     const groupID = await getGroupID(params[0]);

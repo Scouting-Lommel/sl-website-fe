@@ -1,7 +1,11 @@
 import { gql } from '@apollo/client';
 
+import HERO_BLOCK_FRAGMENT from '../fragments/hero-block.gql';
+
 const getInfoPageData = () => {
   return gql`
+    ${HERO_BLOCK_FRAGMENT}
+
     query {
       infoPage {
         data {
@@ -41,6 +45,10 @@ const getInfoPageData = () => {
                   }
                 }
               }
+            }
+            blocks {
+              __typename
+              ...HeroBlockFragment
             }
           }
         }

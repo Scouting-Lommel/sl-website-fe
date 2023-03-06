@@ -1,10 +1,16 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
+import Title from '@/components/atoms/Title';
 import Carousel from '@/components/organisms/Carousel';
 
 const GroupsBlock = ({ title, groups, blockProperties }) => {
   return (
-    <BlockContainer variant="dark" orientation="reversed" slug="hero">
+    <BlockContainer
+      variant={blockProperties.variant}
+      orientation={blockProperties.orientation}
+      slug={blockProperties.slug}
+    >
       <section className="sl-layout">
+        <Title variant="h2" title={title} />
         <Carousel data={groups} />
       </section>
     </BlockContainer>

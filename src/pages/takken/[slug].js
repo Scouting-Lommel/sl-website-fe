@@ -3,13 +3,12 @@ import { getGeneralData } from '@/lib/api/general';
 import { getGroupPage } from '@/lib/api/groups';
 import { getAllGroupSlugs } from '@/lib/api/groups';
 import BaseLayout from '@/layouts/base';
+import Blocks from '@/contentBlocks';
 
 export default function group({ data, params }) {
-  console.log(data);
-
   return (
     <BaseLayout pageMeta={data.pageMeta} path="takken" slug={params.slug}>
-      <section className="sl-layout">{data.pageTitle}</section>
+      <Blocks content={data.blocks} />
     </BaseLayout>
   );
 }

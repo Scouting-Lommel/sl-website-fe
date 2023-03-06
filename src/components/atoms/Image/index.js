@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Image.module.scss';
 
 const SLImage = ({ data, loadingStrategy, className }) => {
-  const buttonRef = useRef(null);
+  const imageRef = useRef(null);
   const [imgLoaded, setImgLoaded] = useState(false);
 
   const imageClassNames = classNames([
@@ -14,7 +14,7 @@ const SLImage = ({ data, loadingStrategy, className }) => {
   ]);
 
   const imageLoad = () => {
-    if (buttonRef.current) setImgLoaded(buttonRef.current.complete);
+    if (imageRef.current) setImgLoaded(imageRef.current.complete);
   };
 
   useEffect(() => {
@@ -25,13 +25,28 @@ const SLImage = ({ data, loadingStrategy, className }) => {
     return 'Image is not valid';
   }
 
+  if (data.ext === '.svg') {
+    return (
+      <picture className={imageClassNames}>
+        <img
+          ref={imageRef}
+          className={styles['image__img']}
+          alt={data?.alternativeText}
+          src={data?.url}
+          loading={loadingStrategy}
+          onLoad={imageLoad}
+        />
+      </picture>
+    );
+  }
+
   return (
     <picture className={imageClassNames}>
       <source media="(max-width: 480px)" srcSet={data?.formats.small.url} />
       <source media="(max-width: 768px)" srcSet={data?.formats.medium.url} />
       <source media="(max-width: 1024px)" srcSet={data?.formats.large.url} />
       <img
-        ref={buttonRef}
+        ref={imageRef}
         className={styles['image__img']}
         alt={data?.alternativeText}
         src={data?.url}

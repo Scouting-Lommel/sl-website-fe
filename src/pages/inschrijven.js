@@ -2,14 +2,15 @@
 import client from '@/lib/api/apollo/client';
 import { uploadClient } from '@/lib/api/apollo/mutationClient';
 import { registerUser } from '@/lib/api/register/mutations';
-import { getAllMembers, getRegisterInfo } from '@/lib/api/register/queries';
+import { getAllMembers, getRegisterPage } from '@/lib/api/register';
 import { getGeneralData } from '@/lib/api/general';
 // import { useAuthContext } from "@/lib/api/security/security";
 import BaseLayout from '@/layouts/base';
+import Blocks from '@/contentBlocks';
 // import RegisterChild from "@/components/organisms/RegisterChild";
 // import RegisterInfo from "@/components/organisms/RegisterInfo";
 
-export default function Inschrijven({ fin, general }) {
+export default function Inschrijven({ data, general }) {
   // const [isNotAllFilledIn, setNotAllFilledIn] = useState(false); // is everythin filled in?
   // const [isPaying, setIsPaying] = useState(false); // filling out the form or paying?
   // const [getFinalChildren, setFinalChildren] = useState([]); // all children who will be registered
@@ -22,7 +23,8 @@ export default function Inschrijven({ fin, general }) {
       // noIndex={fin.NoIndex}
       // url={fin.URL}
     >
-      Inschrijven
+      <Blocks content={data.blocks} />
+
       {/* <div className="flex flex-row justify-center py-14 ">
         {!isPaying && (
           <div className="bg-white shadow-md rounded basis-1/2 px-8 pt-6 pb-8 mb-4 flex flex-col justify-center gap-4 max-w-lg">
@@ -99,18 +101,24 @@ export default function Inschrijven({ fin, general }) {
 }
 
 export async function getStaticProps() {
-  // const { data } = await client.query({
-  //   query: getRegisterInfo(),
-  // });
+  const notFound = { notFound: true };
+
   const general = await client.query({
     query: getGeneralData(),
   });
+  const registerPage = await client.query({
+    query: getRegisterPage(),
+  });
 
-  // let fin = data.registerPage.data.attributes;
+  if (!registerPage?.data?.registerPage || !general?.data?.generalData) {
+    return notFound;
+  }
 
   return {
-    // props: { fin: fin, general: general },
-    props: { general: general.data },
+    props: {
+      data: registerPage.data.registerPage.data.attributes,
+      general: general.data,
+    },
     revalidate: 2592000, // 60*60*24*30 = every 30 days
   };
 }

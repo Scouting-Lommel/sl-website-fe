@@ -2,14 +2,12 @@ import client from '@/lib/api/apollo/client';
 import { getGroupsPage } from '@/lib/api/groups';
 import { getGeneralData } from '@/lib/api/general';
 import BaseLayout from '@/layouts/base';
+import Blocks from '@/contentBlocks';
 
 export default function takken({ data, general }) {
-  console.log(data);
-  console.log(general);
-
   return (
     <BaseLayout pageMeta={data.pageMeta} slug="takken">
-      <section className="sl-layout">{data.pageMeta.pageTitle}</section>
+      <Blocks content={data.blocks} />
     </BaseLayout>
   );
 }
