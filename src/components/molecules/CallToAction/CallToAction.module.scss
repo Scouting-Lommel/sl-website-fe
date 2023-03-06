@@ -13,7 +13,7 @@
 
   @include tools.respond-from(medium) {
     flex-direction: row;
-    width: 60%;
+    width: 72%;
     padding: tools.rem(14) tools.rem(36);
   }
 }
@@ -27,8 +27,13 @@
 
 .cta__copy__title {
   font-family: $font-family-title;
-  text-transform: uppercase;
   font-weight: $font-weight-semibold;
+  font-size: tools.rem(12);
+  text-transform: uppercase;
+
+  @include tools.respond-from(small) {
+    font-size: tools.rem(16);
+  }
 }
 
 .cta__socials {
@@ -45,6 +50,7 @@
 
 .cta__socials__item {
   transition: transform $transition-medium;
+  height: tools.rem(20);
 
   &:hover,
   &:focus {
@@ -54,6 +60,14 @@
     & .cta__socials__item__icon::after {
       opacity: 1;
     }
+  }
+
+  @include tools.respond-from(small) {
+    height: tools.rem(24);
+  }
+
+  @include tools.respond-from(medium) {
+    height: tools.rem(30);
   }
 }
 
