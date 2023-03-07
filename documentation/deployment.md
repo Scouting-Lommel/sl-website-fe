@@ -16,7 +16,7 @@ TODO: write deployment manual
 
 | Resource       | Provider                                                  | Comments                                                                         |
 | :------------- | :-------------------------------------------------------- | :------------------------------------------------------------------------------- |
-| DNS            | [Netlify](https://www.netlify.app/) DNS management            | DNS management with Netlify routing & DDoS protection.                           |
+| DNS            | [Netlify](https://www.netlify.app/) DNS management        | DNS management with Netlify routing & DDoS protection.                           |
 | Frontend app   | Hosting on [Netlify](https://www.netlify.app)             | Dynamic hosting with CI/CD capabilities for FE app.                              |
 | Backend CMS    | Hosting on [Railway](https://www.railway.app)             | Dynamic hosting with CI/CD capabilities for BE CMS.                              |
 | Database       | MySQL database hosted on [Vimexx](https://www.vimexx.be/) | Both the development and production environments have a separate MySQL database. |
