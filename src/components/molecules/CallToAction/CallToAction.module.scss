@@ -6,9 +6,9 @@
   gap: tools.rem(12);
   flex-direction: column;
   justify-content: space-between;
-  width: 84%;
+  width: fit-content;
   max-width: tools.rem(840);
-  padding: tools.rem(14) tools.rem(16);
+  padding: tools.rem(14) tools.rem(22);
   background-color: $color-white;
   box-shadow: $shadow-medium;
   border-radius: $border-radius;
@@ -25,12 +25,13 @@
 }
 
 .cta__copy {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   text-align: center;
 
   @include tools.respond-from(small) {
+    display: flex;
     text-align: left;
   }
 }
