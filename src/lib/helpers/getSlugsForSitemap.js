@@ -124,7 +124,7 @@ const getSlugsForSitemap = (sitemapData) => {
   }
 
   // Groups pages
-  groups.data.forEach(({ attributes }) => {
+  groups.data?.forEach(({ attributes }) => {
     if (attributes && !attributes.pageMeta?.noIndex) {
       const pageObject = {
         lastMod: attributes.updatedAt,
@@ -136,7 +136,7 @@ const getSlugsForSitemap = (sitemapData) => {
   });
 
   // Rental location pages
-  rentalLocations.data.forEach(({ attributes }) => {
+  rentalLocations.data?.forEach(({ attributes }) => {
     if (attributes && !attributes.pageMeta?.noIndex) {
       const pageObject = {
         lastMod: attributes.updatedAt,
