@@ -4,7 +4,7 @@
 .block-container {
   position: relative;
   padding-top: tools.rem(108);
-  padding-bottom: tools.rem(108);
+  padding-bottom: tools.rem(178);
   background-color: $color-white;
 
   &--dark {
@@ -16,15 +16,17 @@
       bottom: 0;
       left: 0;
       width: 101%;
-      height: 100%;
-      background: url('/assets/images/curve.svg'), $color-primary;
+      background: url('/assets/images/curve-lg.svg'), $color-green;
       background-repeat: no-repeat;
-      background-position: 100%;
-      background-size: auto 100%;
+      background-position: 100% 101%;
+      background-size: 100%;
     }
   }
 
   &--reversed {
+    padding-top: tools.rem(178);
+    padding-bottom: tools.rem(108);
+
     &::before {
       transform: scaleY(-1);
       height: 101%;
@@ -32,11 +34,14 @@
   }
 
   &--opaque {
+    padding-top: tools.rem(108);
+    padding-bottom: tools.rem(108);
+
     &::before {
-      background: url('/assets/images/curve.svg'), rgba($color-primary, 0.9);
+      background: url('/assets/images/curve-sm.svg'), rgba($color-green, 0.9);
       background-repeat: no-repeat;
-      background-position: 100%;
-      background-size: auto 100%;
+      background-position: 100% 100%;
+      background-size: tools.rem(240);
       z-index: $z-index-hero;
     }
   }
