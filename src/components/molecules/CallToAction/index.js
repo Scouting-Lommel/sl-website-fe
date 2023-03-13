@@ -4,9 +4,10 @@ import { useContext } from 'react';
 import { GeneralContext } from '@/context/GeneralContext';
 import SLImage from '@/components/atoms/Image';
 import SLLink from '@/components/atoms/Link';
+import Button from '@/components/atoms/Button';
 import styles from './CallToAction.module.scss';
 
-const CallToAction = ({ title, subtitle, ctaLabel, ctaLink, modSocials, className }) => {
+const CallToAction = ({ title, subtitle, buttonLabel, buttonLink, modSocials, className }) => {
   const { general } = useContext(GeneralContext);
 
   return (
@@ -34,6 +35,9 @@ const CallToAction = ({ title, subtitle, ctaLabel, ctaLink, modSocials, classNam
           })}
         </div>
       )}
+      {buttonLabel && buttonLink && (
+        <Button label={buttonLabel} href={buttonLink || ''} modSmall modLink />
+      )}
     </div>
   );
 };
@@ -41,8 +45,8 @@ const CallToAction = ({ title, subtitle, ctaLabel, ctaLink, modSocials, classNam
 CallToAction.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
-  ctaLabel: PropTypes.string,
-  ctaLink: PropTypes.string,
+  buttonLabel: PropTypes.string,
+  buttonLink: PropTypes.string,
   modSocials: PropTypes.bool,
 };
 

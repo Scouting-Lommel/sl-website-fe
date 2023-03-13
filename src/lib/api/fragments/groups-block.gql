@@ -26,4 +26,10 @@ fragment GroupsBlockFragment on ComponentContentBlocksGroupsBlock {
     orientation
     slug
   }
+  cta: callToAction {
+    title
+    intro
+    ctaLabel
+    ctaLink
+  }
 }

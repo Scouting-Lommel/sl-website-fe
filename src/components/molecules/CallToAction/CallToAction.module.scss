@@ -6,6 +6,7 @@
   gap: tools.rem(12);
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: fit-content;
   max-width: tools.rem(840);
   padding: tools.rem(14) tools.rem(22);
@@ -26,7 +27,7 @@
 
 .cta__copy {
   display: none;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
 

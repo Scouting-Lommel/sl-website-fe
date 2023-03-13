@@ -11,6 +11,12 @@ const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocial
     bgImage && styles[`block-container--opaque`],
   ]);
 
+  const ctaClassnames = classNames([
+    styles['block-container__cta'],
+    modCtaSocials && styles['block-container__cta--bottom'],
+    !modCtaSocials && styles['block-container__cta--top'],
+  ]);
+
   return (
     <section id={slug} className={containerClassnames}>
       {bgImage && (
@@ -34,7 +40,7 @@ const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocial
           buttonLabel={cta.ctaLabel}
           buttonLink={cta.ctaLink}
           modSocials={modCtaSocials}
-          className={styles['block-container__cta']}
+          className={ctaClassnames}
         />
       )}
     </section>
