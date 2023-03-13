@@ -22,7 +22,7 @@
       background: url('/assets/images/curve-lg.svg'), $color-green;
       background-repeat: no-repeat;
       background-position: 100% 101%;
-      background-size: 100%;
+      background-size: 101%;
     }
   }
 
@@ -43,9 +43,17 @@
     &::before {
       background: url('/assets/images/curve-sm.svg'), rgba($color-green, 0.9);
       background-repeat: no-repeat;
-      background-position: 100% 100%;
-      background-size: tools.rem(240);
+      background-position: 101% 100%;
+      background-size: tools.rem(180);
       z-index: $z-index-hero;
+
+      @include tools.respond-from(large) {
+        background-size: tools.rem(240);
+      }
+
+      @include tools.respond-from(medium) {
+        background-size: tools.rem(360);
+      }
     }
   }
 }
