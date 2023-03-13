@@ -1,7 +1,6 @@
 import client from '@/lib/api/apollo/client';
 import { getGeneralData } from '@/lib/api/general';
 import { getRentalLocationPage } from '@/lib/api/rental';
-import { getAllRentalLocationSlugs } from '@/lib/api/rental';
 import BaseLayout from '@/layouts/base';
 import Blocks from '@/contentBlocks';
 
@@ -13,30 +12,8 @@ export default function group({ data, params }) {
   );
 }
 
-export async function getStaticPaths() {
-  const { data } = await client.query({
-    query: getAllRentalLocationSlugs(),
-  });
-
-  const paths = data?.rentalLocations?.data?.map((rentalLocation) => {
-    return {
-      params: { slug: rentalLocation.attributes.slug },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-export async function getStaticProps(context) {
+export async function getServerSideProps({ params }) {
   const notFound = { notFound: true };
-  const { params } = context;
-
-  if (!params.slug) {
-    return notFound;
-  }
 
   const general = await client.query({
     query: getGeneralData(),

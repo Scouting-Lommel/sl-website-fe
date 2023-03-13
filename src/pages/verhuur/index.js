@@ -12,7 +12,7 @@ export default function Verhuur({ data, general }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const notFound = { notFound: true };
 
   const general = await client.query({

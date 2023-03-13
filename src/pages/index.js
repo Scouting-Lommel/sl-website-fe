@@ -30,7 +30,7 @@ export default function Home({ data, general }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const notFound = { notFound: true };
 
   const general = await client.query({

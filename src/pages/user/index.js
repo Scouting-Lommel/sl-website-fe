@@ -17,7 +17,7 @@ export default function leaders({ fin, general, leaderList }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const general = await client.query({
     query: getGeneralData(),
   });
