@@ -1,7 +1,7 @@
 import Button from '.';
 
 const ButtonStory = {
-  title: 'Atoms/Button',
+  title: '3 Components/Atoms/Button',
   tags: ['autodocs'],
   component: Button,
 };
