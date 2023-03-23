@@ -29,10 +29,10 @@
   }
 
   &--primary {
-    background-color: $color-yellow;
+    background-color: $color-secondary;
 
     &:focus {
-      outline-color: $color-yellow;
+      outline-color: $color-secondary;
     }
   }
 
