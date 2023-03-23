@@ -2,6 +2,7 @@ import Button from '.';
 
 const ButtonStory = {
   title: 'Atoms/Button',
+  tags: ['autodocs'],
   component: Button,
 };
 
