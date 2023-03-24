@@ -1,11 +1,18 @@
 {
-  "extends": ["development"],
+  "extends": [
+    "development"
+  ],
   "hints": {
     "compat-api/css": [
       "default",
       {
-        "ignore": ["scroll-behavior", "width: fit-content", "height: fit-content"]
+        "ignore": [
+          "scroll-behavior",
+          "width: fit-content",
+          "height: fit-content"
+        ]
       }
-    ]
+    ],
+    "detect-css-reflows/layout": "off"
   }
 }
