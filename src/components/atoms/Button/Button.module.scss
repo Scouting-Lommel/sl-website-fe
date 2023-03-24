@@ -44,20 +44,6 @@
     }
   }
 
-  &--link1 {
-    background-color: $color-white;
-    box-shadow: none;
-    color: $color-black;
-
-    &:hover,
-    &:focus {
-      outline: none;
-      box-shadow: none;
-      transform: none;
-      text-decoration: underline;
-    }
-  }
-
   &--small {
     padding: tools.rem(6) tools.rem(26);
   }
@@ -68,6 +54,21 @@
 
     &--small {
       padding: tools.rem(8) tools.rem(28);
+    }
+  }
+
+  &--link1 {
+    background-color: $color-white;
+    box-shadow: none;
+    color: $color-black;
+    padding: 0;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      transform: none;
+      text-decoration: underline;
     }
   }
 
