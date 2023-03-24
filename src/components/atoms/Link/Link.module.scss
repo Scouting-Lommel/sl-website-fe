@@ -2,6 +2,7 @@
 @use '@/assets/sass/tools/' as tools;
 
 .link {
+  font-family: $font-family-text;
   text-decoration: none;
 
   &--link1 {
