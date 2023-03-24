@@ -39,7 +39,7 @@ const Title = ({
 
 Title.propTypes = {
   title: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['h1', 'h1-alt', 'h2', 'h3']),
+  variant: PropTypes.oneOf(['h1', 'h2', 'h3']),
   style: PropTypes.oneOf(['h1', 'h1-alt', 'h2', 'h3']),
   modLight: PropTypes.bool,
   modAccent: PropTypes.bool,
