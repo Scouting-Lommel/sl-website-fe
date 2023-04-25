@@ -6,7 +6,7 @@ import { getAllMembers, getRegisterPage } from '@/lib/api/register';
 import { getGeneralData } from '@/lib/api/general';
 // import { useAuthContext } from "@/lib/api/security/security";
 import BaseLayout from '@/layouts/base';
-import Blocks from '@/contentBlocks';
+import Blocks from '@/content-blocks';
 // import RegisterChild from "@/components/organisms/RegisterChild";
 // import RegisterInfo from "@/components/organisms/RegisterInfo";
 

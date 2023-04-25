@@ -2,7 +2,7 @@ import client from '@/lib/api/apollo/client';
 import { getGroupsPage } from '@/lib/api/groups';
 import { getGeneralData } from '@/lib/api/general';
 import BaseLayout from '@/layouts/base';
-import Blocks from '@/contentBlocks';
+import Blocks from '@/content-blocks';
 
 export default function takken({ data, general }) {
   return (

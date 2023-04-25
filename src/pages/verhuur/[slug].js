@@ -3,7 +3,7 @@ import { getGeneralData } from '@/lib/api/general';
 import { getRentalLocationPage } from '@/lib/api/rental';
 import { getAllRentalLocationSlugs } from '@/lib/api/rental';
 import BaseLayout from '@/layouts/base';
-import Blocks from '@/contentBlocks';
+import Blocks from '@/content-blocks';
 
 export default function group({ data, params }) {
   return (

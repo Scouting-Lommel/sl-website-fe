@@ -2,7 +2,7 @@ import client from '@/lib/api/apollo/client';
 import { getHomePage } from '@/lib/api/home';
 import { getGeneralData } from '@/lib/api/general';
 import BaseLayout from '@/layouts/base';
-import Blocks from '@/contentBlocks';
+import Blocks from '@/content-blocks';
 
 export default function Home({ data, general }) {
   const structuredData = {

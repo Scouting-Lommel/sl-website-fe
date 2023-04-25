@@ -3,7 +3,7 @@ import { getGeneralData } from '@/lib/api/general';
 import { getGroupPage } from '@/lib/api/groups';
 import { getAllGroupSlugs } from '@/lib/api/groups';
 import BaseLayout from '@/layouts/base';
-import Blocks from '@/contentBlocks';
+import Blocks from '@/content-blocks';
 
 export default function group({ data, params }) {
   return (
