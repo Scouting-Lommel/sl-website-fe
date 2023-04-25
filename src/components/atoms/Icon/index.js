@@ -25,7 +25,7 @@ const Icon = ({ modBlock, modInline, icon, title, className }) => {
 };
 
 Icon.propTypes = {
-  icon: PropTypes.func,
+  icon: PropTypes.elementType,
   modInline: PropTypes.bool,
   modBlock: PropTypes.bool,
   title: PropTypes.string,
