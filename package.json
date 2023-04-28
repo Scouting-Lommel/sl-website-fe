@@ -7,7 +7,7 @@
     "start": "next start",
     "export": "next export",
     "lint": "next lint",
-    "generate-icons": "node ./script/generate-icons.js --inputFolder=./src/assets/icons/custom/ --outputFile=./src/assets/icons/index.js && npx eslint ./src/assets/icons/index.js --quiet --fix",
+    "generate-icons": "node ./script/generate-icons.js --inputFolder=./src/assets/icons/ --outputFile=./src/assets/icons/index.js && npx eslint ./src/assets/icons/index.js --quiet --fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

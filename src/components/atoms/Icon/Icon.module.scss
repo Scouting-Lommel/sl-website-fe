@@ -1,26 +1,37 @@
 @use '@/assets/sass/settings/' as *;
-@use '@/assets/sass/tools/' as *;
+@use '@/assets/sass/tools/' as tools;
 
 .icon {
   display: inline-block;
-  line-height: 0;
 
-  &--block {
-    display: block;
+  &--xs {
+    width: tools.rem(18);
+    height: tools.rem(18);
   }
 
-  &--inline {
-    display: inline;
+  &--sm {
+    width: tools.rem(20);
+    height: tools.rem(20);
+  }
+
+  &--md {
+    width: tools.rem(24);
+    height: tools.rem(24);
+  }
+
+  &--lg {
+    width: tools.rem(28);
+    height: tools.rem(28);
+  }
+
+  &--xl {
+    width: tools.rem(64);
+    height: tools.rem(64);
   }
 }
 
 .icon__svg {
+  display: block;
   width: 100%;
   height: 100%;
-
-  .icon--inline & {
-    width: auto;
-    height: 1rem;
-    vertical-align: middle;
-  }
 }

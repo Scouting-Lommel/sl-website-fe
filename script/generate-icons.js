@@ -27,7 +27,7 @@ const generateIconsIndex = new Promise((resolve, reject) => {
         const fileName = `Icon${toPascalCase(file).replace(/\.[^/.]+$/, '')}`;
 
         // fileContent += `import ${fileName} from '@/assets/icons/custom/${file}';\n`;
-        fileContent += `const ${fileName} = dynamic(() => import('@/assets/icons/custom/${file}'));\n`;
+        fileContent += `const ${fileName} = dynamic(() => import('@/assets/icons/${file}'));\n`;
 
         lowerCaseFileNames.push(`${file.toLowerCase().replace('.svg', '')}`);
         exportedFiles.push(`'${file.toLowerCase().replace('.svg', '')}': ${fileName}`);
@@ -36,7 +36,6 @@ const generateIconsIndex = new Promise((resolve, reject) => {
 
       fileContent += `\n export const icons = {\n${exportedFiles.join(',\n ')} };\n`;
       fileContent += `\n export {\n${fileNames.join(',\n ')} };`;
-      console.log(lowerCaseFileNames.join(', '));
     } catch (error) {
       console.error({ error });
 
@@ -68,7 +67,7 @@ function clearAndUpper(text) {
 function _init() {
   generateIconsIndex
     .then(() => {
-      console.log('File is created successfully');
+      console.log('Icons successfully generated.');
     })
     .catch((error) => {
       console.error('Error: Something went wrong: ', { error });
