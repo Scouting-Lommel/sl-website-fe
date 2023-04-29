@@ -14,3 +14,5 @@ const config = {
   },
 };
 export default config;
+
+// TODO: Webpack svg setup
