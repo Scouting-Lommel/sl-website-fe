@@ -29,7 +29,7 @@
       bottom: 0;
       left: 0;
       content: '';
-      background-color: $color-green;
+      background-color: $color-sage;
       overflow: hidden;
     }
 
@@ -43,7 +43,7 @@
     border-bottom-right-radius: tools.rem(180) tools.rem(64);
 
     &::after {
-      background-color: rgba($color-green, 0.9);
+      background-color: rgba($color-sage, 0.9);
     }
 
     @include tools.respond-from(large) {
