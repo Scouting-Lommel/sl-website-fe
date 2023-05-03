@@ -6,56 +6,6 @@
   padding-top: tools.rem(108);
   padding-bottom: tools.rem(108);
   background-color: $color-white;
-
-  &--dark {
-    padding-top: tools.rem(108);
-    padding-bottom: tools.rem(178);
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 101%;
-      background: url('/assets/images/curve-lg.svg'), $color-green;
-      background-repeat: no-repeat;
-      background-position: 100% 101%;
-      background-size: 101%;
-    }
-  }
-
-  &--reversed {
-    padding-top: tools.rem(178);
-    padding-bottom: tools.rem(108);
-
-    &::before {
-      transform: scaleY(-1);
-      height: 101%;
-    }
-  }
-
-  &--opaque {
-    padding-top: tools.rem(108);
-    padding-bottom: tools.rem(108);
-
-    &::before {
-      background: url('/assets/images/curve-sm.svg'), rgba($color-green, 0.9);
-      background-repeat: no-repeat;
-      background-position: 101% 100%;
-      background-size: tools.rem(180);
-      z-index: $z-index-hero;
-
-      @include tools.respond-from(large) {
-        background-size: tools.rem(240);
-      }
-
-      @include tools.respond-from(medium) {
-        background-size: tools.rem(360);
-      }
-    }
-  }
 }
 
 .block-container__bg-image {
@@ -67,7 +17,43 @@
   left: 0;
   min-width: 100%;
   min-height: 100%;
-  overflow: hidden;
+
+  &--dark {
+    overflow: hidden;
+    border-bottom-right-radius: tools.rem(180) tools.rem(64);
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-color: $color-green;
+      overflow: hidden;
+    }
+
+    @include tools.respond-from(large) {
+      border-bottom-right-radius: tools.rem(320) tools.rem(128);
+    }
+  }
+
+  &--opaque {
+    margin-right: 0;
+    border-bottom-right-radius: tools.rem(180) tools.rem(64);
+
+    &::after {
+      background-color: rgba($color-green, 0.9);
+    }
+
+    @include tools.respond-from(large) {
+      border-bottom-right-radius: tools.rem(320) tools.rem(128);
+    }
+  }
+
+  &--reversed {
+    transform: scale(1, -1);
+  }
 }
 
 .block-container__content {
