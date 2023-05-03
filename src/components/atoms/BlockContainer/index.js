@@ -4,28 +4,32 @@ import CallToAction from '@/components/molecules/CallToAction';
 import styles from './BlockContainer.module.scss';
 
 const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocials, children }) => {
-  const containerClassnames = classNames([
-    styles['block-container'],
-    styles[`block-container--${variant}`],
-    styles[`block-container--${orientation}`],
-    bgImage && styles[`block-container--opaque`],
+  const bgClassnames = classNames([
+    styles['block-container__bg-image'],
+    styles[`block-container__bg-image--${variant}`],
+    styles[`block-container__bg-image--${orientation}`],
+    bgImage && styles[`block-container__bg-image--opaque`],
+  ]);
+
+  const ctaClassnames = classNames([
+    styles['block-container__cta'],
+    modCtaSocials && styles['block-container__cta--bottom'],
+    !modCtaSocials && styles['block-container__cta--top'],
   ]);
 
   return (
-    <section id={slug} className={containerClassnames}>
-      {bgImage && (
-        <>
-          <picture className={styles['block-container__bg-image']}>
-            <img
-              className={styles['image__img']}
-              alt={bgImage?.alternativeText}
-              src={bgImage?.url}
-              sizes="100vw"
-              loading="eager"
-            />
-          </picture>
-        </>
-      )}
+    <section id={slug} className={styles['block-container']}>
+      <div className={bgClassnames}>
+        {bgImage && (
+          <img
+            className={styles['image__img']}
+            alt={bgImage?.alternativeText}
+            src={bgImage?.url}
+            sizes="100vw"
+            loading="eager"
+          />
+        )}
+      </div>
       <div className={styles['block-container__content']}>{children}</div>
       {cta && (
         <CallToAction
@@ -34,7 +38,7 @@ const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocial
           buttonLabel={cta.ctaLabel}
           buttonLink={cta.ctaLink}
           modSocials={modCtaSocials}
-          className={styles['block-container__cta']}
+          className={ctaClassnames}
         />
       )}
     </section>

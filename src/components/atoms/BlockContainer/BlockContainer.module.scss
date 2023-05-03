@@ -6,40 +6,6 @@
   padding-top: tools.rem(108);
   padding-bottom: tools.rem(108);
   background-color: $color-white;
-
-  &--dark {
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 101%;
-      height: 100%;
-      background: url('/assets/images/curve.svg'), $color-primary;
-      background-repeat: no-repeat;
-      background-position: 100%;
-      background-size: auto 100%;
-    }
-  }
-
-  &--reversed {
-    &::before {
-      transform: scaleY(-1);
-      height: 101%;
-    }
-  }
-
-  &--opaque {
-    &::before {
-      background: url('/assets/images/curve.svg'), rgba($color-primary, 0.9);
-      background-repeat: no-repeat;
-      background-position: 100%;
-      background-size: auto 100%;
-      z-index: $z-index-hero;
-    }
-  }
 }
 
 .block-container__bg-image {
@@ -51,7 +17,43 @@
   left: 0;
   min-width: 100%;
   min-height: 100%;
-  overflow: hidden;
+
+  &--dark {
+    overflow: hidden;
+    border-bottom-right-radius: tools.rem(180) tools.rem(64);
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-color: $color-sage;
+      overflow: hidden;
+    }
+
+    @include tools.respond-from(large) {
+      border-bottom-right-radius: tools.rem(320) tools.rem(128);
+    }
+  }
+
+  &--opaque {
+    margin-right: 0;
+    border-bottom-right-radius: tools.rem(180) tools.rem(64);
+
+    &::after {
+      background-color: rgba($color-sage, 0.9);
+    }
+
+    @include tools.respond-from(large) {
+      border-bottom-right-radius: tools.rem(320) tools.rem(128);
+    }
+  }
+
+  &--reversed {
+    transform: scale(1, -1);
+  }
 }
 
 .block-container__content {
@@ -61,7 +63,15 @@
 .block-container__cta {
   position: absolute;
   z-index: $z-index-cta;
-  bottom: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
+
+  &--top {
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  &--bottom {
+    bottom: 0;
+    transform: translate(-50%, 50%);
+  }
 }
