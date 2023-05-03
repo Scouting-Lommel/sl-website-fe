@@ -1,10 +1,9 @@
 @use './colors.scss' as *;
 @use './tools/' as tools;
 
-$shadow-small: 0 tools.rem(2) tools.rem(4) $color-shadow,
-  tools.rem(0) tools.rem(4) tools.rem(6) $color-shadow;
-$shadow-medium: tools.rem(0) tools.rem(10) tools.rem(15) $color-shadow,
-  tools.rem(0) tools.rem(4) tools.rem(6) $color-shadow;
-$shadow-large: tools.rem(0) tools.rem(20) tools.rem(25) $color-shadow,
-  tools.rem(0) tools.rem(10) tools.rem(10) $color-shadow;
-$shadow-xlarge: tools.rem(0) tools.rem(25) tools.rem(50) $color-shadow;
+$shadow-small: 0 tools.rem(2) tools.rem(4) $color-shadow, 0 tools.rem(4) tools.rem(6) $color-shadow;
+$shadow-medium: 0 tools.rem(10) tools.rem(15) $color-shadow,
+  0 tools.rem(4) tools.rem(6) $color-shadow;
+$shadow-large: 0 tools.rem(20) tools.rem(25) $color-shadow,
+  0 tools.rem(10) tools.rem(10) $color-shadow;
+$shadow-spread: 0 tools.rem(25) tools.rem(50) $color-shadow;

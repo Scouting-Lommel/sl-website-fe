@@ -2,6 +2,7 @@
 @use '@/assets/sass/tools/' as tools;
 
 .link {
+  font-family: $font-family-text;
   text-decoration: none;
 
   &--link1 {
@@ -25,7 +26,7 @@
   }
 
   &--link3 {
-    color: $color-green;
+    color: $color-primary;
 
     &:hover,
     &:focus {

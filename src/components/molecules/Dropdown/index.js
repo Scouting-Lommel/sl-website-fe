@@ -40,6 +40,7 @@ const Dropdown = ({
             <Icon
               icon={IconChevronDown}
               className={styles['dropdown__content__back-button__chevron']}
+              size="xs"
             />
             Terug
           </Button>

@@ -2,7 +2,7 @@ import client from '@/lib/api/apollo/client';
 import { getRentalPageData } from '@/lib/api/rental';
 import { getGeneralData } from '@/lib/api/general';
 import BaseLayout from '@/layouts/base';
-import Blocks from '@/contentBlocks';
+import Blocks from '@/content-blocks';
 
 export default function Verhuur({ data, general }) {
   return (

@@ -6,6 +6,7 @@
       {
         "ignore": ["scroll-behavior", "width: fit-content", "height: fit-content"]
       }
-    ]
+    ],
+    "detect-css-reflows/layout": "off"
   }
 }

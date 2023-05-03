@@ -1,0 +1,75 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="2. Styling principles / 2.3 Shadows" />
+
+# 2.3 Shadows
+
+<br />
+<br />
+
+<div style={{display: "flex", gap:"14px"}}>
+<div style={{ display: 'flex', flexDirection: "column", justifyContent:"center", width: "140px" }}>
+  <div
+    style={{
+      width: '140px',
+      height: '140px',
+      boxShadow: '0 2px 4px rgba(65, 65, 65, 0.2), 0 4px 6px rgba(65, 65, 65, 0.2)',
+      borderRadius: '10px',
+      marginBottom: '14px',
+    }}
+
+> </div>
+
+  <div style={{display:"flex", justifyContent:"center"}}>`$shadow-small`</div>
+</div>
+<div style={{ display: 'flex', flexDirection: "column", justifyContent:"center", width: "140px" }}>
+  <div
+    style={{
+      width: '140px',
+      height: '140px',
+      boxShadow: '0 10px 15px rgba(65, 65, 65, 0.2), 0 4px 6px rgba(65, 65, 65, 0.2)',
+      borderRadius: '10px',
+      marginBottom: '14px',
+    }}
+
+> </div>
+
+  <div style={{display:"flex", justifyContent:"center"}}>`$shadow-medium`</div>
+</div>
+<div style={{ display: 'flex', flexDirection: "column", justifyContent:"center", width: "140px" }}>
+  <div
+    style={{
+      width: '140px',
+      height: '140px',
+      boxShadow: '0 20px 25px rgba(65, 65, 65, 0.2), 0 10px 10px rgba(65, 65, 65, 0.2)',
+      borderRadius: '10px',
+      marginBottom: '14px',
+    }}
+
+> </div>
+
+  <div style={{display:"flex", justifyContent:"center"}}>`$shadow-large`</div>
+</div>
+<div style={{ display: 'flex', flexDirection: "column", justifyContent:"center", width: "140px" }}>
+  <div
+    style={{
+      width: '140px',
+      height: '140px',
+      boxShadow: '0 25px 50px rgba(65, 65, 65, 0.2)',
+      borderRadius: '10px',
+      marginBottom: '14px',
+    }}
+
+> </div>
+
+  <div style={{display:"flex", justifyContent:"center"}}>`$shadow-spread`</div>
+</div>
+
+</div>
+
+```css
+$shadow-small: 0 2px 4px $color-shadow, 0 4px 6px $color-shadow;
+$shadow-medium: 0 10px 15px $color-shadow, 0 4px 6px $color-shadow;
+$shadow-large: 0 20px 25px $color-shadow, 0 10px 10px $color-shadow;
+$shadow-spread: 0 25px 50px $color-shadow;
+```

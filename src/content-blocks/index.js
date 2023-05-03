@@ -2,8 +2,8 @@ import dynamic from 'next/dynamic';
 
 const blockList = {
   ComponentContentBlocksHeroBlock: dynamic(() => import('./HeroBlock/index.js')),
-  ComponentContentBlocksTextImageBlock: dynamic(() => import('./TextImageBlock')),
-  ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock')),
+  ComponentContentBlocksTextImageBlock: dynamic(() => import('./TextImageBlock/index.js')),
+  ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock/index.js')),
 };
 
 const Blocks = ({ content, data }) => {
