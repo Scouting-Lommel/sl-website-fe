@@ -70,7 +70,6 @@ const Dropdown = ({
             <Button
               label={dropdownButton.label}
               href={dropdownButton.link}
-              modLink
               modSmall
               className={styles['dropdown__nav__button']}
             />
@@ -86,7 +85,6 @@ const Dropdown = ({
             <Button
               label={dropdownCta.ctaLabel}
               href={dropdownCta.ctaLink}
-              modLink
               modSmall
               className={styles['dropdown__cta__button']}
             />

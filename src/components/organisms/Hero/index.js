@@ -32,9 +32,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
       {callToAction.length > 0 && (
         <div className={styles['hero__buttons']}>
           {callToAction.map((cta, key) => {
-            return (
-              <Button key={key} label={cta.label} href={cta.link} variant={cta.variant} modLink />
-            );
+            return <Button key={key} label={cta.label} href={cta.link} variant={cta.variant} />;
           })}
         </div>
       )}

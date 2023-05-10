@@ -35,9 +35,7 @@ const CallToAction = ({ title, subtitle, buttonLabel, buttonLink, modSocials, cl
           })}
         </div>
       )}
-      {buttonLabel && buttonLink && (
-        <Button label={buttonLabel} href={buttonLink || ''} modSmall modLink />
-      )}
+      {buttonLabel && buttonLink && <Button label={buttonLabel} href={buttonLink || ''} modSmall />}
     </div>
   );
 };
