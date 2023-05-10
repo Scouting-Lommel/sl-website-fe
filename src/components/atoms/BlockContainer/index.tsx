@@ -1,9 +1,19 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import CallToAction from '@/components/molecules/CallToAction';
+import { BlockContainerProps } from './types';
 import styles from './BlockContainer.module.scss';
 
-const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocials, children }) => {
+type Props = BlockContainerProps & React.HTMLAttributes<HTMLElement>;
+
+const BlockContainer = ({
+  variant,
+  orientation,
+  slug,
+  cta,
+  bgImage,
+  modCtaSocials,
+  children,
+}: Props) => {
   const bgClassnames = classNames([
     styles['block-container__bg-image'],
     styles[`block-container__bg-image--${variant}`],
@@ -34,29 +44,15 @@ const BlockContainer = ({ variant, orientation, cta, slug, bgImage, modCtaSocial
       {cta && (
         <CallToAction
           title={cta.title}
-          subtitle={cta.intro}
-          buttonLabel={cta.ctaLabel}
-          buttonLink={cta.ctaLink}
+          intro={cta.intro}
+          ctaLabel={cta.ctaLabel}
+          ctaLink={cta.ctaLink}
           modSocials={modCtaSocials}
           className={ctaClassnames}
         />
       )}
     </section>
   );
-};
-
-BlockContainer.propTypes = {
-  variant: PropTypes.oneOf(['light', 'dark']),
-  orientation: PropTypes.oneOf(['default', 'reversed']),
-  cta: PropTypes.object,
-  slug: PropTypes.string,
-  bgImage: PropTypes.object,
-  modCtaSocials: PropTypes.bool,
-};
-
-BlockContainer.defaultProps = {
-  variant: 'light',
-  orientation: 'default',
 };
 
 export default BlockContainer;
