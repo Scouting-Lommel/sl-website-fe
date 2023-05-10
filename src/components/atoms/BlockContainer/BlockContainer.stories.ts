@@ -5,6 +5,10 @@ const meta = {
   title: '3 Components/Atoms/BlockContainer',
   component: BlockContainer,
   tags: ['autodocs'],
+  argTypes: {
+    variant: { control: { type: 'select' } },
+    orientation: { control: { type: 'select' } },
+  },
 } satisfies Meta<typeof BlockContainer>;
 
 export default meta;

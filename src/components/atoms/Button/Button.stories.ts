@@ -5,6 +5,9 @@ const meta = {
   title: '3 Components/Atoms/Button',
   component: Button,
   tags: ['autodocs'],
+  argTypes: {
+    variant: { control: { type: 'select' } },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
