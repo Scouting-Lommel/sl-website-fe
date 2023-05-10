@@ -27,6 +27,7 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.5",
     "remark-gfm": "^3.0.1",
+    "typescript": "^5.0.4",
     "yargs": "^17.6.2"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "@storybook/nextjs": "^7.0.7",
     "@storybook/react": "^7.0.7",
     "@storybook/testing-library": "^0.1.0",
+    "@types/react": "^18.2.6",
     "autoprefixer": "^10.4.13",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.1",
