@@ -22,7 +22,7 @@ const SLImage = ({ data, loadingStrategy, className }) => {
   }, []);
 
   if (!data?.url) {
-    return 'Image is not valid';
+    return <>Image is not valid</>;
   }
 
   if (data.ext === '.svg') {
