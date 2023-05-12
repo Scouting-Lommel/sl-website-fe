@@ -1,4 +1,4 @@
-import { CallToActionProps } from '@/components/molecules/CallToAction/types';
+import { CallToAction } from '@/components/molecules/CallToAction/types';
 
 type BackgroundImage = {
   alternativeText: string;
@@ -9,7 +9,7 @@ export type BlockContainer = {
   variant: 'light' | 'dark';
   orientation: 'default' | 'reversed';
   slug: string;
-  cta?: CallToActionProps;
+  cta?: CallToAction;
   bgImage?: BackgroundImage;
   modCtaSocials: boolean;
 };
