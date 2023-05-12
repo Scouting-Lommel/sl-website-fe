@@ -1,4 +1,4 @@
-export type CallToActionProps = {
+export type CallToAction = {
   title: string;
   intro: string;
   ctaLabel: string;

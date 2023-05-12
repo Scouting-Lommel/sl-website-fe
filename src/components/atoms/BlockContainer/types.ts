@@ -5,7 +5,7 @@ type BackgroundImage = {
   url: string;
 };
 
-export type BlockContainerProps = {
+export type BlockContainer = {
   variant: 'light' | 'dark';
   orientation: 'default' | 'reversed';
   slug: string;

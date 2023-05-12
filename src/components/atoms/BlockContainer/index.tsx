@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import CallToAction from '@/components/molecules/CallToAction';
-import { BlockContainerProps } from './types';
+import { BlockContainer as BlockContainerProps } from './types';
 import styles from './BlockContainer.module.scss';
 
 type Props = BlockContainerProps & React.HTMLAttributes<HTMLElement>;

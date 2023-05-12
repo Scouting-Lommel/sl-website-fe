@@ -1,6 +1,6 @@
 import classNames from 'classnames';
+import { Icon as IconProps } from './types';
 import styles from './Icon.module.scss';
-import { IconProps } from './types';
 
 type Props = IconProps & React.HTMLAttributes<HTMLElement>;
 

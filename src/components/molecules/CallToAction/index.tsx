@@ -4,7 +4,7 @@ import classNames from 'classnames';
 // import SLImage from '@/components/atoms/Image';
 // import SLLink from '@/components/atoms/Link';
 import Button from '@/components/atoms/Button';
-import { CallToActionProps } from './types';
+import { CallToAction as CallToActionProps } from './types';
 import styles from './CallToAction.module.scss';
 
 type Props = CallToActionProps & React.HTMLAttributes<HTMLElement>;
