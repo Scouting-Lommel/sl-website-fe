@@ -14,7 +14,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
       <Title
         title={title}
         variant="h1"
-        style={variant === 'simple' ? 'h1-alt' : 'h1'}
+        titleStyle={variant === 'simple' ? 'h1-alt' : 'h1'}
         modLight={variant !== 'simple'}
         modPrimary={variant === 'simple'}
         modMarkup
@@ -26,7 +26,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
         </Typography>
       )}
       {subtitle && variant !== 'simple' && (
-        <Title title={subtitle} tagName="p" style="h3" modAccent />
+        <Title title={subtitle} tagName="p" titleStyle="h3" modAccent />
       )}
 
       {callToAction.length > 0 && (
