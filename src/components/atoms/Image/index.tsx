@@ -1,10 +1,12 @@
-import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
+import { Image as ImageProps } from './types';
 import styles from './Image.module.scss';
 
-const SLImage = ({ data, loadingStrategy, className }) => {
-  const imageRef = useRef(null);
+type Props = ImageProps & React.HTMLAttributes<HTMLElement>;
+
+const SLImage = ({ data, loadingStrategy = 'lazy', className }: Props) => {
+  const imageRef = useRef<any>(null);
   const [imgLoaded, setImgLoaded] = useState(false);
 
   const imageClassNames = classNames([
@@ -57,15 +59,6 @@ const SLImage = ({ data, loadingStrategy, className }) => {
       />
     </picture>
   );
-};
-
-SLImage.propTypes = {
-  data: PropTypes.object.isRequired,
-  loadingStrategy: PropTypes.oneOf(['lazy', 'eager']),
-};
-
-SLImage.defaultProps = {
-  loadingStrategy: 'lazy',
 };
 
 export default SLImage;
