@@ -1,3 +1,4 @@
+import { SocialsCta } from '@/components/molecules/SocialsCta/types';
 import { CallToAction } from '@/components/molecules/CallToAction/types';
 
 type BackgroundImage = {
@@ -10,6 +11,6 @@ export type BlockContainer = {
   orientation: 'default' | 'reversed';
   slug: string;
   cta?: CallToAction;
+  socialsCta?: SocialsCta;
   bgImage?: BackgroundImage;
-  modCtaSocials: boolean;
 };

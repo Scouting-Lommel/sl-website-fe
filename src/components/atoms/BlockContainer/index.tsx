@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import SocialsCta from '@/components/molecules/SocialsCta';
 import CallToAction from '@/components/molecules/CallToAction';
 import { BlockContainer as BlockContainerProps } from './types';
 import styles from './BlockContainer.module.scss';
@@ -10,8 +11,8 @@ const BlockContainer = ({
   orientation,
   slug,
   cta,
+  socialsCta,
   bgImage,
-  modCtaSocials,
   children,
 }: Props) => {
   const bgClassnames = classNames([
@@ -23,8 +24,8 @@ const BlockContainer = ({
 
   const ctaClassnames = classNames([
     styles['block-container__cta'],
-    modCtaSocials && styles['block-container__cta--bottom'],
-    !modCtaSocials && styles['block-container__cta--top'],
+    socialsCta && styles['block-container__cta--bottom'],
+    !socialsCta && styles['block-container__cta--top'],
   ]);
 
   return (
@@ -47,7 +48,13 @@ const BlockContainer = ({
           intro={cta.intro}
           ctaLabel={cta.ctaLabel}
           ctaLink={cta.ctaLink}
-          modSocials={modCtaSocials}
+          className={ctaClassnames}
+        />
+      )}
+      {socialsCta && (
+        <SocialsCta
+          title={socialsCta.title}
+          socialItems={socialsCta.socialItems}
           className={ctaClassnames}
         />
       )}

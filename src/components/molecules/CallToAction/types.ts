@@ -3,5 +3,4 @@ export type CallToAction = {
   intro: string;
   ctaLabel: string;
   ctaLink: string;
-  modSocials: boolean;
 };

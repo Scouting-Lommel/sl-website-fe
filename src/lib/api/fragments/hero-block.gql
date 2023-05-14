@@ -9,6 +9,15 @@ fragment HeroBlockFragment on ComponentContentBlocksHeroBlock {
   }
   socialsCta {
     title
+    socialItems {
+      data {
+        attributes {
+          title
+          link
+          icon
+        }
+      }
+    }
   }
   yearTheme {
     data {
