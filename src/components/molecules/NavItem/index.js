@@ -41,6 +41,7 @@ const NavItem = ({
         >
           {label}
           <Icon
+            size="sm"
             icon={IconChevronDown}
             className={styles['nav-item__dropdown-trigger__link__chevron']}
           />
@@ -54,6 +55,7 @@ const NavItem = ({
         >
           {label}
           <Icon
+            size="sm"
             icon={IconChevronDown}
             className={styles['nav-item__dropdown-trigger__link__chevron']}
           />

@@ -32,7 +32,11 @@ const Header = () => {
               <Navigation navItems={general.generalData.data.attributes.mainNavigation} />
             </div>
             <button className={styles['header__trigger']} onClick={() => triggerNav()}>
-              {navVisible ? <Icon icon={IconClose} /> : <Icon icon={IconMenu} size="lg" />}
+              {navVisible ? (
+                <Icon icon={IconClose} size="lg" />
+              ) : (
+                <Icon icon={IconMenu} size="lg" />
+              )}
             </button>
           </div>
         </header>
