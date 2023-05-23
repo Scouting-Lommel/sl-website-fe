@@ -1,7 +1,7 @@
 @use '@/assets/sass/settings/' as *;
 @use '@/assets/sass/tools/' as tools;
 
-.socialsCta {
+.socials-cta {
   display: flex;
   gap: tools.rem(12);
   flex-direction: column;
@@ -25,7 +25,7 @@
   }
 }
 
-.socialsCta__copy {
+.socials-cta__copy {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +37,7 @@
   }
 }
 
-.socialsCta__copy__title {
+.socials-cta__copy__title {
   font-family: $font-family-title;
   font-weight: $font-weight-semibold;
   font-size: tools.rem(12);
@@ -48,14 +48,14 @@
   }
 }
 
-.socialsCta__socials {
+.socials-cta__socials {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: tools.rem(16);
 }
 
-.socialsCta__socials__item {
+.socials-cta__socials__item {
   color: $color-primary;
   transition: transform $transition-medium;
   height: tools.rem(20);
@@ -65,7 +65,7 @@
     cursor: pointer;
     transform: translateY(tools.rem(-2));
 
-    & .socialsCta__socials__item__icon::after {
+    & .socials-cta__socials__item__icon::after {
       opacity: 1;
     }
   }
@@ -75,7 +75,7 @@
   }
 }
 
-.socialsCta__socials__item__icon {
+.socials-cta__socials__item__icon {
   &::after {
     content: '';
     position: absolute;
@@ -84,7 +84,7 @@
     transform: translateY(tools.rem(4));
     height: tools.rem(3);
     border-radius: $border-radius;
-    width: 100%;
+    width: tools.rem(28);
     opacity: 0;
     transition: opacity $transition-medium;
   }
