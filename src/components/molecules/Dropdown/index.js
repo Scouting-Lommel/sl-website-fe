@@ -1,3 +1,6 @@
+// TODO: Rewrite in TS
+// TODO: Add story
+
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import classNames from 'classnames';
