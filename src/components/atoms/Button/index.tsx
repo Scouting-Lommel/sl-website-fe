@@ -1,11 +1,19 @@
 import classNames from 'classnames';
 import NextLink from 'next/link';
-import { ButtonProps } from './types';
+import { Button as ButtonProps } from './types';
 import styles from './Button.module.scss';
 
 type Props = ButtonProps & React.HTMLAttributes<HTMLElement>;
 
-const Button = ({ label, variant, href, modSmall, className, children, ...props }: Props) => {
+const Button = ({
+  label,
+  variant = 'primary',
+  href,
+  modSmall,
+  className,
+  children,
+  ...props
+}: Props) => {
   const buttonClassNames = classNames([
     styles['button'],
     styles[`button--${variant}`],
