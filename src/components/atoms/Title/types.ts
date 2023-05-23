@@ -3,8 +3,8 @@ export type Title = {
   variant: 'h1' | 'h2' | 'h3';
   titleStyle?: 'h1' | 'h1-alt' | 'h2' | 'h3';
   tagName?: string;
-  modLight: boolean;
-  modPrimary: boolean;
-  modAccent: boolean;
-  modMarkup: boolean;
+  modLight?: boolean;
+  modPrimary?: boolean;
+  modAccent?: boolean;
+  modMarkup?: boolean;
 };
