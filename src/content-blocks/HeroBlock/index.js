@@ -3,8 +3,8 @@ import Hero from '@/components/organisms/Hero';
 
 const HeroBlock = ({ title, subtitle, variant, callToAction, socialsCta, yearTheme, bgImage }) => {
   const socialsCallToAction = {
-    title: socialsCta.title,
-    socialItems: socialsCta.socialItems.data.map((item) => {
+    title: socialsCta?.title,
+    socialItems: socialsCta?.socialItems.data.map((item) => {
       return item.attributes;
     }),
   };
@@ -12,7 +12,7 @@ const HeroBlock = ({ title, subtitle, variant, callToAction, socialsCta, yearThe
   return (
     <BlockContainer
       bgImage={bgImage?.data?.attributes}
-      socialsCta={socialsCallToAction}
+      socialsCta={socialsCta ? socialsCallToAction : null}
       variant={variant === 'simple' ? 'light' : 'dark'}
       orientation="default"
       slug="hero"
