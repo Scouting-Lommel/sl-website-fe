@@ -38,7 +38,10 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
       )}
 
       {yearTheme.data && (
-        <YearTheme yearTheme={yearTheme.data.attributes} className={styles['hero__year-theme']} />
+        <YearTheme
+          image={yearTheme.data.attributes.image.data.attributes}
+          className={styles['hero__year-theme']}
+        />
       )}
     </div>
   );

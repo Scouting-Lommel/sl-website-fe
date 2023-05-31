@@ -3,8 +3,8 @@ export type CloudinaryImage = {
   width: number;
   height: number;
   url: string;
-  alternativeText: string;
-  caption: string;
+  alternativeText?: string;
+  caption?: string;
   ext?: string;
   formats: {
     small: { url: string; width: number; height: number };
