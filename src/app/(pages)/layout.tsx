@@ -1,3 +1,5 @@
+import { getGeneralData } from './api';
+
 export const metadata = {
   title: { default: 'Scouting Sint-Pieter Lommel', template: '%s - Scouting Sint-Pieter Lommel' },
   description:
@@ -14,7 +16,10 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = async ({ children }: { children: React.ReactNode }) => {
+  const data = await getGeneralData();
+  console.log(data);
+
   return (
     <html lang="nl">
       <body>
@@ -22,4 +27,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;
