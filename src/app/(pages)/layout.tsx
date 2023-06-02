@@ -3,9 +3,6 @@ import SkipToContent from '@/components/atoms/SkipToContent';
 import { Footer } from '@/components/organisms/Footer';
 import { getGeneralData } from './api';
 
-export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
-
 export const metadata = {
   title: { default: 'Scouting Sint-Pieter Lommel', template: '%s - Scouting Sint-Pieter Lommel' },
   description:
