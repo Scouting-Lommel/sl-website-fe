@@ -1,11 +1,26 @@
+import { notFound } from 'next/navigation';
+import Blocks from '@/content-blocks';
 import { getHomePage } from './api';
 
+export async function generateMetadata() {
+  const { homePage } = await getHomePage();
+  if (!homePage) notFound();
+
+  return {
+    title: homePage.data.attributes.pageMeta.pageTitle,
+    description: homePage.data.attributes.pageMeta.pageDescription,
+  };
+}
+
 const TestPage = async () => {
-  const data = await getHomePage();
+  const { homePage } = await getHomePage();
+  if (!homePage) notFound();
 
-  console.log(data);
-
-  return <>test page</>;
+  return (
+    <>
+      <Blocks content={homePage.data.attributes.blocks} />
+    </>
+  );
 };
 
 export default TestPage;

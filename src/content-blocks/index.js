@@ -6,7 +6,7 @@ const blockList = {
   ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock/index.js')),
 };
 
-const Blocks = ({ content, data }) => {
+const Blocks = ({ content }) => {
   if (!content || !content.length) return <></>;
 
   const contentBlocks = content.map((block, i) => {
@@ -23,7 +23,7 @@ const Blocks = ({ content, data }) => {
   return (
     <>
       {contentBlocks?.map((Component, i) => {
-        return Component ? <Component key={i} {...content[i]} data={data} /> : false;
+        return Component ? <Component key={i} {...content[i]} /> : false;
       })}
     </>
   );
