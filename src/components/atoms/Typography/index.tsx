@@ -1,10 +1,12 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Typography as TypographyProps } from './types';
 import styles from './Typography.module.scss';
 
-const Typography = ({ data, modNoStyle, children, className }) => {
+type Props = TypographyProps & React.HTMLAttributes<HTMLElement>;
+
+const Typography = ({ data, modNoStyle, children, className }: Props) => {
   const typographyClasses = classNames([
     styles['typography'],
     !modNoStyle && styles['typography--styled'],
@@ -20,11 +22,6 @@ const Typography = ({ data, modNoStyle, children, className }) => {
   }
 
   return <div className={typographyClasses}>{children}</div>;
-};
-
-Typography.propTypes = {
-  data: PropTypes.string,
-  modNoStyle: PropTypes.bool,
 };
 
 export default Typography;

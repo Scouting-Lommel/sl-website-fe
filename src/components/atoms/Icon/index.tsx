@@ -1,8 +1,10 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Icon as IconProps } from './types';
 import styles from './Icon.module.scss';
 
-const Icon = ({ icon, size, title, className }) => {
+type Props = IconProps & React.HTMLAttributes<HTMLElement>;
+
+const Icon = ({ icon, size, title, className }: Props) => {
   const classes = classNames([styles['icon'], styles[`icon--${size}`], className]);
 
   if (!icon) {
@@ -17,17 +19,6 @@ const Icon = ({ icon, size, title, className }) => {
       <TagName title={title} className={styles['icon__svg']} />
     </div>
   );
-};
-
-Icon.propTypes = {
-  icon: PropTypes.elementType,
-  size: PropTypes.oneOf('xs', 'sm', 'md', 'lg', 'xl'),
-  title: PropTypes.string,
-};
-
-Icon.defaultProps = {
-  title: '',
-  size: 'md',
 };
 
 export default Icon;

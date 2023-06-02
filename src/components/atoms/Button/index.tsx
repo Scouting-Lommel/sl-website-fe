@@ -1,19 +1,19 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import NextLink from 'next/link';
+import { Button as ButtonProps } from './types';
 import styles from './Button.module.scss';
+
+type Props = ButtonProps & React.HTMLAttributes<HTMLElement>;
 
 const Button = ({
   label,
-  variant,
+  variant = 'primary',
   href,
-  type,
-  modLink,
   modSmall,
   className,
   children,
   ...props
-}) => {
+}: Props) => {
   const buttonClassNames = classNames([
     styles['button'],
     styles[`button--${variant}`],
@@ -21,7 +21,7 @@ const Button = ({
     className,
   ]);
 
-  if (modLink) {
+  if (href) {
     return (
       <NextLink className={buttonClassNames} href={href} {...props}>
         <span className={styles['button__label']}>{children || label}</span>
@@ -33,21 +33,6 @@ const Button = ({
       <span className={styles['button__label']}>{children || label}</span>
     </button>
   );
-};
-
-Button.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'light', 'link1']),
-  type: PropTypes.oneOf(['submit', 'button']),
-  href: PropTypes.string,
-  onClick: PropTypes.func,
-  modLink: PropTypes.bool,
-  modSmall: PropTypes.bool,
-};
-
-Button.defaultProps = {
-  variant: 'primary',
-  onClick: undefined,
-  modLink: false,
 };
 
 export default Button;

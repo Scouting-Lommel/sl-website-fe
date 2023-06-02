@@ -14,7 +14,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
       <Title
         title={title}
         variant="h1"
-        style={variant === 'simple' ? 'h1-alt' : 'h1'}
+        titleStyle={variant === 'simple' ? 'h1-alt' : 'h1'}
         modLight={variant !== 'simple'}
         modPrimary={variant === 'simple'}
         modMarkup
@@ -26,21 +26,22 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
         </Typography>
       )}
       {subtitle && variant !== 'simple' && (
-        <Title title={subtitle} tagName="p" style="h3" modAccent />
+        <Title title={subtitle} tagName="p" titleStyle="h3" modAccent />
       )}
 
       {callToAction.length > 0 && (
         <div className={styles['hero__buttons']}>
           {callToAction.map((cta, key) => {
-            return (
-              <Button key={key} label={cta.label} href={cta.link} variant={cta.variant} modLink />
-            );
+            return <Button key={key} label={cta.label} href={cta.link} variant={cta.variant} />;
           })}
         </div>
       )}
 
       {yearTheme.data && (
-        <YearTheme yearTheme={yearTheme.data.attributes} className={styles['hero__year-theme']} />
+        <YearTheme
+          image={yearTheme.data.attributes.image.data.attributes}
+          className={styles['hero__year-theme']}
+        />
       )}
     </div>
   );

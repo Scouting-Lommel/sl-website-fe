@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Typography from '@/components/atoms/Typography';
+import { DropdownItem as DropdownItemProps } from './types';
 import styles from './DropdownItem.module.scss';
 
-const DropdownItem = ({ title, description, href }) => {
+type Props = DropdownItemProps & React.HTMLAttributes<HTMLElement>;
+
+const DropdownItem = ({ title, description, href }: Props) => {
   return (
     <li>
       <Link href={href} className={styles['dropdown-item']}>

@@ -2,7 +2,9 @@ import useTranslation from 'next-translate/useTranslation';
 import styles from './SkipToContent.module.scss';
 import classNames from 'classnames';
 
-const SkipToContent = ({ className }) => {
+type Props = React.HTMLAttributes<HTMLElement>;
+
+const SkipToContent = ({ className }: Props) => {
   const { t } = useTranslation('common');
   const classes = classNames([styles['skip-to-content'], className]);
 

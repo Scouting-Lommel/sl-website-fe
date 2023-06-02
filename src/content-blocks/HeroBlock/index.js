@@ -2,15 +2,20 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 
 const HeroBlock = ({ title, subtitle, variant, callToAction, socialsCta, yearTheme, bgImage }) => {
+  const socialsCallToAction = {
+    title: socialsCta?.title,
+    socialItems: socialsCta?.socialItems.data.map((item) => {
+      return item.attributes;
+    }),
+  };
+
   return (
     <BlockContainer
       bgImage={bgImage?.data?.attributes}
-      socialsCta={socialsCta}
-      cta={socialsCta}
+      socialsCta={socialsCta ? socialsCallToAction : null}
       variant={variant === 'simple' ? 'light' : 'dark'}
       orientation="default"
       slug="hero"
-      modCtaSocials
     >
       <Hero
         title={title}

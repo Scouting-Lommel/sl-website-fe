@@ -78,20 +78,7 @@ const getGeneralData = () => {
                 attributes {
                   title
                   link
-                  icon {
-                    data {
-                      attributes {
-                        name
-                        width
-                        height
-                        url
-                        alternativeText
-                        caption
-                        formats
-                        ext
-                      }
-                    }
-                  }
+                  icon
                 }
               }
             }

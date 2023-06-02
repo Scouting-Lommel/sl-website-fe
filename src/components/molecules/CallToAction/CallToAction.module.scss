@@ -37,15 +37,23 @@
   }
 }
 
-.cta__copy__title {
-  font-family: $font-family-title;
-  font-weight: $font-weight-semibold;
+.cta__copy__title,
+.cta__copy__intro {
   font-size: tools.rem(12);
-  text-transform: uppercase;
 
   @include tools.respond-from(medium) {
     font-size: tools.rem(16);
   }
+}
+
+.cta__copy__title {
+  font-family: $font-family-title;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+}
+
+.cta__copy__intro {
+  font-family: $font-family-text;
 }
 
 .cta__socials {

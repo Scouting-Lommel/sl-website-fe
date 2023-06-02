@@ -5,6 +5,7 @@
   white-space: pre-wrap;
 
   &--styled {
+    font-family: $font-family-text;
     font-size: tools.rem(16);
 
     @include tools.respond-from(medium) {
