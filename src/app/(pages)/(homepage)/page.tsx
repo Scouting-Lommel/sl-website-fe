@@ -12,15 +12,11 @@ export async function generateMetadata() {
   };
 }
 
-const TestPage = async () => {
+const HomePage = async () => {
   const { homePage } = await getHomePage();
   if (!homePage) notFound();
 
-  return (
-    <>
-      <Blocks content={homePage.data.attributes.blocks} />
-    </>
-  );
+  return <Blocks content={homePage.data.attributes.blocks} />;
 };
 
-export default TestPage;
+export default HomePage;
