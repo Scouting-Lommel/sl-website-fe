@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import Blocks from '@/content-blocks';
 import { getHomePage } from './api';
 
+export const dynamic = 'force-dynamic';
+
 export async function generateMetadata() {
   const { homePage } = await getHomePage();
   if (!homePage) notFound();
