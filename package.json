@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "prebuild": "node prebuild.ts",
     "preinstall": "npx only-allow npm",
     "dev": "next dev",
     "build": "next build",
