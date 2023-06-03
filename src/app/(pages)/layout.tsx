@@ -23,7 +23,6 @@ export const metadata = {
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const data = await getGeneralData();
-  console.log(data);
 
   return (
     <html lang="nl">
