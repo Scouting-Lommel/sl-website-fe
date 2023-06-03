@@ -3,6 +3,8 @@ import SkipToContent from '@/components/atoms/SkipToContent';
 import { Footer } from '@/components/organisms/Footer';
 import { getGeneralData } from './api';
 
+import '@/assets/sass/index.scss';
+
 export const metadata = {
   title: { default: 'Scouting Sint-Pieter Lommel', template: '%s - Scouting Sint-Pieter Lommel' },
   description:
