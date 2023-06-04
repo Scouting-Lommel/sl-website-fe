@@ -1,28 +1,21 @@
-import { Header } from '@/components/organisms/Header';
+import { generateMetadataForRootLayout } from '@/lib/helpers/metadata';
+// import { Header } from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
-import { Footer } from '@/components/organisms/Footer';
+// import { Footer } from '@/components/organisms/Footer';
+import '@/assets/sass/index.scss';
 import { getGeneralData } from './api';
 
-import '@/assets/sass/index.scss';
+export async function generateMetadata() {
+  const data = await getGeneralData();
+  if (!data) return {};
 
-export const metadata = {
-  title: { default: 'Scouting Sint-Pieter Lommel', template: '%s - Scouting Sint-Pieter Lommel' },
-  description:
-    'Scouting Lommel is een grote scoutsgroep in het hartje van Lommel. Elke zaterdag staan we paraat aan onze lokalen in de Nieuwe Kopen, vlakbij de prachtige Lommelse Sahara midden in Bosland.',
-  manifest: '/assets/head/site.webmanifest',
-  themeColor: '#ffffff',
-  icons: {
-    icon: [
-      { url: '/assets/head/favicon-16x16.png', sizes: '16x16' },
-      { url: '/assets/head/favicon-32x32.png', sizes: '32x32' },
-    ],
-    apple: [{ url: '/assets/head/apple-touch-icon.png', sizes: '180x180' }],
-    shortcut: { url: '/assets/head/favicon.ico' },
-  },
-};
+  const metadata = generateMetadataForRootLayout(data.generalData.data.attributes);
+
+  return { ...metadata };
+}
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  const data = await getGeneralData();
+  // const data = await getGeneralData();
 
   return (
     <html lang="nl">

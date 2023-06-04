@@ -1,16 +1,20 @@
 import { notFound } from 'next/navigation';
+import { generateMetadataForPage } from '@/lib/helpers/metadata';
 import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getHomePage } from './api';
 
 export async function generateMetadata() {
+  const { generalData } = await getGeneralData();
   const { homePage } = await getHomePage();
-  if (!homePage) notFound();
+  if (!homePage || !generalData) return {};
 
-  return {
-    title: homePage.data.attributes.pageMeta.pageTitle,
-    description: homePage.data.attributes.pageMeta.pageDescription,
-  };
+  const metadata = generateMetadataForPage(
+    homePage.data.attributes.pageMeta,
+    generalData.data.attributes,
+  );
+
+  return { ...metadata };
 }
 
 const HomePage = async () => {
