@@ -17,7 +17,7 @@ export async function generateMetadata() {
   return { ...metadata };
 }
 
-const HomePage = async () => {
+const GroupsPage = async () => {
   const { groupsPage } = await getGroupsPage();
 
   if (!groupsPage) notFound();
@@ -29,4 +29,4 @@ const HomePage = async () => {
   );
 };
 
-export default HomePage;
+export default GroupsPage;
