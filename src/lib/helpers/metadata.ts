@@ -64,7 +64,7 @@ export const generateMetadataForPage = (
       locale: 'nl',
       type: 'website',
       siteName: metaData.siteName || 'Scouting Sint-Pieter Lommel',
-      title: `${metaData.siteName} • ${pageMeta.pageTitle}`,
+      title: `${pageMeta.pageTitle} • ${metaData.siteName}`,
       description: pageMeta.pageDescription,
       images: pageMeta.metaImage.data.attributes.url,
     },

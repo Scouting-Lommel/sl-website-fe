@@ -9,7 +9,7 @@ const HOMEPAGE_QUERY = gql`
     ${TEXT_IMAGE_BLOCK_FRAGMENT}, 
     ${GROUPS_BLOCK_FRAGMENT}
 
-    query getHomePageQuery {
+    query {
       homePage {
         data {
           attributes {
