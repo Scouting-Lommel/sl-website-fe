@@ -13,6 +13,7 @@ const GROUPS_PAGE_QUERY = gql`
             pageTitle
             pageDescription
             noIndex
+            slug
             metaImage {
               data {
                 attributes {

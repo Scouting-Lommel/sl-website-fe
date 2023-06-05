@@ -58,7 +58,9 @@ export const generateMetadataForPage = (
     title: pageMeta.pageTitle,
     description: pageMeta.pageDescription,
     alternates: {
-      canonical: `${metaData.url}/${path || ''}${pageMeta.slug ? '/' + pageMeta.slug : ''}`,
+      canonical: `${metaData.url}${path ? '/' + path : ''}${
+        pageMeta.slug ? '/' + pageMeta.slug : ''
+      }`,
     },
     openGraph: {
       locale: 'nl',
