@@ -38,13 +38,13 @@ export const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata =
       siteName: metaData.siteName || 'Scouting Sint-Pieter Lommel',
       title: metaData.siteName || 'Scouting Sint-Pieter Lommel',
       description: metaData.siteDescription,
-      images: metaData.image.data.attributes.url,
+      images: metaData.image.data?.attributes.url,
     },
     twitter: {
       card: 'summary_large_image',
       title: metaData.siteName || 'Scouting Sint-Pieter Lommel',
       description: metaData.siteDescription,
-      images: metaData.image.data.attributes.url,
+      images: metaData.image.data?.attributes.url,
     },
   };
 };
@@ -66,13 +66,13 @@ export const generateMetadataForPage = (
       siteName: metaData.siteName || 'Scouting Sint-Pieter Lommel',
       title: `${pageMeta.pageTitle} • ${metaData.siteName}`,
       description: pageMeta.pageDescription,
-      images: pageMeta.metaImage.data.attributes.url,
+      images: pageMeta.metaImage.data?.attributes.url,
     },
     twitter: {
       card: 'summary_large_image',
       title: pageMeta.pageTitle,
       description: pageMeta.pageDescription,
-      images: pageMeta.metaImage.data.attributes.url,
+      images: pageMeta.metaImage.data?.attributes.url,
     },
   };
 };
