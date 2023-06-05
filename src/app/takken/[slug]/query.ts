@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-import HERO_BLOCK_FRAGMENT from '@/lib/api/fragments/hero-block.gql';
+import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 
 const GROUP_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}

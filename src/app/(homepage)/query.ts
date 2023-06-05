@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
-import HERO_BLOCK_FRAGMENT from '@/lib/api/fragments/hero-block.gql';
-import TEXT_IMAGE_BLOCK_FRAGMENT from '@/lib/api/fragments/text-image-block.gql';
-import GROUPS_BLOCK_FRAGMENT from '@/lib/api/fragments/groups-block.gql';
+import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
+import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
+import GROUPS_BLOCK_FRAGMENT from '@/graphql/groups-block.gql';
 
 const HOMEPAGE_QUERY = gql`
     ${HERO_BLOCK_FRAGMENT}, 
