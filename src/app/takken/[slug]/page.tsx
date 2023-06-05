@@ -24,7 +24,6 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
 const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => {
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
-  console.log(group);
 
   if (!group) notFound();
 
