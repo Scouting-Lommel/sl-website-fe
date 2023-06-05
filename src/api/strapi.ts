@@ -1,6 +1,6 @@
 import { DocumentNode, print } from 'graphql';
 
-async function fetchAPI(query: DocumentNode) {
+async function fetchAPI(query: DocumentNode, variables?: unknown) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/graphql`, {
     method: 'POST',
     headers: {
@@ -8,6 +8,7 @@ async function fetchAPI(query: DocumentNode) {
     },
     body: JSON.stringify({
       query: print(query),
+      variables,
     }),
     next: { revalidate: process.env?.APP_ENV === 'production' ? 86400 : 10 },
   });
