@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 const blockList = {
-  ComponentContentBlocksHeroBlock: dynamic(() => import('./HeroBlock/index.js')),
+  ComponentContentBlocksHeroBlock: dynamic(() => import('./HeroBlock/index.tsx')),
   ComponentContentBlocksTextImageBlock: dynamic(() => import('./TextImageBlock/index.js')),
   ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock/index.js')),
 };

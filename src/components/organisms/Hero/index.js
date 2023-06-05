@@ -29,7 +29,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
         <Title title={subtitle} tagName="p" titleStyle="h3" modAccent />
       )}
 
-      {callToAction.length > 0 && (
+      {callToAction?.length > 0 && (
         <div className={styles['hero__buttons']}>
           {callToAction.map((cta, key) => {
             return <Button key={key} label={cta.label} href={cta.link} variant={cta.variant} />;
@@ -37,7 +37,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
         </div>
       )}
 
-      {yearTheme.data && (
+      {yearTheme?.data && (
         <YearTheme
           image={yearTheme.data.attributes.image.data.attributes}
           className={styles['hero__year-theme']}
