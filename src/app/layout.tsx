@@ -1,5 +1,5 @@
 import { generateMetadataForRootLayout } from '@/lib/helpers/metadata';
-import { Header } from '@/components/organisms/Header';
+import Header from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
 // import { Footer } from '@/components/organisms/Footer';
 import { getGeneralData } from './api';

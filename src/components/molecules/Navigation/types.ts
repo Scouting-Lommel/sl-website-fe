@@ -1,7 +1,7 @@
 import { Button } from '@/components/atoms/Button/types';
 import { DropdownNavItem, DropdownItem, DropdownCta } from '@/components/molecules/Dropdown/types';
 
-type NavItem = {
+export type NavItem = {
   label: string;
   link: string | null;
   page: string;
