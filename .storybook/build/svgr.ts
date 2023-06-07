@@ -1,4 +1,4 @@
-const fixSvg = async (config) => {
+export const fixSvg = async (config) => {
   // remove svg loader from webpack appConfig and use Storybook's svg loader instead
   config.module.rules = config.module.rules.filter(({ test }) => !test?.test('.svg'));
 
@@ -21,8 +21,4 @@ const fixSvg = async (config) => {
       },
     ],
   });
-};
-
-module.exports = {
-  fixSvg,
 };
