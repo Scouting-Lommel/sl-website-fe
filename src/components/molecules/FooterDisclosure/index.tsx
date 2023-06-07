@@ -1,6 +1,9 @@
+import { FooterDisclosure as FooterDisclosureProps } from './types';
 import styles from './FooterDisclosure.module.scss';
 
-const FooterDisclosure = ({ siteName }) => {
+type Props = FooterDisclosureProps & React.HTMLAttributes<HTMLElement>;
+
+const FooterDisclosure = ({ siteName }: Props) => {
   const currentYear = new Date().getFullYear();
 
   return (
