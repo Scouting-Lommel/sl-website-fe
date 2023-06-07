@@ -66,18 +66,20 @@ const NavItem = ({
             title="Chevron"
           />
         </button>
-        <span className={dropdownClassnames}>
-          <Dropdown
-            path={href}
-            dropdownItems={dropdownItems}
-            dropdownTitle={dropdownTitle}
-            dropdownCta={dropdownCta}
-            dropdownButton={dropdownButton}
-            groups={groups}
-            rentalLocations={rentalLocations}
-            toggleDropdown={toggleDropdown}
-          />
-        </span>
+        {dropdownButton && dropdownTitle && dropdownCta && (
+          <span className={dropdownClassnames}>
+            <Dropdown
+              path={href}
+              dropdownItems={dropdownItems}
+              dropdownTitle={dropdownTitle}
+              dropdownCta={dropdownCta}
+              dropdownButton={dropdownButton}
+              groups={groups}
+              rentalLocations={rentalLocations}
+              toggleDropdown={toggleDropdown}
+            />
+          </span>
+        )}
       </li>
     );
   }

@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-// import { useAuthContext, logout } from '@/lib/api/security/security';
+// TODO: Re-add security and authentication functionality
+
 import NavItem from '@/components/molecules/NavItem';
+import { Navigation as NavigationProps } from './types';
 import styles from './Navigation.module.scss';
 
-const Navigation = ({ navItems, groups, rentalLocations }) => {
-  // const [auth] = useAuthContext();
+type Props = NavigationProps & React.HTMLAttributes<HTMLElement>;
 
+const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
   return (
     <nav className={styles['navigation__wrapper']}>
       <ul className={styles['navigation']}>
@@ -18,12 +19,11 @@ const Navigation = ({ navItems, groups, rentalLocations }) => {
                   variant: navItem.dropdownButton.variant,
                 }
               : undefined;
-            console.log(dropdownBtn);
             return (
               <NavItem
                 key={`nav-item-${i}`}
                 label={navItem.label}
-                href={`/${navItem.page.replace(new RegExp('_', 'g'), '-')}` || navItem.link}
+                href={`/${navItem.page.replace(new RegExp('_', 'g'), '-')}` || navItem.link || ''}
                 dropdownItems={navItem.dropdownItems}
                 dropdownCta={navItem.dropdownCta}
                 dropdownTitle={navItem.dropdownTitle}
@@ -35,17 +35,9 @@ const Navigation = ({ navItems, groups, rentalLocations }) => {
             );
           })}
         </span>
-        {/* <span className={styles['navigation__list']}>
-          {!auth.loggedIn && <NavItem href="/login" label="Log In" />}
-          {auth.loggedIn && <NavItem label="Uitloggen" onClick={() => logout()} modButton />}
-        </span> */}
       </ul>
     </nav>
   );
-};
-
-Navigation.propTypes = {
-  navItems: PropTypes.array,
 };
 
 export default Navigation;
