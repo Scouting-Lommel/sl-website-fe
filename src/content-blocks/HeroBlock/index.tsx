@@ -1,7 +1,7 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
-import { HeroBlock as HeroBlockProps } from './types';
 import { SocialsCta } from '@/components/molecules/SocialsCta/types';
+import { HeroBlock as HeroBlockProps } from './types';
 
 type Props = HeroBlockProps & React.HTMLAttributes<HTMLElement>;
 
