@@ -1,7 +1,3 @@
-// TODO: Rewrite in TS
-// TODO: Add story
-
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { IconChevronDown } from '@/assets/icons';
 import DropdownItem from '@/components/atoms/DropdownItem';
@@ -9,7 +5,10 @@ import Icon from '@/components/atoms/Icon';
 import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
+import { Dropdown as DropdownProps, NavItem } from './types';
 import styles from './Dropdown.module.scss';
+
+type Props = DropdownProps & React.HTMLAttributes<HTMLElement>;
 
 const Dropdown = ({
   path,
@@ -20,9 +19,8 @@ const Dropdown = ({
   groups,
   rentalLocations,
   toggleDropdown,
-}) => {
-  let navItem = undefined;
-
+}: Props) => {
+  let navItem: NavItem[] = [];
   if (path === '/takken') {
     navItem = groups;
   }
@@ -43,6 +41,7 @@ const Dropdown = ({
               icon={IconChevronDown}
               className={styles['dropdown__content__back-button__chevron']}
               size="xs"
+              title="Collapse"
             />
             Terug
           </Button>
@@ -54,11 +53,11 @@ const Dropdown = ({
               className={styles['dropdown__nav__title']}
             />
             <ul className={styles['dropdown__nav__list']}>
-              {navItem &&
-                dropdownItems.map((item, i) => {
-                  const dropdownItem = navItem.find(
-                    (el) => el.slug === item.page.replace(new RegExp('_', 'g'), '-'),
-                  );
+              {dropdownItems.map((item, i) => {
+                const dropdownItem = navItem.find(
+                  (el) => el.slug === item.page.replace(new RegExp('_', 'g'), '-'),
+                );
+                if (dropdownItem) {
                   return (
                     <DropdownItem
                       key={`dropdown-${path}-${i}`}
@@ -67,11 +66,12 @@ const Dropdown = ({
                       href={`${path}/${dropdownItem.slug}`}
                     />
                   );
-                })}
+                }
+              })}
             </ul>
             <Button
               label={dropdownButton.label}
-              href={dropdownButton.link}
+              href={dropdownButton.href}
               modSmall
               className={styles['dropdown__nav__button']}
             />
@@ -95,14 +95,6 @@ const Dropdown = ({
       </div>
     </span>
   );
-};
-
-Dropdown.propTypes = {
-  path: PropTypes.string,
-  dropdownCta: PropTypes.object,
-  dropdownButton: PropTypes.object,
-  dropdownTitle: PropTypes.string,
-  dropdownItems: PropTypes.array.isRequired,
 };
 
 export default Dropdown;

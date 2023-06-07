@@ -17,10 +17,4 @@ const DropdownItem = ({ title, description, href }: Props) => {
   );
 };
 
-DropdownItem.proptypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  href: PropTypes.string,
-};
-
 export default DropdownItem;

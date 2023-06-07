@@ -11,6 +11,14 @@ const Navigation = ({ navItems, groups, rentalLocations }) => {
       <ul className={styles['navigation']}>
         <span className={styles['navigation__list']}>
           {navItems.map((navItem, i) => {
+            const dropdownBtn = navItem.dropdownButton
+              ? {
+                  label: navItem.dropdownButton.label,
+                  href: navItem.dropdownButton.link,
+                  variant: navItem.dropdownButton.variant,
+                }
+              : undefined;
+            console.log(dropdownBtn);
             return (
               <NavItem
                 key={`nav-item-${i}`}
@@ -19,7 +27,7 @@ const Navigation = ({ navItems, groups, rentalLocations }) => {
                 dropdownItems={navItem.dropdownItems}
                 dropdownCta={navItem.dropdownCta}
                 dropdownTitle={navItem.dropdownTitle}
-                dropdownButton={navItem.dropdownButton}
+                dropdownButton={dropdownBtn}
                 groups={groups}
                 rentalLocations={rentalLocations}
                 modDropdown={navItem.dropdownItems.length > 0}
