@@ -1,6 +1,6 @@
 import FooterHead from '@/components/molecules/FooterHead';
-import FooterBottom from '@/components/molecules/FooterBottom';
-import FooterInfo from '@/components/molecules/FooterInfo';
+import FooterDisclosure from '@/components/molecules/FooterDisclosure';
+import FooterDoormat from '@/components/molecules/FooterDoormat';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -14,12 +14,12 @@ const Footer = () => {
           vatNumber={general?.generalData.data.attributes.vatNumber}
           groupNumber={general?.generalData.data.attributes.groupNumber}
         />
-        <FooterInfo
+        <FooterDoormat
           address={general?.generalData.data.attributes.address}
           contactItems={general?.generalData.data.attributes.contactItems}
           footerNavigation={general?.generalData.data.attributes.footerNavigation}
         />
-        <FooterBottom siteName={general?.generalData.data.attributes.siteName} />
+        <FooterDisclosure siteName={general?.generalData.data.attributes.siteName} />
       </div>
     </footer>
   );

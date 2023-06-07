@@ -1,7 +1,7 @@
 import { generateMetadataForRootLayout } from '@/lib/helpers/metadata';
 import Header from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
-// import { Footer } from '@/components/organisms/Footer';
+import { Footer } from '@/components/organisms/Footer';
 import { getGeneralData } from './api';
 import '@/assets/sass/index.scss';
 
@@ -30,7 +30,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <main className="sl-main" id="main">
           {children}
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 @use '@/assets/sass/settings/' as *;
 @use '@/assets/sass/tools/' as tools;
 
-.footer-info {
+.footer-doormat {
   display: flex;
   flex-direction: column;
   align-items: baseline;
@@ -17,7 +17,7 @@
   }
 }
 
-.footer-info__section {
+.footer-doormat__section {
   display: flex;
   flex-direction: column;
 
@@ -27,7 +27,7 @@
   }
 }
 
-.info-col {
+.doormat-col {
   display: flex;
   flex-direction: column;
   margin-bottom: tools.rem(24);
@@ -58,7 +58,7 @@
   }
 }
 
-.info-col__title {
+.doormat-col__title {
   font-family: $font-family-title;
   font-weight: $font-weight-regular;
   font-size: tools.rem(16);
@@ -68,7 +68,7 @@
   }
 }
 
-.info-col__content {
+.doormat-col__content {
   display: inline-block;
   font-size: tools.rem(14);
   margin-bottom: tools.rem(4);
