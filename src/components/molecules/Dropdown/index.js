@@ -2,9 +2,7 @@
 // TODO: Add story
 
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
 import classNames from 'classnames';
-import { GeneralContext } from '@/context/GeneralContext';
 import { IconChevronDown } from '@/assets/icons';
 import DropdownItem from '@/components/atoms/DropdownItem';
 import Icon from '@/components/atoms/Icon';
@@ -19,16 +17,17 @@ const Dropdown = ({
   dropdownButton,
   dropdownCta,
   dropdownItems,
+  groups,
+  rentalLocations,
   toggleDropdown,
 }) => {
-  const { general } = useContext(GeneralContext);
   let navItem = undefined;
 
   if (path === '/takken') {
-    navItem = general.groups.data;
+    navItem = groups;
   }
   if (path === '/verhuur') {
-    navItem = general.rentalLocations.data;
+    navItem = rentalLocations;
   }
 
   return (
@@ -58,14 +57,14 @@ const Dropdown = ({
               {navItem &&
                 dropdownItems.map((item, i) => {
                   const dropdownItem = navItem.find(
-                    (el) => el.attributes.slug === item.page.replace(new RegExp('_', 'g'), '-'),
+                    (el) => el.slug === item.page.replace(new RegExp('_', 'g'), '-'),
                   );
                   return (
                     <DropdownItem
                       key={`dropdown-${path}-${i}`}
                       title={item.label}
-                      description={dropdownItem.attributes.description}
-                      href={`${path}/${dropdownItem.attributes.slug}`}
+                      description={dropdownItem.description}
+                      href={`${path}/${dropdownItem.slug}`}
                     />
                   );
                 })}

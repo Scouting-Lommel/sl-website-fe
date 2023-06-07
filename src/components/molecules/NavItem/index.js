@@ -14,6 +14,8 @@ const NavItem = ({
   dropdownCta,
   dropdownTitle,
   dropdownButton,
+  groups,
+  rentalLocations,
   onClick,
   modButton,
   modDropdown,
@@ -67,6 +69,8 @@ const NavItem = ({
             dropdownTitle={dropdownTitle}
             dropdownCta={dropdownCta}
             dropdownButton={dropdownButton}
+            groups={groups}
+            rentalLocations={rentalLocations}
             toggleDropdown={toggleDropdown}
           />
         </span>

@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
-import useTranslation from 'next-translate/useTranslation';
-import { useAuthContext, logout } from '@/lib/api/security/security';
+// import { useAuthContext, logout } from '@/lib/api/security/security';
 import NavItem from '@/components/molecules/NavItem';
 import styles from './Navigation.module.scss';
 
-const Navigation = ({ navItems }) => {
-  const [auth] = useAuthContext();
-  const { t } = useTranslation('common');
+const Navigation = ({ navItems, groups, rentalLocations }) => {
+  // const [auth] = useAuthContext();
 
   return (
     <nav className={styles['navigation__wrapper']}>
@@ -22,15 +20,17 @@ const Navigation = ({ navItems }) => {
                 dropdownCta={navItem.dropdownCta}
                 dropdownTitle={navItem.dropdownTitle}
                 dropdownButton={navItem.dropdownButton}
+                groups={groups}
+                rentalLocations={rentalLocations}
                 modDropdown={navItem.dropdownItems.length > 0}
               />
             );
           })}
         </span>
-        <span className={styles['navigation__list']}>
-          {!auth.loggedIn && <NavItem href="/login" label={t('Navigation.LogIn')} />}
+        {/* <span className={styles['navigation__list']}>
+          {!auth.loggedIn && <NavItem href="/login" label="Log In" />}
           {auth.loggedIn && <NavItem label="Uitloggen" onClick={() => logout()} modButton />}
-        </span>
+        </span> */}
       </ul>
     </nav>
   );

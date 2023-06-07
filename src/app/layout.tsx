@@ -1,5 +1,5 @@
 import { generateMetadataForRootLayout } from '@/lib/helpers/metadata';
-// import { Header } from '@/components/organisms/Header';
+import { Header } from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
 // import { Footer } from '@/components/organisms/Footer';
 import { getGeneralData } from './api';
@@ -15,13 +15,18 @@ export async function generateMetadata() {
 }
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
-  // const data = await getGeneralData();
+  const data = await getGeneralData();
 
   return (
     <html lang="nl">
       <body>
         <SkipToContent className="skip-to-content" />
-        {/* <Header /> */}
+        <Header
+          logo={data.generalData.data.attributes.logo}
+          mainNavigation={data.generalData.data.attributes.mainNavigation}
+          groups={data.groups.data.map((item: any) => item.attributes)}
+          rentalLocations={data.rentalLocations.data.map((item: any) => item.attributes)}
+        />
         <main className="sl-main" id="main">
           {children}
         </main>
