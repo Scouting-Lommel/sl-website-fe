@@ -30,7 +30,14 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <main className="sl-main" id="main">
           {children}
         </main>
-        <Footer />
+        <Footer
+          siteName={data.generalData.data.attributes.siteName}
+          vatNumber={data.generalData.data.attributes.vatNumber}
+          groupNumber={data.generalData.data.attributes.groupNumber}
+          address={data.generalData.data.attributes.address}
+          contactItems={data.generalData.data.attributes.contactItems}
+          footerNavigation={data.generalData.data.attributes.footerNavigation}
+        />
       </body>
     </html>
   );

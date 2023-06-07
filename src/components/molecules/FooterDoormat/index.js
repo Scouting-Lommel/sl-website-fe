@@ -20,13 +20,14 @@ const DoormatCol = ({ title, address, links }) => {
             <SLLink
               key={i}
               href={item.link || '#'}
-              label={item.label}
               variant="link1"
               className={classNames([
                 styles['doormat-col__content'],
                 styles['doormat-col__content--link'],
               ])}
-            />
+            >
+              {item.label}
+            </SLLink>
           );
         })
       )}
