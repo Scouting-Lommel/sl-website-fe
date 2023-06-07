@@ -5,7 +5,7 @@ import Icon from '@/components/atoms/Icon';
 import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
-import { Dropdown as DropdownProps, NavItem } from './types';
+import { Dropdown as DropdownProps, DropdownNavItem } from './types';
 import styles from './Dropdown.module.scss';
 
 type Props = DropdownProps & React.HTMLAttributes<HTMLElement>;
@@ -20,7 +20,7 @@ const Dropdown = ({
   rentalLocations,
   toggleDropdown,
 }: Props) => {
-  let navItem: NavItem[] = [];
+  let navItem: DropdownNavItem[] = [];
   if (path === '/takken') {
     navItem = groups;
   }

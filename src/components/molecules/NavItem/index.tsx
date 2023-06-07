@@ -1,11 +1,13 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { IconChevronDown } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
+import { NavItem as NavItemProps } from './types';
 import styles from './NavItem.module.scss';
+
+type Props = NavItemProps & React.HTMLAttributes<HTMLElement>;
 
 const NavItem = ({
   label,
@@ -16,10 +18,10 @@ const NavItem = ({
   dropdownButton,
   groups,
   rentalLocations,
-  onClick,
   modButton,
   modDropdown,
-}) => {
+  onClick,
+}: Props) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -46,6 +48,7 @@ const NavItem = ({
             size="sm"
             icon={IconChevronDown}
             className={styles['nav-item__dropdown-trigger__link__chevron']}
+            title="Chevron"
           />
         </Link>
         <button
@@ -60,6 +63,7 @@ const NavItem = ({
             size="sm"
             icon={IconChevronDown}
             className={styles['nav-item__dropdown-trigger__link__chevron']}
+            title="Chevron"
           />
         </button>
         <span className={dropdownClassnames}>
@@ -93,18 +97,6 @@ const NavItem = ({
       </Link>
     </li>
   );
-};
-
-NavItem.propTypes = {
-  label: PropTypes.string.isRequired,
-  href: PropTypes.string,
-  dropdownItems: PropTypes.array,
-  dropdownCta: PropTypes.object,
-  dropdownButton: PropTypes.object,
-  dropdownTitle: PropTypes.string,
-  onClick: PropTypes.func,
-  modButton: PropTypes.bool,
-  modDropdown: PropTypes.bool,
 };
 
 export default NavItem;
