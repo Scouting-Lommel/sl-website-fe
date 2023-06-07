@@ -1,7 +1,10 @@
 import Title from '@/components/atoms/Title';
+import { FooterHead as FooterHeadProps } from './types';
 import styles from './FooterHead.module.scss';
 
-const FooterHead = ({ siteName, vatNumber, groupNumber }) => {
+type Props = FooterHeadProps & React.HTMLAttributes<HTMLElement>;
+
+const FooterHead = ({ siteName, vatNumber, groupNumber }: Props) => {
   return (
     <div className={styles['footer-head']}>
       <Title title={siteName} variant="h2" className={styles['footer-head__title']} />
