@@ -1,9 +1,19 @@
 import FooterHead from '@/components/molecules/FooterHead';
 import FooterDisclosure from '@/components/molecules/FooterDisclosure';
 import FooterDoormat from '@/components/molecules/FooterDoormat';
+import { Footer as FooterProps } from './types';
 import styles from './Footer.module.scss';
 
-const Footer = ({ siteName, vatNumber, groupNumber, address, contactItems, footerNavigation }) => {
+type Props = FooterProps & React.HTMLAttributes<HTMLElement>;
+
+const Footer = ({
+  siteName,
+  vatNumber,
+  groupNumber,
+  address,
+  contactItems,
+  footerNavigation,
+}: Props) => {
   return (
     <footer className={styles['footer']}>
       <div className="sl-layout">
@@ -19,4 +29,4 @@ const Footer = ({ siteName, vatNumber, groupNumber, address, contactItems, foote
   );
 };
 
-export { Footer };
+export default Footer;

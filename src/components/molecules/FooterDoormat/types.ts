@@ -3,7 +3,7 @@ type Link = {
   link: string;
 };
 
-type FooterNavigation = {
+export type FooterNavigation = {
   title: string;
   navItems: Link[];
 };
