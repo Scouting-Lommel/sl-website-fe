@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import Title from '@/components/atoms/Title';
 import SLLink from '@/components/atoms/Link';
-import styles from './FooterDoormat.module.scss';
 import { FooterDoormat as FooterDoormatProps, DoormatCol as DoormatColProps } from './types';
+import styles from './FooterDoormat.module.scss';
 
 type DoormatProps = FooterDoormatProps & React.HTMLAttributes<HTMLElement>;
 type ColProps = DoormatColProps & React.HTMLAttributes<HTMLElement>;
@@ -39,7 +39,6 @@ const DoormatCol = ({ title, address, links }: ColProps) => {
 };
 
 const FooterDoormat = ({ address, contactItems, footerNavigation }: DoormatProps) => {
-  console.log(address);
   return (
     <div className={styles['footer-doormat']}>
       <div className={styles['footer-doormat__section']}>
