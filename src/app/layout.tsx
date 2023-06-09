@@ -3,7 +3,7 @@ import Header from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
 import Footer from '@/components/organisms/Footer';
 import { getGeneralData } from './api';
-import '@/assets/sass/index.scss';
+import '@/app/global.css';
 
 export async function generateMetadata() {
   const data = await getGeneralData();
