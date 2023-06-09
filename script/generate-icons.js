@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { argv } = require('yargs');
 
-const { inputFolder, outputFile } = argv;
+const inputFolder = './src/assets/icons/';
+const outputFile = './src/assets/icons/index.js';
 
 const generateIconsIndex = new Promise((resolve, reject) => {
   let fileContent = '';
@@ -74,8 +74,4 @@ function _init() {
     });
 }
 
-if (argv.inputFolder && argv.outputFile) {
-  _init();
-} else {
-  console.warn('No inputFolder of outputFile specified');
-}
+_init();
