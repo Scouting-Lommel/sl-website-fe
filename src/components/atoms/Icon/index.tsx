@@ -20,7 +20,7 @@ const Icon = ({ icon, size, title, className }: Props) => {
 
   return (
     <div className={classes}>
-      <TagName title={title} className={'icon__svg'} />
+      <TagName title={title} className="icon__svg" />
     </div>
   );
 };
