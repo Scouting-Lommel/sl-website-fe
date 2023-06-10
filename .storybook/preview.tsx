@@ -1,4 +1,5 @@
 import React from 'react';
+import '../src/app/global.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
