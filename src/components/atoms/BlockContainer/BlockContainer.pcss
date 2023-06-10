@@ -1,26 +1,23 @@
-@use '@/assets/sass/settings/' as *;
-@use '@/assets/sass/tools/' as tools;
-
 .block-container {
   position: relative;
-  padding-top: tools.rem(108);
-  padding-bottom: tools.rem(108);
-  background-color: $color-white;
+  padding-top: var(--space-104);
+  padding-bottom: var(--space-104);
+  background-color: var(--color-background);
 }
 
 .block-container__bg-image {
   position: absolute;
-  display: block;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  display: block;
   min-width: 100%;
   min-height: 100%;
 
   &--dark {
     overflow: hidden;
-    border-bottom-right-radius: tools.rem(180) tools.rem(64);
+    border-bottom-right-radius: var(--border-radius-container-sm);
 
     &::after {
       position: absolute;
@@ -28,26 +25,26 @@
       right: 0;
       bottom: 0;
       left: 0;
-      content: '';
-      background-color: $color-sage;
       overflow: hidden;
+      background-color: var(--color-background-theme);
+      content: '';
     }
 
-    @include tools.respond-from(large) {
-      border-bottom-right-radius: tools.rem(320) tools.rem(128);
+    @media (--mq-from-large) {
+      border-bottom-right-radius: var(--border-radius-container-lg);
     }
   }
 
   &--opaque {
     margin-right: 0;
-    border-bottom-right-radius: tools.rem(180) tools.rem(64);
+    border-bottom-right-radius: var(--border-radius-container-sm);
 
     &::after {
-      background-color: rgba($color-sage, 0.9);
+      background-color: var(--color-background-theme);
     }
 
-    @include tools.respond-from(large) {
-      border-bottom-right-radius: tools.rem(320) tools.rem(128);
+    @media (--mq-from-large) {
+      border-bottom-right-radius: border-var(--border-radius-container-lg);
     }
   }
 
@@ -62,7 +59,7 @@
 
 .block-container__cta {
   position: absolute;
-  z-index: $z-index-cta;
+  z-index: var(--z-index-cta);
   left: 50%;
 
   &--top {

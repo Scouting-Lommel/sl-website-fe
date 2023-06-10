@@ -19,5 +19,6 @@ export const Default = {
     variant: 'dark',
     orientation: 'default',
     slug: 'storybook',
+    children: 'Block content',
   },
 } satisfies Story;
