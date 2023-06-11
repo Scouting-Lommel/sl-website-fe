@@ -67,10 +67,10 @@ function clearAndUpper(text) {
 function _init() {
   generateIconsIndex
     .then(() => {
-      console.log('Icons successfully generated.');
+      console.log('> icons successfully generated.');
     })
     .catch((error) => {
-      console.error('Error: Something went wrong: ', { error });
+      console.error('> error: Something went wrong: ', { error });
     });
 }
 
