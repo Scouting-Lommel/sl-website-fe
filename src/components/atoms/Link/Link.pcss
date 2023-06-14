@@ -1,12 +1,9 @@
-@use '@/assets/sass/settings/' as *;
-@use '@/assets/sass/tools/' as tools;
-
 .link {
-  font-family: $font-family-text;
+  font-family: var(--font-family-body);
   text-decoration: none;
 
   &--link1 {
-    color: $color-black;
+    color: var(--color-foreground);
 
     &:hover,
     &:focus {
@@ -16,7 +13,7 @@
   }
 
   &--link2 {
-    color: $color-grey-medium;
+    color: var(--color-neutral-700);
 
     &:hover,
     &:focus {
@@ -26,7 +23,7 @@
   }
 
   &--link3 {
-    color: $color-primary;
+    color: var(--color-theme-primary);
 
     &:hover,
     &:focus {

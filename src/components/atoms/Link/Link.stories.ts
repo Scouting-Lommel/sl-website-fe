@@ -6,7 +6,7 @@ const meta = {
   component: Link,
   tags: ['autodocs'],
   argTypes: {
-    variant: { control: { type: 'select' }, options: ['link1', 'link2'] },
+    variant: { control: { type: 'select' }, options: ['link1', 'link2', 'link3'] },
   },
 } satisfies Meta<typeof Link>;
 

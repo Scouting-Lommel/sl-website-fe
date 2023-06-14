@@ -1,12 +1,16 @@
 import classNames from 'classnames';
 import NextLink from 'next/link';
 import { Link as LinkProps } from './types';
-import styles from './Link.module.scss';
+import styles from './Link.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = LinkProps & React.HTMLAttributes<HTMLElement>;
 
 const SLLink = ({ href, variant, children, className }: Props) => {
-  const linkClassnames = classNames([styles['link'], styles[`link--${variant}`], className]);
+  const linkClassnames = classNames('link', `link--${variant}`, className);
 
   let LinkComponent: typeof NextLink | 'a' = NextLink;
   if (typeof href === 'string' && href.startsWith('#')) {
