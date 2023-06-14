@@ -1,5 +1,9 @@
 module.exports = {
   plugins: {
+    '@csstools/postcss-global-data': { files: ['src/assets/styles/settings/media-queries.pcss'] },
+    'postcss-custom-media': {
+      preserve: true,
+    },
     'postcss-import': {},
     'postcss-nested': {},
     cssnano: {},
@@ -14,14 +18,8 @@ module.exports = {
         'postcss-nested': {},
       },
       features: {
-        'custom-properties': {
-          disableDeprecationNotice: true,
-        },
+        'custom-properties': {},
       },
-      importFrom: [
-        'src/assets/styles/settings/media-queries.pcss',
-        'src/assets/styles/global.pcss',
-      ],
     },
   },
 };
