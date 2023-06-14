@@ -18,12 +18,12 @@ const Button = ({
   children,
   ...props
 }: Props) => {
-  const buttonClassNames = classNames([
+  const buttonClassNames = classNames(
     'button',
     `button--${variant}`,
     modSmall && 'button--small',
     className,
-  ]);
+  );
 
   if (href) {
     return (

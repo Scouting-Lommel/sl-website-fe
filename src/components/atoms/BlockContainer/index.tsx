@@ -19,18 +19,18 @@ const BlockContainer = ({
   bgImage,
   children,
 }: Props) => {
-  const bgClassnames = classNames([
+  const bgClassnames = classNames(
     'block-container__bg-image',
     `block-container__bg-image--${variant}`,
     `block-container__bg-image--${orientation}`,
     bgImage && `block-container__bg-image--opaque`,
-  ]);
+  );
 
-  const ctaClassnames = classNames([
+  const ctaClassnames = classNames(
     'block-container__cta',
     socialsCta && 'block-container__cta--bottom',
     !socialsCta && 'block-container__cta--top',
-  ]);
+  );
 
   return (
     <section id={slug} className="block-container">
