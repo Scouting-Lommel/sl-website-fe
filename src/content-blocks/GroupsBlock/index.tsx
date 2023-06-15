@@ -1,5 +1,4 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Title from '@/components/atoms/Title';
 import Carousel from '@/components/organisms/Carousel';
 import { GroupsBlock as GroupsBlockProps } from './types';
 
@@ -14,7 +13,7 @@ const GroupsBlock = ({ title, groups, cta, blockProperties }: Props) => {
       cta={cta}
     >
       <section className="sl-layout">
-        <Title variant="h2" title={title} />
+        <h2>{title}</h2>
         <Carousel data={groups} />
       </section>
     </BlockContainer>

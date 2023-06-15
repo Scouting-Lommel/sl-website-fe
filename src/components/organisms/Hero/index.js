@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import Title from '@/components/atoms/Title';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import YearTheme from '@/components/molecules/YearTheme';
@@ -11,23 +10,16 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
 
   return (
     <div className={heroClassname}>
-      <Title
-        title={title}
-        variant="h1"
-        titleStyle={variant === 'simple' ? 'h1-alt' : 'h1'}
-        modLight={variant !== 'simple'}
-        modPrimary={variant === 'simple'}
-        modMarkup
-      />
+      <h1 className={variant === 'simple' ? 't-headline-1-alt' : 't-headline-1'}>
+        <Typography data={title} modNoStyle />
+      </h1>
 
       {subtitle && variant === 'simple' && (
         <Typography>
           <p>{subtitle}</p>
         </Typography>
       )}
-      {subtitle && variant !== 'simple' && (
-        <Title title={subtitle} tagName="p" titleStyle="h3" modAccent />
-      )}
+      {subtitle && variant !== 'simple' && <p className="t-headline-3">{subtitle}</p>}
 
       {callToAction?.length > 0 && (
         <div className={styles['hero__buttons']}>
