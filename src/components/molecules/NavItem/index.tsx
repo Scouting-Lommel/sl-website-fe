@@ -5,7 +5,11 @@ import { IconChevronDown } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
 import { NavItem as NavItemProps } from './types';
-import styles from './NavItem.module.scss';
+import styles from './NavItem.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = NavItemProps & React.HTMLAttributes<HTMLElement>;
 
@@ -28,41 +32,35 @@ const NavItem = ({
     setDropdownOpen(!dropdownOpen);
   };
 
-  const dropdownClassnames = classNames([
-    styles['nav-item__dropdown'],
-    dropdownOpen && styles['nav-item__dropdown--visible'],
-  ]);
+  const dropdownClassnames = classNames(
+    'nav-item__dropdown',
+    dropdownOpen && 'nav-item__dropdown--visible',
+  );
 
   if (modDropdown) {
     return (
-      <li className={classNames([styles['nav-item'], styles['nav-item__dropdown-trigger']])}>
+      <li className="nav-item nav-item__dropdown-trigger">
         <Link
           href={href}
-          className={classNames([
-            styles['nav-item__dropdown-trigger__link'],
-            styles['nav-item__dropdown-trigger__link--large'],
-          ])}
+          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--large"
         >
           {label}
           <Icon
             size="sm"
             icon={IconChevronDown}
-            className={styles['nav-item__dropdown-trigger__link__chevron']}
+            className="nav-item__dropdown-trigger__link__chevron"
             title="Chevron"
           />
         </Link>
         <button
-          className={classNames([
-            styles['nav-item__dropdown-trigger__link'],
-            styles['nav-item__dropdown-trigger__link--small'],
-          ])}
+          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--small"
           onClick={() => toggleDropdown()}
         >
           {label}
           <Icon
             size="sm"
             icon={IconChevronDown}
-            className={styles['nav-item__dropdown-trigger__link__chevron']}
+            className="nav-item__dropdown-trigger__link__chevron"
             title="Chevron"
           />
         </button>
@@ -86,15 +84,15 @@ const NavItem = ({
 
   if (modButton) {
     return (
-      <button onClick={onClick} className={styles['nav-item']}>
+      <button onClick={onClick} className="nav-item">
         {label}
       </button>
     );
   }
 
   return (
-    <li className={styles['nav-item']}>
-      <Link href={href} className={styles['nav-item__dropdown-trigger__link']}>
+    <li className="nav-item">
+      <Link href={href} className="nav-item__dropdown-trigger__link">
         {label}
       </Link>
     </li>

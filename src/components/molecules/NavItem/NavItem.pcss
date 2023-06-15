@@ -1,15 +1,12 @@
-@use '@/assets/sass/settings/' as *;
-@use '@/assets/sass/tools/' as tools;
-
 .nav-item {
-  margin: 0 tools.rem(12);
-  font-family: $font-family-title;
-  text-transform: uppercase;
-  font-weight: $font-weight-semibold;
-  text-decoration: none;
-  color: $color-black;
-  background-color: transparent;
   border: none;
+  margin: 0 var(--space-12);
+  background-color: transparent;
+  color: var(--color-foreground);
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  text-transform: uppercase;
 
   &:hover,
   &:focus,
@@ -20,7 +17,7 @@
 }
 
 .nav-item__dropdown-trigger {
-  @include tools.respond-from(large) {
+  @media (--mq-from-large) {
     &:hover,
     &:focus,
     &:focus-within {
@@ -33,10 +30,10 @@
 
 .nav-item__dropdown-trigger__link {
   display: block;
-  padding: tools.rem(24) tools.rem(12);
   align-items: center;
+  padding: var(--space-24) var(--space-12);
+  color: var(--color-foreground);
   text-decoration: none;
-  color: $color-black;
 
   &:hover,
   &:focus {
@@ -48,16 +45,16 @@
     display: flex;
     border: none;
     background-color: transparent;
-    text-transform: uppercase;
-    font-weight: $font-weight-semibold;
     cursor: pointer;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
   }
 
   &--large {
     display: none;
   }
 
-  @include tools.respond-from(large) {
+  @media (--mq-from-large) {
     &--small {
       display: none;
     }
@@ -69,31 +66,31 @@
 }
 
 .nav-item__dropdown-trigger__link__chevron {
-  margin-left: tools.rem(6);
+  margin-left: var(--space-4);
   transform: rotate(-90deg);
 
-  @include tools.respond-from(large) {
+  @media (--mq-from-large) {
     transform: rotate(0);
   }
 }
 
 .nav-item__dropdown {
   position: absolute;
-  overflow: auto;
-  max-height: calc(100vh - tools.rem(72));
-  display: none;
-  padding-top: tools.rem(22);
-  top: tools.rem(48);
+  top: var(--space-48);
   left: 0;
+  display: none;
+  overflow: auto;
   width: 100%;
+  max-height: calc(100vh - 4.5rem);
+  padding-top: space-var(--space-20);
 
-  @include tools.respond-up-to(large) {
+  @media (--mq-up-to-large) {
     &--visible {
       display: flex;
     }
   }
 
-  @include tools.respond-from(large) {
-    z-index: $z-index-nav-dropdown;
+  @media (--mq-from-large) {
+    z-index: var(--z-index-nav-dropdown);
   }
 }
