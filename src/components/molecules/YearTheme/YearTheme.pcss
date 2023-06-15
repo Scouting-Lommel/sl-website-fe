@@ -1,0 +1,22 @@
+.year-theme {
+  overflow: hidden;
+  width: fit-content;
+  border-radius: var(--border-radius);
+  box-shadow: var(--drop-shadow-lg);
+}
+
+.year-theme__image {
+  width: tools.rem(156);
+
+  @media (--mq-from-medium) {
+    width: 10rem;
+  }
+
+  @media (--mq-from-large) {
+    width: 12rem;
+  }
+
+  @media (--mq-from-xlarge) {
+    width: 14rem;
+  }
+}
