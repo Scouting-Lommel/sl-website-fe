@@ -1,38 +1,35 @@
-@use '@/assets/sass/settings/' as *;
-@use '@/assets/sass/tools/' as tools;
-
 .navigation {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
-  padding: tools.rem(12) 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-12) 0;
   padding: 0;
 
-  @include tools.respond-from(large) {
+  @media (--mq-from-large) {
     flex-direction: row;
   }
 }
 
 .navigation__wrapper {
   position: fixed;
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  width: 100vw;
-  background-color: $color-white;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  width: 100vw;
+  min-height: 100vh;
+  align-items: center;
+  background-color: var(--color-white);
 
-  @include tools.respond-from(large) {
+  @media (--mq-from-large) {
     position: static;
     display: block;
+    width: 100%;
     height: fit-content;
     min-height: 0;
-    width: 100%;
   }
 }
 
@@ -42,7 +39,7 @@
   align-items: center;
   list-style-type: none;
 
-  @include tools.respond-from(large) {
+  @media (--mq-from-large) {
     flex-direction: row;
   }
 }

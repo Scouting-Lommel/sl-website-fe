@@ -2,15 +2,19 @@
 
 import NavItem from '@/components/molecules/NavItem';
 import { Navigation as NavigationProps } from './types';
-import styles from './Navigation.module.scss';
+import styles from './Navigation.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = NavigationProps & React.HTMLAttributes<HTMLElement>;
 
 const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
   return (
-    <nav className={styles['navigation__wrapper']}>
-      <ul className={styles['navigation']}>
-        <span className={styles['navigation__list']}>
+    <nav className="navigation__wrapper">
+      <ul className="navigation">
+        <span className="navigation__list">
           {navItems.map((navItem, i) => {
             const dropdownBtn = navItem.dropdownButton
               ? {
