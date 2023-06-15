@@ -1,10 +1,14 @@
-import classNames from 'classnames';
-import SLLink from '@/components/atoms/Link';
-import { SocialsCta as SocialsCtaProps } from './types';
-import styles from './SocialsCta.module.scss';
-import { IconFacebook, IconInstagram, IconTikTok } from '@/assets/icons';
-import Icon from '@/components/atoms/Icon';
 import { ComponentType } from 'react';
+import classNames from 'classnames';
+import { IconFacebook, IconInstagram, IconTikTok } from '@/assets/icons';
+import SLLink from '@/components/atoms/Link';
+import Icon from '@/components/atoms/Icon';
+import { SocialsCta as SocialsCtaProps } from './types';
+import styles from './SocialsCta.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = SocialsCtaProps & React.HTMLAttributes<HTMLElement>;
 
@@ -19,23 +23,23 @@ const SocialsCta = ({ title, socialItems, className }: Props) => {
   };
 
   return (
-    <div className={classNames([styles['socials-cta'], className])}>
-      <div className={styles['socials-cta__copy']}>
-        <div className={styles['socials-cta__copy__title']}>{title}</div>
+    <div className={classNames('socials-cta', className)}>
+      <div className="socials-cta__copy">
+        <div className="socials-cta__copy__title">{title}</div>
       </div>
-      <div className={styles['socials-cta__socials']}>
+      <div className="socials-cta__socials">
         {socialItems?.map((item, i) => {
           return (
             <SLLink
               key={i}
               href={item.link}
-              className={styles['socials-cta__socials__item']}
+              className="socials-cta__socials__item"
               variant={'link1'}
             >
               <Icon
                 title={item.title}
                 icon={icons[item.icon]}
-                className={styles['socials-cta__socials__item__icon']}
+                className="socials-cta__socials__item__icon"
                 size="lg"
               />
             </SLLink>
