@@ -5,8 +5,8 @@
   padding: var(--space-12) var(--space-24);
   border: none;
   border-radius: var(--border-radius-btn);
-  box-shadow: var(--drop-shadow-sm);
   color: var(--color-foreground);
+  filter: drop-shadow(var(--drop-shadow-sm));
   font-size: 0.625rem;
   text-decoration: none;
   transition: background-color var(--transition);
@@ -14,8 +14,8 @@
   transition: transform var(--transition);
 
   &:hover {
-    box-shadow: var(--drop-shadow-md);
     cursor: pointer;
+    filter: drop-shadow(var(--drop-shadow-md));
     transform: translate(0.0625rem, 0.0625rem);
   }
 
