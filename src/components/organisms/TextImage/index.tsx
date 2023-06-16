@@ -1,6 +1,6 @@
 // import { Markup } from "interweave";
 
-const ImageText = ({ title, content, images, ctaButton }) => {
+const ImageText = () => {
   return <>Text Image</>;
 };
 
