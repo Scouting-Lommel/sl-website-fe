@@ -1,13 +1,18 @@
 import { BackgroundImage } from '@/components/atoms/BlockContainer/types';
-import { CallToAction } from '@/components/molecules/CallToAction/types';
+import { Button } from '@/components/atoms/Button/types';
+
 import { YearTheme } from '@/components/molecules/YearTheme/types';
+
+type YearThemeData = {
+  data: { attributes: YearTheme };
+};
 
 export type HeroBlock = {
   title: string;
   subtitle: string;
   variant: 'default' | 'simple' | 'large';
-  callToAction?: CallToAction;
+  callToAction?: Button[];
   socialsCta?: { title: string; socialItems: { data: any } };
-  yearTheme?: YearTheme;
+  yearTheme?: YearThemeData;
   bgImage?: { data: { attributes: BackgroundImage } };
 };

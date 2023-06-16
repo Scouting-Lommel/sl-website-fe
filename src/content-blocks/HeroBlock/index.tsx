@@ -34,7 +34,7 @@ const HeroBlock = ({
         subtitle={subtitle}
         variant={variant}
         callToAction={callToAction}
-        yearTheme={yearTheme}
+        yearTheme={yearTheme?.data?.attributes}
         className="sl-layout"
       />
     </BlockContainer>

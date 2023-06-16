@@ -1,11 +1,13 @@
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import YearTheme from '@/components/molecules/YearTheme';
+import { Hero as HeroProps } from './types';
 import styles from './Hero.module.scss';
 
-const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) => {
+type Props = HeroProps & React.HTMLAttributes<HTMLElement>;
+
+const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }: Props) => {
   const heroClassname = classNames([styles['hero'], styles[`hero--${variant}`], className]);
 
   return (
@@ -21,7 +23,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
       )}
       {subtitle && variant !== 'simple' && <p className="t-headline-3">{subtitle}</p>}
 
-      {callToAction?.length > 0 && (
+      {callToAction && callToAction?.length > 0 && (
         <div className={styles['hero__buttons']}>
           {callToAction.map((cta, key) => {
             return <Button key={key} label={cta.label} href={cta.link} variant={cta.variant} />;
@@ -29,24 +31,11 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }) 
         </div>
       )}
 
-      {yearTheme?.data && (
-        <YearTheme
-          image={yearTheme.data.attributes.image.data.attributes}
-          className={styles['hero__year-theme']}
-        />
+      {yearTheme && (
+        <YearTheme image={yearTheme.image.data.attributes} className={styles['hero__year-theme']} />
       )}
     </div>
   );
-};
-
-Hero.proptypes = {
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'large', 'simple']),
-  callToAction: PropTypes.arrayOf(
-    PropTypes.shape({ variant: PropTypes.string, label: PropTypes.string, link: PropTypes.string }),
-  ),
-  yearTheme: PropTypes.object,
 };
 
 export default Hero;
