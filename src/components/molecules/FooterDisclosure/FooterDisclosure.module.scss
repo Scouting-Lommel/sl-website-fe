@@ -1,9 +1,0 @@
-@use '@/assets/sass/settings/' as *;
-@use '@/assets/sass/tools/' as tools;
-
-.footer-disclosure {
-  padding: tools.rem(12) 0;
-  border-top: tools.rem(1) solid $color-grey-light;
-  font-family: $font-family-title;
-  font-size: tools.rem(14);
-}
