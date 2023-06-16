@@ -12,7 +12,12 @@ const ImageTextBlock = ({ title, content, images, ctaButton, blockProperties }: 
       slug={blockProperties?.slug}
     >
       <section className="sl-layout">
-        <TextImage title={title} content={content} images={images} ctaButton={ctaButton} />
+        <TextImage
+          title={title}
+          content={content}
+          images={images?.data?.attributes}
+          ctaButton={ctaButton}
+        />
       </section>
     </BlockContainer>
   );
