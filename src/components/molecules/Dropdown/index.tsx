@@ -1,11 +1,14 @@
-import classNames from 'classnames';
 import { IconChevronDown } from '@/assets/icons';
 import DropdownItem from '@/components/atoms/DropdownItem';
 import Icon from '@/components/atoms/Icon';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import { Dropdown as DropdownProps, DropdownNavItem } from './types';
-import styles from './Dropdown.module.scss';
+import styles from './Dropdown.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = DropdownProps & React.HTMLAttributes<HTMLElement>;
 
@@ -28,27 +31,25 @@ const Dropdown = ({
   }
 
   return (
-    <span className={styles['dropdown__wrapper']}>
-      <div className={styles['dropdown']}>
-        <div className={classNames([styles['dropdown__content'], 'sl-layout'])}>
+    <span className="dropdown__wrapper">
+      <div className="dropdown">
+        <div className="dropdown__content sl-layout">
           <Button
             variant="link1"
             onClick={() => toggleDropdown()}
-            className={styles['dropdown__content__back-button']}
+            className="dropdown__content__back-button"
           >
             <Icon
               icon={IconChevronDown}
-              className={styles['dropdown__content__back-button__chevron']}
+              className="dropdown__content__back-button__chevron"
               size="xs"
               title="Collapse"
             />
             Terug
           </Button>
-          <div className={styles['dropdown__nav']}>
-            <p className={classNames(styles['dropdown__nav__title'], 't-headline-2')}>
-              {dropdownTitle}
-            </p>
-            <ul className={styles['dropdown__nav__list']}>
+          <div className="dropdown__nav">
+            <p className="dropdown__nav__title t-headline-2">{dropdownTitle}</p>
+            <ul className="dropdown__nav__list">
               {dropdownItems.map((item, i) => {
                 const dropdownItem = navItem.find(
                   (el) => el.slug === item.page.replace(new RegExp('_', 'g'), '-'),
@@ -69,19 +70,17 @@ const Dropdown = ({
               label={dropdownButton.label}
               href={dropdownButton.href}
               modSmall
-              className={styles['dropdown__nav__button']}
+              className="dropdown__nav__button"
             />
           </div>
-          <div className={styles['dropdown__cta']}>
-            <p className={classNames(styles['dropdown__cta__title'], 't-headline-2')}>
-              {dropdownCta.title}
-            </p>
-            <Typography data={dropdownCta.intro} className={styles['dropdown__cta__intro']} />
+          <div className="dropdown__cta">
+            <p className="dropdown__cta__title t-headline-2">{dropdownCta.title}</p>
+            <Typography data={dropdownCta.intro} className="dropdown__cta__intro" />
             <Button
               label={dropdownCta.ctaLabel}
               href={dropdownCta.ctaLink}
               modSmall
-              className={styles['dropdown__cta__button']}
+              className="dropdown__cta__button"
             />
           </div>
         </div>
