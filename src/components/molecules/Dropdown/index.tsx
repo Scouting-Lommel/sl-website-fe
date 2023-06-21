@@ -75,7 +75,7 @@ const Dropdown = ({
           </div>
           <div className="dropdown__cta">
             <p className="dropdown__cta__title t-headline-2">{dropdownCta.title}</p>
-            <Typography data={dropdownCta.intro} className="dropdown__cta__intro" />
+            <Typography data={dropdownCta.intro} className="dropdown__cta__intro" modNoStyle />
             <Button
               label={dropdownCta.ctaLabel}
               href={dropdownCta.ctaLink}

@@ -14,7 +14,7 @@ const DropdownItem = ({ title, description, href }: Props) => {
     <li>
       <Link href={href} className="dropdown-item">
         <div className="dropdown-item__title">{title}</div>
-        <Typography data={description} className="dropdown-item__description" />
+        <Typography data={description} className="dropdown-item__description" modNoStyle />
       </Link>
     </li>
   );
