@@ -1,0 +1,278 @@
+const ColorPalette = () => {
+  return (
+    <section className="sb-col-page">
+      <div className="sb-section">
+        <h2 className="sb-heading__2">Primary</h2>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#080b09' }}></div>
+            <div className="sb-list__item__title">900</div>
+          </div>
+          <div className="sb-code">#080b09</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#1f2c24' }}></div>
+            <div className="sb-list__item__title">800</div>
+          </div>
+          <div className="sb-code">#1f2c24</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#364d3f' }}></div>
+            <div className="sb-list__item__title">700</div>
+          </div>
+          <div className="sb-code">#364d3f</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#4d6e5a' }}></div>
+            <div className="sb-list__item__title">600 (base)</div>
+          </div>
+          <div className="sb-code">#4d6e5a</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div
+              className="sb-color-swatch"
+              style={{ backgroundColor: 'rgba(77, 110, 90, 0.9)' }}
+            ></div>
+            <div className="sb-list__item__title">600 (a90)</div>
+          </div>
+          <div className="sb-code">rgba(77, 110, 90, 0.9)</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#5f7d6b' }}></div>
+            <div className="sb-list__item__title">500</div>
+          </div>
+          <div className="sb-code">#5f7d6b</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#829a8c' }}></div>
+            <div className="sb-list__item__title">400</div>
+          </div>
+          <div className="sb-code">#829a8c</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#a6b7ad' }}></div>
+            <div className="sb-list__item__title">300</div>
+          </div>
+          <div className="sb-code">#a6b7ad</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#cad4ce' }}></div>
+            <div className="sb-list__item__title">200</div>
+          </div>
+          <div className="sb-code">#cad4ce</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#edf1ef' }}></div>
+            <div className="sb-list__item__title">100</div>
+          </div>
+          <div className="sb-code">#edf1ef</div>
+        </div>
+      </div>
+
+      <div className="sb-section">
+        <h2 className="sb-heading__2">Secondary</h2>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#181207' }}></div>
+            <div className="sb-list__item__title">900</div>
+          </div>
+          <div className="sb-code">#181207</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#5f4a1a' }}></div>
+            <div className="sb-list__item__title">800</div>
+          </div>
+          <div className="sb-code">#5f4a1a</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#a6822e' }}></div>
+            <div className="sb-list__item__title">700</div>
+          </div>
+          <div className="sb-code">#a6822e</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#edb942' }}></div>
+            <div className="sb-list__item__title">600 (base)</div>
+          </div>
+          <div className="sb-code">#edb942</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#efc055' }}></div>
+            <div className="sb-list__item__title">500</div>
+          </div>
+          <div className="sb-code">#efc055</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#f2ce7b' }}></div>
+            <div className="sb-list__item__title">400</div>
+          </div>
+          <div className="sb-code">#9887DE</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#f6dca1' }}></div>
+            <div className="sb-list__item__title">300</div>
+          </div>
+          <div className="sb-code">#f6dca1</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#faeac6' }}></div>
+            <div className="sb-list__item__title">200</div>
+          </div>
+          <div className="sb-code">#E4DFF6</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#fdf8ec' }}></div>
+            <div className="sb-list__item__title">100</div>
+          </div>
+          <div className="sb-code">#fdf8ec</div>
+        </div>
+      </div>
+
+      <div className="sb-section">
+        <h2 className="sb-heading__2">Neutral</h2>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#0d0d0d' }}></div>
+            <div className="sb-list__item__title">900</div>
+          </div>
+          <div className="sb-code">#0d0d0d</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#343434' }}></div>
+            <div className="sb-list__item__title">800</div>
+          </div>
+          <div className="sb-code">#343434</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#5a5a5a' }}></div>
+            <div className="sb-list__item__title">700</div>
+          </div>
+          <div className="sb-code">#5a5a5a</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#818181' }}></div>
+            <div className="sb-list__item__title">600</div>
+          </div>
+          <div className="sb-code">#818181</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#8e8e8e' }}></div>
+            <div className="sb-list__item__title">500</div>
+          </div>
+          <div className="sb-code">#8e8e8e</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#a7a7a7' }}></div>
+            <div className="sb-list__item__title">400</div>
+          </div>
+          <div className="sb-code">#a7a7a7</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#c0c0c0' }}></div>
+            <div className="sb-list__item__title">300</div>
+          </div>
+          <div className="sb-code">#c0c0c0</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#d9d9d9' }}></div>
+            <div className="sb-list__item__title">200</div>
+          </div>
+          <div className="sb-code">#d9d9d9</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div
+              className="sb-color-swatch"
+              style={{ backgroundColor: 'rgba(217, 217, 217, 0.6)' }}
+            ></div>
+            <div className="sb-list__item__title">200 (a60)</div>
+          </div>
+          <div className="sb-code">rgba(217, 217, 217, 0.6)</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#f2f2f2' }}></div>
+            <div className="sb-list__item__title">100</div>
+          </div>
+          <div className="sb-code">#f2f2f2</div>
+        </div>
+      </div>
+
+      <div className="sb-section">
+        <h2 className="sb-heading__2">Whites</h2>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-color-swatch" style={{ backgroundColor: '#ffffff' }}></div>
+            <div className="sb-list__item__title">White</div>
+          </div>
+          <div className="sb-code">#ffffff</div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ColorStory = {
+  title: '2 Styling principles / 2.2 Colors',
+  component: ColorPalette,
+};
+
+export default ColorStory;
+
+const Template = () => <ColorPalette />;
+
+export const Overview = Template.bind({});

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../src/app/global.css';
+import './storybook.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
