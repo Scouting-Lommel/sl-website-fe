@@ -1,6 +1,0 @@
-@use '@/assets/sass/settings/' as *;
-@use '@/assets/sass/tools/' as tools;
-
-.sl-main {
-  min-height: calc(100vh - tools.rem(520));
-}
