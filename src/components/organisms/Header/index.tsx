@@ -1,3 +1,5 @@
+// TODO: Rewrite entire navigation to be more accessible
+
 'use client';
 
 import Link from 'next/link';
