@@ -1,5 +1,7 @@
-const ColorPalette = () => {
-  return (
+import { Meta } from '@storybook/blocks';
+
+<Meta title="2. Styling principles / 2.2 Colors" />
+
     <section className="sb-col-page">
       <div className="sb-section">
         <h2 className="sb-heading__2">Primary</h2>
@@ -263,16 +265,3 @@ const ColorPalette = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const ColorStory = {
-  title: '2 Styling principles / 2.2 Colors',
-  component: ColorPalette,
-};
-
-export default ColorStory;
-
-const Template = () => <ColorPalette />;
-
-export const Overview = Template.bind({});

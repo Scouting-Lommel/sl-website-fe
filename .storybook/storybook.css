@@ -8,15 +8,16 @@
 
 .sb-col-page {
   display: grid;
+  column-gap: 2rem;
   grid-template-columns: 1fr;
+  row-gap: 4rem;
 
   @media (--mq-from-medium) {
-    gap: 2rem;
     grid-template-columns: 1fr 1fr;
   }
-  @media (--mq-from-xlarge) {
-    gap: 4rem;
-    grid-template-columns: 1fr 1fr 1fr;
+  @media (--mq-from-large) {
+    column-gap: 4rem;
+    row-gap: 6rem;
   }
 }
 
@@ -60,6 +61,7 @@
 .sb-list__item__cell {
   display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .sb-list__item__title {
