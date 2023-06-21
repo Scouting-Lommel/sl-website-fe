@@ -13,42 +13,79 @@ import { Meta } from '@storybook/blocks';
 
 ### Title
 
-Montserrat => `$font-family-title`
+Montserrat => `--font-family-title`
 
 ```css
-$font-family-title: 'Montserrat', sans-serif;
+--font-family-title: 'Montserrat', sans-serif;
 ```
 
 ### Text
 
-Nunito Sans => `$font-family-text`
+Nunito Sans => `--font-family-text`
 
 ```css
-$font-family-text: 'Nunito Sans', sans-serif;
+--font-family-text: 'Nunito Sans', sans-serif;
 ```
 
 ## Weights
 
 ```css
-$font-weight-extralight: 200;
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-semibold: 600;
-$font-weight-bold: 700;
-$font-weight-extra-bold: 800;
-$font-weight-black: 900;
+--font-weight-extra-light: 200;
+--font-weight-light: 300;
+--font-weight-normal: 400;
+--font-weight-medium: 500;
+--font-weight-semibold: 600;
+--font-weight-bold: 700;
+--font-weight-extra-bold: 800;
+--font-weight-black: 900;
 ```
 
-## Sizes
+## Utilities
 
-```css
-$font-size-large: tools.rem(22);
-$font-size-medium: tools.rem(20);
-$font-size-small: tools.rem(16);
+### Headlines
+
+- `t-headline-1`
+- `t-headline-1--alt`
+- `t-headline-2`
+- `t-headline-3`
+
+```html
+<div class="t-headline-1">Lorem ipsum</div>
 ```
 
-## Letter spacing
+### Body
 
-```css
-$letter-spacing-uppercase: 0.05em;
+- `t-body`
+- `t-body-lead`
+
+```html
+<div class="t-body">Lorem ipsum</div>
+```
+
+### Text
+
+- `t-uppercase`
+
+```html
+<div class="t-uppercase">Lorem ipsum</div>
+```
+
+### Weight
+
+- `t-weight-normal`
+- `t-weight-medium`
+- `t-weight-bold`
+
+```html
+<div class="t-bold">Lorem ipsum</div>
+```
+
+### Align
+
+- `t-align-left`
+- `t-align-center`
+- `t-align-right`
+
+```html
+<div class="t-align-center">Lorem ipsum</div>
 ```
