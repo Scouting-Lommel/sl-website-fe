@@ -2,11 +2,10 @@ import { Meta } from '@storybook/blocks';
 
 <Meta title="2 Styling principles / 2.1 Typography" />
 
-## Fonts
+<div className="sb-section">
+    <h2 className="sb-heading__2" id="fonts">Fonts</h2>
 
-<br />
-
-### Title
+    <h3 className="sb-heading__3">Title</h3>
 
 Montserrat => `--font-family-title`
 
@@ -14,7 +13,7 @@ Montserrat => `--font-family-title`
 --font-family-title: 'Montserrat', sans-serif;
 ```
 
-### Text
+    <h3 className="sb-heading__3">Text</h3>
 
 Nunito Sans => `--font-family-text`
 
@@ -22,8 +21,11 @@ Nunito Sans => `--font-family-text`
 --font-family-text: 'Nunito Sans', sans-serif;
 ```
 
-## Weights
+</div>
 
+<div className="sb-section">
+    <h2 className="sb-heading__2" id="weights">Weights</h2>
+    
 ```css
 --font-weight-extra-light: 200;
 --font-weight-light: 300;
@@ -35,9 +37,12 @@ Nunito Sans => `--font-family-text`
 --font-weight-black: 900;
 ```
 
-## Utilities
+</div>
 
-### Headlines
+<div className="sb-section">
+    <h2 className="sb-heading__2" id="utilities">Utilities</h2>
+
+    <h3 className="sb-heading__3">Headlines</h3>
 
 - `t-headline-1`
 - `t-headline-1--alt`
@@ -48,7 +53,7 @@ Nunito Sans => `--font-family-text`
 <div class="t-headline-1">Lorem ipsum</div>
 ```
 
-### Body
+    <h3 className="sb-heading__3">Body</h3>
 
 - `t-body`
 - `t-body-lead`
@@ -57,7 +62,7 @@ Nunito Sans => `--font-family-text`
 <div class="t-body">Lorem ipsum</div>
 ```
 
-### Text
+    <h3 className="sb-heading__3">Text</h3>
 
 - `t-uppercase`
 
@@ -65,7 +70,7 @@ Nunito Sans => `--font-family-text`
 <div class="t-uppercase">Lorem ipsum</div>
 ```
 
-### Weight
+    <h3 className="sb-heading__3">Weight</h3>
 
 - `t-weight-normal`
 - `t-weight-medium`
@@ -75,7 +80,7 @@ Nunito Sans => `--font-family-text`
 <div class="t-bold">Lorem ipsum</div>
 ```
 
-### Align
+    <h3 className="sb-heading__3">Align</h3>
 
 - `t-align-left`
 - `t-align-center`
@@ -84,3 +89,5 @@ Nunito Sans => `--font-family-text`
 ```html
 <div class="t-align-center">Lorem ipsum</div>
 ```
+
+</div>
