@@ -1,0 +1,32 @@
+body,
+.t-body,
+.t-body-lead {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-normal);
+  letter-spacing: normal;
+}
+
+body,
+.t-body {
+  font-size: 1rem;
+
+  @media (--mq-from-small) {
+    font-size: 1.125rem;
+  }
+
+  @media (--mq-from-large) {
+    font-size: 1.25rem;
+  }
+}
+
+.t-body-lead {
+  font-size: 1.125rem;
+
+  @media (--mq-from-small) {
+    font-size: 1.25rem;
+  }
+
+  @media (--mq-from-large) {
+    font-size: 1.375rem;
+  }
+}

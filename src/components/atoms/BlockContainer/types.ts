@@ -1,7 +1,7 @@
 import { SocialsCta } from '@/components/molecules/SocialsCta/types';
 import { CallToAction } from '@/components/molecules/CallToAction/types';
 
-type BackgroundImage = {
+export type BackgroundImage = {
   alternativeText: string;
   url: string;
 };

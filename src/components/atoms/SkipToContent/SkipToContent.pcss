@@ -1,0 +1,19 @@
+.skip-to-content {
+  padding: 1rem 3rem;
+  border: 0.1875rem solid var(--color-white);
+  background: var(--color-theme-primary);
+  border-radius: var(--border-radius);
+  color: var(--color-white);
+  font-family: var(--font-family-title);
+  font-weight: var(--font-weight-bold);
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform var(--transition);
+
+  &:focus {
+    z-index: var(--z-index-skip-to-content);
+    outline: 0.1875rem solid var(--color-theme-primary);
+    outline-offset: -0.0625rem;
+  }
+}

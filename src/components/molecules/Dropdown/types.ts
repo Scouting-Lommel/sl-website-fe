@@ -1,7 +1,18 @@
-import type { DropdownItem } from '@/components/atoms/DropdownItem/types';
 import type { Button } from '@/components/atoms/Button/types';
 
-type DropdownCta = {
+export type DropdownNavItem = {
+  name: string;
+  description: string;
+  slug: string;
+};
+
+export type DropdownItem = {
+  label: string;
+  page: string;
+  link: string | null;
+};
+
+export type DropdownCta = {
   title: string;
   intro: string;
   ctaLabel: string;
@@ -14,5 +25,7 @@ export type Dropdown = {
   dropdownButton: Button;
   dropdownCta: DropdownCta;
   dropdownItems: DropdownItem[];
+  groups: DropdownNavItem[];
+  rentalLocations: DropdownNavItem[];
   toggleDropdown: Function;
 };

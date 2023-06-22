@@ -1,7 +1,13 @@
+'use client';
+
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Image as ImageProps } from './types';
-import styles from './Image.module.scss';
+import styles from './Image.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = ImageProps & React.HTMLAttributes<HTMLElement>;
 
@@ -9,11 +15,11 @@ const SLImage = ({ data, loadingStrategy = 'lazy', className }: Props) => {
   const imageRef = useRef<any>(null);
   const [imgLoaded, setImgLoaded] = useState(false);
 
-  const imageClassNames = classNames([
-    styles['image'],
-    loadingStrategy === 'lazy' && !imgLoaded && styles['image--lazy'],
+  const imageClassNames = classNames(
+    'image',
+    loadingStrategy === 'lazy' && !imgLoaded && 'image--lazy',
     className,
-  ]);
+  );
 
   const imageLoad = () => {
     if (imageRef.current) setImgLoaded(imageRef.current.complete);
@@ -32,7 +38,7 @@ const SLImage = ({ data, loadingStrategy = 'lazy', className }: Props) => {
       <picture className={imageClassNames}>
         <img
           ref={imageRef}
-          className={styles['image__img']}
+          className="image__img"
           alt={data?.alternativeText}
           src={data?.url}
           loading={loadingStrategy}
@@ -49,7 +55,7 @@ const SLImage = ({ data, loadingStrategy = 'lazy', className }: Props) => {
       <source media="(max-width: 1024px)" srcSet={data?.formats.large.url} />
       <img
         ref={imageRef}
-        className={styles['image__img']}
+        className="image__img"
         alt={data?.alternativeText}
         src={data?.url}
         srcSet={data?.url}

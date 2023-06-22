@@ -1,0 +1,55 @@
+fragment HeroBlockFragment on ComponentContentBlocksHeroBlock {
+  title
+  subtitle
+  variant
+  callToAction {
+    label
+    link
+    variant
+  }
+  socialsCta {
+    title
+    socialItems {
+      data {
+        attributes {
+          title
+          link
+          icon
+        }
+      }
+    }
+  }
+  yearTheme {
+    data {
+      attributes {
+        title
+        image {
+          data {
+            attributes {
+              name
+              width
+              height
+              url
+              alternativeText
+              caption
+              formats
+            }
+          }
+        }
+      }
+    }
+  }
+  bgImage {
+    data {
+      attributes {
+        name
+        width
+        height
+        url
+        alternativeText
+        caption
+        formats
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const { argv } = require('yargs');
 
-const { inputFolder, outputFile } = argv;
+const inputFolder = './src/assets/icons/';
+const outputFile = './src/assets/icons/index.js';
 
 const generateIconsIndex = new Promise((resolve, reject) => {
   let fileContent = '';
@@ -67,15 +67,11 @@ function clearAndUpper(text) {
 function _init() {
   generateIconsIndex
     .then(() => {
-      console.log('Icons successfully generated.');
+      console.log('> icons successfully generated.');
     })
     .catch((error) => {
-      console.error('Error: Something went wrong: ', { error });
+      console.error('> error: Something went wrong: ', { error });
     });
 }
 
-if (argv.inputFolder && argv.outputFile) {
-  _init();
-} else {
-  console.warn('No inputFolder of outputFile specified');
-}
+_init();

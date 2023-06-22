@@ -1,11 +1,15 @@
 import classNames from 'classnames';
 import { Icon as IconProps } from './types';
-import styles from './Icon.module.scss';
+import styles from './Icon.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = IconProps & React.HTMLAttributes<HTMLElement>;
 
 const Icon = ({ icon, size, title, className }: Props) => {
-  const classes = classNames([styles['icon'], styles[`icon--${size}`], className]);
+  const classes = classNames('icon', `icon--${size}`, className);
 
   if (!icon) {
     console.warn('Error: `icon` in <Icon /> is not defined.');
@@ -16,7 +20,7 @@ const Icon = ({ icon, size, title, className }: Props) => {
 
   return (
     <div className={classes}>
-      <TagName title={title} className={styles['icon__svg']} />
+      <TagName title={title} className="icon__svg" />
     </div>
   );
 };

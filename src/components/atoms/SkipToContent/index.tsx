@@ -1,16 +1,18 @@
-import useTranslation from 'next-translate/useTranslation';
-import styles from './SkipToContent.module.scss';
 import classNames from 'classnames';
+import styles from './SkipToContent.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = React.HTMLAttributes<HTMLElement>;
 
 const SkipToContent = ({ className }: Props) => {
-  const { t } = useTranslation('common');
-  const classes = classNames([styles['skip-to-content'], className]);
+  const classes = classNames('skip-to-content', className);
 
   return (
     <a href="#main" className={classes}>
-      {t('Navigation.SkipToContent')}
+      Spring naar inhoud
     </a>
   );
 };

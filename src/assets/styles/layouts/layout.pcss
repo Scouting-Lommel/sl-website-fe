@@ -1,0 +1,23 @@
+.sl-layout {
+  max-width: 100rem;
+  padding: 0 var(--space-20);
+  margin: 0 auto;
+
+  .sl-layout {
+    padding: 0;
+  }
+
+  @media (--mq-from-large) {
+    padding: 0 var(--space-40);
+  }
+
+  &--narrow {
+    max-width: 80rem;
+    padding: 0 var(--space-20);
+    margin: 0 auto;
+
+    @media (--mq-from-large) {
+      padding: 0 var(--space-40);
+    }
+  }
+}

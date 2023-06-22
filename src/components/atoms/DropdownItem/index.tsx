@@ -1,26 +1,23 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Typography from '@/components/atoms/Typography';
 import { DropdownItem as DropdownItemProps } from './types';
-import styles from './DropdownItem.module.scss';
+import styles from './DropdownItem.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = DropdownItemProps & React.HTMLAttributes<HTMLElement>;
 
 const DropdownItem = ({ title, description, href }: Props) => {
   return (
     <li>
-      <Link href={href} className={styles['dropdown-item']}>
-        <div className={styles['dropdown-item__title']}>{title}</div>
-        <Typography data={description} className={styles['dropdown-item__description']} />
+      <Link href={href} className="dropdown-item">
+        <div className="dropdown-item__title">{title}</div>
+        <Typography data={description} className="dropdown-item__description" modNoStyle />
       </Link>
     </li>
   );
-};
-
-DropdownItem.proptypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  href: PropTypes.string,
 };
 
 export default DropdownItem;

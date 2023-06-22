@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="2. Styling / 2.3 Elevation" />
+
+      <div className="sb-section">
+        <h2 className="sb-heading__2" id="shadows">Shadows</h2>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-shadow-swatch" style={{ backgroundColor: 'white', filter: 'drop-shadow(0 2px 8px rgba(52, 52, 52, 0.16))' }}></div>
+            <div className="sb-list__item__title">Small</div>
+          </div>
+          <div className="sb-code">`--drop-shadow-sm`</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-shadow-swatch" style={{ backgroundColor: 'white', filter: 'drop-shadow(0 4px 16px rgba(52, 52, 52, 0.16))' }}></div>
+            <div className="sb-list__item__title">Medium</div>
+          </div>
+          <div className="sb-code">`--drop-shadow-md`</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-shadow-swatch" style={{ backgroundColor: 'white', filter: 'drop-shadow(0 8px 24px rgba(52, 52, 52, 0.16))' }}></div>
+            <div className="sb-list__item__title">Large</div>
+          </div>
+          <div className="sb-code">`--drop-shadow-lg`</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <div className="sb-shadow-swatch" style={{ backgroundColor: 'white', filter: 'drop-shadow(0 16px 32px rgba(52, 52, 52, 0.16))' }}></div>
+            <div className="sb-list__item__title">Extra large</div>
+          </div>
+          <div className="sb-code">`--drop-shadow-xl`</div>
+        </div>
+
+```css
+--drop-shadow-sm: 0 2px 8px var(--color-shadow);
+--drop-shadow-md: 0 4px 16px var(--color-shadow);
+--drop-shadow-lg: 0 8px 24px var(--color-shadow);
+--drop-shadow-xl: 0 16px 32px var(--color-shadow);
+```
+
+      </div>
+
+      <div className="sb-section">
+        <h2 className="sb-heading__2" id="utilities">Utilities</h2>
+
+- `u-shadow-sm`
+- `u-shadow-md`
+- `u-shadow-lg`
+- `u-shadow-xl`
+
+```html
+<div class="u-shadow-md">Lorem ipsum</div>
+```
+
+      </div>

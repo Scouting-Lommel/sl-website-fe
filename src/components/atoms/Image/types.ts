@@ -1,4 +1,5 @@
 export type CloudinaryImage = {
+  [x: string]: any;
   name: string;
   width: number;
   height: number;

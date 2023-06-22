@@ -2,7 +2,11 @@ import classNames from 'classnames';
 import SocialsCta from '@/components/molecules/SocialsCta';
 import CallToAction from '@/components/molecules/CallToAction';
 import { BlockContainer as BlockContainerProps } from './types';
-import styles from './BlockContainer.module.scss';
+import styles from './BlockContainer.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = BlockContainerProps & React.HTMLAttributes<HTMLElement>;
 
@@ -15,25 +19,25 @@ const BlockContainer = ({
   bgImage,
   children,
 }: Props) => {
-  const bgClassnames = classNames([
-    styles['block-container__bg-image'],
-    styles[`block-container__bg-image--${variant}`],
-    styles[`block-container__bg-image--${orientation}`],
-    bgImage && styles[`block-container__bg-image--opaque`],
-  ]);
+  const bgClassnames = classNames(
+    'block-container__bg-image',
+    `block-container__bg-image--${variant}`,
+    `block-container__bg-image--${orientation}`,
+    bgImage && `block-container__bg-image--opaque`,
+  );
 
-  const ctaClassnames = classNames([
-    styles['block-container__cta'],
-    socialsCta && styles['block-container__cta--bottom'],
-    !socialsCta && styles['block-container__cta--top'],
-  ]);
+  const ctaClassnames = classNames(
+    'block-container__cta',
+    socialsCta && 'block-container__cta--bottom',
+    !socialsCta && 'block-container__cta--top',
+  );
 
   return (
-    <section id={slug} className={styles['block-container']}>
+    <section id={slug} className="block-container">
       <div className={bgClassnames}>
         {bgImage && (
           <img
-            className={styles['image__img']}
+            className="image__img"
             alt={bgImage?.alternativeText}
             src={bgImage?.url}
             sizes="100vw"
@@ -41,7 +45,7 @@ const BlockContainer = ({
           />
         )}
       </div>
-      <div className={styles['block-container__content']}>{children}</div>
+      <div className="block-container__content">{children}</div>
       {cta && (
         <CallToAction
           title={cta.title}

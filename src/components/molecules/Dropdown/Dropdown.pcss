@@ -1,0 +1,112 @@
+.dropdown {
+  position: relative;
+  z-index: var(--z-index-nav-dropdown-content);
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  flex-direction: column;
+  padding: var(--space-24);
+  background-color: var(--color-white);
+  cursor: auto;
+  list-style-type: none;
+
+  @media (--mq-from-large) {
+    box-shadow: var(--drop-shadow-md);
+  }
+}
+
+.dropdown__wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  background-color: var(--color-white);
+
+  @media (--mq-up-to-large) {
+    height: 100vh;
+  }
+}
+
+.dropdown__content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: var(--space-24);
+
+  @media (--mq-from-large) {
+    flex-direction: row;
+    gap: var(--space-80);
+  }
+}
+
+.dropdown__content__back-button {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-top: var(--space-24);
+  filter: none !important;
+
+  @media (--mq-from-large) {
+    display: none !important;
+  }
+}
+
+.dropdown__content__back-button__chevron {
+  margin-right: 0.375rem;
+  transform: rotate(90deg);
+}
+
+.dropdown__nav {
+  margin: var(--space-24) 0;
+
+  @media (--mq-from-large) {
+    width: 60%;
+  }
+}
+
+.dropdown__nav__title,
+.dropdown__cta__title {
+  margin: var(--space-12) 0 var(--space-24);
+  font-family: var(--font-family-title);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.dropdown__nav__list {
+  display: grid;
+  padding-left: 0;
+  column-gap: var(--space-40);
+  grid-template-columns: repeat(1, 1fr);
+  list-style-type: none;
+  row-gap: var(--space-20);
+
+  @media (--mq-from-small) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (--mq-from-large) {
+    column-gap: var(--space-80);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dropdown__nav__button,
+.dropdown__cta__button {
+  margin-top: var(--space-36);
+}
+
+.dropdown__cta {
+  margin: var(--space-24) 0;
+
+  @media (--mq-from-large) {
+    width: 40%;
+    padding-left: var(--space-36);
+    border-left: 0.0625rem solid var(--color-neutral-200);
+  }
+}
+
+.dropdown__cta__intro {
+  font-family: var(--font-family-body);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-normal);
+  text-transform: none;
+}

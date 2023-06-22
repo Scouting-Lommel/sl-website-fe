@@ -33,8 +33,14 @@ yarn-error.log*
 # vscode
 .vscode/
 
-# Local Netlify folder
+# netlify
 .netlify
 
-# Storybook
+# storybook
 /storybook-static
+
+# generated stylesheets
+src/**/*.css
+
+# typescript 
+tsconfig.tsbuildinfo

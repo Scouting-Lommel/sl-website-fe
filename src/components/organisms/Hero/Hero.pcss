@@ -1,0 +1,43 @@
+.hero {
+  position: relative;
+  z-index: var(--z-index-hero);
+
+  @media (--mq-from-medium) {
+    &--large {
+      margin: var(--space-48) auto;
+    }
+  }
+}
+
+.hero__title {
+  margin-bottom: var(--space-24);
+  color: var(--color-white);
+
+  &--alt {
+    color: var(--color-theme-primary);
+  }
+}
+
+.hero__subtitle {
+  color: var(--color-theme-secondary);
+
+  &--alt {
+    color: var(--color-foreground);
+  }
+}
+
+.hero__buttons {
+  display: flex;
+  gap: var(--space-12);
+}
+
+.hero__year-theme {
+  position: absolute;
+  display: none;
+
+  @media (--mq-from-medium) {
+    top: -4rem;
+    right: 6rem;
+    display: block;
+  }
+}

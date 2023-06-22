@@ -1,15 +1,7 @@
-const nextTranslate = require('next-translate');
-const { locales, defaultLocale } = require('./src/locales');
-
-module.exports = nextTranslate({
+module.exports = {
   reactStrictMode: true,
   images: {
     domains: ['res.cloudinary.com'],
-  },
-  i18n: {
-    locales: locales,
-    defaultLocale: defaultLocale,
-    localeDetection: false,
   },
   webpack: (config) => {
     // GQL loader
@@ -30,4 +22,4 @@ module.exports = nextTranslate({
   async redirects() {
     return [{ source: '/home', destination: '/', permanent: true }];
   },
-});
+};
