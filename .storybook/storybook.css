@@ -37,6 +37,12 @@ h3,
   filter: drop-shadow(var(--drop-shadow-sm));
 }
 
+.sb-shadow-swatch {
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--border-radius);
+}
+
 .sb-table {
   border: 0.0625rem solid var(--color-neutral-300);
   margin-bottom: 1rem;
