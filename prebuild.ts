@@ -1,10 +1,11 @@
 console.log('> prebuilding...');
 const path = require('node:path');
 const fs = require('fs');
+
 const baseDir = process.cwd();
 
-const prebuildScripts = async () => {
-  const file = path.join(baseDir, '/node_modules', 'next/dist/server/require-hook.js');
+const patchNextRequireHook = async () => {
+  const file = path.join(baseDir, 'node_modules', 'next', 'dist', 'server', 'require-hook.js');
 
   const content = await fs.promises.readFile(file, 'utf-8');
   await fs.promises.writeFile(
@@ -13,6 +14,4 @@ const prebuildScripts = async () => {
   );
 };
 
-prebuildScripts();
-
-console.log('> prebuild completed');
+patchNextRequireHook();
