@@ -13,7 +13,10 @@ import { Meta } from '@storybook/blocks';
 <div className="sb-section">
     <h2 className="sb-heading__2" id="rendering-methods">Rendering methods</h2>
     
-    Most pages are rendered at buildtime. Dynamic pages like /takken/[slug] or /verhuur/[slug] get rendered server side rendered at request time.
+    We are using NextJS's new app directory, which uses server components by default. 
+    This way the website will be statically generated or server side rendered depending on the webpage. 
+    Most pages are rendered at buildtime. 
+    Dynamic pages like /takken/[slug] or /verhuur/[slug] get rendered server side rendered at request time.
 
 </div>
 
