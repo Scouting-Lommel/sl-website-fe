@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { generateMetadataForRootLayout } from '@/lib/helpers/metadata';
 import Header from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
