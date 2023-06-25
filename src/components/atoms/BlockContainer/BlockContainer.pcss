@@ -3,6 +3,16 @@
   padding-top: var(--space-104);
   padding-bottom: var(--space-104);
   background-color: var(--color-background);
+
+  &--small-padding {
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
+
+    @media (--mq-from-large) {
+      padding-top: var(--space-104);
+      padding-bottom: var(--space-104);
+    }
+  }
 }
 
 .block-container__bg-image {
@@ -51,6 +61,11 @@
   &--reversed {
     transform: scale(1, -1);
   }
+}
+
+.block-container__bg-image__img {
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .block-container__content {
