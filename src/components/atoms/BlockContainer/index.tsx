@@ -37,7 +37,7 @@ const BlockContainer = ({
       <div className={bgClassnames}>
         {bgImage && (
           <img
-            className="image__img"
+            className="block-container__bg-image__img"
             alt={bgImage?.alternativeText}
             src={bgImage?.url}
             sizes="100vw"
