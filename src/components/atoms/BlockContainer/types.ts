@@ -13,4 +13,5 @@ export type BlockContainer = {
   cta?: CallToAction;
   socialsCta?: SocialsCta;
   bgImage?: BackgroundImage;
+  modSmallPadding?: boolean;
 };

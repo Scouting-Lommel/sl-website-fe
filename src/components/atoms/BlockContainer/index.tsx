@@ -17,8 +17,14 @@ const BlockContainer = ({
   cta,
   socialsCta,
   bgImage,
+  modSmallPadding,
   children,
 }: Props) => {
+  const blockContainerClassNames = classNames(
+    'block-container',
+    modSmallPadding && 'block-container--small-padding',
+  );
+
   const bgClassnames = classNames(
     'block-container__bg-image',
     `block-container__bg-image--${variant}`,
@@ -33,7 +39,7 @@ const BlockContainer = ({
   );
 
   return (
-    <section id={slug} className="block-container">
+    <section id={slug} className={blockContainerClassNames}>
       <div className={bgClassnames}>
         {bgImage && (
           <img

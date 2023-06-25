@@ -28,6 +28,7 @@ const HeroBlock = ({
       variant={variant === 'simple' ? 'light' : 'dark'}
       orientation="default"
       slug="hero"
+      modSmallPadding={variant === 'simple'}
     >
       <Hero
         title={title}

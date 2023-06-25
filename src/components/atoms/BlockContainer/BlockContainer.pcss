@@ -3,6 +3,16 @@
   padding-top: var(--space-104);
   padding-bottom: var(--space-104);
   background-color: var(--color-background);
+
+  &--small-padding {
+    padding-top: var(--space-48);
+    padding-bottom: var(--space-48);
+
+    @media (--mq-from-large) {
+      padding-top: var(--space-104);
+      padding-bottom: var(--space-104);
+    }
+  }
 }
 
 .block-container__bg-image {
