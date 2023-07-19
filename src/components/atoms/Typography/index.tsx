@@ -10,10 +10,11 @@ export const links = () => {
 
 type Props = TypographyProps & React.HTMLAttributes<HTMLElement>;
 
-const Typography = ({ data, modNoStyle, children, className }: Props) => {
+const Typography = ({ data, modNoStyle, modPreWrap, children, className }: Props) => {
   const typographyClasses = classNames(
     'typography',
     !modNoStyle && 'typography--styled',
+    modPreWrap && 'typography--pre-wrap',
     className,
   );
 
