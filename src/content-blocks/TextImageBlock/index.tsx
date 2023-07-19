@@ -15,7 +15,9 @@ const ImageTextBlock = ({ title, content, images, ctaButton, blockProperties }: 
         <TextImage
           title={title}
           content={content}
-          images={images?.data?.attributes}
+          images={images.data.map((image) => {
+            return image.attributes;
+          })}
           ctaButton={ctaButton}
         />
       </section>
