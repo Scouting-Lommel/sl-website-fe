@@ -5,7 +5,7 @@ import Button from '@/components/atoms/Button';
 
 type Props = TextImageProps & React.HTMLAttributes<HTMLElement>;
 
-const ImageText = ({ title, content, images, ctaButton }: Props) => {
+const ImageText = ({ title, content, images, variant, ctaButton }: Props) => {
   return (
     <div>
       {images &&

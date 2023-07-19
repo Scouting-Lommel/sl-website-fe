@@ -8,4 +8,5 @@ export type TextImageBlock = {
   images: { data: { attributes: CloudinaryImage }[] };
   ctaButton: Button;
   blockProperties: BlockContainer;
+  orientation: 'default' | 'reversed';
 };
