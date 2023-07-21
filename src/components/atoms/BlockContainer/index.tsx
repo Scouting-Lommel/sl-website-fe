@@ -18,11 +18,13 @@ const BlockContainer = ({
   socialsCta,
   bgImage,
   modSmallPadding,
+  modMargin,
   children,
 }: Props) => {
   const blockContainerClassNames = classNames(
     'block-container',
     modSmallPadding && 'block-container--small-padding',
+    modMargin && 'block-container--has-margin',
   );
 
   const bgClassnames = classNames(

@@ -17,18 +17,18 @@ const ImageTextBlock = ({
       variant={blockProperties?.variant}
       orientation={blockProperties?.orientation}
       slug={blockProperties?.slug}
+      modMargin
     >
-      <section className="sl-layout">
-        <TextImage
-          title={title}
-          content={content}
-          images={images.data.map((image) => {
-            return image.attributes;
-          })}
-          ctaButton={ctaButton}
-          variant={orientation}
-        />
-      </section>
+      <TextImage
+        title={title}
+        content={content}
+        images={images.data.map((image) => {
+          return image.attributes;
+        })}
+        ctaButton={ctaButton}
+        variant={orientation}
+        className="sl-layout"
+      />
     </BlockContainer>
   );
 };
