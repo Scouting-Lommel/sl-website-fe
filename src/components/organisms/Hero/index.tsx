@@ -23,7 +23,7 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }: 
             : 't-headline-1 hero__title hero__title'
         }
       >
-        <Typography data={title} modNoStyle />
+        <Typography data={title} modNoStyle modPreWrap />
       </h1>
 
       {subtitle && variant === 'simple' && (

@@ -4,21 +4,31 @@ import { TextImageBlock as TextImageBlockProps } from './types';
 
 type Props = TextImageBlockProps & React.HTMLAttributes<HTMLElement>;
 
-const ImageTextBlock = ({ title, content, images, ctaButton, blockProperties }: Props) => {
+const ImageTextBlock = ({
+  title,
+  content,
+  images,
+  orientation,
+  ctaButton,
+  blockProperties,
+}: Props) => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}
       orientation={blockProperties?.orientation}
       slug={blockProperties?.slug}
+      modMargin
     >
-      <section className="sl-layout">
-        <TextImage
-          title={title}
-          content={content}
-          images={images?.data?.attributes}
-          ctaButton={ctaButton}
-        />
-      </section>
+      <TextImage
+        title={title}
+        content={content}
+        images={images.data.map((image) => {
+          return image.attributes;
+        })}
+        ctaButton={ctaButton}
+        variant={orientation}
+        className="sl-layout"
+      />
     </BlockContainer>
   );
 };
