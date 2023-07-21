@@ -1,0 +1,35 @@
+.text-image {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-40);
+
+  @media (--mq-from-large) {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-64);
+
+    &--reversed {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.text-image__image-container {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  @media (--mq-from-xlarge) {
+    max-width: 32rem;
+  }
+}
+
+.text-image__content {
+  display: flex;
+  width: auto;
+  flex-direction: column;
+}
+
+.text-image__content__button {
+  margin-top: var(--space-24);
+}
