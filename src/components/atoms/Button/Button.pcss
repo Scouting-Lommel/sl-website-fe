@@ -10,17 +10,17 @@
   font-size: 0.625rem;
   text-decoration: none;
   transition: background-color var(--transition);
-  transition: box-shadow var(--transition);
-  transition: transform var(--transition);
+  transition: filter var(--transition);
+  transition: border-radius var(--transition);
 
   &:hover {
+    border-radius: var(--border-radius-btn-hover);
     cursor: pointer;
     filter: drop-shadow(var(--drop-shadow-md));
-    transform: translate(0.0625rem, 0.0625rem);
   }
 
   &:focus {
-    box-shadow: none;
+    border-radius: var(--border-radius-btn-hover);
     outline: 0.125rem solid;
     outline-offset: var(--space-2);
   }
@@ -48,15 +48,12 @@
   &--link1 {
     padding: 0;
     background-color: var(--color-background);
-    box-shadow: none;
     color: var(--color-foreground);
 
     &:hover,
     &:focus {
-      box-shadow: none;
       outline: none;
       text-decoration: underline;
-      transform: none;
     }
   }
 
