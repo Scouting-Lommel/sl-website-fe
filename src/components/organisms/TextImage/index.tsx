@@ -25,7 +25,7 @@ const ImageText = ({ title, content, images, variant, ctaButton, className }: Pr
         )}
       </div>
       <div className="text-image__content">
-        <h2>{title}</h2>
+        {title && <h2>{title}</h2>}
         <Typography modNoStyle data={content} />
         {ctaButton && (
           <Button

@@ -1,15 +1,30 @@
 .text-image {
-  display: flex;
-  flex-direction: column-reverse;
+  display: grid;
   gap: var(--space-40);
+  grid-template-columns: 1fr;
 
   @media (--mq-from-large) {
-    flex-direction: row;
     align-items: center;
-    gap: var(--space-64);
+    grid-template-columns: 22rem auto;
 
     &--reversed {
-      flex-direction: row-reverse;
+      grid-template-columns: auto 22rem;
+
+      & .text-image__content {
+        order: 0;
+      }
+      & .text-image__image-container {
+        order: 1;
+      }
+    }
+  }
+
+  @media (--mq-from-xlarge) {
+    gap: var(--space-64);
+    grid-template-columns: 28rem auto;
+
+    &--reversed {
+      grid-template-columns: auto 28rem;
     }
   }
 }
@@ -17,16 +32,11 @@
 .text-image__image-container {
   position: relative;
   display: block;
-  width: 100%;
-
-  @media (--mq-from-xlarge) {
-    max-width: 32rem;
-  }
+  max-width: 100%;
 }
 
 .text-image__content {
   display: flex;
-  width: auto;
   flex-direction: column;
 }
 
