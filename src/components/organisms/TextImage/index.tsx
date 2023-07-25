@@ -1,6 +1,3 @@
-// TODO: add variant for multiple images
-// Figma: https://www.figma.com/file/hBMZQRv8UQUPIzGJ4A9uWm/Scouting-Lommel?type=design&node-id=7920-1220&mode=design&t=2HYlIEH4iYdbOht6-4
-
 import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import SLImage from '@/components/atoms/Image';
