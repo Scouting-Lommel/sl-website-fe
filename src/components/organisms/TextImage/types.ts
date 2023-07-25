@@ -5,6 +5,6 @@ export type TextImage = {
   title: string;
   content: string;
   images?: CloudinaryImage[];
-  ctaButton: Button;
+  ctaButton?: Button;
   variant: 'default' | 'reversed';
 };
