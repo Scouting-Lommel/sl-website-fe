@@ -1,0 +1,11 @@
+fragment FormFragment on ComponentContentBlocksForm {
+  redirect
+  action
+  inputs {
+    title
+    type
+    placeholder
+    required
+    options
+  }
+}
