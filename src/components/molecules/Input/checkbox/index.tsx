@@ -1,4 +1,4 @@
-import { Input as InputProps } from '../types';
+import { CheckboxInput as InputProps } from './types';
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 

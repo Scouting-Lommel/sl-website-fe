@@ -12,7 +12,7 @@ const Form = ({ redirect, action, inputs }: Props) => {
   return (
     <form action={action} target="_blank" method="POST" className="form">
       {inputs.map((input, key) => {
-        return <Input key={key} {...input} {...redirect} />;
+        return <Input key={key} redirect={redirect} {...input} />;
       })}
     </form>
   );
