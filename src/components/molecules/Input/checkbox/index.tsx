@@ -1,4 +1,4 @@
-import { Input as InputProps } from './types';
+import { Input as InputProps } from '../types';
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
