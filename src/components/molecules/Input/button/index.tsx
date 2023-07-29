@@ -7,17 +7,8 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const buttonInput = ({ title, type, placeholder, required, options, redirect }: Props) => {
-  return (
-    <input
-      className="buttonInput"
-      type={type}
-      id={title}
-      value={placeholder}
-      required={required}
-      {...options}
-    />
-  );
+const buttonInput = ({ ID, type, label, ...options }: Props) => {
+  return <input className="buttonInput" type={type} id={ID} value={label} {...options} />;
 };
 
 export default buttonInput;

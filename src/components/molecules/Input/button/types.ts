@@ -1,8 +1,5 @@
 export type ButtonInput = {
-  title: string;
+  ID: string;
+  label: string;
   type: string;
-  placeholder: string;
-  required?: boolean;
-  options?: string;
-  redirect?: string;
 };

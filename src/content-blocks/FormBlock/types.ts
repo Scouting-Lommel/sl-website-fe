@@ -1,7 +1,8 @@
-import { Input } from '@/components/molecules/Input/types';
+import { Form } from '@/components/organisms/Form/types';
 
-export type FormBlock = {
-    redirect: string;
-    action: string;
-    inputs: Input[];
-}
+export type FormBlock = Form & {
+  variant?: 'light' | 'dark';
+  orientation?: 'default' | 'reversed';
+  modSmallPadding?: boolean;
+  modMargin?: boolean;
+};

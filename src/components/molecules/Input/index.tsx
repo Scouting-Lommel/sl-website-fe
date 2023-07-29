@@ -34,7 +34,7 @@ const inputList: InputList = {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const Input = ({ title, type, placeholder, required, options, redirect }: Props) => {
+const Input = ({ type, ...otherElements }: Props) => {
   if (!(type in inputList)) {
     console.warn(`Missing component for: '${type}', you should create one first.`);
     return null;
@@ -45,14 +45,7 @@ const Input = ({ title, type, placeholder, required, options, redirect }: Props)
   return (
     <div className={type === 'submit' ? 'input--type-submit' : 'input'}>
       <Typography>
-        <InputSpecification
-          type={type}
-          title={title}
-          placeholder={placeholder}
-          required={required}
-          options={options}
-          redirect={redirect}
-        />
+        <InputSpecification type={type} {...otherElements} />
       </Typography>
     </div>
   );

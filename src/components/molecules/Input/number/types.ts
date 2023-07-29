@@ -1,8 +1,6 @@
 export type NumberInput = {
-  title: string;
+  label: string;
+  ID: string;
   type: string;
-  placeholder?: string;
   required?: boolean;
-  options?: any;
-  redirect?: string;
 };

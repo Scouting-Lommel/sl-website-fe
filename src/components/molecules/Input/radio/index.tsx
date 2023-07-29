@@ -7,22 +7,22 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const radioInput = ({ title, type, placeholder, required, options, redirect }: Props) => {
+const radioInput = ({ label, type, ID, required, options, ...otherOptions }: Props) => {
   return (
     <>
       <label className="radioLabel">
-        {title}
+        {label}
         <div className="radioContainer">
-          {options.map((option: string) => {
+          {options.map((option: string, i: number) => {
             return (
               <>
-                <label className="radioItemLabel" htmlFor={option}>
+                <label className="radioItemLabel" htmlFor={ID}>
                   <input
                     className="radioInput"
                     type={type}
-                    id={option}
-                    name={title}
+                    id={ID + i}
                     value={option}
+                    {...otherOptions}
                   />
                   {option}
                 </label>

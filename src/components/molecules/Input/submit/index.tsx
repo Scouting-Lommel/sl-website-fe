@@ -8,12 +8,10 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const submitInput = ({ title, type, placeholder, required, options, redirect }: Props) => {
-  if (!redirect) return null;
-
+const submitInput = ({ label, type, ID, redirect, ...options }: Props) => {
   return (
     <NextLink className="submitContainer" href={redirect}>
-      <input className="submitInput" type={type} id={title} value={placeholder} {...options} />
+      <input className="submitInput" type={type} id={ID} value={label} {...options} />
     </NextLink>
   );
 };

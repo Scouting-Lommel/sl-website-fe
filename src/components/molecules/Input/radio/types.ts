@@ -1,8 +1,7 @@
 export type RadioInput = {
-  title: string;
+  label: string;
+  ID: string;
   type: string;
-  placeholder?: string;
   required?: boolean;
   options: string[];
-  redirect?: string;
 };

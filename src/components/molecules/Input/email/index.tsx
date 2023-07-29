@@ -7,19 +7,12 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const textInput = ({ title, type, placeholder, required, options, redirect }: Props) => {
+const textInput = ({ label, type, ID, required, ...options }: Props) => {
   return (
     <>
-      <label className="emailLabel" htmlFor={title}>
-        {title}
-        <input
-          className="emailInput"
-          type={type}
-          id={title}
-          value={placeholder}
-          required={required}
-          {...options}
-        />
+      <label className="emailLabel" htmlFor={ID}>
+        {label}
+        <input className="emailInput" type={type} id={ID} required={required} {...options} />
       </label>
     </>
   );

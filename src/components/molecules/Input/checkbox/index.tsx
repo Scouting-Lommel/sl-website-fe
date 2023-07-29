@@ -7,18 +7,11 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const checkboxInput = ({ title, type, placeholder, required, options, redirect }: Props) => {
+const checkboxInput = ({ ID, type, required, options }: Props) => {
   return (
     <>
-      <label className="checkboxLabel" htmlFor={title}>
-        <input
-          className="checkboxInput"
-          type={type}
-          id={title}
-          name={options}
-          value={options}
-          required={required}
-        />
+      <label className="checkboxLabel" htmlFor={ID}>
+        <input className="checkboxInput" type={type} id={ID} name={ID} required={required} />
         {options}
       </label>
     </>
