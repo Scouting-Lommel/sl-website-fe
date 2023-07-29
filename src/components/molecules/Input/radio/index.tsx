@@ -21,6 +21,7 @@ const radioInput = ({ label, type, uid, required, options, ...otherOptions }: Pr
                     className="radioInput"
                     type={type}
                     id={uid + i}
+                    name={label}
                     value={option}
                     {...otherOptions}
                   />
