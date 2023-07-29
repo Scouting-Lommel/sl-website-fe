@@ -2,12 +2,12 @@ import { WYSIWYGInput as InputProps } from './types';
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const textInput = ({ label, type, ID, required, ...options }: Props) => {
+const textInput = ({ label, type, uid, required, ...options }: Props) => {
   return (
     <>
-      <label htmlFor={ID}>
+      <label htmlFor={uid}>
         {label}
-        <input type={type} id={ID} required={required} {...options} />
+        <input type={type} id={uid} required={required} {...options} />
       </label>
     </>
   );

@@ -7,12 +7,12 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const textInput = ({ label, type, ID, required, ...options }: Props) => {
+const textInput = ({ label, type, uid, required, ...options }: Props) => {
   return (
     <>
-      <label className="monthLabel" htmlFor={ID}>
+      <label className="monthLabel" htmlFor={uid}>
         {label}
-        <input className="monthInput" type={type} id={ID} required={required} {...options} />
+        <input className="monthInput" type={type} id={uid} required={required} {...options} />
       </label>
     </>
   );

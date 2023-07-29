@@ -7,12 +7,12 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const textInput = ({ label, type, required, ID, ...options }: Props) => {
+const textInput = ({ label, type, required, uid, ...options }: Props) => {
   return (
     <>
-      <label className="datetimeLabel" htmlFor={ID}>
+      <label className="datetimeLabel" htmlFor={uid}>
         {label}
-        <input className="datetimeInput" type={type} id={ID} required={required} {...options} />
+        <input className="datetimeInput" type={type} id={uid} required={required} {...options} />
       </label>
     </>
   );

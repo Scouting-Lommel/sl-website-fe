@@ -1,6 +1,6 @@
 export type ColorInput = {
   label: string;
-  ID: string;
+  uid: string;
   type: string;
   required?: boolean;
 };

@@ -8,18 +8,18 @@ const FormBlock = ({
   redirect,
   action,
   inputs,
-  variant,
-  orientation,
-  modSmallPadding,
-  modMargin,
+  formVariant,
+  formOrientation,
+  formSmallPadding,
+  formMargin,
 }: Props) => {
   return (
     <BlockContainer
-      variant={variant ? variant : 'light'}
-      orientation={orientation ? orientation : 'default'}
+      variant={formVariant ? formVariant : 'light'}
+      orientation={formOrientation ? formOrientation : 'default'}
       slug="form"
-      modSmallPadding={modSmallPadding}
-      modMargin={modMargin}
+      modSmallPadding={formSmallPadding}
+      modMargin={formMargin}
     >
       <Form redirect={redirect} action={action} inputs={inputs} />
     </BlockContainer>

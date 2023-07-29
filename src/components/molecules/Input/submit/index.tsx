@@ -8,10 +8,10 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const submitInput = ({ label, type, ID, redirect, ...options }: Props) => {
+const submitInput = ({ label, type, uid, redirect, ...options }: Props) => {
   return (
     <NextLink className="submitContainer" href={redirect}>
-      <input className="submitInput" type={type} id={ID} value={label} {...options} />
+      <input className="submitInput" type={type} id={uid} value={label} {...options} />
     </NextLink>
   );
 };

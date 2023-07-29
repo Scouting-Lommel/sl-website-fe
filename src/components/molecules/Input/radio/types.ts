@@ -1,6 +1,6 @@
 export type RadioInput = {
   label: string;
-  ID: string;
+  uid: string;
   type: string;
   required?: boolean;
   options: string[];

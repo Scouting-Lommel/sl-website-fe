@@ -7,7 +7,7 @@ export const links = () => {
 
 type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
-const radioInput = ({ label, type, ID, required, options, ...otherOptions }: Props) => {
+const radioInput = ({ label, type, uid, required, options, ...otherOptions }: Props) => {
   return (
     <>
       <label className="radioLabel">
@@ -16,11 +16,11 @@ const radioInput = ({ label, type, ID, required, options, ...otherOptions }: Pro
           {options.map((option: string, i: number) => {
             return (
               <>
-                <label className="radioItemLabel" htmlFor={ID}>
+                <label className="radioItemLabel" htmlFor={uid + i}>
                   <input
                     className="radioInput"
                     type={type}
-                    id={ID + i}
+                    id={uid + i}
                     value={option}
                     {...otherOptions}
                   />

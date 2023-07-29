@@ -1,6 +1,6 @@
 export type WYSIWYGInput = {
   label: string;
-  ID: string;
+  uid: string;
   type: string;
   required?: boolean;
 };

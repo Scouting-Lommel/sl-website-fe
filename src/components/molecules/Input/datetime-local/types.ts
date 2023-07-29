@@ -1,6 +1,6 @@
 export type DateTimeInput = {
   label: string;
-  ID: string;
+  uid: string;
   type: string;
   required?: boolean;
 };

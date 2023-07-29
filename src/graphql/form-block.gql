@@ -1,10 +1,14 @@
 fragment FormFragment on ComponentContentBlocksForm {
   redirect
   action
+  formVariant: variant
+  formOrientation: orientation
+  formSmallPadding: modSmallPadding
+  formMargin: modMargin
   inputs {
-    title
+    label
     type
-    placeholder
+    uid
     required
     options
   }

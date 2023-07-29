@@ -1,6 +1,6 @@
 export type SubmitInput = {
   label: string;
-  ID: string;
+  uid: string;
   type: string;
   redirect: string;
 };

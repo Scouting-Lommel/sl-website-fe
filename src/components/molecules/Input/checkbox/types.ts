@@ -1,6 +1,6 @@
 export type CheckboxInput = {
   type: string;
-  ID: string;
+  uid: string;
   required?: boolean;
   options: string;
 };

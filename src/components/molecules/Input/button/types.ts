@@ -1,5 +1,5 @@
 export type ButtonInput = {
-  ID: string;
+  uid: string;
   label: string;
   type: string;
 };
