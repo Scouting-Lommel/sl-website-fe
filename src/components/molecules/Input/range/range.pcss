@@ -1,0 +1,32 @@
+.rangeLabel {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 0.35em;
+}
+
+.rangeInput {
+  -webkit-appearance: none;
+  height: 0.2em;
+  border-radius: 5px;
+  background: transparent;
+  background-color: lightgray;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 0.7em;
+    width: 0.7em;
+    border-radius: 50%;
+    background-color: var(--color-theme-secondary);
+    cursor: ew-resize;
+    border: none;
+  }
+  &:focus::-webkit-slider-thumb {
+    border: 0.05em solid black;
+  }
+
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    background: transparent;
+  }
+}
