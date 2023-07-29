@@ -1,0 +1,48 @@
+.radioLabel {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 0.2em;
+}
+
+.radioContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.3em;
+}
+
+.radioItemLabel {
+  display: grid;
+  grid-template-columns: 0.75em auto;
+  gap: 0.2em;
+  cursor: pointer;
+}
+
+.radioInput {
+  -webkit-appearance: none;
+  cursor: pointer;
+  appearance: none;
+  margin: 0;
+  width: 0.8em;
+  height: 0.8em;
+  border: 0.12em solid var(--color-theme-secondary);
+  border-radius: 50%;
+  transform: translateY(0.15em);
+
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: '';
+    width: 0.38em;
+    height: 0.38em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--color-theme-primary);
+  }
+
+  &:checked::before {
+    transform: scale(1);
+  }
+}
