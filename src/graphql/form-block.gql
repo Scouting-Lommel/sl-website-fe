@@ -1,6 +1,7 @@
 fragment FormFragment on ComponentContentBlocksForm {
   redirect
   action
+  formattedResponseMessage
   formVariant: variant
   formOrientation: orientation
   formSmallPadding: modSmallPadding

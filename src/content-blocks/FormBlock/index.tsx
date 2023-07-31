@@ -12,6 +12,7 @@ const FormBlock = ({
   formOrientation,
   formSmallPadding,
   formMargin,
+  formattedResponseMessage,
 }: Props) => {
   return (
     <BlockContainer
@@ -21,7 +22,12 @@ const FormBlock = ({
       modSmallPadding={formSmallPadding}
       modMargin={formMargin}
     >
-      <Form redirect={redirect} action={action} inputs={inputs} />
+      <Form
+        redirect={redirect}
+        action={action}
+        inputs={inputs}
+        formattedResponseMessage={formattedResponseMessage}
+      />
     </BlockContainer>
   );
 };

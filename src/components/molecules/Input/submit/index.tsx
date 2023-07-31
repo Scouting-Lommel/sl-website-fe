@@ -1,5 +1,4 @@
 import { SubmitInput as InputProps } from './types';
-import NextLink from 'next/link';
 import styles from './submit.css';
 
 export const links = () => {
@@ -10,9 +9,9 @@ type Props = InputProps & React.HTMLAttributes<HTMLElement>;
 
 const submitInput = ({ label, type, uid, redirect, ...options }: Props) => {
   return (
-    <NextLink className="submitContainer" href={redirect}>
+    <div className="submitContainer">
       <input className="submitInput" type={type} id={uid} value={label} {...options} />
-    </NextLink>
+    </div>
   );
 };
 

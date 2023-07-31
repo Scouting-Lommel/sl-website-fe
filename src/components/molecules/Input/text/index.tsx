@@ -12,7 +12,14 @@ const textInput = ({ label, type, uid, required, ...options }: Props) => {
     <>
       <label className="textLabel" htmlFor={uid}>
         {label}
-        <input className="textInput" type={type} id={uid} required={required} {...options} />
+        <input
+          className="textInput"
+          type={type}
+          id={uid}
+          name={uid}
+          {...options}
+          required={required}
+        />
       </label>
     </>
   );
