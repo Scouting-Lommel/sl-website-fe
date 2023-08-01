@@ -13,6 +13,7 @@ type Props = FormProps & React.HTMLAttributes<HTMLElement>;
 
 const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => {
   const [currState, setState] = useState('form'); // form | result
+  let [formattedMessage, setFormattedMessage] = useState(formattedResponseMessage); // the formatted message
 
   const handleSubmit = async (event: any) => {
     // Stop the form from submitting and refreshing the page.
@@ -59,6 +60,13 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => 
       return;
     }
 
+    // format the formattedResponseMessage with the data: TODO
+    let tmp = formattedMessage;
+    inputs.forEach((input) => {
+      tmp = tmp.replace('${' + input.uid + '}', event.target[input.uid].value);
+    });
+    setFormattedMessage(tmp);
+
     // set the state to show the result
     setState('result');
   };
@@ -72,7 +80,7 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => 
           })}
         </form>
       )}
-      {currState === 'result' && <>{formattedResponseMessage}</>}
+      {currState === 'result' && <div className="form">{formattedMessage}</div>}
     </>
   );
 };

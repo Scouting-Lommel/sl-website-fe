@@ -1,10 +1,19 @@
 import { Request, Response } from 'express';
 
 export default function handler(req: Request, res: Response): void {
+  // check if every field is filled in correctly
+  const body = req.body;
+  body.uidList.forEach((uid: string) => {
+    console.warn(uid + ': ' + body[uid]);
+  });
+
+  // send the data to the server
+
+  // return status code
   res.status(200).json({ data: 'thius is an error message' });
   return;
   //   // Get data submitted in request's body.
-  //   const body = req.body;
+  //
 
   //   // Optional logging to see the responses
   //   // in the command line where next.js app is running.
