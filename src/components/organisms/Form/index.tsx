@@ -4,6 +4,7 @@ import { Form as FormProps } from './types';
 import Input from '@/components/molecules/Input';
 import styles from './Form.css';
 import { useState } from 'react';
+import Loader from '@/components/atoms/Loader';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -12,12 +13,13 @@ export const links = () => {
 type Props = FormProps & React.HTMLAttributes<HTMLElement>;
 
 const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => {
-  const [currState, setState] = useState('form'); // form | result
+  const [currState, setState] = useState('form'); // form | result | loading
   let [formattedMessage, setFormattedMessage] = useState(formattedResponseMessage); // the formatted message
 
   const handleSubmit = async (event: any) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
+    setState('loading');
 
     // Get data from the form
     let data: Record<string, string | number | string[]> = {
@@ -51,6 +53,7 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => 
     const response = await fetch(endpoint, options);
     const result = await response.json();
     if (response.status != 200) {
+      setState('form');
       alert(
         'something went wrong trying to resolve the request:\n Status code:' +
           response.status +
@@ -60,7 +63,7 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => 
       return;
     }
 
-    // format the formattedResponseMessage with the data: TODO
+    // format the formattedResponseMessage with the data
     let tmp = formattedMessage;
     inputs.forEach((input) => {
       tmp = tmp.replace('${' + input.uid + '}', event.target[input.uid].value);
@@ -80,7 +83,12 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => 
           })}
         </form>
       )}
-      {currState === 'result' && <div className="form">{formattedMessage}</div>}
+      {currState === 'loading' && (
+        <div className="formLoader">
+          <Loader />
+        </div>
+      )}
+      {currState === 'result' && <div className="formResult">{formattedMessage}</div>}
     </>
   );
 };
