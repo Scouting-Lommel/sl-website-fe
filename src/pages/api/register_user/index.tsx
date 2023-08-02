@@ -1,14 +1,10 @@
 import { Request, Response } from 'express';
 import { generateApiQuery } from '@/lib/api';
 import registeruser from './query.gql';
-import { DocumentNode } from 'graphql';
 
 export default async function handler(req: Request, res: Response): Promise<unknown> {
   // check if every field is filled in correctly
   const body = req.body;
-  body.uidList.forEach((uid: string) => {
-    console.warn(uid + ': ' + body[uid]);
-  });
   if (!body.uidList) {
     res.status(400).json({ data: 'The uidList was not detected or not send correctly' });
     return;
@@ -38,7 +34,7 @@ export default async function handler(req: Request, res: Response): Promise<unkn
       .json({ data: 'An error occured whilst trying to push memeber to database: ' + e });
   }
 
-  // send an email to the new member
+  // send an email to the user containing the formatted message: TODO
 
   // return status code
   res.status(200).json({ data: 'the data was sent to the server correctly' });
