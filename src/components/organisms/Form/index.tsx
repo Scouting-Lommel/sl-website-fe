@@ -29,7 +29,18 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage, className }:
     // add all input data to the data variable
     let uidList: string[] = [];
     inputs.forEach((input) => {
-      data[input.uid] = event.target[input.uid].value;
+      if (input.type === 'radio') {
+        for (let i = 0; i < 15; i++) {
+          if (event.target[input.uid + i]?.checked) {
+            data[input.uid] = event.target[input.uid + '' + i]?.value;
+            break;
+          }
+        }
+      } else if (input.type === 'checkbox') {
+        data[input.uid] = event.target[input.uid]?.checked;
+      } else {
+        data[input.uid] = event.target[input.uid]?.value;
+      }
       uidList.push(input.uid);
     });
 
@@ -67,7 +78,7 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage, className }:
     // format the formattedResponseMessage with the data
     let tmp = formattedMessage;
     inputs.forEach((input) => {
-      tmp = tmp.replace('${' + input.uid + '}', event.target[input.uid].value);
+      tmp = tmp.replace('${' + input.uid + '}', event.target[input.uid]?.value);
     });
     setFormattedMessage(tmp);
 
