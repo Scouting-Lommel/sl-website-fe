@@ -5,6 +5,7 @@ import Input from '@/components/molecules/Input';
 import styles from './Form.css';
 import { useState } from 'react';
 import Loader from '@/components/atoms/Loader';
+import Typography from '@/components/atoms/Typography';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -12,7 +13,7 @@ export const links = () => {
 
 type Props = FormProps & React.HTMLAttributes<HTMLElement>;
 
-const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => {
+const Form = ({ redirect, action, inputs, formattedResponseMessage, className }: Props) => {
   const [currState, setState] = useState('form'); // form | result | loading
   let [formattedMessage, setFormattedMessage] = useState(formattedResponseMessage); // the formatted message
 
@@ -75,7 +76,7 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => 
   };
 
   return (
-    <>
+    <div className={className}>
       {currState === 'form' && (
         <form onSubmit={(event) => handleSubmit(event)} className="form" noValidate={false}>
           {inputs.map((input, key) => {
@@ -88,8 +89,8 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage }: Props) => 
           <Loader />
         </div>
       )}
-      {currState === 'result' && <div className="formResult">{formattedMessage}</div>}
-    </>
+      {currState === 'result' && <Typography data={formattedMessage} modPreWrap />}
+    </div>
   );
 };
 

@@ -13,6 +13,6 @@ export default function handler(req: Request, res: Response): void {
   // send the data to the server
 
   // return status code
-  res.status(210).json({ data: 'the data was sent to the server correctly' });
+  res.status(200).json({ data: 'the data was sent to the server correctly' });
   return;
 }
