@@ -46,6 +46,13 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage, className }:
 
     data['uidList'] = uidList;
 
+    // parse the formatted message
+    let tmp = formattedMessage;
+    inputs.forEach((input) => {
+      tmp = tmp.replace('${' + input.uid + '}', event.target[input.uid]?.value);
+    });
+    data.formattedMessage = tmp;
+
     // Send the data to the nextjs server in JSON format.
     const JSONdata = JSON.stringify(data);
 
@@ -75,11 +82,7 @@ const Form = ({ redirect, action, inputs, formattedResponseMessage, className }:
       return;
     }
 
-    // format the formattedResponseMessage with the data
-    let tmp = formattedMessage;
-    inputs.forEach((input) => {
-      tmp = tmp.replace('${' + input.uid + '}', event.target[input.uid]?.value);
-    });
+    // fset the formatted message
     setFormattedMessage(tmp);
 
     // set the state to show the result
