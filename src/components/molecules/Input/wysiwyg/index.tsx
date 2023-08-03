@@ -22,7 +22,7 @@ const textInput = ({ label, type, uid, required, ...options }: Props) => {
           className="WYSIWYGInput"
           theme="snow"
           onChange={(content) => {
-            document.getElementById(uid)!.value = content;
+            (document.getElementById(uid) as HTMLInputElement).value = content;
           }}
         />
       </label>

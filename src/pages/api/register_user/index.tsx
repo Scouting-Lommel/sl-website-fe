@@ -43,7 +43,7 @@ export default async function handler(req: Request, res: Response): Promise<unkn
   // send an email to the user containing the formatted message
   let data: Record<string, string> = {
     emailAddress: body.email,
-    subject: 'Inschrijving ' + body.firstName + ' ' + body.lastName,
+    subject: `Inschrijving ${body.firstName} ${body.lastName}`,
     body: body.formattedMessage,
   };
   const JSONdata = JSON.stringify(data);
@@ -57,16 +57,9 @@ export default async function handler(req: Request, res: Response): Promise<unkn
   };
   const response = await fetch(endpoint, options);
   if (response.status != 200) {
-    res
-      .status(400)
-      .json({
-        data:
-          'An error occured whilst trying to send email, however, ' +
-          body.firstName +
-          ' ' +
-          body.lastName +
-          ' was registered succesfully',
-      });
+    res.status(400).json({
+      data: `An error occured whilst trying to send email, however, ${body.firstName} ${body.lastName} was registered succesfully`,
+    });
     return;
   }
 
