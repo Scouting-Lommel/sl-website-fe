@@ -1,8 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CalendarProps, CalendarResourceMap } from './types';
+import { CalendarProps } from './types';
 import styles from './Calendar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import Button from '../Button';
+import Typography from '../Typography';
 
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -48,14 +52,26 @@ export default function Calendar({ events }: Props) {
   return (
     <div className="calendar">
       <div className="calendar-header">
-        <button onClick={prevMonth}>Previous Month</button>
-        <h2>{currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
-        <button onClick={nextMonth}>Next Month</button>
+        <Typography>
+          <Button onClick={prevMonth}>
+            <FontAwesomeIcon icon={faChevronLeft} /> Prev
+          </Button>
+        </Typography>
+        <Typography>
+          <h2 className="calender-month-and-year">
+            {currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}
+          </h2>
+        </Typography>
+        <Typography>
+          <Button onClick={nextMonth}>
+            Next <FontAwesomeIcon icon={faChevronRight} />
+          </Button>
+        </Typography>
       </div>
       <div className="days-of-week">
         {daysOfWeek.map((day) => (
           <div key={day} className="day-of-week">
-            {day}
+            <Typography>{day}</Typography>
           </div>
         ))}
       </div>
@@ -69,7 +85,7 @@ export default function Calendar({ events }: Props) {
             key={day.toISOString()}
             className={`day ${isDayAvailable(day) ? 'available' : 'unavailable'}`}
           >
-            {day.getDate()}
+            <Typography>{day.getDate()}</Typography>
           </div>
         ))}
       </div>

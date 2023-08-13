@@ -9,8 +9,3 @@ export type CalendarEvent = {
 export type CalendarProps = {
   events: CalendarEvent[];
 };
-
-export type CalendarResourceMap = {
-  resourceId: number;
-  resourceTitle: string;
-};
