@@ -3,7 +3,6 @@ export type CalendarEvent = {
   title: string;
   start: Date;
   end: Date;
-  resourceId: number;
 };
 
 export type CalendarProps = {
