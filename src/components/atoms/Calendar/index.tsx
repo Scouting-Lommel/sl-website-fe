@@ -17,7 +17,6 @@ export const links = () => {
 type Props = CalendarProps & React.HTMLAttributes<HTMLElement>;
 
 export default function Calendar({ events }: Props) {
-  console.log(events);
   if (!events) events = [];
 
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -37,9 +36,9 @@ export default function Calendar({ events }: Props) {
   const isDayAvailable = (date: Date) => {
     for (let i = 0; i < events.length; i++) {
       const e = events[i];
-      const startDate = new Date(e.start);
-      const endDate = new Date(e.end);
-      if (+date === +startDate || +date === +endDate) return false;
+      const startDate = new Date(`${e.start}T02:00:00`);
+      const endDate = new Date(`${e.end}T02:00:00`);
+      date.setHours(2);
       if (startDate <= date && endDate >= date) return false;
     }
     return true;

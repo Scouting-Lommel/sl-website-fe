@@ -13,7 +13,7 @@ const GroupsBlock = ({ title, calendarEvents, cta, blockProperties }: Props) => 
       cta={cta}
     >
       <section className="sl-layout">
-        <h2>{title}</h2>
+        <h2 className="t-headline-2 t-align-center">{title}</h2>
         <Calendar events={calendarEvents} />
       </section>
     </BlockContainer>
