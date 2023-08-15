@@ -1,13 +1,11 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from 'react';
 
 const CalendarRevalidator = () => {
-
   const [currState, setState] = useState('loading'); // loading | success | error-message
 
   const handleRevalidate = async () => {
-
     const options = {
       method: 'POST',
       headers: {
@@ -20,21 +18,19 @@ const CalendarRevalidator = () => {
 
     if (response.status == 200) setState('success');
     else setState('an error occured');
-  } 
+  };
 
-  useEffect(() => { handleRevalidate(); });
+  useEffect(() => {
+    handleRevalidate();
+  });
 
   return (
-    <div className='sl-layout'>
-    {currState === 'loading' && 
-    <div className='revalidator'>Loading...</div>
-    }
-    {currState === 'success' && 
-    <div className='revalidator'>Success!</div>
-    }
-    {currState != 'loading' && currState != 'success' &&
-    <div className='revalidator'>{currState}</div>
-    }
+    <div className="sl-layout">
+      {currState === 'loading' && <div className="revalidator">Loading...</div>}
+      {currState === 'success' && <div className="revalidator">Success!</div>}
+      {currState != 'loading' && currState != 'success' && (
+        <div className="revalidator">{currState}</div>
+      )}
     </div>
   );
 };

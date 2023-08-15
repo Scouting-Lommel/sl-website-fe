@@ -4,7 +4,11 @@ import { getGeneralData } from '../../../api';
 import { getRentalLocationPage } from '../api';
 import CalendarRevalidator from '@/components/molecules/CalendarRevalidator';
 
-export async function generateMetadata({ params: { slug, key } }: { params: { slug: string , key: string} }) {
+export async function generateMetadata({
+  params: { slug, key },
+}: {
+  params: { slug: string; key: string };
+}) {
   const { generalData } = await getGeneralData();
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];
@@ -15,19 +19,21 @@ export async function generateMetadata({ params: { slug, key } }: { params: { sl
     rentalLocation.attributes.pageMeta,
     generalData.data.attributes,
     'verhuur/verhuursettings/revalidate',
-    
   );
 
   return { ...metadata };
 }
 
-const RentalLocationPage = async ({ params: { slug, key } }: { params: { slug: string , key: string} }) => {
-
+const RentalLocationPage = async ({
+  params: { slug, key },
+}: {
+  params: { slug: string; key: string };
+}) => {
   if (slug != 'settings' || key != 'revalidate') notFound();
 
   return (
     <>
-      <CalendarRevalidator/>
+      <CalendarRevalidator />
     </>
   );
 };
