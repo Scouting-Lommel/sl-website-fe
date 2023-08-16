@@ -1,6 +1,3 @@
-import createBooking from './putToDB.gql';
-import { useMutation } from '@apollo/client';
-
 const putToDB = async (date: { StartDate: string; EndDate: string; id?: number }) => {
   const id = 1;
   const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/api/bookings`, {

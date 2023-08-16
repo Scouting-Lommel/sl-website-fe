@@ -1,9 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import styles from './CalendarRevalidator.css';
+import BlockContainer from '@/components/atoms/BlockContainer';
+import Loader from '@/components/atoms/Loader';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 const CalendarRevalidator = () => {
-  const [currState, setState] = useState('loading'); // loading | success | error-message
+  const [currState, setState] = useState(<Loader />);
 
   const handleRevalidate = async () => {
     const options = {
@@ -16,8 +23,10 @@ const CalendarRevalidator = () => {
 
     const response = await fetch(`/api/revalidate_calendar`, options);
 
-    if (response.status == 200) setState('success');
-    else setState('an error occured');
+    const result = await response.json();
+
+    if (response.status == 200) setState(<>success: {result.data}</>);
+    else setState(<>an error occured: {result.data}</>);
   };
 
   useEffect(() => {
@@ -26,11 +35,9 @@ const CalendarRevalidator = () => {
 
   return (
     <div className="sl-layout">
-      {currState === 'loading' && <div className="revalidator">Loading...</div>}
-      {currState === 'success' && <div className="revalidator">Success!</div>}
-      {currState != 'loading' && currState != 'success' && (
-        <div className="revalidator">{currState}</div>
-      )}
+      <BlockContainer variant="dark" orientation="default" slug="calendarRevalidator">
+        <h2 className="revalidator">{currState}</h2>
+      </BlockContainer>
     </div>
   );
 };

@@ -7,7 +7,6 @@ export default async function handler(req: Request, res: Response): Promise<unkn
   try {
     // fetch all data from the googlce calendar
     const googleCalendarData = await getGoogleCalendarEvents();
-    // const googleCalendarData : {id: number, StartDate: string, EndDate: string}[]= [];
 
     // fetch all data from the database
     const { bookings } = await getStrapiCalendarEvents();
@@ -24,7 +23,6 @@ export default async function handler(req: Request, res: Response): Promise<unkn
     for (let i = 0; i < googleCalendarData.length; i++) {
       const gDate = googleCalendarData[i];
       if (!isInCalendar(gDate, databaseCalendarData)) putToDB(gDate);
-      break;
     }
 
     // // remove all dates from database that are not in google
@@ -34,7 +32,7 @@ export default async function handler(req: Request, res: Response): Promise<unkn
     }
 
     // send back positive responseputToDB
-    res.status(200).json({ data: '' });
+    res.status(200).json({ data: 'Revalidated calendar succesfully' });
     return;
   } catch (e) {
     // send back negative response
