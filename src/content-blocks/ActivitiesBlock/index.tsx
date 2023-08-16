@@ -13,7 +13,7 @@ const GroupsBlock = ({ title, initialItems, callToAction, blockProperties, activ
       cta={callToAction}
     >
       <section className="sl-layout">
-        <h2>{title}</h2>
+        <h2 className="t-headline-2 t-align-center">{title}</h2>
         <Activities activities={activities} initialItems={initialItems} />
       </section>
     </BlockContainer>

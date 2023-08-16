@@ -1,0 +1,100 @@
+.activityContainer {
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: grid;
+  grid-template-rows: auto auto;
+
+  @media (--mq-up-to-medium) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.activityHeader {
+  padding-bottom: 2rem;
+  @media (--mq-from-medium) {
+    display: grid;
+    grid-template-columns: 65% 35%;
+  }
+  @media (--mq-up-to-medium) {
+    display: grid;
+    grid-template-rows: auto auto;
+  }
+}
+
+.activityTitle {
+  white-space: pre-wrap;
+  text-align: left;
+  font-family: var(--font-family-title);
+  font-style: normal;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: normal;
+  line-height: 95%;
+  font-size: 1.25rem;
+
+  @media (--mq-from-small) {
+    font-size: 1.5rem;
+  }
+
+  @media (--mq-from-large) {
+    font-size: 2rem;
+  }
+}
+
+.activityBorderContainer {
+  width: 100%;
+}
+
+.activityTime {
+  vertical-align: top;
+  font-family: var(--font-family-body);
+  font-style: normal;
+  color: darkslategrey;
+  letter-spacing: normal;
+  display: grid;
+  /* grid-template-rows: auto auto; */
+  font-size: 0.7rem;
+
+  @media (--mq-up-to-medium) {
+    text-align: left;
+    padding-top: 1rem;
+  }
+
+  @media (--mq-from-medium) {
+    text-align: right;
+  }
+
+  @media (--mq-from-small) {
+    font-size: 0.9rem;
+  }
+
+  @media (--mq-from-large) {
+    font-size: 1.2rem;
+  }
+}
+
+.activityBorder {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: solid 1px darkgrey;
+  margin-bottom: 2rem;
+}
+
+.activityDescription {
+  text-align: left;
+  font-family: var(--font-family-body);
+  font-style: normal;
+  letter-spacing: normal;
+  font-size: 0.7rem;
+  white-space: pre-wrap;
+
+  @media (--mq-from-small) {
+    font-size: 0.9rem;
+  }
+
+  @media (--mq-from-large) {
+    font-size: 1.2rem;
+  }
+}

@@ -1,5 +1,5 @@
 export type Activity = {
-  titel: string;
+  title: string;
   startDate: string;
   startTime: string;
   endDate: string;
