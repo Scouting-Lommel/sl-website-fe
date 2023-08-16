@@ -7,6 +7,7 @@ export default async function handler(req: Request, res: Response): Promise<unkn
   try {
     // fetch all data from the googlce calendar
     const googleCalendarData = await getGoogleCalendarEvents();
+    // const googleCalendarData: { StartDate: string; EndDate: string; id: number }[] = []; // uncomment this and comment the line above to remove all entries from db
 
     // fetch all data from the database
     const { bookings } = await getStrapiCalendarEvents();
@@ -46,12 +47,12 @@ function isInCalendar(
   date: {
     StartDate: string;
     EndDate: string;
-    id?: number;
+    id: number;
   },
   calendarDates: {
     StartDate: string;
     EndDate: string;
-    id?: number;
+    id: number;
   }[],
 ) {
   for (const cDate of calendarDates) {

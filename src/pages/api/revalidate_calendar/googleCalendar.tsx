@@ -2,7 +2,9 @@ import { google } from 'googleapis';
 import dotenv from 'dotenv';
 dotenv.config();
 
-async function getGoogleCalendarEvents(): Promise<{ StartDate: string; EndDate: string }[]> {
+async function getGoogleCalendarEvents(): Promise<
+  { StartDate: string; EndDate: string; id: number }[]
+> {
   // Create a JWT client using the service account key
   const jwtClient = new google.auth.JWT(
     process.env.google_calendar_client_email,
@@ -23,7 +25,8 @@ async function getGoogleCalendarEvents(): Promise<{ StartDate: string; EndDate: 
     orderBy: 'updated',
   });
 
-  let dataItems: { StartDate: string; EndDate: string }[] = [];
+  let dataItems: { StartDate: string; EndDate: string; id: number }[] = [];
+
   for (const event of response.data.items!) {
     if (!event.start?.date || !event.end?.date) {
       const start = new Date(event.start?.dateTime!);
@@ -36,9 +39,17 @@ async function getGoogleCalendarEvents(): Promise<{ StartDate: string; EndDate: 
       const emonth = (end.getMonth() + 1).toString().padStart(2, '0');
       const eday = end.getDate().toString().padStart(2, '0');
       const edateString = eyear + '-' + emonth + '-' + eday;
-      dataItems.push({ StartDate: sdateString, EndDate: edateString });
+      dataItems.push({
+        StartDate: sdateString,
+        EndDate: edateString,
+        id: event.summary?.includes('weide') ? 2 : 1, // weide id = 2, lokaal = 1
+      });
     } else {
-      dataItems.push({ StartDate: event.start.date, EndDate: event.end.date });
+      dataItems.push({
+        StartDate: event.start.date,
+        EndDate: event.end.date,
+        id: event.summary?.includes('weide') ? 2 : 1,
+      });
     }
   }
 
