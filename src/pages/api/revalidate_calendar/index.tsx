@@ -37,7 +37,7 @@ export default async function handler(req: Request, res: Response): Promise<unkn
     return;
   } catch (e) {
     // send back negative response
-    console.warn(e);
+    console.error(e);
     res.status(400).json({ data: e });
     return;
   }

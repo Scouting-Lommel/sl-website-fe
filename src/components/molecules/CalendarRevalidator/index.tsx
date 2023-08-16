@@ -11,6 +11,7 @@ export const links = () => {
 
 const CalendarRevalidator = () => {
   const [currState, setState] = useState(<Loader />);
+  const [isHandling, setHandling] = useState(false);
 
   const handleRevalidate = async () => {
     const options = {
@@ -30,7 +31,10 @@ const CalendarRevalidator = () => {
   };
 
   useEffect(() => {
-    handleRevalidate();
+    if (!isHandling) {
+      setHandling(true);
+      handleRevalidate();
+    }
   });
 
   return (

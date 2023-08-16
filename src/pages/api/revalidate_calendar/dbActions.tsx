@@ -17,8 +17,7 @@ const putToDB = async (date: { StartDate: string; EndDate: string; id: number })
   const responseBody = await response.json();
 
   if (responseBody.errors) {
-    console.error(responseBody.errors);
-    throw new Error('Failed to fetch API');
+    throw new Error(responseBody.errors);
   }
   return responseBody.data;
 };
@@ -37,8 +36,7 @@ const removeFromDB = async (date: { StartDate: string; EndDate: string; id: numb
   );
   const responseBody = await response.json();
   if (responseBody.errors) {
-    console.error(responseBody.errors);
-    throw new Error('Failed to fetch API');
+    throw new Error(responseBody.errors);
   }
   return responseBody.data;
 };
