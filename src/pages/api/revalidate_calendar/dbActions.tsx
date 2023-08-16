@@ -9,7 +9,6 @@ const putToDB = async (date: { StartDate: string; EndDate: string; id: number })
       data: {
         start: date.StartDate,
         end: date.EndDate,
-        title: 'not Important',
         rental_location: date.id ? date.id : 1,
       },
     }),
