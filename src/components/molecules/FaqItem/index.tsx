@@ -15,7 +15,7 @@ export const links = () => {
 
 type Props = FAQProps & React.HTMLAttributes<HTMLElement>;
 
-const FAQItem = ({ question, answer, Image, callToAction, finalQuestion }: Props) => {
+const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props) => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div className="faqItemContainer">
@@ -34,19 +34,10 @@ const FAQItem = ({ question, answer, Image, callToAction, finalQuestion }: Props
       <div
         className={
           'faqAnswer ' +
-          (Image ? 'faqAnswer--with-image ' : ' ') +
+          (image?.data ? 'faqAnswer--with-image ' : ' ') +
           (!isOpen ? 'faqAnswer__hidden' : '')
         }
       >
-        {Image && (
-          <div className="faqAnswer_image-container">
-            <SLImage
-              data={Image.data.attributes}
-              loadingStrategy={'lazy'}
-              className="faqAnswer__image"
-            />
-          </div>
-        )}
         <div className="faqAnswer__content">
           <Typography>{answer}</Typography>
           {callToAction && (
@@ -58,6 +49,15 @@ const FAQItem = ({ question, answer, Image, callToAction, finalQuestion }: Props
             />
           )}
         </div>
+        {image?.data && image.data.attributes && (
+          <div className="faqAnswer_image-container">
+            <SLImage
+              data={image.data.attributes}
+              loadingStrategy={'lazy'}
+              className="faqAnswer__image"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
