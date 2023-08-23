@@ -1,0 +1,10 @@
+fragment MapBlockFragment on ComponentContentBlocksMapBlock {
+  title
+  location
+  info
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+}

@@ -1,25 +1,38 @@
 import { MapEmbedProps as mapsProps } from './types';
+import styles from './Map.css';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
 
 type Props = mapsProps & React.HTMLAttributes<HTMLElement>;
 
-const GoogleMapEmbedComponent = ({
-  location = 'San Francisco, CA',
-  width = 600,
-  height = 450,
+const GoogleMap = ({
+  location = 'Nieuwe kopen 4, 3920 Lommel',
+  width = 1000,
+  height = 600,
+  title,
+  info,
+  className,
 }: Props) => {
   const encodedLocation = encodeURIComponent(location);
 
   return (
-    <div>
-      <iframe
-        width={width}
-        height={height}
-        loading="lazy"
-        allowFullScreen
-        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_MAPS_API_KEY}&q=${encodedLocation}`}
-      />
+    <div className={className}>
+      <h2 className="t-headline-2 t-align-center">{title}</h2>
+      <div className="center">
+        <iframe
+          className="map"
+          width={width}
+          height={height}
+          id="gmap_canvas"
+          loading="lazy"
+          scrolling="no"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.5808726931305!2d5.299091176604409!3d51.24521347175483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c6d2a30241cfb9%3A0xa6aff1233d34c53!2sScouting%20Lommel!5e0!3m2!1sen!2sbe!4v1692796045208!5m2!1sen!2sbe"
+        ></iframe>
+      </div>
     </div>
   );
 };
 
-export default GoogleMapEmbedComponent;
+export default GoogleMap;
