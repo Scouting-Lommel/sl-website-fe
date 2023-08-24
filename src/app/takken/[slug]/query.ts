@@ -2,15 +2,27 @@ import gql from 'graphql-tag';
 
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
+import FILES_BLOCK_FRAGMENT from '@/graphql/files-block.gql';
 
 const GROUP_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
   ${TEXT_IMAGE_BLOCK_FRAGMENT}
+  ${FILES_BLOCK_FRAGMENT}
 
   query getGroupPage($slug: String) {
     groups(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
+          files {
+            data {
+              attributes {
+                ext
+                url
+                name
+                size
+              }
+            }
+          }
           pageTitle
           subtitle
           pageMeta {
@@ -54,6 +66,7 @@ const GROUP_PAGE_QUERY = gql`
             __typename
             ...HeroBlockFragment
             ...TextImageBlockFragment
+            ...FilesBlockFragment
           }
         }
       }

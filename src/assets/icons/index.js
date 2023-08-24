@@ -20,6 +20,12 @@ const IconLock = dynamic(() => import('@/assets/icons/Lock.svg'));
 const IconMail = dynamic(() => import('@/assets/icons/Mail.svg'));
 const IconMenu = dynamic(() => import('@/assets/icons/Menu.svg'));
 const IconTikTok = dynamic(() => import('@/assets/icons/TikTok.svg'));
+const IconJpg = dynamic(() => import('@/assets/icons/jpg.svg'));
+const IconPdf = dynamic(() => import('@/assets/icons/pdf.svg'));
+const IconPng = dynamic(() => import('@/assets/icons/png.svg'));
+const IconPowerpoint = dynamic(() => import('@/assets/icons/powerpoint.svg'));
+const IconUnknown_file = dynamic(() => import('@/assets/icons/unknown_file.svg'));
+const IconWord = dynamic(() => import('@/assets/icons/word.svg'));
 
 export const icons = {
   arrowdown: IconArrowDown,
@@ -40,6 +46,12 @@ export const icons = {
   mail: IconMail,
   menu: IconMenu,
   tiktok: IconTikTok,
+  jpg: IconJpg,
+  pdf: IconPdf,
+  png: IconPng,
+  powerpoint: IconPowerpoint,
+  unknown_file: IconUnknown_file,
+  word: IconWord,
 };
 
 export {
@@ -61,4 +73,10 @@ export {
   IconMail,
   IconMenu,
   IconTikTok,
+  IconJpg,
+  IconPdf,
+  IconPng,
+  IconPowerpoint,
+  IconUnknown_file,
+  IconWord,
 };

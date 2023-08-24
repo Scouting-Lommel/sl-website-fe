@@ -27,6 +27,12 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
 
   if (!group) notFound();
 
+  for (let i = 0; i < group.attributes.blocks.length; i++) {
+    if (group.attributes.blocks[i].__typename == 'ComponentContentBlocksFilesBlock') {
+      group.attributes.blocks[i].files = group.attributes.files;
+    }
+  }
+
   return (
     <>
       <HeroBlock

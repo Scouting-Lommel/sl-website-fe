@@ -1,0 +1,39 @@
+.fileContainer {
+  border-top: solid grey 1px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+
+  display: grid;
+  grid-template-columns: 4rem auto 10rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &__final {
+    border-bottom: solid grey 1px;
+  }
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 4rem auto;
+  }
+}
+
+.file__filesize {
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media (--mq-up-to-medium) {
+    padding-left: 4rem;
+  }
+}
+
+.file__name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 1rem;
+}
