@@ -23,7 +23,7 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
         className={finalQuestion && !isOpen ? 'faqTitle--noBorder' : 'faqTitle'}
         onClick={() => setOpen(!isOpen)}
       >
-        <Typography>{question}</Typography>
+        <Typography modPreWrap>{question}</Typography>
         <Icon
           size="sm"
           icon={isOpen ? IconChevronUp : IconChevronDown}
@@ -39,14 +39,16 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
         }
       >
         <div className="faqAnswer__content">
-          <Typography>{answer}</Typography>
+          <Typography modPreWrap data={answer} />
           {callToAction && (
-            <Button
-              label={callToAction.label}
-              href={callToAction.link}
-              variant={callToAction.variant}
-              className="faqAnswer__content__button"
-            />
+            <div className="faqAnswer__content__buttonContainer">
+              <Button
+                label={callToAction.label}
+                href={callToAction.link}
+                variant={callToAction.variant}
+                className="faqAnswer__content__button"
+              />
+            </div>
           )}
         </div>
         {image?.data && image.data.attributes && (

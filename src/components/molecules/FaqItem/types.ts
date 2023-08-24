@@ -3,7 +3,7 @@ import { Button } from '@/components/atoms/Button/types';
 
 export type FaqItem = {
   question: String;
-  answer: String;
+  answer: string;
   image?: { data: { attributes: CloudinaryImage } };
   callToAction?: Button;
   finalQuestion?: Boolean;
