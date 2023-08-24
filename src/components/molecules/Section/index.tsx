@@ -12,7 +12,7 @@ type Props = SectionProps & React.HTMLAttributes<HTMLElement>;
 const Section = ({ title, content, final }: Props) => {
   return (
     <section id={title.toUpperCase()} className={classNames('section', final && 'section__final')}>
-      <h3>{title.toUpperCase()}</h3>
+      <h3># {title.toUpperCase()}</h3>
       <Typography modPreWrap data={content} />
     </section>
   );
