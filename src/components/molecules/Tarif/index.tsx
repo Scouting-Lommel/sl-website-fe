@@ -16,13 +16,13 @@ const Tarif = ({ name, dayPrice, minimumPrice, example }: Props) => {
   return (
     <div className="tarif__container">
       <div className="tarif__data">
-        <Typography className="tarif__name" modPreWrap>
+        <Typography className="tarif__name" modPreWrap modNoStyle>
           {name}
         </Typography>
-        <Typography className="tarif__min" modPreWrap>
+        <Typography className="tarif__min" modPreWrap modNoStyle>
           € {minimumPrice}
         </Typography>
-        <Typography className="tarif__day" modPreWrap>
+        <Typography className="tarif__day" modPreWrap modNoStyle>
           € {dayPrice}
         </Typography>
         <div className="tarif__ex" onClick={() => setOpen(!isOpen)}>

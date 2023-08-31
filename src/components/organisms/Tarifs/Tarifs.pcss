@@ -22,12 +22,23 @@
   grid-template-columns: 2fr 1fr 1fr 1fr;
   padding: 2rem;
   border-bottom: solid 2px lightgray;
+  gap: 2px;
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .tarifs__header__min {
   grid-column-start: 2;
+  @media (--mq-up-to-small) {
+    font-size: smaller;
+  }
 }
 
 .tarifs__header__pp {
   grid-column-start: 3;
+  @media (--mq-up-to-small) {
+    font-size: smaller;
+  }
 }
