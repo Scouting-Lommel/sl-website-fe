@@ -1,10 +1,10 @@
 import { BlockContainer } from '@/components/atoms/BlockContainer/types';
 import { CallToAction } from '@/components/molecules/CallToAction/types';
-import { Tarifs } from '@/components/organisms/Tarifs/types';
+import { Tarif } from '@/components/molecules/Tarif/types';
 
 export type TarifsBlock = {
   title: string;
-  tarifs: Tarifs;
+  tarifs: { data: { attributes: Tarif }[] };
   blockProperties: BlockContainer;
   cta: CallToAction;
 };

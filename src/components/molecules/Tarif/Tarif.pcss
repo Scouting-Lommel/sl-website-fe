@@ -1,0 +1,36 @@
+.tarif__name {
+  grid-column-start: 1;
+}
+
+.tarif__min {
+  grid-column-start: 2;
+  color: darkslategrey;
+}
+
+.tarif__day {
+  grid-column-start: 3;
+  color: darkslategrey;
+}
+
+.tarif__ex {
+  grid-column-start: 4;
+  color: darkslategrey;
+  text-decoration: underline;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.tarif__data {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+.tarif__container {
+  padding: 2rem;
+  border-bottom: solid 2px lightgray;
+}
+
+.tarif__ex__data {
+  padding-top: 2rem;
+}
