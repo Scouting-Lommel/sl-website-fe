@@ -2,10 +2,12 @@ import gql from 'graphql-tag';
 
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
+import GALLERY_BLOCK_FRAGMENT from '@/graphql/gallery-block.gql';
 
 const RENTAL_LOCATION_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
   ${TEXT_IMAGE_BLOCK_FRAGMENT}
+  ${GALLERY_BLOCK_FRAGMENT}
 
   query getRentalLocationPage($slug: String) {
     rentalLocations(filters: { slug: { eq: $slug } }) {
@@ -54,6 +56,7 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
             __typename
             ...HeroBlockFragment
             ...TextImageBlockFragment
+            ...GalleryBlockFragment
           }
         }
       }
