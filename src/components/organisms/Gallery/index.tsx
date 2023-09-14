@@ -18,21 +18,21 @@ const Gallery = ({ title, initialItems, images }: Props) => {
     <div>
       <h2 className="t-headline-2 t-align-center">{title}</h2>
       <div className="gallery--imagecontainer">
-        {!isOpen &&
-          [...Array(initialItems)].map((_, i) => {
-            if (images.data.length > i) {
-              return (
+        {[...Array(isOpen ? images.data.length : initialItems)].map((_, i) => {
+          if (images.data.length > i) {
+            return (
+              <div>
                 <SLImage
                   key={i}
                   data={images.data[i].attributes}
                   loadingStrategy={'lazy'}
-                  className="Gallery--image"
+                  className="gallery--image"
                 />
-              );
-            }
-            return <></>;
-          })}
-        {isOpen && <></>}
+              </div>
+            );
+          }
+          return <div></div>;
+        })}
       </div>
       <div className="gallery--button">
         <Button
