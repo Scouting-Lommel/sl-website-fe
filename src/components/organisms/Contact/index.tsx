@@ -81,7 +81,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
             <input className="contactInput" type="text" id="email" name="email" />
           </div>
         </div>
-        <div className="contactUserInfo">
+        <div className="contactSubject">
           <div className="contactUserInfoItem">
             <Typography>
               <label htmlFor="selection">Onderwerp</label>
