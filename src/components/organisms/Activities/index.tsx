@@ -20,6 +20,7 @@ const Activities = ({ activities, initialItems }: Props) => {
         if (isOpen || i < initialItems) {
           return (
             <Activity
+              key={i}
               title={activities[i].attributes.title}
               startDate={activities[i].attributes.startDate}
               startTime={activities[i].attributes.startTime}
