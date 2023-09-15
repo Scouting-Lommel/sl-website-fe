@@ -21,9 +21,8 @@ const Gallery = ({ title, initialItems, images }: Props) => {
         {[...Array(isOpen ? images.data.length : initialItems)].map((_, i) => {
           if (images.data.length > i) {
             return (
-              <div>
+              <div key={i}>
                 <SLImage
-                  key={i}
                   data={images.data[i].attributes}
                   loadingStrategy={'lazy'}
                   className="gallery--image"
@@ -31,7 +30,7 @@ const Gallery = ({ title, initialItems, images }: Props) => {
               </div>
             );
           }
-          return <div></div>;
+          return <div key={i}></div>;
         })}
       </div>
       <div className="gallery--button">
