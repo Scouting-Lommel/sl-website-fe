@@ -22,9 +22,18 @@ const RegisterPage = async () => {
 
   if (!registerPage) notFound();
 
+  // add register block
+  let content = registerPage.data.attributes.blocks;
+
+  const register = {
+    __typename: 'ComponentContentRegisterBlock',
+  };
+
+  content?.push(register);
+
   return (
     <>
-      <Blocks content={registerPage.data.attributes.blocks} />
+      <Blocks content={content} />
     </>
   );
 };
