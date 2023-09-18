@@ -1,9 +1,10 @@
 .registerchild {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding: 2rem 5rem;
   border-bottom: solid 1px lightgray;
+
+  @media (--mq-up-to-medium) {
+    padding: 2rem 0rem;
+  }
 }
 
 .registerchild__card {
@@ -27,6 +28,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+
+  @media (--mq-up-to-small) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .registerchild__date {
@@ -34,6 +40,11 @@
   grid-template-columns: 2fr 1fr 1fr;
   gap: 2rem;
   padding-top: 2rem;
+
+  @media (--mq-up-to-small) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 }
 
 .registerchild__date__akabe {

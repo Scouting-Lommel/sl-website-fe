@@ -1,16 +1,5 @@
 fragment FormFragment on ComponentContentBlocksForm {
-  redirect
-  action
-  formattedResponseMessage
-  formVariant: variant
-  formOrientation: orientation
-  formSmallPadding: modSmallPadding
-  formMargin: modMargin
-  inputs {
-    label
-    type
-    uid
-    required
-    options
-  }
+  bankAccount
+  leaderPrice
+  childPrice
 }

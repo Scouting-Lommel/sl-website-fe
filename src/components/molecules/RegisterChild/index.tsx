@@ -30,14 +30,17 @@ const RegisterChild = ({ index, first, prevlink }: Props) => {
             </label>
           </div>
           <div className="registerchild__date">
-            <label
-              htmlFor={'birthdate' + index}
-              onChange={() => {
-                calculateTak(setTak, index);
-              }}
-            >
+            <label htmlFor={'birthdate' + index}>
               <Typography>Geboortedatum:</Typography>
-              <input type="date" id={'birthdate' + index} name={'birthdate' + index} required />
+              <input
+                type="date"
+                id={'birthdate' + index}
+                name={'birthdate' + index}
+                onChange={() => {
+                  calculateTak(setTak, index);
+                }}
+                required
+              />
             </label>
             <label
               htmlFor={'akabe' + index}
@@ -59,13 +62,13 @@ const RegisterChild = ({ index, first, prevlink }: Props) => {
               <Typography>Geslacht:</Typography>
               <div className="registerchild__sex__radio">
                 <label htmlFor={'M' + index} className="registerchild__sex__radio__item">
-                  <input type="radio" id={'M' + index} name="Sex" value="M" required />M
+                  <input type="radio" id={'M' + index} name={'Sex' + index} value="m" required />M
                 </label>
                 <label htmlFor={'V' + index} className="registerchild__sex__radio__item">
-                  <input type="radio" id={'V' + index} name="Sex" value="V" required />V
+                  <input type="radio" id={'V' + index} name={'Sex' + index} value="v" required />V
                 </label>
                 <label htmlFor={'X' + index} className="registerchild__sex__radio__item">
-                  <input type="radio" id={'X' + index} name="Sex" value="X" required />X
+                  <input type="radio" id={'X' + index} name={'Sex' + index} value="x" required />X
                 </label>
               </div>
             </label>
@@ -89,6 +92,7 @@ const RegisterChild = ({ index, first, prevlink }: Props) => {
                 onClick={() => {
                   prevlink!(false);
                 }}
+                variant="light"
               />
             </div>
           )}

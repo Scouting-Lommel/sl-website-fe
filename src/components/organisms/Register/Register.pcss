@@ -3,6 +3,11 @@
   grid-template-columns: 2fr 1fr 1fr;
   gap: 1rem;
   padding-bottom: 2rem;
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 }
 
 .register input[type='text'] {
@@ -17,6 +22,11 @@
   grid-template-columns: 1fr 2fr;
   gap: 1rem;
   padding-bottom: 2rem;
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .register__personal {
@@ -25,9 +35,27 @@
   gap: 1rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid lightgray;
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .register__submit {
+  display: flex;
+  justify-content: center;
+}
+
+.register__privacy {
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+  align-content: center;
+  padding: 2rem;
+}
+
+.register__loader {
   display: flex;
   justify-content: center;
 }

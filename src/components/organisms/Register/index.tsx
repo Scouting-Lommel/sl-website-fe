@@ -4,89 +4,179 @@ import RegisterChild from '@/components/molecules/RegisterChild';
 import styles from './Register.css';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
+import { useState } from 'react';
+import Loader from '@/components/atoms/Loader';
+import { Register as RegisterProps } from './types';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const Register = () => {
+type Props = RegisterProps & React.HTMLAttributes<HTMLElement>;
+
+const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
+  const [responseMessage, setResponse] = useState('');
+
   const handleSubmit = async (event: any) => {
     // Stop the form from submitting and refreshing the page.
     event.preventDefault();
+    setResponse('loading');
 
-    const data = '';
+    const basedata = {
+      street: event.target.elements.street.value,
+      houseNumber: event.target.elements.number.value,
+      busNumber: event.target.elements.bus.value,
+      arealCode: event.target.elements.Postcode.value,
+      city: event.target.elements.City.value,
+      email: event.target.elements.email.value,
+      phoneNumber: event.target.elements.tel.value,
+    };
 
-    // Send the data to the nextjs server in JSON format.
-    const JSONdata = JSON.stringify(data);
+    // for each child do an api call
 
-    // API endpoint where we send form data.
-    const endpoint = '/api/register_user';
+    for (let i = 1; i < 10; i++) {
+      if (!event.target.elements['firstname' + i]) break;
+      const extraData = {
+        firstName: event.target.elements['firstname' + i].value,
+        lastName: event.target.elements['lastname' + i].value,
+        birthDate: event.target.elements['birthdate' + i].value,
+        akabe: event.target.elements['akabe' + i].checked,
+        sex: event.target.elements['Sex' + i].value,
+      };
 
-    // Form the request for sending data to the server.
-    const options = {
+      const fullData = { ...basedata, ...extraData };
+      const JSONdata = JSON.stringify(fullData);
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSONdata,
+      };
+      const response = await fetch('/api/register_user', options);
+      const result = await response.json();
+      if (response.status !== 200) {
+        alert(
+          'something went wrong trying to resolve the request:\n Status code:' +
+            response.status +
+            '\n Error message: ' +
+            result.data,
+        );
+        return;
+      }
+    }
+    // create the response message
+    let response = `Succes!!\n\n
+    U bent succesvol ingeschreven voor het nieuwe scoutsjaar, hierbij de details van uw inschrijving:\n
+    `;
+    let totaal = 0;
+    for (let i = 1; i < 10; i++) {
+      if (!event.target.elements['firstname' + i]) break;
+      const prijs =
+        new Date().getFullYear() - new Date(event.target.elements['birthdate' + i]).getFullYear() >
+          17 && !event.target.elements['akabe' + i].checked
+          ? leaderPrice
+          : childPrice;
+      response += `\t${event.target.elements['firstname' + i].value} ${
+        event.target.elements['lastname' + i].value
+      }\t\t\t${prijs} euro \n`;
+      totaal += prijs;
+    }
+    response += `\tTotaal: ${totaal} euro\n\n`;
+    response += `Gelieve dit bedrag te storten op het rekeningnummer ${bankAccount}\n\n`;
+    response += `Ter bevestiging is er ook een email gestuurd naar ${event.target.elements.email.value}\n\n`;
+    response += 'Stevige linker';
+
+    // email the user
+    const emailData = {
+      emailAddress: event.target.elements.email.value,
+      subject: 'Inschrijving Scouting Lommel',
+      body: response,
+    };
+    const emailJSONdata = JSON.stringify(emailData);
+    const emailoptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSONdata,
+      body: emailJSONdata,
     };
-
-    // Send the form data to our forms API on Vercel and get a response.
-    const response = await fetch(endpoint, options);
-    const result = await response.json();
-    if (response.status != 200) {
+    const emailresponse = await fetch('/api/send_mail', emailoptions);
+    const emailresult = await emailresponse.json();
+    if (emailresponse.status !== 200) {
       alert(
-        'something went wrong trying to resolve the request:\n Status code:' +
-          response.status +
+        'something went wrong trying to send the mail:\n Status code:' +
+          emailresult.status +
           '\n Error message: ' +
-          result.data,
+          emailresult.data,
       );
       return;
     }
+
+    // set the display message for the payment
+    setResponse(response);
   };
 
   return (
     <div className="sl-layout register">
-      <form onSubmit={(event) => handleSubmit(event)} noValidate={false}>
-        <div className="register__streetaddress">
-          <label htmlFor="street">
-            <Typography>Straatnaam:</Typography>
-            <input type="text" id="street" name="street" required />
+      {responseMessage === '' && (
+        <form onSubmit={(event) => handleSubmit(event)} noValidate={false}>
+          <div className="register__streetaddress">
+            <label htmlFor="street">
+              <Typography>Straatnaam:</Typography>
+              <input type="text" id="street" name="street" required />
+            </label>
+            <label htmlFor="number">
+              <Typography>Huisnummer:</Typography>
+              <input type="text" id="number" name="number" required />
+            </label>
+            <label htmlFor="bus">
+              <Typography>Bus:</Typography>
+              <input type="text" id="bus" name="bus" />
+            </label>
+          </div>
+          <div className="register__postal">
+            <label htmlFor="Postcode">
+              <Typography>Postcode:</Typography>
+              <input type="text" id="Postcode" name="Postcode" />
+            </label>
+            <label htmlFor="City">
+              <Typography>Gemeente:</Typography>
+              <input type="text" id="City" name="City" required />
+            </label>
+          </div>
+          <div className="register__personal">
+            <label htmlFor="email">
+              <Typography>Emailadres:</Typography>
+              <input type="text" id="email" name="email" required />
+            </label>
+            <label htmlFor="tel">
+              <Typography>Telefoonnummer:</Typography>
+              <input type="text" id="tel" name="tel" required />
+            </label>
+          </div>
+          <RegisterChild index={1} key={1} first />
+          <label htmlFor="privacy" className="register__privacy">
+            <input type="checkbox" id="privacy" name="privacy" required />
+            <Typography>
+              Ik heb kennis genomen met de{' '}
+              <a href="/privacy-policy">privacyverklaring van Scouting Lommel</a> en ga hiermee
+              akkoord.
+            </Typography>
           </label>
-          <label htmlFor="number">
-            <Typography>Huisnummer:</Typography>
-            <input type="text" id="number" name="number" required />
-          </label>
-          <label htmlFor="bus">
-            <Typography>Bus:</Typography>
-            <input type="text" id="bus" name="bus" />
-          </label>
+          <div className="register__submit">
+            <Button label="Inschrijven" type="submit" />
+          </div>
+        </form>
+      )}
+      {responseMessage === 'loading' && (
+        <div className="register__loader">
+          <Loader />
         </div>
-        <div className="register__postal">
-          <label htmlFor="Postcode">
-            <Typography>Postcode:</Typography>
-            <input type="text" id="Postcode" name="Postcode" />
-          </label>
-          <label htmlFor="City">
-            <Typography>Gemeente:</Typography>
-            <input type="text" id="City" name="City" required />
-          </label>
-        </div>
-        <div className="register__personal">
-          <label htmlFor="email">
-            <Typography>Emailadres:</Typography>
-            <input type="text" id="email" name="email" required />
-          </label>
-          <label htmlFor="tel">
-            <Typography>Telefoonnummer:</Typography>
-            <input type="text" id="tel" name="tel" required />
-          </label>
-        </div>
-        <RegisterChild index={1} key={1} first />
-        <div className="register__submit">
-          <Button label="Inschrijven" type="submit" />
-        </div>
-      </form>
+      )}
+      {responseMessage !== 'loading' && responseMessage !== '' && (
+        <Typography data={responseMessage} />
+      )}
     </div>
   );
 };
