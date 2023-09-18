@@ -1,8 +1,11 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Register from '@/components/organisms/Register';
 import HeroBlock from '../HeroBlock';
+import { RegisterBlock as RegisterBlockProps } from './types';
 
-const RegisterBlock = () => {
+type Props = RegisterBlockProps & React.HTMLAttributes<HTMLElement>;
+
+const RegisterBlock = (props: Props) => {
   return (
     <>
       <HeroBlock
@@ -11,7 +14,7 @@ const RegisterBlock = () => {
         variant="default"
       />
       <BlockContainer variant="light" orientation="default" slug="Register">
-        <Register />
+        <Register {...props} />
       </BlockContainer>
     </>
   );
