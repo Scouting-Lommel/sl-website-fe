@@ -4,8 +4,33 @@
 
 .embla {
   --slide-spacing: 1rem;
-  --slide-size: 25%;
-  --slide-height: 20rem;
+  --slide-size: 28%;
+  --slide-height: 30rem;
+
+  @media (--mq-up-to-xlarge) {
+    --slide-size: 30%;
+    --slide-height: 30rem;
+  }
+
+  @media (--mq-up-to-large) {
+    --slide-size: 45%;
+    --slide-height: 25rem;
+  }
+
+  @media (--mq-up-to-medium) {
+    --slide-size: 65%;
+    --slide-height: 25rem;
+  }
+
+  @media (--mq-up-to-small) {
+    --slide-size: 85%;
+    --slide-height: 15rem;
+  }
+
+  @media (--mq-up-to-xsmall) {
+    --slide-size: 85%;
+    --slide-height: 10rem;
+  }
 }
 .embla__viewport {
   overflow: hidden;
@@ -30,9 +55,9 @@
 .embla__buttons {
   width: 100%;
   display: flex;
-  /* justify-content: center; */
   gap: 5px;
   padding-top: 2rem;
+  color: white;
 }
 .embla__button {
   z-index: 1;
