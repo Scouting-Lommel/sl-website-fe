@@ -7,24 +7,15 @@ export const links = () => {
 
 type Props = mapsProps & React.HTMLAttributes<HTMLElement>;
 
-const GoogleMap = ({
-  location = 'Nieuwe kopen 4, 3920 Lommel',
-  width = 1000,
-  height = 600,
-  title,
-  info,
-  className,
-}: Props) => {
-  const encodedLocation = encodeURIComponent(location);
-
+const GoogleMap = ({ title, className }: Props) => {
   return (
     <div className={className}>
       <h2 className="t-headline-2 t-align-center">{title}</h2>
       <div className="center">
         <iframe
           className="map"
-          width={width}
-          height={height}
+          width="1000"
+          height="600"
           id="gmap_canvas"
           loading="lazy"
           scrolling="no"

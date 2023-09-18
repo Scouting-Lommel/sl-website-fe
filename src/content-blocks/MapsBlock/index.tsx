@@ -4,14 +4,14 @@ import GoogleMap from '@/components/organisms/Map';
 
 type Props = MapBlockProps & React.HTMLAttributes<HTMLElement>;
 
-const MapsBlock = ({ title, location, info, blockProperties }: Props) => {
+const MapsBlock = ({ title, blockProperties }: Props) => {
   return (
     <BlockContainer
       variant={blockProperties.variant === 'light' ? 'light' : 'dark'}
       orientation={blockProperties.orientation}
       slug={blockProperties.slug}
     >
-      <GoogleMap title={title} location={location} info={info} className="sl-layout" />
+      <GoogleMap title={title} className="sl-layout" />
     </BlockContainer>
   );
 };
