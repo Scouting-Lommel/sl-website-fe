@@ -8,7 +8,7 @@ export const links = () => {
 
 type Props = IconProps & React.HTMLAttributes<HTMLElement>;
 
-const Icon = ({ icon, size, title, className }: Props) => {
+const Icon = ({ icon, size, title, className, ...otherProps }: Props) => {
   const classes = classNames('icon', `icon--${size}`, className);
 
   if (!icon) {
@@ -19,7 +19,7 @@ const Icon = ({ icon, size, title, className }: Props) => {
   const TagName = icon;
 
   return (
-    <div className={classes}>
+    <div className={classes} {...otherProps}>
       <TagName title={title} className="icon__svg" />
     </div>
   );

@@ -1,6 +1,9 @@
 import { Modal as ModalProps } from './types';
 import styles from './Modal.css';
 import { useEffect, useState } from 'react';
+import Icon from '@/components/atoms/Icon';
+import { IconClose } from '@/assets/icons';
+import classNames from 'classnames';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -8,7 +11,7 @@ export const links = () => {
 
 type Props = ModalProps & React.HTMLAttributes<HTMLElement>;
 
-const Modal = ({ button, modalData }: Props) => {
+const Modal = ({ button, modalData, cardClass, className }: Props) => {
   const [isOpen, setOpen] = useState(false);
 
   useEffect(() => {
@@ -30,16 +33,17 @@ const Modal = ({ button, modalData }: Props) => {
       <div id="modal__container">
         {isOpen && (
           <div className="modal__container">
-            <div className="modal__content">
-              <span
-                className="close"
+            <div className={classNames('modal__content', cardClass)}>
+              <Icon
+                icon={IconClose}
+                size="lg"
+                title="modal_close"
+                className="modal__close"
                 onClick={() => {
                   setOpen(false);
                 }}
-              >
-                &times;
-              </span>
-              <p>Some text in the Modal..</p>
+              />
+              <div className={classNames('modal__body', className)}>{modalData}</div>
             </div>
           </div>
         )}
