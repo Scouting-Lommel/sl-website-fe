@@ -4,11 +4,13 @@ import { AuthProvider } from '@/lib/api/security/security';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ApolloProvider client={client}>
-      <AuthProvider>
-        <Component {...pageProps} />
-      </AuthProvider>
-    </ApolloProvider>
+    <>
+      {/* <ApolloProvider client={client}> */}
+      {/* <AuthProvider> */}
+      {/* <Component {...pageProps} /> */}
+      {/* </AuthProvider> */}
+      {/* </ApolloProvider> */}
+    </>
   );
 }
 

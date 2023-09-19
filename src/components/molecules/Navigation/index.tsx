@@ -3,6 +3,9 @@
 import NavItem from '@/components/molecules/NavItem';
 import { Navigation as NavigationProps } from './types';
 import styles from './Navigation.css';
+import Icon from '@/components/atoms/Icon';
+import { IconLock } from '@/assets/icons';
+import Modal from '../Modal';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -39,6 +42,15 @@ const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
             );
           })}
         </span>
+        <Modal
+          button={
+            <div className="navigation__login">
+              Login
+              <Icon icon={IconLock} size="md" title="loginLock" className="navigation__lock" />
+            </div>
+          }
+          modalData={<></>}
+        />
       </ul>
     </nav>
   );
