@@ -1,5 +1,5 @@
 import { generateApiQuery } from '@/lib/api';
-import getRentalLocationBookings from './getBookings.gql';
+import getRentalLocationBookings from './query.gql';
 
 async function getStrapiCalendarEvents(): Promise<any> {
   return generateApiQuery({

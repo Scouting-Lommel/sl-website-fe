@@ -40,7 +40,7 @@ const CalendarRevalidator = () => {
       setIsHandling(true);
       handleRevalidate();
     }
-  });
+  }, [isHandling]);
 
   return (
     <div className="sl-layout">
