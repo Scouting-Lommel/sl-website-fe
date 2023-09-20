@@ -5,6 +5,7 @@ import styles from './RegisterChild.css';
 import Button from '@/components/atoms/Button';
 import { Dispatch, SetStateAction, useState } from 'react';
 import Typography from '@/components/atoms/Typography';
+import Input from '@/components/atoms/FormInput';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -17,34 +18,38 @@ const RegisterChild = ({ index, first, prevlink }: Props) => {
   const [tak, setTak] = useState('Kapoenen');
   return (
     <>
-      <div className="registerchild">
-        <div className="registerchild__card">
-          <div className="registerchild__name">
-            <label htmlFor={'firstname' + index}>
-              <Typography>Voornaam:</Typography>
-              <input type="text" id={'firstname' + index} name={'firstname' + index} required />
-            </label>
-            <label htmlFor={'lastname' + index}>
-              <Typography>Achternaam:</Typography>
-              <input type="text" id={'lastname' + index} name={'lastname' + index} required />
-            </label>
+      <div className="register-child">
+        <div className="register-child__card">
+          <div className="register-child__card__name">
+            <Input
+              label="Voornaam:"
+              type="text"
+              id={'firstname' + index}
+              name={'firstname' + index}
+              required
+            />
+            <Input
+              label="Achternaam:"
+              type="text"
+              id={'lastname' + index}
+              name={'lastname' + index}
+              required
+            />
           </div>
-          <div className="registerchild__date">
-            <label htmlFor={'birthdate' + index}>
-              <Typography>Geboortedatum:</Typography>
-              <input
-                type="date"
-                id={'birthdate' + index}
-                name={'birthdate' + index}
-                onChange={() => {
-                  calculateTak(setTak, index);
-                }}
-                required
-              />
-            </label>
+          <div className="register-child__card__date">
+            <Input
+              label="Geboortedatum:"
+              type="date"
+              id={'birthdate' + index}
+              name={'birthdate' + index}
+              onChange={() => {
+                calculateTak(setTak, index);
+              }}
+              required
+            />
             <label
               htmlFor={'akabe' + index}
-              className="registerchild__date__akabe"
+              className="register-child__card__date__akabe"
               onChange={() => {
                 calculateTak(setTak, index);
               }}
@@ -52,31 +57,31 @@ const RegisterChild = ({ index, first, prevlink }: Props) => {
               <input type="checkbox" id={'akabe' + index} name={'akabe' + index} />
               <Typography>Akabe?</Typography>
             </label>
-            <div className="registerchild__tak">
+            <div className="register-child__card__group">
               <Typography>Tak:</Typography>
               <Typography>{tak}</Typography>
             </div>
           </div>
-          <div className="registerchild__sex">
+          <div className="register-child__card__sex">
             <label>
               <Typography>Geslacht:</Typography>
-              <div className="registerchild__sex__radio">
-                <label htmlFor={'M' + index} className="registerchild__sex__radio__item">
+              <div className="register-child__card__sex__radio">
+                <label htmlFor={'M' + index} className="register-child__card__sex__radio__item">
                   <input type="radio" id={'M' + index} name={'Sex' + index} value="m" required />M
                 </label>
-                <label htmlFor={'V' + index} className="registerchild__sex__radio__item">
+                <label htmlFor={'V' + index} className="register-child__card__sex__radio__item">
                   <input type="radio" id={'V' + index} name={'Sex' + index} value="v" required />V
                 </label>
-                <label htmlFor={'X' + index} className="registerchild__sex__radio__item">
+                <label htmlFor={'X' + index} className="register-child__card__sex__radio__item">
                   <input type="radio" id={'X' + index} name={'Sex' + index} value="x" required />X
                 </label>
               </div>
             </label>
           </div>
         </div>
-        <div className="registerchild__add">
+        <div className="register-child__add">
           {!nextKid && (
-            <div className="registerchild__add__padding">
+            <div className="register-child__add__padding">
               <Button
                 label="Lid toevoegen"
                 onClick={() => {
@@ -86,7 +91,7 @@ const RegisterChild = ({ index, first, prevlink }: Props) => {
             </div>
           )}
           {!first && !nextKid && (
-            <div className="registerchild__add__padding">
+            <div className="register-child__add__padding">
               <Button
                 label="Lid verwijderen"
                 onClick={() => {

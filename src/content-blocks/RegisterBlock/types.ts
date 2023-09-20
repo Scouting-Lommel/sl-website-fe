@@ -1,3 +1,3 @@
-import { Register } from '@/components/organisms/Register/types';
+import { Register } from '@/components/organisms/RegisterForm/types';
 
 export type RegisterBlock = Register;

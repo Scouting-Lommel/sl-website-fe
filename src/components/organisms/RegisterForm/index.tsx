@@ -7,6 +7,7 @@ import Typography from '@/components/atoms/Typography';
 import { useState } from 'react';
 import Loader from '@/components/atoms/Loader';
 import { Register as RegisterProps } from './types';
+import Input from '@/components/atoms/FormInput';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -22,7 +23,7 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
     event.preventDefault();
     setResponse('loading');
 
-    const basedata = {
+    const collectiveData = {
       street: event.target.elements.street.value,
       houseNumber: event.target.elements.number.value,
       busNumber: event.target.elements.bus.value,
@@ -36,7 +37,7 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
 
     for (let i = 1; i < 10; i++) {
       if (!event.target.elements['firstname' + i]) break;
-      const extraData = {
+      const childData = {
         firstName: event.target.elements['firstname' + i].value,
         lastName: event.target.elements['lastname' + i].value,
         birthDate: event.target.elements['birthdate' + i].value,
@@ -44,8 +45,8 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
         sex: event.target.elements['Sex' + i].value,
       };
 
-      const fullData = { ...basedata, ...extraData };
-      const JSONdata = JSON.stringify(fullData);
+      const formData = { ...collectiveData, ...childData };
+      const JSONdata = JSON.stringify(formData);
       const options = {
         method: 'POST',
         headers: {
@@ -53,10 +54,10 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
         },
         body: JSONdata,
       };
-      const response = await fetch('/api/register_user', options);
+      const response = await fetch('/api/register-user', options);
       const result = await response.json();
       if (response.status !== 200) {
-        alert(
+        console.log(
           'something went wrong trying to resolve the request:\n Status code:' +
             response.status +
             '\n Error message: ' +
@@ -101,10 +102,10 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
       },
       body: emailJSONdata,
     };
-    const emailresponse = await fetch('/api/send_mail', emailoptions);
+    const emailresponse = await fetch('/api/send-mail', emailoptions);
     const emailresult = await emailresponse.json();
     if (emailresponse.status !== 200) {
-      alert(
+      console.log(
         'something went wrong trying to send the mail:\n Status code:' +
           emailresult.status +
           '\n Error message: ' +
@@ -118,45 +119,24 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
   };
 
   return (
-    <div className="sl-layout register">
+    <div className="sl-layout register-form">
       {responseMessage === '' && (
         <form onSubmit={(event) => handleSubmit(event)} noValidate={false}>
-          <div className="register__streetaddress">
-            <label htmlFor="street">
-              <Typography>Straatnaam:</Typography>
-              <input type="text" id="street" name="street" required />
-            </label>
-            <label htmlFor="number">
-              <Typography>Huisnummer:</Typography>
-              <input type="text" id="number" name="number" required />
-            </label>
-            <label htmlFor="bus">
-              <Typography>Bus:</Typography>
-              <input type="text" id="bus" name="bus" />
-            </label>
+          <div className="register-form__street-address">
+            <Input label="Straatnaam:" type="text" id="street" name="street" required />
+            <Input label="Huisnummer:" type="text" id="number" name="number" required />
+            <Input label="Bus:" type="text" id="bus" name="bus" />
           </div>
-          <div className="register__postal">
-            <label htmlFor="Postcode">
-              <Typography>Postcode:</Typography>
-              <input type="text" id="Postcode" name="Postcode" />
-            </label>
-            <label htmlFor="City">
-              <Typography>Gemeente:</Typography>
-              <input type="text" id="City" name="City" required />
-            </label>
+          <div className="register-form__postal">
+            <Input label="Postcode:" type="text" id="Postcode" name="Postcode" />
+            <Input label="Gemeente:" type="text" id="City" name="City" required />
           </div>
-          <div className="register__personal">
-            <label htmlFor="email">
-              <Typography>Emailadres:</Typography>
-              <input type="text" id="email" name="email" required />
-            </label>
-            <label htmlFor="tel">
-              <Typography>Telefoonnummer:</Typography>
-              <input type="text" id="tel" name="tel" required />
-            </label>
+          <div className="register-form__personal">
+            <Input label="Emailadres:" type="text" id="email" name="email" required />
+            <Input label="Telefoonnummer:" type="text" id="tel" name="tel" required />
           </div>
           <RegisterChild index={1} key={1} first />
-          <label htmlFor="privacy" className="register__privacy">
+          <label htmlFor="privacy" className="register-form__privacy">
             <input type="checkbox" id="privacy" name="privacy" required />
             <Typography>
               Ik heb kennis genomen met de{' '}
@@ -164,13 +144,13 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
               akkoord.
             </Typography>
           </label>
-          <div className="register__submit">
+          <div className="register-form__submit">
             <Button label="Inschrijven" type="submit" />
           </div>
         </form>
       )}
       {responseMessage === 'loading' && (
-        <div className="register__loader">
+        <div className="register-form__loader">
           <Loader />
         </div>
       )}
