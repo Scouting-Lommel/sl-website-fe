@@ -1,5 +1,5 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Register from '@/components/organisms/RegisterFrom';
+import Register from '@/components/organisms/RegisterForm';
 import HeroBlock from '../HeroBlock';
 import { RegisterBlock as RegisterBlockProps } from './types';
 
