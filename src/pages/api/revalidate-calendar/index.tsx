@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { getGoogleCalendarEvents } from './googleCalendar';
-import { getStrapiCalendarEvents } from './strapiCalendar';
-import { putToDB, removeFromDB } from './dbActions';
+import { getGoogleCalendarEvents } from './google-calendar';
+import { getStrapiCalendarEvents } from './strapi-calendar';
+import { putToDB, removeFromDB } from './database-actions';
 
 export default async function handler(req: Request, res: Response): Promise<unknown> {
   try {
@@ -11,12 +11,12 @@ export default async function handler(req: Request, res: Response): Promise<unkn
 
     // fetch all data from the database
     const { bookings } = await getStrapiCalendarEvents();
-    let databaseCalendarData: { id: number; StartDate: string; EndDate: string }[] = [];
+    let databaseCalendarData: { id: number; startDate: string; endDate: string }[] = [];
     for (const dbDate of bookings.data) {
       databaseCalendarData.push({
         id: dbDate.id,
-        StartDate: dbDate.attributes.start,
-        EndDate: dbDate.attributes.end,
+        startDate: dbDate.attributes.start,
+        endDate: dbDate.attributes.end,
       });
     }
 
@@ -45,18 +45,18 @@ export default async function handler(req: Request, res: Response): Promise<unkn
 
 function isInCalendar(
   date: {
-    StartDate: string;
-    EndDate: string;
+    startDate: string;
+    endDate: string;
     id: number;
   },
   calendarDates: {
-    StartDate: string;
-    EndDate: string;
+    startDate: string;
+    endDate: string;
     id: number;
   }[],
 ) {
   for (const cDate of calendarDates) {
-    if (cDate.StartDate == date.StartDate && cDate.EndDate == date.EndDate) {
+    if (cDate.startDate == date.startDate && cDate.endDate == date.endDate) {
       return true;
     }
   }

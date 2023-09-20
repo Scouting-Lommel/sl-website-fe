@@ -1,4 +1,4 @@
-const putToDB = async (date: { StartDate: string; EndDate: string; id: number }) => {
+const putToDB = async (date: { startDate: string; endDate: string; id: number }) => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/api/bookings`, {
     method: 'POST',
     headers: {
@@ -7,8 +7,8 @@ const putToDB = async (date: { StartDate: string; EndDate: string; id: number })
     },
     body: JSON.stringify({
       data: {
-        start: date.StartDate,
-        end: date.EndDate,
+        start: date.startDate,
+        end: date.endDate,
         rental_location: date.id ? date.id : 1,
       },
     }),
@@ -22,7 +22,7 @@ const putToDB = async (date: { StartDate: string; EndDate: string; id: number })
   return responseBody.data;
 };
 
-const removeFromDB = async (date: { StartDate: string; EndDate: string; id: number }) => {
+const removeFromDB = async (date: { startDate: string; endDate: string; id: number }) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/api/bookings/${date.id}`,
     {

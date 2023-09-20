@@ -10,8 +10,12 @@ export const links = () => {
 };
 
 const CalendarRevalidator = () => {
-  const [currState, setState] = useState(<Loader />);
-  const [isHandling, setHandling] = useState(false);
+  const [currState, setCurrState] = useState(
+    <div className="revalidator">
+      <Loader />
+    </div>,
+  );
+  const [isHandling, setIsHandling] = useState(false);
 
   const handleRevalidate = async () => {
     const options = {
@@ -22,24 +26,26 @@ const CalendarRevalidator = () => {
       body: JSON.stringify({}),
     };
 
-    const response = await fetch(`/api/revalidate_calendar`, options);
+    const response = await fetch(`/api/revalidate-calendar`, options);
 
     const result = await response.json();
 
-    if (response.status == 200) setState(<>success: {result.data}</>);
-    else setState(<>an error occured: {result.data}</>);
+    if (response.status == 200)
+      setCurrState(<h2 className="revalidator">success: {result.data}</h2>);
+    else setCurrState(<h2 className="revalidator">an error occured: {result.data}</h2>);
   };
 
   useEffect(() => {
     if (!isHandling) {
-      setHandling(true);
+      setIsHandling(true);
       handleRevalidate();
     }
   });
 
   return (
     <div className="sl-layout">
-      <BlockContainer variant="dark" orientation="default" slug="calendarRevalidator">
+      <BlockContainer variant="dark" orientation="default" slug="calendar-revalidator">
+        {currState}
         <h2 className="revalidator">{currState}</h2>
       </BlockContainer>
     </div>
