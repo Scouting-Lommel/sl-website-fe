@@ -7,7 +7,6 @@
     "build:icons": "npm run generate-icons",
     "build:next": "next build",
     "build:prebuild": "node prebuild.ts",
-    "build:node": "npm install",
     "build": "run-p build:**",
     "dev:css:components": "postcss src/components/**/*.pcss --base src/components --dir src/components --ext css -w",
     "dev:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css -w",
