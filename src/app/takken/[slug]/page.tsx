@@ -25,11 +25,11 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
   const date = new Date();
-  const syear = date.getFullYear();
-  const smonth = (date.getMonth() + 1).toString().padStart(2, '0');
-  const sday = date.getDate().toString().padStart(2, '0');
-  const sdateString = syear + '-' + smonth + '-' + sday;
-  const { activities } = await getActivities(slug, sdateString);
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  const dateString = year + '-' + month + '-' + day;
+  const { activities } = await getActivities(slug, dateString);
 
   if (!group || !activities) notFound();
 

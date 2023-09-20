@@ -1,6 +1,6 @@
 import { Activity as ActivityProps } from './types';
 import styles from './Activity.css';
-import Typography from '../Typography';
+import Typography from '@/components/atoms/Typography';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -40,18 +40,18 @@ const Activity = ({ title, startDate, startTime, endDate, endTime, description }
 
   return (
     <>
-      <div className="activityContainer">
-        <div className="activityHeader">
-          <div className="activityTitle">{title}</div>
-          <div className="activityTime">
+      <div className="activity">
+        <div className="activity__header">
+          <div className="activity__header__title">{title}</div>
+          <div className="activity__header__time">
             {firstLine} <br />
             {secondLine}
           </div>
         </div>
-        <Typography className="activityDescription" data={description} />
+        <Typography className="activity__description" data={description} />
       </div>
-      <div className="activityBorderContainer">
-        <div className="activityBorder"></div>
+      <div className="activity__border">
+        <div className="activity__border__line"></div>
       </div>
     </>
   );

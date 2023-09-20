@@ -1,7 +1,7 @@
-.activityContainer {
-  padding-bottom: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+.activity {
+  padding-bottom: var(--space-32);
+  padding-left: var(--space-32);
+  padding-right: var(--space-32);
   display: grid;
   grid-template-rows: auto auto;
 
@@ -11,8 +11,8 @@
   }
 }
 
-.activityHeader {
-  padding-bottom: 2rem;
+.activity__header {
+  padding-bottom: var(--space-32);
   @media (--mq-from-medium) {
     display: grid;
     grid-template-columns: 65% 35%;
@@ -23,7 +23,7 @@
   }
 }
 
-.activityTitle {
+.activity__header__title {
   white-space: pre-wrap;
   text-align: left;
   font-family: var(--font-family-title);
@@ -42,11 +42,11 @@
   }
 }
 
-.activityBorderContainer {
+.activity__border {
   width: 100%;
 }
 
-.activityTime {
+.activity__header__time {
   vertical-align: top;
   font-family: var(--font-family-body);
   font-style: normal;
@@ -58,7 +58,7 @@
 
   @media (--mq-up-to-medium) {
     text-align: left;
-    padding-top: 1rem;
+    padding-top: var(--space-16);
   }
 
   @media (--mq-from-medium) {
@@ -74,7 +74,7 @@
   }
 }
 
-.activityBorder {
+.activity__border__line {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -82,7 +82,7 @@
   margin-bottom: 2rem;
 }
 
-.activityDescription {
+.activity__description {
   text-align: left;
   font-family: var(--font-family-body);
   font-style: normal;

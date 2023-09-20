@@ -13,9 +13,9 @@ export const links = () => {
 type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
 
 const Activities = ({ activities, initialItems }: Props) => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="activitiesContainer">
+    <div className="activities">
       {activities.map((act, i) => {
         if (isOpen || i < initialItems) {
           return (
@@ -31,12 +31,12 @@ const Activities = ({ activities, initialItems }: Props) => {
           );
         }
       })}
-      {!isOpen && (
-        <div className="actButton">
+      {!isOpen && initialItems < activities.length && (
+        <div className="activities__button">
           <Button
             label="Toon alle activiteiten"
             variant="primary"
-            onClick={() => setOpen(true)}
+            onClick={() => setIsOpen(true)}
           ></Button>
         </div>
       )}
@@ -45,7 +45,7 @@ const Activities = ({ activities, initialItems }: Props) => {
           <Button
             label="Toon eerste activiteiten"
             variant="primary"
-            onClick={() => setOpen(false)}
+            onClick={() => setIsOpen(false)}
           ></Button>
         </div>
       )}
