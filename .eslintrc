@@ -15,6 +15,12 @@
         "area": ["Area"],
         "input[type=\"image\"]": ["InputImage"]
       }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
     ]
   }
 }

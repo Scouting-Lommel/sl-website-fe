@@ -46,6 +46,7 @@
     "react-big-calendar": "^1.8.2",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.5",
+    "react-quill": "^2.0.0",
     "remark-gfm": "^3.0.1",
     "typescript": "^5.0.4",
     "yargs": "^17.6.2"
