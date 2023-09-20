@@ -17,60 +17,60 @@
   }
 
   @media (--mq-up-to-medium) {
-    .days-of-week {
+    .calendar__week {
       font-size: 0.8rem; /* Decrease font size */
     }
 
-    .day-of-week {
+    .calendar__week__day {
       padding: 0.25rem;
       white-space: nowrap; /* Prevent day names from wrapping */
       overflow: hidden; /* Hide overflow text */
       text-overflow: ellipsis; /* Show ellipsis for truncated text */
     }
 
-    .calender-month-and-year {
+    .calender__header__month-year {
       font-size: 1rem;
     }
   }
 }
 
-.calendar-header {
+.calendar__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
 
-.days-of-week {
+.calendar__week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.day-of-week {
+.calendar__week__day {
   padding: 0.5rem;
 }
 
-.days {
+.calendar__days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+
+  &--empty-day {
+    background-color: transparent;
+  }
 }
 
-.day {
+.calendar__days__day {
   padding: 0.5rem;
   border: 1px solid #ccc;
   transition: background-color 0.3s ease;
-}
 
-.day.available {
-  background-color: lightgreen;
-}
+  &--available {
+    background-color: lightgreen;
+  }
 
-.day.unavailable {
-  background-color: lightcoral;
-}
-
-.empty-day {
-  background-color: transparent;
+  &--unavailable {
+    background-color: lightcoral;
+  }
 }

@@ -8,7 +8,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import Button from '../Button';
 import Typography from '../Typography';
 
-const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const daysOfWeek = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -54,39 +54,43 @@ export default function Calendar({ events }: Props) {
 
   return (
     <div className="calendar">
-      <div className="calendar-header">
+      <div className="calendar__header">
         <Typography>
           <Button onClick={prevMonth}>
-            <FontAwesomeIcon icon={faChevronLeft} /> Prev
+            <FontAwesomeIcon icon={faChevronLeft} /> Vorige
           </Button>
         </Typography>
         <Typography>
-          <h2 className="calender-month-and-year">
+          <h2 className="calender__header__month-year">
             {currentDate.toLocaleString('default', { month: 'long', year: 'numeric' })}
           </h2>
         </Typography>
         <Typography>
           <Button onClick={nextMonth}>
-            Next <FontAwesomeIcon icon={faChevronRight} />
+            Volgende <FontAwesomeIcon icon={faChevronRight} />
           </Button>
         </Typography>
       </div>
-      <div className="days-of-week">
+      <div className="calendar__week">
         {daysOfWeek.map((day) => (
-          <div key={day} className="day-of-week">
+          <div key={day} className="calendar__week__day">
             <Typography>{day}</Typography>
           </div>
         ))}
       </div>
-      <div className="days">
+      <div className="calendar__days">
         {/* Empty cells for the days before the first day of the month */}
         {Array.from({ length: startDayOfWeek }, (_, index) => (
-          <div key={`empty-${index}`} className="empty-day"></div>
+          <div key={`empty-${index}`} className="calendar__days--empty-day"></div>
         ))}
         {monthDays.map((day) => (
           <div
             key={day.toISOString()}
-            className={`day ${isDayAvailable(day) ? 'available' : 'unavailable'}`}
+            className={`calendar__days__day  ${
+              isDayAvailable(day)
+                ? 'calendar__days__day--available'
+                : 'calendar__days__day--unavailable'
+            }`}
           >
             <Typography>{day.getDate()}</Typography>
           </div>
