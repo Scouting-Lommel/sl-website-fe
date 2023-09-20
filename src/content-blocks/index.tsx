@@ -10,6 +10,7 @@ const blockList: BlockList = {
   ComponentContentBlocksTextImageBlock: dynamic(() => import('./TextImageBlock')),
   ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock')),
   ComponentContentBlocksActivitiesBlock: dynamic(() => import('./ActivitiesBlock')),
+  ComponentContentBlocksCalendarBlock: dynamic(() => import('./CalendarBlock')),
 };
 
 const Blocks = ({ content }: { content: any }) => {
