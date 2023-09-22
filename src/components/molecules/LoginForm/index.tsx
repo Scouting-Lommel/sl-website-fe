@@ -44,7 +44,7 @@ const LoginForm = () => {
   return (
     <div>
       <form onSubmit={tryLogin} className="login-form">
-        <h2 className="t-headline-2 t-align-center">Login</h2>
+        <h2 className="t-headline-2 t-align-center">Log in</h2>
         <label htmlFor="username" className="login-form__label">
           <Typography>Gebruikersnaam</Typography>
           <input

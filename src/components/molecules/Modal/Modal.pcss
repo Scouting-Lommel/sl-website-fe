@@ -13,9 +13,11 @@
 .modal__content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 1rem;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  min-width: 15%;
+  max-width: 90%;
+  width: fit-content;
   border-radius: 10px;
   position: relative;
 }
@@ -37,8 +39,8 @@
 }
 
 .modal__body {
-  padding-top: 20px;
+  padding-top: 1.7rem;
   width: 100%;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 1.7rem;
 }
