@@ -7,7 +7,7 @@ type Props = MapBlockProps & React.HTMLAttributes<HTMLElement>;
 const MapsBlock = ({ title, blockProperties }: Props) => {
   return (
     <BlockContainer
-      variant={blockProperties.variant === 'light' ? 'light' : 'dark'}
+      variant={blockProperties.variant}
       orientation={blockProperties.orientation}
       slug={blockProperties.slug}
     >

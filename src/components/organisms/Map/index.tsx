@@ -11,11 +11,9 @@ const GoogleMap = ({ title, className }: Props) => {
   return (
     <div className={className}>
       <h2 className="t-headline-2 t-align-center">{title}</h2>
-      <div className="center">
+      <div className="map__container">
         <iframe
           className="map"
-          width="1000"
-          height="600"
           id="gmap_canvas"
           loading="lazy"
           scrolling="no"
