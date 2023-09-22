@@ -3,12 +3,7 @@
 import NavItem from '@/components/molecules/NavItem';
 import { Navigation as NavigationProps } from './types';
 import styles from './Navigation.css';
-import Icon from '@/components/atoms/Icon';
-import { IconLock } from '@/assets/icons';
-import Modal from '@/components/molecules/Modal';
 import Login from '@/components/organisms/Login';
-import { hasCookie, removeCookie } from '@/api/cookies';
-import { useEffect, useState } from 'react';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -17,10 +12,6 @@ export const links = () => {
 type Props = NavigationProps & React.HTMLAttributes<HTMLElement>;
 
 const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() => {
-    setIsLoggedIn(hasCookie('leader'));
-  }, [isLoggedIn]);
   return (
     <nav className="navigation__wrapper">
       <ul className="navigation">
@@ -49,34 +40,7 @@ const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
             );
           })}
         </span>
-        {!isLoggedIn && (
-          <li className="navigation__login">
-            <Modal
-              button={
-                <div className="navigation__login__button">
-                  Log in
-                  <Icon icon={IconLock} size="md" title="loginLock" className="navigation__lock" />
-                </div>
-              }
-              modalData={<Login />}
-              cardClass="navigation__login__card"
-            />
-          </li>
-        )}
-        {isLoggedIn && (
-          <li className="navigation__login">
-            <div
-              className="navigation__login__button"
-              onClick={() => {
-                removeCookie('leader');
-                location.reload();
-              }}
-            >
-              Log uit
-              <Icon icon={IconLock} size="md" title="loginLock" className="navigation__lock" />
-            </div>
-          </li>
-        )}
+        <Login />
       </ul>
     </nav>
   );

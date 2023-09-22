@@ -9,15 +9,28 @@
   padding: 0 18rem;
 }
 
-.login__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
+.login {
+  font-family: var(--font-family-title);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 .login__button {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
 }
 
 .login__loader {

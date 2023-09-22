@@ -22,7 +22,7 @@ const Modal = ({ button, modalData, cardClass, className }: Props) => {
   }, []);
 
   return (
-    <>
+    <div>
       <div
         onClick={() => {
           setOpen(true);
@@ -48,7 +48,7 @@ const Modal = ({ button, modalData, cardClass, className }: Props) => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
