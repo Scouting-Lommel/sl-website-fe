@@ -5,6 +5,7 @@ import styles from './Login.css';
 import { useState } from 'react';
 import Button from '@/components/atoms/Button';
 import Loader from '@/components/atoms/Loader';
+import { addCookie } from '@/api/cookies';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -31,12 +32,12 @@ const Login = () => {
     };
     const response = await fetch('/api/login', options);
     const result = await response.json();
+    setLoading(false);
     if (response.status !== 200) {
-      alert('Login unsuccesfull' + response.status + '\n Error message: ' + result.data);
-      setLoading(false);
+      console.log('Login unsuccesfull' + response.status + '\n Error message: ' + result.data);
       return;
     }
-    setLoading(false);
+    addCookie('leader', result.token);
     location.reload();
   };
 

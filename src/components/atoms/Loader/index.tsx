@@ -1,4 +1,4 @@
-import styles from './loader.css';
+import styles from './Loader.css';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];

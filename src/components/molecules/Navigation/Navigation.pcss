@@ -7,6 +7,7 @@
   padding: var(--space-12) 0;
   padding: 0;
   margin: 0 0;
+  list-style-type: none;
 
   @media (--mq-from-large) {
     flex-direction: row;
@@ -51,6 +52,16 @@
   font-weight: var(--font-weight-semibold);
   text-decoration: none;
   text-transform: uppercase;
+
+  &:hover,
+  &:focus,
+  &:focus-within {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.navigation__login__button {
   display: flex;
   flex-direction: row;
   justify-content: center;
