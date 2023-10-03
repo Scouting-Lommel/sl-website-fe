@@ -1,49 +1,52 @@
-.faqItemContainer {
+.faq-item__container {
   border: none;
-  padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-top: var(--space32);
+  padding-left: var(--space32);
+  padding-right: var(--space32);
 }
 
-.faqTitle {
-  padding-bottom: 2rem;
-  padding-right: 2rem;
-  border-bottom: solid lightgray 1px;
+.faq-item__title {
+  padding-bottom: var(--space32);
+  padding-right: var(--space32);
+  border-bottom: solid lightgray 0.063rem;
   display: flex;
   justify-content: space-between;
+
   &:hover {
     cursor: pointer;
   }
 }
 
-.faqTitle--noBorder {
-  padding-bottom: 2rem;
-  padding-right: 2rem;
+.faq-item__title--noBorder {
+  padding-bottom: var(--space32);
+  padding-right: var(--space32);
   display: flex;
   justify-content: space-between;
+
   &:hover {
     cursor: pointer;
   }
 }
 
-.faqAnswer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: solid gray 1px;
+.faq-item__answer {
+  padding-top: var(--space32);
+  padding-bottom: var(--space32);
+  border-bottom: solid gray 0.063rem;
 }
 
-.faqAnswer--with-image {
+.faq-item__answer--with-image {
   display: grid;
   gap: var(--space-40);
   grid-template-columns: 1fr;
+
   @media (--mq-from-large) {
     align-items: center;
     grid-template-columns: auto 22rem;
 
-    & .faqAnswer__content {
+    & .faq-item__answer__content {
       order: 0;
     }
-    & .faqAnswer__image-container {
+    & .faq-item__answer__image-container {
       order: 1;
     }
   }
@@ -54,12 +57,12 @@
   }
 }
 
-.faqAnswer__image-container {
+.faq-item__answer__image-container {
   position: relative;
   height: fit-content;
 }
 
-.faqAnswer__image {
+.faq-item__answer__image {
   position: relative;
   display: block;
   overflow: hidden;
@@ -69,20 +72,20 @@
   filter: drop-shadow(var(--drop-shadow-lg));
 }
 
-.faqAnswer__content {
+.faq-item__answer__content {
   display: flex;
   flex-direction: column;
 }
 
-.faqAnswer__content__buttonContainer {
+.faq-item__answer__content__buttonContainer {
   display: flex;
   justify-content: center;
 }
 
-.faqAnswer__content__button {
+.faq-item__answer__content__button {
   margin-top: var(--space-24);
 }
 
-.faqAnswer__hidden {
+.faq-item__answer--hidden {
   display: none;
 }

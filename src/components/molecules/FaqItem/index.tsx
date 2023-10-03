@@ -18,9 +18,9 @@ type Props = FAQProps & React.HTMLAttributes<HTMLElement>;
 const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props) => {
   const [isOpen, setOpen] = useState(false);
   return (
-    <div className="faqItemContainer">
+    <div className="faq-item__container">
       <div
-        className={finalQuestion && !isOpen ? 'faqTitle--noBorder' : 'faqTitle'}
+        className={finalQuestion && !isOpen ? 'faq-item__title--noBorder' : 'faq-item__title'}
         onClick={() => setOpen(!isOpen)}
       >
         <Typography modPreWrap>{question}</Typography>
@@ -33,30 +33,30 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
       </div>
       <div
         className={
-          'faqAnswer ' +
-          (image?.data ? 'faqAnswer--with-image ' : ' ') +
-          (!isOpen ? 'faqAnswer__hidden' : '')
+          'faq-item__answer ' +
+          (image?.data ? 'faq-item__answer--with-image ' : ' ') +
+          (!isOpen ? 'faq-item__answer--hidden' : '')
         }
       >
-        <div className="faqAnswer__content">
+        <div className="faq-item__answer__content">
           <Typography modPreWrap data={answer} />
           {callToAction && (
-            <div className="faqAnswer__content__buttonContainer">
+            <div className="faq-item__answer__content__buttonContainer">
               <Button
                 label={callToAction.label}
                 href={callToAction.link}
                 variant={callToAction.variant}
-                className="faqAnswer__content__button"
+                className="faq-item__answer__content__button"
               />
             </div>
           )}
         </div>
         {image?.data && image.data.attributes && (
-          <div className="faqAnswer_image-container">
+          <div className="faq-item__answer_image-container">
             <SLImage
               data={image.data.attributes}
               loadingStrategy={'lazy'}
-              className="faqAnswer__image"
+              className="faq-item__answer__image"
             />
           </div>
         )}
