@@ -1,0 +1,14 @@
+fragment CalendarBlockFragment on ComponentContentBlocksCalendarBlock {
+  title
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+  cta: callToAction {
+    title
+    intro
+    ctaLabel
+    ctaLink
+  }
+}
