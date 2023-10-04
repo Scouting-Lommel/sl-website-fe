@@ -39,6 +39,12 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
     }
   }
 
+  group.attributes.blocks.forEach((block: any) => {
+    if (block.__typename == 'ComponentContentBlocksFilesBlock') {
+      block.files = group.attributes.files;
+    }
+  });
+
   return (
     <>
       <HeroBlock
