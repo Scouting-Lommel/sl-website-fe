@@ -1,10 +1,9 @@
-.fileContainer {
-  border-top: solid grey 1px;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
-
+.file__container {
+  border-top: solid grey 0.063rem;
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
+  padding-right: var(--space-32);
+  padding-left: var(--space-32);
   display: grid;
   grid-template-columns: 4rem auto 10rem;
 
@@ -12,8 +11,8 @@
     cursor: pointer;
   }
 
-  &__final {
-    border-bottom: solid grey 1px;
+  &:last-child {
+    border-bottom: solid grey 0.063rem;
   }
 
   @media (--mq-up-to-medium) {
@@ -27,7 +26,7 @@
   flex-direction: column;
   justify-content: center;
   @media (--mq-up-to-medium) {
-    padding-left: 4rem;
+    padding-left: var(--space-64);
   }
 }
 
@@ -35,5 +34,5 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 1rem;
+  padding-right: var(--space-16);
 }

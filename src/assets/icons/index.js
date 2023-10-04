@@ -16,16 +16,16 @@ const IconClose = dynamic(() => import('@/assets/icons/Close.svg'));
 const IconEdit = dynamic(() => import('@/assets/icons/Edit.svg'));
 const IconFacebook = dynamic(() => import('@/assets/icons/Facebook.svg'));
 const IconInstagram = dynamic(() => import('@/assets/icons/Instagram.svg'));
+const IconJPG = dynamic(() => import('@/assets/icons/JPG.svg'));
 const IconLock = dynamic(() => import('@/assets/icons/Lock.svg'));
 const IconMail = dynamic(() => import('@/assets/icons/Mail.svg'));
 const IconMenu = dynamic(() => import('@/assets/icons/Menu.svg'));
+const IconPDF = dynamic(() => import('@/assets/icons/PDF.svg'));
+const IconPNG = dynamic(() => import('@/assets/icons/PNG.svg'));
+const IconPowerpoint = dynamic(() => import('@/assets/icons/Powerpoint.svg'));
 const IconTikTok = dynamic(() => import('@/assets/icons/TikTok.svg'));
-const IconJpg = dynamic(() => import('@/assets/icons/jpg.svg'));
-const IconPdf = dynamic(() => import('@/assets/icons/pdf.svg'));
-const IconPng = dynamic(() => import('@/assets/icons/png.svg'));
-const IconPowerpoint = dynamic(() => import('@/assets/icons/powerpoint.svg'));
-const IconUnknown_file = dynamic(() => import('@/assets/icons/unknown_file.svg'));
-const IconWord = dynamic(() => import('@/assets/icons/word.svg'));
+const IconUnknownFile = dynamic(() => import('@/assets/icons/UnknownFile.svg'));
+const IconWord = dynamic(() => import('@/assets/icons/Word.svg'));
 
 export const icons = {
   arrowdown: IconArrowDown,
@@ -42,15 +42,15 @@ export const icons = {
   edit: IconEdit,
   facebook: IconFacebook,
   instagram: IconInstagram,
+  jpg: IconJPG,
   lock: IconLock,
   mail: IconMail,
   menu: IconMenu,
-  tiktok: IconTikTok,
-  jpg: IconJpg,
-  pdf: IconPdf,
-  png: IconPng,
+  pdf: IconPDF,
+  png: IconPNG,
   powerpoint: IconPowerpoint,
-  unknown_file: IconUnknown_file,
+  tiktok: IconTikTok,
+  unknownfile: IconUnknownFile,
   word: IconWord,
 };
 
@@ -69,14 +69,14 @@ export {
   IconEdit,
   IconFacebook,
   IconInstagram,
+  IconJPG,
   IconLock,
   IconMail,
   IconMenu,
-  IconTikTok,
-  IconJpg,
-  IconPdf,
-  IconPng,
+  IconPDF,
+  IconPNG,
   IconPowerpoint,
-  IconUnknown_file,
+  IconTikTok,
+  IconUnknownFile,
   IconWord,
 };

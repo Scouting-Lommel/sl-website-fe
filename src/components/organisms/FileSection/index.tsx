@@ -16,7 +16,6 @@ const FileSection = ({ title, files, className }: Props) => {
               url={file.attributes.url}
               name={file.attributes.name}
               size={file.attributes.size}
-              final={i + 1 === files.data.length}
               key={i}
             />
           );

@@ -5,7 +5,6 @@ export type File = {
   url: string;
   name: string;
   size: number;
-  final?: boolean;
 };
 
 export type extensions = { [k: string]: ComponentType<{}> };
