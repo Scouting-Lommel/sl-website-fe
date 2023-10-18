@@ -1,0 +1,24 @@
+fragment TarifsBlockFragment on ComponentContentBlocksTarifsBlock {
+  title
+  tarifs {
+    data {
+      attributes {
+        name
+        minimumPrice
+        dayPrice
+        example
+      }
+    }
+  }
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+  cta: callToAction {
+    title
+    intro
+    ctaLabel
+    ctaLink
+  }
+}

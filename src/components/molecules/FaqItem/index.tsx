@@ -1,0 +1,68 @@
+'use client';
+
+import { FaqItem as FAQProps } from './types';
+import styles from './FaqItem.css';
+import Typography from '@/components/atoms/Typography';
+import Icon from '@/components/atoms/Icon';
+import { IconChevronDown, IconChevronUp } from '@/assets/icons';
+import { useState } from 'react';
+import SLImage from '@/components/atoms/Image';
+import Button from '@/components/atoms/Button';
+
+export const links = () => {
+  return [{ rel: 'stylesheet', href: styles }];
+};
+
+type Props = FAQProps & React.HTMLAttributes<HTMLElement>;
+
+const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props) => {
+  const [isOpen, setOpen] = useState(false);
+  return (
+    <div className="faq-item__container">
+      <div
+        className={finalQuestion && !isOpen ? 'faq-item__title--noBorder' : 'faq-item__title'}
+        onClick={() => setOpen(!isOpen)}
+      >
+        <Typography modPreWrap>{question}</Typography>
+        <Icon
+          size="sm"
+          icon={isOpen ? IconChevronUp : IconChevronDown}
+          className="nav-item__dropdown-trigger__link__chevron"
+          title="Chevron"
+        />
+      </div>
+      <div
+        className={
+          'faq-item__answer ' +
+          (image?.data ? 'faq-item__answer--with-image ' : ' ') +
+          (!isOpen ? 'faq-item__answer--hidden' : '')
+        }
+      >
+        <div className="faq-item__answer__content">
+          <Typography modPreWrap data={answer} />
+          {callToAction && (
+            <div className="faq-item__answer__content__buttonContainer">
+              <Button
+                label={callToAction.label}
+                href={callToAction.link}
+                variant={callToAction.variant}
+                className="faq-item__answer__content__button"
+              />
+            </div>
+          )}
+        </div>
+        {image?.data && image.data.attributes && (
+          <div className="faq-item__answer_image-container">
+            <SLImage
+              data={image.data.attributes}
+              loadingStrategy={'lazy'}
+              className="faq-item__answer__image"
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default FAQItem;
