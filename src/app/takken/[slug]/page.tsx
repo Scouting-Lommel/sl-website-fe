@@ -27,11 +27,9 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
 
   if (!group) notFound();
 
-  for (let i = 0; i < group.attributes.blocks.length; i++) {
-    if (group.attributes.blocks[i].__typename === 'ComponentContentBlocksLeadersBlock') {
-      group.attributes.blocks[i].leaders = group.attributes.leaders;
-    }
-  }
+  group.attributes.blocks.find(
+    (block: any) => block!.__typename === 'ComponentContentBlocksLeadersBlock',
+  ).leaders = group.attributes.leaders;
 
   return (
     <>

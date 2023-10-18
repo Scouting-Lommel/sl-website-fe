@@ -10,7 +10,7 @@ type Props = LeadersProps & React.HTMLAttributes<HTMLElement>;
 
 const Leaders = ({ leaders }: Props) => {
   return (
-    <div className="Leaders__container">
+    <div className="leaders__container">
       {leaders.map((leader, i) => {
         return (
           <Leader

@@ -12,7 +12,12 @@ type Props = LeaderProps & React.HTMLAttributes<HTMLElement>;
 const Leader = ({ firstName, lastName, image }: Props) => {
   return (
     <div className="leader__container">
-      <SLImage data={image.data.attributes} loadingStrategy={'lazy'} className="leader__image" />
+      <SLImage
+        data={image.data.attributes}
+        loadingStrategy={'lazy'}
+        className="leader__image"
+        loadingStrategy="lazy"
+      />
       <Typography className="leader__name">{firstName}</Typography>
       <Typography className="leader__name">{lastName}</Typography>
     </div>

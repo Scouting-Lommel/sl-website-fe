@@ -12,10 +12,10 @@ const LeadersBlock = ({ title, leaders, cta, blockProperties }: Props) => {
       slug={blockProperties.slug}
       cta={cta}
     >
-      <section className="sl-layout">
+      <div className="sl-layout">
         <h2 className="t-headline-2 t-align-center">{title}</h2>
         <Leaders leaders={leaders.data} />
-      </section>
+      </div>
     </BlockContainer>
   );
 };
