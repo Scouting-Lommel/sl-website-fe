@@ -14,7 +14,7 @@ type Props = TarifProps & React.HTMLAttributes<HTMLElement>;
 const Tarif = ({ name, dayPrice, minimumPrice, example }: Props) => {
   const [isOpen, setOpen] = useState(false);
   return (
-    <div className="tarif__container">
+    <div className="tarif">
       <div className="tarif__data">
         <Typography className="tarif__name" modPreWrap modNoStyle>
           {name}
@@ -25,11 +25,11 @@ const Tarif = ({ name, dayPrice, minimumPrice, example }: Props) => {
         <Typography className="tarif__day" modPreWrap modNoStyle>
           € {dayPrice}
         </Typography>
-        <div className="tarif__ex" onClick={() => setOpen(!isOpen)}>
+        <div className="tarif__example" onClick={() => setOpen(!isOpen)}>
           voorbeeld -&gt;
         </div>
       </div>
-      {isOpen && <Typography data={example} modPreWrap className="tarif__ex__data" />}
+      {isOpen && <Typography data={example} modPreWrap className="tarif__example__content" />}
     </div>
   );
 };

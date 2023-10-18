@@ -14,10 +14,10 @@ const Tarifs = ({ tarifs, cta }: Props) => {
   return (
     <div className="tarifs">
       <div className="tarifs__container">
-        <Typography className="tarifs__header__min" modPreWrap>
+        <Typography className="tarifs__header__min-price" modPreWrap>
           Minimumprijs
         </Typography>
-        <Typography className="tarifs__header__pp" modPreWrap>
+        <Typography className="tarifs__header__price-pp" modPreWrap>
           Prijs pp/nacht
         </Typography>
       </div>
