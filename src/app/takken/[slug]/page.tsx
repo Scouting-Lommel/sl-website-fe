@@ -33,21 +33,17 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
 
   if (!group || !activities) notFound();
 
-  for (let i = 0; i < group.attributes.blocks.length; i++) {
-    if (group.attributes.blocks[i].__typename === 'ComponentContentBlocksActivitiesBlock') {
-      group.attributes.blocks[i].activities = activities.data;
-    }
-  }
-
   group.attributes.blocks.forEach((block: any) => {
     if (block.__typename == 'ComponentContentBlocksFilesBlock') {
       block.files = group.attributes.files;
     }
+    if (block.__typename === 'ComponentContentBlocksActivitiesBlock') {
+      block.activities = activities.data;
+    }
+    if (block.__typename === 'ComponentContentBlocksLeadersBlock') {
+      block.leaders = group.attributes.leaders;
+    }
   });
-
-  group.attributes.blocks.find(
-    (block: any) => block!.__typename === 'ComponentContentBlocksLeadersBlock',
-  ).leaders = group.attributes.leaders;
 
   return (
     <>
