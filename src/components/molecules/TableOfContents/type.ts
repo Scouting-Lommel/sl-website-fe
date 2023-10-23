@@ -1,6 +1,5 @@
 import { Paragraph } from '@/components/molecules/Paragraph/type';
 
-export type PolicyBlock = {
-  title: string;
+export type TOC = {
   sections: Paragraph[];
 };

@@ -1,5 +1,6 @@
-import { Section } from '@/components/molecules/Section/type';
+import { Paragraph } from '@/components/molecules/Paragraph/type';
 
 export type Policy = {
-  sections: Section[];
+  title: string;
+  sections: Paragraph[];
 };

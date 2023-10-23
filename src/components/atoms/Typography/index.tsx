@@ -1,6 +1,8 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import classNames from 'classnames';
+import rehypeRaw from 'rehype-raw';
+import { sanitize } from 'isomorphic-dompurify';
 import { Typography as TypographyProps } from './types';
 import styles from './Typography.css';
 
@@ -20,8 +22,12 @@ const Typography = ({ data, modNoStyle, modPreWrap, children, className }: Props
 
   if (data) {
     return (
-      <ReactMarkdown remarkPlugins={[remarkGfm]} className={typographyClasses}>
-        {data}
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        className={typographyClasses}
+        rehypePlugins={[rehypeRaw]}
+      >
+        {sanitize(data)}
       </ReactMarkdown>
     );
   }

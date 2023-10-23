@@ -1,7 +1,8 @@
 import { Policy as PolicyProps } from './types';
 import styles from './Policy.css';
 import Typography from '@/components/atoms/Typography';
-import Section from '@/components/molecules/Section';
+import Paragraph from '@/components/molecules/Paragraph';
+import TableOfContents from '@/components/molecules/TableOfContents';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -9,28 +10,18 @@ export const links = () => {
 
 type Props = PolicyProps & React.HTMLAttributes<HTMLElement>;
 
-const Policy = ({ sections }: Props) => {
+const Policy = ({ sections, title }: Props) => {
   return (
     <>
-      <div className="policy__TOC">
+      <h1 className="t-headline-1-alt policy__title">
+        <Typography data={title} modNoStyle modPreWrap />
+      </h1>
+      <TableOfContents sections={sections} />
+      <div className="policy">
         {sections.map((section, i) => {
-          return (
-            <a href={'#' + section.title.toUpperCase()} key={i} className="policy__TOC__text">
-              <Typography modPreWrap> # {section.title.toUpperCase()}</Typography>
-            </a>
-          );
+          return <Paragraph title={section.title} content={section.content} key={i} />;
         })}
       </div>
-      {sections.map((section, i) => {
-        return (
-          <Section
-            title={section.title}
-            content={section.content}
-            key={i}
-            final={i + 1 === sections.length}
-          />
-        );
-      })}
     </>
   );
 };
