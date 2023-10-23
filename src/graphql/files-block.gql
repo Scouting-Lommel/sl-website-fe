@@ -1,0 +1,8 @@
+fragment FilesBlockFragment on ComponentContentBlocksFilesBlock {
+  title
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+}

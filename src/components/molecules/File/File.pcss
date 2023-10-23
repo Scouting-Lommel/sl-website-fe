@@ -1,0 +1,38 @@
+.file__container {
+  border-top: solid grey 0.063rem;
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-32);
+  padding-right: var(--space-32);
+  padding-left: var(--space-32);
+  display: grid;
+  grid-template-columns: 4rem auto 10rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:last-child {
+    border-bottom: solid grey 0.063rem;
+  }
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 4rem auto;
+  }
+}
+
+.file__filesize {
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media (--mq-up-to-medium) {
+    padding-left: var(--space-64);
+  }
+}
+
+.file__name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: var(--space-16);
+}
