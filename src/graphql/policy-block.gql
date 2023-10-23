@@ -1,0 +1,7 @@
+fragment PolicyBlockFragment on ComponentContentBlocksPolicyBlock {
+  title
+  sections {
+    title
+    content
+  }
+}
