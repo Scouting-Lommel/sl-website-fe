@@ -50,16 +50,16 @@ const SLImage = ({ data, loadingStrategy = 'lazy', className }: Props) => {
 
   return (
     <picture className={imageClassNames}>
-      <source media="(max-width: 480px)" srcSet={data?.formats.small.url} />
-      <source media="(max-width: 768px)" srcSet={data?.formats.medium.url} />
-      <source media="(max-width: 1024px)" srcSet={data?.formats.large.url} />
+      <source media="(max-width: 480px)" srcSet={data?.formats.small?.url} />
+      <source media="(max-width: 768px)" srcSet={data?.formats.medium?.url} />
+      <source media="(max-width: 1024px)" srcSet={data?.formats.large?.url} />
       <img
         ref={imageRef}
         className="image__img"
         alt={data?.alternativeText}
         src={data?.url}
         srcSet={data?.url}
-        sizes={`(max-width: 480px) ${data.formats.small.width}px, (max-width: 768px) ${data.formats.medium.width}px, (max-width: 1024px) ${data?.formats.large.width}px, ${data?.width}px`}
+        sizes={`(max-width: 480px) ${data.formats.small?.width}px, (max-width: 768px) ${data.formats.medium?.width}px, (max-width: 1024px) ${data?.formats.large?.width}px, ${data?.width}px`}
         loading={loadingStrategy}
         onLoad={imageLoad}
       />
