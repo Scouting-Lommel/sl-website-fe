@@ -25,6 +25,7 @@ const Typography = ({ data, modNoStyle, modPreWrap, children, className }: Props
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         className={typographyClasses}
+        // @ts-ignore
         rehypePlugins={[rehypeRaw]}
       >
         {sanitize(data)}
