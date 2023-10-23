@@ -2,10 +2,31 @@ import gql from 'graphql-tag';
 
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
+import GALLERY_BLOCK_FRAGMENT from '@/graphql/gallery-block.gql';
+import TARIFS_BLOCK_FRAGMENT from '@/graphql/tarifs-block.gql';
+import CALENDAR_BLOCK_FRAGMENT from '@/graphql/calendar-block.gql';
+
+const RENTAL_LOCATION_BOOKINGS_QUERY = gql`
+  query getRentalLocationBookings($slug: String) {
+    bookings(filters: { rental_location: { slug: { eq: $slug } } }) {
+      data {
+        id
+        attributes {
+          start
+          end
+          title
+        }
+      }
+    }
+  }
+`;
 
 const RENTAL_LOCATION_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
   ${TEXT_IMAGE_BLOCK_FRAGMENT}
+  ${GALLERY_BLOCK_FRAGMENT}
+  ${TARIFS_BLOCK_FRAGMENT}
+  ${CALENDAR_BLOCK_FRAGMENT}
 
   query getRentalLocationPage($slug: String) {
     rentalLocations(filters: { slug: { eq: $slug } }) {
@@ -54,6 +75,9 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
             __typename
             ...HeroBlockFragment
             ...TextImageBlockFragment
+            ...GalleryBlockFragment
+            ...TarifsBlockFragment
+            ...CalendarBlockFragment
           }
         }
       }
@@ -61,4 +85,4 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
   }
 `;
 
-export default RENTAL_LOCATION_PAGE_QUERY;
+export { RENTAL_LOCATION_BOOKINGS_QUERY, RENTAL_LOCATION_PAGE_QUERY };
