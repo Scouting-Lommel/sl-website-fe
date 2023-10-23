@@ -17,15 +17,15 @@ const Gallery = ({ title, initialItems, images }: Props) => {
   return (
     <div>
       <h2 className="t-headline-2 t-align-center">{title}</h2>
-      <div className="gallery--imagecontainer">
+      <div className="gallery__imagecontainer">
         {[...Array(isOpen ? images.data.length : initialItems)].map((_, i) => {
           if (images.data.length > i) {
             return (
               <div key={i}>
                 <SLImage
                   data={images.data[i].attributes}
-                  loadingStrategy={'lazy'}
-                  className="gallery--image"
+                  loadingStrategy="lazy"
+                  className="gallery__image"
                 />
               </div>
             );
@@ -33,7 +33,7 @@ const Gallery = ({ title, initialItems, images }: Props) => {
           return <div key={i}></div>;
         })}
       </div>
-      <div className="gallery--button">
+      <div className="gallery__button">
         <Button
           label={isOpen ? "Bekijk minder foto's" : "Bekijk alle foto's"}
           onClick={() => {
