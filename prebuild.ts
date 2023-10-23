@@ -17,8 +17,10 @@ const patchNextRequireHook = async () => {
 
 const invalidateNextCache = async () => {
   // cache invalidation
-  const dir = path.join(baseDir, '.next');
-  await rimraf.sync(dir);
+  try {
+    const dir = path.join(baseDir, '.next');
+    await rimraf.sync(dir);
+  } catch {}
 };
 
 patchNextRequireHook();
