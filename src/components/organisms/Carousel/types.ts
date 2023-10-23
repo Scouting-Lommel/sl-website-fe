@@ -1,14 +1,10 @@
-import { CloudinaryImage } from '@/components/atoms/Image/types';
+import { CarouselItem } from '@/components/molecules/CarouselItem/types';
 import { PropsWithChildren } from 'react';
 
 export type Carousel = {
-  groups: {
+  carouselItems: {
     data: {
-      attributes: {
-        name: string;
-        slug: string;
-        logo: { data: { attributes: CloudinaryImage } };
-      };
+      attributes: CarouselItem;
     }[];
   };
 };

@@ -15,8 +15,8 @@ export const links = () => {
 
 type Props = CarouselProps & React.HTMLAttributes<HTMLElement>;
 
-const Carousel = ({ groups }: Props) => {
-  const options: EmblaOptionsType = { align: 'start', loop: true };
+const Carousel = ({ carouselItems }: Props) => {
+  const options: EmblaOptionsType = { align: 'start', loop: false };
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
@@ -27,7 +27,7 @@ const Carousel = ({ groups }: Props) => {
       <div className="embla">
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
-            {groups.data.map((item, i) => {
+            {carouselItems.data.map((item, i) => {
               return (
                 <CarouselItem
                   logo={item.attributes.logo}

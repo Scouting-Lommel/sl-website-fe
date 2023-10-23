@@ -10,7 +10,6 @@ export const links = () => {
 type Props = CarouselItemProps & React.HTMLAttributes<HTMLElement>;
 
 const CarouselItem = ({ logo, name, slug }: Props) => {
-  // console.log(logo.data?.attributes.formats);
   return (
     <div className="embla__slide">
       <a className="embla__slide__card" href={'/takken/' + slug}>
