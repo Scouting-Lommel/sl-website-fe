@@ -35,7 +35,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
     }
     let email = event.target.selection.value;
     if (email === 'Takken') {
-      email = event.target.takselection.value;
+      email = process.env[event.target.takselection.value];
     }
     let data: Record<string, string> = {
       subject: `Email van ${event.target.name.value}, antwoorden via ${event.target.email.value}`,
@@ -53,7 +53,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
       body: JSONdata,
     };
 
-    const response = await fetch('/api/send_mail', options);
+    const response = await fetch('/api/send-mail', options);
     const result = await response.json();
     if (response.status != 200) {
       console.log(
@@ -112,7 +112,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
                 {['Kapoenen', 'Welpen', 'Akabe', 'Jonggivers', 'Givers', 'Jin'].map(
                   (subject, i) => {
                     return (
-                      <option key={i} value={subject} id={subject}>
+                      <option key={i} value={subject + '-email'} id={subject + '-email'}>
                         {subject}
                       </option>
                     );
