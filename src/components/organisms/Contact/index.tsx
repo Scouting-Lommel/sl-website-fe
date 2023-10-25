@@ -4,6 +4,7 @@ import Typography from '@/components/atoms/Typography';
 import Button from '@/components/atoms/Button';
 import { Contact as ContactProps } from './types';
 import styles from './Contact.css';
+import { useState } from 'react';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -17,24 +18,28 @@ const Contact = ({ title, subjectOptions }: Props) => {
     event.preventDefault();
 
     if (!event.target.name.value) {
-      alert('Gelieve uw naam in te geven');
+      console.log('Gelieve uw naam in te geven');
       return;
     }
     if (!event.target.email.value) {
-      alert('Gelieve uw email in te geven');
+      console.log('Gelieve uw email in te geven');
       return;
     }
     if (!event.target.selection.value) {
-      alert('Gelieve een geldig onderwerp te selecteren');
+      console.log('Gelieve een geldig onderwerp te selecteren');
       return;
     }
     if (!event.target.emailBody.value) {
-      alert('Gelieve uw bericht in te geven');
+      console.log('Gelieve uw bericht in te geven');
       return;
+    }
+    let email = event.target.selection.value;
+    if (email === 'Takken') {
+      email = event.target.takselection.value;
     }
     let data: Record<string, string> = {
       subject: `Email van ${event.target.name.value}, antwoorden via ${event.target.email.value}`,
-      emailAddress: event.target.selection.value,
+      emailAddress: email,
       body: event.target.emailBody.value,
     };
 
@@ -51,7 +56,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
     const response = await fetch('/api/send_mail', options);
     const result = await response.json();
     if (response.status != 200) {
-      alert(
+      console.log(
         'something went wrong trying to resolve the request:\n Status code:' +
           response.status +
           '\n Error message: ' +
@@ -60,56 +65,76 @@ const Contact = ({ title, subjectOptions }: Props) => {
       return;
     }
 
-    alert('success!');
+    console.log('success!');
   };
 
+  const [currVal, setVal] = useState('');
+
   return (
-    <div className="contactContainer">
-      <h1 className="t-headline-1-alt contactTitle">{title}</h1>
+    <div className="contact__container">
+      <h1 className="t-headline-1-alt contact__title">{title}</h1>
       <form onSubmit={(event) => handleContact(event)} noValidate={false}>
-        <div className="contactUserInfo">
-          <div className="contactUserInfoItem">
+        <div className="contact__user-info">
+          <div className="contact__user-info__item">
             <Typography>
               <label htmlFor="name">Naam</label>
             </Typography>
-            <input className="contactInput" type="text" id="name" name="name" />
+            <input className="contact__input" type="text" id="name" name="name" />
           </div>
-          <div className="contactUserInfoItem">
+          <div className="contact__user-info__item">
             <Typography>
               <label htmlFor="email">Emailadres</label>
             </Typography>
-            <input className="contactInput" type="text" id="email" name="email" />
+            <input className="contact__input" type="text" id="email" name="email" />
           </div>
         </div>
-        <div className="contactSubject">
-          <div className="contactUserInfoItem">
+        <div className="contact__subject">
+          <div className="contact__user-info__item">
             <Typography>
               <label htmlFor="selection">Onderwerp</label>
             </Typography>
-            <select id="selection" name="selection">
+            <select id="selection" name="selection" onChange={(e) => setVal(e.target.value)}>
               {subjectOptions.map((subject, i) => {
                 return (
-                  <option key={i} value={subject.emailAddress}>
+                  <option key={i} value={subject.emailAddress} id={subject.label}>
                     {subject.label}
                   </option>
                 );
               })}
             </select>
           </div>
+          {currVal == 'Takken' && (
+            <div className="contact__user-info__item">
+              <Typography>
+                <label htmlFor="selection">Tak</label>
+              </Typography>
+              <select id="takselection" name="takselection">
+                {['Kapoenen', 'Welpen', 'Akabe', 'Jonggivers', 'Givers', 'Jin'].map(
+                  (subject, i) => {
+                    return (
+                      <option key={i} value={subject} id={subject}>
+                        {subject}
+                      </option>
+                    );
+                  },
+                )}
+              </select>
+            </div>
+          )}
         </div>
-        <div className="contactBody">
-          <div className="contactBodyItems">
+        <div className="contact__body">
+          <div className="contact__body__items">
             <Typography>
               <label htmlFor="emailBody">Bericht</label>
             </Typography>
             <textarea
-              className="contactInput contactInput--large"
+              className="contact__input contact__input--large"
               id="emailBody"
               name="emailBody"
             />
           </div>
         </div>
-        <div className="contactButton">
+        <div className="contact__button">
           <Button type="submit" label="Bericht verzenden" />
         </div>
       </form>
