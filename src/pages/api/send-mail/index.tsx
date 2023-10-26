@@ -1,13 +1,19 @@
 import { Request, Response } from 'express';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default async function handler(req: Request, res: Response): Promise<unknown> {
   // check if every field is filled in correctly
-  const body = req.body;
+  let body = req.body;
   if (!body.emailAddress || !body.subject || !body.body) {
-    res
-      .status(400)
-      .json({ data: 'One of the required email elements was not filled in correctly' });
+    res.status(400).json({
+      data: 'One of the required email elements was not filled in correctly',
+    });
     return;
+  }
+  // check if email must be filled in from env
+  if (!body.emailAddress.includes('@')) {
+    body.emailAddress = process.env[body.emailAddress];
   }
   // send email to the specified email address
   const sgMail = require('@sendgrid/mail');

@@ -34,8 +34,9 @@ const Contact = ({ title, subjectOptions }: Props) => {
       return;
     }
     let email = event.target.selection.value;
-    if (email === 'Takken') {
-      email = process.env[event.target.takselection.value];
+    if (email == 'Takken') {
+      console.log(event.target.takselection.value);
+      email = event.target.takselection.value;
     }
     let data: Record<string, string> = {
       subject: `Email van ${event.target.name.value}, antwoorden via ${event.target.email.value}`,
@@ -112,7 +113,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
                 {['Kapoenen', 'Welpen', 'Akabe', 'Jonggivers', 'Givers', 'Jin'].map(
                   (subject, i) => {
                     return (
-                      <option key={i} value={subject + '-email'} id={subject + '-email'}>
+                      <option key={i} value={subject + '_email'} id={subject + '-email'}>
                         {subject}
                       </option>
                     );
