@@ -1,0 +1,12 @@
+fragment ContactBlockFragment on ComponentContentBlocksContactFormBlock {
+  title
+  subjectOptions {
+    label
+    emailAddress
+  }
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+}
