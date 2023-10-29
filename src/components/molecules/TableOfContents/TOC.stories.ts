@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TableOfContents from '.';
 
 const meta = {
-  title: '3 Components/molecules/TableOfContents',
+  title: '3 Components/Molecules/TableOfContents',
   component: TableOfContents,
   tags: ['autodocs'],
 } satisfies Meta<typeof TableOfContents>;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Tarif from '.';
 
 const meta = {
-  title: '3 Components/molecules/Tarif',
+  title: '3 Components/Molecules/Tarif',
   component: Tarif,
   tags: ['autodocs'],
 } satisfies Meta<typeof Tarif>;
