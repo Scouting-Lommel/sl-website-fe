@@ -1,8 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FAQ from '.';
+import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import { Default as buttondefault } from '@/components/atoms/Button/Button.stories';
 
 const meta = {
-  title: '3 Components/organisms/FAQ',
+  title: '3 Components/Organisms/FAQ',
   component: FAQ,
   tags: ['autodocs'],
 } satisfies Meta<typeof FAQ>;
@@ -18,8 +20,8 @@ export const Default = {
         attributes: {
           question: 'A test question',
           answer: 'A test answer',
-          image: undefined,
-          callToAction: undefined,
+          image: { data: { attributes: imagedefault.args.data } },
+          callToAction: buttondefault.args,
           finalQuestion: false,
         },
       },

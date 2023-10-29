@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Tarifs from '.';
 
 const meta = {
-  title: '3 Components/organisms/Tarifs',
+  title: '3 Components/Organisms/Tarifs',
   component: Tarifs,
   tags: ['autodocs'],
 } satisfies Meta<typeof Tarifs>;
@@ -34,7 +34,7 @@ export const Default = {
       title: 'Example cta',
       intro: 'Example intro',
       ctaLabel: 'Example text',
-      ctaLink: '/example',
+      ctaLink: '#',
     },
   },
 } satisfies Story;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FileSection from '.';
 
 const meta = {
-  title: '3 Components/organisms/FileSection',
+  title: '3 Components/Organisms/FileSection',
   component: FileSection,
   tags: ['autodocs'],
 } satisfies Meta<typeof FileSection>;

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Register from '.';
 
 const meta = {
-  title: '3 Components/organisms/RegisterForm',
+  title: '3 Components/Organisms/RegisterForm',
   component: Register,
   tags: ['autodocs'],
 } satisfies Meta<typeof Register>;
