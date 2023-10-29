@@ -1,8 +1,8 @@
 .register-form__street-address {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 1rem;
-  padding-bottom: 2rem;
+  gap: var(--space-16);
+  padding-bottom: var(--space-32);
 
   @media (--mq-up-to-medium) {
     grid-template-columns: 1fr;
@@ -12,16 +12,16 @@
 
 .register-form input[type='text'] {
   border-radius: 4px;
-  border: solid 1px lightgrey;
-  padding: 1rem;
+  border: solid 1px var(--color-light-grey);
+  padding: var(--space-16);
   width: 100%;
 }
 
 .register-form__postal {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 1rem;
-  padding-bottom: 2rem;
+  gap: var(--space-16);
+  padding-bottom: var(--space-32);
 
   @media (--mq-up-to-medium) {
     grid-template-columns: 1fr;
@@ -32,9 +32,9 @@
 .register-form__personal {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 1rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid lightgray;
+  gap: var(--space-16);
+  padding-bottom: var(--space-32);
+  border-bottom: 1px solid var(--color-light-grey);
 
   @media (--mq-up-to-medium) {
     grid-template-columns: 1fr;
@@ -50,9 +50,9 @@
 .register-form__privacy {
   display: grid;
   grid-template-columns: 1em auto;
-  gap: 0.5em;
+  gap: var(--space-8);
   align-content: center;
-  padding: 2rem;
+  padding: var(--space-32);
 }
 
 .register-form__loader {
