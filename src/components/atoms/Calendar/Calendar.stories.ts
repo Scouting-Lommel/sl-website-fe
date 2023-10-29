@@ -16,8 +16,8 @@ export const Default = {
       {
         title: 'An example title',
         id: 1,
-        start: new Date('09/30/2023'),
-        end: new Date('10/20/2023'),
+        start: new Date('2023-10-10'),
+        end: new Date('2023-10-10'),
       },
     ],
   },
