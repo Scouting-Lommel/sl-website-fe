@@ -246,7 +246,19 @@ const IconStory = {
   subcomponents: { Icon },
   tags: ['autodocs'],
   argTypes: {
-    size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+    title: {
+      description: 'The title on the input',
+      control: { type: 'text' },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      description: 'The size of the icon',
+    },
+    icon: {
+      description: 'The icon to display',
+      control: { type: 'text' },
+    },
   },
 };
 

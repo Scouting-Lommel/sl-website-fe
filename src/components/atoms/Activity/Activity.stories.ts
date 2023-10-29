@@ -5,6 +5,32 @@ const meta = {
   title: '3 Components/Atoms/Activity',
   component: Activity,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      description: 'The name of the activity',
+      control: { type: 'text' },
+    },
+    startDate: {
+      description: 'The start date of the activity',
+      control: { type: 'date' },
+    },
+    startTime: {
+      description: 'The start time of the activity',
+      control: { type: 'text' },
+    },
+    endDate: {
+      description: 'The end date of the activity',
+      control: { type: 'date' },
+    },
+    endTime: {
+      description: 'The end time of the activity',
+      control: { type: 'text' },
+    },
+    description: {
+      description: 'The description of the activity',
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof Activity>;
 
 export default meta;

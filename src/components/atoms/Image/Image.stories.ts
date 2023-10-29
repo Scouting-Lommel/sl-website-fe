@@ -5,6 +5,16 @@ const meta = {
   title: '3 Components/Atoms/Image',
   component: Image,
   tags: ['autodocs'],
+  argTypes: {
+    data: {
+      description: 'The data for the image',
+      control: { type: 'object' },
+    },
+    loadingStrategy: {
+      description: 'How the image should be loaded',
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof Image>;
 
 export default meta;
