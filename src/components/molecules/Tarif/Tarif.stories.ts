@@ -5,6 +5,24 @@ const meta = {
   title: '3 Components/Molecules/Tarif',
   component: Tarif,
   tags: ['autodocs'],
+  argTypes: {
+    name: {
+      control: { type: 'text' },
+      description: 'The name of the tarif',
+    },
+    example: {
+      control: { type: 'text' },
+      description: 'The example on the tarif',
+    },
+    minimumPrice: {
+      control: { type: 'number' },
+      description: 'The minimumprice of the tarif',
+    },
+    dayPrice: {
+      control: { type: 'number' },
+      description: 'The dayprice of the tarif',
+    },
+  },
 } satisfies Meta<typeof Tarif>;
 
 export default meta;

@@ -7,6 +7,28 @@ const meta = {
   title: '3 Components/Molecules/FaqItem',
   component: FAQItem,
   tags: ['autodocs'],
+  argTypes: {
+    question: {
+      control: { type: 'text' },
+      description: 'The question',
+    },
+    answer: {
+      control: { type: 'text' },
+      description: 'The answer',
+    },
+    image: {
+      control: { type: 'object' },
+      description: 'The image in the answer',
+    },
+    callToAction: {
+      control: { type: 'object' },
+      description: 'The button in the answer',
+    },
+    finalQuestion: {
+      control: { type: 'boolean' },
+      description: 'If the question is the final question',
+    },
+  },
 } satisfies Meta<typeof FAQItem>;
 
 export default meta;

@@ -5,6 +5,32 @@ const meta = {
   title: '3 Components/Organisms/Footer',
   component: Footer,
   tags: ['autodocs'],
+  argTypes: {
+    siteName: {
+      control: { type: 'text' },
+      description: 'The name of the site',
+    },
+    vatNumber: {
+      control: { type: 'text' },
+      description: 'The vat number',
+    },
+    groupNumber: {
+      control: { type: 'text' },
+      description: 'The number of the group',
+    },
+    address: {
+      control: { type: 'text' },
+      description: 'The address',
+    },
+    contactItems: {
+      control: { type: 'object' },
+      description: 'The contact items',
+    },
+    footerNavigation: {
+      control: { type: 'object' },
+      description: 'The navigation of the footer',
+    },
+  },
 } satisfies Meta<typeof Footer>;
 
 export default meta;

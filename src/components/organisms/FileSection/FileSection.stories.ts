@@ -5,6 +5,16 @@ const meta = {
   title: '3 Components/Organisms/FileSection',
   component: FileSection,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+      description: 'The title',
+    },
+    files: {
+      control: { type: 'text' },
+      description: 'The files',
+    },
+  },
 } satisfies Meta<typeof FileSection>;
 
 export default meta;

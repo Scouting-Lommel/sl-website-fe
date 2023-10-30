@@ -5,6 +5,16 @@ const meta = {
   title: '3 Components/Organisms/Activities',
   component: Activities,
   tags: ['autodocs'],
+  argTypes: {
+    initialItems: {
+      control: { type: 'number' },
+      description: 'The number of activities to show',
+    },
+    activities: {
+      control: { type: 'object' },
+      description: 'The activities',
+    },
+  },
 } satisfies Meta<typeof Activities>;
 
 export default meta;

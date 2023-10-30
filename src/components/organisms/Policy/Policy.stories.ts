@@ -5,6 +5,16 @@ const meta = {
   title: '3 Components/Organisms/Policy',
   component: Policy,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+      description: 'The title',
+    },
+    sections: {
+      control: { type: 'object' },
+      description: 'The sections',
+    },
+  },
 } satisfies Meta<typeof Policy>;
 
 export default meta;

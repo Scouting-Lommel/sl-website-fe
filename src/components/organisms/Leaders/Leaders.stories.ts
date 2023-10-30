@@ -6,6 +6,12 @@ const meta = {
   title: '3 Components/Organisms/Leaders',
   component: Leaders,
   tags: ['autodocs'],
+  argTypes: {
+    leaders: {
+      control: { type: 'object' },
+      description: 'The leaders',
+    },
+  },
 } satisfies Meta<typeof Leaders>;
 
 export default meta;

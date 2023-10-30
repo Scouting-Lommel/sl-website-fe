@@ -5,6 +5,12 @@ const meta = {
   title: '3 Components/Atoms/Calendar',
   component: Calendar,
   tags: ['autodocs'],
+  argTypes: {
+    events: {
+      description: 'The list of events that should be marked on the calendar',
+      control: { type: 'object' },
+    },
+  },
 } satisfies Meta<typeof Calendar>;
 
 export default meta;

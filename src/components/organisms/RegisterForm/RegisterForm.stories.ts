@@ -5,6 +5,20 @@ const meta = {
   title: '3 Components/Organisms/RegisterForm',
   component: Register,
   tags: ['autodocs'],
+  argTypes: {
+    bankAccount: {
+      control: { type: 'text' },
+      description: 'The bank account number',
+    },
+    leaderPrice: {
+      control: { type: 'number' },
+      description: 'The price for a leader',
+    },
+    childPrice: {
+      control: { type: 'number' },
+      description: 'The price for a child',
+    },
+  },
 } satisfies Meta<typeof Register>;
 
 export default meta;

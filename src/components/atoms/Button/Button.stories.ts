@@ -6,7 +6,22 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    variant: { control: { type: 'select' } },
+    variant: {
+      description: 'The variant of the button',
+      control: { type: 'select' },
+    },
+    label: {
+      description: 'The label on the button',
+      control: { type: 'text' },
+    },
+    href: {
+      description: 'The action of the button',
+      control: { type: 'text' },
+    },
+    modSmall: {
+      description: 'If the button should be small',
+      control: { type: 'boolean' },
+    },
   },
 } satisfies Meta<typeof Button>;
 

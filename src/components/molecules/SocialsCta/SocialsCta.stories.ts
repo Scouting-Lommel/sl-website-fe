@@ -5,6 +5,16 @@ const meta = {
   title: '3 Components/Molecules/SocialsCta',
   component: SocialsCta,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+      description: 'The text of the cta',
+    },
+    socialItems: {
+      control: { type: 'object' },
+      description: 'All social items',
+    },
+  },
 } satisfies Meta<typeof SocialsCta>;
 
 export default meta;

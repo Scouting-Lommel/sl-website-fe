@@ -5,6 +5,28 @@ const meta = {
   title: '3 Components/Atoms/FormInput',
   component: Input,
   tags: ['autodocs'],
+  argTypes: {
+    label: {
+      description: 'The label on the input',
+      control: { type: 'text' },
+    },
+    type: {
+      description: 'The type of the input',
+      control: { type: 'text' },
+    },
+    id: {
+      description: 'The id of the input',
+      control: { type: 'text' },
+    },
+    name: {
+      description: 'The name of the input',
+      control: { type: 'text' },
+    },
+    required: {
+      description: 'Is the input required',
+      control: { type: 'select' },
+    },
+  },
 } satisfies Meta<typeof Input>;
 
 export default meta;

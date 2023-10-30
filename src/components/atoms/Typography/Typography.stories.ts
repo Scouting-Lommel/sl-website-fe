@@ -5,6 +5,20 @@ const meta = {
   title: '3 Components/Atoms/Typography',
   component: Typography,
   tags: ['autodocs'],
+  argTypes: {
+    data: {
+      control: { type: 'text' },
+      description: 'The text',
+    },
+    modNoStyle: {
+      control: { type: 'boolean' },
+      description: 'If there should be no styling',
+    },
+    modPreWrap: {
+      control: { type: 'boolean' },
+      description: 'If the text should be pre-wrapped',
+    },
+  },
 } satisfies Meta<typeof Typography>;
 
 export default meta;

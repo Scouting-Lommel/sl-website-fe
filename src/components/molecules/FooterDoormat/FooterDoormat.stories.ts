@@ -5,6 +5,20 @@ const meta = {
   title: '3 Components/Molecules/FooterDoormat',
   component: FooterDoormat,
   tags: ['autodocs'],
+  argTypes: {
+    address: {
+      control: { type: 'text' },
+      description: 'The address',
+    },
+    contactItems: {
+      control: { type: 'object' },
+      description: 'The contact items',
+    },
+    footerNavigation: {
+      control: { type: 'object' },
+      description: 'The footer navigation',
+    },
+  },
 } satisfies Meta<typeof FooterDoormat>;
 
 export default meta;
