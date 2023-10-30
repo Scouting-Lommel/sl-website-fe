@@ -5,6 +5,12 @@ const meta = {
   title: '3 Components/Molecules/FooterDisclosure',
   component: FooterDisclosure,
   tags: ['autodocs'],
+  argTypes: {
+    siteName: {
+      control: { type: 'text' },
+      description: 'The name of the site',
+    },
+  },
 } satisfies Meta<typeof FooterDisclosure>;
 
 export default meta;

@@ -5,6 +5,24 @@ const meta = {
   title: '3 Components/Molecules/File',
   component: File,
   tags: ['autodocs'],
+  argTypes: {
+    ext: {
+      control: { type: 'text' },
+      description: 'The extension of the file',
+    },
+    url: {
+      control: { type: 'text' },
+      description: 'The url of the file',
+    },
+    size: {
+      control: { type: 'number' },
+      description: 'The size in KB',
+    },
+    name: {
+      control: { type: 'text' },
+      description: 'The name of the file',
+    },
+  },
 } satisfies Meta<typeof File>;
 
 export default meta;

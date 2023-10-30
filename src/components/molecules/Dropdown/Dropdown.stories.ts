@@ -5,6 +5,40 @@ const meta = {
   title: '3 Components/Molecules/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
+  argTypes: {
+    path: {
+      control: { type: 'text' },
+      description: 'The action when clicked',
+    },
+    dropdownButton: {
+      control: { type: 'object' },
+      description: 'The button on the dropdown',
+    },
+    dropdownTitle: {
+      control: { type: 'text' },
+      description: 'The title on the dropdown',
+    },
+    dropdownCta: {
+      control: { type: 'object' },
+      description: 'The cta on the dropdown',
+    },
+    dropdownItems: {
+      control: { type: 'object' },
+      description: 'The items on the dropdown',
+    },
+    groups: {
+      control: { type: 'object' },
+      description: 'The groups on the dropdown',
+    },
+    rentalLocations: {
+      control: { type: 'object' },
+      description: 'The rental locations',
+    },
+    toggleDropdown: {
+      control: { type: '' },
+      description: 'The function that togles the dropdown',
+    },
+  },
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

@@ -5,6 +5,12 @@ const meta = {
   title: '3 Components/Molecules/TableOfContents',
   component: TableOfContents,
   tags: ['autodocs'],
+  argTypes: {
+    sections: {
+      control: { type: 'object' },
+      description: 'The paragraphs of the policy',
+    },
+  },
 } satisfies Meta<typeof TableOfContents>;
 
 export default meta;

@@ -5,6 +5,20 @@ const meta = {
   title: '3 Components/Molecules/Navigation',
   component: Navigation,
   tags: ['autodocs'],
+  argTypes: {
+    navItems: {
+      control: { type: 'object' },
+      description: 'The navigation items',
+    },
+    groups: {
+      control: { type: 'object' },
+      description: 'The groups',
+    },
+    rentalLocations: {
+      control: { type: 'object' },
+      description: 'The renatal locations',
+    },
+  },
 } satisfies Meta<typeof Navigation>;
 
 export default meta;

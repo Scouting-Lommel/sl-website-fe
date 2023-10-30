@@ -17,6 +17,20 @@ const meta = {
   title: '3 Components/Molecules/Leader',
   component: LeaderItemContainer,
   tags: ['autodocs'],
+  argTypes: {
+    firstName: {
+      control: { type: 'text' },
+      description: 'The first name of the leader',
+    },
+    lastName: {
+      control: { type: 'text' },
+      description: 'The last name of the leader',
+    },
+    image: {
+      control: { type: 'object' },
+      description: 'The image of the leader',
+    },
+  },
 } satisfies Meta<typeof LeaderItemContainer>;
 
 export default meta;

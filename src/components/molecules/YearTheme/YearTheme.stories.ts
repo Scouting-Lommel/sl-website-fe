@@ -5,6 +5,20 @@ const meta = {
   title: '3 Components/Molecules/YearTheme',
   component: YearTheme,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+      description: 'The title of the yeartheme',
+    },
+    description: {
+      control: { type: 'text' },
+      description: 'The description of the yeartheme',
+    },
+    image: {
+      control: { type: 'object' },
+      description: 'The image on the yeartheme',
+    },
+  },
 } satisfies Meta<typeof YearTheme>;
 
 export default meta;

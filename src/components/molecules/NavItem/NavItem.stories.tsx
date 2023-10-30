@@ -16,6 +16,52 @@ const meta = {
   title: '3 Components/Molecules/NavItem',
   component: NavItemContainer,
   tags: ['autodocs'],
+  argTypes: {
+    label: {
+      control: { type: 'text' },
+      description: 'The label of the nav item',
+    },
+    href: {
+      control: { type: 'text' },
+      description: 'The action of the nav item',
+    },
+    dropdownTitle: {
+      control: { type: 'text' },
+      description: 'The title on teh dropdown',
+    },
+    dropdownCta: {
+      control: { type: 'object' },
+      description: 'The cta on the dropdown',
+    },
+    dropdownButton: {
+      control: { type: 'object' },
+      description: 'The button on the dropdown',
+    },
+    dropdownItems: {
+      control: { type: 'object' },
+      description: 'The items on the dropdown',
+    },
+    groups: {
+      control: { type: 'object' },
+      description: 'The groups',
+    },
+    rentalLocations: {
+      control: { type: 'object' },
+      description: 'The rental locations',
+    },
+    modDropdown: {
+      control: { type: 'boolean' },
+      description: 'If the dropdown is modified',
+    },
+    modButton: {
+      control: { type: 'boolean' },
+      description: 'If the button should be modified',
+    },
+    onClick: {
+      control: { type: '' },
+      description: 'What happens on click',
+    },
+  },
 } satisfies Meta<typeof NavItemContainer>;
 
 export default meta;

@@ -5,6 +5,16 @@ const meta = {
   title: '3 Components/Molecules/RegisterChild',
   component: RegisterChild,
   tags: ['autodocs'],
+  argTypes: {
+    first: {
+      control: { type: 'boolean' },
+      description: 'If it is the first child',
+    },
+    index: {
+      control: { type: 'number' },
+      description: 'The index of the child',
+    },
+  },
 } satisfies Meta<typeof RegisterChild>;
 
 export default meta;
