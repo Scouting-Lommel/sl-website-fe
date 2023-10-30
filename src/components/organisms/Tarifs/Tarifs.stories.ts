@@ -5,6 +5,16 @@ const meta = {
   title: '3 Components/Organisms/Tarifs',
   component: Tarifs,
   tags: ['autodocs'],
+  argTypes: {
+    tarifs: {
+      control: { type: 'object' },
+      description: 'The tarifs',
+    },
+    cta: {
+      control: { type: 'object' },
+      description: 'The cta',
+    },
+  },
 } satisfies Meta<typeof Tarifs>;
 
 export default meta;

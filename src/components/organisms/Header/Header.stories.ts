@@ -5,6 +5,24 @@ const meta = {
   title: '3 Components/Organisms/Header',
   component: Header,
   tags: ['autodocs'],
+  argTypes: {
+    logo: {
+      control: { type: 'object' },
+      description: 'The logo',
+    },
+    mainNavigation: {
+      control: { type: 'object' },
+      description: 'The main navigation',
+    },
+    groups: {
+      control: { type: 'object' },
+      description: 'The groups',
+    },
+    rentalLocations: {
+      control: { type: 'object' },
+      description: 'The renatal locations',
+    },
+  },
 } satisfies Meta<typeof Header>;
 
 export default meta;

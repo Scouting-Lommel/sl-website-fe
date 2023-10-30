@@ -6,6 +6,12 @@ const meta = {
   title: '3 Components/Organisms/Carousel',
   component: Carousel,
   tags: ['autodocs'],
+  argTypes: {
+    carouselItems: {
+      control: { type: 'object' },
+      description: 'The items in the carousel',
+    },
+  },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;

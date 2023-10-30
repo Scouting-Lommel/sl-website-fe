@@ -7,6 +7,16 @@ const meta = {
   title: '3 Components/Organisms/FAQ',
   component: FAQ,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      control: { type: 'text' },
+      description: 'The title',
+    },
+    faqItems: {
+      control: { type: 'object' },
+      description: 'The items in the faq',
+    },
+  },
 } satisfies Meta<typeof FAQ>;
 
 export default meta;

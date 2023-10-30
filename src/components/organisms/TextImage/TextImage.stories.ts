@@ -6,7 +6,27 @@ const meta = {
   component: TextImage,
   tags: ['autodocs'],
   argTypes: {
-    variant: { control: { type: 'select' }, options: ['default', 'reversed'] },
+    variant: {
+      control: { type: 'select' },
+      options: ['default', 'reversed'],
+      description: 'The variant',
+    },
+    title: {
+      control: { type: 'text' },
+      description: 'The title',
+    },
+    content: {
+      control: { type: 'text' },
+      description: 'The content',
+    },
+    images: {
+      control: { type: 'object' },
+      description: 'The images',
+    },
+    ctaButton: {
+      control: { type: 'object' },
+      description: 'The cta buttons',
+    },
   },
 } satisfies Meta<typeof TextImage>;
 
