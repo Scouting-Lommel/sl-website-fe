@@ -1,6 +1,9 @@
+'use client';
+
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import { IconChevronDown } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
@@ -26,35 +29,85 @@ const NavItem = ({
   modDropdown,
   onClick,
 }: Props) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const modal = useRef<HTMLDialogElement>(null);
+  const [toggle, setToggle] = useState<boolean>(false);
+  const pathname = usePathname();
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const dropdownClassnames = classNames('nav-item__dropdown');
+
+  const openDropdown = () => {
+    modal.current?.showModal();
+    document.body.setAttribute('style', 'overflow-y: hidden');
   };
 
-  const dropdownClassnames = classNames(
-    'nav-item__dropdown',
-    dropdownOpen && 'nav-item__dropdown--visible',
-  );
+  const closeDropdown = useCallback(() => {
+    setToggle(false);
+    modal.current?.close();
+    document.body.removeAttribute('style');
+  }, [modal]);
+
+  useEffect(() => {
+    const closeKeyDownHandler = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      closeDropdown();
+      document.removeEventListener('keydown', closeKeyDownHandler);
+    };
+
+    const clickHandler = (event: MouseEvent) => {
+      const target = event.target as Node;
+      if (!modal || !modal.current || !target) {
+        return;
+      }
+
+      const inner = document.querySelector('#sub-navigation-inner');
+      if (!inner || !(inner instanceof HTMLElement)) {
+        return;
+      }
+
+      if (inner.contains(target)) {
+        return;
+      }
+
+      const rect = inner.getBoundingClientRect();
+      if (
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom &&
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right
+      ) {
+        return;
+      }
+
+      closeDropdown();
+      document.removeEventListener('click', clickHandler);
+    };
+
+    if (toggle) {
+      document.addEventListener('keydown', closeKeyDownHandler);
+      document.addEventListener('click', clickHandler);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', closeKeyDownHandler);
+      document.removeEventListener('click', clickHandler);
+    };
+  });
+
+  const openClickHandler = useCallback(() => {
+    setToggle(!toggle);
+    openDropdown();
+  }, [toggle]);
+
+  useEffect(() => {
+    closeDropdown();
+  }, [pathname, closeDropdown]);
 
   if (modDropdown) {
     return (
       <li className="nav-item nav-item__dropdown-trigger">
-        <Link
-          href={href}
-          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--large"
-        >
-          {label}
-          <Icon
-            size="sm"
-            icon={IconChevronDown}
-            className="nav-item__dropdown-trigger__link__chevron"
-            title="Chevron"
-          />
-        </Link>
         <button
-          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--small"
-          onClick={() => toggleDropdown()}
+          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--large"
+          onClick={() => openClickHandler()}
         >
           {label}
           <Icon
@@ -65,7 +118,7 @@ const NavItem = ({
           />
         </button>
         {dropdownButton && dropdownTitle && dropdownCta && (
-          <span className={dropdownClassnames}>
+          <dialog className={dropdownClassnames} ref={modal} role="none">
             <Dropdown
               path={href}
               dropdownItems={dropdownItems}
@@ -74,9 +127,9 @@ const NavItem = ({
               dropdownButton={dropdownButton}
               groups={groups}
               rentalLocations={rentalLocations}
-              toggleDropdown={toggleDropdown}
+              toggleDropdown={closeDropdown}
             />
-          </span>
+          </dialog>
         )}
       </li>
     );

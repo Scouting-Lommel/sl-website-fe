@@ -31,7 +31,7 @@ const Dropdown = ({
   }
 
   return (
-    <span className="dropdown__wrapper">
+    <span className="dropdown__wrapper" id="sub-navigation-inner">
       <div className="dropdown">
         <div className="dropdown__content sl-layout">
           <Button
