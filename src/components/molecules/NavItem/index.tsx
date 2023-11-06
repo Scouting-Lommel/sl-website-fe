@@ -104,8 +104,9 @@ const NavItem = ({
     return (
       <li className="nav-item nav-item__dropdown-trigger">
         <button
-          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--large"
+          className="nav-item__dropdown-trigger__link"
           onClick={() => openClickHandler()}
+          type="button"
         >
           {label}
           <Icon
