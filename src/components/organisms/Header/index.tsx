@@ -29,10 +29,18 @@ const Header = ({ logo, mainNavigation, groups, rentalLocations }: Props) => {
 
   const triggerNav = () => {
     setNavVisible(!navVisible);
+
+    if (!navVisible) {
+      document.body.setAttribute('style', 'overflow-y: hidden');
+    }
+    if (navVisible) {
+      document.body.removeAttribute('style');
+    }
   };
 
   useEffect(() => {
     setNavVisible(false);
+    document.body.removeAttribute('style');
   }, [pathname]);
 
   return (
