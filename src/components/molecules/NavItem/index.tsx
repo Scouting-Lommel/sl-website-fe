@@ -33,8 +33,6 @@ const NavItem = ({
   const [toggle, setToggle] = useState<boolean>(false);
   const pathname = usePathname();
 
-  const dropdownClassnames = classNames('nav-item__dropdown');
-
   const openDropdown = () => {
     modal.current?.showModal();
     document.body.setAttribute('style', 'overflow-y: hidden');
@@ -118,7 +116,7 @@ const NavItem = ({
           />
         </button>
         {dropdownButton && dropdownTitle && dropdownCta && (
-          <dialog className={dropdownClassnames} ref={modal} role="none">
+          <dialog className="nav-item__dropdown" ref={modal} role="none">
             <Dropdown
               path={href}
               dropdownItems={dropdownItems}
