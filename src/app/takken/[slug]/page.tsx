@@ -31,7 +31,7 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
   const dateString = year + '-' + month + '-' + day;
   const { activities } = await getActivities(slug, dateString);
 
-  if (!group || !activities) notFound();
+  if (!group) notFound();
 
   group.attributes.blocks.forEach((block: any) => {
     if (block.__typename == 'ComponentContentBlocksFilesBlock') {
