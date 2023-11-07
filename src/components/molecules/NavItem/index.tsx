@@ -30,13 +30,15 @@ const NavItem = ({
   onClick,
 }: Props) => {
   const modal = useRef<HTMLDialogElement>(null);
+  const closeButton = useRef<HTMLButtonElement>(null);
   const [toggle, setToggle] = useState<boolean>(false);
   const pathname = usePathname();
 
-  const openDropdown = () => {
+  const openDropdown = useCallback(() => {
     modal.current?.showModal();
     document.body.setAttribute('style', 'overflow-y: hidden');
-  };
+    closeButton.current?.focus();
+  }, [modal]);
 
   const closeDropdown = useCallback(() => {
     setToggle(false);
@@ -95,7 +97,12 @@ const NavItem = ({
   const openClickHandler = useCallback(() => {
     setToggle(!toggle);
     openDropdown();
-  }, [toggle]);
+  }, [toggle, openDropdown]);
+
+  const closeClickHandler = useCallback(() => {
+    setToggle(false);
+    closeDropdown();
+  }, [closeDropdown]);
 
   useEffect(() => {
     closeDropdown();
@@ -117,8 +124,17 @@ const NavItem = ({
             title="Chevron"
           />
         </button>
+
         {dropdownButton && dropdownTitle && dropdownCta && (
           <dialog className="nav-item__dropdown" ref={modal} role="none">
+            <button
+              ref={closeButton}
+              onClick={() => closeClickHandler()}
+              type="button"
+              className="u-visually-hidden"
+            >
+              Close dropdown
+            </button>
             <Dropdown
               itemKey={itemKey}
               path={href}
