@@ -46,6 +46,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
+    itemKey: 1,
     path: '/verhuur',
     dropdownTitle: 'Verhuur',
     dropdownButton: {

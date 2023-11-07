@@ -31,6 +31,7 @@ const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
             return (
               <NavItem
                 key={`nav-item-${i}`}
+                itemKey={i}
                 label={navItem.label}
                 href={href}
                 dropdownItems={navItem.dropdownItems}

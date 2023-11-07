@@ -1,6 +1,5 @@
 'use client';
 
-import classNames from 'classnames';
 import Link from 'next/link';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
@@ -17,6 +16,7 @@ export const links = () => {
 type Props = NavItemProps & React.HTMLAttributes<HTMLElement>;
 
 const NavItem = ({
+  itemKey,
   label,
   href,
   dropdownItems,
@@ -53,11 +53,12 @@ const NavItem = ({
 
     const clickHandler = (event: MouseEvent) => {
       const target = event.target as Node;
+
       if (!modal || !modal.current || !target) {
         return;
       }
 
-      const inner = document.querySelector('#sub-navigation-inner');
+      const inner = document.querySelector(`#sub-navigation-inner-${itemKey}`);
       if (!inner || !(inner instanceof HTMLElement)) {
         return;
       }
@@ -119,6 +120,7 @@ const NavItem = ({
         {dropdownButton && dropdownTitle && dropdownCta && (
           <dialog className="nav-item__dropdown" ref={modal} role="none">
             <Dropdown
+              itemKey={itemKey}
               path={href}
               dropdownItems={dropdownItems}
               dropdownTitle={dropdownTitle}
