@@ -1,8 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
+import classNames from 'classnames';
+import Link from 'next/link';
 import { IconChevronDown } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
@@ -108,9 +109,16 @@ const NavItem = ({
     closeDropdown();
   }, [pathname, closeDropdown]);
 
+  const navItemClassNames = classNames(
+    'nav-item',
+    toggle ? 'nav-item--toggled' : 'nav-item--untoggled',
+    href === '/' && pathname === '/' ? 'nav-item--active' : '',
+    href !== '/' && pathname?.includes(href.toLowerCase()) ? 'nav-item--active' : '',
+  );
+
   if (modDropdown) {
     return (
-      <li className="nav-item nav-item__dropdown-trigger">
+      <li className={navItemClassNames}>
         <button
           className="nav-item__dropdown-trigger__link"
           onClick={() => openClickHandler()}
@@ -161,7 +169,7 @@ const NavItem = ({
   }
 
   return (
-    <li className="nav-item">
+    <li className={navItemClassNames}>
       <Link href={href} className="nav-item__dropdown-trigger__link">
         {label}
       </Link>
