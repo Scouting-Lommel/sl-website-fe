@@ -32,6 +32,7 @@ const GROUP_PAGE_QUERY = gql`
           leaders {
             data {
               attributes {
+                active
                 firstName
                 lastName
                 image {

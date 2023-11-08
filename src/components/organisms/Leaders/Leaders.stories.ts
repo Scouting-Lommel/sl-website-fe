@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Leaders from '.';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import Leaders from '.';
 
 const meta = {
   title: '3 Components/Organisms/Leaders',
@@ -22,6 +22,7 @@ export const Default = {
     leaders: [
       {
         attributes: {
+          active: true,
           firstName: 'Example',
           lastName: 'Name',
           image: {
@@ -33,6 +34,7 @@ export const Default = {
       },
       {
         attributes: {
+          active: true,
           firstName: 'Example',
           lastName: 'Name',
           image: {
@@ -44,6 +46,7 @@ export const Default = {
       },
       {
         attributes: {
+          active: true,
           firstName: 'Example',
           lastName: 'Name',
           image: {
