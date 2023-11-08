@@ -3,6 +3,7 @@ import { DropdownCta, DropdownItem, DropdownNavItem } from '@/components/molecul
 import { MouseEventHandler } from 'react';
 
 export type NavItem = {
+  itemKey: number;
   label: string;
   href: string;
   dropdownItems: DropdownItem[];

@@ -14,7 +14,7 @@ const GROUP_PAGE_QUERY = gql`
   ${ACTIVITY_BLOCK_FRAGMENT}
 
   query getGroupPage($slug: String) {
-    groups(filters: { slug: { eq: $slug }, leaders: { active: { eq: true } } }) {
+    groups(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
           files {
@@ -32,6 +32,7 @@ const GROUP_PAGE_QUERY = gql`
           leaders {
             data {
               attributes {
+                active
                 firstName
                 lastName
                 image {
@@ -120,5 +121,6 @@ const ACTIVITIES_QUERY = gql`
     }
   }
 `;
+
 export { ACTIVITIES_QUERY };
 export default GROUP_PAGE_QUERY;

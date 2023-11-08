@@ -13,6 +13,7 @@ export const links = () => {
 type Props = DropdownProps & React.HTMLAttributes<HTMLElement>;
 
 const Dropdown = ({
+  itemKey,
   path,
   dropdownTitle,
   dropdownButton,
@@ -31,7 +32,7 @@ const Dropdown = ({
   }
 
   return (
-    <span className="dropdown__wrapper">
+    <span className="dropdown__wrapper" id={`sub-navigation-inner-${itemKey}`}>
       <div className="dropdown">
         <div className="dropdown__content sl-layout">
           <Button

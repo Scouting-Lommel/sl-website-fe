@@ -20,6 +20,7 @@ export type DropdownCta = {
 };
 
 export type Dropdown = {
+  itemKey: number;
   path: string;
   dropdownTitle: string;
   dropdownButton: Button;

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Leader from '.';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import Leader from '.';
 import { Leader as LeaderProps } from './types';
 
 const LeaderItemContainer = (args: LeaderProps) => {
@@ -38,6 +38,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
+    active: true,
     firstName: 'Example',
     lastName: 'Name',
     image: {
