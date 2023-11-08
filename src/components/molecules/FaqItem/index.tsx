@@ -1,13 +1,13 @@
 'use client';
 
-import { FaqItem as FAQProps } from './types';
-import styles from './FaqItem.css';
+import { useState } from 'react';
+import { IconChevronDown, IconChevronUp } from '@/assets/icons';
 import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
-import { IconChevronDown, IconChevronUp } from '@/assets/icons';
-import { useState } from 'react';
 import SLImage from '@/components/atoms/Image';
 import Button from '@/components/atoms/Button';
+import { FaqItem as FAQProps } from './types';
+import styles from './FaqItem.css';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -23,7 +23,7 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
         className={finalQuestion && !isOpen ? 'faq-item__title--noBorder' : 'faq-item__title'}
         onClick={() => setOpen(!isOpen)}
       >
-        <Typography modPreWrap>{question}</Typography>
+        <Typography>{question}</Typography>
         <Icon
           size="sm"
           icon={isOpen ? IconChevronUp : IconChevronDown}
@@ -39,7 +39,7 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
         }
       >
         <div className="faq-item__answer__content">
-          <Typography modPreWrap data={answer} />
+          <Typography data={answer} />
           {callToAction && (
             <div className="faq-item__answer__content__buttonContainer">
               <Button

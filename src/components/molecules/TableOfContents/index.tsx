@@ -1,6 +1,6 @@
+import Typography from '@/components/atoms/Typography';
 import { TOC as TOCProps } from './type';
 import styles from './TOC.css';
-import Typography from '@/components/atoms/Typography';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -18,7 +18,7 @@ const TableOfContents = ({ sections }: Props) => {
             key={i}
             className="TOC__item"
           >
-            <Typography modPreWrap> # {section.title}</Typography>
+            <Typography> # {section.title}</Typography>
           </a>
         );
       })}
