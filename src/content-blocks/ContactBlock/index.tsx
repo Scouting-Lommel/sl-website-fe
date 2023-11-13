@@ -10,6 +10,7 @@ const ContactBlock = ({ title, subjectOptions, blockProperties }: Props) => {
       variant={blockProperties.variant}
       orientation={blockProperties.orientation}
       slug={blockProperties.slug}
+      modSmallPadding
     >
       <section className="sl-layout">
         <Contact title={title} subjectOptions={subjectOptions} />
