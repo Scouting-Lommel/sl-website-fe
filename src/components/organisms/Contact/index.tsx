@@ -72,74 +72,69 @@ const Contact = ({ title, subjectOptions }: Props) => {
   const [currVal, setVal] = useState('');
 
   return (
-    <div className="contact__container">
-      <h1 className="t-headline-1-alt contact__title">{title}</h1>
-      <form onSubmit={(event) => handleContact(event)} noValidate={false}>
-        <div className="contact__user-info">
-          <div className="contact__user-info__item">
-            <Typography>
-              <label htmlFor="name">Naam</label>
-            </Typography>
-            <input className="contact__input" type="text" id="name" name="name" />
-          </div>
-          <div className="contact__user-info__item">
-            <Typography>
-              <label htmlFor="email">Emailadres</label>
-            </Typography>
-            <input className="contact__input" type="text" id="email" name="email" />
-          </div>
+    <form onSubmit={(event) => handleContact(event)} noValidate={false}>
+      <div className="contact__user-info">
+        <div className="contact__user-info__item">
+          <Typography>
+            <label htmlFor="name">Naam</label>
+          </Typography>
+          <input className="contact__input" type="text" id="name" name="name" />
         </div>
-        <div className="contact__subject">
+        <div className="contact__user-info__item">
+          <Typography>
+            <label htmlFor="email">Emailadres</label>
+          </Typography>
+          <input className="contact__input" type="text" id="email" name="email" />
+        </div>
+      </div>
+      <div className="contact__subject">
+        <div className="contact__user-info__item">
+          <Typography>
+            <label htmlFor="selection">Onderwerp</label>
+          </Typography>
+          <select id="selection" name="selection" onChange={(e) => setVal(e.target.value)}>
+            {subjectOptions.map((subject, i) => {
+              return (
+                <option key={i} value={subject.emailAddress} id={subject.label}>
+                  {subject.label}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+        {currVal == 'Takken' && (
           <div className="contact__user-info__item">
             <Typography>
-              <label htmlFor="selection">Onderwerp</label>
+              <label htmlFor="selection">Tak</label>
             </Typography>
-            <select id="selection" name="selection" onChange={(e) => setVal(e.target.value)}>
-              {subjectOptions.map((subject, i) => {
+            <select id="takselection" name="takselection" title="takselection">
+              {['Kapoenen', 'Welpen', 'Akabe', 'Jonggivers', 'Givers', 'Jin'].map((subject, i) => {
                 return (
-                  <option key={i} value={subject.emailAddress} id={subject.label}>
-                    {subject.label}
+                  <option key={i} value={subject + '_email'} id={subject + '-email'}>
+                    {subject}
                   </option>
                 );
               })}
             </select>
           </div>
-          {currVal == 'Takken' && (
-            <div className="contact__user-info__item">
-              <Typography>
-                <label htmlFor="selection">Tak</label>
-              </Typography>
-              <select id="takselection" name="takselection">
-                {['Kapoenen', 'Welpen', 'Akabe', 'Jonggivers', 'Givers', 'Jin'].map(
-                  (subject, i) => {
-                    return (
-                      <option key={i} value={subject + '_email'} id={subject + '-email'}>
-                        {subject}
-                      </option>
-                    );
-                  },
-                )}
-              </select>
-            </div>
-          )}
+        )}
+      </div>
+      <div className="contact__body">
+        <div className="contact__body__items">
+          <Typography>
+            <label htmlFor="emailBody">Bericht</label>
+          </Typography>
+          <textarea
+            className="contact__input contact__input--large"
+            id="emailBody"
+            name="emailBody"
+          />
         </div>
-        <div className="contact__body">
-          <div className="contact__body__items">
-            <Typography>
-              <label htmlFor="emailBody">Bericht</label>
-            </Typography>
-            <textarea
-              className="contact__input contact__input--large"
-              id="emailBody"
-              name="emailBody"
-            />
-          </div>
-        </div>
-        <div className="contact__button">
-          <Button type="submit" label="Bericht verzenden" />
-        </div>
-      </form>
-    </div>
+      </div>
+      <div className="contact__button">
+        <Button type="submit" label="Bericht verzenden" />
+      </div>
+    </form>
   );
 };
 

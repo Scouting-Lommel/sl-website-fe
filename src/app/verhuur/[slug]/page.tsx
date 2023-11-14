@@ -47,11 +47,6 @@ const RentalLocationPage = async ({ params: { slug } }: { params: { slug: string
 
   return (
     <>
-      <HeroBlock
-        title={rentalLocation.attributes.pageTitle}
-        subtitle={rentalLocation.attributes.description}
-        variant="default"
-      />
       <Blocks content={rentalLocation.attributes.blocks} />
     </>
   );
