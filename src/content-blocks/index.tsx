@@ -20,6 +20,7 @@ const blockList: BlockList = {
   ComponentContentBlocksForm: dynamic(() => import('./RegisterBlock')),
   ComponentContentBlocksActivitiesBlock: dynamic(() => import('./ActivitiesBlock')),
   ComponentContentBlocksCalendarBlock: dynamic(() => import('./CalendarBlock')),
+  ComponentContentBlocksYearThemeBlock: dynamic(() => import('./YearThemeBlock')),
 };
 
 const Blocks = ({ content }: { content: any }) => {
