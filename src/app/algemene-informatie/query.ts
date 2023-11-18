@@ -67,4 +67,32 @@ const INFO_PAGE_QUERY = gql`
   }
 `;
 
+const YEAR_THEME_QUERY = gql`
+  query {
+    yearThemes(sort: "endYear:desc", pagination: { limit: 1 }) {
+      data {
+        attributes {
+          title
+          description
+          link
+          image {
+            data {
+              attributes {
+                name
+                width
+                height
+                url
+                alternativeText
+                caption
+                formats
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export { YEAR_THEME_QUERY };
 export default INFO_PAGE_QUERY;
