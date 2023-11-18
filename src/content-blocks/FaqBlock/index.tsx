@@ -10,7 +10,6 @@ const FaqBlock = ({ title, faqItems, blockProperties }: Props) => {
       variant={blockProperties?.variant}
       orientation={blockProperties?.orientation}
       slug={blockProperties?.slug}
-      modMargin
     >
       <FAQ title={title} faqItems={faqItems.data} className="sl-layout" />
     </BlockContainer>
