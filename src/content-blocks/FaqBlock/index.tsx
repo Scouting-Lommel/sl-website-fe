@@ -1,5 +1,4 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Typography from '@/components/atoms/Typography';
 import FAQ from '@/components/organisms/FAQ';
 import { FaqBlock as TextImageBlockProps } from './types';
 
