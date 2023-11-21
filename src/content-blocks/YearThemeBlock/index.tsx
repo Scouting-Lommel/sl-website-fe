@@ -4,12 +4,13 @@ import { YearThemeBlock as YearThemeBlockProps } from './types';
 
 type Props = YearThemeBlockProps & React.HTMLAttributes<HTMLElement>;
 
-const YearThemeBlock = ({ title, blockProperties, yearTheme }: Props) => {
+const YearThemeBlock = ({ title, cta, blockProperties, yearTheme }: Props) => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}
       orientation={blockProperties?.orientation}
       slug={blockProperties?.slug}
+      cta={cta}
     >
       <div className="sl-layout">
         <YearThemeSection yearTheme={yearTheme} />
