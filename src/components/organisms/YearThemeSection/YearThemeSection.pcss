@@ -1,8 +1,4 @@
 .year-theme-section {
-  color: var(--color-white);
-}
-
-.year-theme-section__content {
   display: grid;
 
   @media (--mq-from-medium) {
@@ -20,8 +16,16 @@
   }
 }
 
+.year-theme-section__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-white);
+}
+
 .year-theme-section__content__title {
   display: block;
+  margin-top: 0;
 }
 
 .year-theme-section__image {
@@ -39,11 +43,11 @@
     }
 
     @media (--mq-from-large) {
-      width: 20rem;
+      width: 16rem;
     }
 
     @media (--mq-from-xlarge) {
-      width: 24rem;
+      width: 20rem;
     }
   }
 }
