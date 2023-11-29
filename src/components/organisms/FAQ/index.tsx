@@ -1,6 +1,8 @@
+import classNames from 'classnames';
+import Typography from '@/components/atoms/Typography';
+import FAQItem from '@/components/molecules/FaqItem';
 import { FAQ as FAQProps } from './types';
 import styles from './FAQ.css';
-import FAQItem from '@/components/molecules/FaqItem';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -8,11 +10,13 @@ export const links = () => {
 
 type Props = FAQProps & React.HTMLAttributes<HTMLElement>;
 
-const FAQ = ({ title, faqItems, className }: Props) => {
+const FAQ = ({ title, bottomText, faqItems, className }: Props) => {
+  const faqClassNames = classNames('faq', className);
+
   return (
-    <div className={className}>
-      <h2 className="t-headline-2 t-align-center">{title}</h2>
-      <div className="FAQContainer">
+    <div className={faqClassNames}>
+      <h2 className="faq__title t-headline-2 t-align-center">{title}</h2>
+      <div className="faq__container">
         {faqItems.map((item, i) => {
           return (
             <FAQItem
@@ -26,6 +30,7 @@ const FAQ = ({ title, faqItems, className }: Props) => {
           );
         })}
       </div>
+      <Typography data={bottomText} className="faq__bottom-text" />
     </div>
   );
 };

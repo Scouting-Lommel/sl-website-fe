@@ -1,5 +1,6 @@
 fragment FAQBlockFragment on ComponentContentBlocksFaqBlock {
   title
+  bottomText
   faqItems {
     data {
       attributes {

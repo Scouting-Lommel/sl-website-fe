@@ -12,11 +12,11 @@ type Props = YearThemeSectionProps & React.HTMLAttributes<HTMLElement>;
 const YearThemeSection = ({ yearTheme }: Props) => {
   return (
     <div className="year-theme-section">
-      <h2 className="year-theme-section__content__title t-headline-1">{yearTheme.title}</h2>
       <div className="year-theme-section__content">
+        <h2 className="year-theme-section__content__title t-headline-1">{yearTheme.title}</h2>
         <Typography data={yearTheme.description} />
-        <YearTheme className="year-theme-section__image" image={yearTheme.image.data.attributes} />
       </div>
+      <YearTheme className="year-theme-section__image" image={yearTheme.image.data.attributes} />
     </div>
   );
 };

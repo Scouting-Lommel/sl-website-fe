@@ -20,12 +20,12 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
   return (
     <div className="faq-item__container">
       <div
-        className={finalQuestion && !isOpen ? 'faq-item__title--noBorder' : 'faq-item__title'}
+        className={finalQuestion && !isOpen ? 'faq-item__title--no-border' : 'faq-item__title'}
         onClick={() => setOpen(!isOpen)}
       >
         <Typography>{question}</Typography>
         <Icon
-          size="sm"
+          size="lg"
           icon={isOpen ? IconChevronUp : IconChevronDown}
           className="nav-item__dropdown-trigger__link__chevron"
           title="Chevron"
@@ -41,7 +41,7 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
         <div className="faq-item__answer__content">
           <Typography data={answer} />
           {callToAction && (
-            <div className="faq-item__answer__content__buttonContainer">
+            <div className="faq-item__answer__content__button-container">
               <Button
                 label={callToAction.label}
                 href={callToAction.link}
