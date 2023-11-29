@@ -25,7 +25,7 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
       >
         <Typography>{question}</Typography>
         <Icon
-          size="sm"
+          size="lg"
           icon={isOpen ? IconChevronUp : IconChevronDown}
           className="nav-item__dropdown-trigger__link__chevron"
           title="Chevron"
