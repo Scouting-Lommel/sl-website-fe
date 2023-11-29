@@ -2,6 +2,6 @@ import { FaqItem } from '@/components/molecules/FaqItem/types';
 
 export type FAQ = {
   title: String;
-  bottomText: string;
+  bottomText?: string;
   faqItems: { attributes: FaqItem }[];
 };

@@ -3,7 +3,7 @@ import { FaqItem } from '@/components/molecules/FaqItem/types';
 
 export type FaqBlock = {
   title: string;
-  bottomText: string;
+  bottomText?: string;
   faqItems: { data: { attributes: FaqItem }[] };
   blockProperties: BlockContainer;
 };

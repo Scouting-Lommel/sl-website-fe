@@ -25,6 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   args: {
     title: 'Example title',
+    bottomText: 'Niet gevonden wat je zocht? Neem gerust contact met ons op.',
     faqItems: [
       {
         attributes: {
