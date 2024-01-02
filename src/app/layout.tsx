@@ -6,6 +6,8 @@ import SkipToContent from '@/components/atoms/SkipToContent';
 import Footer from '@/components/organisms/Footer';
 import { getGeneralData } from './api';
 import '@/app/global.css';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 export async function generateMetadata() {
   const data = await getGeneralData();
@@ -18,6 +20,8 @@ export async function generateMetadata() {
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const data = await getGeneralData();
+
+  const session = await getServerSession(authOptions)
 
   return (
     <html lang="nl">

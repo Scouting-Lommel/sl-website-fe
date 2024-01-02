@@ -1,56 +1,39 @@
-'use client';
+'use client'
 
 import Typography from '@/components/atoms/Typography';
 import styles from './LoginForm.css';
-import { useState } from 'react';
 import Button from '@/components/atoms/Button';
-import Loader from '@/components/atoms/Loader';
-import { addCookie } from '@/api/cookies';
+import { signIn } from "next-auth/react"
+import { useSearchParams } from 'next/navigation'
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
 const LoginForm = () => {
-  const [isLoading, setLoading] = useState(false);
-
+  const searchParams = useSearchParams()
+  const callbackURL = searchParams?.get('callbackUrl') || "/"
+  
   const tryLogin = async (event: any) => {
-    event.preventDefault();
-    setLoading(true);
-
-    const data = {
-      username: event.target.elements.username.value,
+    event.preventDefault()
+    
+    await signIn("credentials", { 
+      email: event.target.elements.email.value, 
       password: event.target.elements.password.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSONdata,
-    };
-    const response = await fetch('/api/login', options);
-    const result = await response.json();
-    setLoading(false);
-    if (response.status !== 200) {
-      console.log('Login unsuccesfull' + response.status + '\n Error message: ' + result.data);
-      return;
-    }
-    addCookie('leader', result.token);
-    location.reload();
+      callbackUrl: callbackURL
+    })
   };
 
   return (
     <div>
       <form onSubmit={tryLogin} className="login-form">
         <h2 className="t-headline-2 t-align-center">Log in</h2>
-        <label htmlFor="username" className="login-form__label">
+        <label htmlFor="email" className="login-form__label">
           <Typography>Gebruikersnaam</Typography>
           <input
             className="login-form__input"
-            id="username"
-            name="username"
+            id="email"
+            name="email"
             type="text"
             placeholder="Gebruikersnaam"
             autoComplete="username"
@@ -69,16 +52,9 @@ const LoginForm = () => {
             required
           />
         </label>
-        {!isLoading && (
-          <Button type="submit" className="login-form__button">
-            Log In
-          </Button>
-        )}
-        {isLoading && (
-          <div className="login-form__loader">
-            <Loader />
-          </div>
-        )}
+        <Button type="submit" className="login-form__button">
+          Log In
+        </Button>
       </form>
     </div>
   );
