@@ -11,7 +11,7 @@ export const links = () => {
 
 type Props = NavigationProps & React.HTMLAttributes<HTMLElement>;
 
-const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
+const Navigation = ({ navItems, groups, rentalLocations, session }: Props) => {
   return (
     <nav className="navigation__wrapper">
       <ul className="navigation">
@@ -40,7 +40,7 @@ const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
             );
           })}
         </span>
-        <Login />
+        <Login session={session}/>
       </ul>
     </nav>
   );

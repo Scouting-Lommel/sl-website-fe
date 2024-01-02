@@ -18,7 +18,7 @@ export const links = () => {
 
 type Props = HeaderProps & React.HTMLAttributes<HTMLElement>;
 
-const Header = ({ logo, mainNavigation, groups, rentalLocations }: Props) => {
+const Header = ({ logo, mainNavigation, groups, rentalLocations, session }: Props) => {
   const [navVisible, setNavVisible] = useState(false);
   const navClassnames = classNames(
     'header__nav',
@@ -42,6 +42,7 @@ const Header = ({ logo, mainNavigation, groups, rentalLocations }: Props) => {
                 navItems={mainNavigation}
                 groups={groups}
                 rentalLocations={rentalLocations}
+                session={session}
               />
             </div>
             <button className="header__trigger" onClick={() => triggerNav()}>

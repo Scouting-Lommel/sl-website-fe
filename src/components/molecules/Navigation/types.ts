@@ -15,4 +15,5 @@ export type Navigation = {
   navItems: NavItem[];
   groups: DropdownNavItem[];
   rentalLocations: DropdownNavItem[];
+  session?: any;
 };

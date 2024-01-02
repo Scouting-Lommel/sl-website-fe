@@ -7,4 +7,5 @@ export type Header = {
   mainNavigation: NavItem[];
   groups: DropdownNavItem[];
   rentalLocations: DropdownNavItem[];
+  session?: any;
 };

@@ -9,9 +9,7 @@ export const links = () => {
 
 const Login = async ({ session }: {session?: any}) => {
 
-  const isLoggedIn = false
-
-  // console.log(session)
+  const isLoggedIn = !!session
 
   return (
     <li className="login" key="login">

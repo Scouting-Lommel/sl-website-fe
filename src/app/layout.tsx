@@ -32,6 +32,7 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
           mainNavigation={data.generalData.data.attributes.mainNavigation}
           groups={data.groups.data.map((item: any) => item.attributes)}
           rentalLocations={data.rentalLocations.data.map((item: any) => item.attributes)}
+          session={session}
         />
         <main className="sl-main" id="main">
           {children}
