@@ -7,6 +7,12 @@
   ],
   "rules": {
     "@next/next/no-img-element": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "jsx-a11y/alt-text": [
       2,
       {

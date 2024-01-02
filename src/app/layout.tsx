@@ -21,7 +21,7 @@ export async function generateMetadata() {
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const data = await getGeneralData();
 
-  const session = await getServerSession(authOptions)
+  const session = await getServerSession(authOptions);
 
   return (
     <html lang="nl">

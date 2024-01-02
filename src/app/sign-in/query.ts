@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 
 const SIGNIN_PAGE_QUERY = gql`
-
   query {
     registerPage {
       data {

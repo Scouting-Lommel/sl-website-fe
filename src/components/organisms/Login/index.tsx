@@ -7,7 +7,7 @@ export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const Login = async ({ session }: {session?: any}) => {
+const Login = ({ session }: {session?: any}) => {
 
   const isLoggedIn = !!session
 

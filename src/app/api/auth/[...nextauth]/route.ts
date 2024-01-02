@@ -1,7 +1,7 @@
 import login from '@/pages/api/login';
-import NextAuth from 'next-auth'
-import type { NextAuthOptions } from 'next-auth'
-import CredentialsProvider from "next-auth/providers/credentials"
+import NextAuth from 'next-auth';
+import type { NextAuthOptions } from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET as string,
@@ -9,27 +9,27 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" }
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' },
       },
-      async authorize (credentials, req) {
-        if (typeof credentials === "undefined") {
-            return null
+      async authorize(credentials, req) {
+        if (typeof credentials === 'undefined') {
+          return null;
         }
-        const token = await login(credentials.email, credentials.password)
+        const token = await login(credentials.email, credentials.password);
         if (token) {
-            return { id: token, apiToken: token }
+          return { id: token, apiToken: token };
         }
-        return null
-      }
-    })
+        return null;
+      },
+    }),
   ],
   pages: {
     error: '/not-found',
-    signIn: '/sign-in'
-  }
-}
+    signIn: '/sign-in',
+  },
+};
 
-const handler = NextAuth(authOptions)
+const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

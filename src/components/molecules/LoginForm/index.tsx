@@ -3,25 +3,25 @@
 import Typography from '@/components/atoms/Typography';
 import styles from './LoginForm.css';
 import Button from '@/components/atoms/Button';
-import { signIn } from "next-auth/react"
-import { useSearchParams } from 'next/navigation'
+import { signIn } from "next-auth/react";
+import { useSearchParams } from 'next/navigation';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
 const LoginForm = () => {
-  const searchParams = useSearchParams()
-  const callbackURL = searchParams?.get('callbackUrl') || "/"
-  
+  const searchParams = useSearchParams();
+  const callbackURL = searchParams?.get('callbackUrl') || '/';
+
   const tryLogin = async (event: any) => {
-    event.preventDefault()
+    event.preventDefault();
     
     await signIn("credentials", { 
       email: event.target.elements.email.value, 
       password: event.target.elements.password.value,
-      callbackUrl: callbackURL
-    })
+      callbackUrl: callbackURL,
+    });
   };
 
   return (
