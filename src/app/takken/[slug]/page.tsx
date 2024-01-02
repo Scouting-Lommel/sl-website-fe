@@ -29,11 +29,6 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
 
   return (
     <>
-      <HeroBlock
-        title={group.attributes.pageTitle}
-        subtitle={group.attributes.subtitle}
-        variant="default"
-      />
       <Blocks content={group.attributes.blocks} />
     </>
   );
