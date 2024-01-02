@@ -5,6 +5,8 @@ import { ActivitySection as ActivityProps } from './types';
 import Activity from '@/components/atoms/Activity';
 import styles from './Activities.css';
 import Button from '@/components/atoms/Button';
+import Modal from '@/components/molecules/Modal';
+import CreateActivity from '@/components/molecules/CreateActivity';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -12,7 +14,7 @@ export const links = () => {
 
 type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
 
-const Activities = ({ activities, initialItems }: Props) => {
+const Activities = ({ activities, initialItems, session }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="activities">
@@ -31,24 +33,35 @@ const Activities = ({ activities, initialItems }: Props) => {
           );
         }
       })}
-      {!isOpen && initialItems < activities.length && (
-        <div className="activities__button">
-          <Button
-            label="Toon alle activiteiten"
-            variant="primary"
-            onClick={() => setIsOpen(true)}
-          ></Button>
-        </div>
-      )}
-      {isOpen && (
-        <div className="actButton">
-          <Button
-            label="Toon eerste activiteiten"
-            variant="primary"
-            onClick={() => setIsOpen(false)}
-          ></Button>
-        </div>
-      )}
+       <div className="activities__button_container">
+        {!isOpen && initialItems < activities.length && (
+          <div className="activities__button">
+            <Button
+              label="Toon alle activiteiten"
+              variant="primary"
+              onClick={() => setIsOpen(true)}
+            ></Button>
+          </div>
+        )}
+        {isOpen && (
+          <div className="activities__button">
+            <Button
+              label="Toon eerste activiteiten"
+              variant="primary"
+              onClick={() => setIsOpen(false)}
+            ></Button>
+          </div>
+        )}
+        {session &&
+        <Modal
+          button={
+            <div className="activities__button">
+              <Button label="Maak activiteit" variant="primary"></Button>
+            </div>
+          }
+          modalData={<CreateActivity tak="testtak" />}
+        />}
+      </div>
     </div>
   );
 };

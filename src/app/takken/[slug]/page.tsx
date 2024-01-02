@@ -42,6 +42,7 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
     }
     if (block.__typename === 'ComponentContentBlocksActivitiesBlock') {
       block.activities = activities.data;
+      block.session = session;
     }
     if (block.__typename === 'ComponentContentBlocksLeadersBlock') {
       block.leaders = group.attributes.leaders;

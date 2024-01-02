@@ -1,0 +1,10 @@
+mutation CreateActivity(
+  $name: String!
+  $startdate: String!
+  $enddate: String!
+  $description: String!
+) {
+  login(input: { identifier: $username, password: $password }) {
+    jwt
+  }
+}

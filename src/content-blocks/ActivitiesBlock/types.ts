@@ -8,4 +8,5 @@ export type ActivityBlock = {
   blockProperties: BlockContainer;
   callToAction?: CallToAction;
   activities: { attributes: Activity }[];
+  session?: any;
 };

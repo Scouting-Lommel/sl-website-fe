@@ -23,7 +23,7 @@ const blockList: BlockList = {
   ComponentContentBlocksYearThemeBlock: dynamic(() => import('./YearThemeBlock')),
 };
 
-const Blocks = ({ content, session }: { content: any, session?: any }) => {
+const Blocks = ({ content }: { content: any }) => {
   if (!content || !content.length) return <></>;
 
   const contentBlocks = content.map((block: any) => {
