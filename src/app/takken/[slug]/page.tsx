@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/metadata';
 import Blocks from '@/content-blocks';
-import HeroBlock from '@/content-blocks/HeroBlock';
 import { getGeneralData } from '../../api';
 import { getGroupPage } from './api';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
   const { generalData } = await getGeneralData();
@@ -27,9 +28,11 @@ const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => 
 
   if (!group) notFound();
 
+  const session = await getServerSession(authOptions);
+
   return (
     <>
-      <Blocks content={group.attributes.blocks} />
+      <Blocks content={group.attributes.blocks} session={session}/>
     </>
   );
 };

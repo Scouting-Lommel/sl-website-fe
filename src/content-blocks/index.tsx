@@ -11,7 +11,7 @@ const blockList: BlockList = {
   ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock')),
 };
 
-const Blocks = ({ content }: { content: any }) => {
+const Blocks = ({ content, session }: { content: any, session?: any }) => {
   if (!content || !content.length) return <></>;
 
   const contentBlocks = content.map((block: any) => {
