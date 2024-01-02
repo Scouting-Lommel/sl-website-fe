@@ -2,9 +2,10 @@
 
 'use client';
 
-import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import Link from 'next/link';
 import { IconClose, IconMenu } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Navigation from '@/components/molecules/Navigation';
@@ -20,6 +21,7 @@ type Props = HeaderProps & React.HTMLAttributes<HTMLElement>;
 
 const Header = ({ logo, mainNavigation, groups, rentalLocations, session }: Props) => {
   const [navVisible, setNavVisible] = useState(false);
+  const pathname = usePathname();
   const navClassnames = classNames(
     'header__nav',
     navVisible ? 'header__nav--visible' : 'header__nav--invisible',
@@ -27,7 +29,19 @@ const Header = ({ logo, mainNavigation, groups, rentalLocations, session }: Prop
 
   const triggerNav = () => {
     setNavVisible(!navVisible);
+
+    if (!navVisible) {
+      document.body.setAttribute('style', 'overflow-y: hidden');
+    }
+    if (navVisible) {
+      document.body.removeAttribute('style');
+    }
   };
+
+  useEffect(() => {
+    setNavVisible(false);
+    document.body.removeAttribute('style');
+  }, [pathname]);
 
   return (
     <div className="header__wrapper">

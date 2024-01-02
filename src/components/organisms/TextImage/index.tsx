@@ -14,7 +14,8 @@ type Props = TextImageProps & React.HTMLAttributes<HTMLElement>;
 const ImageText = ({ title, content, images, variant, ctaButton, className }: Props) => {
   const textImageClassnames = classNames(
     'text-image',
-    `text-image--${variant}`,
+    images && images?.length > 0 && `text-image--${variant} text-image--has-images`,
+    images && images?.length < 1 && 'text-image--has-no-images',
     images && images?.length === 2 && 'text-image--multiple-images text-image--multiple-images--2',
     images && images?.length === 3 && 'text-image--multiple-images text-image--multiple-images--3',
     className,
@@ -22,10 +23,9 @@ const ImageText = ({ title, content, images, variant, ctaButton, className }: Pr
 
   return (
     <div className={textImageClassnames}>
-      <div className="text-image__image-container">
-        {images &&
-          images.length > 0 &&
-          images.map((image, i) => {
+      {images && images.length > 0 && (
+        <div className="text-image__image-container">
+          {images.map((image, i) => {
             return (
               <SLImage
                 key={i}
@@ -35,7 +35,8 @@ const ImageText = ({ title, content, images, variant, ctaButton, className }: Pr
               />
             );
           })}
-      </div>
+        </div>
+      )}
       <div className="text-image__content">
         {title && <h2>{title}</h2>}
         <Typography modNoStyle data={content} />

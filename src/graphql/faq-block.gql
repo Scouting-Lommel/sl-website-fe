@@ -1,0 +1,35 @@
+fragment FAQBlockFragment on ComponentContentBlocksFaqBlock {
+  title
+  bottomText
+  faqItems {
+    data {
+      attributes {
+        question
+        answer
+        image {
+          data {
+            attributes {
+              name
+              width
+              height
+              url
+              alternativeText
+              caption
+              formats
+            }
+          }
+        }
+        callToAction {
+          label
+          link
+          variant
+        }
+      }
+    }
+  }
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+}

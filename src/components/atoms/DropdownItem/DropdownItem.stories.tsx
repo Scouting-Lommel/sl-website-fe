@@ -16,6 +16,20 @@ const meta = {
   title: '3 Components/Atoms/DropdownItem',
   component: DropdownItemContainer,
   tags: ['autodocs'],
+  argTypes: {
+    title: {
+      description: 'The title of the dropwdown item',
+      control: { type: 'text' },
+    },
+    description: {
+      description: 'The description of the dropdown item',
+      control: { type: 'text' },
+    },
+    href: {
+      description: 'The action when clicked',
+      control: { type: 'text' },
+    },
+  },
 } satisfies Meta<typeof DropdownItemContainer>;
 
 export default meta;

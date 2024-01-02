@@ -4,7 +4,15 @@ import { CallToAction } from '@/components/molecules/CallToAction/types';
 
 export type GroupsBlock = {
   title: string;
-  groups: { data: { attributes: CloudinaryImage }[] };
+  groups: {
+    data: {
+      attributes: {
+        name: string;
+        slug: string;
+        logo: { data: { attributes: CloudinaryImage } };
+      };
+    }[];
+  };
   cta: CallToAction;
   blockProperties: BlockContainer;
 };

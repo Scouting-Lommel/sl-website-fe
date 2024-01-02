@@ -9,6 +9,18 @@ const blockList: BlockList = {
   ComponentContentBlocksHeroBlock: dynamic(() => import('./HeroBlock')),
   ComponentContentBlocksTextImageBlock: dynamic(() => import('./TextImageBlock')),
   ComponentContentBlocksGroupsBlock: dynamic(() => import('./GroupsBlock')),
+  ComponentContentBlocksContactFormBlock: dynamic(() => import('./ContactBlock')),
+  ComponentContentBlocksGalleryBlock: dynamic(() => import('./GalleryBlock')),
+  ComponentContentBlocksPolicyBlock: dynamic(() => import('./PolicyBlock')),
+  ComponentContentBlocksLeadersBlock: dynamic(() => import('./LeadersBlock')),
+  ComponentContentBlocksTarifsBlock: dynamic(() => import('./TarifsBlock')),
+  ComponentContentBlocksFilesBlock: dynamic(() => import('./FilesBlock')),
+  ComponentContentBlocksFaqBlock: dynamic(() => import('./FaqBlock')),
+  ComponentContentBlocksMapBlock: dynamic(() => import('./MapsBlock')),
+  ComponentContentBlocksForm: dynamic(() => import('./RegisterBlock')),
+  ComponentContentBlocksActivitiesBlock: dynamic(() => import('./ActivitiesBlock')),
+  ComponentContentBlocksCalendarBlock: dynamic(() => import('./CalendarBlock')),
+  ComponentContentBlocksYearThemeBlock: dynamic(() => import('./YearThemeBlock')),
 };
 
 const Blocks = ({ content, session }: { content: any, session?: any }) => {

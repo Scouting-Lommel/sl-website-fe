@@ -20,6 +20,12 @@ import {
   IconMail,
   IconMenu,
   IconTikTok,
+  IconJPG,
+  IconPDF,
+  IconPNG,
+  IconPowerpoint,
+  IconWord,
+  IconUnknownFile,
 } from '@/assets/icons';
 
 const IconList = () => {
@@ -179,6 +185,56 @@ const IconList = () => {
           </div>
           <div className="sb-code--styled">IconTikTok</div>
         </div>
+
+        <h3 className="sb-heading__3">Files</h3>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <Icon icon={IconJPG} title="JPG" size={'lg'} />
+            <div className="sb-list__item__title">JPG files</div>
+          </div>
+          <div className="sb-code--styled">IconJPG</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <Icon icon={IconPDF} title="JPG" size={'lg'} />
+            <div className="sb-list__item__title">PDF files</div>
+          </div>
+          <div className="sb-code--styled">IconPDF</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <Icon icon={IconPNG} title="JPG" size={'lg'} />
+            <div className="sb-list__item__title">PNG files</div>
+          </div>
+          <div className="sb-code--styled">IconPNG</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <Icon icon={IconPowerpoint} title="JPG" size={'lg'} />
+            <div className="sb-list__item__title">Powerpoint files</div>
+          </div>
+          <div className="sb-code--styled">IconPowerpoint</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <Icon icon={IconWord} title="JPG" size={'lg'} />
+            <div className="sb-list__item__title">Word files</div>
+          </div>
+          <div className="sb-code--styled">IconWord</div>
+        </div>
+
+        <div className="sb-list__item">
+          <div className="sb-list__item__cell">
+            <Icon icon={IconUnknownFile} title="JPG" size={'lg'} />
+            <div className="sb-list__item__title">Unknown files</div>
+          </div>
+          <div className="sb-code--styled">IconUnknownFile</div>
+        </div>
       </div>
     </>
   );
@@ -190,7 +246,19 @@ const IconStory = {
   subcomponents: { Icon },
   tags: ['autodocs'],
   argTypes: {
-    size: { control: { type: 'select' }, options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+    title: {
+      description: 'The title on the input',
+      control: { type: 'text' },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      description: 'The size of the icon',
+    },
+    icon: {
+      description: 'The icon to display',
+      control: { type: 'text' },
+    },
   },
 };
 

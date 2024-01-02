@@ -13,8 +13,8 @@ const GroupsBlock = ({ title, groups, cta, blockProperties }: Props) => {
       cta={cta}
     >
       <section className="sl-layout">
-        <h2>{title}</h2>
-        <Carousel data={groups} />
+        <h2 className="t-headline-2 t-align-center">{title}</h2>
+        <Carousel carouselItems={groups} />
       </section>
     </BlockContainer>
   );

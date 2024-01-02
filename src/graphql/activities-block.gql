@@ -1,0 +1,14 @@
+fragment ActivityBlockFragment on ComponentContentBlocksActivitiesBlock {
+  title
+  initialItems
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+  cta: callToAction {
+    variant
+    orientation
+    slug
+  }
+}

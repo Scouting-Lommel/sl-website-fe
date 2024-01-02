@@ -24,11 +24,17 @@ const Navigation = ({ navItems, groups, rentalLocations, session }: Props) => {
                   variant: navItem.dropdownButton.variant,
                 }
               : undefined;
+            const href = `/${
+              navItem.page === 'home'
+                ? ''
+                : navItem.page.replace(new RegExp('_', 'g'), '-') || navItem.link || ''
+            }`;
             return (
               <NavItem
                 key={`nav-item-${i}`}
+                itemKey={i}
                 label={navItem.label}
-                href={`/${navItem.page.replace(new RegExp('_', 'g'), '-')}` || navItem.link || ''}
+                href={href}
                 dropdownItems={navItem.dropdownItems}
                 dropdownCta={navItem.dropdownCta}
                 dropdownTitle={navItem.dropdownTitle}

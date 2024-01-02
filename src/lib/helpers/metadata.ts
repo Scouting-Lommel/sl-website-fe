@@ -55,26 +55,26 @@ export const generateMetadataForPage = (
   path?: string,
 ): Metadata => {
   return {
-    title: pageMeta.pageTitle,
-    description: pageMeta.pageDescription,
+    title: pageMeta?.pageTitle,
+    description: pageMeta?.pageDescription,
     alternates: {
       canonical: `${metaData.url}${path ? '/' + path : ''}${
-        pageMeta.slug ? '/' + pageMeta.slug : ''
+        pageMeta?.slug ? '/' + pageMeta?.slug : ''
       }`,
     },
     openGraph: {
       locale: 'nl',
       type: 'website',
       siteName: metaData.siteName || 'Scouting Sint-Pieter Lommel',
-      title: `${pageMeta.pageTitle} • ${metaData.siteName}`,
-      description: pageMeta.pageDescription,
-      images: pageMeta.metaImage.data?.attributes.url,
+      title: `${pageMeta?.pageTitle} • ${metaData.siteName}`,
+      description: pageMeta?.pageDescription,
+      images: pageMeta?.metaImage?.data?.attributes.url,
     },
     twitter: {
       card: 'summary_large_image',
-      title: pageMeta.pageTitle,
-      description: pageMeta.pageDescription,
-      images: pageMeta.metaImage.data?.attributes.url,
+      title: pageMeta?.pageTitle,
+      description: pageMeta?.pageDescription,
+      images: pageMeta?.metaImage?.data?.attributes.url,
     },
   };
 };

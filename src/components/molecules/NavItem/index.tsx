@@ -1,6 +1,9 @@
+'use client';
+
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useState } from 'react';
 import { IconChevronDown } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
@@ -14,6 +17,7 @@ export const links = () => {
 type Props = NavItemProps & React.HTMLAttributes<HTMLElement>;
 
 const NavItem = ({
+  itemKey,
   label,
   href,
   dropdownItems,
@@ -26,35 +30,99 @@ const NavItem = ({
   modDropdown,
   onClick,
 }: Props) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const modal = useRef<HTMLDialogElement>(null);
+  const closeButton = useRef<HTMLButtonElement>(null);
+  const [toggle, setToggle] = useState<boolean>(false);
+  const pathname = usePathname();
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+  const openDropdown = useCallback(() => {
+    modal.current?.showModal();
+    document.body.setAttribute('style', 'overflow-y: hidden');
+    closeButton.current?.focus();
+  }, [modal]);
 
-  const dropdownClassnames = classNames(
-    'nav-item__dropdown',
-    dropdownOpen && 'nav-item__dropdown--visible',
+  const closeDropdown = useCallback(() => {
+    setToggle(false);
+    modal.current?.close();
+    document.body.removeAttribute('style');
+  }, [modal]);
+
+  useEffect(() => {
+    const closeKeyDownHandler = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      closeDropdown();
+      document.removeEventListener('keydown', closeKeyDownHandler);
+    };
+
+    const clickHandler = (event: MouseEvent) => {
+      const target = event.target as Node;
+
+      if (!modal || !modal.current || !target) {
+        return;
+      }
+
+      const inner = document.querySelector(`#sub-navigation-inner-${itemKey}`);
+      if (!inner || !(inner instanceof HTMLElement)) {
+        return;
+      }
+
+      if (inner.contains(target)) {
+        return;
+      }
+
+      const rect = inner.getBoundingClientRect();
+      if (
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom &&
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right
+      ) {
+        return;
+      }
+
+      closeDropdown();
+      document.removeEventListener('click', clickHandler);
+    };
+
+    if (toggle) {
+      document.addEventListener('keydown', closeKeyDownHandler);
+      document.addEventListener('click', clickHandler);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', closeKeyDownHandler);
+      document.removeEventListener('click', clickHandler);
+    };
+  });
+
+  const openClickHandler = useCallback(() => {
+    setToggle(!toggle);
+    openDropdown();
+  }, [toggle, openDropdown]);
+
+  const closeClickHandler = useCallback(() => {
+    setToggle(false);
+    closeDropdown();
+  }, [closeDropdown]);
+
+  useEffect(() => {
+    closeDropdown();
+  }, [pathname, closeDropdown]);
+
+  const navItemClassNames = classNames(
+    'nav-item',
+    toggle ? 'nav-item--toggled' : 'nav-item--untoggled',
+    href === '/' && pathname === '/' ? 'nav-item--active' : '',
+    href !== '/' && pathname?.includes(href.toLowerCase()) ? 'nav-item--active' : '',
   );
 
   if (modDropdown) {
     return (
-      <li className="nav-item nav-item__dropdown-trigger">
-        <Link
-          href={href}
-          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--large"
-        >
-          {label}
-          <Icon
-            size="sm"
-            icon={IconChevronDown}
-            className="nav-item__dropdown-trigger__link__chevron"
-            title="Chevron"
-          />
-        </Link>
+      <li className={navItemClassNames}>
         <button
-          className="nav-item__dropdown-trigger__link nav-item__dropdown-trigger__link--small"
-          onClick={() => toggleDropdown()}
+          className="nav-item__dropdown-trigger__link"
+          onClick={() => openClickHandler()}
+          type="button"
         >
           {label}
           <Icon
@@ -64,9 +132,19 @@ const NavItem = ({
             title="Chevron"
           />
         </button>
+
         {dropdownButton && dropdownTitle && dropdownCta && (
-          <span className={dropdownClassnames}>
+          <dialog className="nav-item__dropdown" ref={modal} role="none">
+            <button
+              ref={closeButton}
+              onClick={() => closeClickHandler()}
+              type="button"
+              className="u-visually-hidden"
+            >
+              Close dropdown
+            </button>
             <Dropdown
+              itemKey={itemKey}
               path={href}
               dropdownItems={dropdownItems}
               dropdownTitle={dropdownTitle}
@@ -74,9 +152,9 @@ const NavItem = ({
               dropdownButton={dropdownButton}
               groups={groups}
               rentalLocations={rentalLocations}
-              toggleDropdown={toggleDropdown}
+              toggleDropdown={closeDropdown}
             />
-          </span>
+          </dialog>
         )}
       </li>
     );
@@ -91,7 +169,7 @@ const NavItem = ({
   }
 
   return (
-    <li className="nav-item">
+    <li className={navItemClassNames}>
       <Link href={href} className="nav-item__dropdown-trigger__link">
         {label}
       </Link>
