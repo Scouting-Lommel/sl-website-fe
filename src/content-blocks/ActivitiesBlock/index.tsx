@@ -4,7 +4,7 @@ import Activities from '@/components/organisms/Activities';
 
 type Props = ActivityBlockProps & React.HTMLAttributes<HTMLElement>;
 
-const GroupsBlock = ({ title, initialItems, callToAction, blockProperties, activities, session }: Props) => {
+const GroupsBlock = ({ title, initialItems, callToAction, blockProperties, activities, session, tak }: Props) => {
   return (
     <>
       <hr className="sl-layout" />
@@ -16,7 +16,7 @@ const GroupsBlock = ({ title, initialItems, callToAction, blockProperties, activ
       >
         <section className="sl-layout">
           <h2 className="t-headline-2 t-align-center">{title}</h2>
-          <Activities activities={activities} initialItems={initialItems} session={session}/>
+          <Activities activities={activities} initialItems={initialItems} session={session} tak={tak}/>
         </section>
       </BlockContainer>
     </>

@@ -1,11 +1,21 @@
 import { DocumentNode, print } from 'graphql';
 
-async function fetchAPI(query: DocumentNode, variables?: unknown) {
+async function fetchAPI(query: DocumentNode, variables?: unknown, token?: string) {
+  let headers = {}
+  if (token) {
+    headers = {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
+    }
+  } else {
+    headers = {
+      'Content-Type': 'application/json',
+    }
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/graphql`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: headers,
     body: JSON.stringify({
       query: print(query),
       variables,

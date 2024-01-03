@@ -4,4 +4,5 @@ export type ActivitySection = {
   activities: { attributes: Activity }[];
   initialItems: number;
   session?: any;
+  tak: string;
 };

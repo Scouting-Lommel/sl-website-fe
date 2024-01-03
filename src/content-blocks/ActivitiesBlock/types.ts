@@ -9,4 +9,5 @@ export type ActivityBlock = {
   callToAction?: CallToAction;
   activities: { attributes: Activity }[];
   session?: any;
+  tak: string;
 };

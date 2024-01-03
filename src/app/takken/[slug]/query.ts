@@ -16,6 +16,7 @@ const GROUP_PAGE_QUERY = gql`
   query getGroupPage($slug: String) {
     groups(filters: { slug: { eq: $slug } }) {
       data {
+        id
         attributes {
           files {
             data {

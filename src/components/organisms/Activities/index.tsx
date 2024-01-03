@@ -14,7 +14,7 @@ export const links = () => {
 
 type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
 
-const Activities = ({ activities, initialItems, session }: Props) => {
+const Activities = ({ activities, initialItems, session, tak }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="activities">
@@ -59,7 +59,7 @@ const Activities = ({ activities, initialItems, session }: Props) => {
               <Button label="Maak activiteit" variant="primary"></Button>
             </div>
           }
-          modalData={<CreateActivity tak="testtak" />}
+          modalData={<CreateActivity tak={tak} session={session}/>}
         />}
       </div>
     </div>

@@ -1,10 +1,25 @@
 mutation CreateActivity(
   $name: String!
-  $startdate: String!
-  $enddate: String!
+  $startdate: Date!
+  $enddate: Date!
+  $starttime: Time!
+  $endtime: Time!
   $description: String!
+  $group: ID!
 ) {
-  login(input: { identifier: $username, password: $password }) {
-    jwt
+  createActivity(
+    data: {
+      title: $name
+      description: $description
+      startDate: $startdate
+      startTime: $starttime
+      endDate: $enddate
+      endTime: $endtime
+      group: $group
+    }
+  ) {
+    data {
+      id
+    }
   }
 }
