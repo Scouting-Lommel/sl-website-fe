@@ -9,7 +9,7 @@ const creatActivity = async (req: NextApiRequest, res: NextApiResponse) => {
       message: 'Not all required data given',
     });
   }
-  console.log(body)
+
   try {
     const result: any = await generateApiQuery({ query: creatActivityQuery, variables: body, token: body.jwt });
   } catch (e) {
