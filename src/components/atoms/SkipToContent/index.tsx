@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+// @ts-ignore
 import styles from './SkipToContent.css';
 
 export const links = () => {

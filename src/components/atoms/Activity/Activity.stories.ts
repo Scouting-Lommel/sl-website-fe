@@ -30,6 +30,10 @@ const meta = {
       description: 'The description of the activity',
       control: { type: 'text' },
     },
+    uid: {
+      description: 'the ID of the activity',
+      control: { type: 'text' },
+    },
   },
 } satisfies Meta<typeof Activity>;
 
@@ -44,6 +48,7 @@ export const Default = {
     startTime: '14:00',
     endTime: '15:30',
     description: 'An example description for an activity',
+    uid: '1',
   },
 } satisfies Story;
 
@@ -55,5 +60,6 @@ export const DifferentDates = {
     startTime: '10:00',
     endTime: '15:30',
     description: 'An example description for an activity',
+    uid: '1',
   },
 } satisfies Story;

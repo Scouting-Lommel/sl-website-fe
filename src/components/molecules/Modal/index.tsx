@@ -1,4 +1,5 @@
 import { Modal as ModalProps } from './types';
+// @ts-ignore
 import styles from './Modal.css';
 import { useEffect, useState } from 'react';
 import Icon from '@/components/atoms/Icon';

@@ -1,4 +1,5 @@
 import { MapEmbedProps as mapsProps } from './types';
+// @ts-ignore
 import styles from './Map.css';
 
 export const links = () => {

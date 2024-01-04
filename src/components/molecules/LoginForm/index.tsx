@@ -1,9 +1,10 @@
-'use client'
+'use client';
 
 import Typography from '@/components/atoms/Typography';
+// @ts-ignore
 import styles from './LoginForm.css';
 import Button from '@/components/atoms/Button';
-import { signIn } from "next-auth/react";
+import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
 
 export const links = () => {
@@ -16,9 +17,9 @@ const LoginForm = () => {
 
   const tryLogin = async (event: any) => {
     event.preventDefault();
-    
-    await signIn("credentials", { 
-      email: event.target.elements.email.value, 
+
+    await signIn('credentials', {
+      email: event.target.elements.email.value,
       password: event.target.elements.password.value,
       callbackUrl: callbackURL,
     });

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import gql from 'graphql-tag';
 
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';

@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import SocialsCta from '@/components/molecules/SocialsCta';
 import CallToAction from '@/components/molecules/CallToAction';
 import { BlockContainer as BlockContainerProps } from './types';
+// @ts-ignore
 import styles from './BlockContainer.css';
 
 export const links = () => {

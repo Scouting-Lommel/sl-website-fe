@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Button from '@/components/atoms/Button';
 import { CallToAction as CallToActionProps } from './types';
+// @ts-ignore
 import styles from './CallToAction.css';
 
 export const links = () => {

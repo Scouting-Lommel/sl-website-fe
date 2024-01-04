@@ -1,4 +1,5 @@
 import { FooterDisclosure as FooterDisclosureProps } from './types';
+// @ts-ignore
 import styles from './FooterDisclosure.css';
 
 export const links = () => {

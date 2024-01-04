@@ -3,6 +3,7 @@ import Typography from '@/components/atoms/Typography';
 import SLImage from '@/components/atoms/Image';
 import ProfilePicture from '@/assets/img/default-avatar.png';
 import { Leader as LeaderProps } from './types';
+// @ts-ignore
 import styles from './Leader.css';
 
 export const links = () => {

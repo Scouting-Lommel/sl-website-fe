@@ -2,6 +2,7 @@
 
 import NavItem from '@/components/molecules/NavItem';
 import { Navigation as NavigationProps } from './types';
+// @ts-ignore
 import styles from './Navigation.css';
 import Login from '@/components/organisms/Login';
 
@@ -46,7 +47,7 @@ const Navigation = ({ navItems, groups, rentalLocations, session }: Props) => {
             );
           })}
         </span>
-        <Login session={session}/>
+        <Login session={session} />
       </ul>
     </nav>
   );

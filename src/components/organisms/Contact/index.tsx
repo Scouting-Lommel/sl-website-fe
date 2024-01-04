@@ -3,6 +3,7 @@
 import Typography from '@/components/atoms/Typography';
 import Button from '@/components/atoms/Button';
 import { Contact as ContactProps } from './types';
+// @ts-ignore
 import styles from './Contact.css';
 import { useState } from 'react';
 

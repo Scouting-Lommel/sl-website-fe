@@ -11,6 +11,7 @@ import {
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
 import { File as FileBlockProps, extensions } from './types';
+// @ts-ignore
 import styles from './File.css';
 
 export const links = () => {

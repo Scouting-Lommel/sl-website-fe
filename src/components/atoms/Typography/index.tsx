@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import rehypeRaw from 'rehype-raw';
 import sanitizeHtml from 'sanitize-html';
 import { Typography as TypographyProps } from './types';
+// @ts-ignore
 import styles from './Typography.css';
 
 export const links = () => {

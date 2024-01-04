@@ -1,4 +1,5 @@
 import { DeleteActivity as DeleteActivityProps } from './types';
+// @ts-ignore
 import styles from './DeleteActivity.css';
 import Button from '@/components/atoms/Button';
 

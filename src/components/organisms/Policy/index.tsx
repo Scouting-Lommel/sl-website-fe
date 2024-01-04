@@ -2,6 +2,7 @@ import Typography from '@/components/atoms/Typography';
 import Paragraph from '@/components/molecules/Paragraph';
 import TableOfContents from '@/components/molecules/TableOfContents';
 import { Policy as PolicyProps } from './types';
+// @ts-ignore
 import styles from './Policy.css';
 
 export const links = () => {

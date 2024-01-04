@@ -3,6 +3,7 @@ import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import YearTheme from '@/components/molecules/YearTheme';
 import { Hero as HeroProps } from './types';
+// @ts-ignore
 import styles from './Hero.css';
 
 export const links = () => {

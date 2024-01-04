@@ -7,6 +7,7 @@ import Icon from '@/components/atoms/Icon';
 import SLImage from '@/components/atoms/Image';
 import Button from '@/components/atoms/Button';
 import { FaqItem as FAQProps } from './types';
+// @ts-ignore
 import styles from './FaqItem.css';
 
 export const links = () => {

@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import SLImage from '@/components/atoms/Image';
 import { YearTheme as YearThemeProps } from './types';
+// @ts-ignore
 import styles from './YearTheme.css';
 
 export const links = () => {

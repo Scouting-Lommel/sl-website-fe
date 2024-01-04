@@ -1,4 +1,5 @@
 import { CreateActivity as CreateActivityProps } from './types';
+// @ts-ignore
 import styles from './CreateActivity.css';
 import Typography from '@/components/atoms/Typography';
 import Button from '@/components/atoms/Button';

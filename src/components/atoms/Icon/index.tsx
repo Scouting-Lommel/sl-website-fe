@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { Icon as IconProps } from './types';
+// @ts-ignore
 import styles from './Icon.css';
 
 export const links = () => {

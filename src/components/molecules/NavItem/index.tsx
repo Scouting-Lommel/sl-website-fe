@@ -8,6 +8,7 @@ import { IconChevronDown } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
 import { NavItem as NavItemProps } from './types';
+// @ts-ignore
 import styles from './NavItem.css';
 
 export const links = () => {

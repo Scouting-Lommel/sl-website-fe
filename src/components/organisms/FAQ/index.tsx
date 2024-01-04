@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import FAQItem from '@/components/molecules/FaqItem';
 import { FAQ as FAQProps } from './types';
+// @ts-ignore
 import styles from './FAQ.css';
 
 export const links = () => {

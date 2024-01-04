@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Typography from '@/components/atoms/Typography';
 import { Tarif as TarifProps } from './types';
+// @ts-ignore
 import styles from './Tarif.css';
 
 export const links = () => {

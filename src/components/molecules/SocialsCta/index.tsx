@@ -4,6 +4,7 @@ import { IconFacebook, IconInstagram, IconTikTok } from '@/assets/icons';
 import SLLink from '@/components/atoms/Link';
 import Icon from '@/components/atoms/Icon';
 import { SocialsCta as SocialsCtaProps } from './types';
+// @ts-ignore
 import styles from './SocialsCta.css';
 
 export const links = () => {

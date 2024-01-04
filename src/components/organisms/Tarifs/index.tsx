@@ -2,6 +2,7 @@ import Tarif from '@/components/molecules/Tarif';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import { Tarifs as TarifsProps } from './types';
+// @ts-ignore
 import styles from './Tarifs.css';
 
 export const links = () => {

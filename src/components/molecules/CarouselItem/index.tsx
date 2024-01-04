@@ -1,4 +1,5 @@
 import { CarouselItem as CarouselItemProps } from './types';
+// @ts-ignore
 import styles from './CarouselItem.css';
 import SLImage from '@/components/atoms/Image';
 import Typography from '@/components/atoms/Typography';

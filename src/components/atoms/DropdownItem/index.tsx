@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Typography from '@/components/atoms/Typography';
 import { DropdownItem as DropdownItemProps } from './types';
+// @ts-ignore
 import styles from './DropdownItem.css';
 
 export const links = () => {

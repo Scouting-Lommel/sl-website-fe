@@ -3,6 +3,7 @@ import Typography from '@/components/atoms/Typography';
 import SLImage from '@/components/atoms/Image';
 import Button from '@/components/atoms/Button';
 import { TextImage as TextImageProps } from './types';
+// @ts-ignore
 import styles from './TextImage.css';
 
 export const links = () => {

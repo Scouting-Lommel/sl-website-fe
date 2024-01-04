@@ -1,6 +1,7 @@
 'use client';
 
 import { Gallery as GalleryProps } from './types';
+// @ts-ignore
 import styles from './Gallery.css';
 import SLImage from '@/components/atoms/Image';
 import { useState } from 'react';

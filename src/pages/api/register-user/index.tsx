@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { generateApiQuery } from '@/lib/api';
+// @ts-ignore
 import registeruser from './query.gql';
 
 export default async function handler(req: Request, res: Response): Promise<unknown> {

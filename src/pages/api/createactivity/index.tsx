@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { generateApiQuery } from '@/lib/api';
+// @ts-ignore
 import creatActivityQuery from './query.gql';
 
 const creatActivity = async (req: NextApiRequest, res: NextApiResponse) => {

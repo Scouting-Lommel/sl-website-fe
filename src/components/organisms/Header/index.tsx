@@ -11,6 +11,7 @@ import Icon from '@/components/atoms/Icon';
 import Navigation from '@/components/molecules/Navigation';
 import SLImage from '@/components/atoms/Image';
 import { Header as HeaderProps } from './types';
+// @ts-ignore
 import styles from './Header.css';
 
 export const links = () => {

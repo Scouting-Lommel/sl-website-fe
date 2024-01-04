@@ -1,5 +1,6 @@
 import Typography from '@/components/atoms/Typography';
 import { TOC as TOCProps } from './type';
+// @ts-ignore
 import styles from './TOC.css';
 
 export const links = () => {

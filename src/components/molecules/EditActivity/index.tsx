@@ -1,4 +1,5 @@
 import { EditActivity as EditActivityProps } from './types';
+// @ts-ignore
 import styles from './EditActivity.css';
 import Typography from '@/components/atoms/Typography';
 import Button from '@/components/atoms/Button';

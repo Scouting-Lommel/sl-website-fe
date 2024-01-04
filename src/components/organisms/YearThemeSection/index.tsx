@@ -1,6 +1,7 @@
 import Typography from '@/components/atoms/Typography';
 import { YearThemeSection as YearThemeSectionProps } from './types';
 import YearTheme from '@/components/molecules/YearTheme';
+// @ts-ignore
 import styles from './YearThemeSection.css';
 
 export const links = () => {

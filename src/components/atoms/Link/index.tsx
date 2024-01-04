@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import NextLink from 'next/link';
 import { Link as LinkProps } from './types';
+// @ts-ignore
 import styles from './Link.css';
 
 export const links = () => {

@@ -1,4 +1,5 @@
 import { Activity as ActivityProps } from './types';
+// @ts-ignore
 import styles from './Activity.css';
 import Typography from '@/components/atoms/Typography';
 import Modal from '@/components/molecules/Modal';

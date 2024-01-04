@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { CalendarProps } from './types';
+// @ts-ignore
 import styles from './Calendar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';

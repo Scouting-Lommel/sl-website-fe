@@ -1,4 +1,5 @@
 import { generateApiQuery } from '@/lib/api';
+// @ts-ignore
 import loginQuery from './query.gql';
 
 const login = async (email: string, password: string) => {

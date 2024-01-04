@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ActivitySection as ActivityProps } from './types';
 import Activity from '@/components/atoms/Activity';
+// @ts-ignore
 import styles from './Activities.css';
 import Button from '@/components/atoms/Button';
 import Modal from '@/components/molecules/Modal';

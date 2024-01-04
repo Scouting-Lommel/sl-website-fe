@@ -1,6 +1,7 @@
 import Typography from '@/components/atoms/Typography';
 import SLLink from '@/components/atoms/Link';
 import { FooterDoormat as FooterDoormatProps, DoormatCol as DoormatColProps } from './types';
+// @ts-ignore
 import styles from './FooterDoormat.css';
 
 export const links = () => {

@@ -1,6 +1,7 @@
 'use client';
 
 import { RegisterChild as RegisterChildProps } from './types';
+// @ts-ignore
 import styles from './RegisterChild.css';
 import Button from '@/components/atoms/Button';
 import { Dispatch, SetStateAction, useState } from 'react';

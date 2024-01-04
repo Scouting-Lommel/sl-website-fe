@@ -2,6 +2,7 @@ import FooterHead from '@/components/molecules/FooterHead';
 import FooterDisclosure from '@/components/molecules/FooterDisclosure';
 import FooterDoormat from '@/components/molecules/FooterDoormat';
 import { Footer as FooterProps } from './types';
+// @ts-ignore
 import styles from './Footer.css';
 
 export const links = () => {

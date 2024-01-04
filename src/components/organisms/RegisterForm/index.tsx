@@ -1,6 +1,7 @@
 'use client';
 
 import RegisterChild from '@/components/molecules/RegisterChild';
+// @ts-ignore
 import styles from './Register.css';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';

@@ -1,3 +1,4 @@
+// @ts-ignore
 import styles from './Login.css';
 import Icon from '@/components/atoms/Icon';
 import { IconLock } from '@/assets/icons';

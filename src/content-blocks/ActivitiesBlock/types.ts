@@ -7,7 +7,7 @@ export type ActivityBlock = {
   initialItems: number;
   blockProperties: BlockContainer;
   callToAction?: CallToAction;
-  activities: { attributes: Activity }[];
+  activities: { attributes: Activity; id: string }[];
   session?: any;
   tak: string;
 };

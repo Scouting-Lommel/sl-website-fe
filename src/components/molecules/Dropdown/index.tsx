@@ -4,6 +4,7 @@ import Icon from '@/components/atoms/Icon';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import { Dropdown as DropdownProps, DropdownNavItem } from './types';
+// @ts-ignore
 import styles from './Dropdown.css';
 
 export const links = () => {

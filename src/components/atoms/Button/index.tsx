@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import NextLink from 'next/link';
 import { Button as ButtonProps } from './types';
+// @ts-ignore
 import styles from './Button.css';
 
 export const links = () => {

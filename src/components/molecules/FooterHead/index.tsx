@@ -1,4 +1,5 @@
 import { FooterHead as FooterHeadProps } from './types';
+// @ts-ignore
 import styles from './FooterHead.css';
 
 export const links = () => {

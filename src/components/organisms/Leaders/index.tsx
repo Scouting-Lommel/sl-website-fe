@@ -1,5 +1,6 @@
 import Leader from '@/components/molecules/Leader';
 import { Leaders as LeadersProps } from './types';
+// @ts-ignore
 import styles from './Leader.css';
 
 export const links = () => {

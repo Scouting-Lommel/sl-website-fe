@@ -1,6 +1,7 @@
 'use client';
 
 import { Carousel as CarouselProps, PropType, UsePrevNextButtonsType } from './types';
+// @ts-ignore
 import styles from './Carousel.css';
 import CarouselItem from '@/components/molecules/CarouselItem';
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react';

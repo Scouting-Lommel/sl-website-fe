@@ -1,5 +1,6 @@
 import Typography from '@/components/atoms/Typography';
 import { Paragraph as ParagraphProps } from './type';
+// @ts-ignore
 import styles from './Paragraph.css';
 
 export const links = () => {

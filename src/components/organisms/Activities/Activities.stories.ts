@@ -23,6 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   args: {
     initialItems: 3,
+    tak: 'Welpen',
     activities: [
       {
         attributes: {
@@ -32,7 +33,9 @@ export const Default = {
           startTime: '14:00',
           endTime: '15:30',
           description: 'An example description for an activity',
+          uid: '1',
         },
+        id: '1',
       },
       {
         attributes: {
@@ -42,7 +45,9 @@ export const Default = {
           startTime: '12:00',
           endTime: '12:00',
           description: 'Another example description for an activity',
+          uid: '1',
         },
+        id: '1',
       },
     ],
   },
