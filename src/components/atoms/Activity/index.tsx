@@ -1,6 +1,10 @@
 import { Activity as ActivityProps } from './types';
 import styles from './Activity.css';
 import Typography from '@/components/atoms/Typography';
+import Modal from '@/components/molecules/Modal';
+import Button from '@/components/atoms/Button';
+import EditActivity from '@/components/molecules/EditActivity';
+import DeleteActivity from '@/components/molecules/DeleteActivity';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -18,7 +22,7 @@ const dayMap: { [key: number]: string } = {
   6: 'Za',
 };
 
-const Activity = ({ title, startDate, startTime, endDate, endTime, description }: Props) => {
+const Activity = ({ title, startDate, startTime, endDate, endTime, description, session, uid }: Props) => {
   let firstLine = '';
   let secondLine = '';
   if (startDate === endDate) {
@@ -50,6 +54,36 @@ const Activity = ({ title, startDate, startTime, endDate, endTime, description }
         </div>
         <Typography className="activity__description" data={description} />
       </div>
+      {session &&
+        <div className='activity__editor'>
+          <Modal 
+            button={
+              <div className="activity__button">
+                <Button label="Edit" variant="primary"></Button>
+              </div>
+            }
+            modalData={<EditActivity 
+              uid={uid} 
+              session={session} 
+              title={title}
+              startDate={startDate}
+              startTime={startTime}
+              endDate={endDate}
+              endTime={endTime}
+              description={description}/>}
+          />
+          <Modal 
+            button={
+              <div className="activity__button">
+                <Button label="Verwijder" variant="primary"></Button>
+              </div>
+            }
+            modalData={<DeleteActivity 
+              uid={uid}
+              session={session}/>}
+          />
+        </div>
+      }
       <div className="activity__border">
         <div className="activity__border__line"></div>
       </div>

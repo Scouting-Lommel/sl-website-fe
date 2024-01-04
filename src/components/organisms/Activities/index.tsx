@@ -23,12 +23,14 @@ const Activities = ({ activities, initialItems, session, tak }: Props) => {
           return (
             <Activity
               key={i}
-              title={activities[i].attributes.title}
-              startDate={activities[i].attributes.startDate}
-              startTime={activities[i].attributes.startTime}
-              endDate={activities[i].attributes.endDate}
-              endTime={activities[i].attributes.endTime}
-              description={activities[i].attributes.description}
+              title={act.attributes.title}
+              startDate={act.attributes.startDate}
+              startTime={act.attributes.startTime}
+              endDate={act.attributes.endDate}
+              endTime={act.attributes.endTime}
+              description={act.attributes.description}
+              session={session}
+              uid={act.id}
             />
           );
         }

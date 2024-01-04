@@ -1,0 +1,25 @@
+mutation EditActivity(
+  $name: String!
+  $startdate: Date!
+  $enddate: Date!
+  $starttime: Time!
+  $endtime: Time!
+  $description: String!
+  $id: ID!
+) {
+  updateActivity(
+    id: $id
+    data: {
+      title: $name
+      description: $description
+      startDate: $startdate
+      startTime: $starttime
+      endDate: $enddate
+      endTime: $endtime
+    }
+  ) {
+    data {
+      id
+    }
+  }
+}

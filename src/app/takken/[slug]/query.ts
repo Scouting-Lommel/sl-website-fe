@@ -110,6 +110,7 @@ const ACTIVITIES_QUERY = gql`
       sort: "startDate:asc"
     ) {
       data {
+        id
         attributes {
           title
           startDate
