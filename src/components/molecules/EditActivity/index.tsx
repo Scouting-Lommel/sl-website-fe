@@ -9,17 +9,36 @@ export const links = () => {
 
 type Props = EditActivityProps & React.HTMLAttributes<HTMLElement>;
 
-const EditActivity = ({ uid, session, title, startDate, startTime, endDate, endTime, description }: Props) => {
-  const start = startDate + "T" + startTime.split(":")[0] + ":" + startTime.split(":")[1]
-  const end = endDate + "T" + endTime.split(":")[0] + ":" + endTime.split(":")[1]
+const EditActivity = ({
+  uid,
+  session,
+  title,
+  startDate,
+  startTime,
+  endDate,
+  endTime,
+  description,
+}: Props) => {
+  const start = startDate + 'T' + startTime.split(':')[0] + ':' + startTime.split(':')[1];
+  const end = endDate + 'T' + endTime.split(':')[0] + ':' + endTime.split(':')[1];
   return (
     <div>
-      <form onSubmit={(event) => edit_activity(event, uid, session)} className="edit_activity__form">
+      <form
+        onSubmit={(event) => edit_activity(event, uid, session)}
+        className="edit_activity__form"
+      >
         <h2 className="t-headline-2 t-align-center">Maak activiteit</h2>
         <div className="edit_activity__row__long">
           <label htmlFor="name" className="edit_activity__label">
             <Typography>Naam</Typography>
-            <input defaultValue={title} className="edit_activity__input" id="name" name="name" type="text" required />
+            <input
+              defaultValue={title}
+              className="edit_activity__input"
+              id="name"
+              name="name"
+              type="text"
+              required
+            />
           </label>
         </div>
         <div className="edit_activity__row">
@@ -70,10 +89,10 @@ const edit_activity = async (event: any, uid: string, session: any) => {
   event.preventDefault();
   const data = {
     name: event.target.elements.name.value,
-    startdate: event.target.elements.startdate.value.split("T")[0],
-    starttime: event.target.elements.startdate.value.split("T")[1] + ":00.000",
-    enddate: event.target.elements.enddate.value.split("T")[0],
-    endtime: event.target.elements.enddate.value.split("T")[1] + ":00.000",
+    startdate: event.target.elements.startdate.value.split('T')[0],
+    starttime: event.target.elements.startdate.value.split('T')[1] + ':00.000',
+    enddate: event.target.elements.enddate.value.split('T')[0],
+    endtime: event.target.elements.enddate.value.split('T')[1] + ':00.000',
     description: event.target.elements.description.value,
     id: uid,
     jwt: session.jwt,

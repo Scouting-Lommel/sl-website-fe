@@ -4,14 +4,27 @@ import creatActivityQuery from './query.gql';
 
 const creatActivity = async (req: NextApiRequest, res: NextApiResponse) => {
   const body = req.body;
-  if (!body.name || !body.startdate || !body.starttime || !body.enddate || !body.endtime || !body.description || !body.group || !body.jwt) {
+  if (
+    !body.name ||
+    !body.startdate ||
+    !body.starttime ||
+    !body.enddate ||
+    !body.endtime ||
+    !body.description ||
+    !body.group ||
+    !body.jwt
+  ) {
     return res.status(400).json({
       message: 'Not all required data given',
     });
   }
 
   try {
-    const result: any = await generateApiQuery({ query: creatActivityQuery, variables: body, token: body.jwt });
+    const result: any = await generateApiQuery({
+      query: creatActivityQuery,
+      variables: body,
+      token: body.jwt,
+    });
   } catch (e) {
     return res.status(400).json({ data: 'Onjuiste query: ' + e });
   }

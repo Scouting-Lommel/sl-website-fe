@@ -11,7 +11,10 @@ type Props = DeleteActivityProps & React.HTMLAttributes<HTMLElement>;
 const DeleteActivity = ({ uid, session }: Props) => {
   return (
     <div>
-      <form onSubmit={(event) => delete_activity(event, uid, session)} className="delete_activity__form">
+      <form
+        onSubmit={(event) => delete_activity(event, uid, session)}
+        className="delete_activity__form"
+      >
         <h2 className="t-headline-2 t-align-center">Verwijder activiteit?</h2>
         <div className="delete_activity__button">
           <Button label="Verwijder" variant="primary" />

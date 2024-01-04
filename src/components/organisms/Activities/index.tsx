@@ -35,7 +35,7 @@ const Activities = ({ activities, initialItems, session, tak }: Props) => {
           );
         }
       })}
-       <div className="activities__button_container">
+      <div className="activities__button_container">
         {!isOpen && initialItems < activities.length && (
           <div className="activities__button">
             <Button
@@ -54,15 +54,16 @@ const Activities = ({ activities, initialItems, session, tak }: Props) => {
             ></Button>
           </div>
         )}
-        {session &&
-        <Modal
-          button={
-            <div className="activities__button">
-              <Button label="Maak activiteit" variant="primary"></Button>
-            </div>
-          }
-          modalData={<CreateActivity tak={tak} session={session}/>}
-        />}
+        {session && (
+          <Modal
+            button={
+              <div className="activities__button">
+                <Button label="Maak activiteit" variant="primary"></Button>
+              </div>
+            }
+            modalData={<CreateActivity tak={tak} session={session} />}
+          />
+        )}
       </div>
     </div>
   );

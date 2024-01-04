@@ -1,16 +1,16 @@
 import { DocumentNode, print } from 'graphql';
 
 async function fetchAPI(query: DocumentNode, variables?: unknown, token?: string) {
-  let headers = {}
+  let headers = {};
   if (token) {
     headers = {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + token
-    }
+      Authorization: 'Bearer ' + token,
+    };
   } else {
     headers = {
       'Content-Type': 'application/json',
-    }
+    };
   }
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/graphql`, {

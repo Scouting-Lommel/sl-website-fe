@@ -34,17 +34,17 @@ export const authOptions: NextAuthOptions = {
       // and contains the user data returned from the provider
       if (user) {
         // You can add the JWT or any other data to the token object
-        token.jwt = user.id
+        token.jwt = user.id;
       }
-      return token
+      return token;
     },
     async session({ session, token, user }) {
       // The token object contains the JWT and other data
       // You can add the JWT or any other data to the session object
-      session.jwt = token.jwt as string
-      return session
-    }
-  }
+      session.jwt = token.jwt as string;
+      return session;
+    },
+  },
 };
 
 const handler = NextAuth(authOptions);

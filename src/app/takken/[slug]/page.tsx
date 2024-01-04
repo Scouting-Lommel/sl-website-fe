@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
 const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => {
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
-  const ID = group.id
+  const ID = group.id;
   const date = new Date();
   const year = date.getFullYear();
   const month = (date.getMonth() + 1).toString().padStart(2, '0');

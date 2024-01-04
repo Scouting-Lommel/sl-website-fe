@@ -11,7 +11,11 @@ const deleteActivity = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const result: any = await generateApiQuery({ query: deleteActivityQuery, variables: body, token: body.jwt });
+    const result: any = await generateApiQuery({
+      query: deleteActivityQuery,
+      variables: body,
+      token: body.jwt,
+    });
   } catch (e) {
     return res.status(400).json({ data: 'Onjuiste query: ' + e });
   }

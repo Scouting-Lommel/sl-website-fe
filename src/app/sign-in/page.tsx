@@ -1,7 +1,7 @@
-import LoginForm from "@/components/molecules/LoginForm";
+import LoginForm from '@/components/molecules/LoginForm';
 import { generateMetadataForPage } from '@/lib/helpers/metadata';
 import { getGeneralData } from '../api';
-import { getLoginPage } from "./api";
+import { getLoginPage } from './api';
 import { notFound } from 'next/navigation';
 
 export async function generateMetadata() {
@@ -10,16 +10,13 @@ export async function generateMetadata() {
   if (!generalData || !registerPage) return {};
 
   const pagemeta = {
-    ...registerPage.data.attributes.pageMeta, 
-    pageTitle: 'Log in', 
-    pageDescription: 'Log in', 
-    slug: 'login'
-  }
+    ...registerPage.data.attributes.pageMeta,
+    pageTitle: 'Log in',
+    pageDescription: 'Log in',
+    slug: 'login',
+  };
 
-  const metadata = generateMetadataForPage(
-    pagemeta,
-    generalData.data.attributes,
-  );
+  const metadata = generateMetadataForPage(pagemeta, generalData.data.attributes);
 
   return { ...metadata };
 }
@@ -29,9 +26,7 @@ const SignIn = async () => {
 
   if (!registerPage) notFound();
 
-  return (
-    <LoginForm />
-  )
-}
+  return <LoginForm />;
+};
 
 export default SignIn;

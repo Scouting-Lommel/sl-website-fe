@@ -7,9 +7,8 @@ export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const Login = ({ session }: {session?: any}) => {
-
-  const isLoggedIn = !!session
+const Login = ({ session }: { session?: any }) => {
+  const isLoggedIn = !!session;
 
   return (
     <li className="login" key="login">
@@ -17,7 +16,7 @@ const Login = ({ session }: {session?: any}) => {
         <div
           className="login__button"
           onClick={() => {
-            signIn()
+            signIn();
           }}
           key="loggedIn"
         >
@@ -29,7 +28,7 @@ const Login = ({ session }: {session?: any}) => {
         <div
           className="login__button"
           onClick={() => {
-            signOut()
+            signOut();
           }}
           key="loggedIn"
         >

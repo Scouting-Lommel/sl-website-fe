@@ -12,7 +12,10 @@ type Props = CreateActivityProps & React.HTMLAttributes<HTMLElement>;
 const CreateActivity = ({ tak, session }: Props) => {
   return (
     <div>
-      <form onSubmit={(event) => create_activity(event, tak, session)} className="create_activity__form">
+      <form
+        onSubmit={(event) => create_activity(event, tak, session)}
+        className="create_activity__form"
+      >
         <h2 className="t-headline-2 t-align-center">Maak activiteit</h2>
         <div className="create_activity__row__long">
           <label htmlFor="name" className="create_activity__label">
@@ -65,10 +68,10 @@ const create_activity = async (event: any, tak: string, session: any) => {
   event.preventDefault();
   const data = {
     name: event.target.elements.name.value,
-    startdate: event.target.elements.startdate.value.split("T")[0],
-    starttime: event.target.elements.startdate.value.split("T")[1] + ":00.000",
-    enddate: event.target.elements.enddate.value.split("T")[0],
-    endtime: event.target.elements.enddate.value.split("T")[1] + ":00.000",
+    startdate: event.target.elements.startdate.value.split('T')[0],
+    starttime: event.target.elements.startdate.value.split('T')[1] + ':00.000',
+    enddate: event.target.elements.enddate.value.split('T')[0],
+    endtime: event.target.elements.enddate.value.split('T')[1] + ':00.000',
     description: event.target.elements.description.value,
     group: parseInt(tak),
     jwt: session.jwt,
