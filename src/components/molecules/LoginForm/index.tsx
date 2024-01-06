@@ -26,7 +26,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    <div className='login-form__container'>
       <form onSubmit={tryLogin} className="login-form">
         <h2 className="t-headline-2 t-align-center">Log in</h2>
         <label htmlFor="email" className="login-form__label">
