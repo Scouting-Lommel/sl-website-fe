@@ -12,7 +12,7 @@ const FooterDisclosure = ({ siteName }: Props) => {
 
   return (
     <div className="footer-disclosure">
-      &copy; {siteName} - {currentYear}
+      &copy; {siteName} 2023-{currentYear}
     </div>
   );
 };
