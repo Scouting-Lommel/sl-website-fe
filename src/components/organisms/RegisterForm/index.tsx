@@ -1,13 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import RegisterChild from '@/components/molecules/RegisterChild';
-import styles from './Register.css';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
-import { useState } from 'react';
 import Loader from '@/components/atoms/Loader';
-import { Register as RegisterProps } from './types';
 import Input from '@/components/atoms/FormInput';
+import { Register as RegisterProps } from './types';
+import styles from './Register.css';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -123,17 +123,17 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
       {responseMessage === '' && (
         <form onSubmit={(event) => handleSubmit(event)} noValidate={false}>
           <div className="register-form__street-address">
-            <Input label="Straatnaam:" type="text" id="street" name="street" required />
-            <Input label="Huisnummer:" type="text" id="number" name="number" required />
-            <Input label="Bus:" type="text" id="bus" name="bus" />
+            <Input label="Straatnaam" type="text" id="street" name="street" required />
+            <Input label="Huisnummer" type="text" id="number" name="number" required />
+            <Input label="Bus" type="text" id="bus" name="bus" />
           </div>
           <div className="register-form__postal">
-            <Input label="Postcode:" type="text" id="Postcode" name="Postcode" />
-            <Input label="Gemeente:" type="text" id="City" name="City" required />
+            <Input label="Postcode" type="text" id="Postcode" name="Postcode" />
+            <Input label="Gemeente" type="text" id="City" name="City" required />
           </div>
           <div className="register-form__personal">
-            <Input label="Emailadres:" type="text" id="email" name="email" required />
-            <Input label="Telefoonnummer:" type="text" id="tel" name="tel" required />
+            <Input label="Emailadres" type="text" id="email" name="email" required />
+            <Input label="Telefoonnummer" type="text" id="tel" name="tel" required />
           </div>
           <RegisterChild index={1} key={1} first />
           <label htmlFor="privacy" className="register-form__privacy">

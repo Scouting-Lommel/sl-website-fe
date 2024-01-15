@@ -1,19 +1,19 @@
 .calendar {
-  text-align: center;
   padding: var(--space-16);
   border: 1px solid var(--color-light-grey);
-  border-radius: 8px;
   background-color: var(--color-white);
-  box-shadow: 0px 4px 6px var(--color-black);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--color-black);
+  text-align: center;
 
   @media (--mq-from-medium) {
-    margin-left: var(--space-48);
     margin-right: var(--space-48);
+    margin-left: var(--space-48);
   }
 
   @media (--mq-from-large) {
-    margin-left: var(--space-80);
     margin-right: var(--space-80);
+    margin-left: var(--space-80);
   }
 
   @media (--mq-up-to-medium) {
@@ -22,10 +22,10 @@
     }
 
     .calendar__week__day {
-      padding: var(--space-4);
-      white-space: nowrap; /* Prevent day names from wrapping */
       overflow: hidden; /* Hide overflow text */
+      padding: var(--space-4);
       text-overflow: ellipsis; /* Show ellipsis for truncated text */
+      white-space: nowrap; /* Prevent day names from wrapping */
     }
 
     .calender__header__month-year {
@@ -43,9 +43,9 @@
 
 .calendar__week {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  font-weight: bold;
   margin-bottom: var(--space-8);
+  font-weight: bold;
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .calendar__week__day {

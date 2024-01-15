@@ -3,14 +3,14 @@
   border-bottom: solid 1px var(--color-light-grey);
 
   @media (--mq-up-to-medium) {
-    padding: 2rem 0rem;
+    padding: 2rem 0;
   }
 }
 
 .register-child__card {
+  padding: var(--space-32);
   border: solid 0.063rem var(--color-light-grey);
   border-radius: 0.25rem;
-  padding: var(--space-32);
   box-shadow: -0.125rem 0.125rem var(--color-light-grey);
 }
 
@@ -26,8 +26,8 @@
 
 .register-child__card__name {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: var(--space-32);
+  grid-template-columns: 1fr 1fr;
 
   @media (--mq-up-to-small) {
     grid-template-columns: 1fr;
@@ -37,9 +37,9 @@
 
 .register-child__card__date {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-32);
   padding-top: var(--space-32);
+  gap: var(--space-32);
+  grid-template-columns: 2fr 1fr 1fr;
 
   @media (--mq-up-to-small) {
     grid-template-columns: 1fr;
@@ -49,21 +49,17 @@
 
 .register-child__card__date__akabe {
   display: grid;
-  grid-template-columns: 1rem auto;
-  gap: var(--space-8);
   align-content: center;
+  gap: var(--space-8);
+  grid-template-columns: 1rem auto;
 }
 
 .register-child__card__date input {
-  border-radius: 0.25rem;
-  border: solid 0.063rem var(--color-light-grey);
-  padding: var(--space-16);
   width: 100%;
+  padding: var(--space-16);
+  border: solid 0.063rem var(--color-light-grey);
+  border-radius: 0.25rem;
   cursor: pointer;
-
-  &::-webkit-calendar-picker-indicator {
-    cursor: pointer;
-  }
 }
 
 .register-child__card__sex {
@@ -74,34 +70,32 @@
 
 .register-child__card__sex__radio {
   display: flex;
-  justify-content: center;
   flex-direction: row;
+  justify-content: center;
   gap: var(--space-16);
 }
 
 .register-child__card__sex__radio input {
-  -webkit-appearance: none;
-  cursor: pointer;
-  appearance: none;
-  margin: 0;
+  display: grid;
   width: 0.8rem;
   height: 0.8rem;
-  border: 0.08rem solid var(--color-black);
-  border-radius: 50%;
-  transform: translateY(0.15rem);
   padding: 0;
-
-  display: grid;
+  border: 0.08rem solid var(--color-black);
+  margin: 0;
+  appearance: none;
+  border-radius: 50%;
+  cursor: pointer;
   place-content: center;
+  transform: translateY(0.15rem);
 
   &::before {
-    content: '';
     width: 0.38rem;
     height: 0.38rem;
     border-radius: 50%;
+    box-shadow: inset 1rem 1rem var(--color-black);
+    content: '';
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1rem 1rem var(--color-black);
   }
 
   &:checked::before {
@@ -111,16 +105,16 @@
 
 .register-child__card__sex__radio__item {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.3rem;
   cursor: pointer;
+  gap: 0.3rem;
+  grid-template-columns: 1fr 1fr;
 }
 
 .register-child__card__group {
   display: grid;
-  grid-template-rows: 1fr 2fr;
-  place-items: center;
+  padding: var(--space-5);
   border: solid 0.063rem var(--color-light-grey);
   border-radius: 0.25rem;
-  padding: var(--space-5);
+  grid-template-rows: 1fr 2fr;
+  place-items: center;
 }

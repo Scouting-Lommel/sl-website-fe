@@ -1,10 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import Typography from '@/components/atoms/Typography';
 import Button from '@/components/atoms/Button';
 import { Contact as ContactProps } from './types';
 import styles from './Contact.css';
-import { useState } from 'react';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
