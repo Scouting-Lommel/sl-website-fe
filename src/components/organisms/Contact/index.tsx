@@ -78,13 +78,13 @@ const Contact = ({ title, subjectOptions }: Props) => {
           <Typography>
             <label htmlFor="name">Naam</label>
           </Typography>
-          <input className="contact__input" type="text" id="name" name="name" required/>
+          <input className="contact__input" type="text" id="name" name="name" required />
         </div>
         <div className="contact__user-info__item">
           <Typography>
             <label htmlFor="email">Emailadres</label>
           </Typography>
-          <input className="contact__input" type="text" id="email" name="email" required/>
+          <input className="contact__input" type="text" id="email" name="email" required />
         </div>
       </div>
       <div className="contact__subject">
@@ -108,7 +108,9 @@ const Contact = ({ title, subjectOptions }: Props) => {
               <label htmlFor="selection">Tak</label>
             </Typography>
             <select id="takselection" name="takselection" title="takselection" required>
-              <option disabled selected value="">--- Kies een tak ---</option>
+              <option disabled selected value="">
+                --- Kies een tak ---
+              </option>
               {['Kapoenen', 'Welpen', 'Akabe', 'Jonggivers', 'Givers', 'Jin'].map((subject, i) => {
                 return (
                   <option key={i} value={subject + '_email'} id={subject + '-email'}>
