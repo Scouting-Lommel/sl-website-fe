@@ -1,6 +1,6 @@
 import File from '@/components/molecules/File';
-import { FileSection as FileBlockProps } from './types';
 import Typography from '@/components/atoms/Typography';
+import { FileSection as FileBlockProps } from './types';
 
 type Props = FileBlockProps & React.HTMLAttributes<HTMLElement>;
 

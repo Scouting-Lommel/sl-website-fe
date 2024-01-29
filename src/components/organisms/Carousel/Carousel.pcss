@@ -32,46 +32,47 @@
     --slide-height: 10rem;
   }
 }
+
 .embla__viewport {
   overflow: hidden;
 }
+
 .embla__container {
-  backface-visibility: hidden;
   display: flex;
+  backface-visibility: hidden;
   touch-action: pan-y;
 }
 
 .embla__button {
-  -webkit-appearance: none;
-  background-color: transparent;
-  touch-action: manipulation;
-  display: inline-flex;
-  text-decoration: none;
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-.embla__buttons {
-  width: 100%;
-  display: flex;
-  gap: var(--space-8);
-  padding-top: var(--space-32);
-  color: var(--color-white);
-}
-.embla__button {
   z-index: 1;
-  color: var(--background-site);
+  display: inline-flex;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   width: var(--space-64);
   height: var(--space-64);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background-color: transparent;
+  color: var(--background-site);
+  cursor: pointer;
+  text-decoration: none;
+  touch-action: manipulation;
 }
+
+.embla__buttons {
+  display: flex;
+  width: 100%;
+  padding-top: var(--space-32);
+  color: var(--color-white);
+  gap: var(--space-8);
+}
+
 .embla__button:disabled {
   opacity: 0.3;
 }
+
 .embla__button__svg {
   width: 65%;
   height: 65%;

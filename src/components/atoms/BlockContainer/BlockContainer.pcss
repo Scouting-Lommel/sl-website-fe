@@ -30,13 +30,10 @@
 
 .block-container__bg-image {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: block;
   min-width: 100%;
   min-height: 100%;
+  inset: 0;
 
   &--dark {
     overflow: hidden;
@@ -44,13 +41,10 @@
 
     &::after {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
       overflow: hidden;
       background-color: var(--color-background-theme);
       content: '';
+      inset: 0;
     }
 
     @media (--mq-from-large) {

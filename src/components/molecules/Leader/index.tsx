@@ -19,8 +19,10 @@ const Leader = ({ firstName, lastName, image }: Props) => {
       ) : (
         <Image src={ProfilePicture} alt="default profile picture" className="leader__image" />
       )}
-      <Typography className="leader__name">{firstName}</Typography>
-      <Typography className="leader__name">{lastName}</Typography>
+      <Typography className="leader__name">
+        <span>{firstName}</span>
+        <span>{lastName}</span>
+      </Typography>
     </div>
   );
 };

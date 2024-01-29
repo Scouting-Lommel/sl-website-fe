@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import styles from './CalendarRevalidator.css';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
+import styles from './CalendarRevalidator.css';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
