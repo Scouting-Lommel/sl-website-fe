@@ -30,8 +30,17 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# tailwind
-/dist/*
-
 # vscode
 .vscode/
+
+# netlify
+.netlify
+
+# storybook
+/storybook-static
+
+# generated stylesheets
+src/**/*.css
+
+# typescript 
+tsconfig.tsbuildinfo

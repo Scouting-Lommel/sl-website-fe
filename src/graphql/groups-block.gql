@@ -1,0 +1,35 @@
+fragment GroupsBlockFragment on ComponentContentBlocksGroupsBlock {
+  title
+  groups {
+    data {
+      attributes {
+        name
+        slug
+        logo {
+          data {
+            attributes {
+              name
+              width
+              height
+              url
+              alternativeText
+              caption
+              formats
+            }
+          }
+        }
+      }
+    }
+  }
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+  cta: callToAction {
+    title
+    intro
+    ctaLabel
+    ctaLink
+  }
+}

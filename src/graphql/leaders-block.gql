@@ -1,0 +1,14 @@
+fragment LeadersBlockFragment on ComponentContentBlocksLeadersBlock {
+  title
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+  cta: callToAction {
+    title
+    intro
+    ctaLabel
+    ctaLink
+  }
+}

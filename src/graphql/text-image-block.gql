@@ -1,0 +1,28 @@
+fragment TextImageBlockFragment on ComponentContentBlocksTextImageBlock {
+  title
+  content
+  orientation: variant
+  images {
+    data {
+      attributes {
+        name
+        width
+        height
+        url
+        alternativeText
+        caption
+        formats
+      }
+    }
+  }
+  ctaButton {
+    label
+    link
+    variant
+  }
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+}

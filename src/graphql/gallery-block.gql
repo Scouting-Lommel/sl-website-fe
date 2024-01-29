@@ -1,0 +1,28 @@
+fragment GalleryBlockFragment on ComponentContentBlocksGalleryBlock {
+  title
+  initialItems
+  images {
+    data {
+      attributes {
+        name
+        width
+        height
+        url
+        alternativeText
+        caption
+        formats
+      }
+    }
+  }
+  cta: callToAction {
+    title
+    intro
+    ctaLabel
+    ctaLink
+  }
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+}

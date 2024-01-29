@@ -1,0 +1,26 @@
+.map__container {
+  display: flex;
+  justify-content: center;
+}
+
+.map {
+  width: 62.5rem;
+  height: 37.5rem;
+  border: 0.188rem;
+  border-color: var(--color-theme-primary);
+
+  @media (--mq-up-to-large) {
+    width: 50rem;
+    height: 30rem;
+  }
+
+  @media (--mq-up-to-medium) {
+    width: 40rem;
+    height: 22.5rem;
+  }
+
+  @media (--mq-up-to-small) {
+    width: 30rem;
+    height: 15rem;
+  }
+}

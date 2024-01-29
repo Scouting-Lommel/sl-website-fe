@@ -1,0 +1,241 @@
+.text-image {
+  display: grid;
+  gap: var(--space-40);
+  grid-template-columns: 1fr;
+
+  @media (--mq-from-large) {
+    align-items: center;
+
+    &--has-images {
+      grid-template-columns: 22rem auto;
+    }
+
+    &--has-no-images {
+      grid-template-columns: 1fr;
+    }
+
+    &--reversed {
+      grid-template-columns: auto 22rem;
+
+      & .text-image__content {
+        order: 0;
+      }
+      & .text-image__image-container {
+        order: 1;
+      }
+    }
+
+    &--multiple-images {
+      gap: var(--space-72);
+      grid-template-columns: 19rem auto;
+    }
+  }
+
+  @media (--mq-from-xlarge) {
+    gap: var(--space-64);
+
+    &--has-images {
+      grid-template-columns: 28rem auto;
+    }
+
+    &--has-no-images {
+      grid-template-columns: 1fr;
+    }
+
+    &--reversed {
+      grid-template-columns: auto 28rem;
+    }
+
+    &--multiple-images {
+      gap: var(--space-104);
+      grid-template-columns: 38rem auto;
+    }
+  }
+}
+
+.text-image__image-container {
+  position: relative;
+  height: fit-content;
+
+  .text-image--multiple-images & {
+    width: 100%;
+    justify-self: center;
+
+    @media (--mq-from-small) {
+      width: 20rem;
+    }
+
+    @media (--mq-from-medium) {
+      width: 24rem;
+    }
+
+    @media (--mq-from-large) {
+      width: 22rem;
+    }
+
+    @media (--mq-from-xlarge) {
+      width: 38rem;
+    }
+  }
+
+  .text-image--multiple-images.text-image--multiple-images--2 & {
+    height: 12rem;
+
+    @media (--mq-from-medium) {
+      height: 14rem;
+    }
+
+    @media (--mq-from-large) {
+      height: 22rem;
+    }
+
+    @media (--mq-from-xlarge) {
+      height: 30rem;
+    }
+  }
+
+  .text-image--multiple-images.text-image--multiple-images--3 & {
+    height: 17rem;
+
+    @media (--mq-from-medium) {
+      height: 21rem;
+    }
+
+    @media (--mq-from-large) {
+      height: 35rem;
+    }
+
+    @media (--mq-from-xlarge) {
+      height: 40rem;
+    }
+  }
+}
+
+.text-image__image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  max-width: 100%;
+  height: fit-content;
+  border-radius: var(--border-radius);
+  filter: drop-shadow(var(--drop-shadow-lg));
+
+  .text-image--multiple-images & {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+    &:nth-child(2) {
+      top: 4rem;
+      right: 0;
+    }
+    &:nth-child(3) {
+      bottom: 0;
+      left: 2rem;
+    }
+
+    @media (--mq-from-xsmall) {
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+      &:nth-child(2) {
+        top: 4rem;
+        right: 0;
+      }
+      &:nth-child(3) {
+        bottom: 0;
+        left: 6rem;
+      }
+    }
+
+    @media (--mq-from-small) {
+      &:nth-child(1) {
+        top: 3rem;
+        left: 0;
+      }
+      &:nth-child(2) {
+        top: 0;
+        right: 0;
+      }
+      &:nth-child(3) {
+        bottom: 0;
+        left: 6rem;
+      }
+    }
+
+    @media (--mq-from-medium) {
+      width: 10rem;
+      height: 10rem;
+
+      &:nth-child(1) {
+        top: 3rem;
+        left: 0;
+      }
+      &:nth-child(2) {
+        top: 0;
+        right: 0;
+      }
+      &:nth-child(3) {
+        bottom: 0;
+        left: 8rem;
+      }
+    }
+
+    @media (--mq-from-large) {
+      width: 12rem;
+      height: 12rem;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+      &:nth-child(2) {
+        top: 9rem;
+        right: 0;
+      }
+      &:nth-child(3) {
+        bottom: 0;
+        left: 1rem;
+      }
+    }
+
+    @media (--mq-from-xlarge) {
+      width: 18rem;
+      height: 18rem;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+      &:nth-child(2) {
+        top: 10rem;
+        right: 0;
+      }
+      &:nth-child(3) {
+        bottom: 0;
+        left: 6rem;
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.text-image__content {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-body);
+}
+
+.text-image__content__button {
+  margin-top: var(--space-24);
+}

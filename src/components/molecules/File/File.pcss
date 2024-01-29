@@ -1,0 +1,35 @@
+.file__container {
+  display: grid;
+  padding: var(--space-32) var(--space-32) var(--space-32) var(--space-32);
+  border-top: solid var(--color-dark-grey) 0.063rem;
+  grid-template-columns: 4rem auto 10rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:last-child {
+    border-bottom: solid var(--color-dark-grey) 0.063rem;
+  }
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 4rem auto;
+  }
+}
+
+.file__filesize {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: small;
+  @media (--mq-up-to-medium) {
+    padding-left: var(--space-64);
+  }
+}
+
+.file__name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: var(--space-16);
+}

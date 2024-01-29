@@ -1,0 +1,39 @@
+.leader__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.leader__name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.leader__image {
+  position: relative;
+  overflow: hidden;
+  width: 5rem;
+  height: 6rem;
+  border-radius: var(--border-radius);
+  filter: drop-shadow(var(--drop-shadow-lg));
+
+  @media (--mq-from-small) {
+    width: 7.5rem;
+    height: 9rem;
+  }
+
+  @media (--mq-from-large) {
+    width: 10rem;
+    height: 12rem;
+  }
+}
+
+.leader__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,46 @@
+.tarifs {
+  padding-top: var(--space-32);
+}
+
+.tarifs__cta__data__intro {
+  display: flex;
+  justify-content: center;
+}
+
+.tarifs__cta__data__button {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--space-32);
+}
+
+.tarifs__cta__container {
+  padding-top: var(--space-48);
+}
+
+.tarifs__container {
+  display: grid;
+  padding: var(--space-32);
+  border-bottom: solid 2px var(--color-light-grey);
+  gap: var(--space-2);
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+
+  @media (--mq-up-to-medium) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.tarifs__header__min-pricev {
+  grid-column-start: 2;
+
+  @media (--mq-up-to-small) {
+    font-size: smaller;
+  }
+}
+
+.tarifs__header__price-pp {
+  grid-column-start: 3;
+
+  @media (--mq-up-to-small) {
+    font-size: smaller;
+  }
+}

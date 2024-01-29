@@ -1,0 +1,28 @@
+.leaders__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leaders {
+  display: grid;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: var(--space-20);
+  grid-template-columns: 1fr 1fr;
+
+  @media (--mq-from-small) {
+    gap: var(--space-28);
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (--mq-from-medium) {
+    gap: var(--space-32);
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (--mq-from-large) {
+    gap: var(--space-48);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
