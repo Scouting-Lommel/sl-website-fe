@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npm run build
+      - name: Build project with netlify
+        run: netlify build
 
       - name: Deploy to Netlify
         run: netlify deploy --prod
