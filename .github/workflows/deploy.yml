@@ -29,15 +29,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Link to Netlify Site
-        run: netlify link --id ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Link to site and build project with netlify
+        run: netlify link --id ${{ secrets.NETLIFY_SITE_ID }} && netlify build
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-
-      - name: Build project with netlify
-        run: netlify build
-        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
 
       - name: Deploy to Netlify
