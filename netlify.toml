@@ -1,7 +1,6 @@
 [build]
   command = "npm run build"
   publish = ".next"
-  site = "828df058-eb6b-49e5-8c74-37453d85336c"
 
 [context.production.environment]
   NODE_ENV = "production"
