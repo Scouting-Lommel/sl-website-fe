@@ -23,20 +23,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Netlify CLI
-        run: npm install -g netlify-cli
-
       - name: Install dependencies
         run: npm install
 
-      - name: Link to site and build project with netlify
-        run: netlify link --id ${{ secrets.NETLIFY_SITE_ID }} && netlify build
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Build
+        run: npm run build
 
       - name: Deploy to Netlify
-        run: netlify deploy --prod
+        uses: netlify/actions/cli@master
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          args: deploy --dir=./out --prod
