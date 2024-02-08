@@ -26,16 +26,16 @@ const Activity = ({ title, startDate, startTime, endDate, endTime, description }
     firstLine = `${dayMap[date.getDay()]} ${date.getDate()}/${
       date.getMonth() + 1
     }/${date.getFullYear()}`;
-    secondLine = `Van ${startTime.slice(0, 5)} tot ${endTime.slice(0, 5)}`;
+    secondLine = `Van ${startTime?.slice(0, 5)} tot ${endTime?.slice(0, 5)}`;
   } else {
     let date = new Date(startDate);
     firstLine = `Van ${dayMap[date.getDay()]} ${date.getDate()}/${
       date.getMonth() + 1
-    }/${date.getFullYear()} - ${startTime.slice(0, 5)}`;
+    }/${date.getFullYear()} - ${startTime?.slice(0, 5)}`;
     date = new Date(endDate);
     secondLine = `Tot ${dayMap[date.getDay()]} ${date.getDate()}/${
       date.getMonth() + 1
-    }/${date.getFullYear()} - ${endTime.slice(0, 5)}`;
+    }/${date.getFullYear()} - ${endTime?.slice(0, 5)}`;
   }
 
   return (
