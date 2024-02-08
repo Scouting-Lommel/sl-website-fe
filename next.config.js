@@ -1,5 +1,6 @@
 module.exports = {
   reactStrictMode: true,
+  output: 'export',
   distDir: '.next',
   images: {
     domains: ['res.cloudinary.com'],
