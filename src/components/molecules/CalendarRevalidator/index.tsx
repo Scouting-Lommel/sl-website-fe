@@ -47,7 +47,6 @@ const CalendarRevalidator = () => {
     <div className="sl-layout">
       <BlockContainer variant="dark" orientation="default" slug="calendar-revalidator">
         {currState}
-        <h2 className="revalidator">{currState}</h2>
       </BlockContainer>
     </div>
   );

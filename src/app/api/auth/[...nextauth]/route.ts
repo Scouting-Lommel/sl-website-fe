@@ -1,4 +1,5 @@
 import login from '@/pages/api/login';
+import userdata from '@/pages/api/userdata';
 import NextAuth from 'next-auth';
 import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
@@ -16,9 +17,9 @@ export const authOptions: NextAuthOptions = {
         if (typeof credentials === 'undefined') {
           return null;
         }
-        const token = await login(credentials.email, credentials.password);
-        if (token) {
-          return { id: token, apiToken: token };
+        const result = await login(credentials.email, credentials.password);
+        if (result) {
+          return { id: result.id, apiToken: result.token };
         }
         return null;
       },
@@ -32,9 +33,12 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user, account, profile, isNewUser }) {
       // The first time you sign in, the user object is not null
       // and contains the user data returned from the provider
-      if (user) {
+      if (user && account?.type == 'credentials') {
         // You can add the JWT or any other data to the token object
-        token.jwt = user.id;
+        const result = await userdata(user.id);
+        token.jwt = token;
+        token.id = user.id;
+        token.tak = result?.tak;
       }
       return token;
     },
@@ -42,6 +46,8 @@ export const authOptions: NextAuthOptions = {
       // The token object contains the JWT and other data
       // You can add the JWT or any other data to the session object
       session.jwt = token.jwt as string;
+      session.user = {}
+      session.user.name = token.tak as string;
       return session;
     },
   },

@@ -7,6 +7,7 @@ const login = async (email: string, password: string) => {
     return null;
   }
   let token = '';
+  let id = '';
 
   try {
     const result: any = await generateApiQuery({
@@ -14,12 +15,13 @@ const login = async (email: string, password: string) => {
       variables: { username: email, password: password },
     });
     token = await result?.login?.jwt;
+    id = await result?.login?.user?.id;
   } catch (e) {
     console.error(e);
     return null;
   }
 
-  return token;
+  return {"token": token, "id": id};
 };
 
 export default login;

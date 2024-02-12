@@ -1,0 +1,15 @@
+query getUserInfo($UID: ID){
+  leaders(filters: {user: {id: {eq:$UID}}}) {
+    data {
+      attributes {
+        group {
+          data {
+            attributes {
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+}
