@@ -105,7 +105,7 @@ const GROUP_PAGE_QUERY = gql`
 const ACTIVITIES_QUERY = gql`
   query getActivities($slug: String, $currDate: Date) {
     activities(
-      filters: { group: { slug: { eq: $slug } }, endDate: { gt: $currDate } }
+      filters: { group: { slug: { eq: $slug } }, endDate: { gte: $currDate } }
       sort: "startDate:asc"
     ) {
       data {

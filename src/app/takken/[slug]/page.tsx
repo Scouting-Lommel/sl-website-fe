@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/metadata';
 import Blocks from '@/content-blocks';
-import HeroBlock from '@/content-blocks/HeroBlock';
 import { getGeneralData } from '../../api';
 import { getActivities, getGroupPage } from './api';
 
