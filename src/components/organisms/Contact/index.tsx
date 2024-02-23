@@ -39,7 +39,8 @@ const Contact = ({ title, subjectOptions }: Props) => {
       email = event.target.takselection.value;
     }
     let data: Record<string, string> = {
-      subject: `Email van ${event.target.name.value}, antwoorden via ${event.target.email.value}`,
+      subject: `Email van ${event.target.name.value}, antwoorden naar ${event.target.email.value}`,
+      emailSender: event.target.email.value,
       emailAddress: email,
       body: event.target.emailBody.value,
     };
@@ -56,6 +57,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
 
     const response = await fetch('/api/send-mail', options);
     const result = await response.json();
+
     if (response.status != 200) {
       console.log(
         'something went wrong trying to resolve the request:\n Status code:' +
@@ -113,7 +115,7 @@ const Contact = ({ title, subjectOptions }: Props) => {
               </option>
               {['Kapoenen', 'Welpen', 'Akabe', 'Jonggivers', 'Givers', 'Jin'].map((subject, i) => {
                 return (
-                  <option key={i} value={subject + '_email'} id={subject + '-email'}>
+                  <option key={i} value={subject + '@scoutinglommel.be'} id={subject + '-email'}>
                     {subject}
                   </option>
                 );

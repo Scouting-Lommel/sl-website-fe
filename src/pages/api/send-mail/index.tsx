@@ -21,6 +21,7 @@ export default async function handler(req: Request, res: Response): Promise<unkn
   const msg = {
     to: body.emailAddress,
     from: 'no-reply@scoutinglommel.be', // Use the email address or domain you verified above
+    replyTo: body.emailSender,
     subject: body.subject,
     text: body.body,
   };
