@@ -20,7 +20,7 @@ export default async function handler(req: Request, res: Response): Promise<unkn
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   const msg = {
     to: body.emailAddress,
-    from: 'no-reply@scoutinglommel.be', // Use the email address or domain you verified above
+    from: 'noreply@scoutinglommel.be',
     replyTo: body.emailSender,
     subject: body.subject,
     text: body.body,
