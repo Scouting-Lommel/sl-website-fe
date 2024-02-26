@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      APP_ENV: production,
+      APP_ENV: production
       SITE_URL: ${{ secrets.SITE_URL }}
       NEXT_PUBLIC_APP_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_APP_BACKEND_URL }}
 
@@ -42,4 +42,4 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+        timeout-minutes: 5
