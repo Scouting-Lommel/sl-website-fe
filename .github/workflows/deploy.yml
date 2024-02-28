@@ -26,9 +26,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Project
-        run: npm run build
-
       - name: Install Netlify CLI and Plugins
         run: npm install netlify-cli
 
@@ -36,4 +33,4 @@ jobs:
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: netlify build && netlify deploy --prod
+        run: netlify deploy --build --prod
