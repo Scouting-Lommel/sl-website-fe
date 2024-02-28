@@ -7,15 +7,19 @@ Frontend to the new and refreshed [Scouting Lommel website](https://www.scouting
 ## Table of contents
 
 - [Tech stack](#tech-stack)
-- [Installation](#installation)
-- [Running locally](#running-locally)
-- [Deployment](#deployment)
+- [Getting started](#getting-started)
+  - [Installation](#installation)
+  - [Running locally](#running-locally)
+- [Credits](#credits)
 
 ## Tech stack
 
-- [NextJS](https://nextjs.org/) application
+- [NextJS](https://nextjs.org/) frontend application
+- [Strapi](https://strapi.io/) headless CMS backend
 
-## Installation
+## Getting started
+
+### Installation
 
 ```bash
 npm install
@@ -23,7 +27,7 @@ npm install
 
 For detailed instructions and requirements, check out the [getting started docs](/documentation/getting-started.md).
 
-## Running locally
+### Running locally
 
 ```bash
 npm run dev
@@ -31,13 +35,7 @@ npm run dev
 
 For detailed instructions, check out the [getting started docs](/documentation/getting-started.md#running-locally).
 
-## Deployment
+## Credits
 
-| Resource       | Provider                                                 | Comments                                                  |
-| :------------- | :------------------------------------------------------- | :-------------------------------------------------------- |
-| DNS            | [Cloudflare](https://www.cloudflare.com/) DNS management | DNS management with Cloudflare routing & DDoS protection. |
-| Frontend app   | Hosting on [Netlify](https://www.netlify.app)            | Dynamic hosting with CI/CD capabilities for FE app.       |
-| Backend CMS    | Hosting on [Railway](https://www.railway.app)            | Dynamic hosting with CI/CD capabilities for BE CMS.       |
-| Error tracking | [Sentry](https://www.sentry.com)                         | Error tracking in a Sentry dashboard.                     |
-
-For a detailed view and instructions, check out the [deployment docs](/documentation/deployment.md).
+- [Vincent Wijshoff](https://github.com/VincentWijshoff)
+- [Seppe Alaerts](https://github.com/seppealaerts)
