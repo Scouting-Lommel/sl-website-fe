@@ -2,14 +2,20 @@
 
 ## Table of contents
 
+- [Tech stack](#tech-stack)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Running locally](#running-locally)
 - [Building the project](#building-the-project)
   - [Local build](#local-build)
-  - [Production build](#production-build)
+  - [Production build](#deployment)
 - [Development](#development)
-  - [Trunk-based development](#trunk-based-development)
+- [Trunk-based development](#trunk-based-development)
+
+## Tech stack
+
+- [NextJS](https://nextjs.org/) frontend application
+- [Strapi](https://strapi.io/) headless CMS backend
 
 ## Requirements
 
@@ -74,11 +80,9 @@
    npm start
    ```
 
-### Production build
+### Deployment
 
-It is not necessary to build for production manually. A CI/CD pipeline has been set up for automatic deployment when pushing changes and/or features to the `main` branch.
-
-For more info, check out the [deployment docs](/documentation/deployment.md).
+Deployments for this project are fully automated using [Github Actions](https://github.com/features/actions) and [Netlify](https://www.netlify.com/). For more info, check out the [deployment docs](/documentation/deployment.md).
 
 ## Development
 
@@ -87,11 +91,3 @@ For more info, check out the [deployment docs](/documentation/deployment.md).
 > Trunk based development: a source-control branching model, where developers collaborate on code in a single branch called ‘trunk’, resist any pressure to create other long-lived development branches by employing documented techniques. They therefore avoid merge hell, do not break the build, and live happily ever after.
 
 Instead of the traditional git-flow, this project is based on the [trunk based development](https://trunkbaseddevelopment.com/) principle.
-
-## Endpoints
-
-| Name                   | Description                                    | Endpoint                                                                       |
-| :--------------------- | :--------------------------------------------- | :----------------------------------------------------------------------------- |
-| Frontend (production)  | Production environment for the public website  | [phantomdev.be](https://www.phantomdev.be) (to be changed)                     |
-| Frontend (development) | Development environment for the public website | [development.phantomdev.be](https://development.phantomdev.be) (to be changed) |
-| CMS                    | CMS admin panel                                | [cms.phantomdev.be](https://cms.phantomdev.be) (to be changed)                 |
