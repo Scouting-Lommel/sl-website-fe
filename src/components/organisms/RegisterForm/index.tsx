@@ -85,7 +85,6 @@ const Register = ({ bankAccount, leaderPrice, childPrice }: Props) => {
     }
     response += `\tTotaal: ${totaal} euro\n\n`;
     response += `Gelieve dit bedrag te storten op het rekeningnummer ${bankAccount}\n\n`;
-    response += `Ter bevestiging is er ook een email gestuurd naar ${event.target.elements.email.value}\n\n`;
     response += 'Stevige linker';
 
     // email the user
