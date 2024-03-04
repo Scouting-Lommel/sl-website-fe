@@ -37,9 +37,9 @@ export default async function handler(req: Request, res: Response): Promise<unkn
     body.sex
   }\nGeboortedatum: ${body.birthDate}\nEmail: ${body.email}\nTelefoonnummer: ${
     body.phoneNumber
-  }\nAdres: ${body.street} ${body.houseNumber} ${body.busNumber ? 'bus ' + body.busNumber : ''}, ${
-    body.arealCode
-  } ${body.city}`;
+  }\nAkabelid: ${body.akabe}\nAdres: ${body.street} ${body.houseNumber} ${
+    body.busNumber ? 'bus ' + body.busNumber : ''
+  }, ${body.arealCode} ${body.city}`;
   const msg = {
     to: 'inschrijvingen@scoutinglommel.be',
     from: 'noreply@scoutinglommel.be',
