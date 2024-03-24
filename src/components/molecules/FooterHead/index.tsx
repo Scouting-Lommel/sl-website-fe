@@ -12,7 +12,7 @@ const FooterHead = ({ siteName, vatNumber, groupNumber }: Props) => {
     <div className="footer-head">
       <h2 className="footer-head__title">{siteName}</h2>
       <p className="footer-head__info">
-        {vatNumber} • {groupNumber}
+        {vatNumber ? `${vatNumber} •` : ''} {groupNumber}
       </p>
     </div>
   );
