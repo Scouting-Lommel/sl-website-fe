@@ -32,6 +32,7 @@ const ImageText = ({ title, content, images, variant, ctaButton, className }: Pr
                 data={image}
                 loadingStrategy={'lazy'}
                 className="text-image__image"
+                modMaximisable
               />
             );
           })}

@@ -57,6 +57,7 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
               data={image.data.attributes}
               loadingStrategy={'lazy'}
               className="faq-item__answer__image"
+              modMaximisable
             />
           </div>
         )}

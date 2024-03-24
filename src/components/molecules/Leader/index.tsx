@@ -15,7 +15,12 @@ const Leader = ({ firstName, lastName, image }: Props) => {
   return (
     <div className="leader__container">
       {image.data?.attributes ? (
-        <SLImage data={image.data?.attributes} loadingStrategy="lazy" className="leader__image" />
+        <SLImage
+          data={image.data?.attributes}
+          loadingStrategy="lazy"
+          className="leader__image"
+          modMaximisable
+        />
       ) : (
         <Image src={ProfilePicture} alt="default profile picture" className="leader__image" />
       )}
