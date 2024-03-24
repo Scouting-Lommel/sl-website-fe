@@ -20,6 +20,7 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
   const imageClassNames = classNames(
     'image',
     loadingStrategy === 'lazy' && !imgLoaded && 'image--lazy',
+    modMaximisable && 'image--maximisable',
     className,
   );
 
