@@ -26,6 +26,7 @@ const Gallery = ({ title, initialItems, images }: Props) => {
                   data={images.data[i].attributes}
                   loadingStrategy="lazy"
                   className="gallery__image"
+                  modMaximisable
                 />
               </div>
             );
