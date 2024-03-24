@@ -3,8 +3,8 @@
 import { Carousel as CarouselProps, PropType, UsePrevNextButtonsType } from './types';
 import styles from './Carousel.css';
 import CarouselItem from '@/components/molecules/CarouselItem';
-import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react';
-import { EmblaCarouselType } from 'embla-carousel-react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 import { useCallback, useEffect, useState } from 'react';
 import Icon from '@/components/atoms/Icon';
 import { IconArrowLeft, IconArrowRight } from '@/assets/icons';
