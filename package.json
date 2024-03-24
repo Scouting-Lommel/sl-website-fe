@@ -69,6 +69,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@types/react": "^18.2.6",
     "@types/react-big-calendar": "^1.6.4",
+    "@types/react-modal-image": "^2.6.3",
     "@types/sanitize-html": "^2.9.4",
     "autoprefixer": "^10.4.13",
     "cssnano": "^6.0.1",
