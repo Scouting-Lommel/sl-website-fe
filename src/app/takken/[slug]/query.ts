@@ -5,6 +5,7 @@ import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
 import LEADER_BLOCK_FRAGMENT from '@/graphql/leaders-block.gql';
 import FILES_BLOCK_FRAGMENT from '@/graphql/files-block.gql';
 import ACTIVITY_BLOCK_FRAGMENT from '@/graphql/activities-block.gql';
+import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
 
 const GROUP_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
@@ -12,6 +13,7 @@ const GROUP_PAGE_QUERY = gql`
   ${LEADER_BLOCK_FRAGMENT}
   ${FILES_BLOCK_FRAGMENT}
   ${ACTIVITY_BLOCK_FRAGMENT}
+  ${DIVIDER_FRAGMENT}
 
   query getGroupPage($slug: String) {
     groups(filters: { slug: { eq: $slug } }) {
@@ -95,6 +97,7 @@ const GROUP_PAGE_QUERY = gql`
             ...LeadersBlockFragment
             ...FilesBlockFragment
             ...ActivityBlockFragment
+            ...DividerFragment
           }
         }
       }
