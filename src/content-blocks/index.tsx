@@ -21,6 +21,7 @@ const blockList: BlockList = {
   ComponentContentBlocksActivitiesBlock: dynamic(() => import('./ActivitiesBlock')),
   ComponentContentBlocksCalendarBlock: dynamic(() => import('./CalendarBlock')),
   ComponentContentBlocksYearThemeBlock: dynamic(() => import('./YearThemeBlock')),
+  ComponentContentBlocksDivider: dynamic(() => import('./Divider')),
 };
 
 const Blocks = ({ content }: { content: any }) => {

@@ -1,0 +1,3 @@
+fragment DividerFragment on ComponentContentBlocksDivider {
+  variant
+}
