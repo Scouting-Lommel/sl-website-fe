@@ -1,6 +1,6 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import { FileBlock as FileBlockProps } from './types';
 import FileSection from '@/components/organisms/FileSection';
+import { FileBlock as FileBlockProps } from './types';
 
 type Props = FileBlockProps & React.HTMLAttributes<HTMLElement>;
 
