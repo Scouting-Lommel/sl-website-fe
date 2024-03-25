@@ -2,10 +2,12 @@ import gql from 'graphql-tag';
 
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import CONTACT_BLOCK_FRAGMENT from '@/graphql/contact-block.gql';
+import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
 
 const CONTACT_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
   ${CONTACT_BLOCK_FRAGMENT}
+  ${DIVIDER_FRAGMENT}
 
   query {
     contactPage {
@@ -51,6 +53,7 @@ const CONTACT_PAGE_QUERY = gql`
             __typename
             ...HeroBlockFragment
             ...ContactBlockFragment
+            ...DividerFragment
           }
         }
       }
