@@ -4,7 +4,7 @@ type PageMetaObj = {
   pageTitle: string;
   pageDescription: string;
   slug: string;
-  metaImage: { data: { attributes: { url: string } } };
+  metaImage?: { data: { attributes: { url: string } } };
 };
 
 type MetaDataObj = {
