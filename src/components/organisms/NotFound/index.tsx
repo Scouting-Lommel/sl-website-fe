@@ -14,10 +14,10 @@ const NotFound = () => {
       <section className="sl-layout">
         <Hero subtitle="Pagina niet gevonden" title="404" variant="simple" className="sl-layout" />
         <Typography className="not-found__content">
-          <div>We hebben de pagina die je zocht, niet gevonden.</div>
-          <SLLink variant="link2" href="/">
-            Terug naar de homepagina
-          </SLLink>
+          <p>We hebben de pagina die je zocht, niet gevonden.</p>
+          <p>
+            <a href="/">Terug naar de homepagina</a>
+          </p>
         </Typography>
       </section>
     </BlockContainer>
