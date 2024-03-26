@@ -1,22 +1,25 @@
-import { Metadata } from 'next';
-import Link from '@/components/atoms/Link';
+import { generateMetadataForPage } from '@/lib/helpers/metadata';
+import NotFoundBlock from '@/components/organisms/NotFound';
+import { getGeneralData } from './api';
 
-export const metadata: Metadata = {
-  title: 'Pagina niet gevonden',
-};
+export async function generateMetadata() {
+  const { generalData } = await getGeneralData();
+  if (!generalData) return {};
 
-const GroupPage = async () => {
-  return (
-    <>
-      <section className="sl-layout">
-        <h1>404</h1>
-        <div>Page Not Found</div>
-        <Link href="/" variant="link1">
-          <span>Go Home</span>
-        </Link>
-      </section>
-    </>
+  const metadata = generateMetadataForPage(
+    {
+      pageTitle: 'Pagina niet gevonden',
+      pageDescription: 'Scouting Sint-Pieter Lommel',
+      slug: 'legal-info',
+    },
+    generalData.data.attributes,
   );
+
+  return { ...metadata };
+}
+
+const NotFoundPage = () => {
+  return <NotFoundBlock />;
 };
 
-export default GroupPage;
+export default NotFoundPage;
