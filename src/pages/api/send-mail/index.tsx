@@ -26,17 +26,19 @@ export default async function handler(req: Request, res: Response): Promise<unkn
     text: body.body,
   };
   sgMail.send(msg).then(
-    () => {},
+    () => {
+      res.status(200).json({ data: 'Email sent successfully' });
+    },
     (error: any) => {
       console.error(error);
 
       if (error.response) {
         console.error(error.response.body);
       }
-      res.status(400).json({ data: 'Error when sending email' + error });
+
+      res.status(400).json({ data: `Error when sending email: ${error}` });
       return;
     },
   );
-  res.status(200).json({ data: 'Email sent correctly' });
   return;
 }
