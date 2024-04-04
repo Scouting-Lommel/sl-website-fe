@@ -1,7 +1,7 @@
+import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import { FormInput as FormInputProps } from './types';
 import styles from './Input.css';
-import classNames from 'classnames';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
