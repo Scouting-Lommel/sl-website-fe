@@ -11,7 +11,7 @@ export const links = () => {
 
 type Props = FormSelectProps & React.SelectHTMLAttributes<HTMLElement>;
 
-const Select = ({ id, name, label, options, required, autoComplete }: Props) => {
+const Select = ({ id, name, label, options, required, onChange, autoComplete }: Props) => {
   const selectClassName = classNames('select', required && 'select--required');
 
   return (
@@ -25,6 +25,7 @@ const Select = ({ id, name, label, options, required, autoComplete }: Props) => 
         name={name}
         required={required}
         autoComplete={autoComplete}
+        onChange={onChange}
       >
         {options?.map((option) => (
           <option key={option.value} value={option.value}>
