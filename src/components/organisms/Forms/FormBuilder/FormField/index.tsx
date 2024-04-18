@@ -4,9 +4,9 @@ import Select from '@/components/atoms/Forms/Select';
 import TextArea from '@/components/atoms/Forms/TextArea';
 import RadioGroup from '@/components/atoms/Forms/RadioGroup';
 import Checkbox from '@/components/atoms/Forms/Checkbox';
+import Captcha from '@/components/atoms/Forms/Captcha';
 import { FormField as FormFieldProps } from './types';
 import styles from './FormField.css';
-import Captcha from '@/components/atoms/Forms/Captcha';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
