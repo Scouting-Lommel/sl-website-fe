@@ -56,7 +56,8 @@
     "remark-gfm": "^3.0.1",
     "sanitize-html": "^2.11.0",
     "typescript": "^5.0.4",
-    "yargs": "^17.6.2"
+    "yargs": "^17.6.2",
+    "zod": "^3.22.5"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^1.0.3",
