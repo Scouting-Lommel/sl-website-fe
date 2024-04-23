@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Recipients } from '@/lib/constants/recipients';
-import { Groups } from '@/lib/constants/groups';
+import { Recipients } from '@/lib/constants/enums/recipients';
+import { Groups } from '@/lib/constants/enums/groups';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { ContactForm as ContactFormProps } from './types';

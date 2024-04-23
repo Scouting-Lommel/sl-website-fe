@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { FormStatus } from '@/lib/constants/formStatus';
-import { Recipients } from '@/lib/constants/recipients';
+import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { Recipients } from '@/lib/constants/enums/recipients';
 import ContactForm from './ContactForm';
 
 const Contact = ({}) => {
