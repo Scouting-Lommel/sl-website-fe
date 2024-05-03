@@ -156,7 +156,7 @@ const FormField = ({
           {register && name && (
             <Checkbox
               id={id}
-              name={name}
+              {...register(name!)}
               label={label!}
               required={required}
               autoComplete={autoComplete}
