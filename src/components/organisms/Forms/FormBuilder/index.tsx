@@ -1,6 +1,4 @@
-import { FormEvent } from 'react';
 import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import Button from '@/components/atoms/Button';
 import FormField from './FormField';
 import { FormField as FormFieldType } from './FormField/types';
@@ -21,9 +19,7 @@ const FormBuilder = ({
   submitForm,
   submitButtonLabel,
 }: Props) => {
-  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
+  const onSubmit = async (_: any, event: any) => {
     const body = new FormData(event.target as HTMLFormElement);
     const token = body.get('cf-turnstile-response');
     const formValues = getFormValues(body);
@@ -67,14 +63,14 @@ const FormBuilder = ({
 
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(formSchema),
     defaultValues: initialValues,
   });
 
   return (
-    <form id={formId} className="form" onSubmit={onSubmit}>
+    <form id={formId} className="form" onSubmit={handleSubmit(onSubmit)}>
       {/* Form Fields */}
       {fields?.map((field) => (
         <FormField key={field.id} register={register} errors={errors} {...field} />
