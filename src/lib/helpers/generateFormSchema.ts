@@ -1,74 +1,64 @@
-import { z } from 'zod';
+import * as Yup from 'yup';
 import { ErrorMessage } from '@/lib/constants/enums/errorMessage';
 import phoneRegExValidation from '@/lib/constants/phoneRegexValidation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 
 type Props = { fields: FormField[] };
 
-const tuple = <T extends string>(arr: Array<T>): [T, ...T[]] => {
-  return arr as [T, ...T[]];
-};
-
 const generateFormSchema = ({ fields }: Props) => {
-  let schema: any = {};
+  let schemaObj: { [key: string]: Yup.AnySchema } = {};
 
   fields.forEach((field) => {
     if (field.type === 'row') {
       field.fieldChildren?.forEach((child) => {
-        schema[child.name!] = getFieldSchema(child);
-        if (!child.required) {
-          schema[child.name!] = schema[child.name!].optional();
-        }
+        let schema = getFieldSchema(child);
+        schemaObj[child.name!] = child.required
+          ? schema.required(ErrorMessage.REQUIRED_ERROR)
+          : schema.optional();
       });
       return;
     }
 
-    schema[field.name!] = getFieldSchema(field);
-
-    if (!field.required) {
-      schema[field.name!] = schema[field.name!].optional();
-    }
+    let schema = getFieldSchema(field);
+    schemaObj[field.name!] = field.required
+      ? schema.required(ErrorMessage.REQUIRED_ERROR)
+      : schema.optional();
   });
 
-  return schema;
+  return Yup.object().shape(schemaObj);
 };
 
-const getFieldSchema = (field: FormField) => {
-  const stringOptions = { required_error: ErrorMessage.REQUIRED_ERROR };
-
+const getFieldSchema = (field: FormField): Yup.AnySchema => {
   switch (field.type) {
-    case 'input': {
-      return z.string(stringOptions);
+    case 'input':
+    case 'textarea': {
+      return Yup.string();
     }
 
     case 'tel': {
-      return z.string(stringOptions).regex(phoneRegExValidation);
+      return Yup.string().matches(phoneRegExValidation, ErrorMessage.PHONE_INVALID);
     }
 
     case 'email': {
-      return z.string(stringOptions).email(ErrorMessage.EMAIL_INVALID);
-    }
-
-    case 'textarea': {
-      return z.string(stringOptions);
+      return Yup.string().email(ErrorMessage.EMAIL_INVALID);
     }
 
     case 'select': {
       const selectValues = field.options?.map((option) => option.value) || ['default'];
-      return z.enum(tuple(selectValues), stringOptions);
+      return Yup.mixed().oneOf(selectValues);
     }
 
     case 'radioGroup': {
       const radioValues = field.radioButtons?.map((field) => field.value) || ['default'];
-      return z.enum(tuple(radioValues), stringOptions);
+      return Yup.string().oneOf(radioValues);
     }
 
     case 'checkbox': {
-      return z.boolean();
+      return field.required ? Yup.boolean().oneOf([true]) : Yup.boolean();
     }
 
     default: {
-      return z.any();
+      return Yup.mixed();
     }
   }
 };

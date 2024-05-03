@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Button from '@/components/atoms/Button';
 import FormField from './FormField';
 import { FormField as FormFieldType } from './FormField/types';
@@ -66,11 +67,14 @@ const FormBuilder = ({
     handleSubmit,
     formState: { errors },
   } = useForm({
+    resolver: yupResolver(formSchema),
     defaultValues: initialValues,
   });
 
+  console.log(errors);
+
   return (
-    <form id={formId} className="form" onSubmit={handleSubmit(onSubmit)}>
+    <form noValidate id={formId} className="form" onSubmit={handleSubmit(onSubmit)}>
       {/* Form Fields */}
       {fields?.map((field) => (
         <FormField key={field.id} register={register} errors={errors} {...field} />

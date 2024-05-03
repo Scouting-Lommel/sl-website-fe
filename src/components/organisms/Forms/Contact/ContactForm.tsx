@@ -125,7 +125,6 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       id: 'captcha',
       type: 'captcha',
       name: 'captcha',
-      required: true,
     },
     {
       id: 'terms-and-conditions',
