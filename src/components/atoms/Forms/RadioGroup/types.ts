@@ -5,7 +5,7 @@ export type RadioGroup = {
   label: string;
   required?: boolean;
   autoComplete?: string;
-  value?: string;
   direction?: 'row' | 'column';
   radioButtons?: Radio[];
+  register: any;
 };

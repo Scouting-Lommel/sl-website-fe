@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import { Radio as RadioProps } from './types';
 import styles from './Radio.css';
+import { forwardRef } from 'react';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -9,27 +10,19 @@ export const links = () => {
 
 type Props = RadioProps & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Radio = ({ id, name, label, required, checked, autoComplete, value, onChange }: Props) => {
-  const radioClassNames = classNames('radio', required && 'radio--required');
+const Radio = forwardRef((props: Props, ref: any) => {
+  const radioClassNames = classNames('radio', props.required && 'radio--required');
 
   return (
     <div className={radioClassNames}>
-      <input
-        className="radio__field"
-        id={id}
-        name={name}
-        type="radio"
-        value={value}
-        required={required}
-        autoComplete={autoComplete}
-        checked={checked}
-        onChange={onChange}
-      />
-      <label htmlFor={id}>
-        <Typography className="radio__label">{label}</Typography>
+      <input className="radio__field" {...props} ref={ref} type="radio" />
+      <label htmlFor={props.id}>
+        <Typography className="radio__label">{props.label}</Typography>
       </label>
     </div>
   );
-};
+});
+
+Radio.displayName = 'Radio';
 
 export default Radio;

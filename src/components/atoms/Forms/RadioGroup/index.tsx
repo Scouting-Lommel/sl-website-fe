@@ -17,20 +17,14 @@ const RadioGroup = ({
   label,
   required,
   direction = 'column',
-  value = '',
   radioButtons,
+  register,
 }: Props) => {
-  const [selectedValue, setSelectedValue] = useState<String>(value);
-
   const radioGroupClassNames = classNames(
     'radio-group',
     `radio-group--${direction}`,
     required && 'radio-group--required',
   );
-
-  const radioGroupHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(e.target.value);
-  };
 
   return (
     <div className={radioGroupClassNames} id={id}>
@@ -39,12 +33,10 @@ const RadioGroup = ({
         {radioButtons?.map((radio: RadioProps, i: number) => (
           <Radio
             key={i}
+            {...register(radio.name)}
             id={radio.id}
-            name={radio.name}
             value={radio.value}
             label={radio.label}
-            checked={radio.value === selectedValue}
-            onChange={radioGroupHandler}
           />
         ))}
       </div>
