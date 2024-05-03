@@ -4,5 +4,7 @@ export type FormBuilder = {
   formId: string;
   fields: FormField[];
   initialValues: any;
+  formSchema: any;
+  submitForm: any;
   submitButtonLabel: string;
 };

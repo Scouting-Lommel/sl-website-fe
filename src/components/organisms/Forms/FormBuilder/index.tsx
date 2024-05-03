@@ -1,3 +1,6 @@
+import { FormEvent } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import Button from '@/components/atoms/Button';
 import FormField from './FormField';
 import { FormBuilder as FormBuilderProps } from './types';
@@ -9,11 +12,18 @@ export const links = () => {
 
 type Props = FormBuilderProps & React.HTMLAttributes<HTMLElement>;
 
-const FormBuilder = ({ formId, fields, submitButtonLabel }: Props) => {
-  const handleSubmit = async (event: any) => {
+const FormBuilder = ({
+  formId,
+  fields,
+  initialValues,
+  formSchema,
+  submitForm,
+  submitButtonLabel,
+}: Props) => {
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const body = new FormData(event.target);
+    const body = new FormData(event.target as HTMLFormElement);
     const token = body.get('cf-turnstile-response');
 
     const captchaRequest = await fetch('/api/verify-captcha', {
@@ -27,21 +37,29 @@ const FormBuilder = ({ formId, fields, submitButtonLabel }: Props) => {
       return;
     }
 
-    // Continue handling submit
+    submitForm(body);
   };
 
+  const {
+    register,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: initialValues,
+  });
+
   return (
-    <form id={formId} className="form" onSubmit={handleSubmit}>
+    <form id={formId} className="form" onSubmit={onSubmit}>
       {/* Form Fields */}
       {fields?.map((field) => (
-        <FormField key={field.id} {...field} />
+        <FormField key={field.id} register={register} errors={errors} {...field} />
       ))}
-
-      {/* Required fields footnote */}
-      <div>* Verplicht veld</div>
 
       {/* Submit button */}
       <Button label={submitButtonLabel} type="submit" />
+
+      {/* Required fields footnote */}
+      <div>* Verplicht veld</div>
     </form>
   );
 };
