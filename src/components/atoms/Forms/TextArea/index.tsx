@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import { FormTextArea as FormTextAreaProps } from './types';
@@ -9,25 +10,29 @@ export const links = () => {
 
 type Props = FormTextAreaProps & React.TextareaHTMLAttributes<HTMLElement>;
 
-const TextArea = ({ id, name, label, placeholder, rows = 5, required, autoComplete }: Props) => {
-  const textAreaClassName = classNames('text-area', required && 'text-area--required');
+const TextArea = forwardRef((props: Props, ref: any) => {
+  const textAreaClassName = classNames('text-area', props.required && 'text-area--required');
 
   return (
     <div className={textAreaClassName}>
-      <label htmlFor={id}>
-        <Typography className="text-area__label">{label}</Typography>
+      <label htmlFor={props.id}>
+        <Typography className="text-area__label">{props.label}</Typography>
       </label>
       <textarea
         className="text-area__field"
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        required={required}
-        rows={rows}
-        autoComplete={autoComplete}
+        {...props}
+        id={props.id}
+        ref={ref}
+        name={props.name}
+        placeholder={props.placeholder}
+        required={props.required}
+        rows={props.rows}
+        autoComplete={props.autoComplete}
       />
     </div>
   );
-};
+});
+
+TextArea.displayName = 'TextArea';
 
 export default TextArea;
