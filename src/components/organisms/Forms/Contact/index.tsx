@@ -16,7 +16,9 @@ const Contact = ({}) => {
     body: '',
   };
 
-  const submitForm = () => {};
+  const submitForm = (data: any) => {
+    console.log(data);
+  };
 
   return (
     <>
