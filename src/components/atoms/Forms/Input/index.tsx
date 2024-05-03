@@ -11,14 +11,19 @@ export const links = () => {
 type Props = FormInputProps & React.InputHTMLAttributes<HTMLElement>;
 
 const Input = forwardRef((props: Props, ref: any) => {
-  const inputClassName = classNames('input', props.required && 'input--required');
+  const { error, ...inputProps } = props;
+  const inputClassName = classNames(
+    'input',
+    props.required && 'input--required',
+    error && 'input--has-error',
+  );
 
   return (
     <div className={inputClassName}>
       <label htmlFor={props.id}>
         <Typography className="input__label">{props.label}</Typography>
       </label>
-      <input className="input__field" {...props} ref={ref} />
+      <input className="input__field" {...inputProps} ref={ref} />
     </div>
   );
 });

@@ -11,14 +11,19 @@ export const links = () => {
 type Props = FormTextAreaProps & React.TextareaHTMLAttributes<HTMLElement>;
 
 const TextArea = forwardRef((props: Props, ref: any) => {
-  const textAreaClassName = classNames('text-area', props.required && 'text-area--required');
+  const { error, ...textareaProps } = props;
+  const textAreaClassName = classNames(
+    'text-area',
+    props.required && 'text-area--required',
+    error && 'text-area--has-error',
+  );
 
   return (
     <div className={textAreaClassName}>
       <label htmlFor={props.id}>
         <Typography className="text-area__label">{props.label}</Typography>
       </label>
-      <textarea className="text-area__field" {...props} ref={ref} />
+      <textarea className="text-area__field" {...textareaProps} ref={ref} />
     </div>
   );
 });

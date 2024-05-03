@@ -71,8 +71,6 @@ const FormBuilder = ({
     defaultValues: initialValues,
   });
 
-  console.log(errors);
-
   return (
     <form noValidate id={formId} className="form" onSubmit={handleSubmit(onSubmit)}>
       {/* Form Fields */}

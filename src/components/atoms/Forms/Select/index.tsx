@@ -13,9 +13,12 @@ export const links = () => {
 type Props = FormSelectProps & React.SelectHTMLAttributes<HTMLElement>;
 
 const Select = forwardRef((props: Props, ref: any) => {
-  const selectClassName = classNames('select', props.required && 'select--required');
-
-  const { customChangeBehaviour, ...selectProps } = props;
+  const { customChangeBehaviour, error, ...selectProps } = props;
+  const selectClassName = classNames(
+    'select',
+    props.required && 'select--required',
+    error && 'select--has-error',
+  );
 
   const handleChange = (e: ChangeEvent<HTMLElement>) => {
     customChangeBehaviour(e);

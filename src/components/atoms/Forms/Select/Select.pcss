@@ -2,22 +2,6 @@
   margin-bottom: var(--space-8);
 }
 
-.select {
-  position: relative;
-  width: 100%;
-
-  &--required {
-    & .select__label {
-      &::after {
-        margin-left: var(--space-4);
-        color: var(--color-primary-600);
-        content: '*';
-        font-size: 0.8em;
-      }
-    }
-  }
-}
-
 .select__field {
   width: 100%;
   padding: var(--space-12);
@@ -33,6 +17,28 @@
   &:focus-visible {
     border-color: var(--color-secondary-500);
     outline: 0.0625rem solid var(--color-secondary-500);
+  }
+}
+
+.select {
+  position: relative;
+  width: 100%;
+
+  &--required {
+    & .select__label {
+      &::after {
+        margin-left: var(--space-4);
+        color: var(--color-primary-600);
+        content: '*';
+        font-size: 0.8em;
+      }
+    }
+  }
+
+  &--has-error {
+    & .select__field {
+      border: 0.125rem solid var(--color-red);
+    }
   }
 }
 

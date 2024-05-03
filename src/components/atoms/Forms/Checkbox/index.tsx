@@ -11,11 +11,16 @@ export const links = () => {
 type Props = CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Checkbox = forwardRef((props: Props, ref: any) => {
-  const checkboxClassNames = classNames('checkbox', props.required && 'checkbox--required');
+  const { error, ...checkboxProps } = props;
+  const checkboxClassNames = classNames(
+    'checkbox',
+    props.required && 'checkbox--required',
+    error && 'checkbox--has-error',
+  );
 
   return (
     <div className={checkboxClassNames}>
-      <input className="checkbox__field" {...props} ref={ref} type="checkbox" />
+      <input className="checkbox__field" {...checkboxProps} ref={ref} type="checkbox" />
       <label htmlFor={props.id}>
         <Typography className="checkbox__label" data={props.label} />
       </label>

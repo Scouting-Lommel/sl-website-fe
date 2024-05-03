@@ -31,8 +31,11 @@ const FormField = ({
   defaultChecked,
   fieldChildren,
   register,
+  errors,
   radioButtons,
 }: Props) => {
+  const errorMessage = errors && name ? errors[name]?.message : undefined;
+
   switch (type) {
     case 'text': {
       return (
@@ -45,7 +48,7 @@ const FormField = ({
       return (
         <div className="form-field">
           {fieldChildren?.map((child) => {
-            return <FormField key={child.id} register={register} {...child} />;
+            return <FormField key={child.id} register={register} errors={errors} {...child} />;
           })}
         </div>
       );
@@ -62,6 +65,7 @@ const FormField = ({
               placeholder={placeholder}
               required={required}
               autoComplete={autoComplete}
+              error={errorMessage}
             />
           )}
         </div>
@@ -79,6 +83,7 @@ const FormField = ({
               placeholder={placeholder}
               required={required}
               autoComplete={autoComplete}
+              error={errorMessage}
             />
           )}
         </div>
@@ -96,6 +101,7 @@ const FormField = ({
               placeholder={placeholder}
               required={required}
               autoComplete={autoComplete}
+              error={errorMessage}
             />
           )}
         </div>
@@ -113,6 +119,7 @@ const FormField = ({
               placeholder={placeholder}
               required={required}
               autoComplete={autoComplete}
+              error={errorMessage}
             />
           )}
         </div>
@@ -130,6 +137,7 @@ const FormField = ({
               required={required}
               autoComplete={autoComplete}
               customChangeBehaviour={customChangeBehaviour}
+              error={errorMessage}
             />
           )}
         </div>
@@ -161,6 +169,7 @@ const FormField = ({
               required={required}
               autoComplete={autoComplete}
               checked={defaultChecked}
+              error={errorMessage}
             />
           )}
         </div>
