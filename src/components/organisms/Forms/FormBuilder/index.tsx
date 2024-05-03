@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Button from '@/components/atoms/Button';
 import FormField from './FormField';
+import { FormField as FormFieldType } from './FormField/types';
 import { FormBuilder as FormBuilderProps } from './types';
 import styles from './Form.css';
 
@@ -25,6 +26,7 @@ const FormBuilder = ({
 
     const body = new FormData(event.target as HTMLFormElement);
     const token = body.get('cf-turnstile-response');
+    const formValues = getFormValues(body);
 
     const captchaRequest = await fetch('/api/verify-captcha', {
       method: 'POST',
@@ -37,7 +39,30 @@ const FormBuilder = ({
       return;
     }
 
-    submitForm(body);
+    submitForm(formValues);
+  };
+
+  const getFormValues = (formData: any) => {
+    const formValues: Record<string, any> = {};
+
+    const mapFields = (formFields: FormFieldType[]) => {
+      formFields.forEach((field: FormFieldType) => {
+        if (field.type === 'captcha') return;
+
+        if (field.type === 'row' && field.fieldChildren) {
+          mapFields(field.fieldChildren);
+          return;
+        }
+
+        if (field.name) {
+          formValues[field.name] = formData.get(field.name);
+        }
+      });
+    };
+
+    mapFields(fields);
+
+    return formValues;
   };
 
   const {
