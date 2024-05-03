@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import { Checkbox as CheckboxProps } from './types';
@@ -9,25 +10,29 @@ export const links = () => {
 
 type Props = CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Checkbox = ({ id, name, label, required, autoComplete, checked }: Props) => {
-  const checkboxClassNames = classNames('checkbox', required && 'checkbox--required');
+const Checkbox = forwardRef((props: Props, ref: any) => {
+  const checkboxClassNames = classNames('checkbox', props.required && 'checkbox--required');
 
   return (
     <div className={checkboxClassNames}>
       <input
         className="checkbox__field"
-        id={id}
-        name={name}
+        {...props}
+        id={props.id}
+        ref={ref}
+        name={props.name}
         type="checkbox"
-        required={required}
-        autoComplete={autoComplete}
-        checked={checked}
+        required={props.required}
+        autoComplete={props.autoComplete}
+        checked={props.checked}
       />
-      <label htmlFor={id}>
-        <Typography className="checkbox__label" data={label} />
+      <label htmlFor={props.id}>
+        <Typography className="checkbox__label" data={props.label} />
       </label>
     </div>
   );
-};
+});
+
+Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;
