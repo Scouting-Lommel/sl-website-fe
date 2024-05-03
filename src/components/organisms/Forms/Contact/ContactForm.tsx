@@ -87,12 +87,13 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
             value: recipient,
           })),
           required: true,
-          onChange: onRecipientChange,
+          customChangeBehaviour: onRecipientChange,
         },
       ],
     },
     // {
     //   id: 'radioRow1',
+    //   name: 'radiosRow1',
     //   type: 'radioGroup',
     //   label: 'Radio buttons:',
     //   radioButtons: [
@@ -110,38 +111,40 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
     //     },
     //   ],
     // },
-    // {
-    //   id: 'radioRow2',
-    //   type: 'radioGroup',
-    //   label: 'Radio buttons',
-    //   direction: 'row',
-    //   value: 'option3',
-    //   required: true,
-    //   radioButtons: [
-    //     {
-    //       id: 'radio3',
-    //       name: 'radiosRow2',
-    //       label: 'Option 3',
-    //       value: 'option3',
-    //     },
-    //     {
-    //       id: 'radio4',
-    //       name: 'radiosRow2',
-    //       label: 'Option 4',
-    //       value: 'option4',
-    //     },
-    //   ],
-    // },
+    {
+      id: 'radioRow2',
+      name: 'radiosRow1',
+      type: 'radioGroup',
+      label: 'Radio buttons',
+      direction: 'row',
+      required: true,
+      radioButtons: [
+        {
+          id: 'radio3',
+          name: 'radiosRow2',
+          label: 'Option 3',
+          value: 'option3',
+        },
+        {
+          id: 'radio4',
+          name: 'radiosRow2',
+          label: 'Option 4',
+          value: 'option4',
+        },
+      ],
+    },
     {
       id: 'body',
       type: 'textarea',
       name: 'body',
       label: 'Bericht',
+      rows: 5,
       required: true,
     },
     {
       id: 'captcha',
       type: 'captcha',
+      name: 'captcha',
       required: true,
     },
     {

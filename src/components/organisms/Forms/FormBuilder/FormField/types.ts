@@ -1,6 +1,7 @@
+import { ChangeEventHandler } from 'react';
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
 import { Radio } from '@/components/atoms/Forms/RadioGroup/Radio/types';
 import { SelectOption } from '@/components/atoms/Forms/Select/types';
-import { ChangeEventHandler } from 'react';
 
 export type FormField = {
   id: string;
@@ -30,5 +31,7 @@ export type FormField = {
   radioButtons?: Radio[];
   direction?: 'row' | 'column';
   defaultChecked?: boolean;
-  onChange?: ChangeEventHandler<HTMLSelectElement>;
+  register?: UseFormRegister<any>;
+  errors?: FieldErrors<any>;
+  customChangeBehaviour?: ChangeEventHandler<HTMLSelectElement>;
 };

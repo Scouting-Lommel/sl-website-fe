@@ -25,11 +25,12 @@ const FormField = ({
   autoComplete,
   placeholder,
   value,
-  onChange,
+  customChangeBehaviour,
   rows,
   direction,
   defaultChecked,
   fieldChildren,
+  register,
   radioButtons,
 }: Props) => {
   switch (type) {
@@ -44,7 +45,7 @@ const FormField = ({
       return (
         <div className="form-field">
           {fieldChildren?.map((child) => {
-            return <FormField key={child.id} {...child} />;
+            return <FormField key={child.id} register={register} {...child} />;
           })}
         </div>
       );
@@ -52,75 +53,85 @@ const FormField = ({
     case 'input': {
       return (
         <div className="form-field">
-          <Input
-            label={label || ''}
-            type="input"
-            id={id}
-            name={name || ''}
-            placeholder={placeholder}
-            required={required}
-            autoComplete={autoComplete}
-          />
+          {register && name && (
+            <Input
+              label={label!}
+              type="input"
+              id={id}
+              {...register(name)}
+              placeholder={placeholder}
+              required={required}
+              autoComplete={autoComplete}
+            />
+          )}
         </div>
       );
     }
     case 'email': {
       return (
         <div className="form-field">
-          <Input
-            label={label || ''}
-            type="email"
-            id={id}
-            name={name || ''}
-            placeholder={placeholder}
-            required={required}
-            autoComplete={autoComplete}
-          />
+          {register && name && (
+            <Input
+              label={label!}
+              type="email"
+              id={id}
+              {...register(name)}
+              placeholder={placeholder}
+              required={required}
+              autoComplete={autoComplete}
+            />
+          )}
         </div>
       );
     }
     case 'tel': {
       return (
         <div className="form-field">
-          <Input
-            label={label || ''}
-            type="tel"
-            id={id}
-            name={name || ''}
-            placeholder={placeholder}
-            required={required}
-            autoComplete={autoComplete}
-          />
+          {register && name && (
+            <Input
+              label={label!}
+              type="tel"
+              id={id}
+              {...register(name)}
+              placeholder={placeholder}
+              required={required}
+              autoComplete={autoComplete}
+            />
+          )}
         </div>
       );
     }
     case 'textarea': {
       return (
         <div className="form-field">
-          <TextArea
-            label={label || ''}
-            id={id}
-            name={name || ''}
-            rows={rows}
-            placeholder={placeholder}
-            required={required}
-            autoComplete={autoComplete}
-          />
+          {register && name && (
+            <TextArea
+              label={label!}
+              id={id}
+              {...register(name)}
+              rows={rows}
+              placeholder={placeholder}
+              required={required}
+              autoComplete={autoComplete}
+            />
+          )}
         </div>
       );
     }
     case 'select': {
       return (
         <div className="form-field">
-          <Select
-            label={label || ''}
-            id={id}
-            name={name || ''}
-            options={options || []}
-            required={required}
-            autoComplete={autoComplete}
-            onChange={onChange}
-          />
+          {register && name && (
+            <Select
+              label={label!}
+              id={id}
+              {...register(name!)}
+              options={options || []}
+              required={required}
+              autoComplete={autoComplete}
+              customChangeBehaviour={customChangeBehaviour}
+            />
+          )}
         </div>
       );
     }
@@ -129,11 +140,12 @@ const FormField = ({
         <div className="form-field">
           <RadioGroup
             id={id}
-            label={label || ''}
+            label={label!}
             value={value}
             direction={direction}
             radioButtons={radioButtons}
             required={required}
+            register={register}
           />
         </div>
       );
@@ -141,14 +153,16 @@ const FormField = ({
     case 'checkbox': {
       return (
         <div className="form-field">
-          <Checkbox
-            id={id}
-            name={name}
-            label={label || ''}
-            required={required}
-            autoComplete={autoComplete}
-            checked={defaultChecked}
-          />
+          {register && name && (
+            <Checkbox
+              id={id}
+              name={name}
+              label={label!}
+              required={required}
+              autoComplete={autoComplete}
+              checked={defaultChecked}
+            />
+          )}
         </div>
       );
     }
@@ -161,9 +175,13 @@ const FormField = ({
     }
     case 'hidden': {
       return (
-        <input id={id} name={name} type="hidden">
-          {value}
-        </input>
+        <>
+          {register && name && (
+            <input id={id} name={name} type="hidden">
+              {value}
+            </input>
+          )}
+        </>
       );
     }
   }
