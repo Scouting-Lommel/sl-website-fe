@@ -15,17 +15,7 @@ const Checkbox = forwardRef((props: Props, ref: any) => {
 
   return (
     <div className={checkboxClassNames}>
-      <input
-        className="checkbox__field"
-        {...props}
-        id={props.id}
-        ref={ref}
-        name={props.name}
-        type="checkbox"
-        required={props.required}
-        autoComplete={props.autoComplete}
-        checked={props.checked}
-      />
+      <input className="checkbox__field" {...props} ref={ref} type="checkbox" />
       <label htmlFor={props.id}>
         <Typography className="checkbox__label" data={props.label} />
       </label>

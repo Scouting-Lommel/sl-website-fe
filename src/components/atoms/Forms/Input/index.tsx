@@ -18,17 +18,7 @@ const Input = forwardRef((props: Props, ref: any) => {
       <label htmlFor={props.id}>
         <Typography className="input__label">{props.label}</Typography>
       </label>
-      <input
-        className="input__field"
-        {...props}
-        ref={ref}
-        id={props.id}
-        name={props.name}
-        type={props.type}
-        placeholder={props.placeholder}
-        required={props.required}
-        autoComplete={props.autoComplete}
-      />
+      <input className="input__field" {...props} ref={ref} />
     </div>
   );
 });

@@ -18,17 +18,7 @@ const TextArea = forwardRef((props: Props, ref: any) => {
       <label htmlFor={props.id}>
         <Typography className="text-area__label">{props.label}</Typography>
       </label>
-      <textarea
-        className="text-area__field"
-        {...props}
-        id={props.id}
-        ref={ref}
-        name={props.name}
-        placeholder={props.placeholder}
-        required={props.required}
-        rows={props.rows}
-        autoComplete={props.autoComplete}
-      />
+      <textarea className="text-area__field" {...props} ref={ref} />
     </div>
   );
 });

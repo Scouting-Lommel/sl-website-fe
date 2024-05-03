@@ -29,16 +29,7 @@ const Select = forwardRef((props: Props, ref: any) => {
       <label htmlFor={props.id}>
         <Typography className="select__label">{props.label}</Typography>
       </label>
-      <select
-        className="select__field"
-        {...selectProps}
-        id={props.id}
-        ref={ref}
-        name={props.name}
-        required={props.required}
-        autoComplete={props.autoComplete}
-        onChange={handleChange}
-      >
+      <select className="select__field" {...selectProps} ref={ref} onChange={handleChange}>
         {props.options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
