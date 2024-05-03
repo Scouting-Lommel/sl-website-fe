@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Recipients } from '@/lib/constants/recipients';
+import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Groups } from '@/lib/constants/enums/groups';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
@@ -154,12 +154,15 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
   ];
 
   const [fields, setFields] = useState<FormField[]>(formFields);
+  const formSchema = generateFormSchema({ fields: formFields });
 
   return (
     <FormBuilder
       formId="contact-form"
       fields={fields}
       initialValues={initialValues}
+      formSchema={formSchema}
+      submitForm={submitForm}
       submitButtonLabel="Bericht versturen"
     />
   );
