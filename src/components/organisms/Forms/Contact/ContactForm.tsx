@@ -91,29 +91,9 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
         },
       ],
     },
-    // {
-    //   id: 'radioRow1',
-    //   name: 'radiosRow1',
-    //   type: 'radioGroup',
-    //   label: 'Radio buttons:',
-    //   radioButtons: [
-    //     {
-    //       id: 'radio1',
-    //       name: 'radiosRow1',
-    //       label: 'Option 1',
-    //       value: 'option1',
-    //     },
-    //     {
-    //       id: 'radio2',
-    //       name: 'radiosRow1',
-    //       label: 'Option 2',
-    //       value: 'option2',
-    //     },
-    //   ],
-    // },
     {
       id: 'radioRow2',
-      name: 'radiosRow1',
+      name: 'radiosRow2',
       type: 'radioGroup',
       label: 'Radio buttons',
       direction: 'row',
