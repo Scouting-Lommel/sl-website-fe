@@ -8,4 +8,5 @@ export type FormSelect = {
   id: string;
   name: string;
   options: SelectOption[];
+  customChangeBehaviour?: any;
 };

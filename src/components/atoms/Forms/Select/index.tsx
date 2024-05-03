@@ -1,3 +1,4 @@
+import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames';
 import { IconChevronDown } from '@/assets/icons';
 import Typography from '@/components/atoms/Typography';
@@ -11,23 +12,34 @@ export const links = () => {
 
 type Props = FormSelectProps & React.SelectHTMLAttributes<HTMLElement>;
 
-const Select = ({ id, name, label, options, required, onChange, autoComplete }: Props) => {
-  const selectClassName = classNames('select', required && 'select--required');
+const Select = forwardRef((props: Props, ref: any) => {
+  const selectClassName = classNames('select', props.required && 'select--required');
+
+  const { customChangeBehaviour, ...selectProps } = props;
+
+  const handleChange = (e: ChangeEvent<HTMLElement>) => {
+    customChangeBehaviour(e);
+
+    if (!props.onChange) return;
+    props.onChange(e);
+  };
 
   return (
     <div className={selectClassName}>
-      <label htmlFor={id}>
-        <Typography className="select__label">{label}</Typography>
+      <label htmlFor={props.id}>
+        <Typography className="select__label">{props.label}</Typography>
       </label>
       <select
         className="select__field"
-        id={id}
-        name={name}
-        required={required}
-        autoComplete={autoComplete}
-        onChange={onChange}
+        {...selectProps}
+        id={props.id}
+        ref={ref}
+        name={props.name}
+        required={props.required}
+        autoComplete={props.autoComplete}
+        onChange={handleChange}
       >
-        {options?.map((option) => (
+        {props.options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
@@ -36,6 +48,8 @@ const Select = ({ id, name, label, options, required, onChange, autoComplete }: 
       <Icon title="Select input" size={'xs'} icon={IconChevronDown} className="select__chevron" />
     </div>
   );
-};
+});
+
+Select.displayName = 'Select';
 
 export default Select;
