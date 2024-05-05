@@ -24,6 +24,7 @@ const Input = forwardRef((props: Props, ref: any) => {
         <Typography className="input__label">{props.label}</Typography>
       </label>
       <input className="input__field" {...inputProps} ref={ref} />
+      {error && <div className="input__error">{error}</div>}
     </div>
   );
 });
