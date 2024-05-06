@@ -24,6 +24,7 @@ const TextArea = forwardRef((props: Props, ref: any) => {
         <Typography className="text-area__label">{props.label}</Typography>
       </label>
       <textarea className="text-area__field" {...textareaProps} ref={ref} />
+      {error && <div className="text-area__error">{error}</div>}
     </div>
   );
 });
