@@ -54,7 +54,9 @@ const getFieldSchema = (field: FormField): Yup.AnySchema => {
     }
 
     case 'checkbox': {
-      return field.required ? Yup.boolean().oneOf([true]) : Yup.boolean();
+      return field.required
+        ? Yup.boolean().oneOf([true], ErrorMessage.REQUIRED_ERROR)
+        : Yup.boolean();
     }
 
     default: {
