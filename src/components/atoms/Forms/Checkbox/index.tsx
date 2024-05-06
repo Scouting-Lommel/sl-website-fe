@@ -19,11 +19,14 @@ const Checkbox = forwardRef((props: Props, ref: any) => {
   );
 
   return (
-    <div className={checkboxClassNames}>
-      <input className="checkbox__field" {...checkboxProps} ref={ref} type="checkbox" />
-      <label htmlFor={props.id}>
-        <Typography className="checkbox__label" data={props.label} />
-      </label>
+    <div>
+      <div className={checkboxClassNames}>
+        <input className="checkbox__field" {...checkboxProps} ref={ref} type="checkbox" />
+        <label htmlFor={props.id}>
+          <Typography className="checkbox__label" data={props.label} />
+        </label>
+      </div>
+      {error && <div className="checkbox__error">{error}</div>}
     </div>
   );
 });
