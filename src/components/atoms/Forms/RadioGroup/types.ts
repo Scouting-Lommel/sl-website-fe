@@ -8,4 +8,5 @@ export type RadioGroup = {
   direction?: 'row' | 'column';
   radioButtons?: Radio[];
   register: any;
+  error?: any;
 };

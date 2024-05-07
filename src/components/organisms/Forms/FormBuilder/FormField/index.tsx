@@ -154,6 +154,7 @@ const FormField = ({
             radioButtons={radioButtons}
             required={required}
             register={register}
+            error={errorMessage}
           />
         </div>
       );

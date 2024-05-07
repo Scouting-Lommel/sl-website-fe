@@ -4,4 +4,5 @@ export type Radio = {
   value: string;
   label: string;
   checked?: boolean;
+  hasError?: boolean;
 };

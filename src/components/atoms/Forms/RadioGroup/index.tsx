@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import Radio from './Radio';
@@ -16,6 +15,7 @@ const RadioGroup = ({
   id,
   label,
   required,
+  error,
   direction = 'column',
   radioButtons,
   register,
@@ -37,9 +37,11 @@ const RadioGroup = ({
             id={radio.id}
             value={radio.value}
             label={radio.label}
+            hasError={!!error}
           />
         ))}
       </div>
+      {error && <div className="radio__error">{error}</div>}
     </div>
   );
 };
