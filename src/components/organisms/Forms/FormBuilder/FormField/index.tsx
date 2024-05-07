@@ -149,6 +149,7 @@ const FormField = ({
           <RadioGroup
             id={id}
             label={label!}
+            name={name}
             value={value}
             direction={direction}
             radioButtons={radioButtons}

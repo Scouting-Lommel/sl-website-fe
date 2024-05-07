@@ -14,6 +14,7 @@ type Props = RadioGroupProps & React.InputHTMLAttributes<HTMLInputElement>;
 const RadioGroup = ({
   id,
   label,
+  name,
   required,
   error,
   direction = 'column',
@@ -31,14 +32,7 @@ const RadioGroup = ({
       {label && <Typography className="radio-group__label">{label}</Typography>}
       <div className="radio-group__radios">
         {radioButtons?.map((radio: RadioProps, i: number) => (
-          <Radio
-            key={i}
-            {...register(radio.name)}
-            id={radio.id}
-            value={radio.value}
-            label={radio.label}
-            hasError={!!error}
-          />
+          <Radio key={i} {...register(name)} {...radio} hasError={!!error} />
         ))}
       </div>
       {error && <div className="radio__error">{error}</div>}
