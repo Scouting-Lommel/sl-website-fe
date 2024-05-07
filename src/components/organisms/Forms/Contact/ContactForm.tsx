@@ -91,28 +91,28 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
         },
       ],
     },
-    {
-      id: 'radioRow2',
-      name: 'radiosRow2',
-      type: 'radioGroup',
-      label: 'Radio buttons',
-      direction: 'row',
-      required: true,
-      radioButtons: [
-        {
-          id: 'radio3',
-          name: 'radiosRow2',
-          label: 'Option 3',
-          value: 'option3',
-        },
-        {
-          id: 'radio4',
-          name: 'radiosRow2',
-          label: 'Option 4',
-          value: 'option4',
-        },
-      ],
-    },
+    // {
+    //   id: 'radioRow2',
+    //   name: 'radiosRow2',
+    //   type: 'radioGroup',
+    //   label: 'Radio buttons',
+    //   direction: 'row',
+    //   required: true,
+    //   radioButtons: [
+    //     {
+    //       id: 'radio3',
+    //       name: 'radiosRow2',
+    //       label: 'Option 3',
+    //       value: 'option3',
+    //     },
+    //     {
+    //       id: 'radio4',
+    //       name: 'radiosRow2',
+    //       label: 'Option 4',
+    //       value: 'option4',
+    //     },
+    //   ],
+    // },
     {
       id: 'body',
       type: 'textarea',
