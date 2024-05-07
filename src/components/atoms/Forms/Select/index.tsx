@@ -40,6 +40,7 @@ const Select = forwardRef((props: Props, ref: any) => {
         ))}
       </select>
       <Icon title="Select input" size={'xs'} icon={IconChevronDown} className="select__chevron" />
+      {error && <div className="select__error">{error}</div>}
     </div>
   );
 });
