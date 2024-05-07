@@ -45,7 +45,7 @@ const getFieldSchema = (field: FormField): Yup.AnySchema => {
 
     case 'select': {
       const selectValues = field.options?.map((option) => option.value) || ['default'];
-      return Yup.mixed().oneOf(selectValues);
+      return Yup.mixed().oneOf(selectValues, ErrorMessage.INVALID_OPTION);
     }
 
     case 'radioGroup': {
