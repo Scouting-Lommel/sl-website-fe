@@ -1,4 +1,4 @@
-import { generateMetadataForPage } from '@/lib/helpers/metadata';
+import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import NotFoundBlock from '@/components/organisms/NotFound';
 import { getGeneralData } from './api';
 

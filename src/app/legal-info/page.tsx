@@ -1,4 +1,4 @@
-import { generateMetadataForPage } from '@/lib/helpers/metadata';
+import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import { getGeneralData } from '../api';
