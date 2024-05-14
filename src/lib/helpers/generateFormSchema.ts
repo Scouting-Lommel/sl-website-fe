@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import { ErrorMessage } from '@/lib/constants/enums/errorMessage';
-import phoneRegExValidation from '@/lib/constants/phoneRegexValidation';
+import { phoneRegExValidation } from '@/lib/constants/regexValidation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 
 type Props = { fields: FormField[] };
