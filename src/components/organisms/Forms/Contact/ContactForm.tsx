@@ -8,7 +8,7 @@ import { ContactForm as ContactFormProps } from './types';
 
 type Props = ContactFormProps & React.HTMLAttributes<HTMLElement>;
 
-const ContactForm = ({ initialValues, submitForm }: Props) => {
+const ContactForm = ({ initialValues, submitForm, setStatus }: Props) => {
   const onRecipientChange = (event: any) => {
     const rowIndex = fields.findIndex((field) => field.id === 'recipientRow');
     if (rowIndex > -1) {
@@ -146,6 +146,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       formSchema={formSchema}
       submitForm={submitForm}
       submitButtonLabel="Bericht versturen"
+      setStatus={setStatus}
     />
   );
 };

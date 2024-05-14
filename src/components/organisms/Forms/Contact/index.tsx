@@ -25,7 +25,7 @@ const Contact = ({}) => {
       {status === FormStatus.STATUS_LOADING && <>Loading</>}
       {status === FormStatus.STATUS_ERROR && <>Error</>}
       {status === FormStatus.STATUS_SUCCESS && <>Success</>}
-      <ContactForm initialValues={initialValues} submitForm={submitForm} />
+      <ContactForm initialValues={initialValues} submitForm={submitForm} setStatus={setStatus} />
     </>
   );
 };

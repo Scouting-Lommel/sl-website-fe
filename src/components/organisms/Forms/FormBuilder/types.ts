@@ -7,4 +7,5 @@ export type FormBuilder = {
   formSchema: any;
   submitForm: any;
   submitButtonLabel: string;
+  setStatus: any;
 };
