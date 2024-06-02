@@ -65,7 +65,8 @@ const Contact = () => {
           Er ging iets mis bij het indienen van dit formulier. Probeer het later opnieuw.
         </Banner>
       )}
-      {formStatus === FormStatus.STATUS_CAPTCHA_NOT_VERIFIED && (
+      {(formStatus === FormStatus.STATUS_CAPTCHA_NOT_VERIFIED ||
+        formStatus === FormStatus.STATUS_CAPTCHA_ERROR) && (
         <Banner variant="error">
           Er ging iets mis met de Captcha check. Probeer het later opnieuw.
         </Banner>

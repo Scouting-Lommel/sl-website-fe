@@ -1,7 +1,8 @@
 export enum FormStatus {
-  STATUS_READY = 'ready',
-  STATUS_LOADING = 'loading',
-  STATUS_SUCCESS = 'success',
-  STATUS_ERROR = 'error',
-  STATUS_CAPTCHA_NOT_VERIFIED = 'not-verified',
+  STATUS_READY = 'form-ready',
+  STATUS_LOADING = 'form-loading',
+  STATUS_SUCCESS = 'form-success',
+  STATUS_ERROR = 'form-error',
+  STATUS_CAPTCHA_NOT_VERIFIED = 'captcha-not-verified',
+  STATUS_CAPTCHA_ERROR = 'captcha-error',
 }
