@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Button from '@/components/atoms/Button';
 import FormField from './FormField';
@@ -20,10 +22,11 @@ const FormBuilder = ({
   formSchema,
   submitForm,
   submitButtonLabel,
-  setStatus,
 }: Props) => {
+  const { setFormStatus } = useContext(FormContext);
+
   const onSubmit = async (_: any, event: any) => {
-    setStatus(FormStatus.STATUS_LOADING);
+    setFormStatus(FormStatus.STATUS_LOADING);
 
     const body = new FormData(event.target as HTMLFormElement);
     const token = body.get('cf-turnstile-response');
@@ -36,7 +39,7 @@ const FormBuilder = ({
     const captchaResponse = await captchaRequest.json();
 
     if (!captchaResponse.success) {
-      setStatus(FormStatus.STATUS_CAPTCHA_NOT_VERIFIED);
+      setFormStatus(FormStatus.STATUS_CAPTCHA_NOT_VERIFIED);
       return;
     }
 
