@@ -7,8 +7,8 @@ export type BackgroundImage = {
 };
 
 export type BlockContainer = {
-  variant: 'light' | 'dark';
-  orientation: 'default' | 'reversed';
+  variant?: 'light' | 'dark';
+  orientation?: 'default' | 'reversed';
   slug: string;
   cta?: CallToAction;
   socialsCta?: SocialsCta;

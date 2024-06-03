@@ -1,8 +1,6 @@
-'use client';
-
 import { useContext } from 'react';
 import { generalEmailAddress, rentalsEmailAddress } from '@/lib/constants/emailAddress';
-import { FormContext, FormProvider } from '@/lib/contexts/FormContext';
+import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
@@ -56,7 +54,7 @@ const Contact = () => {
   };
 
   return (
-    <FormProvider>
+    <>
       {formStatus === FormStatus.STATUS_LOADING && (
         <Banner variant="info">Formulier versturen...</Banner>
       )}
@@ -76,7 +74,7 @@ const Contact = () => {
       )}
 
       <ContactForm initialValues={initialValues} submitForm={submitForm} />
-    </FormProvider>
+    </>
   );
 };
 
