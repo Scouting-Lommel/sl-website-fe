@@ -11,6 +11,8 @@ export const links = () => {
 type Props = RadioProps & React.InputHTMLAttributes<HTMLInputElement>;
 
 const Radio = forwardRef((props: Props, ref: any) => {
+  const { hasError, ...radioProps } = props;
+
   const radioClassNames = classNames(
     'radio',
     props.required && 'radio--required',
@@ -19,7 +21,7 @@ const Radio = forwardRef((props: Props, ref: any) => {
 
   return (
     <div className={radioClassNames}>
-      <input className="radio__field" {...props} ref={ref} type="radio" />
+      <input className="radio__field" {...radioProps} ref={ref} type="radio" />
       <label htmlFor={props.id}>
         <Typography className="radio__label">{props.label}</Typography>
       </label>
