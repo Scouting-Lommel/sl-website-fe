@@ -17,7 +17,8 @@ export type FormField = {
     | 'radio'
     | 'checkbox'
     | 'captcha'
-    | 'hidden';
+    | 'hidden'
+    | 'divider';
   name?: string;
   label?: string;
   text?: string;

@@ -44,6 +44,13 @@ const FormField = ({
         </div>
       );
     }
+    case 'divider': {
+      return (
+        <div className="form-field">
+          <hr />
+        </div>
+      );
+    }
     case 'row': {
       return (
         <div className="form-field">
