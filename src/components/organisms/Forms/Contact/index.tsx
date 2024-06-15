@@ -20,6 +20,7 @@ const Contact = () => {
 
   const submitForm = (data: any) => {
     let recipient: string;
+    const captchaToken = data['captcha-token'];
 
     switch (data.recipient) {
       case Recipients.RENTALS: {
@@ -37,6 +38,7 @@ const Contact = () => {
 
     delete data['recipient'];
     delete data['terms-and-conditions'];
+    delete data['captcha-token'];
 
     const email: Email = generateEmail({
       formTitle: 'Nieuwe inzending: contactformulier website',
@@ -54,7 +56,7 @@ const Contact = () => {
       setFormStatus(FormStatus.STATUS_ERROR);
     };
 
-    sendEmail({ email, callback, captchaToken: data['captcha-token'] });
+    sendEmail({ email, callback, captchaToken });
   };
 
   return (
