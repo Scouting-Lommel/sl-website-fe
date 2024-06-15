@@ -114,6 +114,24 @@ const FormField = ({
         </div>
       );
     }
+    case 'date': {
+      return (
+        <div className="form-field">
+          {register && name && (
+            <Input
+              label={label!}
+              type="date"
+              id={id}
+              {...register(name)}
+              placeholder={placeholder}
+              required={required}
+              autoComplete={autoComplete}
+              error={errorMessage}
+            />
+          )}
+        </div>
+      );
+    }
     case 'textarea': {
       return (
         <div className="form-field">

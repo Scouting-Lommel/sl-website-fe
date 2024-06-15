@@ -11,6 +11,7 @@ export type FormField = {
     | 'input'
     | 'tel'
     | 'email'
+    | 'date'
     | 'textarea'
     | 'select'
     | 'radioGroup'
