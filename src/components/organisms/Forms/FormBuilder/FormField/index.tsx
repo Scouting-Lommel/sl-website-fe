@@ -199,6 +199,7 @@ const FormField = ({
               required={required}
               autoComplete={autoComplete}
               checked={defaultChecked}
+              customChangeBehaviour={customChangeBehaviour}
               error={errorMessage}
             />
           )}
