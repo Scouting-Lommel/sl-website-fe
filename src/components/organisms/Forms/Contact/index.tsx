@@ -46,11 +46,15 @@ const Contact = () => {
     });
 
     const callback = (resp: any) => {
-      if (resp.status === 200) setFormStatus(FormStatus.STATUS_SUCCESS);
-      if (resp.status === 400) setFormStatus(FormStatus.STATUS_ERROR);
+      if (resp.status === 200) {
+        setFormStatus(FormStatus.STATUS_SUCCESS);
+        return;
+      }
+
+      setFormStatus(FormStatus.STATUS_ERROR);
     };
 
-    sendEmail({ email, callback });
+    sendEmail({ email, callback, captchaToken: data['captcha-token'] });
   };
 
   return (

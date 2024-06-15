@@ -31,17 +31,7 @@ const FormBuilder = ({
     const body = new FormData(event.target as HTMLFormElement);
     const token = body.get('cf-turnstile-response');
     const formValues = getFormValues(body);
-
-    const captchaRequest = await fetch('/api/verify-captcha', {
-      method: 'POST',
-      body: JSON.stringify({ token }),
-    });
-    const captchaResponse = await captchaRequest.json();
-
-    if (!captchaResponse.success) {
-      setFormStatus(FormStatus.STATUS_CAPTCHA_NOT_VERIFIED);
-      return;
-    }
+    formValues['captcha-token'] = token;
 
     submitForm(formValues);
   };

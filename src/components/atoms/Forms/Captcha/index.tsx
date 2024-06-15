@@ -13,6 +13,7 @@ const Captcha = () => {
         minWidth: '300px',
         maxWidth: '100%',
       }}
+      refreshExpired="auto"
       onError={() => setFormStatus(FormStatus.STATUS_CAPTCHA_ERROR)}
       sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
     />

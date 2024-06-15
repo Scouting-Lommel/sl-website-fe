@@ -28,6 +28,7 @@ type GenerateEmailProps = {
 type SendEmailProps = {
   email: Email;
   callback: any;
+  captchaToken: string;
 };
 
 const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEmailProps) => {
@@ -102,13 +103,13 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
   return email;
 };
 
-const sendEmail = async ({ email, callback }: SendEmailProps) => {
+const sendEmail = async ({ email, callback, captchaToken }: SendEmailProps) => {
   const emailRequestData = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ email }),
+    body: JSON.stringify({ email, captchaToken }),
   };
 
   const emailRequest = await fetch('/api/send-email', emailRequestData);
