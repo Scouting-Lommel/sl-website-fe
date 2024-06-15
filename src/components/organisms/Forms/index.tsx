@@ -3,6 +3,7 @@
 import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Contact from './Contact';
+import Register from './Register';
 import { Form as FormProps } from './types';
 
 const Form = ({ variant, blockProperties }: FormProps) => {
@@ -11,6 +12,10 @@ const Form = ({ variant, blockProperties }: FormProps) => {
   switch (variant) {
     case 'contact': {
       FormComponent = <Contact />;
+      break;
+    }
+    case 'register': {
+      FormComponent = <Register />;
       break;
     }
     default: {
