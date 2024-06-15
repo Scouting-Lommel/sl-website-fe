@@ -21,7 +21,9 @@ const Select = forwardRef((props: Props, ref: any) => {
   );
 
   const handleChange = (e: ChangeEvent<HTMLElement>) => {
-    customChangeBehaviour(e);
+    if (customChangeBehaviour) {
+      customChangeBehaviour(e);
+    }
 
     if (!props.onChange) return;
     props.onChange(e);

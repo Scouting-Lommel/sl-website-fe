@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from 'react';
+
 export type SelectOption = {
   label: string;
   value: string;
@@ -8,6 +10,6 @@ export type FormSelect = {
   id: string;
   name: string;
   options: SelectOption[];
-  customChangeBehaviour?: any;
+  customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
   error?: any;
 };
