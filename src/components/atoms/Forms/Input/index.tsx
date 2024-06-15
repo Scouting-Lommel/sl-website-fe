@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import { FormInput as FormInputProps } from './types';
@@ -11,7 +11,7 @@ export const links = () => {
 type Props = FormInputProps & React.InputHTMLAttributes<HTMLElement>;
 
 const Input = forwardRef((props: Props, ref: any) => {
-  const { error, ...inputProps } = props;
+  const { customChangeBehaviour, error, ...inputProps } = props;
   const inputClassName = classNames(
     'input',
     props.required && 'input--required',
@@ -19,12 +19,21 @@ const Input = forwardRef((props: Props, ref: any) => {
     error && 'input--has-error',
   );
 
+  const handleChange = (e: ChangeEvent<HTMLElement>) => {
+    if (customChangeBehaviour) {
+      customChangeBehaviour(e);
+    }
+
+    if (!props.onChange) return;
+    props.onChange(e);
+  };
+
   return (
     <div className={inputClassName}>
       <label htmlFor={props.id}>
         <Typography className="input__label">{props.label}</Typography>
       </label>
-      <input className="input__field" {...inputProps} ref={ref} />
+      <input className="input__field" {...inputProps} ref={ref} onChange={handleChange} />
       {error && <div className="input__error">{error}</div>}
     </div>
   );
