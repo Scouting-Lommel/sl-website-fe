@@ -25,6 +25,7 @@ const FormField = ({
   autoComplete,
   placeholder,
   value,
+  disabled,
   customChangeBehaviour,
   rows,
   direction,
@@ -69,8 +70,10 @@ const FormField = ({
               type="input"
               id={id}
               {...register(name)}
+              value={value}
               placeholder={placeholder}
               required={required}
+              disabled={disabled}
               autoComplete={autoComplete}
               error={errorMessage}
             />

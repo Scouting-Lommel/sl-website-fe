@@ -15,6 +15,7 @@ const Input = forwardRef((props: Props, ref: any) => {
   const inputClassName = classNames(
     'input',
     props.required && 'input--required',
+    props.disabled && 'input--disabled',
     error && 'input--has-error',
   );
 

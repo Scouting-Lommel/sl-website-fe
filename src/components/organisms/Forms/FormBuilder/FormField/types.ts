@@ -26,6 +26,7 @@ export type FormField = {
   options?: SelectOption[];
   required?: boolean;
   autoComplete?: string;
+  disabled?: boolean;
   placeholder?: string;
   value?: string;
   rows?: number;
