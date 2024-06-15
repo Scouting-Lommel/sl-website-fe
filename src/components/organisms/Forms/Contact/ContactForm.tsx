@@ -65,7 +65,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       ],
     },
     {
-      id: 'emailRow',
+      id: 'email',
       type: 'email',
       name: 'email',
       label: 'Email',
