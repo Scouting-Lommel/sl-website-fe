@@ -36,5 +36,6 @@ export type FormField = {
   defaultChecked?: boolean;
   register?: UseFormRegister<any>;
   errors?: FieldErrors<any>;
+  className?: string;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
 };

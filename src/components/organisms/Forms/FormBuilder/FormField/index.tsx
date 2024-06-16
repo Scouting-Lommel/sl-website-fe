@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import Input from '@/components/atoms/Forms/Input';
 import Select from '@/components/atoms/Forms/Select';
@@ -34,13 +35,14 @@ const FormField = ({
   register,
   errors,
   radioButtons,
+  className,
 }: Props) => {
   const errorMessage = errors && name ? errors[name]?.message : undefined;
 
   switch (type) {
     case 'text': {
       return (
-        <div className="form-field">
+        <div className={cx('form-field', className)}>
           <Typography>{text}</Typography>
         </div>
       );
