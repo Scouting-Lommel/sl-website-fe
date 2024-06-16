@@ -31,7 +31,8 @@ const generateFormSchema = ({ fields }: Props) => {
 const getFieldSchema = (field: FormField): Yup.AnySchema => {
   switch (field.type) {
     case 'input':
-    case 'textarea': {
+    case 'textarea':
+    case 'date': {
       return Yup.string();
     }
 
