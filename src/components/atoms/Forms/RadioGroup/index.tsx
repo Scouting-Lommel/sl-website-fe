@@ -32,7 +32,7 @@ const RadioGroup = ({
       {label && <Typography className="radio-group__label">{label}</Typography>}
       <div className="radio-group__radios">
         {radioButtons?.map((radio: RadioProps, i: number) => (
-          <Radio key={i} {...register(name)} {...radio} hasError={!!error} />
+          <Radio key={i} {...radio} {...register(name)} hasError={!!error} />
         ))}
       </div>
       {error && <div className="radio__error">{error}</div>}
