@@ -108,7 +108,8 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       id: 'terms-and-conditions',
       name: 'terms-and-conditions',
       type: 'checkbox',
-      label: 'I accept the [terms and conditions](/privacy-policy)',
+      label:
+        'Ik heb kennis genomen met [de privacyverklaring van Scouting Lommel](/privacy-policy) en ga hiermee akkoord.',
       required: true,
     },
   ];
