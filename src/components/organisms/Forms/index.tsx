@@ -6,16 +6,16 @@ import Contact from './Contact';
 import Register from './Register';
 import { Form as FormProps } from './types';
 
-const Form = ({ variant, blockProperties }: FormProps) => {
+const Form = ({ variant, props, blockProperties }: FormProps) => {
   let FormComponent = null;
 
   switch (variant) {
     case 'contact': {
-      FormComponent = <Contact />;
+      FormComponent = <Contact {...props} />;
       break;
     }
     case 'register': {
-      FormComponent = <Register />;
+      FormComponent = <Register {...props} />;
       break;
     }
     default: {

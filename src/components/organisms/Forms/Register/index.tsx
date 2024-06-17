@@ -7,9 +7,11 @@ import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import RegisterForm from './RegisterForm';
+import RegisterConfirmation from './RegisterConfirmation';
 
-const Register = () => {
+const Register = (props: any) => {
   const { formStatus, setFormStatus } = useContext(FormContext);
+  let registerPrice = props.memberPrice;
 
   const initialValues = {};
 
@@ -19,6 +21,10 @@ const Register = () => {
     delete data['terms-and-conditions'];
     delete data['captcha-token'];
     delete data['isAkabe'];
+
+    if (data.memberGroup === 'Leiding') {
+      registerPrice = props.leaderPrice;
+    }
 
     const email: Email = generateEmail({
       formTitle: 'Nieuwe inschrijving via Scouting Lommel website',
@@ -55,10 +61,15 @@ const Register = () => {
         </Banner>
       )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
-        <Banner variant="success">Je inschrijving is met succes verstuurd!</Banner>
+        <>
+          <Banner variant="success">Je inschrijving is met succes verstuurd!</Banner>
+          <RegisterConfirmation price={registerPrice} bankAccountNumber={props.bankAccountNumber} />
+        </>
       )}
 
-      <RegisterForm initialValues={initialValues} submitForm={submitForm} />
+      {formStatus !== FormStatus.STATUS_SUCCESS && (
+        <RegisterForm initialValues={initialValues} submitForm={submitForm} />
+      )}
     </>
   );
 };
