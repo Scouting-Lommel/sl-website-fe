@@ -248,13 +248,17 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
   const [fields, setFields] = useState<FormField[]>(formFields);
   const formSchema = generateFormSchema({ fields: formFields });
 
+  const handleSubmit = (data: any) => {
+    submitForm(data, fields);
+  };
+
   return (
     <FormBuilder
       formId="contact-form"
       fields={fields}
       initialValues={initialValues}
       formSchema={formSchema}
-      submitForm={submitForm}
+      submitForm={handleSubmit}
       submitButtonLabel="Bericht versturen"
     />
   );

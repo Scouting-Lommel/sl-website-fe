@@ -4,7 +4,9 @@ import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
+import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
+import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import ContactForm from './ContactForm';
 
 const Contact = () => {
@@ -18,7 +20,7 @@ const Contact = () => {
     body: '',
   };
 
-  const submitForm = (data: any) => {
+  const submitForm = (data: any, formFields: FormField[]) => {
     let recipient: string;
     const captchaToken = data['captcha-token'];
 
@@ -42,7 +44,7 @@ const Contact = () => {
 
     const email: Email = generateEmail({
       formTitle: 'Nieuwe inzending: contactformulier website',
-      formData: data,
+      formData: generateFormDataWithLabel(data, formFields),
       to: recipient,
       replyTo: data.email,
     });

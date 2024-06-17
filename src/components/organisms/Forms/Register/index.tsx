@@ -3,7 +3,9 @@ import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
+import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
+import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import RegisterForm from './RegisterForm';
 
 const Register = () => {
@@ -11,7 +13,7 @@ const Register = () => {
 
   const initialValues = {};
 
-  const submitForm = (data: any) => {
+  const submitForm = (data: any, formFields: FormField[]) => {
     const captchaToken = data['captcha-token'];
 
     delete data['terms-and-conditions'];
@@ -20,9 +22,8 @@ const Register = () => {
 
     const email: Email = generateEmail({
       formTitle: 'Nieuwe inschrijving via Scouting Lommel website',
-      formData: data,
+      formData: generateFormDataWithLabel(data, formFields),
       to: generalEmailAddress,
-      replyTo: data.email,
     });
 
     const callback = (resp: any) => {

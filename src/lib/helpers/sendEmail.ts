@@ -64,23 +64,23 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
             })}
           </p>
           <table class="table">
-          ${Object.keys(formData)
-            .map((dataPoint) => {
-              let tableData = formData[dataPoint];
+          ${formData
+            .map((dataPoint: any) => {
+              let tableData = dataPoint.data;
 
-              if (phoneRegExValidation.test(formData[dataPoint])) {
-                tableData = `<a href="tel:${formData[dataPoint]}">${formData[dataPoint]}</a>`;
+              if (phoneRegExValidation.test(dataPoint.data)) {
+                tableData = `<a href="tel:${dataPoint.data}">${dataPoint.data}</a>`;
               }
-              if (emailRegExValidation.test(formData[dataPoint])) {
-                tableData = `<a href="mailto:${formData[dataPoint]}">${formData[dataPoint]}</a>`;
+              if (emailRegExValidation.test(dataPoint.data)) {
+                tableData = `<a href="mailto:${dataPoint.data}">${dataPoint.data}</a>`;
               }
-              if (urlRegExValidation.test(formData[dataPoint])) {
-                tableData = `<a href="${formData[dataPoint]}">${formData[dataPoint]}</a>`;
+              if (urlRegExValidation.test(dataPoint.data)) {
+                tableData = `<a href="${dataPoint.data}">${dataPoint.data}</a>`;
               }
 
               return `
               <tr class="table__row">
-                <th class="table__row__head">${dataPoint}</th>
+                <th class="table__row__head">${dataPoint.label}</th>
                 <td class="table__row__data">${tableData}</td>
               </tr>`;
             })
