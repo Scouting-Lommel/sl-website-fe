@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
-import { Recipients } from '@/lib/constants/enums/recipients';
+import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
 import Banner from '@/components/atoms/Banner';
 import RegisterForm from './RegisterForm';
@@ -11,7 +11,31 @@ const Register = () => {
 
   const initialValues = {};
 
-  const submitForm = (data: any) => {};
+  const submitForm = (data: any) => {
+    const captchaToken = data['captcha-token'];
+
+    delete data['terms-and-conditions'];
+    delete data['captcha-token'];
+    delete data['isAkabe'];
+
+    const email: Email = generateEmail({
+      formTitle: 'Nieuwe inschrijving via Scouting Lommel website',
+      formData: data,
+      to: generalEmailAddress,
+      replyTo: data.email,
+    });
+
+    const callback = (resp: any) => {
+      if (resp.status === 200) {
+        setFormStatus(FormStatus.STATUS_SUCCESS);
+        return;
+      }
+
+      setFormStatus(FormStatus.STATUS_ERROR);
+    };
+
+    sendEmail({ email, callback, captchaToken });
+  };
 
   return (
     <>
