@@ -27,8 +27,8 @@ const RegisterConfirmation = ({ price, bankAccountNumber }: Props) => {
             <span className="t-weight-bold">Rekeningnummer:</span> {bankAccountNumber}
           </li>
           <li>
-            <span className="t-weight-bold">Medeling:</span> &quot;Inschrijving Voornaam Familienaam
-            2024-2025&quot;
+            <span className="t-weight-bold">Mededeling:</span> &quot;Inschrijving Voornaam
+            Familienaam 2024-2025&quot;
           </li>
         </ul>
       </p>
