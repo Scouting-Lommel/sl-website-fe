@@ -1,4 +1,8 @@
+import { useContext } from 'react';
+import { FormContext } from '@/lib/contexts/FormContext';
+import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { generalEmailAddress } from '@/lib/constants/emailAddress';
+import Button from '@/components/atoms/Button';
 
 type Props = {
   price: number;
@@ -6,6 +10,12 @@ type Props = {
 };
 
 const RegisterConfirmation = ({ price, bankAccountNumber }: Props) => {
+  const { setFormStatus } = useContext(FormContext);
+
+  const setFormReady = () => {
+    setFormStatus(FormStatus.STATUS_READY);
+  };
+
   return (
     <div>
       <p>
@@ -37,6 +47,8 @@ const RegisterConfirmation = ({ price, bankAccountNumber }: Props) => {
         wordt gebruikt? Neem dan een kijkje bij de{' '}
         <a href="/algemene-informatie#veelgestelde-vragen">veelgestelde vragen</a>.
       </p>
+
+      <Button label="Een ander lid inschrijven" onClick={setFormReady} />
     </div>
   );
 };
