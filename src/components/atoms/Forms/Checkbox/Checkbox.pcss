@@ -1,11 +1,13 @@
 .checkbox__label {
   display: flex;
   color: var(--color-neutral-800);
+  line-height: 1.5;
 }
 
 .checkbox__field {
   position: relative;
   width: 1rem;
+  min-width: 1rem;
   height: 1rem;
   border: 0.125rem solid var(--color-neutral-600);
   appearance: none;
@@ -41,17 +43,6 @@
   align-items: center;
   gap: var(--space-8);
 
-  &--required {
-    & .checkbox__label {
-      &::after {
-        margin-left: var(--space-4);
-        color: var(--color-primary-600);
-        content: '*';
-        font-size: 0.8em;
-      }
-    }
-  }
-
   &--has-error {
     & .checkbox__field {
       border: 0.125rem solid var(--color-red);
@@ -63,4 +54,11 @@
   margin-top: var(--space-5);
   color: var(--color-red);
   font-size: 0.65em;
+}
+
+.checkbox__label__asterisk {
+  margin-left: var(--space-4);
+  color: var(--color-primary-600);
+  content: '*';
+  font-size: 0.8em;
 }
