@@ -55,7 +55,7 @@ const Register = () => {
         </Banner>
       )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
-        <Banner variant="success">Je bericht is met succes verstuurd!</Banner>
+        <Banner variant="success">Je inschrijving is met succes verstuurd!</Banner>
       )}
 
       <RegisterForm initialValues={initialValues} submitForm={submitForm} />
