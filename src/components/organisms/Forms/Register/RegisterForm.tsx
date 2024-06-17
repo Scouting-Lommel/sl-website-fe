@@ -123,7 +123,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           name: 'memberGroup',
           label: 'Tak',
-          value: 'Kapoenen',
+          value: '',
           disabled: true,
         },
       ],
