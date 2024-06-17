@@ -61,4 +61,18 @@ const REGISTER_PAGE_QUERY = gql`
   }
 `;
 
-export default REGISTER_PAGE_QUERY;
+const GENERAL_DATA_FOR_REGISTER_PAGE = gql`
+  query {
+    generalData {
+      data {
+        attributes {
+          leaderPrice
+          memberPrice
+          bankAccountNumber
+        }
+      }
+    }
+  }
+`;
+
+export { REGISTER_PAGE_QUERY, GENERAL_DATA_FOR_REGISTER_PAGE };

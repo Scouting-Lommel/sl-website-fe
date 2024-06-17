@@ -1,8 +1,9 @@
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
+import Form from '@/components/organisms/Forms';
 import { getGeneralData } from '../api';
-import { getRegisterPage } from './api';
+import { getRegisterPage, getGeneralDataForRegisterPage } from './api';
 
 export async function generateMetadata() {
   const { generalData } = await getGeneralData();
@@ -19,12 +20,18 @@ export async function generateMetadata() {
 
 const RegisterPage = async () => {
   const { registerPage } = await getRegisterPage();
+  const { generalData } = await getGeneralDataForRegisterPage();
 
   if (!registerPage) notFound();
 
   return (
     <>
       <Blocks content={registerPage.data.attributes.blocks} />
+      <Form
+        variant="register"
+        blockProperties={{ slug: 'register-form' }}
+        props={generalData.data.attributes}
+      />
     </>
   );
 };
