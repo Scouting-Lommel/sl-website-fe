@@ -43,7 +43,7 @@ const FormField = ({
     case 'text': {
       return (
         <div className={cx('form-field', className)}>
-          <Typography>{text}</Typography>
+          <Typography data={text} />
         </div>
       );
     }
