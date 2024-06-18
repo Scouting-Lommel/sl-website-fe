@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { FormContext } from '@/lib/contexts/FormContext';
+import getCurrentWorkingYear from '@/lib/helpers/getCurrentWorkingYear';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import Button from '@/components/atoms/Button';
@@ -38,7 +39,7 @@ const RegisterConfirmation = ({ price, bankAccountNumber }: Props) => {
           </li>
           <li>
             <span className="t-weight-bold">Mededeling:</span> &quot;Inschrijving Voornaam
-            Familienaam 2024-2025&quot;
+            Familienaam {getCurrentWorkingYear()}&quot;
           </li>
         </ul>
       </p>

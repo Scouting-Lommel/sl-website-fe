@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import generateFormSchema from '@/lib/helpers/generateFormSchema';
+import getCurrentWorkingYear from '@/lib/helpers/getCurrentWorkingYear';
 import { Groups } from '@/lib/constants/enums/groups';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
@@ -78,6 +79,15 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
   };
 
   const formFields: FormField[] = [
+    {
+      id: 'registerIntro',
+      type: 'text',
+      text: `Schrijf jezelf of je zoon/dochter in voor scoutsjaar **${getCurrentWorkingYear()}** via onderstaand formulier.`,
+    },
+    {
+      id: 'divider-0',
+      type: 'divider',
+    },
     {
       id: 'memberToRegister',
       type: 'text',
