@@ -61,7 +61,7 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
               year: 'numeric',
               month: 'long',
               day: 'numeric',
-            })}
+            })}, ${new Date().toLocaleTimeString('nl-BE', { hour: '2-digit', minute: '2-digit' })}
           </p>
           <table class="table">
           ${formData
