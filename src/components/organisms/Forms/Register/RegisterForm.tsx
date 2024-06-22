@@ -31,10 +31,19 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
 
     const rowIndex = fields.findIndex((field) => field.id === 'birthdayRow');
     if (rowIndex === -1 || !fields[rowIndex].fieldChildren) return;
+    const fieldChildIndex_vis = fields[rowIndex].fieldChildren?.findIndex(
+      (field) => field.id === 'memberGroup_vis',
+    );
     const fieldChildIndex = fields[rowIndex].fieldChildren?.findIndex(
       (field) => field.id === 'memberGroup',
     );
-    if (fieldChildIndex === -1 || typeof fieldChildIndex === 'undefined') return;
+    if (
+      fieldChildIndex === -1 ||
+      typeof fieldChildIndex === 'undefined' ||
+      typeof fieldChildIndex_vis === 'undefined'
+    ) {
+      return;
+    }
 
     if (!isAkabe) {
       setFields((prevFields) => {
@@ -43,6 +52,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
 
         if (typeof fieldChildren === 'undefined') return newFields;
 
+        fieldChildren[fieldChildIndex_vis].value = getGroupByBirthday(currentBirthday);
         fieldChildren[fieldChildIndex].value = getGroupByBirthday(currentBirthday);
 
         return newFields;
@@ -55,10 +65,19 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
 
     const rowIndex = fields.findIndex((field) => field.id === 'birthdayRow');
     if (rowIndex === -1 || !fields[rowIndex].fieldChildren) return;
+    const fieldChildIndex_vis = fields[rowIndex].fieldChildren?.findIndex(
+      (field) => field.id === 'memberGroup_vis',
+    );
     const fieldChildIndex = fields[rowIndex].fieldChildren?.findIndex(
       (field) => field.id === 'memberGroup',
     );
-    if (fieldChildIndex === -1 || typeof fieldChildIndex === 'undefined') return;
+    if (
+      fieldChildIndex === -1 ||
+      typeof fieldChildIndex === 'undefined' ||
+      typeof fieldChildIndex_vis === 'undefined'
+    ) {
+      return;
+    }
 
     setFields((prevFields) => {
       const newFields = [...prevFields];
@@ -67,10 +86,12 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       if (typeof fieldChildren === 'undefined') return newFields;
 
       if (event.target.checked) {
+        fieldChildren[fieldChildIndex_vis].value = Groups.AKABE;
         fieldChildren[fieldChildIndex].value = Groups.AKABE;
       }
 
       if (!event.target.checked) {
+        fieldChildren[fieldChildIndex_vis].value = getGroupByBirthday(currentBirthday);
         fieldChildren[fieldChildIndex].value = getGroupByBirthday(currentBirthday);
       }
 
@@ -129,12 +150,19 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           customChangeBehaviour: onBirthdayChange,
         },
         {
-          id: 'memberGroup',
+          id: 'memberGroup_vis',
           type: 'input',
           name: 'memberGroup',
           label: 'Tak',
           value: '',
           disabled: true,
+        },
+        {
+          id: 'memberGroup',
+          type: 'hidden',
+          name: 'memberGroup',
+          label: 'Tak',
+          value: '',
         },
       ],
     },
