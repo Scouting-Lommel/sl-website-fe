@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { generateApiQuery } from '@/lib/api';
+import registerMember from './query.gql';
 
 dotenv.config();
 
@@ -19,6 +21,15 @@ export default async function handler(req: Request, res: Response): Promise<void
   if (!captchaResult.success) {
     res.status(422).json(captchaResult);
     return;
+  }
+
+  // Create user request
+  try {
+    await generateApiQuery({ query: registerMember, variables: req.body.member });
+  } catch (e) {
+    res
+      .status(400)
+      .json({ data: 'An error occured whilst trying to push member to database: ' + e });
   }
 
   // Sendgrid Mail request
