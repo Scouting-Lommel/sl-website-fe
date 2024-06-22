@@ -23,7 +23,7 @@ const FormBuilder = ({
   submitForm,
   submitButtonLabel,
 }: Props) => {
-  const { setFormStatus } = useContext(FormContext);
+  const { formStatus, setFormStatus } = useContext(FormContext);
 
   const onSubmit = async (_: any, event: any) => {
     setFormStatus(FormStatus.STATUS_LOADING);
@@ -76,7 +76,11 @@ const FormBuilder = ({
       ))}
 
       {/* Submit button */}
-      <Button label={submitButtonLabel} type="submit" />
+      <Button
+        label={submitButtonLabel}
+        loading={formStatus === FormStatus.STATUS_LOADING}
+        type="submit"
+      />
 
       {/* Required fields footnote */}
       <div>* Verplicht veld</div>
