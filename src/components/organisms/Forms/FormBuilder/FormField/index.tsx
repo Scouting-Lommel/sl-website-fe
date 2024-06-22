@@ -217,15 +217,7 @@ const FormField = ({
       );
     }
     case 'hidden': {
-      return (
-        <>
-          {register && name && (
-            <input id={id} name={name} type="hidden">
-              {value}
-            </input>
-          )}
-        </>
-      );
+      return <>{register && name && <input id={id} name={name} type="hidden" value={value} />}</>;
     }
   }
 };
