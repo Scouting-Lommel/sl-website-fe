@@ -2,7 +2,8 @@ import { useContext } from 'react';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { generalEmailAddress } from '@/lib/constants/emailAddress';
-import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
+import { Email, generateEmail } from '@/lib/helpers/sendEmail';
+import { registerMember } from '@/lib/helpers/registerMember';
 import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
@@ -17,6 +18,9 @@ const Register = (props: any) => {
 
   const submitForm = (data: any, formFields: FormField[]) => {
     const captchaToken = data['captcha-token'];
+    const member = { ...data };
+
+    member.isAkabe = member.isAkabe ? true : false;
 
     delete data['terms-and-conditions'];
     delete data['captcha-token'];
@@ -41,7 +45,7 @@ const Register = (props: any) => {
       setFormStatus(FormStatus.STATUS_ERROR);
     };
 
-    sendEmail({ email, callback, captchaToken });
+    registerMember({ email, member, callback, captchaToken });
   };
 
   return (
