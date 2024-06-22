@@ -29,20 +29,20 @@ const RegisterConfirmation = ({ price, bankAccountNumber }: Props) => {
         en wens je hiervan gebruik te maken? Stuur dan een e-mail naar de groepsleiding via{' '}
         <a href={`mailto:${generalEmailAddress}`}>{generalEmailAddress}</a>.
       </p>
-      <p>
-        <ul>
-          <li>
-            <span className="t-weight-bold">Te betalen:</span> &euro; {price}
-          </li>
-          <li>
-            <span className="t-weight-bold">Rekeningnummer:</span> {bankAccountNumber}
-          </li>
-          <li>
-            <span className="t-weight-bold">Mededeling:</span> &quot;Inschrijving Voornaam
-            Familienaam {getCurrentWorkingYear()}&quot;
-          </li>
-        </ul>
-      </p>
+
+      <ul>
+        <li>
+          <span className="t-weight-bold">Te betalen:</span> &euro; {price}
+        </li>
+        <li>
+          <span className="t-weight-bold">Rekeningnummer:</span> {bankAccountNumber}
+        </li>
+        <li>
+          <span className="t-weight-bold">Mededeling:</span> &quot;Inschrijving Voornaam Familienaam{' '}
+          {getCurrentWorkingYear()}&quot;
+        </li>
+      </ul>
+
       <p>
         Je inschrijving is pas definitief na betaling. Wil je weten waarvoor je inschrijvingsgeld
         wordt gebruikt? Neem dan een kijkje bij de{' '}
