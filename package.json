@@ -24,6 +24,7 @@
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
     "storybook": "run-p generate-icons dev:css:* storybook:start",
+    "tsc": "tsc",
     "build-storybook": "run-p generate-icons build:css:* storybook:build"
   },
   "dependencies": {
