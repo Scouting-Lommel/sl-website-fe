@@ -15,35 +15,14 @@ export const links = () => {
 
 type Props = FormFieldProps & React.HTMLAttributes<HTMLElement>;
 
-const FormField = ({
-  id,
-  type,
-  name,
-  label,
-  text,
-  options,
-  required,
-  autoComplete,
-  placeholder,
-  value,
-  disabled,
-  customChangeBehaviour,
-  rows,
-  direction,
-  defaultChecked,
-  fieldChildren,
-  register,
-  errors,
-  radioButtons,
-  className,
-}: Props) => {
-  const errorMessage = errors && name ? errors[name]?.message : undefined;
+const FormField = (props: Props) => {
+  const errorMessage = props.errors && props.name ? props.errors[props.name]?.message : undefined;
 
-  switch (type) {
+  switch (props.type) {
     case 'text': {
       return (
-        <div className={cx('form-field', className)}>
-          <Typography data={text} />
+        <div className={cx('form-field', props.className)}>
+          <Typography data={props.text} />
         </div>
       );
     }
@@ -57,8 +36,15 @@ const FormField = ({
     case 'row': {
       return (
         <div className="form-field">
-          {fieldChildren?.map((child) => {
-            return <FormField key={child.id} register={register} errors={errors} {...child} />;
+          {props.fieldChildren?.map((child) => {
+            return (
+              <FormField
+                key={child.id}
+                register={props.register}
+                errors={props.errors}
+                {...child}
+              />
+            );
           })}
         </div>
       );
@@ -66,17 +52,17 @@ const FormField = ({
     case 'input': {
       return (
         <div className="form-field">
-          {register && name && (
+          {props.register && props.name && (
             <Input
-              label={label!}
+              label={props.label!}
               type="input"
-              id={id}
-              {...register(name)}
-              value={value}
-              placeholder={placeholder}
-              required={required}
-              disabled={disabled}
-              autoComplete={autoComplete}
+              id={props.id}
+              {...props.register(props.name)}
+              value={props.value}
+              placeholder={props.placeholder}
+              required={props.required}
+              disabled={props.disabled}
+              autoComplete={props.autoComplete}
               error={errorMessage}
             />
           )}
@@ -86,15 +72,15 @@ const FormField = ({
     case 'email': {
       return (
         <div className="form-field">
-          {register && name && (
+          {props.register && props.name && (
             <Input
-              label={label!}
+              label={props.label!}
               type="email"
-              id={id}
-              {...register(name)}
-              placeholder={placeholder}
-              required={required}
-              autoComplete={autoComplete}
+              id={props.id}
+              {...props.register(props.name)}
+              placeholder={props.placeholder}
+              required={props.required}
+              autoComplete={props.autoComplete}
               error={errorMessage}
             />
           )}
@@ -104,15 +90,15 @@ const FormField = ({
     case 'tel': {
       return (
         <div className="form-field">
-          {register && name && (
+          {props.register && props.name && (
             <Input
-              label={label!}
+              label={props.label!}
               type="tel"
-              id={id}
-              {...register(name)}
-              placeholder={placeholder}
-              required={required}
-              autoComplete={autoComplete}
+              id={props.id}
+              {...props.register(props.name)}
+              placeholder={props.placeholder}
+              required={props.required}
+              autoComplete={props.autoComplete}
               error={errorMessage}
             />
           )}
@@ -122,16 +108,16 @@ const FormField = ({
     case 'date': {
       return (
         <div className="form-field">
-          {register && name && (
+          {props.register && props.name && (
             <Input
-              label={label!}
+              label={props.label!}
               type="date"
-              id={id}
-              {...register(name)}
-              placeholder={placeholder}
-              required={required}
-              autoComplete={autoComplete}
-              customChangeBehaviour={customChangeBehaviour}
+              id={props.id}
+              {...props.register(props.name)}
+              placeholder={props.placeholder}
+              required={props.required}
+              autoComplete={props.autoComplete}
+              customChangeBehaviour={props.customChangeBehaviour}
               error={errorMessage}
             />
           )}
@@ -141,15 +127,15 @@ const FormField = ({
     case 'textarea': {
       return (
         <div className="form-field">
-          {register && name && (
+          {props.register && props.name && (
             <TextArea
-              label={label!}
-              id={id}
-              {...register(name)}
-              rows={rows}
-              placeholder={placeholder}
-              required={required}
-              autoComplete={autoComplete}
+              label={props.label!}
+              id={props.id}
+              {...props.register(props.name)}
+              rows={props.rows}
+              placeholder={props.placeholder}
+              required={props.required}
+              autoComplete={props.autoComplete}
               error={errorMessage}
             />
           )}
@@ -159,15 +145,15 @@ const FormField = ({
     case 'select': {
       return (
         <div className="form-field">
-          {register && name && (
+          {props.register && props.name && (
             <Select
-              label={label!}
-              id={id}
-              {...register(name!)}
-              options={options || []}
-              required={required}
-              autoComplete={autoComplete}
-              customChangeBehaviour={customChangeBehaviour}
+              label={props.label!}
+              id={props.id}
+              {...props.register(props.name!)}
+              options={props.options || []}
+              required={props.required}
+              autoComplete={props.autoComplete}
+              customChangeBehaviour={props.customChangeBehaviour}
               error={errorMessage}
             />
           )}
@@ -178,14 +164,14 @@ const FormField = ({
       return (
         <div className="form-field">
           <RadioGroup
-            id={id}
-            label={label!}
-            name={name}
-            value={value}
-            direction={direction}
-            radioButtons={radioButtons}
-            required={required}
-            register={register}
+            id={props.id}
+            label={props.label!}
+            name={props.name}
+            value={props.value}
+            direction={props.direction}
+            radioButtons={props.radioButtons}
+            required={props.required}
+            register={props.register}
             error={errorMessage}
           />
         </div>
@@ -194,15 +180,15 @@ const FormField = ({
     case 'checkbox': {
       return (
         <div className="form-field">
-          {register && name && (
+          {props.register && props.name && (
             <Checkbox
-              id={id}
-              {...register(name!)}
-              label={label!}
-              required={required}
-              autoComplete={autoComplete}
-              checked={defaultChecked}
-              customChangeBehaviour={customChangeBehaviour}
+              id={props.id}
+              {...props.register(props.name!)}
+              label={props.label!}
+              required={props.required}
+              autoComplete={props.autoComplete}
+              checked={props.defaultChecked}
+              customChangeBehaviour={props.customChangeBehaviour}
               error={errorMessage}
             />
           )}
@@ -217,7 +203,13 @@ const FormField = ({
       );
     }
     case 'hidden': {
-      return <>{register && name && <input id={id} name={name} type="hidden" value={value} />}</>;
+      return (
+        <>
+          {props.register && props.name && (
+            <input id={props.id} name={props.name} type="hidden" value={props.value} />
+          )}
+        </>
+      );
     }
   }
 };
