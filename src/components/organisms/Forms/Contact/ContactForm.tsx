@@ -3,30 +3,47 @@ import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Groups } from '@/lib/constants/enums/groups';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
-import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
+import {
+  FormField,
+  BaseField,
+  RowField,
+} from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { ContactForm as ContactFormProps } from './types';
 
 type Props = ContactFormProps & React.HTMLAttributes<HTMLElement>;
 
 const ContactForm = ({ initialValues, submitForm }: Props) => {
+  const isRowField = (field: FormField): field is RowField & BaseField => field.type === 'row';
+  const isRecipientRow = (field: FormField): boolean => field.id === 'recipientRow';
+  const isGroupField = (field: FormField): boolean => field.id === 'group';
+
   const onRecipientChange = (event: any) => {
-    const rowIndex = fields.findIndex((field) => field.id === 'recipientRow');
+    const rowIndex = fields.findIndex(isRecipientRow);
+
     if (rowIndex > -1) {
       setFields((prevFields) => {
         const newFields = [...prevFields];
-        const fieldChildren = newFields[rowIndex].fieldChildren;
-        if (event.target.value === Recipients.GROUP) {
-          const groupExists = fieldChildren?.some((field) => field.id === 'group');
-          if (!groupExists) {
-            fieldChildren?.push(groupSelect);
+        const field = newFields[rowIndex];
+
+        if (isRowField(field)) {
+          const fieldChildren = field.fieldChildren;
+
+          if (fieldChildren) {
+            if (event.target.value === Recipients.GROUP) {
+              const groupExists = fieldChildren.some(isGroupField);
+              if (!groupExists) {
+                fieldChildren.push(groupSelect);
+              }
+            }
+            if (event.target.value !== Recipients.GROUP) {
+              const groupIndex = fieldChildren.findIndex(isGroupField);
+              if (groupIndex !== -1) {
+                fieldChildren.splice(groupIndex, 1);
+              }
+            }
           }
         }
-        if (event.target.value !== Recipients.GROUP) {
-          const groupIndex = fieldChildren?.findIndex((field) => field.id === 'group');
-          if (groupIndex !== undefined && groupIndex > -1) {
-            fieldChildren?.splice(groupIndex, 1);
-          }
-        }
+
         return newFields;
       });
     }
@@ -43,20 +60,21 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
 
   const formFields: FormField[] = [
     {
-      id: 'nameRow',
       type: 'row',
+      id: 'nameRow',
+      name: 'nameRow',
       fieldChildren: [
         {
-          id: 'firstName',
           type: 'input',
+          id: 'firstName',
           name: 'firstName',
           label: 'Voornaam',
           required: true,
           autoComplete: 'given-name',
         },
         {
-          id: 'lastName',
           type: 'input',
+          id: 'lastName',
           name: 'lastName',
           label: 'Familienaam',
           required: true,
@@ -65,8 +83,8 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       ],
     },
     {
-      id: 'email',
       type: 'email',
+      id: 'email',
       name: 'email',
       label: 'Email',
       placeholder: 'email@example.com',
@@ -74,12 +92,13 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       autoComplete: 'email',
     },
     {
-      id: 'recipientRow',
       type: 'row',
+      id: 'recipientRow',
+      name: 'recipientRow',
       fieldChildren: [
         {
-          id: 'recipient',
           type: 'select',
+          id: 'recipient',
           name: 'recipient',
           label: 'Ontvanger',
           options: Object.values(Recipients).map((recipient) => ({
@@ -92,22 +111,22 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       ],
     },
     {
-      id: 'body',
       type: 'textarea',
+      id: 'body',
       name: 'body',
       label: 'Bericht',
       rows: 5,
       required: true,
     },
     {
-      id: 'captcha',
       type: 'captcha',
+      id: 'captcha',
       name: 'captcha',
     },
     {
+      type: 'checkbox',
       id: 'terms-and-conditions',
       name: 'terms-and-conditions',
-      type: 'checkbox',
       label:
         'Ik heb kennis genomen met [de privacyverklaring van Scouting Lommel](/privacy-policy) en ga hiermee akkoord.',
       required: true,
