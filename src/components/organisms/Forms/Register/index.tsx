@@ -6,9 +6,9 @@ import { Email, generateEmail } from '@/lib/helpers/sendEmail';
 import { registerMember } from '@/lib/helpers/registerMember';
 import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
+import RegisterConfirmation from './Confirmation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import RegisterForm from './RegisterForm';
-import RegisterConfirmation from './RegisterConfirmation';
 
 const Register = (props: any) => {
   const { formStatus, setFormStatus } = useContext(FormContext);
