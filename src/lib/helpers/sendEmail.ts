@@ -46,9 +46,26 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
               margin-bottom: 1.25rem;
               text-transform: capitalize;
             }
+
+            .table {
+              min-width: 100%;
+              border-collapse: collapse;
+            }
+
             .table__row__head {
               text-align: left;
-              padding-right: 1.25rem;
+              vertical-align: top;
+              width: 1%;
+            }
+
+            .table__row__data {
+              text-align: left;
+              width: auto;
+            }
+
+            .table__row__cell {
+              padding: 0.5rem 1.25rem;
+              border: 1px solid darkgrey;
             }
           </style>
         </head>
@@ -80,8 +97,8 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
 
               return `
               <tr class="table__row">
-                <th class="table__row__head">${dataPoint.label}</th>
-                <td class="table__row__data">${tableData}</td>
+                <th class="table__row__head table__row__cell"><pre>${dataPoint.label}</pre></th>
+                <td class="table__row__data table__row__cell"><pre>${tableData}</pre></td>
               </tr>`;
             })
             .join('')}
