@@ -101,35 +101,39 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
 
   const formFields: FormField[] = [
     {
-      id: 'registerIntro',
       type: 'text',
+      id: 'registerIntro',
+      name: 'registerIntro',
       text: `Schrijf jezelf of je zoon/dochter in voor scoutsjaar **${getCurrentWorkingYear()}** via onderstaand formulier.`,
     },
     {
-      id: 'divider-0',
       type: 'divider',
+      id: 'divider-0',
+      name: 'divider-0',
     },
     {
-      id: 'memberToRegister',
       type: 'text',
+      id: 'memberToRegister',
+      name: 'memberToRegister',
       text: 'In te schrijven lid: ',
       className: 't-headline-3',
     },
     {
-      id: 'nameRow',
       type: 'row',
+      id: 'nameRow',
+      name: 'nameRow',
       fieldChildren: [
         {
-          id: 'firstName',
           type: 'input',
+          id: 'firstName',
           name: 'firstName',
           label: 'Voornaam',
           required: true,
           autoComplete: 'given-name',
         },
         {
-          id: 'lastName',
           type: 'input',
+          id: 'lastName',
           name: 'lastName',
           label: 'Familienaam',
           required: true,
@@ -138,8 +142,9 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       ],
     },
     {
-      id: 'birthdayRow',
       type: 'row',
+      id: 'birthdayRow',
+      name: 'birthdayRow',
       fieldChildren: [
         {
           id: 'birthday',
@@ -161,7 +166,6 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           id: 'memberGroup',
           type: 'hidden',
           name: 'memberGroup',
-          label: 'Tak',
           value: '',
         },
       ],
@@ -202,22 +206,25 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       ],
     },
     {
-      id: 'divider-1',
       type: 'divider',
+      id: 'divider-1',
+      name: 'divider-1',
     },
     {
-      id: 'generalInformation',
       type: 'text',
+      id: 'generalInformation',
+      name: 'generalInformation',
       text: 'Overige informatie: ',
       className: 't-headline-3',
     },
     {
-      id: 'contactRow',
       type: 'row',
+      id: 'contactRow',
+      name: 'contactRow',
       fieldChildren: [
         {
-          id: 'email',
           type: 'email',
+          id: 'email',
           name: 'email',
           label: 'Email',
           placeholder: 'email@example.com',
@@ -225,8 +232,8 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           autoComplete: 'email',
         },
         {
-          id: 'telephoneNumber',
           type: 'tel',
+          id: 'telephoneNumber',
           name: 'telephoneNumber',
           label: 'Telefoonnummer',
           required: true,
@@ -235,28 +242,29 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       ],
     },
     {
-      id: 'address',
       type: 'input',
+      id: 'address',
       name: 'address',
       label: 'Adres',
       required: true,
       autoComplete: 'street-address',
     },
     {
-      id: 'addressRow',
       type: 'row',
+      id: 'addressRow',
+      name: 'addressRow',
       fieldChildren: [
         {
-          id: 'postCode',
           type: 'input',
+          id: 'postCode',
           name: 'postCode',
           label: 'Postcode',
           required: true,
           autoComplete: 'postal-code',
         },
         {
-          id: 'locality',
           type: 'input',
+          id: 'locality',
           name: 'locality',
           label: 'Gemeente',
           required: true,
@@ -265,8 +273,9 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       ],
     },
     {
-      id: 'divider-2',
       type: 'divider',
+      id: 'divider-2',
+      name: 'divider-2',
     },
     {
       id: 'captcha',
