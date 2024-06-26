@@ -115,7 +115,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       id: 'body',
       name: 'body',
       label: 'Bericht',
-      rows: 5,
+      rows: 8,
       required: true,
     },
     {
