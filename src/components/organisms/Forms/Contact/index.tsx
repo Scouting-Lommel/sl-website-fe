@@ -6,6 +6,7 @@ import { Recipients } from '@/lib/constants/enums/recipients';
 import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
 import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
+import ContactConfirmation from './Confirmation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import ContactForm from './ContactForm';
 
@@ -79,10 +80,15 @@ const Contact = () => {
         </Banner>
       )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
-        <Banner variant="success">Je bericht is met succes verstuurd!</Banner>
+        <>
+          <Banner variant="success">Je bericht is met succes verstuurd!</Banner>
+          <ContactConfirmation />
+        </>
       )}
 
-      <ContactForm initialValues={initialValues} submitForm={submitForm} />
+      {formStatus !== FormStatus.STATUS_SUCCESS && (
+        <ContactForm initialValues={initialValues} submitForm={submitForm} />
+      )}
     </>
   );
 };
