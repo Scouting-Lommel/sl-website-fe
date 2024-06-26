@@ -39,6 +39,7 @@ const Contact = () => {
     }
 
     delete data['recipient'];
+    delete data['group'];
     delete data['terms-and-conditions'];
     delete data['captcha-token'];
 
