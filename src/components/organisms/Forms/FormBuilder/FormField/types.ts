@@ -6,6 +6,7 @@ import { SelectOption } from '@/components/atoms/Forms/Select/types';
 export type BaseField = {
   id: string;
   name: string;
+  required?: boolean;
   register?: UseFormRegister<any>;
   errors?: FieldErrors<any>;
 };
@@ -31,7 +32,6 @@ export interface InputField extends BaseField {
   value?: string;
   placeholder?: string;
   disabled?: boolean;
-  required?: boolean;
   autoComplete?: string;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
 }
@@ -42,7 +42,6 @@ export interface TextAreaField extends BaseField {
   rows?: number;
   placeholder?: string;
   disabled?: boolean;
-  required?: boolean;
   autoComplete?: string;
 }
 
@@ -52,7 +51,6 @@ export interface SelectField extends BaseField {
   options?: SelectOption[];
   placeholder?: string;
   disabled?: boolean;
-  required?: boolean;
   autoComplete?: string;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
 }
@@ -64,7 +62,6 @@ export interface RadioGroupField extends BaseField {
   direction?: 'row' | 'column';
   radioButtons?: Radio[];
   disabled?: boolean;
-  required?: boolean;
   autoComplete?: string;
 }
 
@@ -73,7 +70,6 @@ export interface CheckboxField extends BaseField {
   label: string;
   defaultChecked?: boolean;
   disabled?: boolean;
-  required?: boolean;
   autoComplete?: string;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
 }
