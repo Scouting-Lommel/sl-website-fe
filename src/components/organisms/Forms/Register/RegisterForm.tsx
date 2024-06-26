@@ -80,40 +80,45 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
   const onIsAkabeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     isAkabe = event.target.checked;
 
-    const rowIndex = fields.findIndex((field) => field.id === 'birthdayRow');
-    if (rowIndex === -1 || !fields[rowIndex].fieldChildren) return;
-    const fieldChildIndex_vis = fields[rowIndex].fieldChildren?.findIndex(
-      (field) => field.id === 'memberGroup_vis',
-    );
-    const fieldChildIndex = fields[rowIndex].fieldChildren?.findIndex(
-      (field) => field.id === 'memberGroup',
-    );
-    if (
-      fieldChildIndex === -1 ||
-      typeof fieldChildIndex === 'undefined' ||
-      typeof fieldChildIndex_vis === 'undefined'
-    ) {
-      return;
+    const rowIndex = fields.findIndex(isBirthdayRow);
+    const field = fields[rowIndex];
+
+    if (rowIndex > -1) {
+      if (isRowField(field)) {
+        const fieldChildIndex_vis = field.fieldChildren?.findIndex(isMemberGroup_vis);
+        const fieldChildIndex = field.fieldChildren?.findIndex(isMemberGroup);
+
+        if (fieldChildIndex && fieldChildIndex_vis) {
+          setFields((prevFields) => {
+            const newFields = [...prevFields];
+            const newField = newFields[rowIndex];
+
+            if (isRowField(newField)) {
+              const fieldChildren = newField.fieldChildren;
+
+              if (fieldChildren) {
+                const groupField_vis = fieldChildren[fieldChildIndex_vis];
+                const groupField = fieldChildren[fieldChildIndex];
+
+                if (isInputField(groupField_vis) && isHiddenField(groupField)) {
+                  if (isAkabe) {
+                    groupField_vis.value = Groups.AKABE;
+                    groupField.value = Groups.AKABE;
+                  }
+
+                  if (!isAkabe) {
+                    groupField_vis.value = getGroupByBirthday(currentBirthday);
+                    groupField.value = getGroupByBirthday(currentBirthday);
+                  }
+                }
+              }
+            }
+
+            return newFields;
+          });
+        }
+      }
     }
-
-    setFields((prevFields) => {
-      const newFields = [...prevFields];
-      const fieldChildren = newFields[rowIndex].fieldChildren;
-
-      if (typeof fieldChildren === 'undefined') return newFields;
-
-      if (event.target.checked) {
-        fieldChildren[fieldChildIndex_vis].value = Groups.AKABE;
-        fieldChildren[fieldChildIndex].value = Groups.AKABE;
-      }
-
-      if (!event.target.checked) {
-        fieldChildren[fieldChildIndex_vis].value = getGroupByBirthday(currentBirthday);
-        fieldChildren[fieldChildIndex].value = getGroupByBirthday(currentBirthday);
-      }
-
-      return newFields;
-    });
   };
 
   const formFields: FormField[] = [
