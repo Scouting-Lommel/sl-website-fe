@@ -1,0 +1,39 @@
+.radio-group__label {
+  margin-bottom: var(--space-5);
+}
+
+.radio-group {
+  display: block;
+  width: 100%;
+
+  &--required {
+    & .radio-group__label {
+      &::after {
+        margin-left: var(--space-4);
+        color: var(--color-primary-600);
+        content: '*';
+        font-size: 0.8em;
+      }
+    }
+  }
+}
+
+.radio-group__radios {
+  display: flex;
+
+  .radio-group--row & {
+    flex-direction: row;
+    gap: var(--space-32);
+  }
+
+  .radio-group--column & {
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+}
+
+.radio__error {
+  margin-top: var(--space-5);
+  color: var(--color-red);
+  font-size: 0.65em;
+}

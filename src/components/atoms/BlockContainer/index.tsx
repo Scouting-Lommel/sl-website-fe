@@ -11,8 +11,8 @@ export const links = () => {
 type Props = BlockContainerProps & React.HTMLAttributes<HTMLElement>;
 
 const BlockContainer = ({
-  variant,
-  orientation,
+  variant = 'light',
+  orientation = 'default',
   slug,
   cta,
   socialsCta,

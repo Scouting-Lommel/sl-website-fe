@@ -1,5 +1,0 @@
-fragment FormFragment on ComponentContentBlocksForm {
-  bankAccount
-  leaderPrice
-  childPrice
-}

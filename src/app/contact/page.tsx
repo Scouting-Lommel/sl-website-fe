@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
-import { generateMetadataForPage } from '@/lib/helpers/metadata';
+import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
+import Form from '@/components/organisms/Forms';
 import { getGeneralData } from '../api';
 import { getContactPage } from './api';
 
@@ -25,6 +26,7 @@ const ContactPage = async () => {
   return (
     <>
       <Blocks content={contactPage.data.attributes.blocks} />
+      <Form variant="contact" blockProperties={{ slug: 'contact-form' }} />
     </>
   );
 };
