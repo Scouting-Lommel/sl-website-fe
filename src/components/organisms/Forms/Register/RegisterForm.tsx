@@ -17,6 +17,13 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
   let currentBirthday: string = '';
   let isAkabe: boolean = false;
 
+  const isRowField = (field: FormField): field is RowField => field.type === 'row';
+  const isInputField = (field: FormField): field is InputField => field.type === 'input';
+  const isHiddenField = (field: FormField): field is HiddenField => field.type === 'hidden';
+  const isBirthdayRow = (field: FormField): boolean => field.id === 'birthdayRow';
+  const isMemberGroup = (field: FormField): boolean => field.id === 'memberGroup';
+  const isMemberGroup_vis = (field: FormField): boolean => field.id === 'memberGroup_vis';
+
   const getGroupByBirthday = (birthday: string) => {
     const currentYear = new Date().getFullYear();
     const birthYear = new Date(birthday).getFullYear();
@@ -30,13 +37,6 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
     if (age >= 18) return 'Leiding';
     return '/';
   };
-
-  const isRowField = (field: FormField): field is RowField => field.type === 'row';
-  const isInputField = (field: FormField): field is InputField => field.type === 'input';
-  const isHiddenField = (field: FormField): field is HiddenField => field.type === 'hidden';
-  const isBirthdayRow = (field: FormField): boolean => field.id === 'birthdayRow';
-  const isMemberGroup = (field: FormField): boolean => field.id === 'memberGroup';
-  const isMemberGroup_vis = (field: FormField): boolean => field.id === 'memberGroup_vis';
 
   const onBirthdayChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     currentBirthday = event.target.value;
