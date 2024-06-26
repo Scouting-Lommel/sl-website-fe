@@ -108,7 +108,7 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
 
   const email: Email = {
     from: noreplyEmailAddress,
-    to: to,
+    to: process.env.NEXT_PUBLIC_EMAIL_DEV_OVERRIDE || to,
     subject: formTitle,
     html: emailBody,
   };
