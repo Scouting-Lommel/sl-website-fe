@@ -3,7 +3,12 @@ import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import getCurrentWorkingYear from '@/lib/helpers/getCurrentWorkingYear';
 import { Groups } from '@/lib/constants/enums/groups';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
-import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
+import {
+  FormField,
+  HiddenField,
+  InputField,
+  RowField,
+} from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { RegisterForm as RegisterFormProps } from './types';
 
 type Props = RegisterFormProps & React.HTMLAttributes<HTMLElement>;
@@ -26,37 +31,49 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
     return '/';
   };
 
+  const isRowField = (field: FormField): field is RowField => field.type === 'row';
+  const isInputField = (field: FormField): field is InputField => field.type === 'input';
+  const isHiddenField = (field: FormField): field is HiddenField => field.type === 'hidden';
+  const isBirthdayRow = (field: FormField): boolean => field.id === 'birthdayRow';
+  const isMemberGroup = (field: FormField): boolean => field.id === 'memberGroup';
+  const isMemberGroup_vis = (field: FormField): boolean => field.id === 'memberGroup_vis';
+
   const onBirthdayChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     currentBirthday = event.target.value;
 
-    const rowIndex = fields.findIndex((field) => field.id === 'birthdayRow');
-    if (rowIndex === -1 || !fields[rowIndex].fieldChildren) return;
-    const fieldChildIndex_vis = fields[rowIndex].fieldChildren?.findIndex(
-      (field) => field.id === 'memberGroup_vis',
-    );
-    const fieldChildIndex = fields[rowIndex].fieldChildren?.findIndex(
-      (field) => field.id === 'memberGroup',
-    );
-    if (
-      fieldChildIndex === -1 ||
-      typeof fieldChildIndex === 'undefined' ||
-      typeof fieldChildIndex_vis === 'undefined'
-    ) {
-      return;
-    }
+    const rowIndex = fields.findIndex(isBirthdayRow);
+    const field = fields[rowIndex];
 
-    if (!isAkabe) {
-      setFields((prevFields) => {
-        const newFields = [...prevFields];
-        const fieldChildren = newFields[rowIndex].fieldChildren;
+    if (rowIndex > -1) {
+      if (isRowField(field)) {
+        const fieldChildIndex_vis = field.fieldChildren?.findIndex(isMemberGroup_vis);
+        const fieldChildIndex = field.fieldChildren?.findIndex(isMemberGroup);
 
-        if (typeof fieldChildren === 'undefined') return newFields;
+        if (fieldChildIndex && fieldChildIndex_vis) {
+          if (!isAkabe) {
+            setFields((prevFields) => {
+              const newFields = [...prevFields];
+              const newField = newFields[rowIndex];
 
-        fieldChildren[fieldChildIndex_vis].value = getGroupByBirthday(currentBirthday);
-        fieldChildren[fieldChildIndex].value = getGroupByBirthday(currentBirthday);
+              if (isRowField(newField)) {
+                const fieldChildren = newField.fieldChildren;
 
-        return newFields;
-      });
+                if (fieldChildren) {
+                  const groupField_vis = fieldChildren[fieldChildIndex_vis];
+                  const groupField = fieldChildren[fieldChildIndex];
+
+                  if (isInputField(groupField_vis) && isHiddenField(groupField)) {
+                    groupField_vis.value = getGroupByBirthday(currentBirthday);
+                    groupField.value = getGroupByBirthday(currentBirthday);
+                  }
+                }
+              }
+
+              return newFields;
+            });
+          }
+        }
+      }
     }
   };
 
