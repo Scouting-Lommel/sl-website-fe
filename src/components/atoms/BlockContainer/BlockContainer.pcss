@@ -26,6 +26,10 @@
       margin-bottom: var(--space-104);
     }
   }
+
+  &--light + &--light {
+    padding-top: 0;
+  }
 }
 
 .block-container__bg-image {
@@ -35,7 +39,7 @@
   min-height: 100%;
   inset: 0;
 
-  &--dark {
+  .block-container--dark & {
     overflow: hidden;
     border-bottom-right-radius: var(--border-radius-container-sm);
 
@@ -65,7 +69,7 @@
     }
   }
 
-  &--reversed {
+  .block-container--reversed & {
     transform: scale(1, -1);
   }
 }

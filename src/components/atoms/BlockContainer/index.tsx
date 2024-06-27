@@ -23,14 +23,14 @@ const BlockContainer = ({
 }: Props) => {
   const blockContainerClassNames = classNames(
     'block-container',
+    `block-container--${variant}`,
+    `block-container--${orientation}`,
     modSmallPadding && 'block-container--small-padding',
     modMargin && 'block-container--has-margin',
   );
 
   const bgClassnames = classNames(
     'block-container__bg-image',
-    `block-container__bg-image--${variant}`,
-    `block-container__bg-image--${orientation}`,
     bgImage && `block-container__bg-image--opaque`,
   );
 
