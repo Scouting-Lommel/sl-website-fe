@@ -112,8 +112,8 @@ const NavItem = ({
   const navItemClassNames = classNames(
     'nav-item',
     toggle ? 'nav-item--toggled' : 'nav-item--untoggled',
-    href === '/' && pathname === '/' ? 'nav-item--active' : '',
-    href !== '/' && pathname?.includes(href.toLowerCase()) ? 'nav-item--active' : '',
+    href && href === '/' && pathname === '/' ? 'nav-item--active' : '',
+    href && href !== '/' && pathname?.includes(href.toLowerCase()) ? 'nav-item--active' : '',
   );
 
   if (modDropdown) {
@@ -162,15 +162,17 @@ const NavItem = ({
 
   if (modButton) {
     return (
-      <button onClick={onClick} className="nav-item">
-        {label}
-      </button>
+      <li className={navItemClassNames}>
+        <button onClick={onClick} className="nav-item__dropdown-trigger__link">
+          {label}
+        </button>
+      </li>
     );
   }
 
   return (
     <li className={navItemClassNames}>
-      <Link href={href} className="nav-item__dropdown-trigger__link">
+      <Link href={href || ''} className="nav-item__dropdown-trigger__link">
         {label}
       </Link>
     </li>

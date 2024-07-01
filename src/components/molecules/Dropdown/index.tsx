@@ -25,10 +25,10 @@ const Dropdown = ({
 }: Props) => {
   let navItem: DropdownNavItem[] = [];
   if (path === '/takken') {
-    navItem = groups;
+    navItem = groups!;
   }
   if (path === '/verhuur') {
-    navItem = rentalLocations;
+    navItem = rentalLocations!;
   }
 
   return (
@@ -51,7 +51,7 @@ const Dropdown = ({
           <div className="dropdown__nav">
             <p className="dropdown__nav__title t-headline-2">{dropdownTitle}</p>
             <ul className="dropdown__nav__list">
-              {dropdownItems.map((item, i) => {
+              {dropdownItems!.map((item, i) => {
                 const dropdownItem = navItem.find(
                   (el) => el.slug === item.page.replace(new RegExp('_', 'g'), '-'),
                 );

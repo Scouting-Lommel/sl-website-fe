@@ -21,12 +21,12 @@ export type DropdownCta = {
 
 export type Dropdown = {
   itemKey: number;
-  path: string;
+  path?: string;
   dropdownTitle: string;
   dropdownButton: Button;
   dropdownCta: DropdownCta;
-  dropdownItems: DropdownItem[];
-  groups: DropdownNavItem[];
-  rentalLocations: DropdownNavItem[];
+  dropdownItems?: DropdownItem[];
+  groups?: DropdownNavItem[];
+  rentalLocations?: DropdownNavItem[];
   toggleDropdown: Function;
 };

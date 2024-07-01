@@ -1,6 +1,7 @@
 // TODO: Re-add security and authentication functionality
 
 import NavItem from '@/components/molecules/NavItem';
+import AuthButton from '@/components/molecules/AuthButton';
 import { Navigation as NavigationProps } from './types';
 import styles from './Navigation.css';
 
@@ -44,6 +45,9 @@ const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
               />
             );
           })}
+        </span>
+        <span className="navigation__list">
+          <AuthButton />
         </span>
       </ul>
     </nav>
