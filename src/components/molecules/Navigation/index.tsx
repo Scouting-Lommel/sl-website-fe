@@ -1,5 +1,3 @@
-// TODO: Re-add security and authentication functionality
-
 import NavItem from '@/components/molecules/NavItem';
 import AuthButton from '@/components/molecules/AuthButton';
 import { Navigation as NavigationProps } from './types';

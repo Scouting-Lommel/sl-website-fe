@@ -6,8 +6,6 @@ import NavItem from '@/components/molecules/NavItem';
 const AuthButton = () => {
   const { data: session } = useSession();
 
-  console.log(session);
-
   if (session) {
     return <NavItem itemKey={99} label="Uitloggen" onClick={() => signOut()} modButton />;
   }
