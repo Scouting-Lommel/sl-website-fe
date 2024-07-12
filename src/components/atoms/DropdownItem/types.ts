@@ -1,5 +1,5 @@
 export type DropdownItem = {
   title: string;
-  description: string;
+  description?: string;
   href: string;
 };

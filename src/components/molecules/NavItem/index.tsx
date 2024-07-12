@@ -133,7 +133,7 @@ const NavItem = ({
           />
         </button>
 
-        {dropdownButton && dropdownTitle && dropdownCta && (
+        {dropdownTitle && dropdownCta && (
           <dialog className="nav-item__dropdown" ref={modal} role="none">
             <button
               ref={closeButton}
@@ -163,7 +163,7 @@ const NavItem = ({
   if (modButton) {
     return (
       <li className={navItemClassNames}>
-        <button onClick={onClick} className="nav-item__dropdown-trigger__link">
+        <button type="button" onClick={onClick} className="nav-item__dropdown-trigger__link">
           {label}
         </button>
       </li>

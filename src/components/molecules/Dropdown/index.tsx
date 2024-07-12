@@ -52,27 +52,31 @@ const Dropdown = ({
             <p className="dropdown__nav__title t-headline-2">{dropdownTitle}</p>
             <ul className="dropdown__nav__list">
               {dropdownItems!.map((item, i) => {
-                const dropdownItem = navItem.find(
-                  (el) => el.slug === item.page.replace(new RegExp('_', 'g'), '-'),
-                );
-                if (dropdownItem) {
+                const description =
+                  item.description ||
+                  navItem.find((el) => el.slug === item.page.replace(new RegExp('_', 'g'), '-'))
+                    ?.description;
+
+                if (item.link) {
                   return (
                     <DropdownItem
                       key={`dropdown-${path}-${i}`}
                       title={item.label}
-                      description={dropdownItem.description}
-                      href={`${path}/${dropdownItem.slug}`}
+                      description={description}
+                      href={item.link.replace(new RegExp('_', 'g'), '-')}
                     />
                   );
                 }
               })}
             </ul>
-            <Button
-              label={dropdownButton.label}
-              href={dropdownButton.href}
-              modSmall
-              className="dropdown__nav__button"
-            />
+            {dropdownButton && (
+              <Button
+                label={dropdownButton.label}
+                href={dropdownButton.href}
+                modSmall
+                className="dropdown__nav__button"
+              />
+            )}
           </div>
           <div className="dropdown__cta">
             <p className="dropdown__cta__title t-headline-2">{dropdownCta.title}</p>
@@ -80,6 +84,7 @@ const Dropdown = ({
             <Button
               label={dropdownCta.ctaLabel}
               href={dropdownCta.ctaLink}
+              onClick={dropdownCta.ctaOnClick}
               modSmall
               className="dropdown__cta__button"
             />
