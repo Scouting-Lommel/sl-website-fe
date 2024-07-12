@@ -31,7 +31,7 @@ const AuthButton = () => {
     ];
     const dropdownCta: DropdownCta = {
       title: session?.user?.name || 'Leidersprofiel',
-      intro: '',
+      intro: `Ingelogd als **${session?.role}**`,
       ctaLabel: 'Uitloggen',
       ctaOnClick: () => signOut(),
     };
