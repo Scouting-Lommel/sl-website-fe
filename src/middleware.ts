@@ -16,23 +16,21 @@ export async function middleware(req: NextRequest) {
 
     const contentType = response.headers.get('content-type');
     if (!response.ok) {
-      return NextResponse.redirect(`${process.env.SITE_URL}/unauthorized`);
+      return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
     }
 
     if (!contentType || !contentType.includes('application/json')) {
-      return NextResponse.redirect(`${process.env.SITE_URL}/unauthorized`);
+      return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
     }
 
     const data = await response.json();
-    console.log(`Org unit data: ${JSON.stringify(data)}`);
 
-    // Add your org unit check logic here
-    // if (data.orgUnitPath !== '/desired/orgunit/path') {
-    //   return NextResponse.redirect(`${process.env.SITE_URL}/unauthorized`);
-    // }
+    if (data.orgUnitPath !== '/' && !data.orgUnitPath.contains('/Leiding')) {
+      return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
+    }
   } catch (error: any) {
     console.error(`Error fetching org unit data: ${error.message}`);
-    return NextResponse.redirect(`${process.env.SITE_URL}/unauthorized`);
+    return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
   }
 
   return NextResponse.next();
