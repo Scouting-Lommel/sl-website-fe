@@ -1,6 +1,6 @@
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
-import NotFoundBlock from '@/components/organisms/NotFound';
-import { getGeneralData } from './api';
+import UnauthorizedBlock from '@/components/organisms/Unauthorized';
+import { getGeneralData } from '../api';
 
 export async function generateMetadata() {
   const { generalData } = await getGeneralData();
@@ -8,9 +8,9 @@ export async function generateMetadata() {
 
   const metadata = generateMetadataForPage(
     {
-      pageTitle: 'Pagina niet gevonden',
+      pageTitle: 'Geen toegang tot deze pagina',
       pageDescription: 'Scouting Sint-Pieter Lommel',
-      slug: 'pagina-niet-gevonden',
+      slug: 'geen-toegang',
     },
     generalData.data.attributes,
   );
@@ -18,8 +18,8 @@ export async function generateMetadata() {
   return { ...metadata };
 }
 
-const NotFoundPage = () => {
-  return <NotFoundBlock />;
+const UnauthorizedPage = () => {
+  return <UnauthorizedBlock />;
 };
 
-export default NotFoundPage;
+export default UnauthorizedPage;

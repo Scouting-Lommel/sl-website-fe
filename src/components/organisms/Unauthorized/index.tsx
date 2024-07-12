@@ -1,19 +1,19 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import Typography from '@/components/atoms/Typography';
-import styles from './NotFound.css';
+import styles from './Unauthorized.css';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const NotFound = () => {
+const Unauthorized = () => {
   return (
     <BlockContainer variant="light" orientation="default" slug="page-not-found">
       <section className="sl-layout">
-        <Hero subtitle="Pagina niet gevonden" title="404" variant="simple" className="sl-layout" />
-        <Typography className="not-found__content">
-          <p>We hebben de pagina die je zocht, niet gevonden.</p>
+        <Hero subtitle="Geen toegang" title="403" variant="simple" className="sl-layout" />
+        <Typography className="unauthorized__content">
+          <p>Je hebt geen toegang tot deze pagina.</p>
           <p>
             <a href="/">Terug naar de homepagina</a>
           </p>
@@ -23,4 +23,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Unauthorized;
