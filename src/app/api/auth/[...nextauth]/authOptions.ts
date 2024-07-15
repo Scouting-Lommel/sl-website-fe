@@ -1,5 +1,5 @@
 import { getOrganisationRole } from '@/lib/helpers/getOrganisationRole';
-import { NextAuthOptions, Session } from 'next-auth';
+import { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
 export const authOptions: NextAuthOptions = {
@@ -30,7 +30,12 @@ export const authOptions: NextAuthOptions = {
       );
       const data = await response.json();
 
-      return { ...session, ...tokenProps, role: getOrganisationRole(data.orgUnitPath) };
+      return {
+        ...session,
+        ...tokenProps,
+        orgUnit: data.orgUnitPath,
+        role: getOrganisationRole(data.orgUnitPath),
+      };
     },
   },
 };
