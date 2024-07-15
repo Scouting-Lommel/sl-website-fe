@@ -1,41 +1,25 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-import { getToken } from 'next-auth/jwt';
+import { NextRequest, NextResponse } from 'next/server';
+import {
+  dashboardMiddleware,
+  groupsMiddleware,
+  dashboardMiddlewareConfig,
+  groupsMiddlewareConfig,
+} from './middlewares';
 
-export async function middleware(req: NextRequest) {
-  const token = await getToken({ req });
+export function middleware(req: NextRequest) {
+  const url: string = req.nextUrl.pathname;
 
-  if (!token) {
-    return NextResponse.redirect(`${process.env.SITE_URL}/api/auth/signin`);
+  if (dashboardMiddlewareConfig.includes(url)) {
+    return dashboardMiddleware(req);
   }
 
-  try {
-    const response = await fetch(
-      `${process.env.SITE_URL}/api/auth/get-org-unit?email=${token.email}`,
-    );
-
-    const contentType = response.headers.get('content-type');
-    if (!response.ok) {
-      return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
-    }
-
-    if (!contentType || !contentType.includes('application/json')) {
-      return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
-    }
-
-    const data = await response.json();
-
-    if (!data.orgUnitPath.startsWith('/')) {
-      return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
-    }
-  } catch (error: any) {
-    console.error(`Error fetching org unit data: ${error.message}`);
-    return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
+  if (groupsMiddlewareConfig.includes(url)) {
+    return groupsMiddleware(req);
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*'],
+  matcher: [...dashboardMiddlewareConfig, ...groupsMiddlewareConfig],
 };
