@@ -1,8 +1,26 @@
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 
 export const organisationPermissions = {
-  '/': ['dashboard', 'groups', 'groups:all'],
-  '/Leiding': ['dashboard', 'groups', 'groups:all'],
+  '/': [
+    'dashboard',
+    'groups',
+    'groups:kapoenen',
+    'groups:welpen',
+    'groups:akabe',
+    'groups:jonggivers',
+    'groups:givers',
+    'groups:jin',
+  ],
+  '/Leiding': [
+    'dashboard',
+    'groups',
+    'groups:kapoenen',
+    'groups:welpen',
+    'groups:akabe',
+    'groups:jonggivers',
+    'groups:givers',
+    'groups:jin',
+  ],
   '/Leiding/Kapoenen': ['dashboard', 'groups', 'groups:kapoenen'],
   '/Leiding/Welpen': ['dashboard', 'groups', 'groups:welpen'],
   '/Leiding/Akabe': ['dashboard', 'groups', 'groups:akabe'],
