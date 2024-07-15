@@ -1,46 +1,44 @@
 'use client';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import NavItem from '@/components/molecules/NavItem';
 import { DropdownItem } from '@/components/molecules/Dropdown/types';
 import { DropdownCta } from '@/components/molecules/Dropdown/types';
+import { Button } from '@/components/atoms/Button/types';
 
 const AuthButton = () => {
   const { data: session } = useSession();
 
   if (session) {
-    const dropdownItems: DropdownItem[] = [
-      {
-        label: 'Takken',
-        page: 'dashboard',
-        link: '/dashboard',
-        description: 'Takpagina beheren',
-      },
-      // {
-      //   label: 'Afbeeldingen',
-      //   page: 'dashboard',
-      //   link: '/dashboard',
-      //   description: 'Fotogallerij beheren',
-      // },
-      // {
-      //   label: 'Blog',
-      //   page: 'dashboard',
-      //   link: '/dashboard',
-      //   description: 'Blogposts beheren',
-      // },
-    ];
+    const dropdownItems: DropdownItem[] = [];
     const dropdownCta: DropdownCta = {
       title: session?.user?.name || 'Leidersprofiel',
       intro: `Ingelogd als **${session?.role}**`,
       ctaLabel: 'Uitloggen',
       ctaOnClick: () => signOut(),
     };
+    const dropdownButton: Button = {
+      label: 'Naar het dashboard',
+      href: '/dashboard',
+      variant: 'primary',
+    };
+
+    if (session.orgUnit && checkOrganisationPermission(session.orgUnit, 'groups')) {
+      dropdownItems.push({
+        label: 'Takken',
+        page: 'dashboard',
+        link: '/dashboard/takpagina',
+        description: 'Takpagina beheren',
+      });
+    }
 
     return (
       <NavItem
         itemKey={99}
         label="Leidingsmenu"
         dropdownItems={dropdownItems}
+        dropdownButton={dropdownButton}
         dropdownCta={dropdownCta}
         dropdownTitle="Dashboard"
         modDropdown
