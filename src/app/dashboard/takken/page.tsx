@@ -2,8 +2,23 @@ import { getServerSession } from 'next-auth';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Button from '@/components/atoms/Button';
 import Hero from '@/components/organisms/Hero';
+import GroupSection from './group-section';
+
+type Group = {
+  title: string;
+  slug: string;
+  permission: string;
+};
+
+const allGroups: Group[] = [
+  { title: 'Kapoenen', slug: 'kapoenen', permission: 'groups:kapoenen' },
+  { title: 'Welpen', slug: 'welpen', permission: 'groups:welpen' },
+  { title: 'Akabe', slug: 'akabe', permission: 'groups:akabe' },
+  { title: 'Jonggivers', slug: 'jonggivers', permission: 'groups:jonggivers' },
+  { title: 'Givers', slug: 'givers', permission: 'groups:givers' },
+  { title: 'Jin', slug: 'jin', permission: 'groups:jin' },
+];
 
 const Groups = async () => {
   const session = await getServerSession();
@@ -16,56 +31,30 @@ const Groups = async () => {
     orgUnitData = await orgUnitResponse.json();
   }
 
+  const availableGroups = allGroups
+    .map((group) => {
+      if (
+        orgUnitData &&
+        orgUnitData.orgUnitPath &&
+        checkOrganisationPermission(orgUnitData.orgUnitPath, group.permission)
+      )
+        return group;
+    })
+    .filter((group) => group);
+
   return (
     <div className="sl-layout">
       <BlockContainer slug="groups-title">
         <Hero title="Takken" subtitle="Takpagina's beheren" variant="simple" />
       </BlockContainer>
 
-      <BlockContainer slug="groups">
-        {orgUnitData &&
-          orgUnitData.orgUnitPath &&
-          checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups:kapoenen') && (
-            <div>
-              <h3>Kapoenen</h3>
-            </div>
-          )}
-        {orgUnitData &&
-          orgUnitData.orgUnitPath &&
-          checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups:welpen') && (
-            <div>
-              <h3>Welpen</h3>
-            </div>
-          )}
-        {orgUnitData &&
-          orgUnitData.orgUnitPath &&
-          checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups:akabe') && (
-            <div>
-              <h3>Akabe</h3>
-            </div>
-          )}
-        {orgUnitData &&
-          orgUnitData.orgUnitPath &&
-          checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups:jonggivers') && (
-            <div>
-              <h3>Jonggivers</h3>
-            </div>
-          )}
-        {orgUnitData &&
-          orgUnitData.orgUnitPath &&
-          checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups:givers') && (
-            <div>
-              <h3>Givers</h3>
-            </div>
-          )}
-        {orgUnitData &&
-          orgUnitData.orgUnitPath &&
-          checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups:jin') && (
-            <div>
-              <h3>Jin</h3>
-            </div>
-          )}
-      </BlockContainer>
+      {availableGroups.map((group: any, key: any) => {
+        return (
+          <BlockContainer key={key} slug={group.slug}>
+            <GroupSection title={group.title} slug={group.slug} />
+          </BlockContainer>
+        );
+      })}
     </div>
   );
 };
