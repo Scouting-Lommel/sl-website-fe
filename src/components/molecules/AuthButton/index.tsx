@@ -28,8 +28,8 @@ const AuthButton = () => {
       dropdownItems.push({
         label: 'Takken',
         page: 'dashboard',
-        link: '/dashboard/takpagina',
-        description: 'Takpagina beheren',
+        link: '/dashboard/takken',
+        description: 'Takken beheren',
       });
     }
 

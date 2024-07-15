@@ -33,7 +33,7 @@ const Dashboard = async () => {
                 <li>Activiteiten toevoegen, aanpassen en verwijderen</li>
                 <li>Bestanden en links toevoegen en verwijderen</li>
               </ul>
-              <Button label="Naar takpagina beheren" href="/dashboard/takpagina" />
+              <Button label="Naar takken beheren" href="/dashboard/takken" />
             </div>
           )}
         {orgUnitData &&
