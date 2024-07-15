@@ -10,6 +10,8 @@ const organisationRoles = {
   '/VZW': 'vzw-lid',
 };
 
-export const getOrganisationRole = (orgUnit: keyof typeof organisationRoles) => {
+export type OrganisationRoles = keyof typeof organisationRoles;
+
+export const getOrganisationRole = (orgUnit: OrganisationRoles) => {
   return organisationRoles[orgUnit];
 };
