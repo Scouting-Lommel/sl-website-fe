@@ -16,18 +16,18 @@ const AuthButton = () => {
         link: '/dashboard',
         description: 'Takpagina beheren',
       },
-      {
-        label: 'Afbeeldingen',
-        page: 'dashboard',
-        link: '/dashboard',
-        description: 'Fotogallerij beheren',
-      },
-      {
-        label: 'Blog',
-        page: 'dashboard',
-        link: '/dashboard',
-        description: 'Blogposts beheren',
-      },
+      // {
+      //   label: 'Afbeeldingen',
+      //   page: 'dashboard',
+      //   link: '/dashboard',
+      //   description: 'Fotogallerij beheren',
+      // },
+      // {
+      //   label: 'Blog',
+      //   page: 'dashboard',
+      //   link: '/dashboard',
+      //   description: 'Blogposts beheren',
+      // },
     ];
     const dropdownCta: DropdownCta = {
       title: session?.user?.name || 'Leidersprofiel',
