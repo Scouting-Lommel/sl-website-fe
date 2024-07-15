@@ -28,7 +28,7 @@ const Dashboard = async () => {
           checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups') && (
             <div>
               <h2>Takpagina&apos;s</h2>
-              <p>Beheer de takpagina&apos;:</p>
+              <p>Beheer de takpagina&apos;s:</p>
               <ul>
                 <li>Activiteiten toevoegen, aanpassen en verwijderen</li>
                 <li>Bestanden en links toevoegen en verwijderen</li>
