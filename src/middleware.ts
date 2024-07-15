@@ -25,7 +25,7 @@ export async function middleware(req: NextRequest) {
 
     const data = await response.json();
 
-    if (data.orgUnitPath !== '/' && !data.orgUnitPath.contains('/Leiding')) {
+    if (!data.orgUnitPath.startsWith('/')) {
       return NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
     }
   } catch (error: any) {
