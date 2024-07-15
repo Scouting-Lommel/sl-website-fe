@@ -113,7 +113,7 @@ const NavItem = ({
     'nav-item',
     toggle ? 'nav-item--toggled' : 'nav-item--untoggled',
     href && href === '/' && pathname === '/' ? 'nav-item--active' : '',
-    href && href !== '/' && pathname?.includes(href.toLowerCase()) ? 'nav-item--active' : '',
+    href && href !== '/' && pathname?.startsWith(href.toLowerCase()) ? 'nav-item--active' : '',
   );
 
   if (modDropdown) {

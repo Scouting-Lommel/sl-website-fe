@@ -37,6 +37,7 @@ const AuthButton = () => {
       <NavItem
         itemKey={99}
         label="Leidingsmenu"
+        href="/dashboard"
         dropdownItems={dropdownItems}
         dropdownButton={dropdownButton}
         dropdownCta={dropdownCta}
