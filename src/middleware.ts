@@ -9,11 +9,11 @@ import {
 export function middleware(req: NextRequest) {
   const url: string = req.nextUrl.pathname;
 
-  if (dashboardMiddlewareConfig.includes(url)) {
+  if (dashboardMiddlewareConfig.some((item) => new RegExp(`^${item}$`).test(url))) {
     return dashboardMiddleware(req);
   }
 
-  if (groupsMiddlewareConfig.includes(url)) {
+  if (groupsMiddlewareConfig.some((item) => new RegExp(`^${item}$`).test(url))) {
     return groupsMiddleware(req);
   }
 
