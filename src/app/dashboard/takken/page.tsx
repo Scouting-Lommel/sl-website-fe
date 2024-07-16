@@ -20,7 +20,7 @@ const allGroups: Group[] = [
   { title: 'Jin', slug: 'jin', permission: 'groups:jin' },
 ];
 
-const Groups = async () => {
+const DashboardGroupsOverviewPage = async () => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 
@@ -59,4 +59,4 @@ const Groups = async () => {
   );
 };
 
-export default Groups;
+export default DashboardGroupsOverviewPage;
