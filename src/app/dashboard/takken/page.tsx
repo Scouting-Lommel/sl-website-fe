@@ -3,7 +3,7 @@ import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPerm
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
-import GroupSection from './group-section';
+import Button from '@/components/atoms/Button';
 
 type Group = {
   title: string;
@@ -50,8 +50,8 @@ const DashboardGroupsOverviewPage = async () => {
 
       {availableGroups.map((group: any, key: any) => {
         return (
-          <BlockContainer key={key} slug={group.slug}>
-            <GroupSection title={group.title} slug={group.slug} />
+          <BlockContainer key={key} slug={`groups-${group.slug}`}>
+            <Button href={`/dashboard/takken/${group.slug}`}>{group.title}pagina</Button>
           </BlockContainer>
         );
       })}
