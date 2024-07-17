@@ -1,7 +1,7 @@
 import { generateApiQuery } from '@/lib/api';
 import {
   CREATE_ACTIVITY_MUTATION,
-  DELETE_ARTICLE_MUTATION,
+  DELETE_ACTIVITY_MUTATION,
   UPDATE_ACTIVITY_MUTATION,
 } from './mutations';
 
@@ -49,9 +49,9 @@ export function updateActivity({
   });
 }
 
-export function deleteArticle(id: string): Promise<any> {
+export function deleteActivity(id: string): Promise<any> {
   return generateApiQuery({
     variables: { id },
-    query: DELETE_ARTICLE_MUTATION,
+    query: DELETE_ACTIVITY_MUTATION,
   });
 }

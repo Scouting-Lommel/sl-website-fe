@@ -70,14 +70,14 @@ const UPDATE_ACTIVITY_MUTATION = gql`
   }
 `;
 
-const DELETE_ARTICLE_MUTATION = gql`
-  mutation deleteArticle($id: ID!) {
-    deleteArticle(id: $id) {
-      article {
+const DELETE_ACTIVITY_MUTATION = gql`
+  mutation deleteActivity($id: ID!) {
+    deleteActivity(id: $id) {
+      data {
         id
       }
     }
   }
 `;
 
-export { CREATE_ACTIVITY_MUTATION, UPDATE_ACTIVITY_MUTATION, DELETE_ARTICLE_MUTATION };
+export { CREATE_ACTIVITY_MUTATION, UPDATE_ACTIVITY_MUTATION, DELETE_ACTIVITY_MUTATION };
