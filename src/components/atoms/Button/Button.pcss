@@ -57,6 +57,15 @@
     }
   }
 
+  &--danger {
+    background-color: var(--color-error);
+    color: var(--color-white);
+
+    &:focus {
+      outline-color: var(--color-error);
+    }
+  }
+
   @media (--mq-from-medium) {
     padding: var(--space-12) var(--space-32);
     font-size: 0.75rem;
