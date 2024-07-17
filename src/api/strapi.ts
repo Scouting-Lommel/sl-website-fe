@@ -10,7 +10,7 @@ async function fetchAPI(query: DocumentNode, variables?: unknown) {
       query: print(query),
       variables,
     }),
-    next: { revalidate: process.env?.APP_ENV === 'production' ? 86400 : 10 },
+    next: { revalidate: process?.env?.APP_ENV === 'production' ? 86400 : 10 },
   });
 
   const json = await res.json();

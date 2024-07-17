@@ -2,11 +2,18 @@ import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { ActivityForm as ActivityFormProps } from './types';
+import { useState } from 'react';
 
 type Props = ActivityFormProps & React.HTMLAttributes<HTMLElement>;
 
-const ActivityForm = ({ initialValues, submitForm }: Props) => {
+const ActivityForm = ({ initialValues, activityId, submitForm }: Props) => {
   const formFields: FormField[] = [
+    {
+      type: 'hidden',
+      id: 'activity-id',
+      name: 'activity-id',
+      value: activityId,
+    },
     { type: 'input', id: 'title', name: 'title', label: 'Titel', required: true },
     {
       type: 'row',

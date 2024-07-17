@@ -1,7 +1,9 @@
 import { useContext } from 'react';
+import { updateActivity } from '@/lib/api/activities/api';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Banner from '@/components/atoms/Banner';
+import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import ActivityForm from './ActivityForm';
 
 const Activity = (props: any) => {
@@ -17,7 +19,26 @@ const Activity = (props: any) => {
     };
   }
 
-  const submitForm = () => {};
+  const submitForm = async (data: any, formFields: FormField[]) => {
+    let activity = {
+      id: data['activity-id'],
+      title: data.title,
+      description: data.description,
+      startDate: data.start.split('T')[0],
+      startTime: `${data.start.split('T')[1]}:00.000`,
+      endDate: data.end.split('T')[0],
+      endTime: `${data.end.split('T')[1]}:00.000`,
+    };
+
+    try {
+      await updateActivity({ ...activity });
+      setFormStatus(FormStatus.STATUS_SUCCESS);
+    } catch (err: any) {
+      console.error(err);
+      console.log(err.message);
+      setFormStatus(FormStatus.STATUS_ERROR);
+    }
+  };
 
   return (
     <>
@@ -42,7 +63,11 @@ const Activity = (props: any) => {
       )}
 
       {formStatus !== FormStatus.STATUS_SUCCESS && (
-        <ActivityForm initialValues={initialValues} submitForm={submitForm} />
+        <ActivityForm
+          activityId={props.activity.id}
+          initialValues={initialValues}
+          submitForm={submitForm}
+        />
       )}
     </>
   );

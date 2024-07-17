@@ -31,7 +31,7 @@ const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string
             <Form
               key={key}
               variant="activity"
-              props={{ activity: activity.attributes }}
+              props={{ activity: { ...activity.attributes, id: activity.id } }}
               blockProperties={{ slug: 'activity', modSmallPadding: true }}
             />
             {key + 1 < activities?.data.length && <hr />}
