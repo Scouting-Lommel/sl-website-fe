@@ -124,6 +124,25 @@ const FormField = (props: Props) => {
         </div>
       );
     }
+    case 'datetime': {
+      return (
+        <div className="form-field">
+          {props.register && props.name && (
+            <Input
+              label={props.label!}
+              type="datetime-local"
+              id={props.id}
+              {...props.register(props.name)}
+              placeholder={props.placeholder}
+              required={props.required}
+              autoComplete={props.autoComplete}
+              customChangeBehaviour={props.customChangeBehaviour}
+              error={errorMessage}
+            />
+          )}
+        </div>
+      );
+    }
     case 'textarea': {
       return (
         <div className="form-field">

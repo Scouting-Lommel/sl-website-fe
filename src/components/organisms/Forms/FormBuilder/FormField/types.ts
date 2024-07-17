@@ -27,7 +27,7 @@ export interface DividerField extends BaseField {
 }
 
 export interface InputField extends BaseField {
-  type: 'input' | 'email' | 'tel' | 'date';
+  type: 'input' | 'email' | 'tel' | 'date' | 'datetime';
   label: string;
   value?: string;
   placeholder?: string;
