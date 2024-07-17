@@ -22,6 +22,7 @@ const FormBuilder = ({
   formSchema,
   submitForm,
   submitButtonLabel,
+  secondaryButton,
 }: Props) => {
   const { formStatus, setFormStatus } = useContext(FormContext);
 
@@ -75,12 +76,15 @@ const FormBuilder = ({
         <FormField key={field.id} register={register} errors={errors} {...field} />
       ))}
 
-      {/* Submit button */}
-      <Button
-        label={submitButtonLabel}
-        loading={formStatus === FormStatus.STATUS_LOADING}
-        type="submit"
-      />
+      {/* Buttons */}
+      <div className="form__buttons">
+        <Button
+          label={submitButtonLabel}
+          loading={formStatus === FormStatus.STATUS_LOADING}
+          type="submit"
+        />
+        {secondaryButton && <Button {...secondaryButton} type="button" />}
+      </div>
 
       {/* Required fields footnote */}
       <div className="form__footnote">

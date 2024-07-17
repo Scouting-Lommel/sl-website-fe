@@ -1,3 +1,4 @@
+import { Button } from '@/components/atoms/Button/types';
 import { FormField } from './FormField/types';
 
 export type FormBuilder = {
@@ -7,4 +8,5 @@ export type FormBuilder = {
   formSchema: any;
   submitForm: any;
   submitButtonLabel: string;
+  secondaryButton?: Button;
 };
