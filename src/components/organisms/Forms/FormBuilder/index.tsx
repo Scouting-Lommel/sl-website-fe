@@ -83,7 +83,10 @@ const FormBuilder = ({
       />
 
       {/* Required fields footnote */}
-      <div>* Verplicht veld</div>
+      <div className="form__footnote">
+        <span className="form__footnote__asterisk">*</span>
+        <span>Verplicht veld</span>
+      </div>
     </form>
   );
 };
