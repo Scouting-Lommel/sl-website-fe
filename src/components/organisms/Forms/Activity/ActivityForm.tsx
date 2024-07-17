@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 type Props = ActivityFormProps & React.HTMLAttributes<HTMLElement>;
 
-const ActivityForm = ({ initialValues, activityId, submitForm }: Props) => {
+const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }: Props) => {
   const formFields: FormField[] = [
     {
       type: 'hidden',
@@ -47,6 +47,11 @@ const ActivityForm = ({ initialValues, activityId, submitForm }: Props) => {
       formSchema={formSchema}
       submitForm={handleSubmit}
       submitButtonLabel="Activiteit opslaan"
+      secondaryButton={{
+        label: 'Activiteit verwijderen',
+        variant: 'danger',
+        onClick: deleteActivity,
+      }}
     />
   );
 };

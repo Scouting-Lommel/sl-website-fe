@@ -1,9 +1,8 @@
 import { useContext } from 'react';
-import { updateActivity } from '@/lib/api/activities/api';
+import { updateActivity, deleteActivity } from '@/lib/api/activities/api';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Banner from '@/components/atoms/Banner';
-import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import ActivityForm from './ActivityForm';
 
 const Activity = (props: any) => {
@@ -19,7 +18,7 @@ const Activity = (props: any) => {
     };
   }
 
-  const submitForm = async (data: any, formFields: FormField[]) => {
+  const handleSubmitForm = async (data: any) => {
     let activity = {
       id: data['activity-id'],
       title: data.title,
@@ -32,6 +31,17 @@ const Activity = (props: any) => {
 
     try {
       await updateActivity({ ...activity });
+      setFormStatus(FormStatus.STATUS_SUCCESS);
+    } catch (err: any) {
+      console.error(err);
+      console.log(err.message);
+      setFormStatus(FormStatus.STATUS_ERROR);
+    }
+  };
+
+  const handleDeleteActivity = async () => {
+    try {
+      await deleteActivity(props.activity.id);
       setFormStatus(FormStatus.STATUS_SUCCESS);
     } catch (err: any) {
       console.error(err);
@@ -66,7 +76,8 @@ const Activity = (props: any) => {
         <ActivityForm
           activityId={props.activity.id}
           initialValues={initialValues}
-          submitForm={submitForm}
+          submitForm={handleSubmitForm}
+          deleteActivity={handleDeleteActivity}
         />
       )}
     </>
