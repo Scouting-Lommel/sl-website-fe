@@ -1,5 +1,28 @@
 import gql from 'graphql-tag';
 
+const GROUP_PAGE_QUERY = gql`
+  query getGroupPage($slug: String) {
+    groups(filters: { slug: { eq: $slug } }) {
+      data {
+        id
+        attributes {
+          pageTitle
+          files {
+            data {
+              attributes {
+                ext
+                url
+                name
+                size
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 const ACTIVITIES_QUERY = gql`
   query getActivities($slug: String, $currDate: Date) {
     activities(
@@ -21,3 +44,4 @@ const ACTIVITIES_QUERY = gql`
 `;
 
 export { ACTIVITIES_QUERY };
+export default GROUP_PAGE_QUERY;
