@@ -4,6 +4,10 @@ import Hero from '@/components/organisms/Hero';
 import Form from '@/components/organisms/Forms';
 import { getActivities, getGroupPage } from './api';
 
+export async function generateMetadata() {
+  return { title: 'Takpagina beheren • Dashboard' };
+}
+
 const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string } }) => {
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];

@@ -20,6 +20,10 @@ const allGroups: Group[] = [
   { title: 'Jin', slug: 'jin', permission: 'groups:jin' },
 ];
 
+export async function generateMetadata() {
+  return { title: 'Takken • Dashboard' };
+}
+
 const DashboardGroupsOverviewPage = async () => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;

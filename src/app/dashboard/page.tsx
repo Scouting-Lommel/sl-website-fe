@@ -5,6 +5,10 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Button from '@/components/atoms/Button';
 import Hero from '@/components/organisms/Hero';
 
+export async function generateMetadata() {
+  return { title: 'Dashboard' };
+}
+
 const Dashboard = async () => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
