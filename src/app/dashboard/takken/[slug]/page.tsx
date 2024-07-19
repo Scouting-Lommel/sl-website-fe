@@ -3,6 +3,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import Form from '@/components/organisms/Forms';
 import { getActivities, getGroupPage } from './api';
+import SectionTitle from './components/SectionTitle';
 
 export async function generateMetadata() {
   return { title: 'Takpagina beheren • Dashboard' };
@@ -29,14 +30,14 @@ const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string
       </BlockContainer>
 
       <BlockContainer slug="group-activity">
-        <h2>Activiteiten</h2>
+        <SectionTitle title="Activiteiten" groupSlug={slug} type={'activity'} />
         {activities?.data.map((activity: any, key: any) => (
           <>
             <Form
               key={key}
               variant="activity"
               props={{ activity: { ...activity.attributes, id: activity.id } }}
-              blockProperties={{ slug: 'activity', modSmallPadding: true }}
+              blockProperties={{ slug: `activity-${activity.id}`, modSmallPadding: true }}
             />
             {key + 1 < activities?.data.length && <hr />}
           </>
