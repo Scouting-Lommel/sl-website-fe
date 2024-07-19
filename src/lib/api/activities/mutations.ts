@@ -8,6 +8,7 @@ const CREATE_ACTIVITY_MUTATION = gql`
     $endDate: Date!
     $endTime: Time!
     $description: String!
+    $groupId: ID!
   ) {
     createActivity(
       data: {
@@ -17,6 +18,7 @@ const CREATE_ACTIVITY_MUTATION = gql`
         endDate: $endDate
         endTime: $endTime
         description: $description
+        group: $groupId
       }
     ) {
       data {
@@ -28,6 +30,11 @@ const CREATE_ACTIVITY_MUTATION = gql`
           endDate
           endTime
           description
+          group {
+            data {
+              id
+            }
+          }
         }
       }
     }
