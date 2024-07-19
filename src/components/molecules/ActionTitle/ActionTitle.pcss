@@ -1,0 +1,11 @@
+.action-title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+
+  @media (--mq-from-medium) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
