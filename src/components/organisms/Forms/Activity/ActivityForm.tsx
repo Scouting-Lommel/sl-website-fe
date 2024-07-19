@@ -2,7 +2,6 @@ import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { ActivityForm as ActivityFormProps } from './types';
-import { useState } from 'react';
 
 type Props = ActivityFormProps & React.HTMLAttributes<HTMLElement>;
 
@@ -47,11 +46,15 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
       formSchema={formSchema}
       submitForm={handleSubmit}
       submitButtonLabel="Activiteit opslaan"
-      secondaryButton={{
-        label: 'Activiteit verwijderen',
-        variant: 'danger',
-        onClick: deleteActivity,
-      }}
+      secondaryButton={
+        activityId
+          ? {
+              label: 'Activiteit verwijderen',
+              variant: 'danger',
+              onClick: deleteActivity,
+            }
+          : undefined
+      }
     />
   );
 };

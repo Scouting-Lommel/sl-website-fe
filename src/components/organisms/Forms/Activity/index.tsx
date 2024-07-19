@@ -19,6 +19,8 @@ const Activity = (props: any) => {
   }
 
   const handleSubmitForm = async (data: any) => {
+    // TODO: createActivity variant
+
     let activity = {
       id: data['activity-id'],
       title: data.title,
@@ -74,7 +76,7 @@ const Activity = (props: any) => {
 
       {formStatus !== FormStatus.STATUS_SUCCESS && (
         <ActivityForm
-          activityId={props.activity.id}
+          activityId={props.activity?.id}
           initialValues={initialValues}
           submitForm={handleSubmitForm}
           deleteActivity={handleDeleteActivity}
