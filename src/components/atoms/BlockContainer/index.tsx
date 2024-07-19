@@ -18,6 +18,7 @@ const BlockContainer = ({
   socialsCta,
   bgImage,
   modSmallPadding,
+  modNoPadding,
   modMargin,
   children,
 }: Props) => {
@@ -26,6 +27,7 @@ const BlockContainer = ({
     `block-container--${variant}`,
     `block-container--${orientation}`,
     modSmallPadding && 'block-container--small-padding',
+    modNoPadding && 'block-container--no-padding',
     modMargin && 'block-container--has-margin',
   );
 
