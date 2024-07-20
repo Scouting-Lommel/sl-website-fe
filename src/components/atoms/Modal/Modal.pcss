@@ -1,17 +1,26 @@
 .modal {
-  display: flex;
+  display: none;
   width: 100%;
   flex-direction: column;
+  padding: 0;
   border: none;
   border-radius: var(--border-radius);
   gap: var(--space-8);
+
+  &[open] {
+    display: flex;
+  }
+
+  &::backdrop {
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-backdrop);
+    opacity: 0.8;
+  }
 }
 
-.modal::backdrop {
-  width: 100vw;
-  height: 100vh;
-  background: var(--color-backdrop);
-  opacity: 0.8;
+#modal__inner {
+  padding: var(--space-32);
 }
 
 .modal__header {
