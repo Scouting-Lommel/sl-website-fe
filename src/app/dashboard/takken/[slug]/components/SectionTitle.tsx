@@ -7,11 +7,11 @@ import { useRef } from 'react';
 
 type SectionTitleProps = {
   title: string;
-  groupSlug: string;
+  groupId: string;
   type: 'activity' | 'file';
 };
 
-const SectionTitle = ({ title, groupSlug, type }: SectionTitleProps) => {
+const SectionTitle = ({ title, groupId, type }: SectionTitleProps) => {
   const modalRef = useRef<HTMLDialogElement>(null);
 
   const handleOpenModal = () => {
@@ -37,7 +37,11 @@ const SectionTitle = ({ title, groupSlug, type }: SectionTitleProps) => {
         }}
       />
       <Modal ref={modalRef} closeModal={handleCloseModal} title="Nieuwe activiteit">
-        <Form variant="activity" blockProperties={{ slug: 'activity-new', modNoPadding: true }} />
+        <Form
+          variant="activity"
+          props={{ groupId, handleCloseModal }}
+          blockProperties={{ slug: 'activity-new', modNoPadding: true }}
+        />
       </Modal>
     </>
   );

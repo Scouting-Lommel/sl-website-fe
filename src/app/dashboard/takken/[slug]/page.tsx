@@ -30,7 +30,7 @@ const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string
       </BlockContainer>
 
       <BlockContainer slug="group-activity">
-        <SectionTitle title="Activiteiten" groupSlug={slug} type={'activity'} />
+        <SectionTitle title="Activiteiten" groupId={group.id} type={'activity'} />
         {activities?.data.map((activity: any, key: any) => (
           <>
             <Form

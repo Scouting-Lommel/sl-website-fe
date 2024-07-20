@@ -12,6 +12,7 @@ export function createActivity({
   endDate,
   endTime,
   description,
+  groupId,
 }: {
   title: string;
   startDate: string;
@@ -19,9 +20,10 @@ export function createActivity({
   endDate: string;
   endTime: string;
   description: string;
+  groupId: string;
 }): Promise<any> {
   return generateApiQuery({
-    variables: { title, startDate, startTime, endDate, endTime, description },
+    variables: { title, startDate, startTime, endDate, endTime, description, groupId },
     query: CREATE_ACTIVITY_MUTATION,
   });
 }
