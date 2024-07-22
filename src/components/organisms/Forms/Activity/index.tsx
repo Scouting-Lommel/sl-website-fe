@@ -93,7 +93,8 @@ const Activity = (props: any) => {
     ) {
       try {
         await deleteActivity(props.activity.id);
-        setFormStatus(FormStatus.STATUS_SUCCESS);
+        setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);
+        props.callback();
       } catch (err: any) {
         console.error(err);
         setFormStatus(FormStatus.STATUS_DELETE_ERROR);
@@ -125,6 +126,11 @@ const Activity = (props: any) => {
       {formStatus === FormStatus.STATUS_SUCCESS && (
         <>
           <Banner variant="success">Activiteit succesvol opgeslagen</Banner>
+        </>
+      )}
+      {formStatus === FormStatus.STATUS_DELETE_SUCCESS && (
+        <>
+          <Banner variant="success">Activiteit succesvol verwijderd</Banner>
         </>
       )}
 
