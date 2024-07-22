@@ -1,5 +1,3 @@
-// TODO: Rewrite entire navigation to be more accessible
-
 'use client';
 
 import { usePathname } from 'next/navigation';

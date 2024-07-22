@@ -71,5 +71,3 @@ const ActivitiesSection = ({ group }: Props) => {
 };
 
 export default ActivitiesSection;
-
-// TODO: delete confirmation
