@@ -1,15 +1,49 @@
-.loader {
+.loader__spinner {
   overflow: hidden;
-  width: 7.5rem;
-  height: 7.5rem;
-  border: 1rem solid var(--color-theme-primary);
-  border-top: 1rem solid var(--color-theme-secondary);
+  border: 1rem solid var(--color-neutral-100);
+  border-top: 1rem solid var(--color-theme-primary);
   animation: spin 2s linear infinite;
   border-radius: 50%;
+}
 
-  /* hide text */
-  text-indent: 100%;
-  white-space: nowrap;
+.loader {
+  display: flex;
+  align-items: center;
+
+  &--sm {
+    gap: var(--space-8);
+
+    & .loader__spinner {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-width: 0.3rem;
+    }
+  }
+
+  &--md {
+    gap: var(--space-16);
+
+    & .loader__spinner {
+      width: 3rem;
+      height: 3rem;
+      border-width: 0.6rem;
+    }
+  }
+
+  &--lg {
+    gap: var(--space-32);
+
+    & .loader__spinner {
+      width: 6rem;
+      height: 6rem;
+      border-width: 1.2rem;
+    }
+  }
+
+  &--label-invisible .loader__label {
+    text-indent: 100%;
+    white-space: nowrap;
+  }
 }
 
 @keyframes spin {
