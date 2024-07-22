@@ -84,12 +84,18 @@ const Activity = (props: any) => {
   };
 
   const handleDeleteActivity = async () => {
-    try {
-      await deleteActivity(props.activity.id);
-      setFormStatus(FormStatus.STATUS_SUCCESS);
-    } catch (err: any) {
-      console.error(err);
-      setFormStatus(FormStatus.STATUS_ERROR);
+    if (
+      confirm(
+        `Weet je zeker dat je de activiteit met titel "${props.activity.title}" wil verwijderen?`,
+      )
+    ) {
+      try {
+        await deleteActivity(props.activity.id);
+        setFormStatus(FormStatus.STATUS_SUCCESS);
+      } catch (err: any) {
+        console.error(err);
+        setFormStatus(FormStatus.STATUS_DELETE_ERROR);
+      }
     }
   };
 
@@ -101,6 +107,11 @@ const Activity = (props: any) => {
       {formStatus === FormStatus.STATUS_ERROR && (
         <Banner variant="error">
           Er ging iets mis bij het opslaan van deze activiteit. Probeer het later opnieuw.
+        </Banner>
+      )}
+      {formStatus === FormStatus.STATUS_DELETE_ERROR && (
+        <Banner variant="error">
+          Er ging iets mis bij het verwijderen van deze activiteit. Probeer het later opnieuw.
         </Banner>
       )}
       {(formStatus === FormStatus.STATUS_CAPTCHA_NOT_VERIFIED ||

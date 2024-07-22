@@ -3,6 +3,7 @@ export enum FormStatus {
   STATUS_LOADING = 'form-loading',
   STATUS_SUCCESS = 'form-success',
   STATUS_ERROR = 'form-error',
+  STATUS_DELETE_ERROR = 'form-delete-error',
   STATUS_CAPTCHA_NOT_VERIFIED = 'captcha-not-verified',
   STATUS_CAPTCHA_ERROR = 'captcha-error',
 }
