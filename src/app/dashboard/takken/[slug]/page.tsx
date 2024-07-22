@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import ActivitiesSection from './components/ActivitiesSection';
+import FileSection from './components/FilesSection';
 import { getGroupPage } from './api';
 
 export async function generateMetadata() {
@@ -20,9 +21,12 @@ const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string
         <Hero title={group.attributes.pageTitle} subtitle="Takpagina beheren" variant="simple" />
       </BlockContainer>
 
+      <FileSection group={group} />
       <ActivitiesSection group={group} />
     </div>
   );
 };
 
 export default DashboardGroupPage;
+
+// TODO: file section

@@ -84,17 +84,29 @@ const SectionTitle = ({ title, groupId, type }: SectionTitleProps) => {
     closeDropdown();
   }, [closeDropdown]);
 
+  let actionTitle = '';
+  switch (type) {
+    case 'activity': {
+      actionTitle = 'Nieuwe activiteit toevoegen';
+      break;
+    }
+    case 'file': {
+      actionTitle = 'Nieuw bestand toevoegen';
+      break;
+    }
+  }
+
   return (
     <>
       <ActionTitle
         title={title}
         tagName="h2"
         button={{
-          label: 'Nieuwe activiteit',
+          label: actionTitle,
           onClick: openClickHandler,
         }}
       />
-      <Modal ref={modal} closeModal={closeClickHandler} title="Nieuwe activiteit">
+      <Modal ref={modal} closeModal={closeClickHandler} title={actionTitle}>
         <Form
           variant="activity"
           props={{ groupId, closeClickHandler }}
