@@ -42,6 +42,7 @@ const FILES_QUERY = gql`
         attributes {
           files {
             data {
+              id
               attributes {
                 ext
                 url

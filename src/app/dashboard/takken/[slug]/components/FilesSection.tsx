@@ -3,9 +3,9 @@
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
+import File from '@/components/molecules/File';
 import SectionTitle from './SectionTitle';
 import { getFiles } from '../api';
-import File from '@/components/molecules/File';
 
 type Props = {
   group: any;
@@ -28,7 +28,12 @@ const FilesSection = ({ group }: Props) => {
       return;
     }
 
-    setFiles(data?.groups?.data[0]?.attributes?.files?.data?.map((file: any) => file.attributes));
+    setFiles(
+      data?.groups?.data[0]?.attributes?.files?.data?.map((file: any) => ({
+        ...file.attributes,
+        id: file.id,
+      })),
+    );
     setLoading(false);
   }, [group]);
 
@@ -50,7 +55,7 @@ const FilesSection = ({ group }: Props) => {
           groupFiles?.length > 0 &&
           groupFiles?.map((file: any, key: any) => (
             <Fragment key={`activity-${key}`}>
-              <File {...file} />
+              <File {...file} deleteCallback={() => fetchFiles()} modDeleteable />
             </Fragment>
           ))}
       </BlockContainer>
@@ -60,4 +65,4 @@ const FilesSection = ({ group }: Props) => {
 
 export default FilesSection;
 
-// TODO: Editable (deleteable) files, file component styling + states, add new file, mutation query
+// TODO: add new file (add file form), form context around file section for status messages, add file mutation
