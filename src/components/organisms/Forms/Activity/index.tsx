@@ -55,6 +55,7 @@ const Activity = (props: any) => {
       try {
         await updateActivity({ ...activity });
         setFormStatus(FormStatus.STATUS_SUCCESS);
+        props.callback();
       } catch (err: any) {
         console.error(err);
         setFormStatus(FormStatus.STATUS_ERROR);
@@ -75,6 +76,7 @@ const Activity = (props: any) => {
       try {
         await createActivity({ ...activity });
         setFormStatus(FormStatus.STATUS_SUCCESS);
+        props.callback();
         props.handleCloseModal();
       } catch (err: any) {
         console.error(err);

@@ -7,6 +7,7 @@ const GROUP_PAGE_QUERY = gql`
         id
         attributes {
           pageTitle
+          slug
           files {
             data {
               attributes {
