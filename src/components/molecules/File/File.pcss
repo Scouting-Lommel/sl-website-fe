@@ -1,10 +1,13 @@
-.file__container {
-  display: grid;
-  padding: var(--space-32) var(--space-32) var(--space-32) var(--space-32);
+.file {
+  display: flex;
+  align-items: center;
+  padding: var(--space-32);
   border-top: solid var(--color-dark-grey) 0.063rem;
-  grid-template-columns: 4rem auto 10rem;
+  gap: var(--space-28);
+  transition: background-color var(--transition);
 
   &:hover {
+    background-color: var(--color-neutral-100);
     cursor: pointer;
   }
 
@@ -17,19 +20,50 @@
   }
 }
 
-.file__filesize {
+.file__icon {
+  flex: 0 0 var(--space-28);
+}
+
+.file__info {
   display: flex;
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
   flex-direction: column;
-  justify-content: center;
-  font-size: small;
-  @media (--mq-up-to-medium) {
-    padding-left: var(--space-64);
+  justify-content: space-between;
+
+  @media (--mq-from-medium) {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-28);
   }
 }
 
-.file__name {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.file__info__name {
+  overflow: hidden;
+  max-height: calc(3 * 1.3em);
   padding-right: var(--space-16);
+  line-clamp: 3;
+  line-height: 1.3em;
+  text-overflow: ellipsis;
+}
+
+.file__info__filesize {
+  color: var(--color-neutral-700);
+  font-size: small;
+}
+
+.file__delete-button {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 var(--space-32);
+  border: none;
+  background-color: transparent;
+  color: var(--color-red);
+  cursor: pointer;
+  transition: color var(--transition);
+
+  &:hover {
+    color: var(--color-light-coral);
+  }
 }
