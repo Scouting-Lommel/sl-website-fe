@@ -52,7 +52,7 @@ const ActivitiesSection = ({ group }: Props) => {
       {!error && !loading && groupActivities?.length === 0 && <p>Geen activiteiten gevonden.</p>}
       {!error &&
         !loading &&
-        groupActivities?.length < 0 &&
+        groupActivities?.length > 0 &&
         groupActivities?.map((activity: any, key: any) => (
           <Fragment key={`activity-${key}`}>
             <Form
