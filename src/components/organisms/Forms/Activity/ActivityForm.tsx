@@ -28,6 +28,7 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
       id: 'description',
       name: 'description',
       label: 'Beschrijving',
+      rows: 6,
       required: true,
     },
   ];

@@ -45,11 +45,24 @@ const ActivitiesSection = ({ group }: Props) => {
   }, [group, fetchActivities]);
 
   return (
-    <BlockContainer slug="group-activity">
-      <SectionTitle title="Activiteiten" groupId={group.id} type={'activity'} />
-      {error && !loading && <p>Er ging iets mis. Probeer het later nog eens.</p>}
-      {!error && loading && <Loader size="sm" modLabelVisible />}
-      {!error && !loading && groupActivities?.length === 0 && <p>Geen activiteiten gevonden.</p>}
+    <BlockContainer slug="group-activities-section">
+      <SectionTitle title="Activiteiten" groupId={group.id} type="activity" />
+      {error && !loading && (
+        <BlockContainer slug="group-activities-error" modSmallPadding>
+          <p>Er ging iets mis. Probeer het later nog eens.</p>
+        </BlockContainer>
+      )}
+      {!error && loading && (
+        <BlockContainer slug="group-activities-loading" modSmallPadding>
+          <Loader size="sm" modLabelVisible />
+        </BlockContainer>
+      )}
+      {!error && !loading && groupActivities?.length === 0 && (
+        <BlockContainer slug="group-activities-empty-state" modSmallPadding>
+          <p>Geen activiteiten gevonden.</p>
+        </BlockContainer>
+      )}
+
       {!error &&
         !loading &&
         groupActivities?.length > 0 &&
