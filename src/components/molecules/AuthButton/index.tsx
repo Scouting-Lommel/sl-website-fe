@@ -47,7 +47,9 @@ const AuthButton = () => {
     );
   }
 
-  return <NavItem itemKey={99} label="Inloggen" onClick={() => signIn()} modButton />;
+  return (
+    <NavItem itemKey={99} label="Inloggen" href="/inloggen" onClick={() => signIn()} modButton />
+  );
 };
 
 export default AuthButton;

@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
+  signinMiddleware,
   dashboardMiddleware,
   groupsMiddleware,
+  signinMiddlewareConfig,
   dashboardMiddlewareConfig,
   groupsMiddlewareConfig,
 } from './middlewares';
@@ -9,11 +11,15 @@ import {
 export function middleware(req: NextRequest) {
   const url: string = req.nextUrl.pathname;
 
-  if (dashboardMiddlewareConfig.some((item) => new RegExp(`^${item}$`).test(url))) {
+  if (signinMiddlewareConfig.some((item: string) => new RegExp(`^${item}$`).test(url))) {
+    return signinMiddleware(req);
+  }
+
+  if (dashboardMiddlewareConfig.some((item: string) => new RegExp(`^${item}$`).test(url))) {
     return dashboardMiddleware(req);
   }
 
-  if (groupsMiddlewareConfig.some((item) => new RegExp(`^${item}$`).test(url))) {
+  if (groupsMiddlewareConfig.some((item: string) => new RegExp(`^${item}$`).test(url))) {
     return groupsMiddleware(req);
   }
 
@@ -21,5 +27,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [...dashboardMiddlewareConfig, ...groupsMiddlewareConfig],
+  matcher: [...signinMiddlewareConfig, ...dashboardMiddlewareConfig, ...groupsMiddlewareConfig],
 };

@@ -15,6 +15,10 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
+  pages: {
+    signIn: '/inloggen',
+  },
+
   callbacks: {
     async jwt({ token, account }) {
       if (account) {
