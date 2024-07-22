@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  IconPDF,
-  IconWord,
-  IconPowerpoint,
-  IconUnknownFile,
-  IconJPG,
-  IconPNG,
-} from '@/assets/icons';
+import { IconTextFile, IconPresentationFile, IconImageFile, IconFile } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
 import { File as FileBlockProps, extensions } from './types';
@@ -20,13 +13,14 @@ export const links = () => {
 type Props = FileBlockProps & React.HTMLAttributes<HTMLElement>;
 
 const extMap: extensions = {
-  pdf: IconPDF,
-  docx: IconWord,
-  ppt: IconPowerpoint,
-  pptx: IconPowerpoint,
-  jpg: IconJPG,
-  jpeg: IconJPG,
-  png: IconPNG,
+  pdf: IconTextFile,
+  doc: IconTextFile,
+  docx: IconTextFile,
+  ppt: IconPresentationFile,
+  pptx: IconPresentationFile,
+  jpg: IconImageFile,
+  jpeg: IconImageFile,
+  png: IconImageFile,
 };
 
 const File = ({ ext, url, name, size }: Props) => {
@@ -39,7 +33,7 @@ const File = ({ ext, url, name, size }: Props) => {
     document.body.removeChild(a);
   };
 
-  const icon = extMap[ext.slice(1)] ? extMap[ext.slice(1)] : IconUnknownFile;
+  const icon = extMap[ext.slice(1)] ? extMap[ext.slice(1)] : IconFile;
 
   return (
     <div className="file__container" onClick={download}>

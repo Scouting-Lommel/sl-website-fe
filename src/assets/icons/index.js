@@ -27,6 +27,10 @@ const IconSpinner = dynamic(() => import('@/assets/icons/Spinner.svg'));
 const IconTikTok = dynamic(() => import('@/assets/icons/TikTok.svg'));
 const IconUnknownFile = dynamic(() => import('@/assets/icons/UnknownFile.svg'));
 const IconWord = dynamic(() => import('@/assets/icons/Word.svg'));
+const IconImageFile = dynamic(() => import('@/assets/icons/ImageFile.svg'));
+const IconTextFile = dynamic(() => import('@/assets/icons/TextFile.svg'));
+const IconPresentationFile = dynamic(() => import('@/assets/icons/PresentationFile.svg'));
+const IconFile = dynamic(() => import('@/assets/icons/File.svg'));
 
 export const icons = {
   arrowdown: IconArrowDown,
@@ -54,6 +58,10 @@ export const icons = {
   tiktok: IconTikTok,
   unknownfile: IconUnknownFile,
   word: IconWord,
+  imageFile: IconImageFile,
+  textFile: IconTextFile,
+  presentationFile: IconPresentationFile,
+  file: IconFile,
 };
 
 export {
@@ -82,4 +90,8 @@ export {
   IconTikTok,
   IconUnknownFile,
   IconWord,
+  IconImageFile,
+  IconTextFile,
+  IconPresentationFile,
+  IconFile,
 };
