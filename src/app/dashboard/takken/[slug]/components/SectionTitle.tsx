@@ -107,11 +107,20 @@ const SectionTitle = ({ title, groupId, type }: SectionTitleProps) => {
         }}
       />
       <Modal ref={modal} closeModal={closeClickHandler} title={actionTitle}>
-        <Form
-          variant="activity"
-          props={{ groupId, closeClickHandler }}
-          blockProperties={{ slug: 'activity-new', modNoPadding: true }}
-        />
+        {type === 'activity' && (
+          <Form
+            variant="activity"
+            props={{ groupId, closeClickHandler }}
+            blockProperties={{ slug: 'activity-new', modNoPadding: true }}
+          />
+        )}
+        {type === 'file' && (
+          <Form
+            variant="uploadFile"
+            props={{ groupId }}
+            blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
+          />
+        )}
       </Modal>
     </>
   );

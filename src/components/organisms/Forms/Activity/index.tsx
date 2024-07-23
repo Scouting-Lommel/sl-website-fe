@@ -117,12 +117,6 @@ const Activity = (props: any) => {
           Er ging iets mis bij het verwijderen van deze activiteit. Probeer het later opnieuw.
         </Banner>
       )}
-      {(formStatus === FormStatus.STATUS_CAPTCHA_NOT_VERIFIED ||
-        formStatus === FormStatus.STATUS_CAPTCHA_ERROR) && (
-        <Banner variant="error">
-          Er ging iets mis met de Captcha check. Probeer het later opnieuw.
-        </Banner>
-      )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
         <>
           <Banner variant="success">Activiteit succesvol opgeslagen</Banner>

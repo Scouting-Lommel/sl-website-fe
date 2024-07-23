@@ -5,6 +5,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Contact from './Contact';
 import Register from './Register';
 import Activity from './Activity';
+import UploadFile from './UploadFile';
 import { Form as FormProps } from './types';
 
 const Form = ({ variant, props, blockProperties }: FormProps) => {
@@ -23,6 +24,10 @@ const Form = ({ variant, props, blockProperties }: FormProps) => {
       FormComponent = <Activity {...props} />;
       break;
     }
+    case 'uploadFile': {
+      FormComponent = <UploadFile {...props} />;
+      break;
+    }
     default: {
       console.warn(`There's no form defined for this variant: ${variant}`);
       break;
@@ -31,9 +36,9 @@ const Form = ({ variant, props, blockProperties }: FormProps) => {
 
   return (
     <BlockContainer {...blockProperties}>
-      <section className="sl-layout">
+      <div className="sl-layout">
         <FormProvider>{FormComponent}</FormProvider>
-      </section>
+      </div>
     </BlockContainer>
   );
 };
