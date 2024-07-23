@@ -40,6 +40,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
   const download = () => {
     const a = document.createElement('a');
     a.href = url;
+    a.target = '_blank';
     a.download = url.split('/').pop()!;
     document.body.appendChild(a);
     a.click();
