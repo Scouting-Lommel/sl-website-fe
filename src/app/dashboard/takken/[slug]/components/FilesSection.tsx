@@ -65,4 +65,8 @@ const FilesSection = ({ group }: Props) => {
 
 export default FilesSection;
 
-// TODO: add new file (add file form), form context around file section for status messages, add file mutation
+// TODO: add new file (add file form)
+// TODO: form context around file section for status messages
+// TODO: add file mutation
+// TODO: Lucide icons
+// TODO: SEO, robots, humans, sitemap

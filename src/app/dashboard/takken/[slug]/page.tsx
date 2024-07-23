@@ -28,5 +28,3 @@ const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string
 };
 
 export default DashboardGroupPage;
-
-// TODO: file section
