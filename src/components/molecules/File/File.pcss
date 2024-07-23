@@ -54,9 +54,12 @@
 }
 
 .file__delete-button {
-  width: 1.25rem;
-  height: 1.25rem;
+  display: flex;
+  width: 2rem;
+  height: 2rem;
   flex: 0 0 var(--space-32);
+  align-items: center;
+  justify-content: center;
   border: none;
   background-color: transparent;
   color: var(--color-red);
@@ -66,4 +69,12 @@
   &:hover {
     color: var(--color-light-coral);
   }
+}
+
+.file__loader {
+  display: flex;
+  min-width: 2rem;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: center;
 }

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { deleteFile } from '@/lib/api/files/api';
+import { formatFileSize } from '@/lib/helpers/formatFileSize';
 import {
   IconTextFile,
   IconPresentationFile,
@@ -68,7 +69,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
       <Icon size="xl" icon={icon} title={ext.slice(1)} className="file__icon" />
       <div className="file__info">
         <Typography className="file__info__name">{name.replaceAll(ext, '')}</Typography>
-        <Typography className="file__info__filesize">{size}KB</Typography>
+        <Typography className="file__info__filesize">{formatFileSize(size)}</Typography>
       </div>
       {modDeleteable && !loading && (
         <button
@@ -80,7 +81,11 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
           <Icon size="sm" icon={IconClose} title="Bestand verwijderen" />
         </button>
       )}
-      {modDeleteable && loading && <Loader size="xs" />}
+      {modDeleteable && loading && (
+        <div className="file__loader">
+          <Loader size="xs" />
+        </div>
+      )}
     </div>
   );
 };
