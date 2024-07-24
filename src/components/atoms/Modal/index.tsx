@@ -24,7 +24,7 @@ const Modal = forwardRef<HTMLDialogElement, Props>(
             >
               <Icon icon={IconClose} title="Close" size={'lg'} />
             </button>
-            <div className="t-headline-3">{title}</div>
+            <div className="t-headline-3 modal__header__title">{title}</div>
           </div>
           <div className="modal__content">{children}</div>
         </div>

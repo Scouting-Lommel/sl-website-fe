@@ -7,6 +7,10 @@
   border-radius: var(--border-radius);
   gap: var(--space-8);
 
+  @media (--mq-from-xxlarge) {
+    max-width: 100rem;
+  }
+
   &[open] {
     display: flex;
   }
@@ -20,7 +24,7 @@
 }
 
 #modal__inner {
-  padding: var(--space-32);
+  padding: var(--space-36);
 }
 
 .modal__header {
@@ -41,6 +45,10 @@
   &:hover {
     color: var(--color-neutral-600);
   }
+}
+
+.modal__header__title {
+  margin-right: var(--space-36);
 }
 
 .modal__content {
