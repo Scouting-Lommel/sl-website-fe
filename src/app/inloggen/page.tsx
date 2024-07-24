@@ -28,7 +28,7 @@ const SignInPage = () => {
     return (
       <div className="sl-layout">
         <BlockContainer slug="signin-hero">
-          <Hero title="Inloggen" variant="simple" />
+          <Hero title="Inloggen" subtitle="Let me in, let me iiiiinnn!" variant="simple" />
         </BlockContainer>
 
         <BlockContainer slug="signin-loading">
@@ -41,7 +41,7 @@ const SignInPage = () => {
   return (
     <div className="sl-layout">
       <BlockContainer slug="signin-hero">
-        <Hero title="Inloggen" variant="simple" />
+        <Hero title="Inloggen" subtitle="Let me in, let me iiiiinnn!" variant="simple" />
       </BlockContainer>
 
       <BlockContainer slug="signin-providers">

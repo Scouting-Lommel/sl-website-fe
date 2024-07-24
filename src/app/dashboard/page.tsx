@@ -23,7 +23,7 @@ const Dashboard = async () => {
   return (
     <div className="sl-layout">
       <BlockContainer slug="dashboard-title">
-        <Hero title="Dashboard" subtitle="Interne navigatie" variant="simple" />
+        <Hero title="Dashboard" subtitle={`Welkom, ${session?.user?.name}!`} variant="simple" />
       </BlockContainer>
 
       <BlockContainer slug="dashboard-internal-navigation">
