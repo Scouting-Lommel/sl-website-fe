@@ -76,20 +76,23 @@ const FormBuilder = ({
         <FormField key={field.id} register={register} errors={errors} {...field} />
       ))}
 
-      {/* Buttons */}
-      <div className="form__buttons">
-        <Button
-          label={submitButtonLabel}
-          loading={formStatus === FormStatus.STATUS_LOADING}
-          type="submit"
-        />
-        {secondaryButton && <Button {...secondaryButton} type="button" />}
-      </div>
+      {/* Form footer */}
+      <div className="form__footer">
+        {/* Buttons */}
+        <div className="form__footer__buttons">
+          <Button
+            label={submitButtonLabel}
+            loading={formStatus === FormStatus.STATUS_LOADING}
+            type="submit"
+          />
+          {secondaryButton && <Button {...secondaryButton} type="button" />}
+        </div>
 
-      {/* Required fields footnote */}
-      <div className="form__footnote">
-        <span className="form__footnote__asterisk">*</span>
-        <span>Verplicht veld</span>
+        {/* Required fields footnote */}
+        <div className="form__footer__footnote">
+          <span className="form__footer__footnote__asterisk">*</span>
+          <span>Verplicht veld</span>
+        </div>
       </div>
     </form>
   );
