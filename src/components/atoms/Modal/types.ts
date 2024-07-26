@@ -1,5 +1,6 @@
 export type Modal = {
   title: string;
   children: React.ReactNode;
-  closeModal: any;
+  open?: boolean;
+  setOpen: any;
 };
