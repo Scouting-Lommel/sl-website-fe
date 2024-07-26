@@ -40,7 +40,7 @@ const SectionTitle = ({ title, groupId, type }: SectionTitleProps) => {
         return;
       }
 
-      const inner = document.querySelector('#modal__inner');
+      const inner = document.querySelector(`#modal__inner--${type}`);
       if (!inner || !(inner instanceof HTMLElement)) {
         return;
       }
@@ -106,7 +106,12 @@ const SectionTitle = ({ title, groupId, type }: SectionTitleProps) => {
           onClick: openClickHandler,
         }}
       />
-      <Modal ref={modal} closeModal={closeClickHandler} title={actionTitle}>
+      <Modal
+        id={`modal__inner--${type}`}
+        ref={modal}
+        closeModal={closeClickHandler}
+        title={actionTitle}
+      >
         {type === 'activity' && (
           <Form
             variant="activity"

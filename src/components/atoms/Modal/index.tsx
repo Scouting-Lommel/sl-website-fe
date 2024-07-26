@@ -11,10 +11,10 @@ export const links = () => {
 type Props = ModalProps & React.HTMLAttributes<HTMLElement>;
 
 const Modal = forwardRef<HTMLDialogElement, Props>(
-  ({ title, closeModal, children }: Props, ref) => {
+  ({ id, title, closeModal, children }: Props, ref) => {
     return (
       <dialog className="modal" ref={ref} role="none">
-        <div id="modal__inner">
+        <div id={id} className="modal__inner">
           <div className="modal__header">
             <button
               className="modal__header__close-button"
