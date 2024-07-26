@@ -13,13 +13,14 @@ const UploadFileForm = ({ initialValues, submitForm, groupId }: Props) => {
       name: 'group-id',
       value: groupId,
     },
-    { type: 'input', id: 'title', name: 'title', label: 'Titel', required: true },
+    { type: 'file', id: 'file', name: 'file', label: 'Kies een bestand', required: true },
   ];
 
   const formSchema = generateFormSchema({ fields: formFields });
 
   const handleSubmit = (data: any) => {
     submitForm(data, formFields);
+    console.log(data);
   };
 
   return (

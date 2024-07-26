@@ -8,6 +8,7 @@ import Checkbox from '@/components/atoms/Forms/Checkbox';
 import Captcha from '@/components/atoms/Forms/Captcha';
 import { FormField as FormFieldProps } from './types';
 import styles from './FormField.css';
+import File from '@/components/atoms/Forms/File';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -118,6 +119,22 @@ const FormField = (props: Props) => {
               required={props.required}
               autoComplete={props.autoComplete}
               customChangeBehaviour={props.customChangeBehaviour}
+              error={errorMessage}
+            />
+          )}
+        </div>
+      );
+    }
+    case 'file': {
+      return (
+        <div className="form-field">
+          {props.register && props.name && (
+            <File
+              label={props.label!}
+              type="file"
+              id={props.id}
+              {...props.register(props.name)}
+              required={props.required}
               error={errorMessage}
             />
           )}
