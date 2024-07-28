@@ -53,7 +53,7 @@ const Activity = (props: any) => {
       };
 
       try {
-        await updateActivity({ ...activity });
+        await callApi('update', activity);
         setFormStatus(FormStatus.STATUS_SUCCESS);
         props.callback();
       } catch (err: any) {
@@ -74,7 +74,7 @@ const Activity = (props: any) => {
       };
 
       try {
-        await createActivity({ ...activity });
+        await callApi('create', activity);
         setFormStatus(FormStatus.STATUS_SUCCESS);
         props.callback();
         props.closeClickHandler();
@@ -93,7 +93,7 @@ const Activity = (props: any) => {
       )
     ) {
       try {
-        await deleteActivity(props.activity.id);
+        await callApi('delete', props.activity.id);
         setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);
         props.callback();
       } catch (err: any) {
@@ -101,6 +101,22 @@ const Activity = (props: any) => {
         setFormStatus(FormStatus.STATUS_DELETE_ERROR);
       }
     }
+  };
+
+  const callApi = async (action: 'update' | 'create' | 'delete', data: any) => {
+    const response = await fetch('/api/activity', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ action, data }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to perform action');
+    }
+
+    return response.json();
   };
 
   return (
