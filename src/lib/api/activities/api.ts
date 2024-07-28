@@ -25,6 +25,7 @@ export function createActivity({
   return generateApiQuery({
     variables: { title, startDate, startTime, endDate, endTime, description, groupId },
     query: CREATE_ACTIVITY_MUTATION,
+    operation: 'mutation',
   });
 }
 
@@ -48,6 +49,7 @@ export function updateActivity({
   return generateApiQuery({
     variables: { id, title, startDate, startTime, endDate, endTime, description },
     query: UPDATE_ACTIVITY_MUTATION,
+    operation: 'mutation',
   });
 }
 
@@ -55,5 +57,6 @@ export function deleteActivity(id: string): Promise<any> {
   return generateApiQuery({
     variables: { id },
     query: DELETE_ACTIVITY_MUTATION,
+    operation: 'mutation',
   });
 }
