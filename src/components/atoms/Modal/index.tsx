@@ -76,7 +76,10 @@ const Modal = ({ id, title, children, open, setOpen }: Props) => {
     if (open) {
       openDropdown();
     }
-  }, [open, openDropdown]);
+    if (!open) {
+      closeDropdown();
+    }
+  }, [open, openDropdown, closeDropdown]);
 
   return (
     <dialog className="modal" ref={modal} role="none">
