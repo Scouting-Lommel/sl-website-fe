@@ -44,9 +44,18 @@ const ActivitiesSection = ({ group }: Props) => {
     }
   }, [group, fetchActivities]);
 
+  const addActivityCallback = () => {
+    fetchActivities();
+  };
+
   return (
     <BlockContainer slug="group-activities-section">
-      <SectionTitle title="Activiteiten" groupId={group.id} type="activity" />
+      <SectionTitle
+        title="Activiteiten"
+        groupId={group.id}
+        type="activity"
+        callback={addActivityCallback}
+      />
       {error && !loading && (
         <BlockContainer slug="group-activities-error" modSmallPadding>
           <p>Er ging iets mis. Probeer het later nog eens.</p>

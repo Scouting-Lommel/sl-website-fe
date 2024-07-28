@@ -77,7 +77,8 @@ const Activity = (props: any) => {
         await createActivity({ ...activity });
         setFormStatus(FormStatus.STATUS_SUCCESS);
         props.callback();
-        props.handleCloseModal();
+        props.closeClickHandler();
+        setFormStatus(FormStatus.STATUS_READY);
       } catch (err: any) {
         console.error(err);
         setFormStatus(FormStatus.STATUS_ERROR);
