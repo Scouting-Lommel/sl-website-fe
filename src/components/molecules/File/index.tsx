@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { deleteFile } from '@/lib/api/files/api';
 import { formatFileSize } from '@/lib/helpers/formatFileSize';
 import {
   IconTextFile,
@@ -53,7 +52,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
 
     if (confirm(`Weet je zeker dat je het bestand "${name}" wil verwijderen?`)) {
       try {
-        await deleteFile(id);
+        await callApi(id);
         deleteCallback();
       } catch (err: any) {
         console.error(err);
@@ -61,6 +60,22 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
     }
 
     setLoading(false);
+  };
+
+  const callApi = async (data: any) => {
+    const response = await fetch('/api/file', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ action: 'delete', data }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to perform action');
+    }
+
+    return response.json();
   };
 
   const icon = extMap[ext.slice(1)] ? extMap[ext.slice(1)] : IconFile;

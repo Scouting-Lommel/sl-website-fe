@@ -43,9 +43,13 @@ const FilesSection = ({ group }: Props) => {
     }
   }, [group, fetchFiles]);
 
+  const addFileCallback = () => {
+    fetchFiles();
+  };
+
   return (
     <BlockContainer slug="group-files-section">
-      <SectionTitle title="Bestanden" groupId={group.id} type="file" />
+      <SectionTitle title="Bestanden" groupId={group.id} type="file" callback={addFileCallback} />
       <BlockContainer slug="group-files" modSmallPadding>
         {error && !loading && <p>Er ging iets mis. Probeer het later nog eens.</p>}
         {!error && loading && <Loader size="sm" modLabelVisible />}
@@ -65,8 +69,7 @@ const FilesSection = ({ group }: Props) => {
 
 export default FilesSection;
 
-// TODO: add new file (add file form)
+// TODO: add new file
 // TODO: form context around file section for status messages
-// TODO: add file mutation
 // TODO: Lucide icons
 // TODO: SEO, robots, humans, sitemap
