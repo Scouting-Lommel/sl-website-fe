@@ -1,6 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { FormContext } from '@/lib/contexts/FormContext';
+import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { formatFileSize } from '@/lib/helpers/formatFileSize';
 import {
   IconTextFile,
@@ -35,6 +37,9 @@ const extMap: extensions = {
 
 const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
+  const { setFormStatus, setRemoveStatusAfterTimeout } = useContext(FormContext);
+
+  setRemoveStatusAfterTimeout(true);
 
   const download = () => {
     const a = document.createElement('a');
@@ -48,14 +53,17 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
 
   const handleDeleteFile = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    setLoading(true);
 
     if (confirm(`Weet je zeker dat je het bestand "${name}" wil verwijderen?`)) {
       try {
+        setLoading(true);
+        setFormStatus(FormStatus.STATUS_LOADING);
         await callApi(id);
         deleteCallback();
+        setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);
       } catch (err: any) {
         console.error(err);
+        setFormStatus(FormStatus.STATUS_DELETE_ERROR);
       }
     }
 

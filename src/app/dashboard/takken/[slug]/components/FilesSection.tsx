@@ -1,10 +1,12 @@
 'use client';
 
 import { Fragment, useCallback, useEffect, useState } from 'react';
+import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
 import File from '@/components/molecules/File';
 import SectionTitle from './SectionTitle';
+import FileStatus from './FileStatus';
 import { getFiles } from '../api';
 
 type Props = {
@@ -49,20 +51,25 @@ const FilesSection = ({ group }: Props) => {
 
   return (
     <BlockContainer slug="group-files-section">
-      <SectionTitle title="Bestanden" groupId={group.id} type="file" callback={addFileCallback} />
-      <BlockContainer slug="group-files" modSmallPadding>
-        {error && !loading && <p>Er ging iets mis. Probeer het later nog eens.</p>}
-        {!error && loading && <Loader size="sm" modLabelVisible />}
-        {!error && !loading && groupFiles?.length === 0 && <p>Geen bestanden gevonden.</p>}
-        {!error &&
-          !loading &&
-          groupFiles?.length > 0 &&
-          groupFiles?.map((file: any, key: any) => (
-            <Fragment key={`activity-${key}`}>
-              <File {...file} deleteCallback={() => fetchFiles()} modDeleteable />
-            </Fragment>
-          ))}
-      </BlockContainer>
+      <FormProvider>
+        <SectionTitle title="Bestanden" groupId={group.id} type="file" callback={addFileCallback} />
+        <BlockContainer slug="group-files" modSmallPadding>
+          <FileStatus />
+          {error && !loading && (
+            <p>Er ging iets mis bij het laden van de bestanden. Probeer het later nog eens.</p>
+          )}
+          {!error && loading && <Loader size="sm" modLabelVisible />}
+          {!error && !loading && groupFiles?.length === 0 && <p>Geen bestanden gevonden.</p>}
+          {!error &&
+            !loading &&
+            groupFiles?.length > 0 &&
+            groupFiles?.map((file: any, key: any) => (
+              <Fragment key={`activity-${key}`}>
+                <File {...file} deleteCallback={() => fetchFiles()} modDeleteable />
+              </Fragment>
+            ))}
+        </BlockContainer>
+      </FormProvider>
     </BlockContainer>
   );
 };
@@ -70,6 +77,5 @@ const FilesSection = ({ group }: Props) => {
 export default FilesSection;
 
 // TODO: add new file
-// TODO: form context around file section for status messages
 // TODO: Lucide icons
 // TODO: SEO, robots, humans, sitemap
