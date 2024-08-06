@@ -5,6 +5,15 @@ import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/ty
 
 type Props = { fields: FormField[] };
 
+const SUPPORTED_FILE_FORMATS = [
+  'application/pdf',
+  'image/jpg',
+  'image/jpeg',
+  'image/png',
+  'image/gif',
+];
+const MAX_FILE_SIZE = 1024 * 1024 * 5; // 5MB
+
 const generateFormSchema = ({ fields }: Props) => {
   let schemaObj: { [key: string]: Yup.AnySchema } = {};
 
@@ -58,6 +67,23 @@ const getFieldSchema = (field: FormField): Yup.AnySchema => {
       return field.required
         ? Yup.boolean().oneOf([true], ErrorMessage.REQUIRED_ERROR)
         : Yup.boolean();
+    }
+
+    case 'file': {
+      const fileTest = Yup.mixed()
+        .test('fileSize', ErrorMessage.MAX_FILE_SIZE_ERROR, (value: any) => {
+          if (value.length < 1) return true;
+          return value[0].size <= MAX_FILE_SIZE;
+        })
+        .test('fileFormat', ErrorMessage.UNSUPPORTED_FILE_FORMAT_ERROR, (value: any) => {
+          if (value.length < 1) return true;
+          return SUPPORTED_FILE_FORMATS.includes(value[0].type);
+        });
+      return field.required
+        ? fileTest.test('containsFiles', ErrorMessage.REQUIRED_ERROR, (value: any) => {
+            return value.length > 0;
+          })
+        : fileTest;
     }
 
     default: {
