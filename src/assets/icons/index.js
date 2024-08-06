@@ -13,6 +13,7 @@ const IconChevronLeft = dynamic(() => import('@/assets/icons/ChevronLeft.svg'));
 const IconChevronRight = dynamic(() => import('@/assets/icons/ChevronRight.svg'));
 const IconChevronUp = dynamic(() => import('@/assets/icons/ChevronUp.svg'));
 const IconClose = dynamic(() => import('@/assets/icons/Close.svg'));
+const IconDownload = dynamic(() => import('@/assets/icons/Download.svg'));
 const IconEdit = dynamic(() => import('@/assets/icons/Edit.svg'));
 const IconFacebook = dynamic(() => import('@/assets/icons/Facebook.svg'));
 const IconFile = dynamic(() => import('@/assets/icons/File.svg'));
@@ -44,6 +45,7 @@ export const icons = {
   chevronright: IconChevronRight,
   chevronup: IconChevronUp,
   close: IconClose,
+  download: IconDownload,
   edit: IconEdit,
   facebook: IconFacebook,
   file: IconFile,
@@ -76,6 +78,7 @@ export {
   IconChevronRight,
   IconChevronUp,
   IconClose,
+  IconDownload,
   IconEdit,
   IconFacebook,
   IconFile,
