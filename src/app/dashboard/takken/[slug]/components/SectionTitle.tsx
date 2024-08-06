@@ -38,33 +38,36 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
           onClick: () => setToggle(true),
         }}
       />
-      <Modal
-        id={`modal__inner--${type}`}
-        open={toggle}
-        setOpen={(data: boolean) => setToggle(data)}
-        title={actionTitle}
-      >
-        {type === 'activity' && (
-          <Form
-            variant="activity"
-            props={{
-              groupId,
-              callback,
-              closeClickHandler: () => {
-                setToggle(false);
-              },
-            }}
-            blockProperties={{ slug: 'activity-new', modNoPadding: true }}
-          />
-        )}
-        {type === 'file' && (
-          <Form
-            variant="uploadFile"
-            props={{ groupId, callback, allFiles, closeClickHandler: () => setToggle(false) }}
-            blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
-          />
-        )}
-      </Modal>
+
+      {toggle && (
+        <Modal
+          id={`modal__inner--${type}`}
+          open={toggle}
+          setOpen={(data: boolean) => setToggle(data)}
+          title={actionTitle}
+        >
+          {type === 'activity' && (
+            <Form
+              variant="activity"
+              props={{
+                groupId,
+                callback,
+                closeClickHandler: () => {
+                  setToggle(false);
+                },
+              }}
+              blockProperties={{ slug: 'activity-new', modNoPadding: true }}
+            />
+          )}
+          {type === 'file' && (
+            <Form
+              variant="uploadFile"
+              props={{ groupId, callback, allFiles, closeClickHandler: () => setToggle(false) }}
+              blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
+            />
+          )}
+        </Modal>
+      )}
     </>
   );
 };
