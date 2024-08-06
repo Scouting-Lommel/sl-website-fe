@@ -81,7 +81,3 @@ const FilesSection = ({ group }: Props) => {
 };
 
 export default FilesSection;
-
-// TODO: add new file
-// TODO: Lucide icons
-// TODO: SEO, robots, humans, sitemap
