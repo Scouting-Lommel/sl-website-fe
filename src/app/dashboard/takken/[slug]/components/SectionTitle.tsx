@@ -9,7 +9,7 @@ type SectionTitleProps = {
   title: string;
   groupId: string;
   type: 'activity' | 'file';
-  allFiles: any;
+  allFiles?: any;
   callback: any;
 };
 

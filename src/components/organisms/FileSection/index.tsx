@@ -12,6 +12,7 @@ const FileSection = ({ title, files, className }: Props) => {
         files.data.map((file, i) => {
           return (
             <File
+              id={file.attributes.id}
               ext={file.attributes.ext}
               url={file.attributes.url}
               name={file.attributes.name}
