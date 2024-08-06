@@ -9,10 +9,11 @@ type SectionTitleProps = {
   title: string;
   groupId: string;
   type: 'activity' | 'file';
+  allFiles: any;
   callback: any;
 };
 
-const SectionTitle = ({ title, groupId, type, callback }: SectionTitleProps) => {
+const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitleProps) => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   let actionTitle = '';
@@ -59,7 +60,7 @@ const SectionTitle = ({ title, groupId, type, callback }: SectionTitleProps) => 
         {type === 'file' && (
           <Form
             variant="uploadFile"
-            props={{ groupId, callback, closeClickHandler: () => setToggle(false) }}
+            props={{ groupId, callback, allFiles, closeClickHandler: () => setToggle(false) }}
             blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
           />
         )}

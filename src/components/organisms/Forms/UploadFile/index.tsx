@@ -12,7 +12,64 @@ const Activity = (props: any) => {
   };
 
   const handleSubmitForm = async (data: any) => {
-    console.log(data);
+    try {
+      await uploadFile(data.file);
+      setFormStatus(FormStatus.STATUS_SUCCESS);
+      props.callback();
+      props.closeClickHandler();
+      setFormStatus(FormStatus.STATUS_READY);
+    } catch (err: any) {
+      console.error(err);
+      setFormStatus(FormStatus.STATUS_ERROR);
+    }
+  };
+
+  const uploadFile = async (data: any) => {
+    const formData = new FormData();
+    formData.append('files', data);
+
+    const allFiles = props.allFiles?.map((file: any) => String(file.id)) || [];
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_APP_BACKEND_URL}/api/upload`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_UPLOAD_FILE_TOKEN}`,
+        },
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result[0].id) {
+        allFiles.push(String(result[0].id));
+      }
+
+      await callApi({ id: props.groupId, files: allFiles });
+
+      setFormStatus(FormStatus.STATUS_SUCCESS);
+      props.callback();
+      props.closeClickHandler();
+      setFormStatus(FormStatus.STATUS_READY);
+    } catch (err: any) {
+      throw new Error('Failed to perform action:', err);
+    }
+  };
+
+  const callApi = async (data: any) => {
+    const response = await fetch('/api/file', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ action: 'create', data }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to perform action');
+    }
+
+    return response.json();
   };
 
   return (

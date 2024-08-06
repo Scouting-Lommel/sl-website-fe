@@ -52,7 +52,13 @@ const FilesSection = ({ group }: Props) => {
   return (
     <BlockContainer slug="group-files-section">
       <FormProvider>
-        <SectionTitle title="Bestanden" groupId={group.id} type="file" callback={addFileCallback} />
+        <SectionTitle
+          title="Bestanden"
+          groupId={group.id}
+          type="file"
+          allFiles={groupFiles}
+          callback={addFileCallback}
+        />
         <BlockContainer slug="group-files" modSmallPadding>
           <FileStatus />
           {error && !loading && (
