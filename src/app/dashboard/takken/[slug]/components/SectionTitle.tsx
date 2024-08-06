@@ -51,7 +51,6 @@ const SectionTitle = ({ title, groupId, type, callback }: SectionTitleProps) => 
               callback,
               closeClickHandler: () => {
                 setToggle(false);
-                console.log('toggled');
               },
             }}
             blockProperties={{ slug: 'activity-new', modNoPadding: true }}

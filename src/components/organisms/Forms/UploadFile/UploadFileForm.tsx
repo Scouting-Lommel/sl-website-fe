@@ -20,7 +20,6 @@ const UploadFileForm = ({ initialValues, submitForm, groupId }: Props) => {
 
   const handleSubmit = (data: any) => {
     submitForm(data, formFields);
-    console.log(data);
   };
 
   return (
