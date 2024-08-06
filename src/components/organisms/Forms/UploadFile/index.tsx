@@ -75,16 +75,16 @@ const Activity = (props: any) => {
   return (
     <>
       {formStatus === FormStatus.STATUS_LOADING && (
-        <Banner variant="info">Activiteit opslaan...</Banner>
+        <Banner variant="info">Bestand uploaden...</Banner>
       )}
       {formStatus === FormStatus.STATUS_ERROR && (
         <Banner variant="error">
-          Er ging iets mis bij het opslaan van deze activiteit. Probeer het later opnieuw.
+          Er ging iets mis bij het uploaden van dit bestand. Probeer het later opnieuw.
         </Banner>
       )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
         <>
-          <Banner variant="success">Activiteit succesvol opgeslagen</Banner>
+          <Banner variant="success">Bestand succesvol geupload.</Banner>
         </>
       )}
 
