@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { formatFileSize } from '@/lib/helpers/formatFileSize';
@@ -39,7 +39,9 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
   const [loading, setLoading] = useState<boolean>(false);
   const { setFormStatus, setRemoveStatusAfterTimeout } = useContext(FormContext);
 
-  setRemoveStatusAfterTimeout(true);
+  useEffect(() => {
+    setRemoveStatusAfterTimeout(true);
+  }, [setRemoveStatusAfterTimeout]);
 
   const download = () => {
     const a = document.createElement('a');
