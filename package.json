@@ -14,7 +14,7 @@
     "dev:next": "next dev",
     "dev": "run-p dev:**",
     "export": "next export",
-    "generate-icons": "node ./script/generate-icons.js && npx eslint ./src/assets/icons/index.js --quiet --fix",
+    "generate-icons": "node ./script/generate-icons.js && npx eslint ./src/assets/icons/index.ts --quiet --fix",
     "lint:eslint": "next lint",
     "lint:typescript": "tsc",
     "lint:stylelint": "npx stylelint \"**/*.pcss\" --fix",
