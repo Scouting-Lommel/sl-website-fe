@@ -13,12 +13,12 @@ type Props = ModalProps & React.HTMLAttributes<HTMLElement>;
 const Modal = ({ id, title, children, open, setOpen }: Props) => {
   const modal = useRef<HTMLDialogElement>(null);
 
-  const openDropdown = useCallback(() => {
+  const openModal = useCallback(() => {
     modal.current?.showModal();
     document.body.setAttribute('style', 'overflow-y: hidden');
   }, [modal]);
 
-  const closeDropdown = useCallback(() => {
+  const closeModal = useCallback(() => {
     setOpen(false);
     modal.current?.close();
     document.body.removeAttribute('style');
@@ -27,7 +27,7 @@ const Modal = ({ id, title, children, open, setOpen }: Props) => {
   useEffect(() => {
     const closeKeyDownHandler = (event: KeyboardEvent) => {
       if (event.key !== 'Escape') return;
-      closeDropdown();
+      closeModal();
       document.removeEventListener('keydown', closeKeyDownHandler);
     };
 
@@ -57,7 +57,7 @@ const Modal = ({ id, title, children, open, setOpen }: Props) => {
         return;
       }
 
-      closeDropdown();
+      closeModal();
       document.removeEventListener('click', clickHandler);
     };
 
@@ -74,12 +74,12 @@ const Modal = ({ id, title, children, open, setOpen }: Props) => {
 
   useEffect(() => {
     if (open) {
-      openDropdown();
+      openModal();
     }
     if (!open) {
-      closeDropdown();
+      closeModal();
     }
-  }, [open, openDropdown, closeDropdown]);
+  }, [open, openModal, closeModal]);
 
   return (
     <dialog className="modal" ref={modal} role="none">
@@ -89,7 +89,7 @@ const Modal = ({ id, title, children, open, setOpen }: Props) => {
             className="modal__header__close-button"
             type="button"
             aria-label="Venster sluiten"
-            onClick={closeDropdown}
+            onClick={closeModal}
           >
             <Icon icon={IconClose} title="Close" size={'lg'} />
           </button>
