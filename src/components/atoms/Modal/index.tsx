@@ -10,7 +10,7 @@ export const links = () => {
 
 type Props = ModalProps & React.HTMLAttributes<HTMLElement>;
 
-const Modal = ({ id, title, children, open, setOpen }: Props) => {
+const Modal = ({ id, title, children, open, handleCloseModal }: Props) => {
   const modal = useRef<HTMLDialogElement>(null);
 
   const openModal = useCallback(() => {
@@ -19,10 +19,10 @@ const Modal = ({ id, title, children, open, setOpen }: Props) => {
   }, [modal]);
 
   const closeModal = useCallback(() => {
-    setOpen(false);
+    handleCloseModal();
     modal.current?.close();
     document.body.removeAttribute('style');
-  }, [modal, setOpen]);
+  }, [modal, handleCloseModal]);
 
   useEffect(() => {
     const closeKeyDownHandler = (event: KeyboardEvent) => {

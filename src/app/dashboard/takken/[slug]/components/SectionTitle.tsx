@@ -48,7 +48,7 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
         <Modal
           id={`modal__inner--${type}`}
           open={toggle}
-          setOpen={(data: boolean) => setToggle(data)}
+          handleCloseModal={handleClose}
           title={actionTitle}
         >
           {type === 'activity' && (
