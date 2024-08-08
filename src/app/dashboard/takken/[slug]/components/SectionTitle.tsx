@@ -28,6 +28,11 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
     }
   }
 
+  const handleClose = () => {
+    document.body.removeAttribute('style');
+    setToggle(false);
+  };
+
   return (
     <>
       <ActionTitle
@@ -52,9 +57,7 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
               props={{
                 groupId,
                 callback,
-                closeClickHandler: () => {
-                  setToggle(false);
-                },
+                closeClickHandler: handleClose,
               }}
               blockProperties={{ slug: 'activity-new', modNoPadding: true }}
             />
@@ -62,7 +65,7 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
           {type === 'file' && (
             <Form
               variant="uploadFile"
-              props={{ groupId, callback, allFiles, closeClickHandler: () => setToggle(false) }}
+              props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
               blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
             />
           )}
