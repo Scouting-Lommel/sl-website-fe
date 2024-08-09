@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth';
 import SessionProvider from '@/lib/providers/SessionProvider';
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import { generateMetadataForRootLayout } from '@/lib/helpers/generateMetadata';
+import GlobalAlert from '@/components/atoms/GlobalAlert';
 import Header from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
 import Footer from '@/components/organisms/Footer';
@@ -23,20 +24,29 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const data = await getGeneralData();
   const session = await getServerSession(authOptions);
 
+  const globalAlert = data.generalData.data.attributes.globalAlert;
+
   return (
     <html lang="nl">
       <body>
         <SessionProvider session={session}>
           <SkipToContent className="skip-to-content" />
+
+          {globalAlert && globalAlert?.enabled && (
+            <GlobalAlert label={globalAlert?.label} variant={globalAlert?.variant} />
+          )}
+
           <Header
             logo={data.generalData.data.attributes.logo}
             mainNavigation={data.generalData.data.attributes.mainNavigation}
             groups={data.groups.data.map((item: any) => item.attributes)}
             rentalLocations={data.rentalLocations.data.map((item: any) => item.attributes)}
           />
+
           <main className="sl-main" id="main">
             {children}
           </main>
+
           <Footer
             siteName={data.generalData.data.attributes.siteName}
             vatNumber={data.generalData.data.attributes.vatNumber}

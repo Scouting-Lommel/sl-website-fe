@@ -1,6 +1,6 @@
+import Typography from '@/components/atoms/Typography';
 import { Activity as ActivityProps } from './types';
 import styles from './Activity.css';
-import Typography from '@/components/atoms/Typography';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
