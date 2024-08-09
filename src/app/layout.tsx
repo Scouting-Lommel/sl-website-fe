@@ -32,8 +32,8 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
         <SessionProvider session={session}>
           <SkipToContent className="skip-to-content" />
 
-          {globalAlert.enabled && (
-            <GlobalAlert label={globalAlert.label} variant={globalAlert.variant} />
+          {globalAlert && globalAlert?.enabled && (
+            <GlobalAlert label={globalAlert?.label} variant={globalAlert?.variant} />
           )}
 
           <Header
