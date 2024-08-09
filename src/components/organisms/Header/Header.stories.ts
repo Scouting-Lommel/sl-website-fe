@@ -67,7 +67,6 @@ export const Default = {
         dropdownItems: [],
         dropdownCta: null,
         dropdownTitle: null,
-        dropdownButton: null,
       },
       {
         label: 'Takken',
@@ -156,7 +155,6 @@ export const Default = {
         dropdownItems: [],
         dropdownCta: null,
         dropdownTitle: null,
-        dropdownButton: null,
       },
       {
         label: 'Inschrijven',
@@ -165,7 +163,6 @@ export const Default = {
         dropdownItems: [],
         dropdownCta: null,
         dropdownTitle: null,
-        dropdownButton: null,
       },
       {
         label: 'Contact',
@@ -174,7 +171,6 @@ export const Default = {
         dropdownItems: [],
         dropdownCta: null,
         dropdownTitle: null,
-        dropdownButton: null,
       },
     ],
     groups: [

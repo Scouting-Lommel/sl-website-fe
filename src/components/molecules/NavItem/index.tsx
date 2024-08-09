@@ -112,8 +112,8 @@ const NavItem = ({
   const navItemClassNames = classNames(
     'nav-item',
     toggle ? 'nav-item--toggled' : 'nav-item--untoggled',
-    href === '/' && pathname === '/' ? 'nav-item--active' : '',
-    href !== '/' && pathname?.includes(href.toLowerCase()) ? 'nav-item--active' : '',
+    href && href === '/' && pathname === '/' ? 'nav-item--active' : '',
+    href && href !== '/' && pathname?.startsWith(href.toLowerCase()) ? 'nav-item--active' : '',
   );
 
   if (modDropdown) {
@@ -133,7 +133,7 @@ const NavItem = ({
           />
         </button>
 
-        {dropdownButton && dropdownTitle && dropdownCta && (
+        {dropdownTitle && dropdownCta && (
           <dialog className="nav-item__dropdown" ref={modal} role="none">
             <button
               ref={closeButton}
@@ -162,15 +162,17 @@ const NavItem = ({
 
   if (modButton) {
     return (
-      <button onClick={onClick} className="nav-item">
-        {label}
-      </button>
+      <li className={navItemClassNames}>
+        <button type="button" onClick={onClick} className="nav-item__dropdown-trigger__link">
+          {label}
+        </button>
+      </li>
     );
   }
 
   return (
     <li className={navItemClassNames}>
-      <Link href={href} className="nav-item__dropdown-trigger__link">
+      <Link href={href || ''} className="nav-item__dropdown-trigger__link">
         {label}
       </Link>
     </li>

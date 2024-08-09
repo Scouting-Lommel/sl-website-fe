@@ -21,6 +21,7 @@
 .embla__slide__img {
   display: block;
   width: 100%;
+  height: fit-content;
   margin: auto;
   object-fit: cover;
 }
@@ -39,6 +40,9 @@
   inset: 0;
 }
 .embla__image__container {
+  display: flex;
   max-height: calc(var(--slide-height) * 0.9);
+  align-items: center;
+  justify-content: center;
   padding: var(--space-48);
 }

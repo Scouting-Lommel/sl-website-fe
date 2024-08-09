@@ -1,3 +1,4 @@
+import { MouseEventHandler } from 'react';
 import type { Button } from '@/components/atoms/Button/types';
 
 export type DropdownNavItem = {
@@ -10,23 +11,25 @@ export type DropdownItem = {
   label: string;
   page: string;
   link: string | null;
+  description?: string;
 };
 
 export type DropdownCta = {
   title: string;
   intro: string;
   ctaLabel: string;
-  ctaLink: string;
+  ctaLink?: string;
+  ctaOnClick?: MouseEventHandler<HTMLElement>;
 };
 
 export type Dropdown = {
   itemKey: number;
-  path: string;
+  path?: string;
   dropdownTitle: string;
-  dropdownButton: Button;
+  dropdownButton?: Button;
   dropdownCta: DropdownCta;
-  dropdownItems: DropdownItem[];
-  groups: DropdownNavItem[];
-  rentalLocations: DropdownNavItem[];
+  dropdownItems?: DropdownItem[];
+  groups?: DropdownNavItem[];
+  rentalLocations?: DropdownNavItem[];
   toggleDropdown: Function;
 };

@@ -10,7 +10,7 @@ export async function generateMetadata() {
     {
       pageTitle: 'Pagina niet gevonden',
       pageDescription: 'Scouting Sint-Pieter Lommel',
-      slug: 'legal-info',
+      slug: 'pagina-niet-gevonden',
     },
     generalData.data.attributes,
   );

@@ -25,9 +25,15 @@ export const Default = {
     title: 'Example title',
     files: {
       data: [
-        { attributes: { ext: '.pdf', url: 'randomurl.com', name: 'Test name', size: 10 } },
+        { attributes: { id: '0', ext: '.pdf', url: 'randomurl.com', name: 'Test name', size: 10 } },
         {
-          attributes: { ext: '.docx', url: 'randomurl.com', name: 'Another test name', size: 450 },
+          attributes: {
+            id: '1',
+            ext: '.docx',
+            url: 'randomurl.com',
+            name: 'Another test name',
+            size: 450,
+          },
         },
       ],
     },

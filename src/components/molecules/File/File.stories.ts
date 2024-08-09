@@ -29,25 +29,25 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default = {
-  args: { ext: '.undef', url: 'randomurl.com', name: 'Test name', size: 10 },
+  args: { id: '0', ext: '.undef', url: 'randomurl.com', name: 'Test name', size: 10 },
 } satisfies Story;
 
 export const PNG = {
-  args: { ext: '.png', url: 'randomurl.com', name: 'Test name', size: 10 },
+  args: { id: '1', ext: '.png', url: 'randomurl.com', name: 'Test name', size: 10 },
 } satisfies Story;
 
 export const JPG = {
-  args: { ext: '.jpg', url: 'randomurl.com', name: 'Test name', size: 10 },
+  args: { id: '2', ext: '.jpg', url: 'randomurl.com', name: 'Test name', size: 10 },
 } satisfies Story;
 
 export const Word = {
-  args: { ext: '.docx', url: 'randomurl.com', name: 'Test name', size: 10 },
+  args: { id: '3', ext: '.docx', url: 'randomurl.com', name: 'Test name', size: 10 },
 } satisfies Story;
 
 export const Powerpoint = {
-  args: { ext: '.pptx', url: 'randomurl.com', name: 'Test name', size: 10 },
+  args: { id: '4', ext: '.pptx', url: 'randomurl.com', name: 'Test name', size: 10 },
 } satisfies Story;
 
 export const PDF = {
-  args: { ext: '.pdf', url: 'randomurl.com', name: 'Test name', size: 10 },
+  args: { id: '5', ext: '.pdf', url: 'randomurl.com', name: 'Test name', size: 10 },
 } satisfies Story;

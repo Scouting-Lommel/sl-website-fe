@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const inputFolder = './src/assets/icons/';
-const outputFile = './src/assets/icons/index.js';
+const outputFile = './src/assets/icons/index.ts';
 
 const generateIconsIndex = new Promise((resolve, reject) => {
   let fileContent = '';

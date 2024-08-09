@@ -5,24 +5,26 @@
 }
 
 .leaders {
-  display: grid;
+  display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  padding: 0 var(--space-40);
+  margin-top: var(--space-40);
   gap: var(--space-20);
-  grid-template-columns: 1fr 1fr;
 
   @media (--mq-from-small) {
+    padding: 0 var(--space-56);
     gap: var(--space-28);
-    grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media (--mq-from-medium) {
+    padding: 0 var(--space-64);
+    margin-top: var(--space-64);
     gap: var(--space-32);
-    grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media (--mq-from-large) {
     gap: var(--space-48);
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--space-96);
   }
 }

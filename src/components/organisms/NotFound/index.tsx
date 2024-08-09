@@ -1,6 +1,5 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
-import SLLink from '@/components/atoms/Link';
 import Typography from '@/components/atoms/Typography';
 import styles from './NotFound.css';
 

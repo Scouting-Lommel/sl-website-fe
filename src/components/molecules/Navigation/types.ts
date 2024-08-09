@@ -8,7 +8,7 @@ export type NavItem = {
   dropdownItems: DropdownItem[];
   dropdownCta: DropdownCta | null;
   dropdownTitle: string | null;
-  dropdownButton: Button | null;
+  dropdownButton?: Button;
 };
 
 export type Navigation = {

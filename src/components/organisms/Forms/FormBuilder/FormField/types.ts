@@ -27,7 +27,7 @@ export interface DividerField extends BaseField {
 }
 
 export interface InputField extends BaseField {
-  type: 'input' | 'email' | 'tel' | 'date';
+  type: 'input' | 'email' | 'tel' | 'date' | 'datetime';
   label: string;
   value?: string;
   placeholder?: string;
@@ -74,6 +74,11 @@ export interface CheckboxField extends BaseField {
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
 }
 
+export interface FileField extends BaseField {
+  type: 'file';
+  label: string;
+}
+
 export interface CaptchaField extends BaseField {
   type: 'captcha';
 }
@@ -92,5 +97,6 @@ export type FormField =
   | SelectField
   | RadioGroupField
   | CheckboxField
+  | FileField
   | CaptchaField
   | HiddenField;
