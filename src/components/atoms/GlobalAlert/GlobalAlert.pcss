@@ -1,0 +1,34 @@
+.global-alert {
+  position: fixed;
+  z-index: 50;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: var(--space-16) 0;
+  filter: drop-shadow(var(--drop-shadow-sm-reverse));
+
+  &--info {
+    background-color: var(--color-bg-info);
+  }
+
+  &--warning {
+    background-color: var(--color-secondary-400);
+  }
+
+  &--error {
+    background-color: var(--color-bg-error);
+    color: white;
+  }
+}
+
+.global-alert__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-20);
+
+  @media (--mq-from-medium) {
+    flex-direction: row;
+  }
+}

@@ -4,6 +4,7 @@ import { getServerSession } from 'next-auth';
 import SessionProvider from '@/lib/providers/SessionProvider';
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import { generateMetadataForRootLayout } from '@/lib/helpers/generateMetadata';
+import GlobalAlert from '@/components/atoms/GlobalAlert';
 import Header from '@/components/organisms/Header';
 import SkipToContent from '@/components/atoms/SkipToContent';
 import Footer from '@/components/organisms/Footer';
@@ -28,6 +29,10 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
       <body>
         <SessionProvider session={session}>
           <SkipToContent className="skip-to-content" />
+          <GlobalAlert
+            label="OPGELET! Door een technische storing is het contactformulier buiten gebruik. Voor dringende vragen, neem contact op via email."
+            variant="error"
+          />
           <Header
             logo={data.generalData.data.attributes.logo}
             mainNavigation={data.generalData.data.attributes.mainNavigation}
