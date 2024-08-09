@@ -39,6 +39,11 @@ const GENERAL_DATA = gql`
           groupNumber
           bankAccountNumber
           vatNumber
+          globalAlert {
+            label
+            variant
+            enabled
+          }
           contactItems {
             label
             link

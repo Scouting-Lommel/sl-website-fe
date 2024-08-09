@@ -24,24 +24,29 @@ const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const data = await getGeneralData();
   const session = await getServerSession(authOptions);
 
+  const globalAlert = data.generalData.data.attributes.globalAlert;
+
   return (
     <html lang="nl">
       <body>
         <SessionProvider session={session}>
           <SkipToContent className="skip-to-content" />
-          <GlobalAlert
-            label="OPGELET! Door een technische storing is het contactformulier buiten gebruik. Voor dringende vragen, neem contact op via email."
-            variant="error"
-          />
+
+          {globalAlert.enabled && (
+            <GlobalAlert label={globalAlert.label} variant={globalAlert.variant} />
+          )}
+
           <Header
             logo={data.generalData.data.attributes.logo}
             mainNavigation={data.generalData.data.attributes.mainNavigation}
             groups={data.groups.data.map((item: any) => item.attributes)}
             rentalLocations={data.rentalLocations.data.map((item: any) => item.attributes)}
           />
+
           <main className="sl-main" id="main">
             {children}
           </main>
+
           <Footer
             siteName={data.generalData.data.attributes.siteName}
             vatNumber={data.generalData.data.attributes.vatNumber}
