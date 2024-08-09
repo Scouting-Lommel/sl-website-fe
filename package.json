@@ -64,7 +64,6 @@
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^1.0.3",
-    "@netlify/plugin-nextjs": "^4.41.3",
     "@storybook/addon-actions": "^7.5.3",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
