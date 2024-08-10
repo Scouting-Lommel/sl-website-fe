@@ -1,5 +1,5 @@
 import { Paragraph } from '@/components/molecules/Paragraph/type';
 
-export type TOC = {
+export type TableOfContents = {
   sections: Paragraph[];
 };

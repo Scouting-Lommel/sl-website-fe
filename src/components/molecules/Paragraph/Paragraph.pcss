@@ -1,3 +1,27 @@
-.Paragraph {
+.paragraph {
   padding: var(--space-16) 0;
+}
+
+.paragraph__title {
+  display: flex;
+  margin: var(--space-24) 0;
+  gap: var(--space-8);
+}
+
+.paragraph__title__anchor {
+  color: var(--color-primary-base);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.paragraph__title__copy {
+  margin-top: var(--space-1);
+  margin-bottom: 0;
+
+  @media (--mq-from-small) {
+    margin-top: var(--space-2);
+  }
 }
