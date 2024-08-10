@@ -14,7 +14,7 @@ const TableOfContents = ({ sections }: Props) => {
       {sections.map((section, i) => {
         return (
           <a
-            href={'#' + section.title.toUpperCase().replaceAll(' ', '_')}
+            href={'#' + section.title.toLowerCase().replaceAll(' ', '-')}
             key={i}
             className="TOC__item"
           >
