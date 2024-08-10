@@ -31,6 +31,14 @@
     }
   }
 
+  &--light {
+    --color-text: var(--color-foreground);
+  }
+
+  &--dark {
+    --color-text: var(--color-foreground-light);
+  }
+
   &--light + &--light {
     padding-top: 0;
   }
