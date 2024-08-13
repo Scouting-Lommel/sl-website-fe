@@ -1,0 +1,37 @@
+import gql from 'graphql-tag';
+
+const REGISTER_MEMBER_MUTATION = gql`
+  mutation (
+    $firstName: String
+    $lastName: String
+    $birthday: Date
+    $address: String
+    $postCode: String
+    $locality: String
+    $telephoneNumber: String
+    $email: String
+    $isAkabe: Boolean
+    $gender: ENUM_MEMBER_GENDER
+  ) {
+    createMember(
+      data: {
+        firstName: $firstName
+        lastName: $lastName
+        birthday: $birthday
+        address: $address
+        postCode: $postCode
+        locality: $locality
+        phone: $telephoneNumber
+        email: $email
+        isAkabe: $isAkabe
+        gender: $gender
+      }
+    ) {
+      data {
+        id
+      }
+    }
+  }
+`;
+
+export { REGISTER_MEMBER_MUTATION };
