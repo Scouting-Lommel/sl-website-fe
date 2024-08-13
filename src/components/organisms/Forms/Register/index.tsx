@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
-import { generalEmailAddress } from '@/lib/constants/emailAddress';
+import { registerEmailAddress } from '@/lib/constants/emailAddress';
 import { Email, generateEmail } from '@/lib/helpers/sendEmail';
 import { registerMember } from '@/lib/helpers/registerMember';
 import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
@@ -33,7 +33,7 @@ const Register = (props: any) => {
     const email: Email = generateEmail({
       formTitle: 'Nieuwe inschrijving via Scouting Lommel website',
       formData: generateFormDataWithLabel(data, formFields),
-      to: generalEmailAddress,
+      to: registerEmailAddress,
     });
 
     const callback = (resp: any) => {
