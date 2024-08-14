@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { registerEmailAddress } from '@/lib/constants/emailAddress';
@@ -12,7 +12,7 @@ import RegisterForm from './RegisterForm';
 
 const Register = (props: any) => {
   const { formStatus, setFormStatus } = useContext(FormContext);
-  let registerPrice = props.memberPrice;
+  const [registerPrice, setRegisterPrice] = useState<number>(props.memberPrice);
 
   const initialValues = {};
 
@@ -27,7 +27,7 @@ const Register = (props: any) => {
     delete data['isAkabe'];
 
     if (data.memberGroup === 'Leiding') {
-      registerPrice = props.leaderPrice;
+      setRegisterPrice(props.leaderPrice);
     }
 
     const email: Email = generateEmail({
