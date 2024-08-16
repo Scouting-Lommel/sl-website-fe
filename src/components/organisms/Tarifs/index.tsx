@@ -30,9 +30,11 @@ const Tarifs = ({ tarifs, cta }: Props) => {
       })}
       <div className="tarifs__cta__container">
         <Typography className="tarifs__cta__data__intro" data={cta.intro} />
-        <div className="tarifs__cta__data__button">
-          <Button label={cta.ctaLabel} href={cta.ctaLink || ''} variant="primary" modSmall />
-        </div>
+        {cta && cta.ctaLabel && cta.ctaLink && (
+          <div className="tarifs__cta__data__button">
+            <Button label={cta.ctaLabel} href={cta.ctaLink || ''} variant="primary" modSmall />
+          </div>
+        )}
       </div>
     </div>
   );
