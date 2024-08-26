@@ -10,14 +10,15 @@ import ContactConfirmation from './Confirmation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import ContactForm from './ContactForm';
 
-const Contact = () => {
+const Contact = (props: any) => {
   const { formStatus, setFormStatus } = useContext(FormContext);
 
   const initialValues = {
     firstName: '',
     lastName: '',
     email: '',
-    recipient: Recipients.GENERAL,
+    recipient: props.recipient || Recipients.GENERAL,
+    group: props.group || '',
     body: '',
   };
 
