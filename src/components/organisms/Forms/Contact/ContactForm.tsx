@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Groups } from '@/lib/constants/enums/groups';
@@ -143,6 +143,10 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
   const handleSubmit = (data: any) => {
     submitForm(data, fields);
   };
+
+  useEffect(() => {
+    updateFields(initialValues.recipient);
+  }); // Execute only on first render
 
   return (
     <FormBuilder
