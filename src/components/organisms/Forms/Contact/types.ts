@@ -1,4 +1,4 @@
 export type ContactForm = {
-  initialValues: Object;
+  initialValues: any;
   submitForm: any;
 };

@@ -1,9 +1,13 @@
-import { notFound } from 'next/navigation';
+import { notFound, ReadonlyURLSearchParams } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
 import Form from '@/components/organisms/Forms';
 import { getGeneralData } from '../api';
 import { getContactPage } from './api';
+
+type Props = {
+  searchParams: ReadonlyURLSearchParams;
+};
 
 export async function generateMetadata() {
   const { generalData } = await getGeneralData();
@@ -18,7 +22,7 @@ export async function generateMetadata() {
   return { ...metadata };
 }
 
-const ContactPage = async () => {
+const ContactPage = async ({ searchParams }: Props) => {
   const { contactPage } = await getContactPage();
 
   if (!contactPage) notFound();
@@ -26,7 +30,7 @@ const ContactPage = async () => {
   return (
     <>
       <Blocks content={contactPage.data.attributes.blocks} />
-      <Form variant="contact" blockProperties={{ slug: 'contact-form' }} />
+      <Form variant="contact" blockProperties={{ slug: 'contact-form' }} props={searchParams} />
     </>
   );
 };

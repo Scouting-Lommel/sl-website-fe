@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Groups } from '@/lib/constants/enums/groups';
@@ -18,6 +18,10 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
   const isGroupField = (field: FormField): boolean => field.id === 'group';
 
   const onRecipientChange = (event: any) => {
+    updateFields(event.target.value);
+  };
+
+  const updateFields = (recipient: Recipients) => {
     const rowIndex = fields.findIndex(isRecipientRow);
 
     if (rowIndex > -1) {
@@ -29,13 +33,13 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
           const fieldChildren = field.fieldChildren;
 
           if (fieldChildren) {
-            if (event.target.value === Recipients.GROUP) {
+            if (recipient === Recipients.GROUP) {
               const groupExists = fieldChildren.some(isGroupField);
               if (!groupExists) {
                 fieldChildren.push(groupSelect);
               }
             }
-            if (event.target.value !== Recipients.GROUP) {
+            if (recipient !== Recipients.GROUP) {
               const groupIndex = fieldChildren.findIndex(isGroupField);
               if (groupIndex !== -1) {
                 fieldChildren.splice(groupIndex, 1);
@@ -139,6 +143,10 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
   const handleSubmit = (data: any) => {
     submitForm(data, fields);
   };
+
+  useEffect(() => {
+    updateFields(initialValues.recipient);
+  }); // Execute only on first render
 
   return (
     <FormBuilder
