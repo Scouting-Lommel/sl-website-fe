@@ -12,6 +12,7 @@ export function registerMember({
   email,
   isAkabe,
   gender,
+  comments,
 }: {
   firstName: string;
   lastName: string;
@@ -23,6 +24,7 @@ export function registerMember({
   email: string;
   isAkabe: boolean;
   gender: 'm' | 'v' | 'x';
+  comments: string;
 }): Promise<any> {
   return generateApiQuery({
     variables: {
@@ -36,6 +38,7 @@ export function registerMember({
       email,
       isAkabe,
       gender,
+      comments,
     },
     query: REGISTER_MEMBER_MUTATION,
     operation: 'mutation',
