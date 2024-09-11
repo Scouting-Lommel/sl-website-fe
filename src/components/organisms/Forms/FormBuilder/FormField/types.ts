@@ -85,6 +85,7 @@ export interface CaptchaField extends BaseField {
 
 export interface HiddenField extends BaseField {
   type: 'hidden';
+  label?: string;
   value?: string;
 }
 
