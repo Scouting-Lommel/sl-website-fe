@@ -13,6 +13,7 @@ const REGISTER_MEMBER_MUTATION = gql`
     $isAkabe: Boolean
     $gender: ENUM_MEMBER_GENDER
     $comments: String
+    $workingYear: String
   ) {
     createMember(
       data: {
@@ -27,6 +28,7 @@ const REGISTER_MEMBER_MUTATION = gql`
         isAkabe: $isAkabe
         gender: $gender
         comments: $comments
+        workingYear: $workingYear
       }
     ) {
       data {

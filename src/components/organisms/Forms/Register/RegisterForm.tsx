@@ -307,6 +307,13 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       className: 't-headline-3',
     },
     {
+      id: 'workingYear',
+      type: 'hidden',
+      name: 'workingYear',
+      label: 'Scoutsjaar',
+      value: getCurrentWorkingYear(),
+    },
+    {
       type: 'textarea',
       id: 'comments',
       name: 'comments',
