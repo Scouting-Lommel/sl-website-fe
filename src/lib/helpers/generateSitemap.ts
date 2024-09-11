@@ -75,7 +75,7 @@ const generateSitemap = (sitemapData: any) => {
   if (page && !page.pageMeta?.noIndex) {
     const pageObject = {
       url: `${process.env.SITE_URL}/${page.pageMeta.slug}`,
-      lastMod: page.updatedAt,
+      lastModified: page.updatedAt,
     };
     out.push(pageObject);
   }

@@ -234,9 +234,9 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
     },
     {
       type: 'text',
-      id: 'generalInformation',
-      name: 'generalInformation',
-      text: 'Overige informatie: ',
+      id: 'contactAndAddress',
+      name: 'contactAndAddress',
+      text: 'Contact en adres: ',
       className: 't-headline-3',
     },
     {
@@ -298,6 +298,32 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       type: 'divider',
       id: 'divider-2',
       name: 'divider-2',
+    },
+    {
+      type: 'text',
+      id: 'extraInfo',
+      name: 'extraInfo',
+      text: 'Extra informatie: ',
+      className: 't-headline-3',
+    },
+    {
+      id: 'workingYear',
+      type: 'hidden',
+      name: 'workingYear',
+      label: 'Scoutsjaar',
+      value: getCurrentWorkingYear(),
+    },
+    {
+      type: 'textarea',
+      id: 'comments',
+      name: 'comments',
+      label: 'Eventuele opmerkingen',
+      rows: 8,
+    },
+    {
+      type: 'divider',
+      id: 'divider-3',
+      name: 'divider-3',
     },
     {
       id: 'captcha',
