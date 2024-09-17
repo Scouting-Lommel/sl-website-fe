@@ -1,16 +1,22 @@
-.file {
+.attachment__container {
+  list-style-type: none;
+}
+
+.attachment {
   display: flex;
   align-items: center;
   padding: var(--space-32);
   border-top: solid var(--color-neutral-200) 0.063rem;
+  color: currentColor;
   gap: var(--space-24);
+  text-decoration: none;
   transition: background-color var(--transition);
 
   &:last-child {
     border-bottom: solid var(--color-neutral-200) 0.063rem;
   }
 
-  &--with-lightbox {
+  &--clickable {
     &:hover {
       background-color: var(--color-neutral-100);
       cursor: pointer;
@@ -22,11 +28,11 @@
   }
 }
 
-.file__icon {
+.attachment__icon {
   flex: 0 0 var(--space-28);
 }
 
-.file__info {
+.attachment__info {
   display: flex;
   width: 100%;
   min-width: 0;
@@ -41,7 +47,7 @@
   }
 }
 
-.file__info__name {
+.attachment__info__name {
   overflow: hidden;
   max-height: calc(3 * 1.3em);
   padding-right: var(--space-16);
@@ -50,13 +56,13 @@
   text-overflow: ellipsis;
 }
 
-.file__info__filesize {
+.attachment__info__filesize {
   color: var(--color-neutral-700);
   font-size: small;
 }
 
-.file__download-button,
-.file__delete-button {
+.attachment__download-button,
+.attachment__delete-button {
   display: flex;
   width: 2rem;
   height: 2rem;
@@ -69,7 +75,7 @@
   transition: color var(--transition);
 }
 
-.file__download-button {
+.attachment__download-button {
   color: var(--color-neutral-900);
 
   &:hover {
@@ -77,7 +83,7 @@
   }
 }
 
-.file__delete-button {
+.attachment__delete-button {
   color: var(--color-red);
 
   &:hover {
@@ -85,7 +91,7 @@
   }
 }
 
-.file__loader {
+.attachment__loader {
   display: flex;
   min-width: 2rem;
   min-height: 2rem;

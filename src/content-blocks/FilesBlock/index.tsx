@@ -4,7 +4,7 @@ import { FileBlock as FileBlockProps } from './types';
 
 type Props = FileBlockProps & React.HTMLAttributes<HTMLElement>;
 
-const FilesBlock = ({ title, files, blockProperties }: Props) => {
+const FilesBlock = ({ title, files, links, blockProperties }: Props) => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}
@@ -12,7 +12,7 @@ const FilesBlock = ({ title, files, blockProperties }: Props) => {
       slug={blockProperties?.slug}
       modMargin
     >
-      <FileSection title={title} files={files} className="sl-layout" />
+      <FileSection title={title} files={files} links={links} className="sl-layout" />
     </BlockContainer>
   );
 };
