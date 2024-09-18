@@ -57,7 +57,7 @@ const Activity = (props: any) => {
   };
 
   const callApi = async (data: any) => {
-    const response = await fetch('/api/file', {
+    const response = await fetch('/api/file-attachment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

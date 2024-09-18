@@ -16,7 +16,7 @@ export const links = () => {
 
 type Props = LinkProps & React.HTMLAttributes<HTMLElement>;
 
-const Link = ({ id, label, link, modDeleteable, deleteCallback }: Props) => {
+const Link = ({ id, label, link, allLinks, modDeleteable, deleteCallback }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const { setFormStatus, setRemoveStatusAfterTimeout } = useContext(FormContext);
 
@@ -25,13 +25,14 @@ const Link = ({ id, label, link, modDeleteable, deleteCallback }: Props) => {
   }, [setRemoveStatusAfterTimeout]);
 
   const handleDeleteFile = async (e: React.MouseEvent) => {
+    e.preventDefault();
     e.stopPropagation();
 
     if (confirm(`Weet je zeker dat je de link "${label}" wil verwijderen?`)) {
       try {
         setLoading(true);
         setFormStatus(FormStatus.STATUS_LOADING);
-        await callApi(id);
+        await callApi(allLinks.filter((link) => link.id !== id));
         deleteCallback();
         setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);
       } catch (err: any) {
@@ -44,7 +45,7 @@ const Link = ({ id, label, link, modDeleteable, deleteCallback }: Props) => {
   };
 
   const callApi = async (data: any) => {
-    const response = await fetch('/api/file', {
+    const response = await fetch('/api/link-attachment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

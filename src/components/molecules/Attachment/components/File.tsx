@@ -70,7 +70,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
   };
 
   const callApi = async (data: any) => {
-    const response = await fetch('/api/file', {
+    const response = await fetch('/api/file-attachment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -90,7 +90,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
   return (
     <>
       <li
-        className={cx('attachment', isImage && 'attachment--clickable')}
+        className={cx('attachment attachment__container', isImage && 'attachment--clickable')}
         role="button"
         onClick={() => setLightboxActive(!lightboxActive)}
       >

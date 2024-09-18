@@ -57,7 +57,7 @@ const FilesSection = ({ group }: Props) => {
     <BlockContainer slug="group-files-section">
       <FormProvider>
         <SectionTitle
-          title="Bestanden"
+          title="Links en bestanden"
           groupId={group.id}
           type="file"
           allFiles={groupFiles}
@@ -91,6 +91,7 @@ const FilesSection = ({ group }: Props) => {
                     <Attachment
                       variant="link"
                       link={link}
+                      allLinks={groupLinks}
                       deleteCallback={() => fetchFiles()}
                       modDeleteable
                     />

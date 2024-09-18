@@ -19,7 +19,7 @@ const FileSection = ({ title, files, links, className }: Props) => {
             return <Attachment variant="file" key={i} file={file.attributes} />;
           })}
           {links.map((link, i) => {
-            return <Attachment variant="link" key={i} link={link} />;
+            return <Attachment variant="link" key={i} link={link} allLinks={links} />;
           })}
         </ul>
       )}

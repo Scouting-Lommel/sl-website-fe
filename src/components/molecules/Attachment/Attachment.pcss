@@ -1,20 +1,20 @@
 .attachment__container {
+  border-top: solid var(--color-neutral-200) 0.063rem;
   list-style-type: none;
+
+  &:last-child {
+    border-bottom: solid var(--color-neutral-200) 0.063rem;
+  }
 }
 
 .attachment {
   display: flex;
   align-items: center;
   padding: var(--space-32);
-  border-top: solid var(--color-neutral-200) 0.063rem;
   color: currentColor;
   gap: var(--space-24);
   text-decoration: none;
   transition: background-color var(--transition);
-
-  &:last-child {
-    border-bottom: solid var(--color-neutral-200) 0.063rem;
-  }
 
   &--clickable {
     &:hover {
