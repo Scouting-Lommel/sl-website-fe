@@ -14,7 +14,7 @@ export type Link = {
   id: string;
   label: string;
   link: string;
-  allLinks: Link[];
+  allLinks?: Link[];
   modDeleteable?: boolean;
   deleteCallback?: any;
 };

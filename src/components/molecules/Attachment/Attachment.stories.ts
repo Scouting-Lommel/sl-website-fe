@@ -1,5 +1,3 @@
-// TODO: Write docs for deleteable + link variants
-
 import type { Meta, StoryObj } from '@storybook/react';
 import Attachment from '.';
 
@@ -12,44 +10,19 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const File = {
   args: {
     variant: 'file',
-    file: { id: '0', ext: '.undef', url: 'randomurl.com', name: 'Test name', size: 10 },
+    file: { id: '0', ext: '.png', url: 'randomurl.com', name: 'Image file attachment', size: 10 },
+    modDeleteable: false,
   },
 } satisfies Story;
 
-export const PNG = {
+export const Link = {
   args: {
-    variant: 'file',
-    file: { id: '1', ext: '.png', url: 'randomurl.com', name: 'Test name', size: 10 },
-  },
-} satisfies Story;
-
-export const JPG = {
-  args: {
-    variant: 'file',
-    file: { id: '2', ext: '.jpg', url: 'randomurl.com', name: 'Test name', size: 10 },
-  },
-} satisfies Story;
-
-export const Word = {
-  args: {
-    variant: 'file',
-    file: { id: '3', ext: '.docx', url: 'randomurl.com', name: 'Test name', size: 10 },
-  },
-} satisfies Story;
-
-export const Powerpoint = {
-  args: {
-    variant: 'file',
-    file: { id: '4', ext: '.pptx', url: 'randomurl.com', name: 'Test name', size: 10 },
-  },
-} satisfies Story;
-
-export const PDF = {
-  args: {
-    variant: 'file',
-    file: { id: '5', ext: '.pdf', url: 'randomurl.com', name: 'Test name', size: 10 },
+    variant: 'link',
+    link: { id: '1', label: 'scoutsengidsenvlaanderen.be', link: 'randomurl.com' },
+    allLinks: [{ id: '1', label: 'scoutsengidsenvlaanderen.be', link: 'randomurl.com' }],
+    modDeleteable: false,
   },
 } satisfies Story;
