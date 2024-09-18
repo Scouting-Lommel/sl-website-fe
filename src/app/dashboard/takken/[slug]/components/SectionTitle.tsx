@@ -23,7 +23,7 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
       break;
     }
     case 'file': {
-      actionTitle = 'Nieuw bestand toevoegen';
+      actionTitle = 'Nieuwe bijlage toevoegen';
       break;
     }
   }
