@@ -64,18 +64,22 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
             />
           )}
           {type === 'file' && (
-            <>
-              <Tabs>
-                <Tab label="Een bestand toevoegen">
-                  <Form
-                    variant="uploadFile"
-                    props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
-                    blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
-                  />
-                </Tab>
-                <Tab label="Een link toevoegen"> TODO: Add new link form </Tab>
-              </Tabs>
-            </>
+            <Tabs>
+              <Tab label="Een bestand toevoegen">
+                <Form
+                  variant="uploadFile"
+                  props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
+                  blockProperties={{ slug: 'upload-file', modNoPadding: true }}
+                />
+              </Tab>
+              <Tab label="Een link toevoegen">
+                <Form
+                  variant="uploadLink"
+                  props={{ groupId, callback, closeClickHandler: handleClose }}
+                  blockProperties={{ slug: 'upload-link', modNoPadding: true }}
+                />
+              </Tab>
+            </Tabs>
           )}
         </Modal>
       )}

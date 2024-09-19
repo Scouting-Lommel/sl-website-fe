@@ -6,6 +6,7 @@ import Contact from './Contact';
 import Register from './Register';
 import Activity from './Activity';
 import UploadFile from './UploadFile';
+import UploadLink from './UploadLink';
 import { Form as FormProps } from './types';
 
 const Form = ({ variant, props, blockProperties }: FormProps) => {
@@ -26,6 +27,10 @@ const Form = ({ variant, props, blockProperties }: FormProps) => {
     }
     case 'uploadFile': {
       FormComponent = <UploadFile {...props} />;
+      break;
+    }
+    case 'uploadLink': {
+      FormComponent = <UploadLink {...props} />;
       break;
     }
     default: {
