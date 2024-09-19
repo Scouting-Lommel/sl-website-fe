@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Modal from '@/components/atoms/Modal';
 import ActionTitle from '@/components/molecules/ActionTitle';
+import Tabs, { Tab } from '@/components/atoms/Tabs';
 import Form from '@/components/organisms/Forms';
 
 type SectionTitleProps = {
@@ -63,11 +64,18 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
             />
           )}
           {type === 'file' && (
-            <Form
-              variant="uploadFile"
-              props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
-              blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
-            />
+            <>
+              <Tabs>
+                <Tab label="Een bestand toevoegen">
+                  <Form
+                    variant="uploadFile"
+                    props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
+                    blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
+                  />
+                </Tab>
+                <Tab label="Een link toevoegen"> TODO: Add new link form </Tab>
+              </Tabs>
+            </>
           )}
         </Modal>
       )}
