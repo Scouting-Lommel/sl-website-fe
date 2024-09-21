@@ -1,4 +1,5 @@
 import generateFormSchema from '@/lib/helpers/generateFormSchema';
+import { urlRegExValidation } from '@/lib/constants/regexValidation';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { UploadLinkForm as UploadLinkFormProps } from './types';
@@ -27,7 +28,8 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
           required: true,
         },
         {
-          type: 'input',
+          type: 'url',
+          pattern: urlRegExValidation,
           id: 'linkUrl',
           name: 'linkUrl',
           label: 'Link',
@@ -57,5 +59,3 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
 };
 
 export default UploadLinkForm;
-
-// TODO: Add url input type with url regex checker

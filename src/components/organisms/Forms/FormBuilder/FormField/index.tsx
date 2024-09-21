@@ -125,6 +125,26 @@ const FormField = (props: Props) => {
         </div>
       );
     }
+    case 'url': {
+      return (
+        <div className="form-field">
+          {props.register && props.name && (
+            <Input
+              label={props.label!}
+              type="url"
+              id={props.id}
+              {...props.register(props.name)}
+              pattern={String(props.pattern)}
+              placeholder={props.placeholder}
+              required={props.required}
+              autoComplete={props.autoComplete}
+              customChangeBehaviour={props.customChangeBehaviour}
+              error={errorMessage}
+            />
+          )}
+        </div>
+      );
+    }
     case 'file': {
       return (
         <div className="form-field">

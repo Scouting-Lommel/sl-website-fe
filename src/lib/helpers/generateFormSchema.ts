@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import { ErrorMessage } from '@/lib/constants/enums/errorMessage';
-import { phoneRegExValidation } from '@/lib/constants/regexValidation';
+import { phoneRegExValidation, urlRegExValidation } from '@/lib/constants/regexValidation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 
 type Props = { fields: FormField[] };
@@ -51,6 +51,10 @@ const getFieldSchema = (field: FormField): Yup.AnySchema => {
 
     case 'email': {
       return Yup.string().email(ErrorMessage.EMAIL_INVALID);
+    }
+
+    case 'url': {
+      return Yup.string().matches(urlRegExValidation, ErrorMessage.URL_INVALID);
     }
 
     case 'select': {
