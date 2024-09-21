@@ -10,6 +10,7 @@ const Attachment = (props: Props) => {
       return (
         <Link
           {...props.link}
+          groupId={props.groupId}
           allLinks={props.allLinks}
           deleteCallback={props.deleteCallback}
           modDeleteable={props.modDeleteable}

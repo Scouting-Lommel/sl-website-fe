@@ -20,7 +20,7 @@ const ADD_FILE_MUTATION = gql`
   }
 `;
 
-const ADD_LINK_MUTATION = gql`
+const EDIT_LINKS_MUTATION = gql`
   mutation UpdateGroupLink($id: ID!, $links: [ComponentGeneralLinkInput]!) {
     updateGroup(id: $id, data: { links: $links }) {
       data {
@@ -30,4 +30,4 @@ const ADD_LINK_MUTATION = gql`
   }
 `;
 
-export { ADD_FILE_MUTATION, ADD_LINK_MUTATION };
+export { ADD_FILE_MUTATION, EDIT_LINKS_MUTATION };

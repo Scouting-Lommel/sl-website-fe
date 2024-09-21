@@ -38,7 +38,7 @@ const UploadLink = (props: any) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ action: 'create', data }),
+      body: JSON.stringify({ data }),
     });
 
     if (!response.ok) {

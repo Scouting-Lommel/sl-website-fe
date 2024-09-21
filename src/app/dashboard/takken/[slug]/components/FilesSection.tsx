@@ -92,6 +92,7 @@ const FilesSection = ({ group }: Props) => {
                     <Attachment
                       variant="link"
                       link={link}
+                      groupId={group.id}
                       allLinks={groupLinks}
                       deleteCallback={() => fetchFiles()}
                       modDeleteable

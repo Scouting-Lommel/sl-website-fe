@@ -16,7 +16,7 @@ export const links = () => {
 
 type Props = LinkProps & React.HTMLAttributes<HTMLElement>;
 
-const Link = ({ id, label, link, allLinks, modDeleteable, deleteCallback }: Props) => {
+const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallback }: Props) => {
   const [loading, setLoading] = useState<boolean>(false);
   const { setFormStatus, setRemoveStatusAfterTimeout } = useContext(FormContext);
 
@@ -32,7 +32,7 @@ const Link = ({ id, label, link, allLinks, modDeleteable, deleteCallback }: Prop
       try {
         setLoading(true);
         setFormStatus(FormStatus.STATUS_LOADING);
-        await callApi(allLinks.filter((link) => link.id !== id));
+        await callApi({ id: groupId, links: allLinks.filter((link) => link.id !== id) });
         deleteCallback();
         setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);
       } catch (err: any) {
@@ -50,7 +50,7 @@ const Link = ({ id, label, link, allLinks, modDeleteable, deleteCallback }: Prop
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ action: 'delete', data }),
+      body: JSON.stringify({ data }),
     });
 
     if (!response.ok) {
