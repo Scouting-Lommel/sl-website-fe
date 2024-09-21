@@ -61,6 +61,7 @@ const FilesSection = ({ group }: Props) => {
           groupId={group.id}
           type="file"
           allFiles={groupFiles}
+          allLinks={groupLinks}
           callback={addFileCallback}
         />
         <BlockContainer slug="group-files" modSmallPadding>

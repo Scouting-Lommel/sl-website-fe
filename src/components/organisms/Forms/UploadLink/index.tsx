@@ -13,8 +13,7 @@ const UploadLink = (props: any) => {
 
   const handleSubmitForm = async (data: any) => {
     try {
-      console.log('Uploading link...');
-      console.log(data);
+      await addLink(data);
       setFormStatus(FormStatus.STATUS_SUCCESS);
       props.callback();
       props.closeClickHandler();
@@ -23,6 +22,30 @@ const UploadLink = (props: any) => {
       console.error(err);
       setFormStatus(FormStatus.STATUS_ERROR);
     }
+  };
+
+  const addLink = async (data: any) => {
+    let groupLinks = [...props.allLinks];
+    groupLinks = groupLinks.map((link) => ({ label: link.label, link: link.link }));
+    groupLinks.push({ label: data.linkLabel, link: data.linkUrl });
+
+    await callApi({ id: props.groupId, links: groupLinks });
+  };
+
+  const callApi = async (data: any) => {
+    const response = await fetch('/api/link-attachment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ action: 'create', data }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to perform action');
+    }
+
+    return response.json();
   };
 
   return (

@@ -11,10 +11,18 @@ type SectionTitleProps = {
   groupId: string;
   type: 'activity' | 'file';
   allFiles?: any;
+  allLinks?: any;
   callback: any;
 };
 
-const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitleProps) => {
+const SectionTitle = ({
+  title,
+  groupId,
+  allFiles,
+  allLinks,
+  type,
+  callback,
+}: SectionTitleProps) => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   let actionTitle = '';
@@ -75,7 +83,7 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
               <Tab label="Een link toevoegen">
                 <Form
                   variant="uploadLink"
-                  props={{ groupId, callback, closeClickHandler: handleClose }}
+                  props={{ groupId, allLinks, callback, closeClickHandler: handleClose }}
                   blockProperties={{ slug: 'upload-link', modNoPadding: true }}
                 />
               </Tab>

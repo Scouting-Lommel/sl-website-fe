@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { addLink } from '@/lib/api/groups/api';
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   const { action, data } = await request.json();
@@ -6,7 +7,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     switch (action) {
       case 'create':
-        console.log('Create attachment link', data);
+        await addLink(data.id, data.links);
         break;
       case 'delete':
         console.log('Delete attachment link', data);
