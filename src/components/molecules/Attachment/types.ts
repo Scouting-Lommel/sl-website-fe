@@ -14,8 +14,8 @@ export type Link = {
   id: string;
   label: string;
   link: string;
-  groupId: string;
-  allLinks: Link[];
+  groupId?: string;
+  allLinks?: Link[];
   modDeleteable?: boolean;
   deleteCallback?: any;
 };
@@ -33,8 +33,8 @@ interface FileBlock extends BaseBlock {
 interface LinkBlock extends BaseBlock {
   variant: 'link';
   link: Link;
-  groupId: string;
-  allLinks: Link[];
+  groupId?: string;
+  allLinks?: Link[];
 }
 
 export type Extensions = { [k: string]: ComponentType<{}> };

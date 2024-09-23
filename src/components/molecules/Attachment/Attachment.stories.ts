@@ -21,8 +21,11 @@ export const File = {
 export const Link = {
   args: {
     variant: 'link',
-    link: { id: '1', label: 'scoutsengidsenvlaanderen.be', link: 'randomurl.com' },
-    allLinks: [{ id: '1', label: 'scoutsengidsenvlaanderen.be', link: 'randomurl.com' }],
+    link: {
+      id: '1',
+      label: 'scoutsengidsenvlaanderen.be',
+      link: 'randomurl.com',
+    },
     modDeleteable: false,
   },
 } satisfies Story;

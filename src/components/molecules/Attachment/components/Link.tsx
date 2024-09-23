@@ -28,6 +28,8 @@ const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallbac
     e.preventDefault();
     e.stopPropagation();
 
+    if (!groupId || !allLinks || allLinks.length < 1) return;
+
     if (confirm(`Weet je zeker dat je de link "${label}" wil verwijderen?`)) {
       try {
         setLoading(true);

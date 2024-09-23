@@ -15,13 +15,6 @@ export const Default = {
     id: '1',
     label: 'scoutsengidsenvlaanderen.be',
     link: 'https://scoutsengidsenvlaanderen.be',
-    allLinks: [
-      {
-        id: '1',
-        label: 'scoutsengidsenvlaanderen.be',
-        link: 'https://scoutsengidsenvlaanderen.be',
-      },
-    ],
     modDeleteable: false,
   },
 } satisfies Story;

@@ -5,16 +5,6 @@ const meta = {
   title: '3 Components/Organisms/FileSection',
   component: FileSection,
   tags: ['autodocs'],
-  argTypes: {
-    title: {
-      control: { type: 'text' },
-      description: 'The title',
-    },
-    files: {
-      control: { type: 'text' },
-      description: 'The files',
-    },
-  },
 } satisfies Meta<typeof FileSection>;
 
 export default meta;
@@ -25,17 +15,32 @@ export const Default = {
     title: 'Example title',
     files: {
       data: [
-        { attributes: { id: '0', ext: '.pdf', url: 'randomurl.com', name: 'Test name', size: 10 } },
+        {
+          attributes: {
+            id: '0',
+            ext: '.png',
+            url: 'randomurl.com',
+            name: 'Image file attachment',
+            size: 10,
+          },
+        },
         {
           attributes: {
             id: '1',
             ext: '.docx',
             url: 'randomurl.com',
-            name: 'Another test name',
+            name: 'Document file attachment',
             size: 450,
           },
         },
       ],
     },
+    links: [
+      {
+        id: '1',
+        label: 'scoutsengidsenvlaanderen.be',
+        link: 'randomurl.com',
+      },
+    ],
   },
 } satisfies Story;
