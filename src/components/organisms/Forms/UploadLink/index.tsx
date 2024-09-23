@@ -74,5 +74,3 @@ const UploadLink = (props: any) => {
 };
 
 export default UploadLink;
-
-// TODO: Add upload file functionality
