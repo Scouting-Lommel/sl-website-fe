@@ -6,6 +6,7 @@ const generateSitemap = (sitemapData: any) => {
     rentalPage,
     rentalLocations,
     infoPage,
+    registerPage,
     contactPage,
     articlesPage,
     drugsAlcoholPolicyPage,
@@ -71,6 +72,17 @@ const generateSitemap = (sitemapData: any) => {
 
   // Info page
   page = infoPage?.data?.attributes;
+
+  if (page && !page.pageMeta?.noIndex) {
+    const pageObject = {
+      url: `${process.env.SITE_URL}/${page.pageMeta.slug}`,
+      lastModified: page.updatedAt,
+    };
+    out.push(pageObject);
+  }
+
+  // Register page
+  page = registerPage?.data?.attributes;
 
   if (page && !page.pageMeta?.noIndex) {
     const pageObject = {

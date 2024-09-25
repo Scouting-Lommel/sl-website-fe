@@ -17,16 +17,16 @@ import {
 import Loader from '@/components/atoms/Loader';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
-import { File as FileBlockProps, extensions } from './types';
-import styles from './File.css';
+import { File as FileProps, Extensions } from '../types';
+import styles from '../Attachment.css';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FileBlockProps & React.HTMLAttributes<HTMLElement>;
+type Props = FileProps & React.HTMLAttributes<HTMLElement>;
 
-const extMap: extensions = {
+const extMap: Extensions = {
   pdf: IconTextFile,
   doc: IconTextFile,
   docx: IconTextFile,
@@ -70,7 +70,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
   };
 
   const callApi = async (data: any) => {
-    const response = await fetch('/api/file', {
+    const response = await fetch('/api/file-attachment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -89,29 +89,29 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
 
   return (
     <>
-      <div
-        className={cx('file', isImage && 'file--with-lightbox')}
+      <li
+        className={cx('attachment attachment__container', isImage && 'attachment--clickable')}
         role="button"
         onClick={() => setLightboxActive(!lightboxActive)}
       >
-        <Icon size="xl" icon={icon} title={ext.slice(1)} className="file__icon" />
-        <div className="file__info">
-          <Typography className="file__info__name">{name.replaceAll(ext, '')}</Typography>
-          <Typography className="file__info__filesize">{formatFileSize(size)}</Typography>
+        <Icon size="xl" icon={icon} title={ext.slice(1)} className="attachment__icon" />
+        <div className="attachment__info">
+          <Typography className="attachment__info__name">{name.replaceAll(ext, '')}</Typography>
+          <Typography className="attachment__info__filesize">{formatFileSize(size)}</Typography>
         </div>
         <a
-          className="file__download-button"
+          className="attachment__download-button"
           aria-label="Bestand dowloaden"
           type="button"
           href={url}
           target="_blank"
           onClick={(e) => e.stopPropagation()}
         >
-          <Icon size="sm" icon={IconDownload} title="Bestand verwijderen" />
+          <Icon size="sm" icon={IconDownload} title="Bestand downloaden" />
         </a>
         {modDeleteable && !loading && (
           <button
-            className="file__delete-button"
+            className="attachment__delete-button"
             aria-label="Bestand verwijderen"
             type="button"
             onClick={handleDeleteFile}
@@ -120,11 +120,11 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
           </button>
         )}
         {modDeleteable && loading && (
-          <div className="file__loader">
+          <div className="attachment__loader">
             <Loader size="xs" />
           </div>
         )}
-      </div>
+      </li>
 
       {isImage && lightboxActive && (
         <Lightbox

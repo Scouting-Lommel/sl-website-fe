@@ -29,6 +29,11 @@ const GROUP_PAGE_QUERY = gql`
               }
             }
           }
+          links {
+            id
+            label
+            link
+          }
           pageTitle
           subtitle
           leaders {

@@ -4,7 +4,7 @@ import { Fragment, useCallback, useEffect, useState } from 'react';
 import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
-import File from '@/components/molecules/File';
+import Attachment from '@/components/molecules/Attachment';
 import SectionTitle from './SectionTitle';
 import FileStatus from './FileStatus';
 import { getFiles } from '../api';
@@ -15,6 +15,7 @@ type Props = {
 
 const FilesSection = ({ group }: Props) => {
   const [groupFiles, setFiles] = useState<any>(null);
+  const [groupLinks, setLinks] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
@@ -36,6 +37,9 @@ const FilesSection = ({ group }: Props) => {
         id: file.id,
       })),
     );
+
+    setLinks(data?.groups?.data[0]?.attributes.links);
+
     setLoading(false);
   }, [group]);
 
@@ -53,10 +57,11 @@ const FilesSection = ({ group }: Props) => {
     <BlockContainer slug="group-files-section">
       <FormProvider>
         <SectionTitle
-          title="Bestanden"
+          title="Links en bestanden"
           groupId={group.id}
           type="file"
           allFiles={groupFiles}
+          allLinks={groupLinks}
           callback={addFileCallback}
         />
         <BlockContainer slug="group-files" modSmallPadding>
@@ -65,15 +70,37 @@ const FilesSection = ({ group }: Props) => {
             <p>Er ging iets mis bij het laden van de bestanden. Probeer het later nog eens.</p>
           )}
           {!error && loading && <Loader size="sm" modLabelVisible />}
-          {!error && !loading && groupFiles?.length === 0 && <p>Geen bestanden gevonden.</p>}
-          {!error &&
-            !loading &&
-            groupFiles?.length > 0 &&
-            groupFiles?.map((file: any, key: any) => (
-              <Fragment key={`activity-${key}`}>
-                <File {...file} deleteCallback={() => fetchFiles()} modDeleteable />
-              </Fragment>
-            ))}
+          {!error && !loading && groupFiles?.length === 0 && groupLinks === 0 && (
+            <p>Geen bestanden gevonden.</p>
+          )}
+          {!error && !loading && (groupFiles?.length > 0 || groupLinks?.length > 0) && (
+            <ul style={{ paddingLeft: 0 }}>
+              {groupFiles?.length > 0 &&
+                groupFiles?.map((file: any, key: any) => (
+                  <Fragment key={`activity-${key}`}>
+                    <Attachment
+                      variant="file"
+                      file={file}
+                      deleteCallback={() => fetchFiles()}
+                      modDeleteable
+                    />
+                  </Fragment>
+                ))}
+              {groupLinks?.length > 0 &&
+                groupLinks?.map((link: any, key: any) => (
+                  <Fragment key={`activity-${key}`}>
+                    <Attachment
+                      variant="link"
+                      link={link}
+                      groupId={group.id}
+                      allLinks={groupLinks}
+                      deleteCallback={() => fetchFiles()}
+                      modDeleteable
+                    />
+                  </Fragment>
+                ))}
+            </ul>
+          )}
         </BlockContainer>
       </FormProvider>
     </BlockContainer>

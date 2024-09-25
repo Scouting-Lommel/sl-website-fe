@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Modal from '@/components/atoms/Modal';
 import ActionTitle from '@/components/molecules/ActionTitle';
+import Tabs, { Tab } from '@/components/atoms/Tabs';
 import Form from '@/components/organisms/Forms';
 
 type SectionTitleProps = {
@@ -10,10 +11,18 @@ type SectionTitleProps = {
   groupId: string;
   type: 'activity' | 'file';
   allFiles?: any;
+  allLinks?: any;
   callback: any;
 };
 
-const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitleProps) => {
+const SectionTitle = ({
+  title,
+  groupId,
+  allFiles,
+  allLinks,
+  type,
+  callback,
+}: SectionTitleProps) => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   let actionTitle = '';
@@ -23,7 +32,7 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
       break;
     }
     case 'file': {
-      actionTitle = 'Nieuw bestand toevoegen';
+      actionTitle = 'Nieuwe bijlage toevoegen';
       break;
     }
   }
@@ -63,11 +72,22 @@ const SectionTitle = ({ title, groupId, allFiles, type, callback }: SectionTitle
             />
           )}
           {type === 'file' && (
-            <Form
-              variant="uploadFile"
-              props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
-              blockProperties={{ slug: 'upload-activity', modNoPadding: true }}
-            />
+            <Tabs>
+              <Tab label="Een bestand toevoegen">
+                <Form
+                  variant="uploadFile"
+                  props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
+                  blockProperties={{ slug: 'upload-file', modNoPadding: true }}
+                />
+              </Tab>
+              <Tab label="Een link toevoegen">
+                <Form
+                  variant="uploadLink"
+                  props={{ groupId, allLinks, callback, closeClickHandler: handleClose }}
+                  blockProperties={{ slug: 'upload-link', modNoPadding: true }}
+                />
+              </Tab>
+            </Tabs>
           )}
         </Modal>
       )}

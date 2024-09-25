@@ -15,11 +15,13 @@ const IconChevronUp = dynamic(() => import('@/assets/icons/ChevronUp.svg'));
 const IconClose = dynamic(() => import('@/assets/icons/Close.svg'));
 const IconDownload = dynamic(() => import('@/assets/icons/Download.svg'));
 const IconEdit = dynamic(() => import('@/assets/icons/Edit.svg'));
+const IconExternalLink = dynamic(() => import('@/assets/icons/ExternalLink.svg'));
 const IconFacebook = dynamic(() => import('@/assets/icons/Facebook.svg'));
 const IconFile = dynamic(() => import('@/assets/icons/File.svg'));
 const IconImageFile = dynamic(() => import('@/assets/icons/ImageFile.svg'));
 const IconInstagram = dynamic(() => import('@/assets/icons/Instagram.svg'));
 const IconJPG = dynamic(() => import('@/assets/icons/JPG.svg'));
+const IconLink = dynamic(() => import('@/assets/icons/Link.svg'));
 const IconLock = dynamic(() => import('@/assets/icons/Lock.svg'));
 const IconMail = dynamic(() => import('@/assets/icons/Mail.svg'));
 const IconMenu = dynamic(() => import('@/assets/icons/Menu.svg'));
@@ -47,11 +49,13 @@ export const icons = {
   close: IconClose,
   download: IconDownload,
   edit: IconEdit,
+  externallink: IconExternalLink,
   facebook: IconFacebook,
   file: IconFile,
   imagefile: IconImageFile,
   instagram: IconInstagram,
   jpg: IconJPG,
+  link: IconLink,
   lock: IconLock,
   mail: IconMail,
   menu: IconMenu,
@@ -80,11 +84,13 @@ export {
   IconClose,
   IconDownload,
   IconEdit,
+  IconExternalLink,
   IconFacebook,
   IconFile,
   IconImageFile,
   IconInstagram,
   IconJPG,
+  IconLink,
   IconLock,
   IconMail,
   IconMenu,

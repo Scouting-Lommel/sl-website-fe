@@ -51,6 +51,11 @@ const FILES_QUERY = gql`
               }
             }
           }
+          links {
+            id
+            label
+            link
+          }
         }
       }
     }

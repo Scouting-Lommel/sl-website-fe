@@ -4,7 +4,7 @@ import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Banner from '@/components/atoms/Banner';
 import UploadFileForm from './UploadFileForm';
 
-const Activity = (props: any) => {
+const UploadFile = (props: any) => {
   const { formStatus, setFormStatus } = useContext(FormContext);
 
   const initialValues = {
@@ -57,7 +57,7 @@ const Activity = (props: any) => {
   };
 
   const callApi = async (data: any) => {
-    const response = await fetch('/api/file', {
+    const response = await fetch('/api/file-attachment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -99,4 +99,4 @@ const Activity = (props: any) => {
   );
 };
 
-export default Activity;
+export default UploadFile;
