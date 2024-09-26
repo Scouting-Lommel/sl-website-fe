@@ -1,6 +1,7 @@
 import React from 'react';
 import '../src/app/global.css';
 import './storybook.css';
+import theme from './theme';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,6 +15,7 @@ export const parameters = {
     storySort: {
       order: ['Atoms', 'Molecules', 'Organisms'],
     },
+    theme,
   },
 };
 

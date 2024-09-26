@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import NextLink from 'next/link';
-import { IconSpinner } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import { Button as ButtonProps } from './types';
 import styles from './Button.css';
@@ -33,7 +32,7 @@ const Button = ({
       <NextLink className={buttonClassNames} href={href} {...props}>
         <span className="button__label">
           {children || label}
-          {loading && <Icon icon={IconSpinner} title="Laden..." size="xs" />}
+          {loading && <Icon name="loader-spinner" aria-label="Laden..." size="xs" />}
         </span>
       </NextLink>
     );
@@ -41,7 +40,15 @@ const Button = ({
   return (
     <button className={buttonClassNames} {...props}>
       <span className="button__label">
-        {children || label} {loading && <Icon icon={IconSpinner} title="Laden..." size="xs" />}
+        {children || label}{' '}
+        {loading && (
+          <Icon
+            name="loader-spinner"
+            aria-label="Laden..."
+            size="xs"
+            className="button__label__spinner"
+          />
+        )}
       </span>
     </button>
   );

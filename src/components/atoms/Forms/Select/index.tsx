@@ -1,6 +1,5 @@
 import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames';
-import { IconChevronDown } from '@/assets/icons';
 import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
 import { FormSelect as FormSelectProps } from './types';
@@ -41,7 +40,7 @@ const Select = forwardRef((props: Props, ref: any) => {
           </option>
         ))}
       </select>
-      <Icon title="Select input" size={'xs'} icon={IconChevronDown} className="select__chevron" />
+      <Icon name="chevron-down" aria-label="Select input" size="xs" className="select__chevron" />
       {error && <div className="select__error">{error}</div>}
     </div>
   );

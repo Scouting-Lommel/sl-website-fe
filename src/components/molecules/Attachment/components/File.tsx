@@ -6,14 +6,6 @@ import cx from 'classnames';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { formatFileSize } from '@/lib/helpers/formatFileSize';
-import {
-  IconTextFile,
-  IconPresentationFile,
-  IconImageFile,
-  IconFile,
-  IconClose,
-  IconDownload,
-} from '@/assets/icons';
 import Loader from '@/components/atoms/Loader';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
@@ -27,15 +19,15 @@ export const links = () => {
 type Props = FileProps & React.HTMLAttributes<HTMLElement>;
 
 const extMap: Extensions = {
-  pdf: IconTextFile,
-  doc: IconTextFile,
-  docx: IconTextFile,
-  ppt: IconPresentationFile,
-  pptx: IconPresentationFile,
-  jpg: IconImageFile,
-  jpeg: IconImageFile,
-  png: IconImageFile,
-  gif: IconImageFile,
+  pdf: 'document',
+  doc: 'document',
+  docx: 'document',
+  ppt: 'presentation',
+  pptx: 'presentation',
+  jpg: 'image',
+  jpeg: 'image',
+  png: 'image',
+  gif: 'image',
 };
 
 const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props) => {
@@ -85,7 +77,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
     return response.json();
   };
 
-  const icon = extMap[ext.slice(1)] ? extMap[ext.slice(1)] : IconFile;
+  const icon = extMap[ext.slice(1)] ? extMap[ext.slice(1)] : 'file';
 
   return (
     <>
@@ -94,7 +86,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
         role="button"
         onClick={() => setLightboxActive(!lightboxActive)}
       >
-        <Icon size="xl" icon={icon} title={ext.slice(1)} className="attachment__icon" />
+        <Icon name={icon} aria-label={ext.slice(1)} size="xl" className="attachment__icon" />
         <div className="attachment__info">
           <Typography className="attachment__info__name">{name.replaceAll(ext, '')}</Typography>
           <Typography className="attachment__info__filesize">{formatFileSize(size)}</Typography>
@@ -107,7 +99,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
           target="_blank"
           onClick={(e) => e.stopPropagation()}
         >
-          <Icon size="sm" icon={IconDownload} title="Bestand downloaden" />
+          <Icon name="download" aria-label="Bestand downloaden" size="sm" />
         </a>
         {modDeleteable && !loading && (
           <button
@@ -116,7 +108,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
             type="button"
             onClick={handleDeleteFile}
           >
-            <Icon size="sm" icon={IconClose} title="Bestand verwijderen" />
+            <Icon name="trash" aria-label="Bestand verwijderen" size="sm" />
           </button>
         )}
         {modDeleteable && loading && (

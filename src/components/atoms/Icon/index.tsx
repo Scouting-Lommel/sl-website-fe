@@ -1,4 +1,6 @@
-import classNames from 'classnames';
+import cx from 'classnames';
+import * as icons from 'lucide-react';
+import { iconMap } from './IconMap';
 import { Icon as IconProps } from './types';
 import styles from './Icon.css';
 
@@ -6,23 +8,17 @@ export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = IconProps & React.HTMLAttributes<HTMLElement>;
+const Icon = ({ name, size, className, ...props }: IconProps) => {
+  const mappedName = iconMap[name];
+  const LucideIcon = icons[mappedName];
+  const classNames = cx('icon', `icon--${size}`, className);
 
-const Icon = ({ icon, size, title, className }: Props) => {
-  const classes = classNames('icon', `icon--${size}`, className);
-
-  if (!icon) {
-    console.warn('Error: `icon` in <Icon /> is not defined.');
-    return <></>;
+  if (!LucideIcon) {
+    console.error(`Icon "${name}" not found in lucide-react icons.`);
+    return null;
   }
 
-  const TagName = icon;
-
-  return (
-    <div className={classes}>
-      <TagName title={title} className="icon__svg" />
-    </div>
-  );
+  return <LucideIcon aria-hidden="true" className={classNames} {...props} />;
 };
 
 export default Icon;

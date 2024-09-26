@@ -1,10 +1,9 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { IconClose, IconMenu } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Navigation from '@/components/molecules/Navigation';
 import SLImage from '@/components/atoms/Image';
@@ -58,9 +57,9 @@ const Header = ({ logo, mainNavigation, groups, rentalLocations }: Props) => {
             </div>
             <button className="header__trigger" onClick={() => triggerNav()}>
               {navVisible ? (
-                <Icon icon={IconClose} size="lg" title="Close menu" />
+                <Icon name="close" aria-label="Close menu" size="lg" />
               ) : (
-                <Icon icon={IconMenu} size="lg" title="Menu" />
+                <Icon name="close" aria-label="Menu" size="lg" />
               )}
             </button>
           </div>

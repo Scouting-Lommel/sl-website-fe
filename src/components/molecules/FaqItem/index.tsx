@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { IconChevronDown, IconChevronUp } from '@/assets/icons';
 import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
 import SLImage from '@/components/atoms/Image';
@@ -25,10 +24,10 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
       >
         <Typography>{question}</Typography>
         <Icon
+          name={isOpen ? 'chevron-up' : 'chevron-down'}
+          aria-label="Chevron"
           size="lg"
-          icon={isOpen ? IconChevronUp : IconChevronDown}
           className="nav-item__dropdown-trigger__link__chevron"
-          title="Chevron"
         />
       </div>
       <div

@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { iconMap } from '@/components/atoms/Icon/IconMap';
 
 export type File = {
   id: string;
@@ -37,6 +37,8 @@ interface LinkBlock extends BaseBlock {
   allLinks?: Link[];
 }
 
-export type Extensions = { [k: string]: ComponentType<{}> };
+export type Extensions = {
+  [k: string]: keyof typeof iconMap;
+};
 
 export type Attachment = FileBlock | LinkBlock;

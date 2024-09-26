@@ -1,5 +1,4 @@
 import { useRef, useEffect, useCallback } from 'react';
-import { IconClose } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import { Modal as ModalProps } from './types';
 import styles from './Modal.css';
@@ -91,7 +90,7 @@ const Modal = ({ id, title, children, open, handleCloseModal }: Props) => {
             aria-label="Venster sluiten"
             onClick={closeModal}
           >
-            <Icon icon={IconClose} title="Close" size={'lg'} />
+            <Icon name="close" aria-label="Close" size={'lg'} />
           </button>
           <div className="t-headline-3 modal__header__title">{title}</div>
         </div>
