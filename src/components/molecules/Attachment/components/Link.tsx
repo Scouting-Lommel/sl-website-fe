@@ -3,7 +3,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
-import { IconClose, IconExternalLink, IconLink } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Loader from '@/components/atoms/Loader';
 import Typography from '@/components/atoms/Typography';
@@ -72,13 +71,13 @@ const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallbac
           target="_blank"
           onClick={(e) => e.stopPropagation()}
         >
-          <Icon size="xl" icon={IconLink} title={link} className="attachment__icon" />
+          <Icon name="link" aria-label={link} size="xl" className="attachment__icon" />
           <div className="attachment__info">
             <Typography className="attachment__info__name">{label}</Typography>
             <Typography className="attachment__info__filesize">{link}</Typography>
           </div>
           <span className="attachment__download-button">
-            <Icon size="sm" icon={IconExternalLink} title={link} />
+            <Icon name="external-link" aria-label={link} size="sm" />
           </span>
           {modDeleteable && !loading && (
             <button
@@ -87,7 +86,7 @@ const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallbac
               type="button"
               onClick={handleDeleteFile}
             >
-              <Icon size="sm" icon={IconClose} title="Bestand verwijderen" />
+              <Icon name="trash" aria-label="Bestand verwijderen" size="sm" />
             </button>
           )}
           {modDeleteable && loading && (

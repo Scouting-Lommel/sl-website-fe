@@ -4,7 +4,6 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { IconChevronDown } from '@/assets/icons';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
 import { NavItem as NavItemProps } from './types';
@@ -126,10 +125,10 @@ const NavItem = ({
         >
           {label}
           <Icon
+            name="chevron-down"
+            aria-label="Chevron"
             size="sm"
-            icon={IconChevronDown}
             className="nav-item__dropdown-trigger__link__chevron"
-            title="Chevron"
           />
         </button>
 

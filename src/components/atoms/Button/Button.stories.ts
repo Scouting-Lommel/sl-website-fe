@@ -7,19 +7,18 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      description: 'The variant of the button',
       control: { type: 'select' },
     },
     label: {
-      description: 'The label on the button',
       control: { type: 'text' },
     },
     href: {
-      description: 'The action of the button',
       control: { type: 'text' },
     },
+    loading: {
+      control: { type: 'boolean' },
+    },
     modSmall: {
-      description: 'If the button should be small',
       control: { type: 'boolean' },
     },
   },
@@ -30,17 +29,19 @@ type Story = StoryObj<typeof meta>;
 
 export const Default = {
   args: {
-    label: "I'm a button!",
     variant: 'primary',
+    label: "I'm a button!",
+    loading: false,
     modSmall: false,
   },
 } satisfies Story;
 
 export const LinkButton = {
   args: {
-    label: "I'm a button!",
     variant: 'primary',
-    modSmall: false,
+    label: "I'm a button!",
     href: '#',
+    loading: false,
+    modSmall: false,
   },
 } satisfies Story;

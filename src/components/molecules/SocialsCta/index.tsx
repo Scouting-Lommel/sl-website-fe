@@ -1,6 +1,5 @@
-import { ComponentType } from 'react';
 import classNames from 'classnames';
-import { IconFacebook, IconInstagram, IconTikTok } from '@/assets/icons';
+import { iconMap } from '@/components/atoms/Icon/IconMap';
 import SLLink from '@/components/atoms/Link';
 import Icon from '@/components/atoms/Icon';
 import { SocialsCta as SocialsCtaProps } from './types';
@@ -14,12 +13,12 @@ type Props = SocialsCtaProps & React.HTMLAttributes<HTMLElement>;
 
 const SocialsCta = ({ title, socialItems, className }: Props) => {
   interface icons {
-    [key: string]: ComponentType<{}>;
+    [key: string]: keyof typeof iconMap;
   }
   const icons: icons = {
-    facebook: IconFacebook,
-    instagram: IconInstagram,
-    tiktok: IconTikTok,
+    facebook: 'facebook',
+    instagram: 'instagram',
+    tiktok: 'tiktok',
   };
 
   return (
@@ -37,10 +36,10 @@ const SocialsCta = ({ title, socialItems, className }: Props) => {
               variant={'link1'}
             >
               <Icon
-                title={item.title}
-                icon={icons[item.icon]}
-                className="socials-cta__socials__item__icon"
+                name={icons[item.icon]}
+                aria-label={item.title}
                 size="lg"
+                className="socials-cta__socials__item__icon"
               />
             </SLLink>
           );

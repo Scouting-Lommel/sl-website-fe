@@ -1,13 +1,12 @@
 'use client';
 
+import { useCallback, useEffect, useState } from 'react';
+import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import Icon from '@/components/atoms/Icon';
+import CarouselItem from '@/components/molecules/CarouselItem';
 import { Carousel as CarouselProps, PropType, UsePrevNextButtonsType } from './types';
 import styles from './Carousel.css';
-import CarouselItem from '@/components/molecules/CarouselItem';
-import useEmblaCarousel from 'embla-carousel-react';
-import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
-import { useCallback, useEffect, useState } from 'react';
-import Icon from '@/components/atoms/Icon';
-import { IconArrowLeft, IconArrowRight } from '@/assets/icons';
 
 export const links = () => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -89,7 +88,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
 
   return (
     <button className="embla__button embla__button--prev" type="button" {...restProps}>
-      <Icon title="arrowLeft" icon={IconArrowLeft} size="xl" />
+      <Icon name="arrow-left" aria-label="arrow left" size="xl" />
     </button>
   );
 };
@@ -99,7 +98,7 @@ export const NextButton: React.FC<PropType> = (props) => {
 
   return (
     <button className="embla__button embla__button--next" type="button" {...restProps}>
-      <Icon title="arrowRight" icon={IconArrowRight} size="xl" />
+      <Icon name="arrow-right" aria-label="arrow right" size="xl" />
     </button>
   );
 };

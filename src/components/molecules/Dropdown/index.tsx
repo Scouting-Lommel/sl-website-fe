@@ -1,4 +1,3 @@
-import { IconChevronDown } from '@/assets/icons';
 import DropdownItem from '@/components/atoms/DropdownItem';
 import Icon from '@/components/atoms/Icon';
 import Button from '@/components/atoms/Button';
@@ -41,10 +40,10 @@ const Dropdown = ({
             className="dropdown__content__back-button"
           >
             <Icon
-              icon={IconChevronDown}
-              className="dropdown__content__back-button__chevron"
+              name="chevron-down"
+              aria-label="Collapse"
               size="xs"
-              title="Collapse"
+              className="dropdown__content__back-button__chevron"
             />
             Terug
           </Button>
