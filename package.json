@@ -4,17 +4,14 @@
   "scripts": {
     "build:css:components": "postcss src/components/**/*.pcss --base src/components --dir src/components --ext css --env production",
     "build:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css --env production",
-    "build:icons": "npm run generate-icons",
     "build:next": "next build",
     "build:prebuild": "node prebuild.ts",
     "build": "run-p build:**",
     "dev:css:components": "postcss src/components/**/*.pcss --base src/components --dir src/components --ext css -w",
     "dev:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css -w",
-    "dev:icons": "npm run generate-icons",
     "dev:next": "next dev",
     "dev": "run-p dev:**",
     "export": "next export",
-    "generate-icons": "node ./script/generate-icons.js && npx eslint ./src/assets/icons/index.ts --quiet --fix",
     "lint:eslint": "next lint",
     "lint:typescript": "tsc",
     "lint:stylelint": "npx stylelint \"**/*.pcss\" --fix",
@@ -23,8 +20,8 @@
     "start": "next start",
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
-    "storybook": "run-p generate-icons dev:css:* storybook:start",
-    "build-storybook": "run-p generate-icons build:css:* storybook:build"
+    "storybook": "run-p dev:css:* storybook:start",
+    "build-storybook": "run-p build:css:* storybook:build"
   },
   "dependencies": {
     "@apollo/client": "^3.7.2",
