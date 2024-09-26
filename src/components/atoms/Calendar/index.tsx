@@ -3,10 +3,9 @@
 import React, { useState } from 'react';
 import { CalendarProps } from './types';
 import styles from './Calendar.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import Button from '../Button';
 import Typography from '../Typography';
+import Icon from '../Icon';
 
 const daysOfWeek = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
 
@@ -57,7 +56,7 @@ export default function Calendar({ events }: Props) {
       <div className="calendar__header">
         <Typography>
           <Button onClick={prevMonth}>
-            <FontAwesomeIcon icon={faChevronLeft} /> Vorige
+            <Icon name="chevron-left" size="md" /> Vorige
           </Button>
         </Typography>
         <Typography>
@@ -67,7 +66,7 @@ export default function Calendar({ events }: Props) {
         </Typography>
         <Typography>
           <Button onClick={nextMonth}>
-            Volgende <FontAwesomeIcon icon={faChevronRight} />
+            Volgende <Icon name="chevron-right" size="md" />
           </Button>
         </Typography>
       </div>
