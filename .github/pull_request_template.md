@@ -2,7 +2,7 @@
 
 ## Type of PR
 
-:sparkles: Feature / :bug: Bugfix / :art: Refactor / :ambulance: Critical fix / :memo: Documentation
+:sparkles: Feature / :bug: Bugfix / :art: Refactor / :broom: Maintenance / :ambulance: Critical fix / :memo: Documentation / ...
 
 ## Jira ticket(s)
 

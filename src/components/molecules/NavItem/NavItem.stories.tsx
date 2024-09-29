@@ -57,10 +57,6 @@ const meta = {
       control: { type: 'boolean' },
       description: 'If the button should be modified',
     },
-    onClick: {
-      control: { type: '' },
-      description: 'What happens on click',
-    },
   },
 } satisfies Meta<typeof NavItemContainer>;
 

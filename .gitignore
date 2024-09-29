@@ -38,6 +38,7 @@ yarn-error.log*
 
 # storybook
 /storybook-static
+build-storybook.log
 
 # generated stylesheets
 src/**/*.css

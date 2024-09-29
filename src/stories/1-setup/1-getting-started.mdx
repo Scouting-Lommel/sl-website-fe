@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="1 Setup / 1.1 Getting Started" />
+
+<div className="sb-section">
+  <h2 className="sb-heading__2" id="installation">Installation</h2>
+
+  1. Clone this repo onto your machine and navigate to the local repo
+     ```bash
+     git clone https://github.com/Scouting-Lommel/sl-website-fe.git
+     cd sl-website-fe
+     ```
+
+  2. Copy the example environment file
+
+     ```bash
+     cp .env.example .env
+     ```
+
+  3. Fill in `.env`. For environment values, contact repo owner.
+
+  4. Set the `Node.js` version
+     ```bash
+     nvm use
+     ```
+
+  5. Install dependencies
+     ```bash
+     npm install
+     ```
+</div>
+
+<div className="sb-section">
+  <h2 className="sb-heading__2" id="running-locally">Running locally</h2>
+
+  1. [Clone and install](#installation) this repo
+  2. Start the development server
+     ```bash
+     npm run dev
+     ```
+  3. You can now visit the website's frontend on [port 3000](http://localhost:3000).
+</div>
+
+<div className="sb-section">
+  <h2 className="sb-heading__2" id="building-the-project">Building the project</h2>
+  <h3 className="sb-heading__3">Local build</h3>
+
+  1. [Clone and install](#installation) this repo
+  2. Produce a production build using `npm`
+     ```bash
+     npm run build
+     ```
+  3. Start the app using
+     ```bash
+     npm start
+     ```
+
+  <h3 className="sb-heading__3">Production build</h3>
+
+  It is not necessary to build for production manually. A CI/CD pipeline has been set up for automatic deployment when pushing changes and/or features to the `main` branch.
+</div>
