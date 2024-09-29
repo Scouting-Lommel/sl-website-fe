@@ -59,6 +59,15 @@ h3,
   border-radius: var(--border-radius);
 }
 
+.sb-icon-swatch {
+  display: flex;
+  width: 4rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+}
+
 .sb-table {
   border: 0.0625rem solid var(--color-neutral-300);
   margin-bottom: 1rem;

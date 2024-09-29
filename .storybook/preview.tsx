@@ -1,10 +1,10 @@
 import React from 'react';
+import { themes } from '@storybook/theming';
+import { SessionProvider } from 'next-auth/react';
 import '../src/app/global.css';
 import './storybook.css';
-import theme from './theme';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -15,8 +15,25 @@ export const parameters = {
     storySort: {
       order: ['Atoms', 'Molecules', 'Organisms'],
     },
-    theme,
+  },
+  docs: {
+    theme: themes.light,
   },
 };
 
-export const decorators = [(Story) => <Story />];
+export const decorators = [
+  (Story: React.FC) => (
+    <SessionProvider>
+      <Story />
+    </SessionProvider>
+  ),
+];
+
+export const loaders = [
+  async () => ({
+    fn:
+      (name: string) =>
+      (...args: any[]) =>
+        console.log(`${name} called with`, ...args),
+  }),
+];

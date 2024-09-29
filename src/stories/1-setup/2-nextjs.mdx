@@ -1,0 +1,33 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="1 Setup / 1.2 NextJS" />
+
+<div className="sb-section">
+  <h2 className="sb-heading__2" id="versions">Versions</h2>
+
+  * NextJS: `^13.0.6`
+  * React: `^18.2.0`
+</div>
+
+<div className="sb-section">
+  <h2 className="sb-heading__2" id="rendering-methods">Rendering methods</h2>
+
+  We are using NextJS's new app directory, which uses server components by default.
+  This way the website will be statically generated or server side rendered depending on the webpage.
+  Most pages are rendered at buildtime.
+  Dynamic pages like /takken/\[slug] or /verhuur/\[slug] get rendered server side rendered at request time.
+</div>
+
+<div className="sb-section">
+  <h2 className="sb-heading__2" id="styling">Styling</h2>
+
+  For styling, we use a PostCSS setup.
+
+  * `postcss-custom-media` for custom media queries
+  * `@csstools/postcss-global-data` for enabling the custom media queries globally
+  * `postcss-import` to make it possible to import pcss files into each other
+  * `postcss-nested` to make it possible to nest selectors
+  * `cssnano` to minify the css output
+
+  See `postcss.config.js` for full configuration.
+</div>

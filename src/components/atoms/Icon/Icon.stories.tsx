@@ -1,20 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { IconGallery, IconItem } from '@storybook/blocks';
 import { iconMap } from './IconMap';
 import Icon from './';
 
 const CustomIconGallery: React.FC = () => {
   return (
-    <IconGallery>
+    <div className="sb-section">
       {Object.entries(iconMap).map(([name, _]) => {
-        console.log(name);
         return (
-          <IconItem name={name} key={name}>
-            <Icon name={name as keyof typeof iconMap} size="xs" />
-          </IconItem>
+          <div className="sb-list__item" key={name}>
+            <div className="sb-list__item__cell">
+              <div className="sb-icon-swatch">
+                <Icon name={name as keyof typeof iconMap} size="lg" />
+              </div>
+            </div>
+            <div className="sb-code sb-code--styled">{name}</div>
+          </div>
         );
       })}
-    </IconGallery>
+    </div>
   );
 };
 
@@ -30,7 +33,7 @@ const meta = {
     },
     size: {
       control: { type: 'select' },
-      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'],
       description: 'The size of the icon',
     },
   },
@@ -42,7 +45,7 @@ type Story = StoryObj<typeof meta>;
 export const Default = {
   args: {
     name: 'arrow-down',
-    size: 'sm',
+    size: 'lg',
   },
 } satisfies Story;
 
