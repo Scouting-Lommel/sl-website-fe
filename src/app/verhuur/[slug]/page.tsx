@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
-import HeroBlock from '@/content-blocks/HeroBlock';
 import { getGeneralData } from '../../api';
 import { getRentalLocationPage, getRentalLocationBookings } from './api';
 
