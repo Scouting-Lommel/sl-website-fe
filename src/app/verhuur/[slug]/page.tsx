@@ -15,7 +15,7 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
   const metadata = generateMetadataForPage(
     rentalLocation.attributes.pageMeta,
     generalData.data.attributes,
-    'takken',
+    'verhuur',
   );
 
   return { ...metadata };
