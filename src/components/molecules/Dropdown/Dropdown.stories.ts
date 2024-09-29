@@ -35,7 +35,7 @@ const meta = {
       description: 'The rental locations',
     },
     toggleDropdown: {
-      control: { type: '' },
+      control: { type: 'boolean' },
       description: 'The function that togles the dropdown',
     },
   },
