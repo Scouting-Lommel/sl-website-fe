@@ -7,6 +7,7 @@
     "build:next": "next build",
     "build:prebuild": "node prebuild.ts",
     "build": "run-p build:**",
+    "chromatic": "npx chromatic --project-token=chpt_8d08d2bcd7ac9cd",
     "dev:css:components": "postcss src/components/**/*.pcss --base src/components --dir src/components --ext css -w",
     "dev:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css -w",
     "dev:next": "next dev",
@@ -21,8 +22,7 @@
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
     "storybook": "run-p dev:css:* storybook:start",
-    "build-storybook": "run-p build:css:* storybook:build",
-    "chromatic": "npx chromatic --project-token=chpt_8d08d2bcd7ac9cd"
+    "build-storybook": "run-p build:css:* storybook:build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
-    "@csstools/postcss-global-data": "^1.0.3",
+    "@csstools/postcss-global-data": "^3.0.0",
     "@netlify/plugin-nextjs": "^4.41.3",
     "@storybook/addon-actions": "^8.3.4",
     "@storybook/addon-essentials": "^8.3.4",
@@ -79,11 +79,11 @@
     "file-loader": "^6.2.0",
     "json5": "^1.0.2",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^10.1.0",
-    "postcss-custom-media": "^9.1.4",
-    "postcss-import": "^15.1.0",
-    "postcss-nested": "^6.0.1",
-    "postcss-preset-env": "^8.4.2",
+    "postcss-cli": "^11.0.0",
+    "postcss-custom-media": "^11.0.1",
+    "postcss-import": "^16.1.0",
+    "postcss-nested": "^6.2.0",
+    "postcss-preset-env": "^10.0.5",
     "prettier": "^2.4.1",
     "storybook": "^8.3.4",
     "storybook-css-modules-preset": "^1.1.1",
