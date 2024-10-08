@@ -3,7 +3,7 @@
   "cssVariables.blacklistFolders": [".next"],
   "cssVariables.lookupFiles": ["**/*.css", "**/*.pcss"],
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "always",
+    "source.organizeImports": "never",
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit"
   },
