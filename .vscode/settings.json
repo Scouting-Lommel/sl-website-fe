@@ -1,0 +1,23 @@
+{
+  "css.validate": false,
+  "cssVariables.blacklistFolders": [".next"],
+  "cssVariables.lookupFiles": ["**/*.css", "**/*.pcss"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "eslint.validate": ["javascript"],
+  "files.watcherExclude": {
+    "**/node_modules/**": true
+  },
+  "i18n-ally.displayLanguage": "nl",
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.localesPaths": ["locales"],
+  "i18n-ally.namespace": true,
+  "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
+  "stylelint.validate": ["css", "postcss"],
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.autoImportFileExcludePatterns": ["lucide-react"],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
