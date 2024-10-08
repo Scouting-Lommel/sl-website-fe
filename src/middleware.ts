@@ -25,13 +25,3 @@ export default function middleware(req: NextRequest) {
 
   return NextResponse.next();
 }
-
-const combinedMatcher = [
-  ...signinMiddlewareConfig,
-  ...dashboardMiddlewareConfig,
-  ...groupsMiddlewareConfig,
-];
-
-export const config = {
-  matcher: combinedMatcher,
-};
