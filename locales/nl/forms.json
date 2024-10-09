@@ -77,6 +77,15 @@
       }
     }
   },
+  "errorMessage": {
+    "required": "Dit veld is verplicht.",
+    "email": "Gelieve een geldig emailadres in te vullen.",
+    "phone": "Gelieve een geldig telefoonnummer in te vullen.",
+    "url": "Gelieve een geldige url in te vullen.",
+    "invalidOption": "Gelieve een geldige optie te kiezen.",
+    "fileFormat": "Niet-ondersteund bestandsformaat. Geldige bestanden zijn: png, jpg, jpeg, gif, pdf.",
+    "fileSize": "Het is niet mogelijk bestanden groter dan 5MB te uploaden."
+  },
   "registerForm": {
     "fields": {
       "registerIntro": {
@@ -118,7 +127,8 @@
         "label": "Telefoonnummer"
       },
       "address": {
-        "label": "Adres"
+        "label": "Adres",
+        "placeholder": "Straatnaam + huisnummer (+ bus)"
       },
       "postalCode": {
         "label": "Postcode"

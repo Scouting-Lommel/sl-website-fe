@@ -15,7 +15,7 @@ import { RegisterForm as RegisterFormProps } from './types';
 type Props = RegisterFormProps & React.HTMLAttributes<HTMLElement>;
 
 const RegisterForm = ({ initialValues, submitForm }: Props) => {
-  const t = useTranslations('forms.registerForm');
+  const t = useTranslations('forms');
 
   let currentBirthday: string = '';
   let isAkabe: boolean = false;
@@ -129,7 +129,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       type: 'text',
       id: 'registerIntro',
       name: 'registerIntro',
-      text: t('fields.registerIntro.label', { year: getCurrentWorkingYear() }),
+      text: t('registerForm.fields.registerIntro.label', { year: getCurrentWorkingYear() }),
     },
     {
       type: 'divider',
@@ -140,7 +140,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       type: 'text',
       id: 'memberToRegister',
       name: 'memberToRegister',
-      text: t('fields.memberToRegister.label'),
+      text: t('registerForm.fields.memberToRegister.label'),
       className: 't-headline-3',
     },
     {
@@ -152,7 +152,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'firstName',
           name: 'firstName',
-          label: t('fields.firstName.label'),
+          label: t('registerForm.fields.firstName.label'),
           required: true,
           autoComplete: 'given-name',
         },
@@ -160,7 +160,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'lastName',
           name: 'lastName',
-          label: t('fields.lastName.label'),
+          label: t('registerForm.fields.lastName.label'),
           required: true,
           autoComplete: 'family-name',
         },
@@ -175,7 +175,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           id: 'birthday',
           type: 'date',
           name: 'birthday',
-          label: t('fields.birthday.label'),
+          label: t('registerForm.fields.birthday.label'),
           required: true,
           customChangeBehaviour: onBirthdayChange,
         },
@@ -183,7 +183,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           id: 'memberGroup_vis',
           type: 'input',
           name: 'memberGroup',
-          label: t('fields.group.label'),
+          label: t('registerForm.fields.group.label'),
           value: '',
           disabled: true,
         },
@@ -199,33 +199,33 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       id: 'isAkabe',
       name: 'isAkabe',
       type: 'checkbox',
-      label: t('fields.isAkabe.label'),
+      label: t('registerForm.fields.isAkabe.label'),
       customChangeBehaviour: onIsAkabeChange,
     },
     {
       id: 'genderRow',
       name: 'gender',
       type: 'radioGroup',
-      label: t('fields.gender.label'),
+      label: t('registerForm.fields.gender.label'),
       direction: 'row',
       required: true,
       radioButtons: [
         {
           id: 'm',
           name: 'm',
-          label: t('fields.gender.options.male'),
+          label: t('registerForm.fields.gender.options.male'),
           value: 'm',
         },
         {
           id: 'v',
           name: 'v',
-          label: t('fields.gender.options.female'),
+          label: t('registerForm.fields.gender.options.female'),
           value: 'v',
         },
         {
           id: 'x',
           name: 'x',
-          label: t('fields.gender.options.other'),
+          label: t('registerForm.fields.gender.options.other'),
           value: 'x',
         },
       ],
@@ -239,7 +239,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       type: 'text',
       id: 'contactAndAddress',
       name: 'contactAndAddress',
-      text: t('fields.contactAndAddress.label'),
+      text: t('registerForm.fields.contactAndAddress.label'),
       className: 't-headline-3',
     },
     {
@@ -251,7 +251,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           type: 'email',
           id: 'email',
           name: 'email',
-          label: t('fields.email.label'),
+          label: t('registerForm.fields.email.label'),
           placeholder: 'email@example.com',
           required: true,
           autoComplete: 'email',
@@ -260,7 +260,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           type: 'tel',
           id: 'telephoneNumber',
           name: 'telephoneNumber',
-          label: t('fields.telephoneNumber.label'),
+          label: t('registerForm.fields.telephoneNumber.label'),
           required: true,
           autoComplete: 'tel',
         },
@@ -270,7 +270,8 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       type: 'input',
       id: 'address',
       name: 'address',
-      label: t('fields.address.label'),
+      label: t('registerForm.fields.address.label'),
+      placeholder: t('registerForm.fields.address.placeholder'),
       required: true,
       autoComplete: 'street-address',
     },
@@ -283,7 +284,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'postalCode',
           name: 'postalCode',
-          label: t('fields.postalCode.label'),
+          label: t('registerForm.fields.postalCode.label'),
           required: true,
           autoComplete: 'postal-code',
         },
@@ -291,7 +292,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'city',
           name: 'city',
-          label: t('fields.city.label'),
+          label: t('registerForm.fields.city.label'),
           required: true,
           autoComplete: 'address-level-2',
         },
@@ -306,21 +307,21 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       type: 'text',
       id: 'extraInfo',
       name: 'extraInfo',
-      text: t('fields.extraInfo.label'),
+      text: t('registerForm.fields.extraInfo.label'),
       className: 't-headline-3',
     },
     {
       id: 'workingYear',
       type: 'hidden',
       name: 'workingYear',
-      label: t('fields.workingYear.label'),
+      label: t('registerForm.fields.workingYear.label'),
       value: getCurrentWorkingYear(),
     },
     {
       type: 'textarea',
       id: 'comments',
       name: 'comments',
-      label: t('fields.comments.label'),
+      label: t('registerForm.fields.comments.label'),
       rows: 8,
     },
     {
@@ -337,13 +338,13 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       id: 'terms-and-conditions',
       name: 'terms-and-conditions',
       type: 'checkbox',
-      label: t('fields.termsAndConditions.label'),
+      label: t('registerForm.fields.termsAndConditions.label'),
       required: true,
     },
   ];
 
   const [fields, setFields] = useState<FormField[]>(formFields);
-  const formSchema = generateFormSchema({ fields: formFields });
+  const formSchema = generateFormSchema({ fields: formFields, t });
 
   const handleSubmit = (data: any) => {
     submitForm(data, fields);
@@ -356,7 +357,7 @@ const RegisterForm = ({ initialValues, submitForm }: Props) => {
       initialValues={initialValues}
       formSchema={formSchema}
       submitForm={handleSubmit}
-      submitButtonLabel={t('buttons.submit.label')}
+      submitButtonLabel={t('registerForm.buttons.submit.label')}
     />
   );
 };

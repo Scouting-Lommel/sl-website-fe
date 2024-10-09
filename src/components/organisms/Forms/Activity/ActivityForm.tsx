@@ -7,7 +7,7 @@ import { ActivityForm as ActivityFormProps } from './types';
 type Props = ActivityFormProps & React.HTMLAttributes<HTMLElement>;
 
 const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }: Props) => {
-  const t = useTranslations('forms.activityForm');
+  const t = useTranslations('forms');
 
   const formFields: FormField[] = [
     {
@@ -20,7 +20,7 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
       type: 'input',
       id: 'title',
       name: 'title',
-      label: t('fields.title.label'),
+      label: t('activityForm.fields.title.label'),
       required: true,
     },
     {
@@ -32,14 +32,14 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
           type: 'datetime',
           id: 'start',
           name: 'start',
-          label: t('fields.start.label'),
+          label: t('activityForm.fields.start.label'),
           required: true,
         },
         {
           type: 'datetime',
           id: 'end',
           name: 'end',
-          label: t('fields.end.label'),
+          label: t('activityForm.fields.end.label'),
           required: true,
         },
       ],
@@ -48,13 +48,16 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
       type: 'textarea',
       id: 'description',
       name: 'description',
-      label: t('fields.description.label'),
+      label: t('activityForm.fields.description.label'),
       rows: 6,
       required: true,
     },
   ];
 
-  const formSchema = generateFormSchema({ fields: formFields });
+  const formSchema = generateFormSchema({
+    fields: formFields,
+    t,
+  });
 
   const handleSubmit = (data: any) => {
     submitForm(data, formFields);
@@ -67,11 +70,11 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
       initialValues={initialValues}
       formSchema={formSchema}
       submitForm={handleSubmit}
-      submitButtonLabel={t('buttons.submit.label')}
+      submitButtonLabel={t('activityForm.buttons.submit.label')}
       secondaryButton={
         activityId
           ? {
-              label: t('buttons.secondary.label'),
+              label: t('activityForm.buttons.secondary.label'),
               variant: 'danger',
               onClick: deleteActivity,
             }

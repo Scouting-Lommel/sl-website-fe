@@ -14,7 +14,7 @@ import { ContactForm as ContactFormProps } from './types';
 type Props = ContactFormProps & React.HTMLAttributes<HTMLElement>;
 
 const ContactForm = ({ initialValues, submitForm }: Props) => {
-  const t = useTranslations('forms.contactForm');
+  const t = useTranslations('forms');
 
   const isRowField = (field: FormField): field is RowField & BaseField => field.type === 'row';
   const isRecipientRow = (field: FormField): boolean => field.id === 'recipientRow';
@@ -60,7 +60,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
     id: 'group',
     type: 'select',
     name: 'group',
-    label: t('fields.group.label'),
+    label: t('contactForm.fields.group.label'),
     options: Object.values(Groups).map((group) => ({ label: group, value: group })),
     required: false,
   };
@@ -75,7 +75,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'firstName',
           name: 'firstName',
-          label: t('fields.firstName.label'),
+          label: t('contactForm.fields.firstName.label'),
           required: true,
           autoComplete: 'given-name',
         },
@@ -83,7 +83,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'lastName',
           name: 'lastName',
-          label: t('fields.lastName.label'),
+          label: t('contactForm.fields.lastName.label'),
           required: true,
           autoComplete: 'family-name',
         },
@@ -93,7 +93,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       type: 'email',
       id: 'email',
       name: 'email',
-      label: t('fields.email.label'),
+      label: t('contactForm.fields.email.label'),
       placeholder: 'email@example.com',
       required: true,
       autoComplete: 'email',
@@ -107,7 +107,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
           type: 'select',
           id: 'recipient',
           name: 'recipient',
-          label: t('fields.recipient.label'),
+          label: t('contactForm.fields.recipient.label'),
           options: Object.values(Recipients).map((recipient) => ({
             label: recipient,
             value: recipient,
@@ -121,7 +121,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       type: 'textarea',
       id: 'body',
       name: 'body',
-      label: t('fields.body.label'),
+      label: t('contactForm.fields.body.label'),
       rows: 8,
       required: true,
     },
@@ -134,13 +134,13 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       type: 'checkbox',
       id: 'terms-and-conditions',
       name: 'terms-and-conditions',
-      label: t('fields.termsAndConditions.label'),
+      label: t('contactForm.fields.termsAndConditions.label'),
       required: true,
     },
   ];
 
   const [fields, setFields] = useState<FormField[]>(formFields);
-  const formSchema = generateFormSchema({ fields: formFields });
+  const formSchema = generateFormSchema({ fields: formFields, t });
 
   const handleSubmit = (data: any) => {
     submitForm(data, fields);
@@ -157,7 +157,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       initialValues={initialValues}
       formSchema={formSchema}
       submitForm={handleSubmit}
-      submitButtonLabel={t('buttons.submit.label')}
+      submitButtonLabel={t('contactForm.buttons.submit.label')}
     />
   );
 };

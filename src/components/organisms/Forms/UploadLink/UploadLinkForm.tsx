@@ -8,7 +8,7 @@ import { UploadLinkForm as UploadLinkFormProps } from './types';
 type Props = UploadLinkFormProps & React.HTMLAttributes<HTMLElement>;
 
 const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
-  const t = useTranslations('forms.uploadLinkForm');
+  const t = useTranslations('forms');
 
   const formFields: FormField[] = [
     {
@@ -26,8 +26,8 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
           type: 'input',
           id: 'linkLabel',
           name: 'linkLabel',
-          label: t('fields.linkLabel.label'),
-          placeholder: t('fields.linkLabel.placeholder'),
+          label: t('uploadLinkForm.fields.linkLabel.label'),
+          placeholder: t('uploadLinkForm.fields.linkLabel.placeholder'),
           required: true,
         },
         {
@@ -35,15 +35,15 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
           pattern: urlRegExValidation,
           id: 'linkUrl',
           name: 'linkUrl',
-          label: t('fields.linkUrl.label'),
-          placeholder: t('fields.linkUrl.placeholder'),
+          label: t('uploadLinkForm.fields.linkUrl.label'),
+          placeholder: t('uploadLinkForm.fields.linkUrl.placeholder'),
           required: true,
         },
       ],
     },
   ];
 
-  const formSchema = generateFormSchema({ fields: formFields });
+  const formSchema = generateFormSchema({ fields: formFields, t });
 
   const handleSubmit = (data: any) => {
     submitForm(data, formFields);
@@ -56,7 +56,7 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
       initialValues={initialValues}
       formSchema={formSchema}
       submitForm={handleSubmit}
-      submitButtonLabel={t('buttons.submit.label')}
+      submitButtonLabel={t('uploadLinkForm.buttons.submit.label')}
     />
   );
 };
