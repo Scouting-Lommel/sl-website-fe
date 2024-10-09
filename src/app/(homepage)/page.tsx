@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { getTranslations } from 'next-intl/server';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
@@ -19,8 +18,6 @@ export async function generateMetadata() {
 }
 
 const HomePage = async () => {
-  const t = await getTranslations('common.home');
-
   const { generalData } = await getGeneralData();
   const { homePage } = await getHomePage();
 
@@ -49,7 +46,6 @@ const HomePage = async () => {
 
   return (
     <>
-      {t('title')}
       <Blocks content={homePage.data.attributes.blocks} />
       <script
         type="application/ld+json"
