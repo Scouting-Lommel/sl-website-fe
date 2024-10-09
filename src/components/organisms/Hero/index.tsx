@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useTranslations } from 'next-intl';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import YearTheme from '@/components/molecules/YearTheme';
@@ -12,10 +13,12 @@ export const links = () => {
 type Props = HeroProps & React.HTMLAttributes<HTMLElement>;
 
 const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }: Props) => {
+  const t = useTranslations('common.home');
   const heroClassname = classNames('hero', `hero--${variant}`, className);
 
   return (
     <div className={heroClassname}>
+      {t('title')}
       <h1
         className={
           variant === 'simple'
