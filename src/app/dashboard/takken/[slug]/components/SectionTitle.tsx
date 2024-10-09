@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Modal from '@/components/atoms/Modal';
 import ActionTitle from '@/components/molecules/ActionTitle';
 import Tabs, { Tab } from '@/components/atoms/Tabs';
@@ -25,14 +26,16 @@ const SectionTitle = ({
 }: SectionTitleProps) => {
   const [toggle, setToggle] = useState<boolean>(false);
 
+  const t = useTranslations('dashboard.groupsDetail.sections.sectionTitle');
+
   let actionTitle = '';
   switch (type) {
     case 'activity': {
-      actionTitle = 'Nieuwe activiteit toevoegen';
+      actionTitle = t('activity.actionTitle');
       break;
     }
     case 'file': {
-      actionTitle = 'Nieuwe bijlage toevoegen';
+      actionTitle = t('file.actionTitle');
       break;
     }
   }
@@ -73,14 +76,14 @@ const SectionTitle = ({
           )}
           {type === 'file' && (
             <Tabs>
-              <Tab label="Een bestand toevoegen">
+              <Tab label={t('file.tabTitles.file')}>
                 <Form
                   variant="uploadFile"
                   props={{ groupId, callback, allFiles, closeClickHandler: handleClose }}
                   blockProperties={{ slug: 'upload-file', modNoPadding: true }}
                 />
               </Tab>
-              <Tab label="Een link toevoegen">
+              <Tab label={t('file.tabTitles.link')}>
                 <Form
                   variant="uploadLink"
                   props={{ groupId, allLinks, callback, closeClickHandler: handleClose }}

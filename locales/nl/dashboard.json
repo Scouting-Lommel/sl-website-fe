@@ -1,1 +1,60 @@
-{}
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Welkom, {name}!",
+    "notFound": "Geen toegang tot beschikbare dashboard items.",
+    "manageGroups": {
+      "title": "Takpagina's",
+      "subtitle": "Beheer de takpagina's:",
+      "manageActivities": "Activiteiten toevoegen, aanpassen en verwijderen",
+      "manageFiles": "Bestanden en links toevoegen en verwijderen",
+      "button": {
+        "label": "Naar takken beheren"
+      }
+    }
+  },
+
+  "groupsOverview": {
+    "title": "Takken",
+    "subtitle": "Beheer je takpagina('s)",
+    "groupButton": {
+      "label": "{group}pagina"
+    }
+  },
+
+  "groupsDetail": {
+    "metaTitle": "Takpagina beheren • Dashboard",
+    "subtitle": "Takpagina beheren",
+    "sections": {
+      "sectionTitle": {
+        "activity": {
+          "actionTitle": "Nieuwe activiteit toevoegen"
+        },
+        "file": {
+          "actionTitle": "Nieuwe bijlage toevoegen",
+          "tabTitles": {
+            "file": "Een bestand toevoegen",
+            "link": "Een link toevoegen"
+          }
+        }
+      },
+      "fileStatus": {
+        "loading": "Bezig met uploaden...",
+        "error": "Er ging iets mis bij het toevoegen van dit bestand. Probeer het later opnieuw.",
+        "deleteError": "Er ging iets mis bij het verwijderen van dit bestand. Probeer het later opnieuw.",
+        "success": "Het bestand is met succes geupload.",
+        "deleteSuccess": "Het bestand is met succes verwijderd."
+      },
+      "filesSection": {
+        "title": "Links en bestanden",
+        "error": "Er ging iets mis bij het laden van de bestanden. Probeer het later nog eens.",
+        "noFilesFound": "Geen bestanden gevonden."
+      },
+      "activitiesSection": {
+        "title": "Activiteiten",
+        "error": "Er ging iets mis bij het laden van de activiteiten. Probeer het later nog eens.",
+        "noActivitiesFound": "Geen activiteiten gevonden."
+      }
+    }
+  }
+}

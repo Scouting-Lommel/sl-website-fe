@@ -1,6 +1,7 @@
 'use client';
 
 import { Fragment, useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
@@ -18,6 +19,8 @@ const FilesSection = ({ group }: Props) => {
   const [groupLinks, setLinks] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+
+  const t = useTranslations('dashboard.groupsDetail.sections.filesSection');
 
   const fetchFiles = useCallback(async () => {
     setError(false);
@@ -57,7 +60,7 @@ const FilesSection = ({ group }: Props) => {
     <BlockContainer slug="group-files-section">
       <FormProvider>
         <SectionTitle
-          title="Links en bestanden"
+          title={t('title')}
           groupId={group.id}
           type="file"
           allFiles={groupFiles}
@@ -66,12 +69,10 @@ const FilesSection = ({ group }: Props) => {
         />
         <BlockContainer slug="group-files" modSmallPadding>
           <FileStatus />
-          {error && !loading && (
-            <p>Er ging iets mis bij het laden van de bestanden. Probeer het later nog eens.</p>
-          )}
+          {error && !loading && <p>{t('error')}</p>}
           {!error && loading && <Loader size="sm" modLabelVisible />}
           {!error && !loading && groupFiles?.length === 0 && groupLinks === 0 && (
-            <p>Geen bestanden gevonden.</p>
+            <p>{t('noFilesFound')}</p>
           )}
           {!error && !loading && (groupFiles?.length > 0 || groupLinks?.length > 0) && (
             <ul style={{ paddingLeft: 0 }}>
