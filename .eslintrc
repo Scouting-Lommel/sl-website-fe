@@ -1,11 +1,7 @@
 {
-  "extends": [
-    "next",
-    "next/core-web-vitals",
-    "plugin:prettier/recommended",
-    "next/core-web-vitals"
-  ],
+  "extends": ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
   "rules": {
+    "simple-import-sort/imports": "warn",
     "@next/next/no-img-element": "off",
     "jsx-a11y/alt-text": [
       2,
@@ -13,14 +9,9 @@
         "elements": ["img", "object", "area", "input[type=\"image\"]"],
         "object": ["Object"],
         "area": ["Area"],
-        "input[type=\"image\"]": ["InputImage"]
-      }
+        "input[type=\"image\"]": ["InputImage"],
+      },
     ],
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto"
-      }
-    ]
-  }
+    "prettier/prettier": "warn",
+  },
 }

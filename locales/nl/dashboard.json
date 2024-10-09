@@ -14,14 +14,6 @@
     }
   },
 
-  "groupsOverview": {
-    "title": "Takken",
-    "subtitle": "Beheer je takpagina('s)",
-    "groupButton": {
-      "label": "{group}pagina"
-    }
-  },
-
   "groupsDetail": {
     "metaTitle": "Takpagina beheren • Dashboard",
     "subtitle": "Takpagina beheren",
@@ -55,6 +47,13 @@
         "error": "Er ging iets mis bij het laden van de activiteiten. Probeer het later nog eens.",
         "noActivitiesFound": "Geen activiteiten gevonden."
       }
+    }
+  },
+  "groupsOverview": {
+    "title": "Takken",
+    "subtitle": "Beheer je takpagina('s)",
+    "groupButton": {
+      "label": "{group}pagina"
     }
   }
 }

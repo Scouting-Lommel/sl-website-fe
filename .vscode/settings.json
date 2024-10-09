@@ -12,6 +12,7 @@
     "**/node_modules/**": true
   },
   "i18n-ally.displayLanguage": "nl",
+  "i18n-ally.extract.ignored": ["Failed to perform action"],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": ["locales"],
   "i18n-ally.namespace": true,
@@ -19,6 +20,5 @@
   "stylelint.validate": ["css", "postcss"],
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.preferences.autoImportFileExcludePatterns": ["lucide-react"],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "i18n-ally.extract.ignored": ["Failed to perform action"]
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
