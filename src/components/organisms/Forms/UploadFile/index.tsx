@@ -1,10 +1,13 @@
 import { useContext } from 'react';
+import { useTranslations } from 'next-intl';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Banner from '@/components/atoms/Banner';
 import UploadFileForm from './UploadFileForm';
 
 const UploadFile = (props: any) => {
+  const t = useTranslations('forms.uploadFileForm');
+
   const { formStatus, setFormStatus } = useContext(FormContext);
 
   const initialValues = {
@@ -75,16 +78,14 @@ const UploadFile = (props: any) => {
   return (
     <>
       {formStatus === FormStatus.STATUS_LOADING && (
-        <Banner variant="info">Bestand uploaden...</Banner>
+        <Banner variant="info">{t('formStatus.loading')}</Banner>
       )}
       {formStatus === FormStatus.STATUS_ERROR && (
-        <Banner variant="error">
-          Er ging iets mis bij het uploaden van dit bestand. Probeer het later opnieuw.
-        </Banner>
+        <Banner variant="error">{t('formStatus.error')}</Banner>
       )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
         <>
-          <Banner variant="success">Bestand succesvol geupload.</Banner>
+          <Banner variant="success">{t('formStatus.success')}</Banner>
         </>
       )}
 

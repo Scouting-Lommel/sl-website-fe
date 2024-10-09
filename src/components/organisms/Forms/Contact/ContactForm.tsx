@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Groups } from '@/lib/constants/enums/groups';
@@ -13,6 +14,8 @@ import { ContactForm as ContactFormProps } from './types';
 type Props = ContactFormProps & React.HTMLAttributes<HTMLElement>;
 
 const ContactForm = ({ initialValues, submitForm }: Props) => {
+  const t = useTranslations('forms.contactForm');
+
   const isRowField = (field: FormField): field is RowField & BaseField => field.type === 'row';
   const isRecipientRow = (field: FormField): boolean => field.id === 'recipientRow';
   const isGroupField = (field: FormField): boolean => field.id === 'group';
@@ -57,7 +60,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
     id: 'group',
     type: 'select',
     name: 'group',
-    label: 'Tak',
+    label: t('fields.group.label'),
     options: Object.values(Groups).map((group) => ({ label: group, value: group })),
     required: false,
   };
@@ -72,7 +75,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'firstName',
           name: 'firstName',
-          label: 'Voornaam',
+          label: t('fields.firstName.label'),
           required: true,
           autoComplete: 'given-name',
         },
@@ -80,7 +83,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
           type: 'input',
           id: 'lastName',
           name: 'lastName',
-          label: 'Familienaam',
+          label: t('fields.lastName.label'),
           required: true,
           autoComplete: 'family-name',
         },
@@ -90,7 +93,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       type: 'email',
       id: 'email',
       name: 'email',
-      label: 'Email',
+      label: t('fields.email.label'),
       placeholder: 'email@example.com',
       required: true,
       autoComplete: 'email',
@@ -104,7 +107,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
           type: 'select',
           id: 'recipient',
           name: 'recipient',
-          label: 'Ontvanger',
+          label: t('fields.recipient.label'),
           options: Object.values(Recipients).map((recipient) => ({
             label: recipient,
             value: recipient,
@@ -118,7 +121,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       type: 'textarea',
       id: 'body',
       name: 'body',
-      label: 'Bericht',
+      label: t('fields.body.label'),
       rows: 8,
       required: true,
     },
@@ -131,8 +134,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       type: 'checkbox',
       id: 'terms-and-conditions',
       name: 'terms-and-conditions',
-      label:
-        'Ik heb kennis genomen met [de privacyverklaring van Scouting Lommel](/privacy-policy) en ga hiermee akkoord.',
+      label: t('fields.termsAndConditions.label'),
       required: true,
     },
   ];
@@ -155,7 +157,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
       initialValues={initialValues}
       formSchema={formSchema}
       submitForm={handleSubmit}
-      submitButtonLabel="Bericht versturen"
+      submitButtonLabel={t('buttons.submit.label')}
     />
   );
 };

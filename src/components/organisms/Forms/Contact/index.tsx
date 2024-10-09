@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useTranslations } from 'next-intl';
 import { generalEmailAddress, rentalsEmailAddress } from '@/lib/constants/emailAddress';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
@@ -11,6 +12,8 @@ import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/ty
 import ContactForm from './ContactForm';
 
 const Contact = (props: any) => {
+  const t = useTranslations('forms.contactForm');
+
   const { formStatus, setFormStatus } = useContext(FormContext);
 
   const initialValues = {
@@ -46,7 +49,7 @@ const Contact = (props: any) => {
     delete data['captcha-token'];
 
     const email: Email = generateEmail({
-      formTitle: 'Nieuwe inzending: contactformulier website',
+      formTitle: t('email.title'),
       formData: generateFormDataWithLabel(data, formFields),
       to: recipient,
       replyTo: data.email,
@@ -67,22 +70,18 @@ const Contact = (props: any) => {
   return (
     <>
       {formStatus === FormStatus.STATUS_LOADING && (
-        <Banner variant="info">Formulier versturen...</Banner>
+        <Banner variant="info">{t('formStatus.loading')}</Banner>
       )}
       {formStatus === FormStatus.STATUS_ERROR && (
-        <Banner variant="error">
-          Er ging iets mis bij het indienen van dit formulier. Probeer het later opnieuw.
-        </Banner>
+        <Banner variant="error">{t('formStatus.error')}</Banner>
       )}
       {(formStatus === FormStatus.STATUS_CAPTCHA_NOT_VERIFIED ||
         formStatus === FormStatus.STATUS_CAPTCHA_ERROR) && (
-        <Banner variant="error">
-          Er ging iets mis met de Captcha check. Probeer het later opnieuw.
-        </Banner>
+        <Banner variant="error">{t('formStatus.captchaError')}</Banner>
       )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
         <>
-          <Banner variant="success">Je bericht is met succes verstuurd!</Banner>
+          <Banner variant="success">{t('formStatus.success')}</Banner>
           <ContactConfirmation />
         </>
       )}

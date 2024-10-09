@@ -3,7 +3,7 @@ export enum NextLocale {
 }
 
 export const DEFAULT_NS = 'common';
-export const NAMESPACES = ['common', 'dashboard'];
+export const NAMESPACES = ['common', 'dashboard', 'forms'];
 
 export const locales = [NextLocale.NlBe];
 

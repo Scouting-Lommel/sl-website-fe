@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import { urlRegExValidation } from '@/lib/constants/regexValidation';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
@@ -7,6 +8,8 @@ import { UploadLinkForm as UploadLinkFormProps } from './types';
 type Props = UploadLinkFormProps & React.HTMLAttributes<HTMLElement>;
 
 const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
+  const t = useTranslations('forms.uploadLinkForm');
+
   const formFields: FormField[] = [
     {
       type: 'hidden',
@@ -23,8 +26,8 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
           type: 'input',
           id: 'linkLabel',
           name: 'linkLabel',
-          label: 'Naam',
-          placeholder: 'Groepsadmin',
+          label: t('fields.linkLabel.label'),
+          placeholder: t('fields.linkLabel.placeholder'),
           required: true,
         },
         {
@@ -32,8 +35,8 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
           pattern: urlRegExValidation,
           id: 'linkUrl',
           name: 'linkUrl',
-          label: 'Link',
-          placeholder: 'https://groepsadmin.scoutsengidsenvlaanderen.be',
+          label: t('fields.linkUrl.label'),
+          placeholder: t('fields.linkUrl.placeholder'),
           required: true,
         },
       ],
@@ -53,7 +56,7 @@ const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
       initialValues={initialValues}
       formSchema={formSchema}
       submitForm={handleSubmit}
-      submitButtonLabel="Link uploaden"
+      submitButtonLabel={t('buttons.submit.label')}
     />
   );
 };
