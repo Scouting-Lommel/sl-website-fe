@@ -4,11 +4,12 @@ import { generalEmailAddress, rentalsEmailAddress } from '@/lib/constants/emailA
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { Recipients } from '@/lib/constants/enums/recipients';
+import { Groups } from '@/lib/constants/enums/groups';
 import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
 import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
-import ContactConfirmation from './Confirmation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
+import ContactConfirmation from './Confirmation';
 import ContactForm from './ContactForm';
 
 const Contact = (props: any) => {
@@ -21,7 +22,7 @@ const Contact = (props: any) => {
     lastName: '',
     email: '',
     recipient: props.recipient || Recipients.GENERAL,
-    group: props.group || '',
+    group: props.group || Groups.KAPOENEN,
     body: '',
   };
 

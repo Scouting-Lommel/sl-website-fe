@@ -148,7 +148,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
 
   useEffect(() => {
     updateFields(initialValues.recipient);
-  }); // Execute only on first render
+  }, []); // Execute only on first render
 
   return (
     <FormBuilder
