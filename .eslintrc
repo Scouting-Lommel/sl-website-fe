@@ -1,7 +1,6 @@
 {
   "extends": ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
   "rules": {
-    "simple-import-sort/imports": "warn",
     "@next/next/no-img-element": "off",
     "jsx-a11y/alt-text": [
       2,
