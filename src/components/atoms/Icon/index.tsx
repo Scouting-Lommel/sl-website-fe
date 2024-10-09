@@ -14,7 +14,7 @@ const Icon = ({ name, size, className, ...props }: IconProps) => {
   const classNames = cx('icon', `icon--${size}`, className);
 
   if (!LucideIcon) {
-    console.error(`Icon "${name}" not found in lucide-react icons.`);
+    console.warn(`Icon "${name}" not found in lucide-react icons.`);
     return null;
   }
 

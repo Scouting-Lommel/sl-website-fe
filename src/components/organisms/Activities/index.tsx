@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { ActivitySection as ActivityProps } from './types';
 import Activity from '@/components/atoms/Activity';
 import styles from './Activities.css';
@@ -13,6 +14,8 @@ export const links = () => {
 type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
 
 const Activities = ({ activities, initialItems }: Props) => {
+  const t = useTranslations('common');
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -54,7 +57,7 @@ const Activities = ({ activities, initialItems }: Props) => {
           )}
         </>
       )}
-      {activities.length === 0 && <p>Geen activiteiten gevonden.</p>}
+      {activities.length === 0 && <p>{t('noActivitiesFound')}</p>}
     </div>
   );
 };

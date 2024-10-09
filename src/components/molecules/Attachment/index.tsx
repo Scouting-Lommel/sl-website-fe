@@ -29,7 +29,8 @@ const Attachment = (props: Props) => {
     }
 
     default: {
-      return <>Geen component voor deze variant gevonden.</>;
+      console.warn('No component found for this variant');
+      break;
     }
   }
 };

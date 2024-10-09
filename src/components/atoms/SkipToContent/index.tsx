@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useTranslations } from 'next-intl';
 import styles from './SkipToContent.css';
 
 export const links = () => {
@@ -8,11 +9,13 @@ export const links = () => {
 type Props = React.HTMLAttributes<HTMLElement>;
 
 const SkipToContent = ({ className }: Props) => {
+  const t = useTranslations('common');
+
   const classes = classNames('skip-to-content', className);
 
   return (
     <a href="#main" className={classes}>
-      Spring naar inhoud
+      {t('skipToContent')}
     </a>
   );
 };

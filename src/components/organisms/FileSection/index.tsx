@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Typography from '@/components/atoms/Typography';
 import Attachment from '@/components/molecules/Attachment';
 import { FileSection as FileBlockProps } from './types';
@@ -10,6 +11,8 @@ export const links = () => {
 type Props = FileBlockProps & React.HTMLAttributes<HTMLElement>;
 
 const FileSection = ({ title, files, links, className }: Props) => {
+  const t = useTranslations('common');
+
   return (
     <div className={className}>
       <h2 className="file-section t-headline-2 t-align-center">{title}</h2>
@@ -25,7 +28,7 @@ const FileSection = ({ title, files, links, className }: Props) => {
       )}
       {files?.data.length === 0 && (
         <div className="file-section__no-files">
-          <Typography className="file-section__no-files__text">Geen bestanden gevonden.</Typography>
+          <Typography className="file-section__no-files__text">{t('noFilesFound')}</Typography>
         </div>
       )}
     </div>

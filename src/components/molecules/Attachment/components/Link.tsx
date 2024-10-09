@@ -1,6 +1,7 @@
 'use client';
 
 import { useContext, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Icon from '@/components/atoms/Icon';
@@ -16,6 +17,8 @@ export const links = () => {
 type Props = LinkProps & React.HTMLAttributes<HTMLElement>;
 
 const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallback }: Props) => {
+  const t = useTranslations('common.attachment.link');
+
   const [loading, setLoading] = useState<boolean>(false);
   const { setFormStatus, setRemoveStatusAfterTimeout } = useContext(FormContext);
 
@@ -29,7 +32,7 @@ const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallbac
 
     if (!groupId || !allLinks || allLinks.length < 1) return;
 
-    if (confirm(`Weet je zeker dat je de link "${label}" wil verwijderen?`)) {
+    if (confirm(t('confirmation', { attachmentTitle: label }))) {
       try {
         setLoading(true);
         setFormStatus(FormStatus.STATUS_LOADING);
@@ -82,11 +85,11 @@ const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallbac
           {modDeleteable && !loading && (
             <button
               className="attachment__delete-button"
-              aria-label="Bestand verwijderen"
+              aria-label={t('deleteLink')}
               type="button"
               onClick={handleDeleteFile}
             >
-              <Icon name="trash" aria-label="Bestand verwijderen" size="sm" />
+              <Icon name="trash" size="sm" />
             </button>
           )}
           {modDeleteable && loading && (

@@ -31,7 +31,6 @@
     },
     "deleteConfirmation": "Weet je zeker dat je de activiteit met titel\"{activityTitle}\" wil verwijderen?"
   },
-
   "contactForm": {
     "fields": {
       "firstName": {
@@ -78,7 +77,6 @@
       }
     }
   },
-
   "registerForm": {
     "fields": {
       "registerIntro": {
@@ -168,7 +166,6 @@
       }
     }
   },
-
   "uploadFileForm": {
     "fields": {
       "file": {
@@ -186,7 +183,6 @@
       "success": "Het bestand is met succes geupload."
     }
   },
-
   "uploadLinkForm": {
     "fields": {
       "linkLabel": {
