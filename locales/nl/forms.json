@@ -77,6 +77,60 @@
       }
     }
   },
+  "eetfestijnForm": {
+    "hero": {
+      "title": "Eetfestijn",
+      "subtitle": "Schrijf je in voor ons jaarlijks eetfestijn!"
+    },
+    "fields": {
+      "yourInformation": {
+        "label": "Jouw gegevens:"
+      },
+      "name": {
+        "label": "Naam"
+      },
+      "email": {
+        "label": "Emailadres"
+      },
+      "yourOrder": {
+        "label": "Jouw bestelling:"
+      },
+      "pizzaMargherita": {
+        "label": "Pizza Margherita (€ 9)"
+      },
+      "pizzaHawai": {
+        "label": "Pizza Hawai (€ 11)"
+      },
+      "pizzaPollo": {
+        "label": "Pizza Pollo (€ 11)"
+      },
+      "paymentMethod": {
+        "label": "Ik betaal...",
+        "options": {
+          "onSite": "Ter plaatse",
+          "bankTransfer": "Vooraf via overschrijving"
+        }
+      }
+    },
+    "buttons": {
+      "submit": {
+        "label": "Bestelling verzenden"
+      }
+    },
+    "formStatus": {
+      "captchaError": "Er ging iets mis met de Captcha check. Probeer het later opnieuw.",
+      "error": "Er ging iets mis bij het versturen van je bestelling. Probeer het later opnieuw.",
+      "loading": "Bestelling versturen...",
+      "success": "Je bestelling is met succes verstuurd."
+    },
+    "confirmation": {
+      "title": "",
+      "body": "",
+      "button": {
+        "label": "Terug naar de homepagina"
+      }
+    }
+  },
   "errorMessage": {
     "required": "Dit veld is verplicht.",
     "email": "Gelieve een geldig emailadres in te vullen.",
