@@ -1,6 +1,8 @@
 import React from 'react';
 import { themes } from '@storybook/theming';
 import { SessionProvider } from 'next-auth/react';
+import Withi18n from './i18n';
+
 import '../src/app/global.css';
 import './storybook.css';
 
@@ -23,9 +25,11 @@ export const parameters = {
 
 export const decorators = [
   (Story: React.FC) => (
-    <SessionProvider>
-      <Story />
-    </SessionProvider>
+    <Withi18n>
+      <SessionProvider>
+        <Story />
+      </SessionProvider>
+    </Withi18n>
   ),
 ];
 
