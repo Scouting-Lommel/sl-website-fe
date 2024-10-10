@@ -1,0 +1,35 @@
+{
+  "attachment": {
+    "link": {
+      "confirmation": "Weet je zeker dat je de link met titel \"{attachmentTitle}\" wil verwijderen?",
+      "deleteLink": "Link verwijderen"
+    },
+    "file": {
+      "confirmation": "Weet je zeker dat je het bestand met titel \"{attachmentTitle}\" wil verwijderen?",
+      "downloadFile": "Bestand downloaden",
+      "deleteFile": "Bestand verwijderen"
+    }
+  },
+  "close": "Sluiten",
+  "closeWindow": "Venster sluiten",
+  "loading": "Aan het laden...",
+  "noActivitiesFound": "Geen activiteiten gevonden.",
+  "noFilesFound": "Geen bestanden gevonden.",
+  "notFound": {
+    "title": "We hebben de pagina die je zocht, niet gevonden.",
+    "button": {
+      "label": "Terug naar de homepagina"
+    }
+  },
+  "skipToContent": "Naar de inhoud",
+  "tarifs": {
+    "minPrice": "Minimumprijs",
+    "pricePerPersonPerNight": "Prijs pp/nacht"
+  },
+  "unauthorized": {
+    "title": "Je hebt geen toegang tot deze pagina.",
+    "button": {
+      "label": "Terug naar de homepagina"
+    }
+  }
+}

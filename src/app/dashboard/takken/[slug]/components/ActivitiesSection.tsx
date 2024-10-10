@@ -1,6 +1,7 @@
 'use client';
 
 import { Fragment, useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
 import Form from '@/components/organisms/Forms';
@@ -15,6 +16,8 @@ const ActivitiesSection = ({ group }: Props) => {
   const [groupActivities, setActivities] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
+
+  const t = useTranslations('dashboard.groupsDetail.sections.activitiesSection');
 
   const fetchActivities = useCallback(async () => {
     setError(false);
@@ -51,14 +54,14 @@ const ActivitiesSection = ({ group }: Props) => {
   return (
     <BlockContainer slug="group-activities-section">
       <SectionTitle
-        title="Activiteiten"
+        title={t('title')}
         groupId={group.id}
         type="activity"
         callback={addActivityCallback}
       />
       {error && !loading && (
         <BlockContainer slug="group-activities-error" modSmallPadding>
-          <p>Er ging iets mis. Probeer het later nog eens.</p>
+          <p>{t('error')}</p>
         </BlockContainer>
       )}
       {!error && loading && (
@@ -68,7 +71,7 @@ const ActivitiesSection = ({ group }: Props) => {
       )}
       {!error && !loading && groupActivities?.length === 0 && (
         <BlockContainer slug="group-activities-empty-state" modSmallPadding>
-          <p>Geen activiteiten gevonden.</p>
+          <p>{t('noActivitiesFound')}</p>
         </BlockContainer>
       )}
 

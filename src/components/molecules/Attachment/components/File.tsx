@@ -3,6 +3,7 @@
 import { useState, useContext, useEffect } from 'react';
 import { Lightbox } from 'react-modal-image';
 import cx from 'classnames';
+import { useTranslations } from 'next-intl';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { formatFileSize } from '@/lib/helpers/formatFileSize';
@@ -31,6 +32,8 @@ const extMap: Extensions = {
 };
 
 const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props) => {
+  const t = useTranslations('common.attachment.file');
+
   const [loading, setLoading] = useState<boolean>(false);
   const [lightboxActive, setLightboxActive] = useState<boolean>(false);
   const { setFormStatus, setRemoveStatusAfterTimeout } = useContext(FormContext);
@@ -45,7 +48,7 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
   const handleDeleteFile = async (e: React.MouseEvent) => {
     e.stopPropagation();
 
-    if (confirm(`Weet je zeker dat je het bestand "${name}" wil verwijderen?`)) {
+    if (confirm(t('confirmation', { attachmentTitle: name }))) {
       try {
         setLoading(true);
         setFormStatus(FormStatus.STATUS_LOADING);
@@ -93,22 +96,22 @@ const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props
         </div>
         <a
           className="attachment__download-button"
-          aria-label="Bestand dowloaden"
+          aria-label={t('downloadFile')}
           type="button"
           href={url}
           target="_blank"
           onClick={(e) => e.stopPropagation()}
         >
-          <Icon name="download" aria-label="Bestand downloaden" size="sm" />
+          <Icon name="download" size="sm" />
         </a>
         {modDeleteable && !loading && (
           <button
             className="attachment__delete-button"
-            aria-label="Bestand verwijderen"
+            aria-label={t('deleteFile')}
             type="button"
             onClick={handleDeleteFile}
           >
-            <Icon name="trash" aria-label="Bestand verwijderen" size="sm" />
+            <Icon name="trash" size="sm" />
           </button>
         )}
         {modDeleteable && loading && (

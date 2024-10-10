@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
-import HeroBlock from '@/content-blocks/HeroBlock';
 import { getGeneralData } from '../../api';
 import { getRentalLocationPage, getRentalLocationBookings } from './api';
 
@@ -15,7 +14,7 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
   const metadata = generateMetadataForPage(
     rentalLocation.attributes.pageMeta,
     generalData.data.attributes,
-    'takken',
+    'verhuur',
   );
 
   return { ...metadata };

@@ -1,10 +1,13 @@
 import { useContext } from 'react';
+import { useTranslations } from 'next-intl';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Banner from '@/components/atoms/Banner';
 import ActivityForm from './ActivityForm';
 
 const Activity = (props: any) => {
+  const t = useTranslations('forms.activityForm');
+
   const { formStatus, setFormStatus } = useContext(FormContext);
   let initialValues = {};
 
@@ -86,11 +89,7 @@ const Activity = (props: any) => {
   };
 
   const handleDeleteActivity = async () => {
-    if (
-      confirm(
-        `Weet je zeker dat je de activiteit met titel "${props.activity.title}" wil verwijderen?`,
-      )
-    ) {
+    if (confirm(t('deleteConfirmation', { title: props.activity.title }))) {
       try {
         await callApi('delete', props.activity.id);
         setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);
@@ -121,26 +120,22 @@ const Activity = (props: any) => {
   return (
     <>
       {formStatus === FormStatus.STATUS_LOADING && (
-        <Banner variant="info">Activiteit opslaan...</Banner>
+        <Banner variant="info">{t('formStatus.loading')}</Banner>
       )}
       {formStatus === FormStatus.STATUS_ERROR && (
-        <Banner variant="error">
-          Er ging iets mis bij het opslaan van deze activiteit. Probeer het later opnieuw.
-        </Banner>
+        <Banner variant="error">{t('formStatus.error')}</Banner>
       )}
       {formStatus === FormStatus.STATUS_DELETE_ERROR && (
-        <Banner variant="error">
-          Er ging iets mis bij het verwijderen van deze activiteit. Probeer het later opnieuw.
-        </Banner>
+        <Banner variant="error">{t('formStatus.deleteError')}</Banner>
       )}
       {formStatus === FormStatus.STATUS_SUCCESS && (
         <>
-          <Banner variant="success">Activiteit succesvol opgeslagen</Banner>
+          <Banner variant="success">{t('formStatus.success')}</Banner>
         </>
       )}
       {formStatus === FormStatus.STATUS_DELETE_SUCCESS && (
         <>
-          <Banner variant="success">Activiteit succesvol verwijderd</Banner>
+          <Banner variant="success">{t('formStatus.deleteSuccess')}</Banner>
         </>
       )}
 

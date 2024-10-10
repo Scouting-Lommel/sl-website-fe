@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import ActivitiesSection from './components/ActivitiesSection';
@@ -6,7 +7,9 @@ import FileSection from './components/FilesSection';
 import { getGroupPage } from './api';
 
 export async function generateMetadata() {
-  return { title: 'Takpagina beheren • Dashboard' };
+  const t = await getTranslations('dashboard.groupsDetail');
+
+  return { title: t('metaTitle') };
 }
 
 const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string } }) => {
@@ -15,10 +18,12 @@ const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string
 
   if (!group) notFound();
 
+  const t = await getTranslations('dashboard.groupsDetail');
+
   return (
     <div className="sl-layout">
       <BlockContainer slug="group-hero">
-        <Hero title={group.attributes.pageTitle} subtitle="Takpagina beheren" variant="simple" />
+        <Hero title={group.attributes.pageTitle} subtitle={t('subtitle')} variant="simple" />
       </BlockContainer>
 
       <FileSection group={group} />

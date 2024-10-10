@@ -1,4 +1,5 @@
 import { useRef, useEffect, useCallback } from 'react';
+import { useTranslations } from 'next-intl';
 import Icon from '@/components/atoms/Icon';
 import { Modal as ModalProps } from './types';
 import styles from './Modal.css';
@@ -10,6 +11,8 @@ export const links = () => {
 type Props = ModalProps & React.HTMLAttributes<HTMLElement>;
 
 const Modal = ({ id, title, children, open, handleCloseModal }: Props) => {
+  const t = useTranslations('common');
+
   const modal = useRef<HTMLDialogElement>(null);
 
   const openModal = useCallback(() => {
@@ -87,10 +90,10 @@ const Modal = ({ id, title, children, open, handleCloseModal }: Props) => {
           <button
             className="modal__header__close-button"
             type="button"
-            aria-label="Venster sluiten"
+            aria-label={t('closeWindow')}
             onClick={closeModal}
           >
-            <Icon name="close" aria-label="Close" size={'lg'} />
+            <Icon name="close" size="lg" />
           </button>
           <div className="t-headline-3 modal__header__title">{title}</div>
         </div>

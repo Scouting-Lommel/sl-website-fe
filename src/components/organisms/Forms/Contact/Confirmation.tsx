@@ -1,17 +1,19 @@
+import { useTranslations } from 'next-intl';
 import Button from '@/components/atoms/Button';
 
 const ContactConfirmation = () => {
+  const t = useTranslations('forms.contactForm.confirmation');
+
   return (
     <div>
+      <p>{t('title')}</p>
       <p>
-        Bedankt voor je bericht! We proberen je contactaanvraag zo snel mogelijk te beantwoorden.
-      </p>
-      <p>
-        Heb je nog vragen? Neem dan zeker eens een kijkje bij onze{' '}
-        <a href="/algemene-informatie#veelgestelde-vragen">veelgestelde vragen</a>.
+        {t.rich('body', {
+          link: (chunks) => <a href="/algemene-informatie#veelgestelde-vragen">{chunks}</a>,
+        })}
       </p>
 
-      <Button label="Terug naar de homepagina" href="/" />
+      <Button label={t('button.label')} href="/" />
     </div>
   );
 };

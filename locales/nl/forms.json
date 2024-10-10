@@ -1,0 +1,218 @@
+{
+  "activityForm": {
+    "fields": {
+      "title": {
+        "label": "Titel"
+      },
+      "start": {
+        "label": "Start activiteit"
+      },
+      "end": {
+        "label": "Einde activiteit"
+      },
+      "description": {
+        "label": "Beschrijving"
+      }
+    },
+    "buttons": {
+      "submit": {
+        "label": "Activiteit opslaan"
+      },
+      "secondary": {
+        "label": "Activiteit verwijderen"
+      }
+    },
+    "formStatus": {
+      "loading": "Bezig met opslaan...",
+      "error": "Er ging iets mis bij het opslaan van deze activiteit. Probeer het later opnieuw.",
+      "deleteError": "Er ging iets mis bij het verwijderen van deze activiteit. Probeer het later opnieuw.",
+      "success": "De activiteit is met succes opgeslagen.",
+      "deleteSuccess": "De activiteit is met succes verwijderd."
+    },
+    "deleteConfirmation": "Weet je zeker dat je de activiteit met titel\"{activityTitle}\" wil verwijderen?"
+  },
+  "contactForm": {
+    "fields": {
+      "firstName": {
+        "label": "Voornaam"
+      },
+      "lastName": {
+        "label": "Familienaam"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "recipient": {
+        "label": "Ontvanger"
+      },
+      "group": {
+        "label": "Tak"
+      },
+      "body": {
+        "label": "Bericht"
+      },
+      "termsAndConditions": {
+        "label": "Ik heb kennis genomen met [de privacyverklaring van Scouting Lommel](/privacy-policy) en ga hiermee akkoord."
+      }
+    },
+    "buttons": {
+      "submit": {
+        "label": "Bericht versturen"
+      }
+    },
+    "formStatus": {
+      "loading": "Bericht versturen...",
+      "error": "Er ging iets mis bij het versturen van dit bericht. Probeer het later opnieuw.",
+      "captchaError": "Er ging iets mis met de Captcha check. Probeer het later opnieuw.",
+      "success": "Het bericht is met succes verstuurd."
+    },
+    "email": {
+      "title": "Nieuwe inzending: contactformulier website"
+    },
+    "confirmation": {
+      "title": "Bedankt voor je bericht! We proberen je contactaanvraag zo snel mogelijk te beantwoorden.",
+      "body": "Heb je nog vragen? Neem dan zeker eens een kijkje bij onze <link>veelgestelde vragen</link>.",
+      "button": {
+        "label": "Terug naar de homepagina"
+      }
+    }
+  },
+  "errorMessage": {
+    "required": "Dit veld is verplicht.",
+    "email": "Gelieve een geldig emailadres in te vullen.",
+    "phone": "Gelieve een geldig telefoonnummer in te vullen.",
+    "url": "Gelieve een geldige url in te vullen.",
+    "invalidOption": "Gelieve een geldige optie te kiezen.",
+    "fileFormat": "Niet-ondersteund bestandsformaat. Geldige bestanden zijn: png, jpg, jpeg, gif, pdf.",
+    "fileSize": "Het is niet mogelijk bestanden groter dan 5MB te uploaden."
+  },
+  "registerForm": {
+    "fields": {
+      "registerIntro": {
+        "label": "Schrijf jezelf of je zoon/dochter in voor scoutsjaar **{year}** via onderstaand formulier."
+      },
+      "memberToRegister": {
+        "label": "Inschrijving voor:"
+      },
+      "firstName": {
+        "label": "Voornaam"
+      },
+      "lastName": {
+        "label": "Familienaam"
+      },
+      "birthday": {
+        "label": "Geboortedatum"
+      },
+      "group": {
+        "label": "Tak"
+      },
+      "isAkabe": {
+        "label": "Schrijf me in bij de [akabe](/takken/akabe)"
+      },
+      "gender": {
+        "label": "Geslacht",
+        "options": {
+          "male": "Man",
+          "female": "Vrouw",
+          "other": "Andere"
+        }
+      },
+      "contactAndAddress": {
+        "label": "Contact en adres:"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "telephoneNumber": {
+        "label": "Telefoonnummer"
+      },
+      "address": {
+        "label": "Adres",
+        "placeholder": "Straatnaam + huisnummer (+ bus)"
+      },
+      "postalCode": {
+        "label": "Postcode"
+      },
+      "city": {
+        "label": "Gemeente"
+      },
+      "extraInfo": {
+        "label": "Extra informatie:"
+      },
+      "workingYear": {
+        "label": "Scoutsjaar"
+      },
+      "comments": {
+        "label": "Eventuele opmerkingen"
+      },
+      "termsAndConditions": {
+        "label": "Ik heb kennis genomen met [de privacyverklaring van Scouting Lommel](/privacy-policy) en ga hiermee akkoord."
+      }
+    },
+    "buttons": {
+      "submit": {
+        "label": "Inschrijven"
+      }
+    },
+    "email": {
+      "title": "Nieuwe inschrijving via Scouting Lommel website"
+    },
+    "formStatus": {
+      "loading": "Inschrijving versturen...",
+      "error": "Er ging iets mis bij het versturen van je inschrijving. Probeer het later opnieuw.",
+      "captchaError": "Er ging iets mis met de Captcha check. Probeer het later opnieuw.",
+      "success": "Je inschrijving is met succes verstuurd."
+    },
+    "confirmation": {
+      "intro": "Welkom (terug) bij Scouting Sint-Pieter Lommel! Om je inschrijving volledig af te ronden vragen we je om het totale bedrag van het inschrijvingsgeld te storten. Kom je in aanmerking voor <link>het scouting op maat-programma</link> en wens je hiervan gebruik te maken? Stuur dan een e-mail naar de groepsleiding via <mail>{email}</mail>.",
+      "summary": {
+        "price": "<bold>Te betalen:</bold> € {price}",
+        "accountNo": "<bold>Rekeningnummer:</bold> {accountNo}",
+        "message": "<bold>Mededeling:</bold> \"Inschrijving Voornaam Familienaam {workingYear}\""
+      },
+      "body": "Je inschrijving is pas definitief na betaling. Wil je weten waarvoor je inschrijvingsgeld gebruikt wordt? Neem dan een kijkje bij de <link>veelgestelde vragen</link>.",
+      "button": {
+        "label": "Een ander lid inschrijven"
+      }
+    }
+  },
+  "uploadFileForm": {
+    "fields": {
+      "file": {
+        "label": "Kies een bestand"
+      }
+    },
+    "buttons": {
+      "submit": {
+        "label": "Bestand uploaden"
+      }
+    },
+    "formStatus": {
+      "loading": "Bezig met uploaden...",
+      "error": "Er ging iets mis bij het uploaden van dit bestand. Probeer het later opnieuw.",
+      "success": "Het bestand is met succes geupload."
+    }
+  },
+  "uploadLinkForm": {
+    "fields": {
+      "linkLabel": {
+        "label": "Naam",
+        "placeholder": "Groepsadmin"
+      },
+      "linkUrl": {
+        "label": "Naam",
+        "placeholder": "https://groepsadmin.scoutsengidsenvlaanderen.be"
+      }
+    },
+    "buttons": {
+      "submit": {
+        "label": "Link uploaden"
+      }
+    },
+    "formStatus": {
+      "loading": "Link uploaden...",
+      "error": "Er ging iets mis bij het uploaden van deze link. Probeer het later opnieuw.",
+      "success": "De link werd succesvol geupload."
+    }
+  }
+}

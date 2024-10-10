@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
+import CalendarRevalidator from '@/components/molecules/CalendarRevalidator';
 import { getGeneralData } from '../../../api';
 import { getRentalLocationPage } from '../api';
-import CalendarRevalidator from '@/components/molecules/CalendarRevalidator';
 
 export async function generateMetadata({
   params: { slug, key },

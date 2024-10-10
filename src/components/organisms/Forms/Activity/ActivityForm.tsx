@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import generateFormSchema from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
@@ -6,6 +7,8 @@ import { ActivityForm as ActivityFormProps } from './types';
 type Props = ActivityFormProps & React.HTMLAttributes<HTMLElement>;
 
 const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }: Props) => {
+  const t = useTranslations('forms');
+
   const formFields: FormField[] = [
     {
       type: 'hidden',
@@ -13,27 +16,48 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
       name: 'activity-id',
       value: activityId,
     },
-    { type: 'input', id: 'title', name: 'title', label: 'Titel', required: true },
+    {
+      type: 'input',
+      id: 'title',
+      name: 'title',
+      label: t('activityForm.fields.title.label'),
+      required: true,
+    },
     {
       type: 'row',
       id: 'date-row',
       name: 'date-row',
       fieldChildren: [
-        { type: 'datetime', id: 'start', name: 'start', label: 'Start activiteit', required: true },
-        { type: 'datetime', id: 'end', name: 'end', label: 'Einde activiteit', required: true },
+        {
+          type: 'datetime',
+          id: 'start',
+          name: 'start',
+          label: t('activityForm.fields.start.label'),
+          required: true,
+        },
+        {
+          type: 'datetime',
+          id: 'end',
+          name: 'end',
+          label: t('activityForm.fields.end.label'),
+          required: true,
+        },
       ],
     },
     {
       type: 'textarea',
       id: 'description',
       name: 'description',
-      label: 'Beschrijving',
+      label: t('activityForm.fields.description.label'),
       rows: 6,
       required: true,
     },
   ];
 
-  const formSchema = generateFormSchema({ fields: formFields });
+  const formSchema = generateFormSchema({
+    fields: formFields,
+    t,
+  });
 
   const handleSubmit = (data: any) => {
     submitForm(data, formFields);
@@ -46,11 +70,11 @@ const ActivityForm = ({ initialValues, activityId, submitForm, deleteActivity }:
       initialValues={initialValues}
       formSchema={formSchema}
       submitForm={handleSubmit}
-      submitButtonLabel="Activiteit opslaan"
+      submitButtonLabel={t('activityForm.buttons.submit.label')}
       secondaryButton={
         activityId
           ? {
-              label: 'Activiteit verwijderen',
+              label: t('activityForm.buttons.secondary.label'),
               variant: 'danger',
               onClick: deleteActivity,
             }

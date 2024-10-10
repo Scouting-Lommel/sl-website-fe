@@ -1,4 +1,5 @@
 import { getServerSession } from 'next-auth';
+import { getTranslations } from 'next-intl/server';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 import BlockContainer from '@/components/atoms/BlockContainer';
@@ -13,6 +14,8 @@ const Dashboard = async () => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 
+  const t = await getTranslations('dashboard.dashboard');
+
   if (session && session.user) {
     const orgUnitResponse = await fetch(
       `${process.env.SITE_URL}/api/auth/get-org-unit?email=${session.user.email}`,
@@ -23,7 +26,11 @@ const Dashboard = async () => {
   return (
     <div className="sl-layout">
       <BlockContainer slug="dashboard-title">
-        <Hero title="Dashboard" subtitle={`Welkom, ${session?.user?.name}!`} variant="simple" />
+        <Hero
+          title={t('title')}
+          subtitle={t('subtitle', { name: session?.user?.name })}
+          variant="simple"
+        />
       </BlockContainer>
 
       <BlockContainer slug="dashboard-internal-navigation">
@@ -31,20 +38,20 @@ const Dashboard = async () => {
           orgUnitData.orgUnitPath &&
           checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups') && (
             <div>
-              <h2>Takpagina&apos;s</h2>
-              <p>Beheer de takpagina&apos;s:</p>
+              <h2>{t('manageGroups.title')}</h2>
+              <p>{t('manageGroups.subtitle')}</p>
               <ul>
-                <li>Activiteiten toevoegen, aanpassen en verwijderen</li>
-                <li>Bestanden en links toevoegen en verwijderen</li>
+                <li>{t('manageGroups.manageActivities')}</li>
+                <li>{t('manageGroups.manageFiles')}</li>
               </ul>
-              <Button label="Naar takken beheren" href="/dashboard/takken" />
+              <Button label={t('manageGroups.button.label')} href="/dashboard/takken" />
             </div>
           )}
         {orgUnitData &&
           orgUnitData.orgUnitPath &&
           !checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups') && (
             <div>
-              <p>Geen toegang tot beschikbare dashboard items.</p>
+              <p>{t('notFound')}</p>
             </div>
           )}
       </BlockContainer>

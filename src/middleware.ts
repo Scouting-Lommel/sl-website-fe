@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
-  signinMiddleware,
   dashboardMiddleware,
-  groupsMiddleware,
-  signinMiddlewareConfig,
   dashboardMiddlewareConfig,
+  groupsMiddleware,
   groupsMiddlewareConfig,
+  signinMiddleware,
+  signinMiddlewareConfig,
 } from './middlewares';
 
-export function middleware(req: NextRequest) {
+export default function middleware(req: NextRequest) {
   const url: string = req.nextUrl.pathname;
 
   if (signinMiddlewareConfig.some((item: string) => new RegExp(`^${item}$`).test(url))) {
@@ -25,7 +25,3 @@ export function middleware(req: NextRequest) {
 
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: [...signinMiddlewareConfig, ...dashboardMiddlewareConfig, ...groupsMiddlewareConfig],
-};

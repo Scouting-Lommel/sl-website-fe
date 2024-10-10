@@ -1,4 +1,9 @@
-module.exports = {
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
+const nextConfig = {
+  transpilePackages: ['lucide-react'],
   reactStrictMode: true,
   distDir: '.next',
   images: {
@@ -24,3 +29,5 @@ module.exports = {
     return [{ source: '/home', destination: '/', permanent: true }];
   },
 };
+
+export default withNextIntl(nextConfig);

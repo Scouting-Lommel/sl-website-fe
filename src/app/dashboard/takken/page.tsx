@@ -1,4 +1,5 @@
 import { getServerSession } from 'next-auth';
+import { getTranslations } from 'next-intl/server';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 import BlockContainer from '@/components/atoms/BlockContainer';
@@ -28,6 +29,8 @@ const DashboardGroupsOverviewPage = async () => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 
+  const t = await getTranslations('dashboard.groupsOverview');
+
   if (session && session.user) {
     const orgUnitResponse = await fetch(
       `${process.env.SITE_URL}/api/auth/get-org-unit?email=${session.user.email}`,
@@ -49,13 +52,15 @@ const DashboardGroupsOverviewPage = async () => {
   return (
     <div className="sl-layout">
       <BlockContainer slug="groups-title">
-        <Hero title="Takken" subtitle="Takpagina's beheren" variant="simple" />
+        <Hero title={t('title')} subtitle={t('subtitle')} variant="simple" />
       </BlockContainer>
 
       {availableGroups.map((group: any, key: any) => {
         return (
           <BlockContainer key={key} slug={`groups-${group.slug}`}>
-            <Button href={`/dashboard/takken/${group.slug}`}>{group.title}pagina</Button>
+            <Button href={`/dashboard/takken/${group.slug}`}>
+              {t('groupButton.label', { group: group.title })}
+            </Button>
           </BlockContainer>
         );
       })}

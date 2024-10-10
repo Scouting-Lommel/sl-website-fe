@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import Tarif from '@/components/molecules/Tarif';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
@@ -11,11 +12,13 @@ export const links = () => {
 type Props = TarifsProps & React.HTMLAttributes<HTMLElement>;
 
 const Tarifs = ({ tarifs, cta }: Props) => {
+  const t = useTranslations('common.tarifs');
+
   return (
     <div className="tarifs">
       <div className="tarifs__container">
-        <Typography className="tarifs__header__min-price">Minimumprijs</Typography>
-        <Typography className="tarifs__header__price-pp">Prijs pp/nacht</Typography>
+        <Typography className="tarifs__header__min-price">{t('minPrice')}</Typography>
+        <Typography className="tarifs__header__price-pp">{t('pricePerPersonPerNight')}</Typography>
       </div>
       {tarifs.map((tarif, i) => {
         return (
