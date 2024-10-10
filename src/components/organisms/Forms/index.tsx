@@ -7,6 +7,7 @@ import Register from './Register';
 import Activity from './Activity';
 import UploadFile from './UploadFile';
 import UploadLink from './UploadLink';
+import Eetfestijn from './Eetfestijn';
 import { Form as FormProps } from './types';
 
 const Form = ({ variant, props, blockProperties }: FormProps) => {
@@ -31,6 +32,10 @@ const Form = ({ variant, props, blockProperties }: FormProps) => {
     }
     case 'uploadLink': {
       FormComponent = <UploadLink {...props} />;
+      break;
+    }
+    case 'eetfestijn': {
+      FormComponent = <Eetfestijn {...props} />;
       break;
     }
     default: {
