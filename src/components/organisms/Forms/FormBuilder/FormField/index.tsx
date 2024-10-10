@@ -71,6 +71,26 @@ const FormField = (props: Props) => {
         </div>
       );
     }
+    case 'number': {
+      return (
+        <div className="form-field">
+          {props.register && props.name && (
+            <Input
+              label={props.label!}
+              type="number"
+              id={props.id}
+              {...props.register(props.name)}
+              value={props.value}
+              placeholder={props.placeholder}
+              required={props.required}
+              disabled={props.disabled}
+              autoComplete={props.autoComplete}
+              error={errorMessage}
+            />
+          )}
+        </div>
+      );
+    }
     case 'email': {
       return (
         <div className="form-field">

@@ -35,6 +35,15 @@ export interface InputField extends BaseField {
   autoComplete?: string;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
 }
+export interface NumberField extends BaseField {
+  type: 'number';
+  label: string;
+  value?: number;
+  placeholder?: string;
+  disabled?: boolean;
+  autoComplete?: string;
+  customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
+}
 
 export interface UrlField extends BaseField {
   type: 'url';
@@ -105,6 +114,7 @@ export type FormField =
   | TextField
   | DividerField
   | InputField
+  | NumberField
   | UrlField
   | TextAreaField
   | SelectField
