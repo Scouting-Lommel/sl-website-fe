@@ -1,9 +1,10 @@
+import Divider from '@/components/atoms/Divider';
 import { Divider as DividerProps } from './types';
 
 type Props = DividerProps & React.HTMLAttributes<HTMLElement>;
 
-const Divider = ({}: Props) => {
-  return <hr className="sl-layout" />;
+const DividerBlock = ({}: Props) => {
+  return <Divider />;
 };
 
-export default Divider;
+export default DividerBlock;
