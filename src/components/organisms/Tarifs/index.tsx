@@ -16,21 +16,27 @@ const Tarifs = ({ tarifs, cta }: Props) => {
 
   return (
     <div className="tarifs">
-      <div className="tarifs__container">
-        <Typography className="tarifs__header__min-price">{t('minPrice')}</Typography>
-        <Typography className="tarifs__header__price-pp">{t('pricePerPersonPerNight')}</Typography>
+      <div className="tarifs__wrapper">
+        <div className="tarifs__tarifs">
+          <div className="tarifs__header">
+            <Typography className="tarifs__header__min-price">{t('minPrice')}</Typography>
+            <Typography className="tarifs__header__price-pp">
+              {t('pricePerPersonPerNight')}
+            </Typography>
+          </div>
+          {tarifs.map((tarif, i) => {
+            return (
+              <Tarif
+                key={i}
+                dayPrice={tarif.attributes.dayPrice}
+                example={tarif.attributes.example}
+                minimumPrice={tarif.attributes.minimumPrice}
+                name={tarif.attributes.name}
+              />
+            );
+          })}
+        </div>
       </div>
-      {tarifs.map((tarif, i) => {
-        return (
-          <Tarif
-            key={i}
-            dayPrice={tarif.attributes.dayPrice}
-            example={tarif.attributes.example}
-            minimumPrice={tarif.attributes.minimumPrice}
-            name={tarif.attributes.name}
-          />
-        );
-      })}
       <div className="tarifs__cta__container">
         <Typography className="tarifs__cta__data__intro" data={cta.intro} />
         {cta && cta.ctaLabel && cta.ctaLink && (
