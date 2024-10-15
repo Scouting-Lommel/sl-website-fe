@@ -37,35 +37,40 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
         <head>
           <style>
             .title {
-              font-weight: bold;
-              margin-bottom: 0.375rem;
+                font-weight: bold;
+                margin-bottom: 0.375rem;
+                font-family: Herlvetica, Arial, sans-serif
             }
+
             .timestamp {
-              color: grey;
-              margin-top: 0.375rem;
-              margin-bottom: 1.25rem;
-              text-transform: capitalize;
+                color: grey;
+                margin-top: 0.375rem;
+                margin-bottom: 1.25rem;
+                text-transform: capitalize;
+                font-family: Herlvetica, Arial, sans-serif
             }
 
-            .table {
-              min-width: 100%;
-              border-collapse: collapse;
-            }
-
-            .table__row__head {
-              text-align: left;
-              vertical-align: top;
-              width: 1%;
-            }
-
-            .table__row__data {
-              text-align: left;
-              width: auto;
+            .table__row {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 0.875rem;
             }
 
             .table__row__cell {
-              padding: 0.5rem 1.25rem;
-              border: 1px solid darkgrey;
+                padding: 0.5rem 1.25rem;
+                border: 0.0625rem solid darkgrey;
+                font-size: 1rem;
+                margin: 0;
+                font-family: monospace
+            }
+
+            .table__row__data {
+                border-top: none;
+            }
+            
+            pre {
+                margin: 0.25rem;
+                white-space: pre-wrap;
             }
           </style>
         </head>
@@ -80,7 +85,7 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
               day: 'numeric',
             })}, ${new Date().toLocaleTimeString('nl-BE', { hour: '2-digit', minute: '2-digit' })}
           </p>
-          <table class="table">
+          <div class="table">
           ${formData
             .map((dataPoint: any) => {
               let tableData = dataPoint.data;
@@ -96,13 +101,13 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
               }
 
               return `
-              <tr class="table__row">
-                <th class="table__row__head table__row__cell"><pre>${dataPoint.label}</pre></th>
-                <td class="table__row__data table__row__cell"><pre>${tableData}</pre></td>
-              </tr>`;
+              <div class="table__row">
+                <h2 class="table__row__head table__row__cell">${dataPoint.label}</h2>
+                <div class="table__row__data table__row__cell"><pre>${tableData}</pre></div>
+              </div>`;
             })
             .join('')}
-          </table>
+          </div>
         </body>
       </html>`;
 
