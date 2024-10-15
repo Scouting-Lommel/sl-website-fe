@@ -24,7 +24,6 @@ const FAQ = ({ title, bottomText, faqItems, className }: Props) => {
               answer={item.attributes.answer}
               image={item.attributes.image}
               callToAction={item.attributes.callToAction}
-              finalQuestion={i + 1 === faqItems.length}
               key={i}
             />
           );

@@ -24,10 +24,6 @@ const meta = {
       control: { type: 'object' },
       description: 'The button in the answer',
     },
-    finalQuestion: {
-      control: { type: 'boolean' },
-      description: 'If the question is the final question',
-    },
   },
 } satisfies Meta<typeof FAQItem>;
 
@@ -40,6 +36,5 @@ export const Default = {
     answer: 'A test answer',
     image: { data: { attributes: imagedefault.args.data } },
     callToAction: buttondefault.args,
-    finalQuestion: false,
   },
 } satisfies Story;
