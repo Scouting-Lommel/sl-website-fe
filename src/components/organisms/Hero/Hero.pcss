@@ -30,7 +30,12 @@
 
 .hero__buttons {
   display: flex;
+  flex-direction: column;
   gap: var(--space-12);
+
+  @media (--mq-from-medium) {
+    flex-direction: row;
+  }
 }
 
 .hero__year-theme {

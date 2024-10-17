@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import cx from 'classnames';
 import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
 import SLImage from '@/components/atoms/Image';
@@ -14,28 +15,28 @@ export const links = () => {
 
 type Props = FAQProps & React.HTMLAttributes<HTMLElement>;
 
-const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props) => {
+const FAQItem = ({ question, answer, image, callToAction }: Props) => {
   const [isOpen, setOpen] = useState(false);
+  const faqClasses = cx('faq-item', {
+    'faq-item--open': isOpen,
+  });
+
   return (
-    <div className="faq-item__container">
-      <div
-        className={finalQuestion && !isOpen ? 'faq-item__title--no-border' : 'faq-item__title'}
-        onClick={() => setOpen(!isOpen)}
-      >
+    <div className={faqClasses}>
+      <button className="faq-item__title" onClick={() => setOpen(!isOpen)}>
         <Typography>{question}</Typography>
         <Icon
-          name={isOpen ? 'chevron-up' : 'chevron-down'}
+          name="chevron-down"
           aria-label="Chevron"
           size="lg"
-          className="nav-item__dropdown-trigger__link__chevron"
+          className="faq-item__title__chevron"
         />
-      </div>
+      </button>
       <div
-        className={
-          'faq-item__answer ' +
-          (image?.data ? 'faq-item__answer--with-image ' : ' ') +
-          (!isOpen ? 'faq-item__answer--hidden' : '')
-        }
+        className={cx('faq-item__answer', {
+          'faq-item__answer--with-image': image?.data,
+          'faq-item__answer--hidden': !isOpen,
+        })}
       >
         <div className="faq-item__answer__content">
           <Typography data={answer} />
@@ -54,7 +55,7 @@ const FAQItem = ({ question, answer, image, callToAction, finalQuestion }: Props
           <div className="faq-item__answer_image-container">
             <SLImage
               data={image.data.attributes}
-              loadingStrategy={'lazy'}
+              loadingStrategy="lazy"
               className="faq-item__answer__image"
               modMaximisable
             />

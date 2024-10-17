@@ -33,7 +33,6 @@ export const Default = {
           answer: 'A test answer',
           image: { data: { attributes: imagedefault.args.data } },
           callToAction: buttondefault.args,
-          finalQuestion: false,
         },
       },
       {
@@ -42,7 +41,6 @@ export const Default = {
           answer: 'Another test answer',
           image: undefined,
           callToAction: undefined,
-          finalQuestion: true,
         },
       },
     ],

@@ -39,6 +39,7 @@ const SocialsCta = ({ title, socialItems, className }: Props) => {
                 name={icons[item.icon]}
                 aria-label={item.title}
                 size="lg"
+                strokeWidth={2.5}
                 className="socials-cta__socials__item__icon"
               />
             </SLLink>

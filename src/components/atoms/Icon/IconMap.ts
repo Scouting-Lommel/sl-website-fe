@@ -20,6 +20,7 @@ export const iconMap = {
   download: 'Download',
   trash: 'Trash2',
   link: 'Link',
+  menu: 'Menu',
   'external-link': 'ExternalLink',
   facebook: 'Facebook',
   instagram: 'Instagram',

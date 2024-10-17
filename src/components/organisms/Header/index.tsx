@@ -59,7 +59,7 @@ const Header = ({ logo, mainNavigation, groups, rentalLocations }: Props) => {
               {navVisible ? (
                 <Icon name="close" aria-label="Close menu" size="lg" />
               ) : (
-                <Icon name="close" aria-label="Menu" size="lg" />
+                <Icon name="menu" aria-label="Menu" size="lg" />
               )}
             </button>
           </div>

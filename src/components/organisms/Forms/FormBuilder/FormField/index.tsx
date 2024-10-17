@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import Typography from '@/components/atoms/Typography';
+import Divider from '@/components/atoms/Divider';
 import Input from '@/components/atoms/Forms/Input';
 import Select from '@/components/atoms/Forms/Select';
 import TextArea from '@/components/atoms/Forms/TextArea';
@@ -30,7 +31,7 @@ const FormField = (props: Props) => {
     case 'divider': {
       return (
         <div className="form-field">
-          <hr />
+          <Divider />
         </div>
       );
     }
