@@ -1,6 +1,12 @@
-.faq-item__container {
+.faq-item {
   &:not(:last-child) {
     border-bottom: solid var(--color-light-grey) 0.063rem;
+  }
+
+  &--open {
+    .faq-item__title__chevron {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -22,6 +28,10 @@
     background-color: var(--color-neutral-50);
     outline: none;
   }
+}
+
+.faq-item__title__chevron {
+  transition: var(--transition) transform;
 }
 
 .faq-item__answer {
