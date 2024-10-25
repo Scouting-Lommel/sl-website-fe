@@ -13,10 +13,13 @@
 .faq-item__title {
   display: flex;
   width: 100%;
+  align-items: center;
   justify-content: space-between;
   padding: var(--space-32);
   border: none;
   background-color: var(--color-white);
+  gap: var(--space-4);
+  text-align: left;
   transition: var(--transition) background-color;
 
   &:hover {
@@ -31,6 +34,7 @@
 }
 
 .faq-item__title__chevron {
+  flex-shrink: 0;
   transition: var(--transition) transform;
 }
 
