@@ -20,7 +20,7 @@ const UploadFileForm = ({ initialValues, submitForm, groupId }: Props) => {
       type: 'file',
       id: 'file',
       name: 'file',
-      label: t('uploadFileForm.fields.file'),
+      label: t('uploadFileForm.fields.file.label'),
       required: true,
     },
   ];
