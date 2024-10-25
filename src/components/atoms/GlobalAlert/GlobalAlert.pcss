@@ -5,19 +5,27 @@
   bottom: 0;
   left: 0;
   padding: var(--space-16) 0;
+  background-color: var(--color-background);
   filter: drop-shadow(var(--drop-shadow-sm-reverse));
 
   &--info {
-    background-color: var(--color-bg-info);
+    --color-text: var(--color-foreground-light);
+    --color-background: var(--color-bg-info);
+    --color-link: var(--color-link-light);
+    --color-link-hover: var(--color-link-hover-light);
   }
 
   &--warning {
-    background-color: var(--color-secondary-400);
+    --color-background: var(--color-secondary-400);
+    --color-link: var(--color-link-dark);
+    --color-link-hover: var(--color-link-hover-dark);
   }
 
   &--error {
-    background-color: var(--color-bg-error);
-    color: white;
+    --color-text: var(--color-foreground-light);
+    --color-background: var(--color-bg-error);
+    --color-link: var(--color-link-light);
+    --color-link-hover: var(--color-link-hover-light);
   }
 }
 
