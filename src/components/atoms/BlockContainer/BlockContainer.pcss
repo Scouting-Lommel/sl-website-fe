@@ -37,6 +37,9 @@
 
   &--dark {
     --color-text: var(--color-foreground-light);
+    --color-background: var(--color-background-dark);
+
+    background-color: transparent;
   }
 
   &--light + &--light {
@@ -58,7 +61,7 @@
     &::after {
       position: absolute;
       overflow: hidden;
-      background-color: var(--color-background-theme);
+      background-color: var(--color-background);
       content: '';
       inset: 0;
     }
@@ -73,7 +76,7 @@
     border-bottom-right-radius: var(--border-radius-container-sm);
 
     &::after {
-      background-color: var(--color-background-theme);
+      background-color: var(--color-background);
     }
 
     @media (--mq-from-large) {
