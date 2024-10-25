@@ -4,4 +4,5 @@ export type YearTheme = {
   title?: string;
   description?: string;
   image: CloudinaryImage;
+  link?: string;
 };
