@@ -16,7 +16,7 @@ const FileSection = ({ title, files, links, className }: Props) => {
   return (
     <div className={className}>
       <h2 className="file-section t-headline-2 t-align-center">{title}</h2>
-      {files && files.data.length > 0 && (
+      {(files && files.data.length > 0) || (links && links.length > 0) ? (
         <ul className="file-section__attachments">
           {files?.data.map((file, i) => {
             return <Attachment variant="file" key={i} file={file.attributes} />;
@@ -25,8 +25,7 @@ const FileSection = ({ title, files, links, className }: Props) => {
             return <Attachment variant="link" key={i} link={link} allLinks={links} />;
           })}
         </ul>
-      )}
-      {files?.data.length === 0 && (
+      ) : (
         <div className="file-section__no-files">
           <Typography className="file-section__no-files__text">{t('noFilesFound')}</Typography>
         </div>
