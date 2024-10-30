@@ -1,9 +1,10 @@
+import { getTranslations } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Form from '@/components/organisms/Forms';
 import Hero from '@/components/organisms/Hero';
 import { getGeneralData } from '../api';
-import { getTranslations } from 'next-intl/server';
 
 export async function generateMetadata() {
   const { generalData } = await getGeneralData();
@@ -22,6 +23,9 @@ export async function generateMetadata() {
 }
 
 const EetfestijnPage = async () => {
+  // Return not found page if page is accessed in production or staging
+  if (process.env.APP_ENV !== 'development') return notFound();
+
   const t = await getTranslations('forms.eetfestijnForm');
 
   return (
