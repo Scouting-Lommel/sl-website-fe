@@ -31,7 +31,9 @@ const FormField = (props: Props) => {
     case 'divider': {
       return (
         <div className="form-field">
-          <Divider />
+          <div className="form-field__divider">
+            <Divider />
+          </div>
         </div>
       );
     }
