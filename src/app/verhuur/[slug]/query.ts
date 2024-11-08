@@ -5,6 +5,7 @@ import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
 import GALLERY_BLOCK_FRAGMENT from '@/graphql/gallery-block.gql';
 import TARIFS_BLOCK_FRAGMENT from '@/graphql/tarifs-block.gql';
 import CALENDAR_BLOCK_FRAGMENT from '@/graphql/calendar-block.gql';
+import MAP_BLOCK_FRAGMENT from '@/graphql/maps-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
 
 const RENTAL_LOCATION_BOOKINGS_QUERY = gql`
@@ -28,6 +29,7 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
   ${GALLERY_BLOCK_FRAGMENT}
   ${TARIFS_BLOCK_FRAGMENT}
   ${CALENDAR_BLOCK_FRAGMENT}
+  ${MAP_BLOCK_FRAGMENT}
   ${DIVIDER_FRAGMENT}
 
   query getRentalLocationPage($slug: String) {
@@ -80,6 +82,7 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
             ...GalleryBlockFragment
             ...TarifsBlockFragment
             ...CalendarBlockFragment
+            ...MapBlockFragment
             ...DividerFragment
           }
         }
