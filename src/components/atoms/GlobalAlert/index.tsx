@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import cx from 'classnames';
+import { slugify } from '@/lib/helpers/slugify';
 import Typography from '@/components/atoms/Typography';
 import Button from '@/components/atoms/Button';
 import { GlobalAlert as GlobalAlertProps } from './types';
@@ -17,7 +18,18 @@ type Props = GlobalAlertProps & React.HTMLAttributes<HTMLElement>;
 const GlobalAlert = ({ label, variant = 'info' }: Props) => {
   const t = useTranslations('common');
 
-  const [alertVisible, setAlertVisible] = useState<boolean>(true);
+  const [alertVisible, setAlertVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    const storedValue = localStorage.getItem(slugify(label));
+    if (storedValue === null) setAlertVisible(true);
+    if (storedValue !== null) setAlertVisible(JSON.parse(storedValue));
+  }, [variant]);
+
+  const handleClose = () => {
+    setAlertVisible(false);
+    localStorage.setItem(slugify(label), 'false');
+  };
 
   const globalAlertClassNames = cx('global-alert', `global-alert--${variant}`);
 
@@ -27,12 +39,7 @@ const GlobalAlert = ({ label, variant = 'info' }: Props) => {
         <div className={globalAlertClassNames}>
           <div className="global-alert__inner sl-layout">
             <Typography data={label} />
-            <Button
-              variant="light"
-              label={t('close')}
-              onClick={() => setAlertVisible(false)}
-              modSmall
-            />
+            <Button variant="light" label={t('close')} onClick={handleClose} modSmall />
           </div>
         </div>
       )}
