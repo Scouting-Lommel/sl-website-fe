@@ -18,7 +18,9 @@ const TableOfContents = ({ sections }: Props) => {
             key={i}
             className="table-of-contents__item"
           >
-            <Typography modNoStyle># {section.title}</Typography>
+            <Typography modNoStyle>
+              <span className="table-of-contents__item__prefix">#</span> {section.title}
+            </Typography>
           </a>
         );
       })}
