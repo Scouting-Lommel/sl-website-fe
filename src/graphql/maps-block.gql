@@ -1,5 +1,7 @@
 fragment MapBlockFragment on ComponentContentBlocksMapBlock {
   title
+  location
+  query: mapsQuery
   blockProperties {
     variant
     orientation

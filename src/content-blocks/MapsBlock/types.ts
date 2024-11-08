@@ -1,6 +1,8 @@
 import { BlockContainer } from '@/components/atoms/BlockContainer/types';
-import { MapEmbedProps } from '@/components/organisms/Map/types';
+import { MapsLocation } from '@/types/MapsLocation';
 
-export type MapBlock = MapEmbedProps & {
+export type MapBlock = {
   blockProperties: BlockContainer;
+  query?: string;
+  location?: MapsLocation;
 };
