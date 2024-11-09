@@ -1,26 +1,24 @@
 .map__container {
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding-top: var(--space-32);
+}
+
+.map__inner {
+  width: 100%;
+  max-width: 62rem;
 }
 
 .map {
-  width: 62.5rem;
-  height: 37.5rem;
+  width: 100%;
   border: 0.188rem;
   border-color: var(--color-theme-primary);
+  border-radius: var(--border-radius);
+  aspect-ratio: 16 / 9;
+}
 
-  @media (--mq-up-to-large) {
-    width: 50rem;
-    height: 30rem;
-  }
-
-  @media (--mq-up-to-medium) {
-    width: 40rem;
-    height: 22.5rem;
-  }
-
-  @media (--mq-up-to-small) {
-    width: 30rem;
-    height: 15rem;
-  }
+.map__address {
+  color: var(--color-foreground-muted);
+  font-size: 1rem;
 }

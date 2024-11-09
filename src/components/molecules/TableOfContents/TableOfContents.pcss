@@ -1,8 +1,15 @@
+.table-of-contents {
+  padding: var(--space-48) 0;
+  border-top: solid var(--color-neutral-300) var(--space-1);
+  border-bottom: solid var(--color-neutral-300) var(--space-1);
+}
+
 .table-of-contents__item {
   display: block;
   width: fit-content;
   padding: var(--space-8) 0;
   color: var(--color-neutral-900);
+  font-weight: var(--font-weight-bold);
   text-decoration: none;
 
   &:hover {
@@ -11,8 +18,6 @@
   }
 }
 
-.table-of-contents {
-  padding: var(--space-48) 0;
-  border-top: solid var(--color-neutral-300) var(--space-1);
-  border-bottom: solid var(--color-neutral-300) var(--space-1);
+.table-of-contents__item__prefix {
+  color: var(--color-primary-base);
 }

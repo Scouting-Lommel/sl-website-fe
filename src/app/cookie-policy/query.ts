@@ -1,44 +1,18 @@
 import gql from 'graphql-tag';
 
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
-import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
-import GALLERY_BLOCK_FRAGMENT from '@/graphql/gallery-block.gql';
-import TARIFS_BLOCK_FRAGMENT from '@/graphql/tarifs-block.gql';
-import CALENDAR_BLOCK_FRAGMENT from '@/graphql/calendar-block.gql';
-import MAP_BLOCK_FRAGMENT from '@/graphql/maps-block.gql';
+import POLICY_BLOCK_FRAGMENT from '@/graphql/policy-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
 
-const RENTAL_LOCATION_BOOKINGS_QUERY = gql`
-  query getRentalLocationBookings($slug: String) {
-    bookings(filters: { rental_location: { slug: { eq: $slug } } }) {
-      data {
-        id
-        attributes {
-          start
-          end
-          title
-        }
-      }
-    }
-  }
-`;
-
-const RENTAL_LOCATION_PAGE_QUERY = gql`
+const COOKIE_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
-  ${TEXT_IMAGE_BLOCK_FRAGMENT}
-  ${GALLERY_BLOCK_FRAGMENT}
-  ${TARIFS_BLOCK_FRAGMENT}
-  ${CALENDAR_BLOCK_FRAGMENT}
-  ${MAP_BLOCK_FRAGMENT}
+  ${POLICY_BLOCK_FRAGMENT}
   ${DIVIDER_FRAGMENT}
 
-  query getRentalLocationPage($slug: String) {
-    rentalLocations(filters: { slug: { eq: $slug } }) {
+  query {
+    cookiePolicyPage {
       data {
         attributes {
-          pageTitle
-          slug
-          description
           pageMeta {
             pageTitle
             pageDescription
@@ -78,11 +52,7 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
           blocks {
             __typename
             ...HeroBlockFragment
-            ...TextImageBlockFragment
-            ...GalleryBlockFragment
-            ...TarifsBlockFragment
-            ...CalendarBlockFragment
-            ...MapBlockFragment
+            ...PolicyBlockFragment
             ...DividerFragment
           }
         }
@@ -91,4 +61,4 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
   }
 `;
 
-export { RENTAL_LOCATION_BOOKINGS_QUERY, RENTAL_LOCATION_PAGE_QUERY };
+export default COOKIE_PAGE_QUERY;
