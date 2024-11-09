@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Lightbox } from 'react-modal-image';
+import { useTranslations } from 'use-intl';
 import { Image as ImageProps } from './types';
 import styles from './Image.css';
 
@@ -13,6 +14,7 @@ export const links = () => {
 type Props = ImageProps & React.HTMLAttributes<HTMLElement>;
 
 const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: Props) => {
+  const t = useTranslations('common');
   const imageRef = useRef<any>(null);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgModalActive, setImgModalActive] = useState(false);
@@ -33,7 +35,7 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
   }, []);
 
   if (!data?.url) {
-    return <>Image is not valid</>;
+    return <>{t('imageNotFound')}</>;
   }
 
   if (data.ext === '.svg') {
