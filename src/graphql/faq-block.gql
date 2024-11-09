@@ -16,6 +16,7 @@ fragment FAQBlockFragment on ComponentContentBlocksFaqBlock {
               alternativeText
               caption
               formats
+              blurhash
             }
           }
         }

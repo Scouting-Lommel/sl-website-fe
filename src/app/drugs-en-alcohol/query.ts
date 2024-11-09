@@ -26,7 +26,7 @@ const DA_PAGE_QUERY = gql`
                   url
                   alternativeText
                   caption
-                  formats
+                  blurhash
                 }
               }
             }
@@ -44,6 +44,7 @@ const DA_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }

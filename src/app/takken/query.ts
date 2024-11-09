@@ -29,7 +29,7 @@ const GROUPS_PAGE_QUERY = gql`
                   url
                   alternativeText
                   caption
-                  formats
+                  blurhash
                 }
               }
             }
@@ -47,6 +47,7 @@ const GROUPS_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }

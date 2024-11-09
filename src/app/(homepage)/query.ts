@@ -28,7 +28,7 @@ const HOMEPAGE_QUERY = gql`
                     url
                     alternativeText
                     caption
-                    formats
+                    blurhash
                   }
                 }
               }
@@ -46,6 +46,7 @@ const HOMEPAGE_QUERY = gql`
                       alternativeText
                       caption
                       formats
+                      blurhash
                     }
                   }
                 }

@@ -19,6 +19,7 @@ const GENERAL_DATA = gql`
                 alternativeText
                 caption
                 formats
+                blurhash
               }
             }
           }
@@ -32,6 +33,7 @@ const GENERAL_DATA = gql`
                 alternativeText
                 caption
                 formats
+                blurhash
               }
             }
           }

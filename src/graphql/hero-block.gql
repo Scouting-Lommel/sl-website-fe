@@ -33,6 +33,7 @@ fragment HeroBlockFragment on ComponentContentBlocksHeroBlock {
               alternativeText
               caption
               formats
+              blurhash
             }
           }
         }

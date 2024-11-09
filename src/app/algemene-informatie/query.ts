@@ -33,6 +33,7 @@ const INFO_PAGE_QUERY = gql`
                   alternativeText
                   caption
                   formats
+                  blurhash
                 }
               }
             }
@@ -50,6 +51,7 @@ const INFO_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }
@@ -87,7 +89,7 @@ const YEAR_THEME_QUERY = gql`
                 url
                 alternativeText
                 caption
-                formats
+                blurhash
               }
             }
           }

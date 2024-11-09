@@ -25,6 +25,7 @@ const CONTACT_PAGE_QUERY = gql`
                   alternativeText
                   caption
                   formats
+                  blurhash
                 }
               }
             }
@@ -42,6 +43,7 @@ const CONTACT_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }

@@ -12,6 +12,7 @@ fragment TextImageBlockFragment on ComponentContentBlocksTextImageBlock {
         alternativeText
         caption
         formats
+        blurhash
       }
     }
   }

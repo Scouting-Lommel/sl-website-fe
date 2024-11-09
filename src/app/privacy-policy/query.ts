@@ -27,6 +27,7 @@ const PRIVACY_PAGE_QUERY = gql`
                   alternativeText
                   caption
                   formats
+                  blurhash
                 }
               }
             }
@@ -44,6 +45,7 @@ const PRIVACY_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }

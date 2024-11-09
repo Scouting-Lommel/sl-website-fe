@@ -11,6 +11,7 @@ fragment GalleryBlockFragment on ComponentContentBlocksGalleryBlock {
         alternativeText
         caption
         formats
+        blurhash
       }
     }
   }

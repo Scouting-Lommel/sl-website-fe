@@ -52,6 +52,7 @@ const GROUP_PAGE_QUERY = gql`
                       alternativeText
                       caption
                       formats
+                      blurhash
                     }
                   }
                 }
@@ -73,6 +74,7 @@ const GROUP_PAGE_QUERY = gql`
                   alternativeText
                   caption
                   formats
+                  blurhash
                 }
               }
             }
@@ -90,6 +92,7 @@ const GROUP_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }

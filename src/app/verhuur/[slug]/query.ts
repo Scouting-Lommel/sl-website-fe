@@ -53,6 +53,7 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
                   alternativeText
                   caption
                   formats
+                  blurhash
                 }
               }
             }
@@ -70,6 +71,7 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }

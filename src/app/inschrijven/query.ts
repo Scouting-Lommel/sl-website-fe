@@ -24,7 +24,7 @@ const REGISTER_PAGE_QUERY = gql`
                   url
                   alternativeText
                   caption
-                  formats
+                  blurhash
                 }
               }
             }
@@ -42,6 +42,7 @@ const REGISTER_PAGE_QUERY = gql`
                     alternativeText
                     caption
                     formats
+                    blurhash
                   }
                 }
               }
