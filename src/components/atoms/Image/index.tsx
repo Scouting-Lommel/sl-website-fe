@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';
-import { generateImageUrl } from '@/lib/helpers/generateImageUrl';
+import { generateImageUrl } from '@/lib/helpers/image';
 import { Image as ImageProps } from './types';
 import styles from './Image.css';
 
