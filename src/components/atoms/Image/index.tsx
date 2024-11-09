@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';
+import { generateImageUrl } from '@/lib/helpers/generateImageUrl';
 import { Image as ImageProps } from './types';
 import styles from './Image.css';
 
@@ -61,9 +62,9 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
           if (modMaximisable) setImgModalActive(true);
         }}
       >
-        <source media="(max-width: 480px)" srcSet={data?.formats?.small?.url} />
-        <source media="(max-width: 768px)" srcSet={data?.formats?.medium?.url} />
-        <source media="(max-width: 1024px)" srcSet={data?.formats?.large?.url} />
+        <source media="(max-width: 480px)" srcSet={generateImageUrl(data?.formats?.small?.hash)} />
+        <source media="(max-width: 768px)" srcSet={generateImageUrl(data?.formats?.medium?.hash)} />
+        <source media="(max-width: 1024px)" srcSet={generateImageUrl(data?.formats?.large?.hash)} />
         <img
           ref={imageRef}
           className="image__img"
@@ -78,9 +79,9 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
 
       {modMaximisable && imgModalActive && (
         <Lightbox
-          small={data?.formats?.small?.url}
-          medium={data?.formats?.medium?.url}
-          large={data?.formats?.large?.url}
+          small={generateImageUrl(data?.formats?.small?.hash)}
+          medium={generateImageUrl(data?.formats?.medium?.hash)}
+          large={generateImageUrl(data?.formats?.large?.hash)}
           alt={data?.alternativeText}
           onClose={() => setImgModalActive(false)}
         />

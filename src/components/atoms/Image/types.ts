@@ -8,9 +8,9 @@ export type CloudinaryImage = {
   caption?: string;
   ext?: string;
   formats: {
-    small: { url: string; width: number; height: number };
-    medium: { url: string; width: number; height: number };
-    large: { url: string; width: number; height: number };
+    small: { url: string; width: number; height: number; hash: string };
+    medium: { url: string; width: number; height: number; hash: string };
+    large: { url: string; width: number; height: number; hash: string };
   };
   blurhash?: string;
 };
