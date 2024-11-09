@@ -12,6 +12,7 @@ export type CloudinaryImage = {
     medium: { url: string; width: number; height: number };
     large: { url: string; width: number; height: number };
   };
+  blurhash?: string;
 };
 
 export type Image = {
