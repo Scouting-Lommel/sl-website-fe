@@ -8,10 +8,14 @@ export const links = () => {
 
 type Props = MapProps & React.HTMLAttributes<HTMLElement>;
 
-const GoogleMap = ({ lat, lng, query, zoom = 17, address, className, ...props }: Props) => {
+const fallbackQuery = 'Scouting Lommel';
+
+const GoogleMap = ({ lat, lng, query, zoom = 17, address, className }: Props) => {
   const url = query
     ? `https://www.google.com/maps/embed/v1/place?q=${query}&zoom=${zoom}&key=${process.env.MAPS_API_KEY}`
-    : `https://www.google.com/maps/embed/v1/place?q=${lat},${lng}&zoom=${zoom}&key=${process.env.MAPS_API_KEY}`;
+    : lat && lng
+      ? `https://www.google.com/maps/embed/v1/place?q=${lat},${lng}&zoom=${zoom}&key=${process.env.MAPS_API_KEY}`
+      : `https://www.google.com/maps/embed/v1/place?q=${fallbackQuery}&zoom=${zoom}&key=${process.env.MAPS_API_KEY}`;
 
   return (
     <div className={cx('map__container', className)}>
