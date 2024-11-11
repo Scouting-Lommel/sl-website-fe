@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';
+import { Blurhash } from 'react-blurhash';
 import { generateImageUrl } from '@/lib/helpers/image';
 import { Image as ImageProps } from './types';
 import styles from './Image.css';
@@ -22,13 +23,13 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
 
   const imageClassNames = classNames(
     'image',
-    loadingStrategy === 'lazy' && !imgLoaded && 'image--lazy',
+    loadingStrategy === 'lazy' && !imgLoaded && 'image--loading',
     modMaximisable && 'image--maximisable',
     className,
   );
 
   const imageLoad = () => {
-    if (imageRef.current) setImgLoaded(imageRef.current.complete);
+    if (imageRef.current) setImgLoaded(true); // TODO: Check if this is the best way to handle this
   };
 
   useEffect(() => {
@@ -58,10 +59,21 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
     <>
       <picture
         className={imageClassNames}
+        style={{ aspectRatio: `${data.width}/${data.height}` }}
         onClick={() => {
           if (modMaximisable) setImgModalActive(true);
         }}
       >
+        {!imgLoaded && (
+          <Blurhash
+            className="image__blur"
+            hash={data.blurhash || 'L6PZfSjE.AyE_3t7t7R**0o#DgR4'}
+            width={data.width}
+            height={data.height}
+            style={{ height: '100%', width: '100%' }} // Override default inline styled dimensions
+          />
+        )}
+
         <source media="(max-width: 480px)" srcSet={generateImageUrl(data?.formats?.small?.hash)} />
         <source media="(max-width: 768px)" srcSet={generateImageUrl(data?.formats?.medium?.hash)} />
         <source media="(max-width: 1024px)" srcSet={generateImageUrl(data?.formats?.large?.hash)} />
