@@ -1,6 +1,10 @@
 import gql from 'graphql-tag';
 
+import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
+
 const GENERAL_DATA = gql`
+  ${IMAGE_FRAGEMENT}
+
   query {
     generalData {
       data {
@@ -12,28 +16,14 @@ const GENERAL_DATA = gql`
           logo {
             data {
               attributes {
-                name
-                width
-                height
-                url
-                alternativeText
-                caption
-                formats
-                blurhash
+                ...ImageFragment
               }
             }
           }
           image {
             data {
               attributes {
-                name
-                width
-                height
-                url
-                alternativeText
-                caption
-                formats
-                blurhash
+                ...ImageFragment
               }
             }
           }

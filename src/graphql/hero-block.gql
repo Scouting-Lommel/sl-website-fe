@@ -26,14 +26,7 @@ fragment HeroBlockFragment on ComponentContentBlocksHeroBlock {
         image {
           data {
             attributes {
-              name
-              width
-              height
-              url
-              alternativeText
-              caption
-              formats
-              blurhash
+              ...ImageFragment
             }
           }
         }
@@ -43,13 +36,7 @@ fragment HeroBlockFragment on ComponentContentBlocksHeroBlock {
   bgImage {
     data {
       attributes {
-        name
-        width
-        height
-        url
-        alternativeText
-        caption
-        formats
+        ...ImageFragment
       }
     }
   }

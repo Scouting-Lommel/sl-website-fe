@@ -3,11 +3,13 @@ import gql from 'graphql-tag';
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
+import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
 const RENTAL_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
   ${TEXT_IMAGE_BLOCK_FRAGMENT}
   ${DIVIDER_FRAGMENT}
+  ${IMAGE_FRAGEMENT}
 
   query {
     rentalPage {
@@ -20,14 +22,7 @@ const RENTAL_PAGE_QUERY = gql`
             metaImage {
               data {
                 attributes {
-                  name
-                  width
-                  height
-                  url
-                  alternativeText
-                  caption
-                  formats
-                  blurhash
+                  ...ImageFragment
                 }
               }
             }
@@ -38,14 +33,7 @@ const RENTAL_PAGE_QUERY = gql`
               image {
                 data {
                   attributes {
-                    name
-                    width
-                    height
-                    url
-                    alternativeText
-                    caption
-                    formats
-                    blurhash
+                    ...ImageFragment
                   }
                 }
               }

@@ -5,14 +5,7 @@ fragment TextImageBlockFragment on ComponentContentBlocksTextImageBlock {
   images {
     data {
       attributes {
-        name
-        width
-        height
-        url
-        alternativeText
-        caption
-        formats
-        blurhash
+        ...ImageFragment
       }
     }
   }
