@@ -6,6 +6,7 @@ import FAQ_BLOCK_FRAGMENT from '@/graphql/faq-block.gql';
 import YEAR_THEME_BLOCK_FRAGMENT from '@/graphql/year-theme-block.gql';
 import MAP_BLOCK_FRAGMENT from '@/graphql/maps-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
+import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
 const INFO_PAGE_QUERY = gql`
@@ -15,6 +16,7 @@ const INFO_PAGE_QUERY = gql`
   ${YEAR_THEME_BLOCK_FRAGMENT}
   ${MAP_BLOCK_FRAGMENT}
   ${DIVIDER_FRAGMENT}
+  ${PAGE_META_FRAGMENT}
   ${IMAGE_FRAGEMENT}
 
   query {
@@ -22,28 +24,7 @@ const INFO_PAGE_QUERY = gql`
       data {
         attributes {
           pageMeta {
-            pageTitle
-            pageDescription
-            noIndex
-            metaImage {
-              data {
-                attributes {
-                  ...ImageFragment
-                }
-              }
-            }
-            metaSocial {
-              socialNetwork
-              title
-              description
-              image {
-                data {
-                  attributes {
-                    ...ImageFragment
-                  }
-                }
-              }
-            }
+            ...PageMetaFragment
           }
           blocks {
             __typename

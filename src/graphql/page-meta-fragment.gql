@@ -1,0 +1,24 @@
+fragment PageMetaFragment on ComponentGeneralPageMeta {
+  pageTitle
+  pageDescription
+  noIndex
+  metaImage {
+    data {
+      attributes {
+        ...ImageFragment
+      }
+    }
+  }
+  metaSocial {
+    socialNetwork
+    title
+    description
+    image {
+      data {
+        attributes {
+          ...ImageFragment
+        }
+      }
+    }
+  }
+}

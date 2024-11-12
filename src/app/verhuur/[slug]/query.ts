@@ -7,6 +7,7 @@ import TARIFS_BLOCK_FRAGMENT from '@/graphql/tarifs-block.gql';
 import CALENDAR_BLOCK_FRAGMENT from '@/graphql/calendar-block.gql';
 import MAP_BLOCK_FRAGMENT from '@/graphql/maps-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
+import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
 const RENTAL_LOCATION_BOOKINGS_QUERY = gql`
@@ -32,39 +33,19 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
   ${CALENDAR_BLOCK_FRAGMENT}
   ${MAP_BLOCK_FRAGMENT}
   ${DIVIDER_FRAGMENT}
+  ${PAGE_META_FRAGMENT}
   ${IMAGE_FRAGEMENT}
 
   query getRentalLocationPage($slug: String) {
     rentalLocations(filters: { slug: { eq: $slug } }) {
       data {
         attributes {
+          pageMeta {
+            ...PageMetaFragment
+          }
           pageTitle
           slug
           description
-          pageMeta {
-            pageTitle
-            pageDescription
-            noIndex
-            metaImage {
-              data {
-                attributes {
-                  ...ImageFragment
-                }
-              }
-            }
-            metaSocial {
-              socialNetwork
-              title
-              description
-              image {
-                data {
-                  attributes {
-                    ...ImageFragment
-                  }
-                }
-              }
-            }
-          }
           blocks {
             __typename
             ...HeroBlockFragment

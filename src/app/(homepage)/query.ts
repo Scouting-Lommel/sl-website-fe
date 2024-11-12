@@ -4,6 +4,7 @@ import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
 import GROUPS_BLOCK_FRAGMENT from '@/graphql/groups-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
+import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
 const HOMEPAGE_QUERY = gql`
@@ -11,6 +12,7 @@ const HOMEPAGE_QUERY = gql`
     ${TEXT_IMAGE_BLOCK_FRAGMENT}, 
     ${GROUPS_BLOCK_FRAGMENT}
     ${DIVIDER_FRAGMENT}
+    ${PAGE_META_FRAGMENT}
     ${IMAGE_FRAGEMENT}
 
 
@@ -19,28 +21,7 @@ const HOMEPAGE_QUERY = gql`
         data {
           attributes {
             pageMeta {
-              pageTitle
-              pageDescription
-              noIndex
-              metaImage {
-                data {
-                  attributes {
-                    ...ImageFragment
-                  }
-                }
-              }
-              metaSocial {
-                socialNetwork
-                title
-                description
-                image {
-                  data {
-                    attributes {
-                      ...ImageFragment
-                    }
-                  }
-                }
-              }
+              ...PageMetaFragment
             }
             blocks {
               __typename
