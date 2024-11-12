@@ -17,7 +17,7 @@ type Props = ImageProps & React.HTMLAttributes<HTMLElement>;
 
 const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: Props) => {
   const t = useTranslations('common');
-  const imageRef = useRef<any>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgModalActive, setImgModalActive] = useState(false);
 
@@ -28,13 +28,16 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
     className,
   );
 
-  const imageLoad = () => {
-    if (imageRef.current) setImgLoaded(true); // TODO: Check if this is the best way to handle this
-  };
-
+  // Preload the image
   useEffect(() => {
-    imageLoad();
-  }, []);
+    if (data?.url) {
+      const img = new Image();
+      img.src = data.url;
+      img.onload = () => {
+        setImgLoaded(true);
+      };
+    }
+  }, [data?.url]);
 
   if (!data?.url) {
     return <>{t('imageNotFound')}</>;
@@ -49,7 +52,6 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
           alt={data?.alternativeText}
           src={data?.url}
           loading={loadingStrategy}
-          onLoad={imageLoad}
         />
       </picture>
     );
@@ -64,28 +66,24 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
           if (modMaximisable) setImgModalActive(true);
         }}
       >
-        {!imgLoaded && (
-          <Blurhash
-            className="image__blur"
-            hash={data.blurhash || 'L6PZfSjE.AyE_3t7t7R**0o#DgR4'}
-            width={data.width}
-            height={data.height}
-            style={{ height: '100%', width: '100%' }} // Override default inline styled dimensions
-          />
-        )}
+        <div className="image__blur-container">
+          {!imgLoaded && (
+            <Blurhash
+              className="image__blur"
+              hash={data.blurhash || 'L6PZfSjE.AyE_3t7t7R**0o#DgR4'}
+              width={data.width}
+              height={data.height}
+              style={{ width: '100%', height: '100%' }}
+            />
+          )}
+        </div>
 
-        <source media="(max-width: 480px)" srcSet={generateImageUrl(data?.formats?.small?.hash)} />
-        <source media="(max-width: 768px)" srcSet={generateImageUrl(data?.formats?.medium?.hash)} />
-        <source media="(max-width: 1024px)" srcSet={generateImageUrl(data?.formats?.large?.hash)} />
         <img
           ref={imageRef}
           className="image__img"
           alt={data?.alternativeText}
-          src={data?.url}
-          srcSet={data?.url}
-          sizes={`(max-width: 480px) ${data?.formats?.small?.width}px, (max-width: 768px) ${data?.formats?.medium?.width}px, (max-width: 1024px) ${data?.formats?.large?.width}px, ${data?.width}px`}
+          src={generateImageUrl(data?.hash)}
           loading={loadingStrategy}
-          onLoad={imageLoad}
         />
       </picture>
 
