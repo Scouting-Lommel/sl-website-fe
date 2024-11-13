@@ -20,7 +20,7 @@ const CarouselItem = ({ logo, name, slug }: Props) => {
             className="embla__slide__img"
           />
         </div>
-        <div className="embla__slide__number">
+        <div className="embla__slide__number t-headline-2">
           <Typography>{name}</Typography>
         </div>
       </a>
