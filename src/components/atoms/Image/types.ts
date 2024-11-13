@@ -17,6 +17,6 @@ export type CloudinaryImage = {
 
 export type Image = {
   data: CloudinaryImage;
-  loadingStrategy: 'lazy' | 'eager';
+  loadingStrategy?: 'lazy' | 'eager';
   modMaximisable?: boolean;
 };

@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import SLImage from '@/components/atoms/Image';
 import SocialsCta from '@/components/molecules/SocialsCta';
 import CallToAction from '@/components/molecules/CallToAction';
 import { BlockContainer as BlockContainerProps } from './types';
@@ -46,13 +47,9 @@ const BlockContainer = ({
     <section id={slug} className={blockContainerClassNames}>
       <div className={bgClassnames}>
         {bgImage && (
-          <img
-            className="block-container__bg-image__img"
-            alt={bgImage?.alternativeText}
-            src={bgImage?.url}
-            sizes="100vw"
-            loading="eager"
-          />
+          <div className="block-container__bg-image__img">
+            <SLImage data={bgImage} />
+          </div>
         )}
       </div>
       <div className="block-container__content">{children}</div>

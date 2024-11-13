@@ -79,6 +79,7 @@
     border-bottom-right-radius: var(--border-radius-container-sm);
 
     &::after {
+      z-index: 1;
       background-color: var(--color-background);
     }
 
@@ -93,6 +94,8 @@
 }
 
 .block-container__bg-image__img {
+  position: relative;
+  z-index: -1;
   min-width: 100%;
   min-height: 100%;
 }
