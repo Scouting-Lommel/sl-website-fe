@@ -18,8 +18,8 @@ type Props = ImageProps & React.HTMLAttributes<HTMLElement>;
 const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: Props) => {
   const t = useTranslations('common');
   const imageRef = useRef<HTMLImageElement>(null);
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const [imgModalActive, setImgModalActive] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState<boolean>(false);
+  const [imgModalActive, setImgModalActive] = useState<boolean>(false);
 
   const imageClassNames = classNames(
     'image',
