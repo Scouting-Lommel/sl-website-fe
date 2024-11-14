@@ -24,7 +24,7 @@ const GlobalAlert = ({ label, variant = 'info' }: Props) => {
     const storedValue = localStorage.getItem(slugify(label));
     if (storedValue === null) setAlertVisible(true);
     if (storedValue !== null) setAlertVisible(JSON.parse(storedValue));
-  }, [variant]);
+  }, [variant, label]);
 
   const handleClose = () => {
     setAlertVisible(false);

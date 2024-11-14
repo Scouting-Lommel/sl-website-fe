@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { Lightbox } from 'react-modal-image';
+import { useTranslations } from 'use-intl';
+import { Blurhash } from 'react-blurhash';
+import { generateImageUrl } from '@/lib/helpers/image';
 import { Image as ImageProps } from './types';
 import styles from './Image.css';
 
@@ -13,27 +16,31 @@ export const links = () => {
 type Props = ImageProps & React.HTMLAttributes<HTMLElement>;
 
 const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: Props) => {
-  const imageRef = useRef<any>(null);
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const [imgModalActive, setImgModalActive] = useState(false);
+  const t = useTranslations('common');
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [imgLoaded, setImgLoaded] = useState<boolean>(false);
+  const [imgModalActive, setImgModalActive] = useState<boolean>(false);
 
   const imageClassNames = classNames(
     'image',
-    loadingStrategy === 'lazy' && !imgLoaded && 'image--lazy',
+    loadingStrategy === 'lazy' && !imgLoaded && 'image--loading',
     modMaximisable && 'image--maximisable',
     className,
   );
 
-  const imageLoad = () => {
-    if (imageRef.current) setImgLoaded(imageRef.current.complete);
-  };
-
+  // Preload the image
   useEffect(() => {
-    imageLoad();
-  }, []);
+    if (data?.url) {
+      const img = new Image();
+      img.src = data.url;
+      img.onload = () => {
+        setImgLoaded(true);
+      };
+    }
+  }, [data?.url]);
 
   if (!data?.url) {
-    return <>Image is not valid</>;
+    return <>{t('imageNotFound')}</>;
   }
 
   if (data.ext === '.svg') {
@@ -45,7 +52,6 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
           alt={data?.alternativeText}
           src={data?.url}
           loading={loadingStrategy}
-          onLoad={imageLoad}
         />
       </picture>
     );
@@ -55,30 +61,35 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
     <>
       <picture
         className={imageClassNames}
+        style={{ aspectRatio: `${data.width}/${data.height}` }}
         onClick={() => {
           if (modMaximisable) setImgModalActive(true);
         }}
       >
-        <source media="(max-width: 480px)" srcSet={data?.formats?.small?.url} />
-        <source media="(max-width: 768px)" srcSet={data?.formats?.medium?.url} />
-        <source media="(max-width: 1024px)" srcSet={data?.formats?.large?.url} />
+        <div className="image__blur-container">
+          {!imgLoaded && (
+            <Blurhash
+              className="image__blur"
+              hash={data.blurhash || 'L6PZfSjE.AyE_3t7t7R**0o#DgR4'}
+              width={data.width}
+              height={data.height}
+              style={{ width: '100%', height: '100%' }}
+            />
+          )}
+        </div>
+
         <img
           ref={imageRef}
           className="image__img"
           alt={data?.alternativeText}
-          src={data?.url}
-          srcSet={data?.url}
-          sizes={`(max-width: 480px) ${data?.formats?.small?.width}px, (max-width: 768px) ${data?.formats?.medium?.width}px, (max-width: 1024px) ${data?.formats?.large?.width}px, ${data?.width}px`}
+          src={generateImageUrl(data?.hash)}
           loading={loadingStrategy}
-          onLoad={imageLoad}
         />
       </picture>
 
       {modMaximisable && imgModalActive && (
         <Lightbox
-          small={data?.formats?.small?.url}
-          medium={data?.formats?.medium?.url}
-          large={data?.formats?.large?.url}
+          large={generateImageUrl(data?.hash)}
           alt={data?.alternativeText}
           onClose={() => setImgModalActive(false)}
         />

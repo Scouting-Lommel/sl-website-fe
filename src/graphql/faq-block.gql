@@ -9,13 +9,7 @@ fragment FAQBlockFragment on ComponentContentBlocksFaqBlock {
         image {
           data {
             attributes {
-              name
-              width
-              height
-              url
-              alternativeText
-              caption
-              formats
+              ...ImageFragment
             }
           }
         }

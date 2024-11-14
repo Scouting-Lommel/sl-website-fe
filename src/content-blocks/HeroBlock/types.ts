@@ -1,6 +1,5 @@
-import { BackgroundImage } from '@/components/atoms/BlockContainer/types';
 import { Button } from '@/components/atoms/Button/types';
-
+import { CloudinaryImage } from '@/components/atoms/Image/types';
 import { YearTheme } from '@/components/molecules/YearTheme/types';
 
 type YearThemeData = {
@@ -14,5 +13,5 @@ export type HeroBlock = {
   callToAction?: Button[];
   socialsCta?: { title: string; socialItems: { data: any } };
   yearTheme?: YearThemeData;
-  bgImage?: { data: { attributes: BackgroundImage } };
+  bgImage?: { data: { attributes: CloudinaryImage } };
 };

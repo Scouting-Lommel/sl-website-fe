@@ -148,6 +148,7 @@ const ContactForm = ({ initialValues, submitForm }: Props) => {
 
   useEffect(() => {
     updateFields(initialValues.recipient);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Execute only on first render
 
   return (

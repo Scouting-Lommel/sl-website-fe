@@ -6,6 +6,8 @@ import FAQ_BLOCK_FRAGMENT from '@/graphql/faq-block.gql';
 import YEAR_THEME_BLOCK_FRAGMENT from '@/graphql/year-theme-block.gql';
 import MAP_BLOCK_FRAGMENT from '@/graphql/maps-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
+import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
+import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
 const INFO_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
@@ -14,46 +16,15 @@ const INFO_PAGE_QUERY = gql`
   ${YEAR_THEME_BLOCK_FRAGMENT}
   ${MAP_BLOCK_FRAGMENT}
   ${DIVIDER_FRAGMENT}
+  ${PAGE_META_FRAGMENT}
+  ${IMAGE_FRAGEMENT}
 
   query {
     infoPage {
       data {
         attributes {
           pageMeta {
-            pageTitle
-            pageDescription
-            noIndex
-            metaImage {
-              data {
-                attributes {
-                  name
-                  width
-                  height
-                  url
-                  alternativeText
-                  caption
-                  formats
-                }
-              }
-            }
-            metaSocial {
-              socialNetwork
-              title
-              description
-              image {
-                data {
-                  attributes {
-                    name
-                    width
-                    height
-                    url
-                    alternativeText
-                    caption
-                    formats
-                  }
-                }
-              }
-            }
+            ...PageMetaFragment
           }
           blocks {
             __typename
@@ -71,6 +42,8 @@ const INFO_PAGE_QUERY = gql`
 `;
 
 const YEAR_THEME_QUERY = gql`
+  ${IMAGE_FRAGEMENT}
+
   query {
     yearThemes(sort: "endYear:desc", pagination: { limit: 1 }) {
       data {
@@ -81,13 +54,7 @@ const YEAR_THEME_QUERY = gql`
           image {
             data {
               attributes {
-                name
-                width
-                height
-                url
-                alternativeText
-                caption
-                formats
+                ...ImageFragment
               }
             }
           }
