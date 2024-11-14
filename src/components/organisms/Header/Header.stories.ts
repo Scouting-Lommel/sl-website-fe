@@ -37,25 +37,9 @@ export const Default = {
           width: 841,
           height: 1177,
           url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673444920/Logo_Scouts_Lommel_ec953a55cf.png',
+          hash: 'Logo_Scouts_Lommel_ec953a55cf',
           alternativeText: 'Logo Scouts Lommel.png',
           caption: 'Logo Scouts Lommel.png',
-          formats: {
-            small: {
-              width: 357,
-              height: 500,
-              url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673444920/small_Logo_Scouts_Lommel_ec953a55cf.png',
-            },
-            medium: {
-              width: 536,
-              height: 750,
-              url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673444920/medium_Logo_Scouts_Lommel_ec953a55cf.png',
-            },
-            large: {
-              width: 715,
-              height: 1000,
-              url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673444920/large_Logo_Scouts_Lommel_ec953a55cf.png',
-            },
-          },
         },
       },
     },

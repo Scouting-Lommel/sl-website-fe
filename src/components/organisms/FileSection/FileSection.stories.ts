@@ -19,7 +19,7 @@ export const Default = {
           attributes: {
             id: '0',
             ext: '.png',
-            url: 'randomurl.com',
+            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445052/groepsfoto_75dfd0948c.png',
             name: 'Image file attachment',
             size: 10,
           },
@@ -39,7 +39,7 @@ export const Default = {
       {
         id: '1',
         label: 'scoutsengidsenvlaanderen.be',
-        link: 'randomurl.com',
+        link: 'https://scoutsengidsenvlaanderen.be',
       },
     ],
   },

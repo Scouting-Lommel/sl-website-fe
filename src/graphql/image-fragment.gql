@@ -7,5 +7,4 @@ fragment ImageFragment on UploadFile {
   caption
   hash
   blurhash
-  formats
 }

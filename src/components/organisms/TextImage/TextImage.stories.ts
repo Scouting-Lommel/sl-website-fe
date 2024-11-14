@@ -44,25 +44,9 @@ export const Default = {
         width: 1949,
         height: 1240,
         url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445052/groepsfoto_75dfd0948c.png',
+        hash: 'groepsfoto_75dfd0948c',
         alternativeText: 'groepsfoto.png',
         caption: 'groepsfoto.png',
-        formats: {
-          small: {
-            width: 500,
-            height: 318,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445049/small_groepsfoto_75dfd0948c.png',
-          },
-          medium: {
-            width: 750,
-            height: 477,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445050/medium_groepsfoto_75dfd0948c.png',
-          },
-          large: {
-            width: 1000,
-            height: 636,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445054/large_groepsfoto_75dfd0948c.png',
-          },
-        },
       },
     ],
     variant: 'default',
@@ -80,25 +64,9 @@ export const WithCallToAction = {
         width: 1949,
         height: 1240,
         url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445052/groepsfoto_75dfd0948c.png',
+        hash: 'groepsfoto_75dfd0948c',
         alternativeText: 'groepsfoto.png',
         caption: 'groepsfoto.png',
-        formats: {
-          small: {
-            width: 500,
-            height: 318,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445049/small_groepsfoto_75dfd0948c.png',
-          },
-          medium: {
-            width: 750,
-            height: 477,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445050/medium_groepsfoto_75dfd0948c.png',
-          },
-          large: {
-            width: 1000,
-            height: 636,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445054/large_groepsfoto_75dfd0948c.png',
-          },
-        },
       },
     ],
     variant: 'reversed',
@@ -121,69 +89,21 @@ export const MultipleImages = {
         width: 4032,
         height: 3024,
         url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/IMG_2453_9e4413dc77.jpg',
-        formats: {
-          small: {
-            width: 500,
-            height: 375,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/small_IMG_2453_9e4413dc77.jpg',
-          },
-          large: {
-            width: 1000,
-            height: 750,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/large_IMG_2453_9e4413dc77.jpg',
-          },
-          medium: {
-            width: 750,
-            height: 563,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/medium_IMG_2453_9e4413dc77.jpg',
-          },
-        },
+        hash: 'IMG_2453_9e4413dc77',
       },
       {
         name: '701b9def-caf1-40ca-bf21-ed32fb6f30de.jpg',
         width: 2048,
         height: 1536,
         url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/701b9def_caf1_40ca_bf21_ed32fb6f30de_246b33e3ec.jpg',
-        formats: {
-          large: {
-            width: 1000,
-            height: 750,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/large_701b9def_caf1_40ca_bf21_ed32fb6f30de_246b33e3ec.jpg',
-          },
-          small: {
-            width: 500,
-            height: 375,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/small_701b9def_caf1_40ca_bf21_ed32fb6f30de_246b33e3ec.jpg',
-          },
-          medium: {
-            width: 750,
-            height: 563,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/medium_701b9def_caf1_40ca_bf21_ed32fb6f30de_246b33e3ec.jpg',
-          },
-        },
+        hash: '701b9def_caf1_40ca_bf21_ed32fb6f30de_246b33e3ec',
       },
       {
         name: 'IMG_2454.jpg',
         width: 4032,
         height: 3024,
         url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/IMG_2454_79d5bbc4ec.jpg',
-        formats: {
-          medium: {
-            width: 750,
-            height: 563,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/medium_IMG_2454_79d5bbc4ec.jpg',
-          },
-          large: {
-            width: 1000,
-            height: 750,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/large_IMG_2454_79d5bbc4ec.jpg',
-          },
-          small: {
-            width: 500,
-            height: 375,
-            url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1690105463/small_IMG_2454_79d5bbc4ec.jpg',
-          },
-        },
+        hash: 'IMG_2454_79d5bbc4ec',
       },
     ],
     variant: 'default',

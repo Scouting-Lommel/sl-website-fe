@@ -24,7 +24,7 @@ export const Default = {
   args: {
     id: '0',
     ext: '.png',
-    url: 'imageurl.com',
+    url: 'https://res.cloudinary.com/scoutinglommel/image/upload/v1673445052/groepsfoto_75dfd0948c.webp',
     name: 'Image file attachment',
     size: 10,
     modDeleteable: false,
