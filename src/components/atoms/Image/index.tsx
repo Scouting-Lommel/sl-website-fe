@@ -89,9 +89,7 @@ const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: 
 
       {modMaximisable && imgModalActive && (
         <Lightbox
-          small={generateImageUrl(data?.formats?.small?.hash)}
-          medium={generateImageUrl(data?.formats?.medium?.hash)}
-          large={generateImageUrl(data?.formats?.large?.hash)}
+          large={generateImageUrl(data?.hash)}
           alt={data?.alternativeText}
           onClose={() => setImgModalActive(false)}
         />
