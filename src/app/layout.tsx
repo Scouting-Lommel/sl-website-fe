@@ -14,6 +14,10 @@ import { getGeneralData } from './api';
 
 import '@/app/global.css';
 
+export async function viewport() {
+  return { themeColor: 'ffffff' };
+}
+
 export async function generateMetadata() {
   const data = await getGeneralData();
   if (!data) return {};

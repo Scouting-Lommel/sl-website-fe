@@ -23,7 +23,6 @@ export const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata =
     description: metaData.siteDescription,
     metadataBase: new URL(metaData.url || process.env.SITE_URL || '') || null,
     manifest: '/assets/head/site.webmanifest',
-    themeColor: '#ffffff',
     icons: {
       icon: [
         { url: '/assets/head/favicon-16x16.png', sizes: '16x16' },
