@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { notFound, ReadonlyURLSearchParams } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
@@ -9,7 +10,7 @@ type Props = {
   searchParams: ReadonlyURLSearchParams;
 };
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const { generalData } = await getGeneralData();
   const { contactPage } = await getContactPage();
   if (!contactPage || !generalData) return {};

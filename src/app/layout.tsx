@@ -1,5 +1,6 @@
 export const dynamic = 'force-dynamic';
 
+import { Metadata, Viewport } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getServerSession } from 'next-auth';
 import { getLocale, getMessages } from 'next-intl/server';
@@ -14,11 +15,11 @@ import { getGeneralData } from './api';
 
 import '@/app/global.css';
 
-export async function viewport() {
+export async function viewport(): Promise<Viewort> {
   return { themeColor: 'ffffff' };
 }
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const data = await getGeneralData();
   if (!data) return {};
 

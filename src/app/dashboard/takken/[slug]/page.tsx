@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import BlockContainer from '@/components/atoms/BlockContainer';
@@ -6,7 +7,7 @@ import ActivitiesSection from './components/ActivitiesSection';
 import FileSection from './components/FilesSection';
 import { getGroupPage } from './api';
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Takpagina beheren • Dashboard',
   };

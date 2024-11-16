@@ -1,4 +1,6 @@
-export async function generateMetadata() {
+import { Metadata } from 'next';
+
+export async function generateMetadata(): Promise<Metadata> {
   return {
     robots: {
       index: false,
@@ -7,7 +9,7 @@ export async function generateMetadata() {
   };
 }
 
-const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
+export const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
