@@ -10,21 +10,6 @@ import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
 import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
-const RENTAL_LOCATION_BOOKINGS_QUERY = gql`
-  query getRentalLocationBookings($slug: String) {
-    bookings(filters: { rental_location: { slug: { eq: $slug } } }) {
-      data {
-        id
-        attributes {
-          start
-          end
-          title
-        }
-      }
-    }
-  }
-`;
-
 const RENTAL_LOCATION_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
   ${TEXT_IMAGE_BLOCK_FRAGMENT}
@@ -62,4 +47,4 @@ const RENTAL_LOCATION_PAGE_QUERY = gql`
   }
 `;
 
-export { RENTAL_LOCATION_BOOKINGS_QUERY, RENTAL_LOCATION_PAGE_QUERY };
+export { RENTAL_LOCATION_PAGE_QUERY };
