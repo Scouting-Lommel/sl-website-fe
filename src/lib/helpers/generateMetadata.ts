@@ -4,6 +4,7 @@ type PageMetaObj = {
   pageTitle: string;
   pageDescription: string;
   slug: string;
+  noIndex?: boolean;
   metaImage?: { data: { attributes: { url: string } } };
 };
 
@@ -60,6 +61,10 @@ export const generateMetadataForPage = (
       canonical: `${metaData.url}${path ? '/' + path : ''}${
         pageMeta?.slug ? '/' + pageMeta?.slug : ''
       }`,
+    },
+    robots: {
+      index: pageMeta?.noIndex || true,
+      follow: pageMeta?.noIndex || true,
     },
     openGraph: {
       locale: 'nl',
