@@ -2,6 +2,7 @@ fragment PageMetaFragment on ComponentGeneralPageMeta {
   pageTitle
   pageDescription
   noIndex
+  slug
   metaImage {
     data {
       attributes {
