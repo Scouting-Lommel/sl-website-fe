@@ -7,7 +7,9 @@ import Button from '@/components/atoms/Button';
 import Hero from '@/components/organisms/Hero';
 
 export async function generateMetadata() {
-  return { title: 'Dashboard' };
+  return {
+    title: 'Dashboard',
+  };
 }
 
 const Dashboard = async () => {

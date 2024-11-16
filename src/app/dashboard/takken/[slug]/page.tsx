@@ -7,9 +7,9 @@ import FileSection from './components/FilesSection';
 import { getGroupPage } from './api';
 
 export async function generateMetadata() {
-  const t = await getTranslations('dashboard.groupsDetail');
-
-  return { title: t('metaTitle') };
+  return {
+    title: 'Takpagina beheren • Dashboard',
+  };
 }
 
 const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string } }) => {

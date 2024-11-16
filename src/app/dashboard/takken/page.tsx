@@ -22,7 +22,9 @@ const allGroups: Group[] = [
 ];
 
 export async function generateMetadata() {
-  return { title: 'Takken • Dashboard' };
+  return {
+    title: 'Takken • Dashboard',
+  };
 }
 
 const DashboardGroupsOverviewPage = async () => {
