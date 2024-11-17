@@ -58,7 +58,7 @@ export const generateMetadataForPage = (
     title: pageMeta?.pageTitle,
     description: pageMeta?.pageDescription,
     alternates: {
-      canonical: `${metaData.url}${path ? '/' + path : ''}${
+      canonical: `${process.env.SITE_URL}${path ? '/' + path : ''}${
         pageMeta?.slug ? '/' + pageMeta?.slug : ''
       }`,
     },

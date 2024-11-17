@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
     {
       pageTitle: 'Pagina niet gevonden',
       pageDescription: 'Scouting Sint-Pieter Lommel',
-      slug: 'pagina-niet-gevonden',
+      slug: '',
     },
     generalData.data.attributes,
   );
