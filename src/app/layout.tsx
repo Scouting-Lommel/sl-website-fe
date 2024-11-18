@@ -15,7 +15,7 @@ import { getGeneralData } from './api';
 
 import '@/app/global.css';
 
-export async function viewport(): Promise<Viewort> {
+export async function viewport(): Promise<Viewport> {
   return { themeColor: 'ffffff' };
 }
 

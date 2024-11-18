@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
