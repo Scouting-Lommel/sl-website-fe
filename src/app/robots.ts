@@ -4,8 +4,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: ['/'],
-      disallow: ['/dashboard', '/dashboard/*'],
+      allow: process.env.APP_ENV === 'production' ? ['/'] : [],
+      disallow: process.env.APP_ENV === 'production' ? ['/dashboard', '/dashboard/*'] : ['/*'],
     },
     sitemap: `${process.env.SITE_URL}/sitemap.xml`,
   };
