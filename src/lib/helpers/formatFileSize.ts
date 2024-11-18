@@ -2,9 +2,9 @@
  * Formats a file size given in kilobytes into a human-readable string.
  *
  * @param kilobytes - The file size in kilobytes.
- * @returns A string representing the formatted file size in KB, MB, or GB.
+ * @returns {string} A string representing the formatted file size in KB, MB, or GB.
  */
-const formatFileSize = (kilobytes: number) => {
+const formatFileSize = (kilobytes: number): string => {
   if (kilobytes === 0) return '0 KB';
   const k = 1024;
   const sizes = ['KB', 'MB', 'GB'];

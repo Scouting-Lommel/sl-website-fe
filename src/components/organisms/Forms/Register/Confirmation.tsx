@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useTranslations } from 'next-intl';
 import { FormContext } from '@/lib/contexts/FormContext';
-import getCurrentWorkingYear from '@/lib/helpers/getCurrentWorkingYear';
+import { getCurrentWorkingYear } from '@/lib/helpers/getCurrentWorkingYear';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import Button from '@/components/atoms/Button';

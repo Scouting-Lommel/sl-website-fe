@@ -19,7 +19,7 @@
  * - `address`: An object representing the postal address of the organization.
  * - `parentOrganization`: An object representing the parent organization.
  */
-export const generateStructuredData = (data: any) => {
+const generateStructuredData = (data: any) => {
   if (!data) return {};
 
   return {
@@ -47,3 +47,5 @@ export const generateStructuredData = (data: any) => {
     },
   };
 };
+
+export { generateStructuredData };

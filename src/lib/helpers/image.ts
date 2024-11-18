@@ -6,7 +6,7 @@ import { decode } from 'blurhash';
  * @param {string} hash - The unique identifier for the image.
  * @returns {string} The full URL to the image in webp format.
  */
-export const generateImageUrl = (hash: string) => {
+const generateImageUrl = (hash: string): string => {
   return `https://res.cloudinary.com/scoutinglommel/${hash}.webp`;
 };
 
@@ -16,13 +16,13 @@ export const generateImageUrl = (hash: string) => {
  * @param blurHash - The blur hash string to decode.
  * @param width - The width of the resulting image. Default is 240.
  * @param height - The height of the resulting image. Default is 180.
- * @returns A base64 encoded image string.
+ * @returns {string} A base64 encoded image string.
  */
-export const generateBase64BlurHash = (
+const generateBase64BlurHash = (
   blurHash: string,
   width: number = 240,
   height: number = 180,
-) => {
+): string => {
   if (!blurHash) return '';
 
   const pixels = decode(blurHash, width, height);
@@ -39,3 +39,5 @@ export const generateBase64BlurHash = (
 
   return canvas.toDataURL();
 };
+
+export { generateImageUrl, generateBase64BlurHash };

@@ -18,4 +18,4 @@ const getCurrentWorkingYear = () => {
   return `${currentYear - 1}-${currentYear}`;
 };
 
-export default getCurrentWorkingYear;
+export { getCurrentWorkingYear };
