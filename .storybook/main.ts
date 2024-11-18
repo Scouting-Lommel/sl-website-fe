@@ -10,7 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-mdx-gfm',
-    '@chromatic-com/storybook'
+    '@chromatic-com/storybook',
   ],
 
   webpackFinal: async (config) => {
@@ -30,7 +30,12 @@ const config: StorybookConfig = {
   },
 
   typescript: {
-    reactDocgen: 'react-docgen-typescript'
-  }
+    reactDocgen: 'react-docgen-typescript',
+  },
+
+  managerHead: (head) => `
+    ${head}
+    ${'<meta name="robots" content="noindex nofollow">'}
+  `,
 };
 export default config;
