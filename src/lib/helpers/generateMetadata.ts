@@ -4,6 +4,7 @@ type PageMetaObj = {
   pageTitle: string;
   pageDescription: string;
   slug: string;
+  noIndex?: boolean;
   metaImage?: { data: { attributes: { url: string } } };
 };
 
@@ -14,7 +15,23 @@ type MetaDataObj = {
   image: { data: { attributes: { url: string } } };
 };
 
-export const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata => {
+/**
+ * Generates metadata for the root layout of the website.
+ *
+ * @param metaData - An object containing metadata information.
+ * @returns An object containing metadata properties for the website.
+ *
+ * @property {string} metaData.siteName - The name of the site.
+ * @property {string} metaData.siteDescription - The description of the site.
+ * @property {string} metaData.url - The URL of the site.
+ * @property {object} metaData.image - An object containing image data.
+ * @property {object} metaData.image.data - An object containing image attributes.
+ * @property {object} metaData.image.data.attributes - An object containing image attributes.
+ * @property {string} metaData.image.data.attributes.url - The URL of the image.
+ *
+ * @returns {Metadata} An object containing metadata properties for the website.
+ */
+const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata => {
   return {
     title: {
       default: metaData.siteName || 'Scouting Sint-Pieter Lommel',
@@ -23,7 +40,6 @@ export const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata =
     description: metaData.siteDescription,
     metadataBase: new URL(metaData.url || process.env.SITE_URL || '') || null,
     manifest: '/assets/head/site.webmanifest',
-    themeColor: '#ffffff',
     icons: {
       icon: [
         { url: '/assets/head/favicon-16x16.png', sizes: '16x16' },
@@ -49,7 +65,15 @@ export const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata =
   };
 };
 
-export const generateMetadataForPage = (
+/**
+ * Generates metadata for a page based on the provided page metadata and site metadata.
+ *
+ * @param {PageMetaObj} pageMeta - The metadata specific to the page.
+ * @param {MetaDataObj} metaData - The general metadata for the site.
+ * @param {string} [path] - The optional path for the page.
+ * @returns {Metadata} The generated metadata object.
+ */
+const generateMetadataForPage = (
   pageMeta: PageMetaObj,
   metaData: MetaDataObj,
   path?: string,
@@ -58,9 +82,13 @@ export const generateMetadataForPage = (
     title: pageMeta?.pageTitle,
     description: pageMeta?.pageDescription,
     alternates: {
-      canonical: `${metaData.url}${path ? '/' + path : ''}${
+      canonical: `${process.env.SITE_URL}${path ? '/' + path : ''}${
         pageMeta?.slug ? '/' + pageMeta?.slug : ''
       }`,
+    },
+    robots: {
+      index: pageMeta?.noIndex || true,
+      follow: pageMeta?.noIndex || true,
     },
     openGraph: {
       locale: 'nl',
@@ -78,3 +106,5 @@ export const generateMetadataForPage = (
     },
   };
 };
+
+export { generateMetadataForRootLayout, generateMetadataForPage };

@@ -6,7 +6,7 @@ import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { Groups } from '@/lib/constants/enums/groups';
 import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
-import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
+import { generateFormDataWithLabel } from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import ContactConfirmation from './Confirmation';

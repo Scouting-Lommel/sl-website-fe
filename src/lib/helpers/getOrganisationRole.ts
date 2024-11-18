@@ -12,6 +12,14 @@ const organisationRoles = {
 
 export type OrganisationRoles = keyof typeof organisationRoles;
 
-export const getOrganisationRole = (orgUnit: OrganisationRoles) => {
+/**
+ * Retrieves the role of an organization unit.
+ *
+ * @param orgUnit - The organization unit whose role is to be retrieved.
+ * @returns The role associated with the specified organization unit.
+ */
+const getOrganisationRole = (orgUnit: OrganisationRoles) => {
   return organisationRoles[orgUnit];
 };
+
+export { getOrganisationRole };

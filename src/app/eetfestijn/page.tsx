@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
@@ -6,7 +7,7 @@ import Form from '@/components/organisms/Forms';
 import Hero from '@/components/organisms/Hero';
 import { getGeneralData } from '../api';
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const { generalData } = await getGeneralData();
   if (!generalData) return {};
 

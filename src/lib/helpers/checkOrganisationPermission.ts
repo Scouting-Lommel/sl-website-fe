@@ -1,6 +1,6 @@
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 
-export const organisationPermissions = {
+const organisationPermissions = {
   '/': [
     'dashboard',
     'groups',
@@ -30,6 +30,15 @@ export const organisationPermissions = {
   '/VZW': ['dashboard'],
 };
 
-export const checkOrganisationPermission = (orgUnit: OrganisationRoles, permission: string) => {
+/**
+ * Checks if a given organisation unit has a specific permission.
+ *
+ * @param orgUnit - The organisation unit whose permissions are being checked.
+ * @param permission - The permission to check for within the organisation unit.
+ * @returns `true` if the organisation unit has the specified permission, otherwise `false`.
+ */
+const checkOrganisationPermission = (orgUnit: OrganisationRoles, permission: string) => {
   return organisationPermissions[orgUnit].includes(permission);
 };
+
+export { organisationPermissions, checkOrganisationPermission };

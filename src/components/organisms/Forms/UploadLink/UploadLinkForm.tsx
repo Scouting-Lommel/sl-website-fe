@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import generateFormSchema from '@/lib/helpers/generateFormSchema';
+import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import { urlRegExValidation } from '@/lib/constants/regexValidation';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';

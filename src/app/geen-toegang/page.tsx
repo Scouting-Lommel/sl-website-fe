@@ -1,8 +1,9 @@
+import { Metadata } from 'next';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import UnauthorizedBlock from '@/components/organisms/Unauthorized';
 import { getGeneralData } from '../api';
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const { generalData } = await getGeneralData();
   if (!generalData) return {};
 

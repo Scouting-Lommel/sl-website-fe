@@ -31,7 +31,26 @@ type SendEmailProps = {
   captchaToken: string;
 };
 
-const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEmailProps) => {
+/**
+ * Generates an email object with HTML content based on the provided form data.
+ *
+ * @param {GenerateEmailProps} params - The properties required to generate the email.
+ * @param {Object} params.formData - The form data to be included in the email body.
+ * @param {string} params.formTitle - The title of the form, used as the email subject and in the email body.
+ * @param {string} params.to - The recipient email address.
+ * @param {string} [params.replyTo] - The reply-to email address.
+ * @param {string} [params.cc] - The CC email addresses.
+ * @param {string} [params.bcc] - The BCC email addresses.
+ * @returns {Email} The generated email object.
+ */
+const generateEmail = ({
+  formData,
+  formTitle,
+  to,
+  replyTo,
+  cc,
+  bcc,
+}: GenerateEmailProps): Email => {
   const emailBody = `<!DOCTYPE html>
       <html>
         <head>
@@ -125,7 +144,17 @@ const generateEmail = ({ formData, formTitle, to, replyTo, cc, bcc }: GenerateEm
   return email;
 };
 
-const sendEmail = async ({ email, callback, captchaToken }: SendEmailProps) => {
+/**
+ * Sends an email using the provided email address and captcha token.
+ *
+ * @param {Object} params - The parameters for sending the email.
+ * @param {string} params.email - The email address to send the email to.
+ * @param {Function} params.callback - The callback function to handle the response.
+ * @param {string} params.captchaToken - The captcha token for verification.
+ *
+ * @returns {Promise<void>} A promise that resolves when the email has been sent.
+ */
+const sendEmail = async ({ email, callback, captchaToken }: SendEmailProps): Promise<void> => {
   const emailRequestData = {
     method: 'POST',
     headers: {

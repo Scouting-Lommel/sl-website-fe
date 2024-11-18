@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
@@ -5,7 +6,7 @@ import Form from '@/components/organisms/Forms';
 import { getGeneralData } from '../api';
 import { getRegisterPage, getGeneralDataForRegisterPage } from './api';
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const { generalData } = await getGeneralData();
   const { registerPage } = await getRegisterPage();
   if (!registerPage || !generalData) return {};

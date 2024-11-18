@@ -11,9 +11,9 @@
  * - Removes leading and trailing hyphens.
  *
  * @param str - The input string to be slugified.
- * @returns The slugified version of the input string.
+ * @returns {string} The slugified version of the input string.
  */
-export const slugify = (str: string) => {
+const slugify = (str: string): string => {
   return str
     .normalize('NFKD')
     .toLowerCase()
@@ -23,3 +23,5 @@ export const slugify = (str: string) => {
     .replace(/--+/g, '-')
     .replace(/^-+|-+$/g, '');
 };
+
+export { slugify };

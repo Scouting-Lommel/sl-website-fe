@@ -1,8 +1,9 @@
+import { Metadata } from 'next';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import NotFoundBlock from '@/components/organisms/NotFound';
 import { getGeneralData } from './api';
 
-export async function generateMetadata() {
+export async function generateMetadata(): Promise<Metadata> {
   const { generalData } = await getGeneralData();
   if (!generalData) return {};
 
@@ -10,7 +11,7 @@ export async function generateMetadata() {
     {
       pageTitle: 'Pagina niet gevonden',
       pageDescription: 'Scouting Sint-Pieter Lommel',
-      slug: 'pagina-niet-gevonden',
+      slug: '',
     },
     generalData.data.attributes,
   );

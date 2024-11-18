@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { getTranslations } from 'next-intl/server';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
@@ -6,8 +7,10 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Button from '@/components/atoms/Button';
 import Hero from '@/components/organisms/Hero';
 
-export async function generateMetadata() {
-  return { title: 'Dashboard' };
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Dashboard',
+  };
 }
 
 const Dashboard = async () => {

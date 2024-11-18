@@ -5,7 +5,7 @@ import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { registerEmailAddress } from '@/lib/constants/emailAddress';
 import { Email, generateEmail } from '@/lib/helpers/sendEmail';
 import { registerMember } from '@/lib/helpers/registerMember';
-import generateFormDataWithLabel from '@/lib/helpers/generateFormDataWithLabel';
+import { generateFormDataWithLabel } from '@/lib/helpers/generateFormDataWithLabel';
 import Banner from '@/components/atoms/Banner';
 import RegisterConfirmation from './Confirmation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';

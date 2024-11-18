@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import generateFormSchema from '@/lib/helpers/generateFormSchema';
-import getCurrentWorkingYear from '@/lib/helpers/getCurrentWorkingYear';
+import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
+import { getCurrentWorkingYear } from '@/lib/helpers/getCurrentWorkingYear';
 import { Groups } from '@/lib/constants/enums/groups';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import {

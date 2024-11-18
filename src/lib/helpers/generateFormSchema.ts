@@ -12,8 +12,17 @@ const SUPPORTED_FILE_FORMATS = [
   'image/png',
   'image/gif',
 ];
-const MAX_FILE_SIZE = 1024 * 1024 * 5; // 5MB
 
+const MAX_FILE_SIZE = 1024 * 1024 * 5; // = 5MB
+
+/**
+ * Generates a Yup validation schema based on the provided fields and translation function.
+ *
+ * @param {Object} params - The parameters for generating the form schema.
+ * @param {Array} params.fields - An array of field objects that define the form structure.
+ * @param {Function} params.t - A translation function for localizing error messages.
+ * @returns {Yup.ObjectSchema} A Yup object schema representing the form validation rules.
+ */
 const generateFormSchema = ({ fields, t }: Props) => {
   let schemaObj: { [key: string]: Yup.AnySchema } = {};
 
@@ -37,6 +46,24 @@ const generateFormSchema = ({ fields, t }: Props) => {
   return Yup.object().shape(schemaObj);
 };
 
+/**
+ * Generates a Yup validation schema for a given form field.
+ *
+ * @param field - The form field object containing the field type and other properties.
+ * @param t - The translation function for retrieving localized error messages.
+ * @returns A Yup schema for the specified form field.
+ *
+ * The function handles different field types as follows:
+ * - 'input', 'textarea', 'date': Returns a Yup string schema.
+ * - 'tel': Returns a Yup string schema with a phone number validation.
+ * - 'email': Returns a Yup string schema with an email validation.
+ * - 'url': Returns a Yup string schema with a URL validation.
+ * - 'select': Returns a Yup mixed schema with a oneOf validation for select options.
+ * - 'radioGroup': Returns a Yup string schema with a oneOf validation for radio button values.
+ * - 'checkbox': Returns a Yup boolean schema, with a required validation if the field is required.
+ * - 'file': Returns a Yup mixed schema with file size and format validations, and a required validation if the field is required.
+ * - default: Returns a Yup mixed schema.
+ */
 const getFieldSchema = (
   field: FormField,
   t: ReturnType<typeof useTranslations<'forms'>>,
@@ -99,4 +126,4 @@ const getFieldSchema = (
   }
 };
 
-export default generateFormSchema;
+export { generateFormSchema };

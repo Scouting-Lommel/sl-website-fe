@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { getTranslations } from 'next-intl/server';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
@@ -21,8 +22,10 @@ const allGroups: Group[] = [
   { title: 'Jin', slug: 'jin', permission: 'groups:jin' },
 ];
 
-export async function generateMetadata() {
-  return { title: 'Takken • Dashboard' };
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: 'Takken • Dashboard',
+  };
 }
 
 const DashboardGroupsOverviewPage = async () => {
