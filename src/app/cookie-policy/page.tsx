@@ -5,7 +5,7 @@ import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getCookiePage } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { cookiePolicyPage } = await getCookiePage();
   if (!cookiePolicyPage || !generalData) return {};
@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const ContactPage = async () => {
+const ContactPage: React.FC = async (): Promise<JSX.Element> => {
   const { cookiePolicyPage } = await getCookiePage();
 
   if (!cookiePolicyPage) notFound();

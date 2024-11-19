@@ -29,4 +29,4 @@ const CONTACT_PAGE_QUERY = gql`
   }
 `;
 
-export default CONTACT_PAGE_QUERY;
+export { CONTACT_PAGE_QUERY };

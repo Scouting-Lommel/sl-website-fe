@@ -36,4 +36,4 @@ const GROUPS_PAGE_QUERY = gql`
   }
 `;
 
-export default GROUPS_PAGE_QUERY;
+export { GROUPS_PAGE_QUERY };

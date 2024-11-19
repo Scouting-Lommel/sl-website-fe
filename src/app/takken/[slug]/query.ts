@@ -94,5 +94,4 @@ const ACTIVITIES_QUERY = gql`
   }
 `;
 
-export { ACTIVITIES_QUERY };
-export default GROUP_PAGE_QUERY;
+export { GROUP_PAGE_QUERY, ACTIVITIES_QUERY };

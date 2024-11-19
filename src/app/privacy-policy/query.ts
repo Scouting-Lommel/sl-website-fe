@@ -32,4 +32,4 @@ const PRIVACY_PAGE_QUERY = gql`
   }
 `;
 
-export default PRIVACY_PAGE_QUERY;
+export { PRIVACY_PAGE_QUERY };

@@ -32,4 +32,4 @@ const DA_PAGE_QUERY = gql`
   }
 `;
 
-export default DA_PAGE_QUERY;
+export { DA_PAGE_QUERY };

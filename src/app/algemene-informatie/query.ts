@@ -64,5 +64,4 @@ const YEAR_THEME_QUERY = gql`
   }
 `;
 
-export { YEAR_THEME_QUERY };
-export default INFO_PAGE_QUERY;
+export { INFO_PAGE_QUERY, YEAR_THEME_QUERY };

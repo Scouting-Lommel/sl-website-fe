@@ -22,13 +22,13 @@ const allGroups: Group[] = [
   { title: 'Jin', slug: 'jin', permission: 'groups:jin' },
 ];
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   return {
     title: 'Takken • Dashboard',
   };
-}
+};
 
-const DashboardGroupsOverviewPage = async () => {
+const DashboardGroupsOverviewPage: React.FC = async (): Promise<JSX.Element> => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 

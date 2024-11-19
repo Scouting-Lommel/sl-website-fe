@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { deleteFile } from '@/lib/api/files/api';
 import { addFile } from '@/lib/api/groups/api';
 
-export async function POST(request: NextRequest): Promise<NextResponse> {
+export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { action, data } = await request.json();
 
   try {
@@ -20,4 +20,4 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
-}
+};

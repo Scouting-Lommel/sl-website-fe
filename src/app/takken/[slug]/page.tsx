@@ -4,7 +4,9 @@ import Blocks from '@/content-blocks';
 import { getGeneralData } from '../../api';
 import { getActivities, getGroupPage } from './api';
 
-export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+type Props = { params: { slug: string } };
+
+export const generateMetadata = async ({ params: { slug } }: Props) => {
   const { generalData } = await getGeneralData();
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
@@ -18,9 +20,9 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
   );
 
   return { ...metadata };
-}
+};
 
-const GroupPage = async ({ params: { slug } }: { params: { slug: string } }) => {
+const GroupPage: React.FC<Props> = async ({ params: { slug } }): Promise<JSX.Element> => {
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
   const date = new Date();

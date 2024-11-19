@@ -115,4 +115,4 @@ const SITEMAP_QUERY = gql`
   }
 `;
 
-export default SITEMAP_QUERY;
+export { SITEMAP_QUERY };

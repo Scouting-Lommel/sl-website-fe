@@ -1,8 +1,8 @@
 import { generateApiQuery } from '@/lib/api';
-import SITEMAP_QUERY from './query';
+import { SITEMAP_QUERY } from './query';
 
-export function getSitemap(): Promise<any> {
+export const getSitemap = async (): Promise<any> => {
   return generateApiQuery({
     query: SITEMAP_QUERY,
   });
-}
+};

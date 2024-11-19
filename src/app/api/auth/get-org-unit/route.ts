@@ -4,7 +4,7 @@ import { JWT } from 'google-auth-library';
 
 const admin = google.admin('directory_v1');
 
-export async function GET(req: NextRequest) {
+export const GET = async (req: NextRequest): Promise<NextResponse> => {
   const { searchParams } = new URL(req.url);
   const email = searchParams.get('email');
 
@@ -33,4 +33,4 @@ export async function GET(req: NextRequest) {
     console.error(`Error fetching org unit data: ${error.message}`);
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
-}
+};

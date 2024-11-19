@@ -10,7 +10,7 @@ type Props = {
   searchParams: ReadonlyURLSearchParams;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { contactPage } = await getContactPage();
   if (!contactPage || !generalData) return {};
@@ -21,9 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const ContactPage = async ({ searchParams }: Props) => {
+const ContactPage: React.FC<Props> = async ({ searchParams }): Promise<JSX.Element> => {
   const { contactPage } = await getContactPage();
 
   if (!contactPage) notFound();

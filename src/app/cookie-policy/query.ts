@@ -32,4 +32,4 @@ const COOKIE_PAGE_QUERY = gql`
   }
 `;
 
-export default COOKIE_PAGE_QUERY;
+export { COOKIE_PAGE_QUERY };

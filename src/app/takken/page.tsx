@@ -5,7 +5,7 @@ import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getGroupsPage } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { groupsPage } = await getGroupsPage();
   if (!groupsPage || !generalData) return {};
@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const GroupsPage = async () => {
+const GroupsPage: React.FC = async (): Promise<JSX.Element> => {
   const { groupsPage } = await getGroupsPage();
 
   if (!groupsPage) notFound();

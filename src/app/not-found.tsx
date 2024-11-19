@@ -3,7 +3,7 @@ import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import NotFoundBlock from '@/components/organisms/NotFound';
 import { getGeneralData } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   if (!generalData) return {};
 
@@ -17,9 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FC = (): JSX.Element => {
   return <NotFoundBlock />;
 };
 

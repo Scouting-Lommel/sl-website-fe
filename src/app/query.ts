@@ -102,4 +102,4 @@ const GENERAL_DATA = gql`
   }
 `;
 
-export default GENERAL_DATA;
+export { GENERAL_DATA };

@@ -5,7 +5,7 @@ import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getPrivacyPage } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { privacyPolicyPage } = await getPrivacyPage();
   if (!privacyPolicyPage || !generalData) return {};
@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const ContactPage = async () => {
+const ContactPage: React.FC = async (): Promise<JSX.Element> => {
   const { privacyPolicyPage } = await getPrivacyPage();
 
   if (!privacyPolicyPage) notFound();

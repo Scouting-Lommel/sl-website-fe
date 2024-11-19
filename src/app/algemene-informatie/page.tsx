@@ -5,7 +5,7 @@ import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getInfoPage, getYearTheme } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { infoPage } = await getInfoPage();
   if (!infoPage || !generalData) return {};
@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const InfoPage = async () => {
+const InfoPage: React.FC = async (): Promise<JSX.Element> => {
   const { infoPage } = await getInfoPage();
   const { yearThemes } = await getYearTheme();
 

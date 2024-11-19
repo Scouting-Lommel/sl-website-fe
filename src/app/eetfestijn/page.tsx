@@ -7,7 +7,7 @@ import Form from '@/components/organisms/Forms';
 import Hero from '@/components/organisms/Hero';
 import { getGeneralData } from '../api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   if (!generalData) return {};
 
@@ -21,9 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const EetfestijnPage = async () => {
+const EetfestijnPage: React.FC = async (): Promise<JSX.Element> => {
   // Return not found page if page is accessed in production or staging
   if (process.env.APP_ENV !== 'development') return notFound();
 

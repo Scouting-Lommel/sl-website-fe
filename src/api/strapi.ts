@@ -1,10 +1,10 @@
 import { DocumentNode, print } from 'graphql';
 
-async function fetchAPI(
+const fetchAPI = async (
   query: DocumentNode,
   variables?: unknown,
   operation: 'query' | 'mutation' = 'query',
-) {
+) => {
   let headers: any;
   switch (operation) {
     case 'mutation': {
@@ -39,6 +39,6 @@ async function fetchAPI(
   }
 
   return json.data;
-}
+};
 
 export default fetchAPI;

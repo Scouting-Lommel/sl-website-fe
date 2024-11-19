@@ -36,4 +36,4 @@ const HOMEPAGE_QUERY = gql`
     }
   `;
 
-export default HOMEPAGE_QUERY;
+export { HOMEPAGE_QUERY };

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(request: NextRequest): Promise<NextResponse> {
+export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { email, captchaToken } = await request.json();
 
   // Turnstile request
@@ -30,4 +30,4 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     console.error(error);
     return NextResponse.json({ error: `Error when sending email: ${error}` }, { status: 500 });
   }
-}
+};

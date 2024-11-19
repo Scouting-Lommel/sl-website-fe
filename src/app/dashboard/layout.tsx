@@ -1,15 +1,19 @@
 import { Metadata } from 'next';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = {
+  children: React.ReactNode;
+};
+
+export const generateMetadata = async (): Promise<Metadata> => {
   return {
     robots: {
       index: false,
       follow: false,
     },
   };
-}
+};
 
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout: React.FC<Props> = ({ children }): JSX.Element => {
   return <>{children}</>;
 };
 

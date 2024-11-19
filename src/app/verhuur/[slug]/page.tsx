@@ -4,7 +4,9 @@ import Blocks from '@/content-blocks';
 import { getGeneralData } from '../../api';
 import { getRentalLocationPage } from './api';
 
-export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+type Props = { params: { slug: string } };
+
+export const generateMetadata = async ({ params: { slug } }: Props) => {
   const { generalData } = await getGeneralData();
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];
@@ -18,9 +20,9 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
   );
 
   return { ...metadata };
-}
+};
 
-const RentalLocationPage = async ({ params: { slug } }: { params: { slug: string } }) => {
+const RentalLocationPage: React.FC<Props> = async ({ params: { slug } }): Promise<JSX.Element> => {
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];
 

@@ -32,4 +32,4 @@ const RENTAL_PAGE_QUERY = gql`
   }
 `;
 
-export default RENTAL_PAGE_QUERY;
+export { RENTAL_PAGE_QUERY };

@@ -6,7 +6,7 @@ import Form from '@/components/organisms/Forms';
 import { getGeneralData } from '../api';
 import { getRegisterPage, getGeneralDataForRegisterPage } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { registerPage } = await getRegisterPage();
   if (!registerPage || !generalData) return {};
@@ -17,9 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const RegisterPage = async () => {
+const RegisterPage: React.FC = async (): Promise<JSX.Element> => {
   const { registerPage } = await getRegisterPage();
   const { generalData } = await getGeneralDataForRegisterPage();
 

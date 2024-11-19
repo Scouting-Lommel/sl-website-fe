@@ -7,13 +7,17 @@ import ActivitiesSection from './components/ActivitiesSection';
 import FileSection from './components/FilesSection';
 import { getGroupPage } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+type Props = {
+  params: { slug: string };
+};
+
+export const generateMetadata = async (): Promise<Metadata> => {
   return {
     title: 'Takpagina beheren • Dashboard',
   };
-}
+};
 
-const DashboardGroupPage = async ({ params: { slug } }: { params: { slug: string } }) => {
+const DashboardGroupPage: React.FC<Props> = async ({ params: { slug } }): Promise<JSX.Element> => {
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
 

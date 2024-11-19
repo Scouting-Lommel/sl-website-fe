@@ -1,8 +1,8 @@
 import { generateApiQuery } from '@/lib/api';
-import PRIVACY_PAGE_QUERY from './query';
+import { PRIVACY_PAGE_QUERY } from './query';
 
-export function getPrivacyPage(): Promise<any> {
+export const getPrivacyPage = (): Promise<any> => {
   return generateApiQuery({
     query: PRIVACY_PAGE_QUERY,
   });
-}
+};
