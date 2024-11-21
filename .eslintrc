@@ -19,7 +19,7 @@
         "groups": ["external", "internal", ["parent", "sibling"]],
         "pathGroups": [
           {
-            "pattern": "@/types/**",
+            "pattern": "@/i18n/**",
             "group": "internal",
             "position": "before",
           },
@@ -29,7 +29,7 @@
             "position": "after",
           },
           {
-            "pattern": "@/i18n/**",
+            "pattern": "@/types/**",
             "group": "internal",
             "position": "after",
           },
@@ -39,8 +39,33 @@
             "position": "after",
           },
           {
-            "pattern": "@/components/**",
+            "pattern": "@/components/atoms/**",
             "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/components/molecules/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/components/organisms/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/content-blocks/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "./types",
+            "group": "sibling",
+            "position": "before",
+          },
+          {
+            "pattern": "./**/*.{css,pcss}",
+            "group": "sibling",
             "position": "after",
           },
         ],
