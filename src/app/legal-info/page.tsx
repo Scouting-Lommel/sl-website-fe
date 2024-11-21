@@ -20,7 +20,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const LegalInfoPage: React.FC = (): JSX.Element => {
+const LegalInfoPage = (): JSX.Element => {
   return (
     <BlockContainer variant="light" orientation="default" slug="legal-info">
       <Hero title="Registratiedetails" variant="simple" className="sl-layout" />

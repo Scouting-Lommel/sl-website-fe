@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const Dashboard: React.FC = async (): Promise<JSX.Element> => {
+const Dashboard = async (): Promise<JSX.Element> => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 

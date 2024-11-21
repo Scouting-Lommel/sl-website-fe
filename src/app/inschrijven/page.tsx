@@ -19,7 +19,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const RegisterPage: React.FC = async (): Promise<JSX.Element> => {
+const RegisterPage = async (): Promise<JSX.Element> => {
   const { registerPage } = await getRegisterPage();
   const { generalData } = await getGeneralDataForRegisterPage();
 

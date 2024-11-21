@@ -14,7 +14,7 @@ type Props = {
   group: any;
 };
 
-const FilesSection: React.FC<Props> = ({ group }): JSX.Element => {
+const FilesSection = ({ group }: Props): JSX.Element => {
   const [groupFiles, setFiles] = useState<any>(null);
   const [groupLinks, setLinks] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);

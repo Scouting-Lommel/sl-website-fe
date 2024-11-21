@@ -23,7 +23,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const EetfestijnPage: React.FC = async (): Promise<JSX.Element> => {
+const EetfestijnPage = async (): Promise<JSX.Element> => {
   // Return not found page if page is accessed in production or staging
   if (process.env.APP_ENV !== 'development') return notFound();
 

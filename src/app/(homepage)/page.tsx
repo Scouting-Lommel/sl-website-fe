@@ -19,7 +19,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const HomePage: React.FC = async (): Promise<JSX.Element> => {
+const HomePage = async (): Promise<JSX.Element> => {
   const { generalData } = await getGeneralData();
   const { homePage } = await getHomePage();
 

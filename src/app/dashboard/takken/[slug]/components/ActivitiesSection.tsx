@@ -12,7 +12,7 @@ type Props = {
   group: any;
 };
 
-const ActivitiesSection: React.FC<Props> = ({ group }): JSX.Element => {
+const ActivitiesSection = ({ group }: Props): JSX.Element => {
   const [groupActivities, setActivities] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);

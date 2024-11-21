@@ -19,7 +19,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const NotFoundPage: React.FC = (): JSX.Element => {
+const NotFoundPage = (): JSX.Element => {
   return <NotFoundBlock />;
 };
 

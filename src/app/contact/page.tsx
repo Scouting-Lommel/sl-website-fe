@@ -23,7 +23,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const ContactPage: React.FC<Props> = async ({ searchParams }): Promise<JSX.Element> => {
+const ContactPage = async ({ searchParams }: Props): Promise<JSX.Element> => {
   const { contactPage } = await getContactPage();
 
   if (!contactPage) notFound();

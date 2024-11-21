@@ -18,7 +18,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const ContactPage: React.FC = async (): Promise<JSX.Element> => {
+const ContactPage = async (): Promise<JSX.Element> => {
   const { privacyPolicyPage } = await getPrivacyPage();
 
   if (!privacyPolicyPage) notFound();

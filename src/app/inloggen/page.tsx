@@ -12,7 +12,7 @@ interface Provider {
   name: string;
 }
 
-const SignInPage: React.FC = (): JSX.Element => {
+const SignInPage = (): JSX.Element => {
   const [providers, setProviders] = useState<Record<string, Provider> | null>(null);
 
   useEffect(() => {

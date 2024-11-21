@@ -22,7 +22,7 @@ export const generateMetadata = async ({ params: { slug } }: Props) => {
   return { ...metadata };
 };
 
-const RentalLocationPage: React.FC<Props> = async ({ params: { slug } }): Promise<JSX.Element> => {
+const RentalLocationPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];
 

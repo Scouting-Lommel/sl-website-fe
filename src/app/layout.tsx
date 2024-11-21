@@ -30,7 +30,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const RootLayout: React.FC<Props> = async ({ children }): Promise<JSX.Element> => {
+const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
   const locale = await getLocale();
   const messages = await getMessages();
 

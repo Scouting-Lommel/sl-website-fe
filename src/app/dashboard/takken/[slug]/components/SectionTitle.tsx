@@ -16,14 +16,14 @@ type SectionTitleProps = {
   callback: any;
 };
 
-const SectionTitle: React.FC<SectionTitleProps> = ({
+const SectionTitle = ({
   title,
   groupId,
   allFiles,
   allLinks,
   type,
   callback,
-}): JSX.Element => {
+}: SectionTitleProps): JSX.Element => {
   const [toggle, setToggle] = useState<boolean>(false);
 
   const t = useTranslations('dashboard.groupsDetail.sections.sectionTitle');

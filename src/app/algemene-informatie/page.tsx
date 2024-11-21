@@ -18,7 +18,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const InfoPage: React.FC = async (): Promise<JSX.Element> => {
+const InfoPage = async (): Promise<JSX.Element> => {
   const { infoPage } = await getInfoPage();
   const { yearThemes } = await getYearTheme();
 

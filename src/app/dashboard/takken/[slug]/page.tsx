@@ -17,7 +17,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-const DashboardGroupPage: React.FC<Props> = async ({ params: { slug } }): Promise<JSX.Element> => {
+const DashboardGroupPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
 

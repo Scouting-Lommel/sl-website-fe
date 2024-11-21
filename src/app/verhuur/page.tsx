@@ -18,7 +18,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const RentalPage: React.FC = async (): Promise<JSX.Element> => {
+const RentalPage = async (): Promise<JSX.Element> => {
   const { rentalPage } = await getRentalPage();
 
   if (!rentalPage) notFound();

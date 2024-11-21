@@ -18,7 +18,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const GroupsPage: React.FC = async (): Promise<JSX.Element> => {
+const GroupsPage = async (): Promise<JSX.Element> => {
   const { groupsPage } = await getGroupsPage();
 
   if (!groupsPage) notFound();

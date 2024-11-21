@@ -28,7 +28,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-const DashboardGroupsOverviewPage: React.FC = async (): Promise<JSX.Element> => {
+const DashboardGroupsOverviewPage = async (): Promise<JSX.Element> => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 

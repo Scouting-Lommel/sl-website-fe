@@ -19,7 +19,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const UnauthorizedPage: React.FC = (): JSX.Element => {
+const UnauthorizedPage = (): JSX.Element => {
   return <UnauthorizedBlock />;
 };
 

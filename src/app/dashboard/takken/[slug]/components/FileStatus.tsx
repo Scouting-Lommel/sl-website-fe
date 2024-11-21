@@ -4,7 +4,7 @@ import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import Banner from '@/components/atoms/Banner';
 
-const FileStatus: React.FC = (): JSX.Element => {
+const FileStatus = (): JSX.Element => {
   const { formStatus } = useContext(FormContext);
 
   const t = useTranslations('dashboard.groupsDetail.sections.fileStatus');

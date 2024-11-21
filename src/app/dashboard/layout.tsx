@@ -13,7 +13,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-const DashboardLayout: React.FC<Props> = ({ children }): JSX.Element => {
+const DashboardLayout = ({ children }: Props): JSX.Element => {
   return <>{children}</>;
 };
 
