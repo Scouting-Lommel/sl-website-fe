@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import styles from './Divider.css';
 import { Divider as DividerProps } from './types';
+import styles from './Divider.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

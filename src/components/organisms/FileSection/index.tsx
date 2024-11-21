@@ -2,8 +2,8 @@ import { useTranslations } from 'next-intl';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import Attachment from '@/components/molecules/Attachment';
-import styles from './FileSection.css';
 import { FileSection as FileBlockProps } from './types';
+import styles from './FileSection.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

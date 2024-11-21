@@ -3,8 +3,8 @@ import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import Tarif from '@/components/molecules/Tarif';
-import styles from './Tarifs.css';
 import { Tarifs as TarifsProps } from './types';
+import styles from './Tarifs.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

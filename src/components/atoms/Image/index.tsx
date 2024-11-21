@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Blurhash } from 'react-blurhash';
 import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';
-import { StylesheetLink } from '@/types/StyleSheetLink';
 import { generateImageUrl } from '@/lib/helpers/image';
-import styles from './Image.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Image as ImageProps } from './types';
+import styles from './Image.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

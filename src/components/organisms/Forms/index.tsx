@@ -2,11 +2,11 @@
 
 import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
+import { Form as FormProps } from './types';
 import Activity from './Activity';
 import Contact from './Contact';
 import Eetfestijn from './Eetfestijn';
 import Register from './Register';
-import { Form as FormProps } from './types';
 import UploadFile from './UploadFile';
 import UploadLink from './UploadLink';
 

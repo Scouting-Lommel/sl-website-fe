@@ -3,8 +3,8 @@ import { ChangeEvent, forwardRef } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
-import styles from './Select.css';
 import { FormSelect as FormSelectProps } from './types';
+import styles from './Select.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

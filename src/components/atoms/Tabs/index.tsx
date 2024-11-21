@@ -3,9 +3,9 @@
 import cn from 'classnames';
 import React, { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
+import { Tabs as TabsProps, Tab as TabProps } from './types';
 import Tab from './Tab';
 import styles from './Tabs.css';
-import { Tabs as TabsProps, Tab as TabProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

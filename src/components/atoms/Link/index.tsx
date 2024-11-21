@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import NextLink from 'next/link';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import styles from './Link.css';
 import { Link as LinkProps } from './types';
+import styles from './Link.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import styles from './DropdownItem.css';
 import { DropdownItem as DropdownItemProps } from './types';
+import styles from './DropdownItem.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -5,8 +5,8 @@ import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
-import styles from './Calendar.css';
 import { Calendar as CalendarProps } from './types';
+import styles from './Calendar.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

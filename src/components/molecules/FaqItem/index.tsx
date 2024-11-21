@@ -7,8 +7,8 @@ import Button from '@/components/atoms/Button';
 import Icon from '@/components/atoms/Icon';
 import SLImage from '@/components/atoms/Image';
 import Typography from '@/components/atoms/Typography';
-import styles from './FaqItem.css';
 import { FaqItem as FAQProps } from './types';
+import styles from './FaqItem.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

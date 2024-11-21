@@ -2,8 +2,8 @@ import cn from 'classnames';
 import NextLink from 'next/link';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
-import styles from './Button.css';
 import { Button as ButtonProps } from './types';
+import styles from './Button.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

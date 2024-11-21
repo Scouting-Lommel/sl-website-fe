@@ -1,8 +1,8 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLLink from '@/components/atoms/Link';
 import Typography from '@/components/atoms/Typography';
-import styles from './FooterDoormat.css';
 import { FooterDoormat as FooterDoormatProps, DoormatCol as DoormatColProps } from './types';
+import styles from './FooterDoormat.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

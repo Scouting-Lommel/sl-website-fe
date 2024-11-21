@@ -1,8 +1,8 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import AuthButton from '@/components/molecules/AuthButton';
 import NavItem from '@/components/molecules/NavItem';
-import styles from './Navigation.css';
 import { Navigation as NavigationProps } from './types';
+import styles from './Navigation.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

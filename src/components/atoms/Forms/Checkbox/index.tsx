@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import { ChangeEvent, forwardRef } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import styles from './Checkbox.css';
 import { Checkbox as CheckboxProps } from './types';
+import styles from './Checkbox.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

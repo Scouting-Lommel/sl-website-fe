@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import FAQItem from '@/components/molecules/FaqItem';
-import styles from './FAQ.css';
 import { FAQ as FAQProps } from './types';
+import styles from './FAQ.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

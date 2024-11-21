@@ -3,8 +3,8 @@ import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
 import CallToAction from '@/components/molecules/CallToAction';
 import SocialsCta from '@/components/molecules/SocialsCta';
-import styles from './BlockContainer.css';
 import { BlockContainer as BlockContainerProps } from './types';
+import styles from './BlockContainer.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

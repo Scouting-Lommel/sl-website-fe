@@ -1,7 +1,7 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import styles from './Paragraph.css';
 import { Paragraph as ParagraphProps } from './types';
+import styles from './Paragraph.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

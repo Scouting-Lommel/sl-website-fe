@@ -1,6 +1,6 @@
+import { Attachment as AttachmentProps } from './types';
 import File from './components/File';
 import Link from './components/Link';
-import { Attachment as AttachmentProps } from './types';
 
 const Attachment = (props: AttachmentProps): JSX.Element => {
   switch (props.variant) {

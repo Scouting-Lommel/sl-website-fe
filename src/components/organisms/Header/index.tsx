@@ -8,8 +8,8 @@ import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import SLImage from '@/components/atoms/Image';
 import Navigation from '@/components/molecules/Navigation';
-import styles from './Header.css';
 import { Header as HeaderProps } from './types';
+import styles from './Header.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

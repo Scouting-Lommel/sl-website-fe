@@ -3,8 +3,8 @@ import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import SLImage from '@/components/atoms/Image';
 import Typography from '@/components/atoms/Typography';
-import styles from './TextImage.css';
 import { TextImage as TextImageProps } from './types';
+import styles from './TextImage.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

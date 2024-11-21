@@ -3,8 +3,8 @@ import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import { iconMap, IconNames } from '@/components/atoms/Icon/IconMap';
 import SLLink from '@/components/atoms/Link';
-import styles from './SocialsCta.css';
 import { SocialsCta as SocialsCtaProps } from './types';
+import styles from './SocialsCta.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

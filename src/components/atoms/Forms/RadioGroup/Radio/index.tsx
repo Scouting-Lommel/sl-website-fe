@@ -2,8 +2,8 @@ import cn from 'classnames';
 import { forwardRef } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import styles from './Radio.css';
 import { Radio as RadioProps } from './types';
+import styles from './Radio.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

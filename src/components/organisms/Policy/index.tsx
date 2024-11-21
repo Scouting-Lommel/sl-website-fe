@@ -1,8 +1,8 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Paragraph from '@/components/molecules/Paragraph';
 import TableOfContents from '@/components/molecules/TableOfContents';
-import styles from './Policy.css';
 import { Policy as PolicyProps } from './types';
+import styles from './Policy.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -2,9 +2,9 @@
 
 import { useTranslations } from 'next-intl';
 import { useContext, useEffect, useState } from 'react';
-import { StylesheetLink } from '@/types/StyleSheetLink';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Loader from '@/components/atoms/Loader';
 import Typography from '@/components/atoms/Typography';

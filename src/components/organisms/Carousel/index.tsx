@@ -6,8 +6,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import CarouselItem from '@/components/molecules/CarouselItem';
-import styles from './Carousel.css';
 import { Carousel as CarouselProps, PropType, UsePrevNextButtonsType } from './types';
+import styles from './Carousel.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

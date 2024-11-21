@@ -3,8 +3,8 @@ import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import YearTheme from '@/components/molecules/YearTheme';
-import styles from './Hero.css';
 import { Hero as HeroProps } from './types';
+import styles from './Hero.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -2,8 +2,8 @@ import { useTranslations } from 'next-intl';
 import { useRef, useEffect, useCallback } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
-import styles from './Modal.css';
 import { Modal as ModalProps } from './types';
+import styles from './Modal.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

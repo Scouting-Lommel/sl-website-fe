@@ -3,8 +3,8 @@ import Button from '@/components/atoms/Button';
 import DropdownItem from '@/components/atoms/DropdownItem';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
-import styles from './Dropdown.css';
 import { Dropdown as DropdownProps, DropdownNavItem } from './types';
+import styles from './Dropdown.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

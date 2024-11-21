@@ -1,6 +1,6 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import styles from './FooterDisclosure.css';
 import { FooterDisclosure as FooterDisclosureProps } from './types';
+import styles from './FooterDisclosure.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

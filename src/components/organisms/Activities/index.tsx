@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Activity from '@/components/atoms/Activity';
 import Button from '@/components/atoms/Button';
-import styles from './Activities.css';
 import { ActivitySection as ActivityProps } from './types';
+import styles from './Activities.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -9,8 +9,8 @@ import RadioGroup from '@/components/atoms/Forms/RadioGroup';
 import Select from '@/components/atoms/Forms/Select';
 import TextArea from '@/components/atoms/Forms/TextArea';
 import Typography from '@/components/atoms/Typography';
-import styles from './FormField.css';
 import { FormField as FormFieldProps } from './types';
+import styles from './FormField.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

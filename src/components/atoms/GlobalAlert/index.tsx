@@ -3,12 +3,12 @@
 import cn from 'classnames';
 import { useTranslations } from 'next-intl';
 import { useState, useEffect } from 'react';
-import { StylesheetLink } from '@/types/StyleSheetLink';
 import { slugify } from '@/lib/helpers/slugify';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
-import styles from './GlobalAlert.css';
 import { GlobalAlert as GlobalAlertProps } from './types';
+import styles from './GlobalAlert.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
