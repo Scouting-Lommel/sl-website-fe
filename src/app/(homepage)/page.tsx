@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Blocks from '@/content-blocks';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import { generateStructuredData } from '@/lib/helpers/generateStructuredData';
-import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getHomePage } from './api';
 

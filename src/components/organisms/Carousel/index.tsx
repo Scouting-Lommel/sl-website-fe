@@ -1,13 +1,13 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
+import { useCallback, useEffect, useState } from 'react';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import CarouselItem from '@/components/molecules/CarouselItem';
-import { Carousel as CarouselProps, PropType, UsePrevNextButtonsType } from './types';
 import styles from './Carousel.css';
-import { StylesheetLink } from '@/types/StyleSheetLink';
+import { Carousel as CarouselProps, PropType, UsePrevNextButtonsType } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

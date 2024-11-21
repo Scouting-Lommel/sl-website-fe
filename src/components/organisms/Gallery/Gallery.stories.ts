@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Gallery from '.';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import Gallery from '.';
 
 const meta = {
   title: '3 Components/Organisms/Gallery',
@@ -32,22 +32,22 @@ export const Default = {
     images: {
       data: [
         {
-          attributes: imagedefault.args.data,
+          attributes: imagedefault.args!.data!,
         },
         {
-          attributes: imagedefault.args.data,
+          attributes: imagedefault.args!.data!,
         },
         {
-          attributes: imagedefault.args.data,
+          attributes: imagedefault.args!.data!,
         },
         {
-          attributes: imagedefault.args.data,
+          attributes: imagedefault.args!.data!,
         },
         {
-          attributes: imagedefault.args.data,
+          attributes: imagedefault.args!.data!,
         },
         {
-          attributes: imagedefault.args.data,
+          attributes: imagedefault.args!.data!,
         },
       ],
     },

@@ -1,12 +1,12 @@
-import { useContext } from 'react';
 import { useTranslations } from 'next-intl';
+import { useContext } from 'react';
 import { generalEmailAddress, rentalsEmailAddress } from '@/lib/constants/emailAddress';
-import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
-import { Recipients } from '@/lib/constants/enums/recipients';
 import { Groups } from '@/lib/constants/enums/groups';
-import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
+import { Recipients } from '@/lib/constants/enums/recipients';
+import { FormContext } from '@/lib/contexts/FormContext';
 import { generateFormDataWithLabel } from '@/lib/helpers/generateFormDataWithLabel';
+import { Email, generateEmail, sendEmail } from '@/lib/helpers/sendEmail';
 import Banner from '@/components/atoms/Banner';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import ContactConfirmation from './Confirmation';

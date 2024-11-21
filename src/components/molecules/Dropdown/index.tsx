@@ -1,10 +1,10 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
+import Button from '@/components/atoms/Button';
 import DropdownItem from '@/components/atoms/DropdownItem';
 import Icon from '@/components/atoms/Icon';
-import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
-import { Dropdown as DropdownProps, DropdownNavItem } from './types';
 import styles from './Dropdown.css';
+import { Dropdown as DropdownProps, DropdownNavItem } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

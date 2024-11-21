@@ -1,14 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import cx from 'classnames';
+import { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import Typography from '@/components/atoms/Typography';
+import Button from '@/components/atoms/Button';
 import Icon from '@/components/atoms/Icon';
 import SLImage from '@/components/atoms/Image';
-import Button from '@/components/atoms/Button';
-import { FaqItem as FAQProps } from './types';
+import Typography from '@/components/atoms/Typography';
 import styles from './FaqItem.css';
+import { FaqItem as FAQProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

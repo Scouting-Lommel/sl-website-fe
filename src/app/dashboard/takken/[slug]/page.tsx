@@ -3,9 +3,9 @@ import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
+import { getGroupPage } from './api';
 import ActivitiesSection from './components/ActivitiesSection';
 import FileSection from './components/FilesSection';
-import { getGroupPage } from './api';
 
 type Props = {
   params: { slug: string };

@@ -1,10 +1,10 @@
-import { ChangeEvent, forwardRef } from 'react';
 import cn from 'classnames';
+import { ChangeEvent, forwardRef } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
-import { FormSelect as FormSelectProps } from './types';
+import Typography from '@/components/atoms/Typography';
 import styles from './Select.css';
+import { FormSelect as FormSelectProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -1,5 +1,4 @@
 import gql from 'graphql-tag';
-
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
 const GENERAL_DATA = gql`

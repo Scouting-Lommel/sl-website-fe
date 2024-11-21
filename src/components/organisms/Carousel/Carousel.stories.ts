@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Carousel from '.';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import Carousel from '.';
 
 const meta = {
   title: '3 Components/Organisms/Carousel',
@@ -25,7 +25,7 @@ export const Default = {
           attributes: {
             logo: {
               data: {
-                attributes: imagedefault.args.data,
+                attributes: imagedefault.args!.data!,
               },
             },
             name: 'Example name',
@@ -36,7 +36,7 @@ export const Default = {
           attributes: {
             logo: {
               data: {
-                attributes: imagedefault.args.data,
+                attributes: imagedefault.args!.data!,
               },
             },
             name: 'Another example name',

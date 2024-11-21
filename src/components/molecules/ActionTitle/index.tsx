@@ -1,7 +1,7 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
-import { ActionTitle as ActionTitleProps } from './types';
 import styles from './ActionTitle.css';
+import { ActionTitle as ActionTitleProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

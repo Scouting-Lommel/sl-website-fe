@@ -1,9 +1,9 @@
-import { ChangeEvent, forwardRef } from 'react';
 import cn from 'classnames';
+import { ChangeEvent, forwardRef } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { FormInput as FormInputProps } from './types';
 import styles from './Input.css';
+import { FormInput as FormInputProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

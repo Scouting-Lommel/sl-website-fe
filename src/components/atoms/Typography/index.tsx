@@ -1,7 +1,7 @@
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import cn from 'classnames';
+import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import sanitizeHtml from 'sanitize-html';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Typography as TypographyProps } from './types';

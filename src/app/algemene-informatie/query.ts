@@ -1,13 +1,12 @@
 import gql from 'graphql-tag';
-
-import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
-import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
-import FAQ_BLOCK_FRAGMENT from '@/graphql/faq-block.gql';
-import YEAR_THEME_BLOCK_FRAGMENT from '@/graphql/year-theme-block.gql';
-import MAP_BLOCK_FRAGMENT from '@/graphql/maps-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
-import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
+import FAQ_BLOCK_FRAGMENT from '@/graphql/faq-block.gql';
+import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
+import MAP_BLOCK_FRAGMENT from '@/graphql/maps-block.gql';
+import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
+import TEXT_IMAGE_BLOCK_FRAGMENT from '@/graphql/text-image-block.gql';
+import YEAR_THEME_BLOCK_FRAGMENT from '@/graphql/year-theme-block.gql';
 
 const INFO_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}

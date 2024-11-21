@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
-import { NavItem as NavItemProps } from './types';
 import styles from './NavItem.css';
+import { NavItem as NavItemProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

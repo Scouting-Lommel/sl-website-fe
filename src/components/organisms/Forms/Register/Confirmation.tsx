@@ -1,9 +1,9 @@
-import { useContext } from 'react';
 import { useTranslations } from 'next-intl';
+import { useContext } from 'react';
+import { generalEmailAddress } from '@/lib/constants/emailAddress';
+import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { getCurrentWorkingYear } from '@/lib/helpers/getCurrentWorkingYear';
-import { FormStatus } from '@/lib/constants/enums/formStatus';
-import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import Button from '@/components/atoms/Button';
 
 type Props = {

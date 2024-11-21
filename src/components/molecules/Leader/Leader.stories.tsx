@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
-import Leader from '.';
 import { Leader as LeaderProps } from './types';
+import Leader from '.';
 
 const LeaderItemContainer = (args: LeaderProps) => {
   const styles = { width: '11.5rem' };

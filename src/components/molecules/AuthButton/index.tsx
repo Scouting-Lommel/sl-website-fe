@@ -2,10 +2,10 @@
 
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
-import NavItem from '@/components/molecules/NavItem';
+import { Button } from '@/components/atoms/Button/types';
 import { DropdownItem } from '@/components/molecules/Dropdown/types';
 import { DropdownCta } from '@/components/molecules/Dropdown/types';
-import { Button } from '@/components/atoms/Button/types';
+import NavItem from '@/components/molecules/NavItem';
 
 const AuthButton = (): JSX.Element => {
   const { data: session } = useSession();

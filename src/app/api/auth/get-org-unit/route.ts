@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { google } from 'googleapis';
 import { JWT } from 'google-auth-library';
+import { google } from 'googleapis';
+import { NextRequest, NextResponse } from 'next/server';
 
 const admin = google.admin('directory_v1');
 

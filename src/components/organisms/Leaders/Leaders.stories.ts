@@ -27,7 +27,7 @@ export const Default = {
           lastName: 'Name',
           image: {
             data: {
-              attributes: imagedefault.args.data,
+              attributes: imagedefault.args!.data!,
             },
           },
         },
@@ -39,7 +39,7 @@ export const Default = {
           lastName: 'Name',
           image: {
             data: {
-              attributes: imagedefault.args.data,
+              attributes: imagedefault.args!.data!,
             },
           },
         },
@@ -51,7 +51,7 @@ export const Default = {
           lastName: 'Name',
           image: {
             data: {
-              attributes: imagedefault.args.data,
+              attributes: imagedefault.args!.data!,
             },
           },
         },

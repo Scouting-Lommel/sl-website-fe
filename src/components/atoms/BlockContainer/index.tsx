@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
-import SocialsCta from '@/components/molecules/SocialsCta';
 import CallToAction from '@/components/molecules/CallToAction';
-import { BlockContainer as BlockContainerProps } from './types';
+import SocialsCta from '@/components/molecules/SocialsCta';
 import styles from './BlockContainer.css';
+import { BlockContainer as BlockContainerProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

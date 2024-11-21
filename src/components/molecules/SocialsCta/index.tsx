@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
+import Icon from '@/components/atoms/Icon';
 import { iconMap, IconNames } from '@/components/atoms/Icon/IconMap';
 import SLLink from '@/components/atoms/Link';
-import Icon from '@/components/atoms/Icon';
-import { SocialsCta as SocialsCtaProps } from './types';
 import styles from './SocialsCta.css';
+import { SocialsCta as SocialsCtaProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

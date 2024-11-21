@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import Icon from '@/components/atoms/Icon';
 import Button from '@/components/atoms/Button';
+import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
-import { Calendar as CalendarProps } from './types';
 import styles from './Calendar.css';
+import { Calendar as CalendarProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Form from '@/components/organisms/Forms';

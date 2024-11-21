@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import Typography from '@/components/atoms/Typography';
-import SLImage from '@/components/atoms/Image';
 import ProfilePicture from '@/assets/img/default-avatar.png';
-import { Leader as LeaderProps } from './types';
+import SLImage from '@/components/atoms/Image';
+import Typography from '@/components/atoms/Typography';
 import styles from './Leader.css';
+import { Leader as LeaderProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FAQItem from '.';
 import { Default as buttondefault } from '@/components/atoms/Button/Button.stories';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import FAQItem from '.';
 
 const meta: Meta<typeof FAQItem> = {
   title: '3 Components/Molecules/FaqItem',

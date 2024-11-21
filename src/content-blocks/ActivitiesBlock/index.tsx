@@ -1,6 +1,6 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import { ActivityBlock as ActivityBlockProps } from './types';
 import Activities from '@/components/organisms/Activities';
+import { ActivityBlock as ActivityBlockProps } from './types';
 
 type Props = ActivityBlockProps & React.HTMLAttributes<HTMLElement>;
 

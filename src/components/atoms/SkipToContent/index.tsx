@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { useTranslations } from 'next-intl';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import { SkipToContent as SkipToContentProps } from './types';
 import styles from './SkipToContent.css';
+import { SkipToContent as SkipToContentProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

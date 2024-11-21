@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import { useTranslations } from 'next-intl';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import { Loader as LoaderProps } from './types';
 import styles from './Loader.css';
+import { Loader as LoaderProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

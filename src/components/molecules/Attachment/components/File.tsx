@@ -1,18 +1,18 @@
 'use client';
 
-import { useState, useContext, useEffect } from 'react';
-import { Lightbox } from 'react-modal-image';
 import cx from 'classnames';
 import { useTranslations } from 'next-intl';
-import { FormContext } from '@/lib/contexts/FormContext';
-import { FormStatus } from '@/lib/constants/enums/formStatus';
-import { formatFileSize } from '@/lib/helpers/formatFileSize';
+import { useState, useContext, useEffect } from 'react';
+import { Lightbox } from 'react-modal-image';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import Loader from '@/components/atoms/Loader';
+import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { FormContext } from '@/lib/contexts/FormContext';
+import { formatFileSize } from '@/lib/helpers/formatFileSize';
 import Icon from '@/components/atoms/Icon';
+import Loader from '@/components/atoms/Loader';
 import Typography from '@/components/atoms/Typography';
-import { File as FileProps, Extensions } from '../types';
 import styles from '../Attachment.css';
+import { File as FileProps, Extensions } from '../types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

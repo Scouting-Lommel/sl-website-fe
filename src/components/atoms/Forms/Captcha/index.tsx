@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Turnstile from 'react-turnstile';
-import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { FormContext } from '@/lib/contexts/FormContext';
 
 const Captcha = (): JSX.Element => {
   const { setFormStatus } = useContext(FormContext);

@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { FormContext } from '@/lib/contexts/FormContext';
+import { useContext, useState } from 'react';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { FormContext } from '@/lib/contexts/FormContext';
 import Banner from '@/components/atoms/Banner';
-import EetfestijnConfirmation from './Confirmation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
+import EetfestijnConfirmation from './Confirmation';
 import EetfestijnForm from './EetfestijnForm';
 
 const Eetfestijn = (props: any) => {

@@ -1,7 +1,6 @@
-import { PolicyBlock as PolicyBlockProps } from './types';
-import Policy from '@/components/organisms/Policy';
 import BlockContainer from '@/components/atoms/BlockContainer';
-import HeroBlock from '../HeroBlock';
+import Policy from '@/components/organisms/Policy';
+import { PolicyBlock as PolicyBlockProps } from './types';
 
 type Props = PolicyBlockProps & React.HTMLAttributes<HTMLElement>;
 

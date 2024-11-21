@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
-import { getGeneralData } from '../../api';
+import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import { getActivities, getGroupPage } from './api';
+import { getGeneralData } from '../../api';
 
 type Props = { params: { slug: string } };
 

@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
 import cn from 'classnames';
+import { useTranslations } from 'next-intl';
+import { useState, useEffect } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { slugify } from '@/lib/helpers/slugify';
-import Typography from '@/components/atoms/Typography';
 import Button from '@/components/atoms/Button';
-import { GlobalAlert as GlobalAlertProps } from './types';
+import Typography from '@/components/atoms/Typography';
 import styles from './GlobalAlert.css';
+import { GlobalAlert as GlobalAlertProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

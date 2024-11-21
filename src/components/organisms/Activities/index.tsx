@@ -1,12 +1,12 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { ActivitySection as ActivityProps } from './types';
-import Activity from '@/components/atoms/Activity';
-import styles from './Activities.css';
-import Button from '@/components/atoms/Button';
+import { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
+import Activity from '@/components/atoms/Activity';
+import Button from '@/components/atoms/Button';
+import styles from './Activities.css';
+import { ActivitySection as ActivityProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -1,16 +1,16 @@
 import cx from 'classnames';
-import Typography from '@/components/atoms/Typography';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Divider from '@/components/atoms/Divider';
+import Captcha from '@/components/atoms/Forms/Captcha';
+import Checkbox from '@/components/atoms/Forms/Checkbox';
+import File from '@/components/atoms/Forms/File';
 import Input from '@/components/atoms/Forms/Input';
+import RadioGroup from '@/components/atoms/Forms/RadioGroup';
 import Select from '@/components/atoms/Forms/Select';
 import TextArea from '@/components/atoms/Forms/TextArea';
-import RadioGroup from '@/components/atoms/Forms/RadioGroup';
-import Checkbox from '@/components/atoms/Forms/Checkbox';
-import Captcha from '@/components/atoms/Forms/Captcha';
-import { FormField as FormFieldProps } from './types';
+import Typography from '@/components/atoms/Typography';
 import styles from './FormField.css';
-import File from '@/components/atoms/Forms/File';
-import { StylesheetLink } from '@/types/StyleSheetLink';
+import { FormField as FormFieldProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

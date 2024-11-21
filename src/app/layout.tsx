@@ -1,8 +1,8 @@
 export const dynamic = 'force-dynamic';
 
 import { Metadata, Viewport } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
 import { getServerSession } from 'next-auth';
+import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import { generateMetadataForRootLayout } from '@/lib/helpers/generateMetadata';

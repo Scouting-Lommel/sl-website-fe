@@ -1,6 +1,6 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import { GalleryBlock as GalleryBlockProps } from './types';
 import Gallery from '@/components/organisms/Gallery';
+import { GalleryBlock as GalleryBlockProps } from './types';
 
 type Props = GalleryBlockProps & React.HTMLAttributes<HTMLElement>;
 

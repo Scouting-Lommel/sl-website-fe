@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
-import { CallToAction as CallToActionProps } from './types';
 import styles from './CallToAction.css';
+import { CallToAction as CallToActionProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

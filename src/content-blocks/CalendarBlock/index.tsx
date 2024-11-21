@@ -1,6 +1,6 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import { CalendarBlock as CalendarBlockProps } from './types';
 import Calendar from '@/components/atoms/Calendar';
+import { CalendarBlock as CalendarBlockProps } from './types';
 
 type Props = CalendarBlockProps & React.HTMLAttributes<HTMLElement>;
 

@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import { Banner as BannerProps } from './types';
 import styles from './Banner.css';
+import { Banner as BannerProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

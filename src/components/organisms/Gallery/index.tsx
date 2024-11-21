@@ -1,11 +1,11 @@
 'use client';
 
-import { Gallery as GalleryProps } from './types';
-import styles from './Gallery.css';
-import SLImage from '@/components/atoms/Image';
 import { useState } from 'react';
-import Button from '@/components/atoms/Button';
 import { StylesheetLink } from '@/types/StyleSheetLink';
+import Button from '@/components/atoms/Button';
+import SLImage from '@/components/atoms/Image';
+import styles from './Gallery.css';
+import { Gallery as GalleryProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

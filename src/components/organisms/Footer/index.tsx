@@ -1,9 +1,9 @@
-import FooterHead from '@/components/molecules/FooterHead';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import FooterDisclosure from '@/components/molecules/FooterDisclosure';
 import FooterDoormat from '@/components/molecules/FooterDoormat';
-import { Footer as FooterProps } from './types';
+import FooterHead from '@/components/molecules/FooterHead';
 import styles from './Footer.css';
-import { StylesheetLink } from '@/types/StyleSheetLink';
+import { Footer as FooterProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -1,9 +1,9 @@
 import cx from 'classnames';
 import * as icons from 'lucide-react';
+import { StylesheetLink } from '@/types/StyleSheetLink';
+import styles from './Icon.css';
 import { iconMap } from './IconMap';
 import { Icon as IconProps } from './types';
-import styles from './Icon.css';
-import { StylesheetLink } from '@/types/StyleSheetLink';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

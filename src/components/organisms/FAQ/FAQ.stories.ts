@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import FAQ from '.';
-import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
 import { Default as buttondefault } from '@/components/atoms/Button/Button.stories';
+import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import FAQ from '.';
 
 const meta = {
   title: '3 Components/Organisms/FAQ',
@@ -31,7 +31,7 @@ export const Default = {
         attributes: {
           question: 'A test question',
           answer: 'A test answer',
-          image: { data: { attributes: imagedefault.args.data } },
+          image: { data: { attributes: imagedefault.args!.data! } },
           callToAction: buttondefault.args,
         },
       },

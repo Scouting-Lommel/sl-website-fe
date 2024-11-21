@@ -1,15 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
 import Link from 'next/link';
-import Icon from '@/components/atoms/Icon';
-import Navigation from '@/components/molecules/Navigation';
-import SLImage from '@/components/atoms/Image';
-import { Header as HeaderProps } from './types';
-import styles from './Header.css';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
+import Icon from '@/components/atoms/Icon';
+import SLImage from '@/components/atoms/Image';
+import Navigation from '@/components/molecules/Navigation';
+import styles from './Header.css';
+import { Header as HeaderProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

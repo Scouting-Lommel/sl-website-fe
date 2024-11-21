@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { Tarif as TarifProps } from './types';
 import styles from './Tarif.css';
+import { Tarif as TarifProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

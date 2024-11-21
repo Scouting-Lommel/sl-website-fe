@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
+import { useEffect, useRef, useState } from 'react';
+import { Blurhash } from 'react-blurhash';
 import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';
-import { Blurhash } from 'react-blurhash';
-import { generateImageUrl } from '@/lib/helpers/image';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import { Image as ImageProps } from './types';
+import { generateImageUrl } from '@/lib/helpers/image';
 import styles from './Image.css';
+import { Image as ImageProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

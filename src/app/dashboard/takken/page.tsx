@@ -4,8 +4,8 @@ import { getTranslations } from 'next-intl/server';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Hero from '@/components/organisms/Hero';
 import Button from '@/components/atoms/Button';
+import Hero from '@/components/organisms/Hero';
 
 type Group = {
   title: string;

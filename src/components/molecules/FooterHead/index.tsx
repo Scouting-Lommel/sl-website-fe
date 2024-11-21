@@ -1,6 +1,6 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import { FooterHead as FooterHeadProps } from './types';
 import styles from './FooterHead.css';
+import { FooterHead as FooterHeadProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

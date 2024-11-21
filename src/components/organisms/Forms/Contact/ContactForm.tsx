@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
-import { Recipients } from '@/lib/constants/enums/recipients';
+import { useEffect, useState } from 'react';
 import { Groups } from '@/lib/constants/enums/groups';
+import { Recipients } from '@/lib/constants/enums/recipients';
+import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import {
   FormField,

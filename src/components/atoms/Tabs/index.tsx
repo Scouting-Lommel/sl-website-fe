@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
 import cn from 'classnames';
+import React, { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Tab from './Tab';
-import { Tabs as TabsProps, Tab as TabProps } from './types';
 import styles from './Tabs.css';
+import { Tabs as TabsProps, Tab as TabProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
-import Tarif from '@/components/molecules/Tarif';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
-import { Tarifs as TarifsProps } from './types';
+import Tarif from '@/components/molecules/Tarif';
 import styles from './Tarifs.css';
-import { StylesheetLink } from '@/types/StyleSheetLink';
+import { Tarifs as TarifsProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

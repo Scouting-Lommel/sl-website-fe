@@ -1,14 +1,14 @@
-import { useContext, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { FormContext } from '@/lib/contexts/FormContext';
-import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { useContext, useState } from 'react';
 import { registerEmailAddress } from '@/lib/constants/emailAddress';
-import { Email, generateEmail } from '@/lib/helpers/sendEmail';
-import { registerMember } from '@/lib/helpers/registerMember';
+import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { FormContext } from '@/lib/contexts/FormContext';
 import { generateFormDataWithLabel } from '@/lib/helpers/generateFormDataWithLabel';
+import { registerMember } from '@/lib/helpers/registerMember';
+import { Email, generateEmail } from '@/lib/helpers/sendEmail';
 import Banner from '@/components/atoms/Banner';
-import RegisterConfirmation from './Confirmation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
+import RegisterConfirmation from './Confirmation';
 import RegisterForm from './RegisterForm';
 
 const Register = (props: any) => {

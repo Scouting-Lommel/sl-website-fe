@@ -1,8 +1,8 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
 import Typography from '@/components/atoms/Typography';
-import { CarouselItem as CarouselItemProps } from './types';
 import styles from './CarouselItem.css';
+import { CarouselItem as CarouselItemProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

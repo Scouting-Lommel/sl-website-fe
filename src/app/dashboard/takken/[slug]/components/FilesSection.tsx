@@ -1,13 +1,13 @@
 'use client';
 
-import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
 import Attachment from '@/components/molecules/Attachment';
-import SectionTitle from './SectionTitle';
 import FileStatus from './FileStatus';
+import SectionTitle from './SectionTitle';
 import { getFiles } from '../api';
 
 type Props = {

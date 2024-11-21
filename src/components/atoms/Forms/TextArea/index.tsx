@@ -1,9 +1,9 @@
-import { forwardRef } from 'react';
 import cn from 'classnames';
+import { forwardRef } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { FormTextArea as FormTextAreaProps } from './types';
 import styles from './TextArea.css';
+import { FormTextArea as FormTextAreaProps } from './types';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
