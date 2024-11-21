@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { iconMap } from '@/components/atoms/Icon/IconMap';
+import { iconMap, IconNames } from '@/components/atoms/Icon/IconMap';
 import SLLink from '@/components/atoms/Link';
 import Icon from '@/components/atoms/Icon';
 import { SocialsCta as SocialsCtaProps } from './types';
@@ -13,7 +13,7 @@ type Props = SocialsCtaProps & React.HTMLAttributes<HTMLElement>;
 
 const SocialsCta = ({ title, socialItems, className }: Props) => {
   interface icons {
-    [key: string]: keyof typeof iconMap;
+    [key: string]: IconNames;
   }
   const icons: icons = {
     facebook: 'facebook',

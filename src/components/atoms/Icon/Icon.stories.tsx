@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { iconMap } from './IconMap';
+import { iconMap, IconNames } from './IconMap';
 import Icon from './';
 
 const CustomIconGallery = (): JSX.Element => {
@@ -10,7 +10,7 @@ const CustomIconGallery = (): JSX.Element => {
           <div className="sb-list__item" key={name}>
             <div className="sb-list__item__cell">
               <div className="sb-icon-swatch">
-                <Icon name={name as keyof typeof iconMap} size="lg" />
+                <Icon name={name as IconNames} size="lg" />
               </div>
             </div>
             <div className="sb-code sb-code--styled">{name}</div>

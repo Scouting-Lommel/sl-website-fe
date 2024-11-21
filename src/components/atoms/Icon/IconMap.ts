@@ -25,3 +25,5 @@ export const iconMap = {
   instagram: 'Instagram',
   tiktok: 'Music2',
 } as const;
+
+export type IconNames = keyof typeof iconMap;

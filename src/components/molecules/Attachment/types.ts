@@ -38,7 +38,7 @@ interface LinkBlock extends BaseBlock {
 }
 
 export type Extensions = {
-  [k: string]: keyof typeof iconMap;
+  [k: string]: IconNames;
 };
 
 export type Attachment = FileBlock | LinkBlock;
