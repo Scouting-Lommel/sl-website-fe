@@ -1,5 +1,5 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import { LeadersBLock as LeadersBlockProps } from './type';
+import { LeadersBLock as LeadersBlockProps } from './types';
 import Leaders from '@/components/organisms/Leaders';
 
 type Props = LeadersBlockProps & React.HTMLAttributes<HTMLElement>;

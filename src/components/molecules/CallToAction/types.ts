@@ -3,4 +3,4 @@ export type CallToAction = {
   intro: string;
   ctaLabel: string;
   ctaLink: string;
-};
+} & React.HTMLAttributes<HTMLElement>;

@@ -3,4 +3,4 @@ export type Tarif = {
   example: string;
   minimumPrice: number;
   dayPrice: number;
-};
+} & React.HTMLAttributes<HTMLElement>;

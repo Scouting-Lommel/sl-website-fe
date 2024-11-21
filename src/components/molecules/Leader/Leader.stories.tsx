@@ -13,7 +13,7 @@ const LeaderItemContainer = (args: LeaderProps) => {
   );
 };
 
-const meta = {
+const meta: Meta<typeof LeaderItemContainer> = {
   title: '3 Components/Molecules/Leader',
   component: LeaderItemContainer,
   tags: ['autodocs'],
@@ -31,20 +31,20 @@ const meta = {
       description: 'The image of the leader',
     },
   },
-} satisfies Meta<typeof LeaderItemContainer>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     active: true,
     firstName: 'Example',
     lastName: 'Name',
     image: {
       data: {
-        attributes: imagedefault.args.data,
+        attributes: imagedefault.args!.data!,
       },
     },
   },
-} satisfies Story;
+};

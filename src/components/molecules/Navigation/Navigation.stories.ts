@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Navigation from '.';
 
-const meta = {
+const meta: Meta<typeof Navigation> = {
   title: '3 Components/Molecules/Navigation',
   component: Navigation,
   tags: ['autodocs'],
@@ -19,12 +19,12 @@ const meta = {
       description: 'The renatal locations',
     },
   },
-} satisfies Meta<typeof Navigation>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     navItems: [
       {
@@ -185,4 +185,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

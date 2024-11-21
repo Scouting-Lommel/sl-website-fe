@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Tarif from '.';
 
-const meta = {
+const meta: Meta<typeof Tarif> = {
   title: '3 Components/Molecules/Tarif',
   component: Tarif,
   tags: ['autodocs'],
@@ -23,16 +23,16 @@ const meta = {
       description: 'The dayprice of the tarif',
     },
   },
-} satisfies Meta<typeof Tarif>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     name: 'Example name',
     example: 'Example tarif math',
     minimumPrice: 100,
     dayPrice: 5,
   },
-} satisfies Story;
+};

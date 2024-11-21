@@ -5,4 +5,4 @@ export type YearTheme = {
   description?: string;
   image: CloudinaryImage;
   link?: string;
-};
+} & React.HTMLAttributes<HTMLElement>;

@@ -1,4 +1,4 @@
-import { iconMap } from '@/components/atoms/Icon/IconMap';
+import { IconNames } from '@/components/atoms/Icon/IconMap';
 
 export type File = {
   id: string;
@@ -8,7 +8,7 @@ export type File = {
   size: number;
   modDeleteable?: boolean;
   deleteCallback?: any;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 export type Link = {
   id: string;
@@ -18,7 +18,7 @@ export type Link = {
   allLinks?: Link[];
   modDeleteable?: boolean;
   deleteCallback?: any;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 type BaseBlock = {
   modDeleteable?: boolean;
@@ -41,4 +41,4 @@ export type Extensions = {
   [k: string]: IconNames;
 };
 
-export type Attachment = FileBlock | LinkBlock;
+export type Attachment = (FileBlock | LinkBlock) & React.HTMLAttributes<HTMLElement>;

@@ -1,4 +1,4 @@
-import { Paragraph } from '@/components/molecules/Paragraph/type';
+import { Paragraph } from '@/components/molecules/Paragraph/types';
 
 export type Policy = {
   title: string;

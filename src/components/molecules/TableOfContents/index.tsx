@@ -1,14 +1,13 @@
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { TableOfContents as TableOfContentsProps } from './type';
+import { TableOfContents as TableOfContentsProps } from './types';
 import styles from './TableOfContents.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = TableOfContentsProps & React.HTMLAttributes<HTMLElement>;
-
-const TableOfContents = ({ sections }: Props) => {
+const TableOfContents = ({ sections }: TableOfContentsProps): JSX.Element => {
   return (
     <div className="table-of-contents">
       {sections.map((section, i) => {

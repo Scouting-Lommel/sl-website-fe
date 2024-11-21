@@ -7,7 +7,7 @@ import { DropdownItem } from '@/components/molecules/Dropdown/types';
 import { DropdownCta } from '@/components/molecules/Dropdown/types';
 import { Button } from '@/components/atoms/Button/types';
 
-const AuthButton = () => {
+const AuthButton = (): JSX.Element => {
   const { data: session } = useSession();
 
   if (session) {

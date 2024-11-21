@@ -7,17 +7,16 @@ import { useTranslations } from 'next-intl';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { formatFileSize } from '@/lib/helpers/formatFileSize';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Loader from '@/components/atoms/Loader';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
 import { File as FileProps, Extensions } from '../types';
 import styles from '../Attachment.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = FileProps & React.HTMLAttributes<HTMLElement>;
 
 const extMap: Extensions = {
   pdf: 'document',
@@ -31,7 +30,15 @@ const extMap: Extensions = {
   gif: 'image',
 };
 
-const File = ({ id, ext, url, name, size, modDeleteable, deleteCallback }: Props) => {
+const File = ({
+  id,
+  ext,
+  url,
+  name,
+  size,
+  modDeleteable,
+  deleteCallback,
+}: FileProps): JSX.Element => {
   const t = useTranslations('common.attachment.file');
 
   const [loading, setLoading] = useState<boolean>(false);

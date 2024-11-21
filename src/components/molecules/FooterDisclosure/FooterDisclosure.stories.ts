@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FooterDisclosure from '.';
 
-const meta = {
+const meta: Meta<typeof FooterDisclosure> = {
   title: '3 Components/Molecules/FooterDisclosure',
   component: FooterDisclosure,
   tags: ['autodocs'],
@@ -11,13 +11,13 @@ const meta = {
       description: 'The name of the site',
     },
   },
-} satisfies Meta<typeof FooterDisclosure>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     siteName: 'Scouting Sint-Pieter Lommel',
   },
-} satisfies Story;
+};

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NavItem as NavItemProps } from './types';
 import NavItem from '.';
 
-const NavItemContainer = (args: NavItemProps) => {
+const NavItemContainer = (args: NavItemProps): JSX.Element => {
   const styles = { listStyleType: 'none', paddingLeft: 0, width: '12rem' };
 
   return (
@@ -12,7 +12,7 @@ const NavItemContainer = (args: NavItemProps) => {
   );
 };
 
-const meta = {
+const meta: Meta<typeof NavItemContainer> = {
   title: '3 Components/Molecules/NavItem',
   component: NavItemContainer,
   tags: ['autodocs'],
@@ -58,12 +58,12 @@ const meta = {
       description: 'If the button should be modified',
     },
   },
-} satisfies Meta<typeof NavItemContainer>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     itemKey: 1,
     label: 'Verhuur',
@@ -110,4 +110,4 @@ export const Default = {
     modButton: false,
     onClick: () => {},
   },
-} satisfies Story;
+};

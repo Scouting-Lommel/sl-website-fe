@@ -1,15 +1,20 @@
 import classNames from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import { CallToAction as CallToActionProps } from './types';
 import styles from './CallToAction.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = CallToActionProps & React.HTMLAttributes<HTMLElement>;
-
-const CallToAction = ({ title, intro, ctaLabel, ctaLink, className }: Props) => {
+const CallToAction = ({
+  title,
+  intro,
+  ctaLabel,
+  ctaLink,
+  className,
+}: CallToActionProps): JSX.Element => {
   return (
     <div className={classNames('cta', className)}>
       <div className="cta__copy">

@@ -1,17 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { Tarif as TarifProps } from './types';
 import styles from './Tarif.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = TarifProps & React.HTMLAttributes<HTMLElement>;
-
-const Tarif = ({ name, dayPrice, minimumPrice, example }: Props) => {
+const Tarif = ({ name, dayPrice, minimumPrice, example }: TarifProps): JSX.Element => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div className="tarif">

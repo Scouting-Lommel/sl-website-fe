@@ -14,4 +14,4 @@ export type NavItem = {
   modButton?: boolean;
   modDropdown?: boolean;
   onClick?: any;
-};
+} & React.HTMLAttributes<HTMLElement>;

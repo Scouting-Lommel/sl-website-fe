@@ -6,4 +6,4 @@ export type FaqItem = {
   answer: string;
   image?: { data: { attributes: CloudinaryImage } };
   callToAction?: Button;
-};
+} & React.HTMLAttributes<HTMLElement>;

@@ -1,13 +1,12 @@
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import { FooterDisclosure as FooterDisclosureProps } from './types';
 import styles from './FooterDisclosure.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FooterDisclosureProps & React.HTMLAttributes<HTMLElement>;
-
-const FooterDisclosure = ({ siteName }: Props) => {
+const FooterDisclosure = ({ siteName }: FooterDisclosureProps): JSX.Element => {
   const currentYear = new Date().getFullYear();
 
   return (

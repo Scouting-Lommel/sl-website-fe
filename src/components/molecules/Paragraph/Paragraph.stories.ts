@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Paragraph from '.';
 
-const meta = {
+const meta: Meta<typeof Paragraph> = {
   title: '3 Components/Molecules/Paragraph',
   component: Paragraph,
   tags: ['autodocs'],
@@ -15,14 +15,14 @@ const meta = {
       description: 'The content of the paragraph',
     },
   },
-} satisfies Meta<typeof Paragraph>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Example title',
     content: 'Example content',
   },
-} satisfies Story;
+};

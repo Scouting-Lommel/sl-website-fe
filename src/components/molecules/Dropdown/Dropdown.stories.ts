@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Dropdown from '.';
 
-const meta = {
+const meta: Meta<typeof Dropdown> = {
   title: '3 Components/Molecules/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
@@ -39,12 +39,12 @@ const meta = {
       description: 'The function that togles the dropdown',
     },
   },
-} satisfies Meta<typeof Dropdown>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     itemKey: 1,
     path: '/verhuur',
@@ -88,4 +88,4 @@ export const Default = {
     ],
     toggleDropdown: () => {},
   },
-} satisfies Story;
+};

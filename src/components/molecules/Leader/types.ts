@@ -5,4 +5,4 @@ export type Leader = {
   firstName: string;
   lastName: string;
   image: { data: { attributes: CloudinaryImage } };
-};
+} & React.HTMLAttributes<HTMLElement>;

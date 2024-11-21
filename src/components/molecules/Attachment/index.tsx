@@ -2,9 +2,7 @@ import Link from './components/Link';
 import File from './components/File';
 import { Attachment as AttachmentProps } from './types';
 
-type Props = AttachmentProps & React.HTMLAttributes<HTMLElement>;
-
-const Attachment = (props: Props) => {
+const Attachment = (props: AttachmentProps): JSX.Element => {
   switch (props.variant) {
     case 'link': {
       return (
@@ -30,7 +28,7 @@ const Attachment = (props: Props) => {
 
     default: {
       console.warn('No component found for this variant');
-      break;
+      return <></>;
     }
   }
 };

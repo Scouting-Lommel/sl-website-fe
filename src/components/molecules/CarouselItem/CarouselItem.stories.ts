@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import CarouselItem from '.';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
 
-const meta = {
+const meta: Meta<typeof CarouselItem> = {
   title: '3 Components/Molecules/CarouselItem',
   component: CarouselItem,
   tags: ['autodocs'],
@@ -20,19 +20,19 @@ const meta = {
       description: 'The logo of the carousel item',
     },
   },
-} satisfies Meta<typeof CarouselItem>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     name: 'Test name',
     slug: 'Test slug',
     logo: {
       data: {
-        attributes: imagedefault.args.data,
+        attributes: imagedefault.args!.data!,
       },
     },
   },
-} satisfies Story;
+};

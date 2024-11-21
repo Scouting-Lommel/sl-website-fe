@@ -1,15 +1,14 @@
 import classNames from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
 import { YearTheme as YearThemeProps } from './types';
 import styles from './YearTheme.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = YearThemeProps & React.HTMLAttributes<HTMLElement>;
-
-const YearTheme = ({ image, className }: Props) => {
+const YearTheme = ({ image, className }: YearThemeProps): JSX.Element => {
   const yearThemeClassnames = classNames('year-theme', className);
 
   return (
