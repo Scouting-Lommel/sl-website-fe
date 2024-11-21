@@ -1,5 +1,6 @@
 {
   "extends": ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["import"],
   "rules": {
     "@next/next/no-img-element": "off",
     "jsx-a11y/alt-text": [
@@ -12,5 +13,51 @@
       },
     ],
     "prettier/prettier": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": ["external", "internal", ["parent", "sibling"]],
+        "pathGroups": [
+          {
+            "pattern": "@/types/**",
+            "group": "internal",
+            "position": "before",
+          },
+          {
+            "pattern": "@/lib/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/i18n/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/assets/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/components/**",
+            "group": "internal",
+            "position": "after",
+          },
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true,
+        },
+      },
+    ],
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
   },
 }
