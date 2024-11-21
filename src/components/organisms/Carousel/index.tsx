@@ -7,8 +7,9 @@ import Icon from '@/components/atoms/Icon';
 import CarouselItem from '@/components/molecules/CarouselItem';
 import { Carousel as CarouselProps, PropType, UsePrevNextButtonsType } from './types';
 import styles from './Carousel.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

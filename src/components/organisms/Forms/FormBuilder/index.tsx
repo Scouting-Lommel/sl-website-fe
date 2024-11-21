@@ -8,8 +8,9 @@ import FormField from './FormField';
 import { FormField as FormFieldType } from './FormField/types';
 import { FormBuilder as FormBuilderProps } from './types';
 import styles from './Form.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

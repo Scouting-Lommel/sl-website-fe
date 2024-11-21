@@ -3,8 +3,9 @@ import FooterDisclosure from '@/components/molecules/FooterDisclosure';
 import FooterDoormat from '@/components/molecules/FooterDoormat';
 import { Footer as FooterProps } from './types';
 import styles from './Footer.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

@@ -3,8 +3,9 @@ import Typography from '@/components/atoms/Typography';
 import Attachment from '@/components/molecules/Attachment';
 import { FileSection as FileBlockProps } from './types';
 import styles from './FileSection.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

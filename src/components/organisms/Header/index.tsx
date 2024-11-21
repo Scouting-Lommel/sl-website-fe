@@ -9,8 +9,9 @@ import Navigation from '@/components/molecules/Navigation';
 import SLImage from '@/components/atoms/Image';
 import { Header as HeaderProps } from './types';
 import styles from './Header.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

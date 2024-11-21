@@ -10,8 +10,9 @@ import Captcha from '@/components/atoms/Forms/Captcha';
 import { FormField as FormFieldProps } from './types';
 import styles from './FormField.css';
 import File from '@/components/atoms/Forms/File';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

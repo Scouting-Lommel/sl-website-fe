@@ -2,8 +2,9 @@ import Paragraph from '@/components/molecules/Paragraph';
 import TableOfContents from '@/components/molecules/TableOfContents';
 import { Policy as PolicyProps } from './types';
 import styles from './Policy.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

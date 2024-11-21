@@ -4,8 +4,9 @@ import { YearThemeSection as YearThemeSectionProps } from './types';
 import Button from '@/components/atoms/Button';
 import YearTheme from '@/components/molecules/YearTheme';
 import styles from './YearThemeSection.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

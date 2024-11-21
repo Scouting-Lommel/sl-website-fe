@@ -6,8 +6,9 @@ import { ActivitySection as ActivityProps } from './types';
 import Activity from '@/components/atoms/Activity';
 import styles from './Activities.css';
 import Button from '@/components/atoms/Button';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

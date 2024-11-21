@@ -4,8 +4,9 @@ import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import { Tarifs as TarifsProps } from './types';
 import styles from './Tarifs.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

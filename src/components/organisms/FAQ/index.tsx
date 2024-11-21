@@ -3,8 +3,9 @@ import Typography from '@/components/atoms/Typography';
 import FAQItem from '@/components/molecules/FaqItem';
 import { FAQ as FAQProps } from './types';
 import styles from './FAQ.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

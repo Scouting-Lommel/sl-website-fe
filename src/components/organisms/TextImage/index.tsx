@@ -4,8 +4,9 @@ import SLImage from '@/components/atoms/Image';
 import Button from '@/components/atoms/Button';
 import { TextImage as TextImageProps } from './types';
 import styles from './TextImage.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

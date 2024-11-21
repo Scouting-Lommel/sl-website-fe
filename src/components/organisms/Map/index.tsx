@@ -1,8 +1,9 @@
 import cx from 'classnames';
 import { EmbeddedMapProps as MapProps } from './types';
 import styles from './Map.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 

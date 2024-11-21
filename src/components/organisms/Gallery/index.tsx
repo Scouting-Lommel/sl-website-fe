@@ -5,8 +5,9 @@ import styles from './Gallery.css';
 import SLImage from '@/components/atoms/Image';
 import { useState } from 'react';
 import Button from '@/components/atoms/Button';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
