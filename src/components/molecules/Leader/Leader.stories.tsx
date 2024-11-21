@@ -3,7 +3,7 @@ import { Default as imagedefault } from '@/components/atoms/Image/Image.stories'
 import { Leader as LeaderProps } from './types';
 import Leader from '.';
 
-const LeaderItemContainer = (args: LeaderProps) => {
+const LeaderItemContainer = (args: LeaderProps): JSX.Element => {
   const styles = { width: '11.5rem' };
 
   return (

@@ -8,9 +8,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = PolicyProps & React.HTMLAttributes<HTMLElement>;
-
-const Policy = ({ sections }: Props) => {
+const Policy = ({ sections }: PolicyProps): JSX.Element => {
   return (
     <>
       <TableOfContents sections={sections} />

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Header from '.';
 
-const meta = {
+const meta: Meta<typeof Header> = {
   title: '3 Components/Organisms/Header',
   component: Header,
   tags: ['autodocs'],
@@ -23,12 +23,12 @@ const meta = {
       description: 'The renatal locations',
     },
   },
-} satisfies Meta<typeof Header>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     logo: {
       data: {
@@ -202,4 +202,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

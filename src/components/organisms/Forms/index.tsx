@@ -10,7 +10,7 @@ import Register from './Register';
 import UploadFile from './UploadFile';
 import UploadLink from './UploadLink';
 
-const Form = ({ variant, props, blockProperties }: FormProps) => {
+const Form = ({ variant, props, blockProperties }: FormProps): JSX.Element => {
   let FormComponent = null;
 
   switch (variant) {

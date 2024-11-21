@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -15,12 +15,10 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = HeaderProps & React.HTMLAttributes<HTMLElement>;
-
-const Header = ({ logo, mainNavigation, groups, rentalLocations }: Props) => {
+const Header = ({ logo, mainNavigation, groups, rentalLocations }: HeaderProps): JSX.Element => {
   const [navVisible, setNavVisible] = useState(false);
   const pathname = usePathname();
-  const navClassnames = classNames(
+  const navClassnames = cn(
     'header__nav',
     navVisible ? 'header__nav--visible' : 'header__nav--invisible',
   );

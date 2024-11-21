@@ -7,4 +7,4 @@ export type YearThemeBlock = {
   blockProperties: BlockContainer;
   yearTheme: YearTheme;
   cta: CallToAction;
-};
+} & React.HTMLAttributes<HTMLElement>;

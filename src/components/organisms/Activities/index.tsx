@@ -12,9 +12,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
-
-const Activities = ({ activities, initialItems }: Props) => {
+const Activities = ({ activities, initialItems }: ActivityProps): JSX.Element => {
   const t = useTranslations('common');
 
   const [isOpen, setIsOpen] = useState(false);

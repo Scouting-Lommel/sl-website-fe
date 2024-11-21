@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Blocks from '@/content-blocks';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
@@ -6,7 +7,7 @@ import { getGeneralData } from '../../api';
 
 type Props = { params: { slug: string } };
 
-export const generateMetadata = async ({ params: { slug } }: Props) => {
+export const generateMetadata = async ({ params: { slug } }: Props): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];

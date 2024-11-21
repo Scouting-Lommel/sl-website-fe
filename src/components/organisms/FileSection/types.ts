@@ -4,4 +4,4 @@ export type FileSection = {
   title: string;
   files?: { data: { attributes: File }[] };
   links?: Link[];
-};
+} & React.HTMLAttributes<HTMLElement>;

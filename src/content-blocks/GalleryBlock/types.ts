@@ -5,4 +5,4 @@ import { Gallery } from '@/components/organisms/Gallery/types';
 export type GalleryBlock = Gallery & {
   blockProperties: BlockContainer;
   cta: CallToAction;
-};
+} & React.HTMLAttributes<HTMLElement>;

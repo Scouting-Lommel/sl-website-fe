@@ -10,9 +10,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = TarifsProps & React.HTMLAttributes<HTMLElement>;
-
-const Tarifs = ({ tarifs, cta }: Props) => {
+const Tarifs = ({ tarifs, cta }: TarifsProps): JSX.Element => {
   const t = useTranslations('common.tarifs');
 
   return (

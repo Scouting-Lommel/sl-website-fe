@@ -14,8 +14,6 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FormBuilderProps & React.HTMLAttributes<HTMLElement>;
-
 const FormBuilder = ({
   formId,
   fields,
@@ -24,7 +22,7 @@ const FormBuilder = ({
   submitForm,
   submitButtonLabel,
   secondaryButton,
-}: Props) => {
+}: FormBuilderProps): JSX.Element => {
   const { formStatus, setFormStatus } = useContext(FormContext);
 
   const onSubmit = async (_: any, event: any) => {

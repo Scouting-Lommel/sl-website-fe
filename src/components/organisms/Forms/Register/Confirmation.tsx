@@ -5,13 +5,12 @@ import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { getCurrentWorkingYear } from '@/lib/helpers/getCurrentWorkingYear';
 import Button from '@/components/atoms/Button';
+import { RegisterConfirmation as RegisterConfirmationProps } from './types';
 
-type Props = {
-  price: number;
-  bankAccountNumber: string;
-};
-
-const RegisterConfirmation = ({ price, bankAccountNumber }: Props) => {
+const RegisterConfirmation = ({
+  price,
+  bankAccountNumber,
+}: RegisterConfirmationProps): JSX.Element => {
   const t = useTranslations('forms.registerForm.confirmation');
   const { setFormStatus } = useContext(FormContext);
 

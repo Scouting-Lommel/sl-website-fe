@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
 import Gallery from '.';
 
-const meta = {
+const meta: Meta<typeof Gallery> = {
   title: '3 Components/Organisms/Gallery',
   component: Gallery,
   tags: ['autodocs'],
@@ -20,12 +20,12 @@ const meta = {
       description: 'The images',
     },
   },
-} satisfies Meta<typeof Gallery>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Example title',
     initialItems: 3,
@@ -52,4 +52,4 @@ export const Default = {
       ],
     },
   },
-} satisfies Story;
+};

@@ -11,9 +11,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = GalleryProps & React.HTMLAttributes<HTMLElement>;
-
-const Gallery = ({ title, initialItems, images }: Props) => {
+const Gallery = ({ title, initialItems, images }: GalleryProps): JSX.Element => {
   const [isOpen, setOpen] = useState(false);
   return (
     <div>

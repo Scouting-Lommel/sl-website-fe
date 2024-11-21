@@ -6,4 +6,4 @@ export type FaqBlock = {
   bottomText?: string;
   faqItems: { data: { attributes: FaqItem }[] };
   blockProperties: BlockContainer;
-};
+} & React.HTMLAttributes<HTMLElement>;

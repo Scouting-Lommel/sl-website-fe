@@ -2,9 +2,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Policy from '@/components/organisms/Policy';
 import { PolicyBlock as PolicyBlockProps } from './types';
 
-type Props = PolicyBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const PolicyBlock = ({ title, sections }: Props) => {
+const PolicyBlock = ({ title, sections }: PolicyBlockProps): JSX.Element => {
   return (
     <>
       <BlockContainer variant="light" orientation="default" slug={title + 'Policy'}>

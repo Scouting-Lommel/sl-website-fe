@@ -12,4 +12,4 @@ export type Footer = {
   address: string;
   contactItems: Link[];
   footerNavigation: FooterNavigation[];
-};
+} & React.HTMLAttributes<HTMLElement>;

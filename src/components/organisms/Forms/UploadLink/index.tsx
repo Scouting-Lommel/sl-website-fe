@@ -5,7 +5,7 @@ import { FormContext } from '@/lib/contexts/FormContext';
 import Banner from '@/components/atoms/Banner';
 import UploadLinkForm from './UploadLinkForm';
 
-const UploadLink = (props: any) => {
+const UploadLink = (props: any): JSX.Element => {
   const t = useTranslations('forms.uploadLinkForm');
 
   const { formStatus, setFormStatus } = useContext(FormContext);

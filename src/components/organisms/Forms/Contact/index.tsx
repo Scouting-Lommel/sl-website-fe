@@ -12,7 +12,7 @@ import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/ty
 import ContactConfirmation from './Confirmation';
 import ContactForm from './ContactForm';
 
-const Contact = (props: any) => {
+const Contact = (props: any): JSX.Element => {
   const t = useTranslations('forms.contactForm');
 
   const { formStatus, setFormStatus } = useContext(FormContext);

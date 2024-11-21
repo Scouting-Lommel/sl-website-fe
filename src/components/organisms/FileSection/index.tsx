@@ -9,9 +9,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FileBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const FileSection = ({ title, files, links, className }: Props) => {
+const FileSection = ({ title, files, links, className }: FileBlockProps): JSX.Element => {
   const t = useTranslations('common');
 
   return (

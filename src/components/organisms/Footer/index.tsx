@@ -9,8 +9,6 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FooterProps & React.HTMLAttributes<HTMLElement>;
-
 const Footer = ({
   siteName,
   vatNumber,
@@ -18,7 +16,7 @@ const Footer = ({
   address,
   contactItems,
   footerNavigation,
-}: Props) => {
+}: FooterProps): JSX.Element => {
   return (
     <footer className="footer">
       <div className="sl-layout">

@@ -9,4 +9,4 @@ export type FormBuilder = {
   submitForm: any;
   submitButtonLabel: string;
   secondaryButton?: Button;
-};
+} & React.HTMLAttributes<HTMLElement>;

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import cn from 'classnames';
 import * as icons from 'lucide-react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Icon as IconProps } from './types';
@@ -12,7 +12,7 @@ export const links = (): StylesheetLink[] => {
 const Icon = ({ name, size, className, ...props }: IconProps): JSX.Element => {
   const mappedName = iconMap[name];
   const LucideIcon = icons[mappedName];
-  const classNames = cx('icon', `icon--${size}`, className);
+  const classNames = cn('icon', `icon--${size}`, className);
 
   if (!LucideIcon) {
     console.warn(`Icon "${name}" not found in lucide-react icons.`);

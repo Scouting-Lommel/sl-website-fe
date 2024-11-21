@@ -5,7 +5,7 @@ import { FormContext } from '@/lib/contexts/FormContext';
 import Banner from '@/components/atoms/Banner';
 import UploadFileForm from './UploadFileForm';
 
-const UploadFile = (props: any) => {
+const UploadFile = (props: any): JSX.Element => {
   const t = useTranslations('forms.uploadFileForm');
 
   const { formStatus, setFormStatus } = useContext(FormContext);

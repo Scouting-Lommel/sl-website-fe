@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
@@ -10,10 +10,15 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = HeroProps & React.HTMLAttributes<HTMLElement>;
-
-const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }: Props) => {
-  const heroClassname = classNames('hero', `hero--${variant}`, className);
+const Hero = ({
+  title,
+  subtitle,
+  variant,
+  callToAction,
+  yearTheme,
+  className,
+}: HeroProps): JSX.Element => {
+  const heroClassname = cn('hero', `hero--${variant}`, className);
 
   return (
     <div className={heroClassname}>

@@ -2,9 +2,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Tarifs from '@/components/organisms/Tarifs';
 import { TarifsBlock as TarifsBlockProps } from './types';
 
-type Props = TarifsBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const TarifsBlock = ({ title, tarifs, cta, blockProperties }: Props) => {
+const TarifsBlock = ({ title, tarifs, cta, blockProperties }: TarifsBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties.variant}

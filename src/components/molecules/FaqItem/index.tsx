@@ -1,6 +1,6 @@
 'use client';
 
-import cx from 'classnames';
+import cn from 'classnames';
 import { useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
@@ -16,7 +16,7 @@ export const links = (): StylesheetLink[] => {
 
 const FAQItem = ({ question, answer, image, callToAction }: FAQProps): JSX.Element => {
   const [isOpen, setOpen] = useState(false);
-  const faqClasses = cx('faq-item', {
+  const faqClasses = cn('faq-item', {
     'faq-item--open': isOpen,
   });
 
@@ -32,7 +32,7 @@ const FAQItem = ({ question, answer, image, callToAction }: FAQProps): JSX.Eleme
         />
       </button>
       <div
-        className={cx('faq-item__answer', {
+        className={cn('faq-item__answer', {
           'faq-item__answer--with-image': image?.data,
           'faq-item__answer--hidden': !isOpen,
         })}

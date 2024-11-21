@@ -5,7 +5,7 @@ import { FormContext } from '@/lib/contexts/FormContext';
 import Banner from '@/components/atoms/Banner';
 import ActivityForm from './ActivityForm';
 
-const Activity = (props: any) => {
+const Activity = (props: any): JSX.Element => {
   const t = useTranslations('forms.activityForm');
 
   const { formStatus, setFormStatus } = useContext(FormContext);

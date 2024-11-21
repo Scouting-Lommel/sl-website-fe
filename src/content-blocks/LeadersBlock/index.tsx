@@ -2,9 +2,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Leaders from '@/components/organisms/Leaders';
 import { LeadersBLock as LeadersBlockProps } from './types';
 
-type Props = LeadersBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const LeadersBlock = ({ title, leaders, cta, blockProperties }: Props) => {
+const LeadersBlock = ({ title, leaders, cta, blockProperties }: LeadersBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties.variant}

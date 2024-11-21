@@ -7,7 +7,7 @@ import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/ty
 import EetfestijnConfirmation from './Confirmation';
 import EetfestijnForm from './EetfestijnForm';
 
-const Eetfestijn = (props: any) => {
+const Eetfestijn = (props: any): JSX.Element => {
   const t = useTranslations('forms.eetfestijnForm');
 
   const { formStatus, setFormStatus } = useContext(FormContext);

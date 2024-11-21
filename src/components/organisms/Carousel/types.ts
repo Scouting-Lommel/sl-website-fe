@@ -7,7 +7,7 @@ export type Carousel = {
       attributes: CarouselItem;
     }[];
   };
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 export type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;

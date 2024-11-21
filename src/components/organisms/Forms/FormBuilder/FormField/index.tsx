@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Divider from '@/components/atoms/Divider';
 import Captcha from '@/components/atoms/Forms/Captcha';
@@ -16,15 +16,13 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FormFieldProps & React.HTMLAttributes<HTMLElement>;
-
-const FormField = (props: Props) => {
+const FormField = (props: FormFieldProps): JSX.Element => {
   const errorMessage = props.errors && props.name ? props.errors[props.name]?.message : undefined;
 
   switch (props.type) {
     case 'text': {
       return (
-        <div className={cx('form-field', props.className)}>
+        <div className={cn('form-field', props.className)}>
           <Typography data={props.text} />
         </div>
       );

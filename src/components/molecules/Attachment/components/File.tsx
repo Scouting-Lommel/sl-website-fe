@@ -1,6 +1,6 @@
 'use client';
 
-import cx from 'classnames';
+import cn from 'classnames';
 import { useTranslations } from 'next-intl';
 import { useState, useContext, useEffect } from 'react';
 import { Lightbox } from 'react-modal-image';
@@ -92,7 +92,7 @@ const File = ({
   return (
     <>
       <li
-        className={cx('attachment attachment__container', isImage && 'attachment--clickable')}
+        className={cn('attachment attachment__container', isImage && 'attachment--clickable')}
         role="button"
         onClick={() => setLightboxActive(!lightboxActive)}
       >

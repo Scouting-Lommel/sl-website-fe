@@ -3,13 +3,12 @@ import { useContext } from 'react';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';
 import Button from '@/components/atoms/Button';
+import { EetfestijnConfirmation as EetfestijnConfirmationProps } from './types';
 
-type Props = {
-  price: number;
-  bankAccountNumber: string;
-};
-
-const EetfestijnConfirmation = ({ price, bankAccountNumber }: Props) => {
+const EetfestijnConfirmation = ({
+  price,
+  bankAccountNumber,
+}: EetfestijnConfirmationProps): JSX.Element => {
   const t = useTranslations('forms.eetfestijnForm.confirmation');
   const { setFormStatus } = useContext(FormContext);
 

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
 import Leaders from '.';
 
-const meta = {
+const meta: Meta<typeof Leaders> = {
   title: '3 Components/Organisms/Leaders',
   component: Leaders,
   tags: ['autodocs'],
@@ -12,12 +12,12 @@ const meta = {
       description: 'The leaders',
     },
   },
-} satisfies Meta<typeof Leaders>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     leaders: [
       {
@@ -58,4 +58,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

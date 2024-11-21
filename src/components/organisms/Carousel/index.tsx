@@ -13,42 +13,6 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = CarouselProps & React.HTMLAttributes<HTMLElement>;
-
-const Carousel = ({ carouselItems }: Props) => {
-  const options: EmblaOptionsType = { align: 'start', loop: false };
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
-
-  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
-    usePrevNextButtons(emblaApi);
-
-  return (
-    <div className="carousel__container">
-      <div className="embla">
-        <div className="embla__viewport" ref={emblaRef}>
-          <div className="embla__container">
-            {carouselItems.data.map((item, i) => {
-              return (
-                <CarouselItem
-                  logo={item.attributes.logo}
-                  name={item.attributes.name}
-                  slug={item.attributes.slug}
-                  key={i}
-                />
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="embla__buttons">
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const usePrevNextButtons = (emblaApi: EmblaCarouselType | undefined): UsePrevNextButtonsType => {
   const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
   const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
@@ -84,7 +48,7 @@ const usePrevNextButtons = (emblaApi: EmblaCarouselType | undefined): UsePrevNex
   };
 };
 
-export const PrevButton = (props: PropType) => {
+export const PrevButton = (props: PropType): JSX.Element => {
   const { children, ...restProps } = props;
 
   return (
@@ -94,13 +58,47 @@ export const PrevButton = (props: PropType) => {
   );
 };
 
-export const NextButton = (props: PropType) => {
+export const NextButton = (props: PropType): JSX.Element => {
   const { children, ...restProps } = props;
 
   return (
     <button className="embla__button embla__button--next" type="button" {...restProps}>
       <Icon name="arrow-right" aria-label="arrow right" size="xl" />
     </button>
+  );
+};
+
+const Carousel = ({ carouselItems }: CarouselProps): JSX.Element => {
+  const options: EmblaOptionsType = { align: 'start', loop: false };
+  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+
+  const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
+    usePrevNextButtons(emblaApi);
+
+  return (
+    <div className="carousel__container">
+      <div className="embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            {carouselItems.data.map((item, i) => {
+              return (
+                <CarouselItem
+                  logo={item.attributes.logo}
+                  name={item.attributes.name}
+                  slug={item.attributes.slug}
+                  key={i}
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="embla__buttons">
+          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+        </div>
+      </div>
+    </div>
   );
 };
 

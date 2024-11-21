@@ -11,9 +11,7 @@ import {
 } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { ContactForm as ContactFormProps } from './types';
 
-type Props = ContactFormProps & React.HTMLAttributes<HTMLElement>;
-
-const ContactForm = ({ initialValues, submitForm }: Props) => {
+const ContactForm = ({ initialValues, submitForm }: ContactFormProps): JSX.Element => {
   const t = useTranslations('forms');
 
   const isRowField = (field: FormField): field is RowField & BaseField => field.type === 'row';

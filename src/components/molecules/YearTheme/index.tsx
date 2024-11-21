@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
 import { YearTheme as YearThemeProps } from './types';
@@ -9,7 +9,7 @@ export const links = (): StylesheetLink[] => {
 };
 
 const YearTheme = ({ image, className }: YearThemeProps): JSX.Element => {
-  const yearThemeClassnames = classNames('year-theme', className);
+  const yearThemeClassnames = cn('year-theme', className);
 
   return (
     <div className={yearThemeClassnames}>

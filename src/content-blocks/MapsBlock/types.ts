@@ -5,4 +5,4 @@ export type MapBlock = {
   blockProperties: BlockContainer;
   query?: string;
   location?: MapsLocation;
-};
+} & React.HTMLAttributes<HTMLElement>;

@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import { iconMap, IconNames } from '@/components/atoms/Icon/IconMap';
@@ -21,7 +21,7 @@ const SocialsCta = ({ title, socialItems, className }: SocialsCtaProps): JSX.Ele
   };
 
   return (
-    <div className={classNames('socials-cta', className)}>
+    <div className={cn('socials-cta', className)}>
       <div className="socials-cta__copy">
         <div className="socials-cta__copy__title">{title}</div>
       </div>

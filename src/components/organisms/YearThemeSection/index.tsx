@@ -10,9 +10,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = YearThemeSectionProps & React.HTMLAttributes<HTMLElement>;
-
-const YearThemeSection = ({ yearTheme }: Props) => {
+const YearThemeSection = ({ yearTheme }: YearThemeSectionProps): JSX.Element => {
   const t = useTranslations('common');
 
   return (

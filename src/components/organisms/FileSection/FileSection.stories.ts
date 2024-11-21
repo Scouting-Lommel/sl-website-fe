@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FileSection from '.';
 
-const meta = {
+const meta: Meta<typeof FileSection> = {
   title: '3 Components/Organisms/FileSection',
   component: FileSection,
   tags: ['autodocs'],
-} satisfies Meta<typeof FileSection>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Example title',
     files: {
@@ -43,4 +43,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

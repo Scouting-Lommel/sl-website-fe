@@ -12,9 +12,7 @@ import {
 } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { RegisterForm as RegisterFormProps } from './types';
 
-type Props = RegisterFormProps & React.HTMLAttributes<HTMLElement>;
-
-const RegisterForm = ({ initialValues, submitForm }: Props) => {
+const RegisterForm = ({ initialValues, submitForm }: RegisterFormProps): JSX.Element => {
   const t = useTranslations('forms');
 
   let currentBirthday: string = '';

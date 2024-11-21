@@ -1,26 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Policy from '.';
 
-const meta = {
+const meta: Meta<typeof Policy> = {
   title: '3 Components/Organisms/Policy',
   component: Policy,
   tags: ['autodocs'],
-  argTypes: {
-    title: {
-      control: { type: 'text' },
-      description: 'The title',
-    },
-    sections: {
-      control: { type: 'object' },
-      description: 'The sections',
-    },
-  },
-} satisfies Meta<typeof Policy>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Example title',
     sections: [
@@ -34,4 +24,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

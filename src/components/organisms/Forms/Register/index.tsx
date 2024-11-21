@@ -11,7 +11,7 @@ import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/ty
 import RegisterConfirmation from './Confirmation';
 import RegisterForm from './RegisterForm';
 
-const Register = (props: any) => {
+const Register = (props: any): JSX.Element => {
   const t = useTranslations('forms.registerForm');
 
   const { formStatus, setFormStatus } = useContext(FormContext);

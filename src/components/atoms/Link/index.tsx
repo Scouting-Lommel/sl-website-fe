@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import NextLink from 'next/link';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Link as LinkProps } from './types';
@@ -9,7 +9,7 @@ export const links = (): StylesheetLink[] => {
 };
 
 const SLLink = ({ href, variant, children, className }: LinkProps): JSX.Element => {
-  const linkClassnames = classNames('link', `link--${variant}`, className);
+  const linkClassnames = cn('link', `link--${variant}`, className);
 
   let LinkComponent: typeof NextLink | 'a' = NextLink;
   if (typeof href === 'string' && href.startsWith('#')) {

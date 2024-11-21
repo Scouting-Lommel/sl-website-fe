@@ -7,9 +7,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = LeadersProps & React.HTMLAttributes<HTMLElement>;
-
-const Leaders = ({ leaders }: Props) => {
+const Leaders = ({ leaders }: LeadersProps): JSX.Element => {
   return (
     <div className="leaders__container">
       <div className="leaders">

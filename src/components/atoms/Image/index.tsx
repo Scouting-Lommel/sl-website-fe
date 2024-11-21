@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import cn from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import { Blurhash } from 'react-blurhash';
 import { Lightbox } from 'react-modal-image';
@@ -25,7 +25,7 @@ const SLImage = ({
   const [imgLoaded, setImgLoaded] = useState<boolean>(false);
   const [imgModalActive, setImgModalActive] = useState<boolean>(false);
 
-  const imageClassNames = classNames(
+  const imageClassNames = cn(
     'image',
     loadingStrategy === 'lazy' && !imgLoaded && 'image--loading',
     modMaximisable && 'image--maximisable',

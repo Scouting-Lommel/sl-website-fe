@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { useTranslations } from 'next-intl';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { SkipToContent as SkipToContentProps } from './types';
@@ -11,7 +11,7 @@ export const links = (): StylesheetLink[] => {
 const SkipToContent = ({ className }: SkipToContentProps): JSX.Element => {
   const t = useTranslations('common');
 
-  const classes = classNames('skip-to-content', className);
+  const classes = cn('skip-to-content', className);
 
   return (
     <a href="#main" className={classes}>

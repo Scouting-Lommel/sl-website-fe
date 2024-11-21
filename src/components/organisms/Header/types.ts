@@ -7,4 +7,4 @@ export type Header = {
   mainNavigation: NavItem[];
   groups: DropdownNavItem[];
   rentalLocations: DropdownNavItem[];
-};
+} & React.HTMLAttributes<HTMLElement>;

@@ -4,9 +4,7 @@ import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { EetfestijnForm as EetfestijnFormProps } from './types';
 
-type Props = EetfestijnFormProps & React.HTMLAttributes<HTMLElement>;
-
-const EetfestijnForm = ({ initialValues, submitForm }: Props) => {
+const EetfestijnForm = ({ initialValues, submitForm }: EetfestijnFormProps): JSX.Element => {
   const t = useTranslations('forms');
 
   const formFields: FormField[] = [

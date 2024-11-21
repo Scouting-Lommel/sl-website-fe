@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import cn from 'classnames';
 import { useTranslations } from 'next-intl';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Loader as LoaderProps } from './types';
@@ -11,12 +11,12 @@ export const links = (): StylesheetLink[] => {
 const Loader = ({ size = 'md', modLabelVisible }: LoaderProps): JSX.Element => {
   const t = useTranslations('common');
 
-  const classNames = cx('loader', `loader--${size}`);
+  const classNames = cn('loader', `loader--${size}`);
 
   return (
     <div className={classNames}>
       <div className="loader__spinner"></div>
-      <div className={cx('loader__label', !modLabelVisible && 'u-visually-hidden')}>
+      <div className={cn('loader__label', !modLabelVisible && 'u-visually-hidden')}>
         {t('loading')}
       </div>
     </div>

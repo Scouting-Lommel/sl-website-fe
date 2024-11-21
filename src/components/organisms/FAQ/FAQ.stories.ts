@@ -3,7 +3,7 @@ import { Default as buttondefault } from '@/components/atoms/Button/Button.stori
 import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
 import FAQ from '.';
 
-const meta = {
+const meta: Meta<typeof FAQ> = {
   title: '3 Components/Organisms/FAQ',
   component: FAQ,
   tags: ['autodocs'],
@@ -17,12 +17,12 @@ const meta = {
       description: 'The items in the faq',
     },
   },
-} satisfies Meta<typeof FAQ>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Example title',
     bottomText: 'Niet gevonden wat je zocht? Neem gerust contact met ons op.',
@@ -45,4 +45,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

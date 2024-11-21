@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useRef, useEffect, useCallback } from 'react';
@@ -107,7 +107,7 @@ const NavItem = ({
     closeDropdown();
   }, [pathname, closeDropdown]);
 
-  const navItemClassNames = classNames(
+  const navItemClassNames = cn(
     'nav-item',
     toggle ? 'nav-item--toggled' : 'nav-item--untoggled',
     href && href === '/' && pathname === '/' ? 'nav-item--active' : '',

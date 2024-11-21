@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import { CallToAction as CallToActionProps } from './types';
@@ -16,7 +16,7 @@ const CallToAction = ({
   className,
 }: CallToActionProps): JSX.Element => {
   return (
-    <div className={classNames('cta', className)}>
+    <div className={cn('cta', className)}>
       <div className="cta__copy">
         <div className="cta__copy__title">{title}</div>
         <div className="cta__copy__intro">{intro}</div>

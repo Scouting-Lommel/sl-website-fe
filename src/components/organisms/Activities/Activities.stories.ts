@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Activities from '.';
 
-const meta = {
+const meta: Meta<typeof Activities> = {
   title: '3 Components/Organisms/Activities',
   component: Activities,
   tags: ['autodocs'],
@@ -15,12 +15,12 @@ const meta = {
       description: 'The activities',
     },
   },
-} satisfies Meta<typeof Activities>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     initialItems: 3,
     activities: [
@@ -46,4 +46,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

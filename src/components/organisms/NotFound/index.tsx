@@ -9,7 +9,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const NotFound = () => {
+const NotFound = (): JSX.Element => {
   const t = useTranslations('common.notFound');
 
   return (

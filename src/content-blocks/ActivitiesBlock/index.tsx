@@ -2,9 +2,13 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Activities from '@/components/organisms/Activities';
 import { ActivityBlock as ActivityBlockProps } from './types';
 
-type Props = ActivityBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const GroupsBlock = ({ title, initialItems, callToAction, blockProperties, activities }: Props) => {
+const GroupsBlock = ({
+  title,
+  initialItems,
+  callToAction,
+  blockProperties,
+  activities,
+}: ActivityBlockProps): JSX.Element => {
   return (
     <>
       <hr className="sl-layout" />

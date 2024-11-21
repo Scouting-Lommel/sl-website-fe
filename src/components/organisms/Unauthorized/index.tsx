@@ -9,7 +9,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const Unauthorized = () => {
+const Unauthorized = (): JSX.Element => {
   const t = useTranslations('common.unauthorized');
 
   return (
