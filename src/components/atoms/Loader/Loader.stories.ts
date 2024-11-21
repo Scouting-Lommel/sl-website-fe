@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Loader from '.';
 
-const meta = {
+const meta: Meta<typeof Loader> = {
   title: '3 Components/Atoms/Loader',
   component: Loader,
   tags: ['autodocs'],
-} satisfies Meta<typeof Loader>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {},
-} satisfies Story;
+};

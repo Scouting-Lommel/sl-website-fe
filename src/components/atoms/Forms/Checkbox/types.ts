@@ -5,4 +5,4 @@ export type Checkbox = {
   label: string;
   error?: any;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;

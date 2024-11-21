@@ -1,18 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import cx from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Tab from './Tab';
 import { Tabs as TabsProps, Tab as TabProps } from './types';
 import styles from './Tabs.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = TabsProps & React.HTMLAttributes<HTMLElement>;
-
-const Tabs = ({ children }: Props) => {
+const Tabs = ({ children }: TabsProps): JSX.Element => {
   const [activeTab, setActiveTab] = useState<number>(0);
 
   return (
@@ -20,7 +19,7 @@ const Tabs = ({ children }: Props) => {
       <div className="tabs__list">
         {React.Children.map(children, (child, index) => (
           <button
-            className={cx(
+            className={cn(
               'tabs__list__btn',
               activeTab === index ? 'tabs__list__btn--active' : 'tabs__list__btn--inactive',
             )}

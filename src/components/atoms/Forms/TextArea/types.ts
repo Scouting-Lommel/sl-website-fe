@@ -3,4 +3,4 @@ export type FormTextArea = {
   id: string;
   name: string;
   error?: any;
-};
+} & React.TextareaHTMLAttributes<HTMLElement>;

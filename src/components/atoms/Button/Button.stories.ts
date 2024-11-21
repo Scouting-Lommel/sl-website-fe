@@ -1,19 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from '.';
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: '3 Components/Atoms/Button',
   component: Button,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },
-    },
-    label: {
-      control: { type: 'text' },
-    },
-    href: {
-      control: { type: 'text' },
     },
     loading: {
       control: { type: 'boolean' },
@@ -22,21 +16,21 @@ const meta = {
       control: { type: 'boolean' },
     },
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     variant: 'primary',
     label: "I'm a button!",
     loading: false,
     modSmall: false,
   },
-} satisfies Story;
+};
 
-export const LinkButton = {
+export const LinkButton: Story = {
   args: {
     variant: 'primary',
     label: "I'm a button!",
@@ -44,4 +38,4 @@ export const LinkButton = {
     loading: false,
     modSmall: false,
   },
-} satisfies Story;
+};

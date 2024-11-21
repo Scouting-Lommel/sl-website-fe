@@ -1,14 +1,13 @@
-import classNames from 'classnames';
+import cn from 'classnames';
 import NextLink from 'next/link';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import { Button as ButtonProps } from './types';
 import styles from './Button.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = ButtonProps & React.HTMLAttributes<HTMLElement>;
 
 const Button = ({
   label,
@@ -19,8 +18,8 @@ const Button = ({
   className,
   children,
   ...props
-}: Props) => {
-  const buttonClassNames = classNames(
+}: ButtonProps): JSX.Element => {
+  const buttonClassNames = cn(
     'button',
     `button--${variant}`,
     modSmall && 'button--small',

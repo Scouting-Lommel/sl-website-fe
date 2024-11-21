@@ -1,42 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Activity from '.';
 
-const meta = {
+const meta: Meta<typeof Activity> = {
   title: '3 Components/Atoms/Activity',
   component: Activity,
   tags: ['autodocs'],
-  argTypes: {
-    title: {
-      description: 'The name of the activity',
-      control: { type: 'text' },
-    },
-    startDate: {
-      description: 'The start date of the activity',
-      control: { type: 'date' },
-    },
-    startTime: {
-      description: 'The start time of the activity',
-      control: { type: 'text' },
-    },
-    endDate: {
-      description: 'The end date of the activity',
-      control: { type: 'date' },
-    },
-    endTime: {
-      description: 'The end time of the activity',
-      control: { type: 'text' },
-    },
-    description: {
-      description: 'The description of the activity',
-      control: { type: 'text' },
-    },
-  },
-} satisfies Meta<typeof Activity>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'An example title',
     startDate: '09/30/2000',
@@ -45,9 +19,9 @@ export const Default = {
     endTime: '15:30',
     description: 'An example description for an activity',
   },
-} satisfies Story;
+};
 
-export const DifferentDates = {
+export const DifferentDates: Story = {
   args: {
     title: 'An example title',
     startDate: '09/30/2000',
@@ -56,4 +30,4 @@ export const DifferentDates = {
     endTime: '15:30',
     description: 'An example description for an activity',
   },
-} satisfies Story;
+};

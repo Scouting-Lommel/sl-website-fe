@@ -6,16 +6,20 @@ import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';
 import { Blurhash } from 'react-blurhash';
 import { generateImageUrl } from '@/lib/helpers/image';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Image as ImageProps } from './types';
 import styles from './Image.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = ImageProps & React.HTMLAttributes<HTMLElement>;
-
-const SLImage = ({ data, loadingStrategy = 'lazy', modMaximisable, className }: Props) => {
+const SLImage = ({
+  data,
+  loadingStrategy = 'lazy',
+  modMaximisable,
+  className,
+}: ImageProps): JSX.Element => {
   const t = useTranslations('common');
   const imageRef = useRef<HTMLImageElement>(null);
   const [imgLoaded, setImgLoaded] = useState<boolean>(false);

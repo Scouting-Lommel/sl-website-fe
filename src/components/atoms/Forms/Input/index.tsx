@@ -1,18 +1,17 @@
 import { ChangeEvent, forwardRef } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { FormInput as FormInputProps } from './types';
 import styles from './Input.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FormInputProps & React.InputHTMLAttributes<HTMLElement>;
-
-const Input = forwardRef((props: Props, ref: any) => {
+const Input = forwardRef((props: FormInputProps, ref: any): JSX.Element => {
   const { customChangeBehaviour, error, ...inputProps } = props;
-  const inputClassName = classNames(
+  const inputClassName = cn(
     'input',
     props.required && 'input--required',
     props.disabled && 'input--disabled',

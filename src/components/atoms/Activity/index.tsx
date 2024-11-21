@@ -1,14 +1,13 @@
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { Activity as ActivityProps } from './types';
+import { Activity as ActivityProps, Day as DayProps } from './types';
 import styles from './Activity.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
-
-const dayMap: { [key: number]: string } = {
+const dayMap: DayProps = {
   0: 'Zo',
   1: 'Ma',
   2: 'Di',
@@ -18,9 +17,19 @@ const dayMap: { [key: number]: string } = {
   6: 'Za',
 };
 
-const Activity = ({ title, startDate, startTime, endDate, endTime, description }: Props) => {
+const Activity = ({
+  title,
+  startDate,
+  startTime,
+  endDate,
+  endTime,
+  description,
+}: ActivityProps): JSX.Element => {
   let firstLine = '';
   let secondLine = '';
+
+  console.log('startDate', startDate);
+  console.log('startTime', startTime);
 
   if (startDate === endDate) {
     const date = new Date(startDate);

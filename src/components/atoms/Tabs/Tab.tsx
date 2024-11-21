@@ -1,8 +1,6 @@
 import { Tab as TabProps } from './types';
 
-type Props = TabProps & React.HTMLAttributes<HTMLElement>;
-
-const Tab = ({ children }: Props) => {
+const Tab = ({ children }: TabProps): JSX.Element => {
   return <div>{children}</div>;
 };
 

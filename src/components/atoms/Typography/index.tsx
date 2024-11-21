@@ -1,19 +1,24 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import classNames from 'classnames';
+import cn from 'classnames';
 import rehypeRaw from 'rehype-raw';
 import sanitizeHtml from 'sanitize-html';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Typography as TypographyProps } from './types';
 import styles from './Typography.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = TypographyProps & React.HTMLAttributes<HTMLElement>;
-
-const Typography = ({ data, modNoStyle, modPreWrap, children, className }: Props) => {
-  const typographyClasses = classNames(
+const Typography = ({
+  data,
+  modNoStyle,
+  modPreWrap,
+  children,
+  className,
+}: TypographyProps): JSX.Element => {
+  const typographyClasses = cn(
     'typography',
     !modNoStyle && 'typography--styled',
     modPreWrap && 'typography--pre-wrap',

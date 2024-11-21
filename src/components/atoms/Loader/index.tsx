@@ -1,15 +1,14 @@
 import cx from 'classnames';
 import { useTranslations } from 'next-intl';
-import styles from './Loader.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Loader as LoaderProps } from './types';
+import styles from './Loader.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = LoaderProps & React.HTMLAttributes<HTMLElement>;
-
-const Loader = ({ size = 'md', modLabelVisible }: Props) => {
+const Loader = ({ size = 'md', modLabelVisible }: LoaderProps): JSX.Element => {
   const t = useTranslations('common');
 
   const classNames = cx('loader', `loader--${size}`);

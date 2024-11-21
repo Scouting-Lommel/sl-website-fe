@@ -15,4 +15,4 @@ export type Image = {
   data: CloudinaryImage;
   loadingStrategy?: 'lazy' | 'eager';
   modMaximisable?: boolean;
-};
+} & React.HTMLAttributes<HTMLElement>;

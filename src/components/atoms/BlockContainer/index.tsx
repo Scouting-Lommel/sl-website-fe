@@ -1,15 +1,14 @@
-import classNames from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
 import SocialsCta from '@/components/molecules/SocialsCta';
 import CallToAction from '@/components/molecules/CallToAction';
 import { BlockContainer as BlockContainerProps } from './types';
 import styles from './BlockContainer.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = BlockContainerProps & React.HTMLAttributes<HTMLElement>;
 
 const BlockContainer = ({
   variant = 'light',
@@ -22,8 +21,8 @@ const BlockContainer = ({
   modNoPadding,
   modMargin,
   children,
-}: Props) => {
-  const blockContainerClassNames = classNames(
+}: BlockContainerProps): JSX.Element => {
+  const blockContainerClassNames = cn(
     'block-container',
     `block-container--${variant}`,
     `block-container--${orientation}`,
@@ -32,12 +31,12 @@ const BlockContainer = ({
     modMargin && 'block-container--has-margin',
   );
 
-  const bgClassnames = classNames(
+  const bgClassnames = cn(
     'block-container__bg-image',
     bgImage && `block-container__bg-image--opaque`,
   );
 
-  const ctaClassnames = classNames(
+  const ctaClassnames = cn(
     'block-container__cta',
     socialsCta && 'block-container__cta--bottom',
     !socialsCta && 'block-container__cta--top',

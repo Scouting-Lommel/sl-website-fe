@@ -1,19 +1,18 @@
 import { ChangeEvent, forwardRef } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import Icon from '@/components/atoms/Icon';
 import { FormSelect as FormSelectProps } from './types';
 import styles from './Select.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FormSelectProps & React.SelectHTMLAttributes<HTMLElement>;
-
-const Select = forwardRef((props: Props, ref: any) => {
+const Select = forwardRef((props: FormSelectProps, ref: any): JSX.Element => {
   const { customChangeBehaviour, error, ...selectProps } = props;
-  const selectClassName = classNames(
+  const selectClassName = cn(
     'select',
     props.required && 'select--required',
     error && 'select--has-error',

@@ -1,5 +1,4 @@
 import { LucideProps } from 'lucide-react';
-
 import { iconMap } from './IconMap';
 
 export type IconNames = keyof typeof iconMap;

@@ -1,16 +1,15 @@
 import { ChangeEvent, forwardRef } from 'react';
 import classNames from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { Checkbox as CheckboxProps } from './types';
 import styles from './Checkbox.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = CheckboxProps & React.InputHTMLAttributes<HTMLInputElement>;
-
-const Checkbox = forwardRef((props: Props, ref: any) => {
+const Checkbox = forwardRef((props: CheckboxProps, ref: any) => {
   const { customChangeBehaviour, error, ...checkboxProps } = props;
   const checkboxClassNames = classNames('checkbox', error && 'checkbox--has-error');
 

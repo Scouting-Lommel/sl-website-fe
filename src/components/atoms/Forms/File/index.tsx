@@ -1,18 +1,17 @@
 import { forwardRef } from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { FormFile as FormFileProps } from './types';
 import styles from './File.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FormFileProps & React.InputHTMLAttributes<HTMLElement>;
-
-const File = forwardRef((props: Props, ref: any) => {
+const File = forwardRef((props: FormFileProps, ref: any): JSX.Element => {
   const { error, ...fileProps } = props;
-  const fileClassName = classNames(
+  const fileClassName = cn(
     'file-input',
     props.required && 'file-input--required',
     props.disabled && 'file-input--disabled',

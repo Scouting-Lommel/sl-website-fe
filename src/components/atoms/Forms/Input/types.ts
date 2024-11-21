@@ -6,4 +6,4 @@ export type FormInput = {
   name: string;
   error?: any;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
-};
+} & React.InputHTMLAttributes<HTMLElement>;

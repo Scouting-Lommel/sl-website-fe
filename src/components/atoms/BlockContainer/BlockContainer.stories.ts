@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import BlockContainer from '.';
 
-const meta = {
+const meta: Meta<typeof BlockContainer> = {
   title: '3 Components/Atoms/BlockContainer',
   component: BlockContainer,
   tags: ['autodocs'],
-} satisfies Meta<typeof BlockContainer>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     variant: 'dark',
     orientation: 'default',
     slug: 'storybook',
     children: 'Block content',
   },
-} satisfies Story;
+};

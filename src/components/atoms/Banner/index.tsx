@@ -1,15 +1,14 @@
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Banner as BannerProps } from './types';
 import styles from './Banner.css';
-import classNames from 'classnames';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = BannerProps & React.HTMLAttributes<HTMLElement>;
-
-const Banner = ({ variant, children }: Props) => {
-  const bannerClassName = classNames('banner', `banner--${variant}`);
+const Banner = ({ variant, children }: BannerProps): JSX.Element => {
+  const bannerClassName = cn('banner', `banner--${variant}`);
 
   return <div className={bannerClassName}>{children}</div>;
 };

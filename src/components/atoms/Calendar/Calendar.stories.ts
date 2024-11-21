@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Calendar from '.';
 
-const meta = {
+const meta: Meta<typeof Calendar> = {
   title: '3 Components/Atoms/Calendar',
   component: Calendar,
   tags: ['autodocs'],
@@ -11,12 +11,12 @@ const meta = {
       control: { type: 'object' },
     },
   },
-} satisfies Meta<typeof Calendar>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     events: [
       {
@@ -27,4 +27,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

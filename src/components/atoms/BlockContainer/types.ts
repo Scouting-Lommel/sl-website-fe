@@ -12,4 +12,4 @@ export type BlockContainer = {
   modSmallPadding?: boolean;
   modNoPadding?: boolean;
   modMargin?: boolean;
-};
+} & React.HTMLAttributes<HTMLElement>;

@@ -1,15 +1,14 @@
-import cx from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Divider as DividerProps } from './types';
 import styles from './Divider.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = DividerProps & React.HTMLAttributes<HTMLElement>;
-
-const Divider = ({ variant = 'default' }: Props) => {
-  const classNames = cx('sl-layout', 'divider', `divider--${variant}`);
+const Divider = ({ variant = 'default' }: DividerProps): JSX.Element => {
+  const classNames = cn('sl-layout', 'divider', `divider--${variant}`);
 
   return <hr className={classNames} />;
 };

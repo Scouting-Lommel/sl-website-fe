@@ -3,4 +3,4 @@ export type Modal = {
   children: React.ReactNode;
   open?: boolean;
   handleCloseModal: () => void;
-};
+} & React.HTMLAttributes<HTMLElement>;

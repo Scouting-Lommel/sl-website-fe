@@ -1,7 +1,6 @@
 /**
  ** Mapped icon names that are being used on the Scouting Lommel website
  */
-
 export const iconMap = {
   'arrow-left': 'ArrowLeft',
   'arrow-right': 'ArrowRight',
