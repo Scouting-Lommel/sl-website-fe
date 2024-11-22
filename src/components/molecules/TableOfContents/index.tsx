@@ -9,21 +9,19 @@ export const links = (): StylesheetLink[] => {
 
 const TableOfContents = ({ sections }: TableOfContentsProps): JSX.Element => {
   return (
-    <div className="table-of-contents">
+    <ul className="table-of-contents">
       {sections.map((section, i) => {
         return (
-          <a
-            href={'#' + section.title.toLowerCase().replaceAll(' ', '-')}
-            key={i}
-            className="table-of-contents__item"
-          >
-            <Typography modNoStyle>
-              <span className="table-of-contents__item__prefix">#</span> {section.title}
-            </Typography>
-          </a>
+          <li key={i} className="table-of-contents__item">
+            <a href={'#' + section.title.toLowerCase().replaceAll(' ', '-')}>
+              <Typography modNoStyle>
+                <span className="table-of-contents__item__prefix">#</span> {section.title}
+              </Typography>
+            </a>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 
