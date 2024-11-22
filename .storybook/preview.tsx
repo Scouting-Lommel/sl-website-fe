@@ -41,3 +41,4 @@ export const loaders = [
         console.log(`${name} called with`, ...args),
   }),
 ];
+export const tags = ['autodocs'];
