@@ -15,26 +15,25 @@ export const links = (): StylesheetLink[] => {
 };
 
 const FAQItem = ({ question, answer, image, callToAction }: FAQProps): JSX.Element => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
+
+  const handleToggle = (e: React.SyntheticEvent<HTMLDetailsElement>) => {
+    setOpen((e.target as HTMLDetailsElement).open);
+  };
+
   const faqClasses = cn('faq-item', {
     'faq-item--open': isOpen,
   });
 
   return (
-    <div className={faqClasses}>
-      <button className="faq-item__title" onClick={() => setOpen(!isOpen)}>
+    <details className={faqClasses} onToggle={handleToggle}>
+      <summary className="faq-item__title">
         <Typography>{question}</Typography>
-        <Icon
-          name="chevron-down"
-          aria-label="Chevron"
-          size="lg"
-          className="faq-item__title__chevron"
-        />
-      </button>
+        <Icon name="chevron-down" size="lg" className="faq-item__title__chevron" />
+      </summary>
       <div
         className={cn('faq-item__answer', {
           'faq-item__answer--with-image': image?.data,
-          'faq-item__answer--hidden': !isOpen,
         })}
       >
         <div className="faq-item__answer__content">
@@ -61,7 +60,7 @@ const FAQItem = ({ question, answer, image, callToAction }: FAQProps): JSX.Eleme
           </div>
         )}
       </div>
-    </div>
+    </details>
   );
 };
 
