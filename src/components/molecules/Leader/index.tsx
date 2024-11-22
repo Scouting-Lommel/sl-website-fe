@@ -21,7 +21,7 @@ const Leader = ({ firstName, lastName, image }: LeaderProps): JSX.Element => {
           modMaximisable
         />
       ) : (
-        <Image src={ProfilePicture} alt="default profile picture" className="leader__image" />
+        <Image src={ProfilePicture} alt="Default profile picture" className="leader__image" />
       )}
       <Typography className="leader__name">
         <span>{firstName}</span>

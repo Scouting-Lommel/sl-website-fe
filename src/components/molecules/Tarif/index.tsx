@@ -1,6 +1,4 @@
-'use client';
-
-import { useState } from 'react';
+import { formatPrice } from '@/lib/helpers/formatPrice';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { Tarif as TarifProps } from './types';
@@ -11,25 +9,22 @@ export const links = (): StylesheetLink[] => {
 };
 
 const Tarif = ({ name, dayPrice, minimumPrice, example }: TarifProps): JSX.Element => {
-  const [isOpen, setOpen] = useState(false);
   return (
-    <div className="tarif">
-      <div className="tarif__data">
-        <Typography className="tarif__name" modNoStyle>
+    <details className="tarif">
+      <summary className="tarif__data">
+        <Typography className="tarif__name" tagName="h3">
           {name}
         </Typography>
         <Typography className="tarif__min" modNoStyle>
-          € {minimumPrice}
+          {formatPrice(minimumPrice)}
         </Typography>
         <Typography className="tarif__day" modNoStyle>
-          € {dayPrice}
+          {formatPrice(dayPrice)}
         </Typography>
-        <div className="tarif__example" onClick={() => setOpen(!isOpen)}>
-          voorbeeld -&gt;
-        </div>
-      </div>
-      {isOpen && <Typography data={example} className="tarif__example__content" />}
-    </div>
+        <div className="tarif__example">voorbeeld -&gt;</div>
+      </summary>
+      <Typography data={example} className="tarif__example__content" />
+    </details>
   );
 };
 

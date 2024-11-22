@@ -15,6 +15,7 @@ const Typography = ({
   data,
   modNoStyle,
   modPreWrap,
+  tagName = 'div',
   children,
   className,
 }: TypographyProps): JSX.Element => {
@@ -24,6 +25,8 @@ const Typography = ({
     modPreWrap && 'typography--pre-wrap',
     className,
   );
+
+  const TagName = tagName as keyof JSX.IntrinsicElements;
 
   if (data) {
     return (
@@ -38,7 +41,7 @@ const Typography = ({
     );
   }
 
-  return <div className={typographyClasses}>{children}</div>;
+  return <TagName className={typographyClasses}>{children}</TagName>;
 };
 
 export default Typography;

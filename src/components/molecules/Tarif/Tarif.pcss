@@ -1,3 +1,14 @@
+.tarif {
+  border-bottom: solid 2px var(--color-light-grey);
+}
+
+.tarif__data {
+  display: grid;
+  padding: var(--space-32);
+  gap: var(--space-2);
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
 .tarif__name {
   font-family: var(--font-family-body);
   font-size: 1rem;
@@ -64,17 +75,7 @@
   }
 }
 
-.tarif__data {
-  display: grid;
-  gap: var(--space-2);
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-}
-
-.tarif {
-  padding: var(--space-32);
-  border-bottom: solid 2px var(--color-light-grey);
-}
-
 .tarif__example__content {
-  padding-top: var(--space-32);
+  padding: var(--space-32);
+  padding-top: 0;
 }
