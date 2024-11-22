@@ -49,10 +49,10 @@ const Activity = ({
 
   return (
     <>
-      <div className="activity">
+      <article className="activity">
         <div className="activity__header">
-          <div className="activity__header__title">{title}</div>
-          <div className="activity__header__time">
+          <h3 className="activity__header__title">{title}</h3>
+          <time dateTime={`${startDate}T${startTime}`} className="activity__header__time">
             {firstLine}
             {secondLine && (
               <>
@@ -60,10 +60,10 @@ const Activity = ({
                 {secondLine}
               </>
             )}
-          </div>
+          </time>
         </div>
         <Typography className="activity__description" data={description} />
-      </div>
+      </article>
     </>
   );
 };
