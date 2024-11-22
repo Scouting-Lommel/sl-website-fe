@@ -2,6 +2,7 @@
 
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import { useCallback, useEffect, useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
@@ -69,9 +70,16 @@ export const NextButton = (props: PropType): JSX.Element => {
 };
 
 const Carousel = ({ carouselItems }: CarouselProps): JSX.Element => {
-  const options: EmblaOptionsType = { align: 'start', loop: false };
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const options: EmblaOptionsType = {
+    align: 'start',
+    loop: false,
+    dragFree: true,
+    containScroll: 'trimSnaps',
+    watchDrag: true,
+    skipSnaps: true,
+  };
 
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [WheelGesturesPlugin()]);
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
     usePrevNextButtons(emblaApi);
 
