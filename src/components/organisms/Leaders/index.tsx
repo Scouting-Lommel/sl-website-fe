@@ -1,7 +1,7 @@
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Leader from '@/components/molecules/Leader';
 import { Leaders as LeadersProps } from './types';
-import styles from './Leader.css';
+import styles from './Leaders.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];

@@ -8,12 +8,18 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const YearTheme = ({ image, className }: YearThemeProps): JSX.Element => {
+const YearTheme = ({ href, image, className }: YearThemeProps): JSX.Element => {
   const yearThemeClassnames = cn('year-theme', className);
 
   return (
     <div className={yearThemeClassnames}>
-      <SLImage data={image} className="year-theme__image" loadingStrategy="lazy" />
+      {href ? (
+        <a href={href}>
+          <SLImage data={image} className="year-theme__image" loadingStrategy="lazy" />
+        </a>
+      ) : (
+        <SLImage data={image} className="year-theme__image" loadingStrategy="lazy" />
+      )}
     </div>
   );
 };

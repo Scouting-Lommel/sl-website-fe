@@ -50,7 +50,11 @@ const Hero = ({
       )}
 
       {yearTheme && (
-        <YearTheme image={yearTheme.image.data.attributes} className="hero__year-theme" />
+        <YearTheme
+          image={yearTheme.image.data.attributes}
+          href="/algemene-informatie#jaarthema"
+          className="hero__year-theme"
+        />
       )}
     </div>
   );

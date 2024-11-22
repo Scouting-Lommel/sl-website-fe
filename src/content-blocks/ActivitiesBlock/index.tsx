@@ -11,7 +11,6 @@ const GroupsBlock = ({
 }: ActivityBlockProps): JSX.Element => {
   return (
     <>
-      <hr className="sl-layout" />
       <BlockContainer
         variant={blockProperties.variant}
         orientation={blockProperties.orientation}
