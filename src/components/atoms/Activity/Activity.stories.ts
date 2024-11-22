@@ -1,9 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { formatDate } from '@/lib/helpers/dateTime';
 import Activity from '.';
 
 const meta: Meta<typeof Activity> = {
   title: '3 Components/Atoms/Activity',
   component: Activity,
+  argTypes: {
+    startDate: {
+      control: { type: 'text' },
+    },
+    endDate: {
+      control: { type: 'text' },
+    },
+  },
   tags: ['autodocs'],
 };
 
@@ -12,22 +21,23 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: 'An example title',
-    startDate: '09/30/2000',
-    endDate: '09/30/2000',
-    startTime: '14:00',
-    endTime: '15:30',
-    description: 'An example description for an activity',
+    title: 'Quizavond',
+    description: 'Een avond vol plezier en vertier. Test je kennis en win een leuke prijs!',
+    startDate: formatDate(new Date()),
+    startTime: '19:30',
+    endDate: formatDate(new Date()),
+    endTime: '22:00',
   },
 };
 
 export const DifferentDates: Story = {
   args: {
-    title: 'An example title',
-    startDate: '09/30/2000',
-    endDate: '10/15/2000',
-    startTime: '10:00',
-    endTime: '15:30',
-    description: 'An example description for an activity',
+    title: 'Derdejaarsweekend',
+    description:
+      'Tijdens het derdejaarsweekend gaan we met alle derdejaars op minikamp. We drinken een pintje, spelen een spelletje, en genieten van het zonnetje. Kortom, een weekend om niet te missen.',
+    startDate: formatDate(new Date()),
+    startTime: '20:00',
+    endDate: formatDate(new Date(new Date().getTime() + 24 * 60 * 60 * 1000 * 2)),
+    endTime: '20:00',
   },
 };
