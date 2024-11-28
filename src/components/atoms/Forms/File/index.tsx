@@ -23,7 +23,7 @@ const File = forwardRef((props: FormFileProps, ref: any): JSX.Element => {
       <label htmlFor={props.id}>
         <Typography className="file-input__label">{props.label}</Typography>
       </label>
-      <input className="file-input__field" {...fileProps} ref={ref} />
+      <input className="file-input__field" {...fileProps} ref={ref} type="file" />
       {error && <div className="file-input__error">{error}</div>}
     </div>
   );
