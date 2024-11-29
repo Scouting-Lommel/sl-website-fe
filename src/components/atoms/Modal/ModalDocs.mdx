@@ -15,25 +15,27 @@ A reusable modal dialog component that provides a customizable overlay window fo
 - Scroll lock on body when opened
 - Fully controlled through props
 
-## Props Interface
+## Props
 
 ```typescript
-interface ModalProps {
+type Modal = {
   /** Unique identifier for the modal */
   id: string;
 
   /** Title displayed in the modal header */
   title: string;
 
+  /** Content to be rendered inside the modal */
+  children: React.ReactNode;
+
   /** Controls the visibility of the modal */
-  open: boolean;
+  open?: boolean;
 
   /** Callback function called when the modal is closed */
   handleCloseModal: () => void;
 
-  /** Content to be rendered inside the modal */
-  children: React.ReactNode;
-}
+  /** Additional HTML attributes */
+} & React.HTMLAttributes<HTMLElement>;
 ```
 
 ## Basic Usage
