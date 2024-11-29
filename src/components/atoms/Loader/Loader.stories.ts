@@ -4,7 +4,6 @@ import Loader from '.';
 const meta: Meta<typeof Loader> = {
   title: '3 Components/Atoms/Loader',
   component: Loader,
-  tags: ['autodocs'],
   argTypes: {
     size: {
       control: { type: 'select' },

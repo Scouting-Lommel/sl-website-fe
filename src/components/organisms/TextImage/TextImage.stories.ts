@@ -4,7 +4,6 @@ import TextImage from '.';
 const meta: Meta<typeof TextImage> = {
   title: '3 Components/Organisms/TextImage',
   component: TextImage,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },

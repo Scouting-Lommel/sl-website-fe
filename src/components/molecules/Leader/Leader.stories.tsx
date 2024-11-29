@@ -16,7 +16,6 @@ const LeaderItemContainer = (args: LeaderProps): JSX.Element => {
 const meta: Meta<typeof LeaderItemContainer> = {
   title: '3 Components/Molecules/Leader',
   component: LeaderItemContainer,
-  tags: ['autodocs'],
   argTypes: {
     firstName: {
       control: { type: 'text' },

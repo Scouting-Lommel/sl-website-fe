@@ -6,7 +6,6 @@ import FAQ from '.';
 const meta: Meta<typeof FAQ> = {
   title: '3 Components/Organisms/FAQ',
   component: FAQ,
-  tags: ['autodocs'],
   argTypes: {
     title: {
       control: { type: 'text' },

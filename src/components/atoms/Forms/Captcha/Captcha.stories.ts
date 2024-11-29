@@ -4,7 +4,6 @@ import Captcha from '.';
 const meta: Meta<typeof Captcha> = {
   title: '4 Forms/Elements/Captcha',
   component: Captcha,
-  tags: ['autodocs'],
 };
 
 export default meta;

@@ -4,7 +4,6 @@ import Navigation from '.';
 const meta: Meta<typeof Navigation> = {
   title: '3 Components/Molecules/Navigation',
   component: Navigation,
-  tags: ['autodocs'],
   argTypes: {
     navItems: {
       control: { type: 'object' },

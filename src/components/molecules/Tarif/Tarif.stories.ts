@@ -4,7 +4,6 @@ import Tarif from '.';
 const meta: Meta<typeof Tarif> = {
   title: '3 Components/Molecules/Tarif',
   component: Tarif,
-  tags: ['autodocs'],
   argTypes: {
     name: {
       control: { type: 'text' },

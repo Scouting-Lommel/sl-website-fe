@@ -5,7 +5,6 @@ import Gallery from '.';
 const meta: Meta<typeof Gallery> = {
   title: '3 Components/Organisms/Gallery',
   component: Gallery,
-  tags: ['autodocs'],
   argTypes: {
     title: {
       control: { type: 'text' },

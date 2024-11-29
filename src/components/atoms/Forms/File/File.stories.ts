@@ -4,7 +4,6 @@ import File from '.';
 const meta: Meta<typeof File> = {
   title: '4 Forms/Elements/File',
   component: File,
-  tags: ['autodocs'],
   argTypes: {
     required: {
       control: { type: 'boolean' },

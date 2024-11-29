@@ -4,7 +4,6 @@ import Map from '.';
 const meta: Meta<typeof Map> = {
   title: '3 Components/Organisms/Map',
   component: Map,
-  tags: ['autodocs'],
 };
 
 export default meta;

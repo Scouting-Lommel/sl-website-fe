@@ -4,7 +4,6 @@ import Checkbox from '.';
 const meta: Meta<typeof Checkbox> = {
   title: '4 Forms/Elements/Checkbox',
   component: Checkbox,
-  tags: ['autodocs'],
   argTypes: {
     required: {
       control: { type: 'boolean' },

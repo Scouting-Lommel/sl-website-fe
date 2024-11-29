@@ -4,7 +4,6 @@ import CallToAction from '.';
 const meta: Meta<typeof CallToAction> = {
   title: '3 Components/Molecules/CallToAction',
   component: CallToAction,
-  tags: ['autodocs'],
   argTypes: {
     title: {
       control: { type: 'text' },

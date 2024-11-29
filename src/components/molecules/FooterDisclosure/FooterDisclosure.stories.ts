@@ -4,7 +4,6 @@ import FooterDisclosure from '.';
 const meta: Meta<typeof FooterDisclosure> = {
   title: '3 Components/Molecules/FooterDisclosure',
   component: FooterDisclosure,
-  tags: ['autodocs'],
   argTypes: {
     siteName: {
       control: { type: 'text' },

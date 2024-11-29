@@ -4,7 +4,6 @@ import Link from '.';
 const meta: Meta<typeof Link> = {
   title: '3 Components/Atoms/Link',
   component: Link,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },

@@ -15,7 +15,6 @@ const NavItemContainer = (args: NavItemProps): JSX.Element => {
 const meta: Meta<typeof NavItemContainer> = {
   title: '3 Components/Molecules/NavItem',
   component: NavItemContainer,
-  tags: ['autodocs'],
   argTypes: {
     label: {
       control: { type: 'text' },

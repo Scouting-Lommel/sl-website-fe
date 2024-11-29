@@ -4,7 +4,6 @@ import Select from '.';
 const meta: Meta<typeof Select> = {
   title: '4 Forms/Elements/Select',
   component: Select,
-  tags: ['autodocs'],
   argTypes: {
     required: {
       control: { type: 'boolean' },

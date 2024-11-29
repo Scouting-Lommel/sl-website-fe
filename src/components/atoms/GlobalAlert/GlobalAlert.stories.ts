@@ -4,7 +4,6 @@ import GlobalAlert from '.';
 const meta: Meta<typeof GlobalAlert> = {
   title: '3 Components/Atoms/Global Alert',
   component: GlobalAlert,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },

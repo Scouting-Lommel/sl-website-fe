@@ -4,7 +4,6 @@ import Tarifs from '.';
 const meta: Meta<typeof Tarifs> = {
   title: '3 Components/Organisms/Tarifs',
   component: Tarifs,
-  tags: ['autodocs'],
 };
 
 export default meta;

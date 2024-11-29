@@ -4,7 +4,6 @@ import Header from '.';
 const meta: Meta<typeof Header> = {
   title: '3 Components/Organisms/Header',
   component: Header,
-  tags: ['autodocs'],
   argTypes: {
     logo: {
       control: { type: 'object' },

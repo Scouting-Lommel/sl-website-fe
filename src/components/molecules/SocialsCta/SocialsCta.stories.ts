@@ -4,7 +4,6 @@ import SocialsCta from '.';
 const meta: Meta<typeof SocialsCta> = {
   title: '3 Components/Molecules/SocialsCta',
   component: SocialsCta,
-  tags: ['autodocs'],
   argTypes: {
     title: {
       control: { type: 'text' },

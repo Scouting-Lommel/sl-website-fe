@@ -4,7 +4,6 @@ import FooterHead from '.';
 const meta: Meta<typeof FooterHead> = {
   title: '3 Components/Molecules/FooterHead',
   component: FooterHead,
-  tags: ['autodocs'],
   argTypes: {
     siteName: {
       control: { type: 'text' },

@@ -4,7 +4,6 @@ import Paragraph from '.';
 const meta: Meta<typeof Paragraph> = {
   title: '3 Components/Molecules/Paragraph',
   component: Paragraph,
-  tags: ['autodocs'],
   argTypes: {
     title: {
       control: { type: 'text' },

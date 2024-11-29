@@ -4,7 +4,6 @@ import Attachment from '.';
 const meta = {
   title: '3 Components/Molecules/Attachment',
   component: Attachment,
-  tags: ['autodocs'],
 } satisfies Meta<typeof Attachment>;
 
 export default meta;

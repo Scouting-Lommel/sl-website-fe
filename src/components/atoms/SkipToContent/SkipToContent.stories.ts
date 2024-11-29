@@ -4,7 +4,6 @@ import SkipToContent from '.';
 const meta: Meta<typeof SkipToContent> = {
   title: '3 Components/Atoms/SkipToContent',
   component: SkipToContent,
-  tags: ['autodocs'],
 };
 
 export default meta;

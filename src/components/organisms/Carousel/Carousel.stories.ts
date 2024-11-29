@@ -5,7 +5,6 @@ import Carousel from '.';
 const meta: Meta<typeof Carousel> = {
   title: '3 Components/Organisms/Carousel',
   component: Carousel,
-  tags: ['autodocs'],
   argTypes: {
     carouselItems: {
       control: { type: 'object' },

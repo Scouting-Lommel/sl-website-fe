@@ -4,7 +4,6 @@ import Input from '.';
 const meta: Meta<typeof Input> = {
   title: '4 Forms/Elements/Input',
   component: Input,
-  tags: ['autodocs'],
   argTypes: {
     required: {
       control: { type: 'boolean' },

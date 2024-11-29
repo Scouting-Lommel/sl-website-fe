@@ -4,7 +4,6 @@ import YearTheme from '.';
 const meta: Meta<typeof YearTheme> = {
   title: '3 Components/Molecules/YearTheme',
   component: YearTheme,
-  tags: ['autodocs'],
   argTypes: {
     title: {
       control: { type: 'text' },

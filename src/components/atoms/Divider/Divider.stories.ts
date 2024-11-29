@@ -4,7 +4,6 @@ import Divider from '.';
 const meta: Meta<typeof Divider> = {
   title: '3 Components/Atoms/Divider',
   component: Divider,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },

@@ -4,7 +4,6 @@ import Image from '.';
 const meta: Meta<typeof Image> = {
   title: '3 Components/Atoms/Image',
   component: Image,
-  tags: ['autodocs'],
   argTypes: {
     loadingStrategy: {
       control: { type: 'select' },

@@ -4,7 +4,6 @@ import TextArea from '.';
 const meta: Meta<typeof TextArea> = {
   title: '4 Forms/Elements/TextArea',
   component: TextArea,
-  tags: ['autodocs'],
   argTypes: {
     required: {
       control: { type: 'boolean' },

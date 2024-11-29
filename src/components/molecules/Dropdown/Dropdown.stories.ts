@@ -4,7 +4,6 @@ import Dropdown from '.';
 const meta: Meta<typeof Dropdown> = {
   title: '3 Components/Molecules/Dropdown',
   component: Dropdown,
-  tags: ['autodocs'],
   argTypes: {
     path: {
       control: { type: 'text' },

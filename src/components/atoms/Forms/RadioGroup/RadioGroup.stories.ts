@@ -4,7 +4,6 @@ import RadioGroup from '.';
 const meta: Meta<typeof RadioGroup> = {
   title: '4 Forms/Elements/Radio',
   component: RadioGroup,
-  tags: ['autodocs'],
   argTypes: {
     required: {
       control: { type: 'boolean' },

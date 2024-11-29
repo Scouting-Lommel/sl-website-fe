@@ -4,7 +4,6 @@ import File from './File';
 const meta = {
   title: '3 Components/Molecules/Attachment/File',
   component: File,
-  tags: ['autodocs'],
   argTypes: {
     ext: {
       control: { type: 'select' },

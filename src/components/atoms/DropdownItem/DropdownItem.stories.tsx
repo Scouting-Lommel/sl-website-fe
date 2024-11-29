@@ -13,7 +13,6 @@ const DropdownItemContainer = (props: DropdownItemProps): JSX.Element => {
 const meta: Meta<typeof DropdownItemContainer> = {
   title: '3 Components/Atoms/Dropdown Item',
   component: DropdownItemContainer,
-  tags: ['autodocs'],
 };
 
 export default meta;

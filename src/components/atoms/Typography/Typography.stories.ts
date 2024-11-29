@@ -4,7 +4,6 @@ import Typography from '.';
 const meta: Meta<typeof Typography> = {
   title: '3 Components/Atoms/Typography',
   component: Typography,
-  tags: ['autodocs'],
   argTypes: {
     data: {
       control: { type: 'text' },

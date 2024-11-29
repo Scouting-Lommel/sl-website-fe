@@ -4,7 +4,6 @@ import Calendar from '.';
 const meta: Meta<typeof Calendar> = {
   title: '3 Components/Atoms/Calendar',
   component: Calendar,
-  tags: ['autodocs'],
   argTypes: {
     events: {
       description: 'The list of events that should be marked on the calendar',

@@ -24,7 +24,6 @@ const CustomIconGallery = (): JSX.Element => {
 const meta: Meta<typeof Icon> = {
   title: '3 Components / Atoms / Icons',
   component: Icon,
-  tags: ['autodocs'],
   argTypes: {
     name: {
       description: 'The icon to display',

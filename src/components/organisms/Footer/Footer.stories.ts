@@ -4,7 +4,6 @@ import Footer from '.';
 const meta: Meta<typeof Footer> = {
   title: '3 Components/Organisms/Footer',
   component: Footer,
-  tags: ['autodocs'],
 };
 
 export default meta;

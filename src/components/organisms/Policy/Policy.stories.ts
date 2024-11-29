@@ -4,7 +4,6 @@ import Policy from '.';
 const meta: Meta<typeof Policy> = {
   title: '3 Components/Organisms/Policy',
   component: Policy,
-  tags: ['autodocs'],
 };
 
 export default meta;

@@ -9,7 +9,6 @@ const meta: Meta<typeof Banner> = {
       control: { type: 'select' },
     },
   },
-  tags: ['autodocs'],
 };
 
 export default meta;

@@ -4,7 +4,6 @@ import FileSection from '.';
 const meta: Meta<typeof FileSection> = {
   title: '3 Components/Organisms/FileSection',
   component: FileSection,
-  tags: ['autodocs'],
 };
 
 export default meta;

@@ -4,7 +4,6 @@ import FooterDoormat from '.';
 const meta = {
   title: '3 Components/Molecules/FooterDoormat',
   component: FooterDoormat,
-  tags: ['autodocs'],
   argTypes: {
     address: {
       control: { type: 'text' },

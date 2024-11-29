@@ -5,7 +5,6 @@ import Leaders from '.';
 const meta: Meta<typeof Leaders> = {
   title: '3 Components/Organisms/Leaders',
   component: Leaders,
-  tags: ['autodocs'],
   argTypes: {
     leaders: {
       control: { type: 'object' },

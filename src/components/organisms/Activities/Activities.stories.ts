@@ -4,7 +4,6 @@ import Activities from '.';
 const meta: Meta<typeof Activities> = {
   title: '3 Components/Organisms/Activities',
   component: Activities,
-  tags: ['autodocs'],
   argTypes: {
     initialItems: {
       control: { type: 'number' },

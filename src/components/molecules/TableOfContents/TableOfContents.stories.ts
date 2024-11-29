@@ -4,7 +4,6 @@ import TableOfContents from '.';
 const meta: Meta<typeof TableOfContents> = {
   title: '3 Components/Molecules/TableOfContents',
   component: TableOfContents,
-  tags: ['autodocs'],
   argTypes: {
     sections: {
       control: { type: 'object' },
