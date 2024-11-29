@@ -2,9 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Checkbox from '.';
 
 const meta: Meta<typeof Checkbox> = {
-  title: '3 Components/Atoms/Forms/Checkbox',
+  title: '4 Forms/Elements/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
+  argTypes: {
+    required: {
+      control: { type: 'boolean' },
+    },
+  },
 };
 
 export default meta;

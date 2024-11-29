@@ -2,9 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Input from '.';
 
 const meta: Meta<typeof Input> = {
-  title: '3 Components/Atoms/Forms/Input',
+  title: '4 Forms/Elements/Input',
   component: Input,
   tags: ['autodocs'],
+  argTypes: {
+    required: {
+      control: { type: 'boolean' },
+    },
+  },
 };
 
 export default meta;

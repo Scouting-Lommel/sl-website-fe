@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Captcha from '.';
 
 const meta: Meta<typeof Captcha> = {
-  title: '3 Components/Atoms/Forms/Captcha',
+  title: '4 Forms/Elements/Captcha',
   component: Captcha,
   tags: ['autodocs'],
 };

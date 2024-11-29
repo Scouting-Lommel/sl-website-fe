@@ -2,9 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 import File from '.';
 
 const meta: Meta<typeof File> = {
-  title: '3 Components/Atoms/Forms/File',
+  title: '4 Forms/Elements/File',
   component: File,
   tags: ['autodocs'],
+  argTypes: {
+    required: {
+      control: { type: 'boolean' },
+    },
+  },
 };
 
 export default meta;
