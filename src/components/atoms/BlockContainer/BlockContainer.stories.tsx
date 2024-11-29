@@ -25,7 +25,7 @@ const BlockContent = () => {
 };
 
 const meta: Meta<typeof BlockContainer> = {
-  title: '3 Components/Atoms/BlockContainer',
+  title: '3 Components/Atoms/Block Container',
   component: BlockContainer,
   tags: ['autodocs'],
   argTypes: {
