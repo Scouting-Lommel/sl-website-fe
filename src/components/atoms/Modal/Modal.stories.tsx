@@ -5,7 +5,7 @@ import Modal from '.';
 const meta: Meta<typeof Modal> = {
   title: '3 Components/Atoms/Modal',
   component: Modal,
-  tags: ['autodocs'],
+  tags: ['!autodocs'],
 };
 
 export default meta;

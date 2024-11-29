@@ -1,0 +1,76 @@
+import { Meta, Story } from '@storybook/blocks';
+import Modal from '.';
+
+<Meta title="3 Components/Atoms/Modal" component={Modal} />
+
+# Modal Component
+
+A reusable modal dialog component that provides a customizable overlay window for displaying content.
+
+## Features
+
+- Keyboard accessibility (`ESC` to close)
+- Click outside to close
+- Customizable header with title
+- Scroll lock on body when opened
+- Fully controlled through props
+
+## Props Interface
+
+```typescript
+interface ModalProps {
+  /** Unique identifier for the modal */
+  id: string;
+
+  /** Title displayed in the modal header */
+  title: string;
+
+  /** Controls the visibility of the modal */
+  open: boolean;
+
+  /** Callback function called when the modal is closed */
+  handleCloseModal: () => void;
+
+  /** Content to be rendered inside the modal */
+  children: React.ReactNode;
+}
+```
+
+## Basic Usage
+
+### Handle close
+
+```jsx
+const [isOpen, setIsOpen] = useState(false);
+
+const handleClose = () => {
+  document.body.removeAttribute('style'); // Removes the inline style (overflow: hidden) added to the body
+  setIsOpen(false);
+};
+```
+
+### Render
+
+```jsx
+<Modal id="example-modal" open={isOpen} handleCloseModal={handleClose} title="Example Modal">
+  <div>Modal content goes here</div>
+</Modal>
+```
+
+## Accessibility
+
+The Modal component implements the following accessibility features:
+
+- Uses the native `<dialog>` element for semantic HTML
+- Supports keyboard navigation (ESC to close)
+- Includes ARIA labels for close button
+- Traps focus within the modal when open
+- Maintains proper document flow for screen readers
+
+## Implementation Notes
+
+- The modal uses React's `useRef` to manage the dialog element
+- Body scroll is locked when the modal is open
+- Click outside detection is implemented for closing
+- Cleanup is handled through `useEffect` cleanup functions
+- The component is fully controlled through the `open` prop
