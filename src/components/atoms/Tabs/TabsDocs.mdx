@@ -1,0 +1,50 @@
+import { Meta, Story } from '@storybook/blocks';
+import Tabs from '.';
+
+<Meta title="3 Components/Atoms/Tabs" component={Tabs} />
+
+# Tabs Component
+
+A tabbed interface component that allows switching between different content panels. The component manages its own state
+and provides an accessible way to switch between different content sections.
+
+## Features
+
+- Simple tab switching mechanism
+- Maintains active tab state
+- Supports custom content for each tab
+- Accessible button controls
+
+## Basic Usage
+
+### Import
+
+```tsx
+import { Tabs, Tab } from '@/components/atoms/Tabs';
+```
+
+### Render
+
+```tsx
+<Tabs>
+  <Tab label="First Tab">
+    <div>Content for first tab</div>
+  </Tab>
+  <Tab label="Second Tab">
+    <div>Content for second tab</div>
+  </Tab>
+</Tabs>
+```
+
+## Accessibility
+
+The `Tabs` component implements the following accessibility features:
+
+- Uses semantic button elements for tab controls
+- Active tab is visually indicated
+- Tab content is directly associated with its control
+
+## Implementation Notes
+
+- Tab switching is handled internally without requiring external state management
+- The `Tabs` component requires `Tab` children components to function properly. Each tab should have a `label` prop and content.
