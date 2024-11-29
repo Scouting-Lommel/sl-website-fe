@@ -29,5 +29,6 @@ export const HasError: Story = {
     name: 'file',
     label: 'Upload een bestand',
     error: 'Dit veld is verplicht.',
+    required: true,
   },
 };

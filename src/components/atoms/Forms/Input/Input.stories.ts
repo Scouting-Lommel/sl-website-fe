@@ -31,5 +31,6 @@ export const HasError: Story = {
     label: 'Voornaam',
     placeholder: 'Voer uw voornaam in',
     error: 'Dit veld is verplicht.',
+    required: true,
   },
 };

@@ -27,5 +27,6 @@ export const HasError: Story = {
     id: 'checkbox',
     label: 'Ik ga akkoord met [de algemene voorwaarden](/terms-and-conditions).',
     error: 'Dit veld is verplicht.',
+    required: true,
   },
 };

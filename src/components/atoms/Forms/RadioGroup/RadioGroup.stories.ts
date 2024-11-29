@@ -77,6 +77,7 @@ export const HasError: Story = {
     ],
     direction: 'row',
     error: 'Dit veld is verplicht.',
+    required: true,
     register: () => {},
   },
 };
