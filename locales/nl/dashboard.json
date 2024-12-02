@@ -1,4 +1,15 @@
 {
+  "authButton": {
+    "leaderProfile": "Leidersprofiel",
+    "leaderMenu": "Leidingmenu",
+    "loggedInAs": "Ingelogd als **{role}**",
+    "login": "Inloggen",
+    "signOut": "Uitloggen",
+    "toTheDashboard": "Naar het dashboard",
+    "groups": "Takken",
+    "manageGroups": "Takken beheren",
+    "dashboard": "Dashboard"
+  },
   "dashboard": {
     "title": "Dashboard",
     "subtitle": "Welkom, {name}!",
