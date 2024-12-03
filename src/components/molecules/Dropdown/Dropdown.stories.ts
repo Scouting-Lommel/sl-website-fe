@@ -4,40 +4,6 @@ import Dropdown from '.';
 const meta: Meta<typeof Dropdown> = {
   title: '3 Components/Molecules/Dropdown',
   component: Dropdown,
-  argTypes: {
-    path: {
-      control: { type: 'text' },
-      description: 'The action when clicked',
-    },
-    dropdownButton: {
-      control: { type: 'object' },
-      description: 'The button on the dropdown',
-    },
-    dropdownTitle: {
-      control: { type: 'text' },
-      description: 'The title on the dropdown',
-    },
-    dropdownCta: {
-      control: { type: 'object' },
-      description: 'The cta on the dropdown',
-    },
-    dropdownItems: {
-      control: { type: 'object' },
-      description: 'The items on the dropdown',
-    },
-    groups: {
-      control: { type: 'object' },
-      description: 'The groups on the dropdown',
-    },
-    rentalLocations: {
-      control: { type: 'object' },
-      description: 'The rental locations',
-    },
-    toggleDropdown: {
-      control: { type: 'boolean' },
-      description: 'The function that togles the dropdown',
-    },
-  },
 };
 
 export default meta;
@@ -64,12 +30,12 @@ export const Default: Story = {
       {
         label: 'Lokaal en speelweide',
         page: 'lokaal_en_speelweide',
-        link: null,
+        link: '/verhuur/lokaal-en-speelweide',
       },
       {
         label: 'Tentenweide',
         page: 'tentenweide',
-        link: null,
+        link: 'verhuur/tentenweide',
       },
     ],
     groups: [],
