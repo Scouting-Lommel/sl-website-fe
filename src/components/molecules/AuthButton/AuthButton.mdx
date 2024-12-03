@@ -1,5 +1,6 @@
-import { Meta, Story } from '@storybook/blocks';
+import { Meta, Story, Canvas } from '@storybook/blocks';
 import AuthButton from '.';
+import * as AuthButtonStories from './AuthButton.stories';
 
 <Meta title="3 Components/Molecules/Auth Button" component={AuthButton} />
 
@@ -13,7 +14,9 @@ It integrates with NextAuth for authentication and provides different navigation
 The AuthButton component serves two main purposes:
 
 1. For **unauthenticated users**: displays a login button
-2. For **authenticated users**: Shows a dropdown menu with dashboard access and user information
+   <Canvas of={AuthButtonStories.Default} />
+2. For **authenticated users**: shows a dropdown menu with dashboard access and user information
+   <Canvas of={AuthButtonStories.Authenticated} />
 
 ## Features
 
