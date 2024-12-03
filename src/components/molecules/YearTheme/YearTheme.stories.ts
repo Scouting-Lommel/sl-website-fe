@@ -2,22 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import YearTheme from '.';
 
 const meta: Meta<typeof YearTheme> = {
-  title: '3 Components/Molecules/YearTheme',
+  title: '3 Components/Molecules/Year Theme',
   component: YearTheme,
-  argTypes: {
-    title: {
-      control: { type: 'text' },
-      description: 'The title of the yeartheme',
-    },
-    description: {
-      control: { type: 'text' },
-      description: 'The description of the yeartheme',
-    },
-    image: {
-      control: { type: 'object' },
-      description: 'The image on the yeartheme',
-    },
-  },
 };
 
 export default meta;
