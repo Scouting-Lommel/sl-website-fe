@@ -8,16 +8,14 @@ import { DropdownItem } from '@/components/molecules/Dropdown/types';
 import { DropdownCta } from '@/components/molecules/Dropdown/types';
 import NavItem from '@/components/molecules/NavItem';
 
-const AuthButton = (): JSX.Element => {
+const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
   const t = useTranslations('dashboard.authButton');
-
-  const { data: session } = useSession();
 
   if (session) {
     const dropdownItems: DropdownItem[] = [];
     const dropdownCta: DropdownCta = {
-      title: session?.user?.name || t('leaderProfile'),
-      intro: t('loggedInAs', { role: session?.role }),
+      title: session.user?.name || t('leaderProfile'),
+      intro: t('loggedInAs', { role: session.role }),
       ctaLabel: t('signOut'),
       ctaOnClick: () => signOut(),
     };
@@ -55,4 +53,11 @@ const AuthButton = (): JSX.Element => {
   );
 };
 
+const AuthButton = (): JSX.Element => {
+  const { data: session } = useSession();
+
+  return <NavAuthButton session={session} />;
+};
+
 export default AuthButton;
+export { NavAuthButton };
