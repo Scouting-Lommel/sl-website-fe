@@ -2,22 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FooterHead from '.';
 
 const meta: Meta<typeof FooterHead> = {
-  title: '3 Components/Molecules/FooterHead',
+  title: '3 Components/Molecules/Footer Head',
   component: FooterHead,
-  argTypes: {
-    siteName: {
-      control: { type: 'text' },
-      description: 'The name of the site',
-    },
-    vatNumber: {
-      control: { type: 'text' },
-      description: 'The vat number',
-    },
-    groupNumber: {
-      control: { type: 'text' },
-      description: 'The number of the group',
-    },
-  },
 };
 
 export default meta;
