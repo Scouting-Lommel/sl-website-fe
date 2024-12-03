@@ -1,62 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NavItem as NavItemProps } from './types';
 import NavItem from '.';
 
-const NavItemContainer = (args: NavItemProps): JSX.Element => {
-  const styles = { listStyleType: 'none', paddingLeft: 0, width: '12rem' };
-
-  return (
-    <ul style={styles}>
-      <NavItem {...args} />
-    </ul>
-  );
-};
-
-const meta: Meta<typeof NavItemContainer> = {
-  title: '3 Components/Molecules/NavItem',
-  component: NavItemContainer,
-  argTypes: {
-    label: {
-      control: { type: 'text' },
-      description: 'The label of the nav item',
-    },
-    href: {
-      control: { type: 'text' },
-      description: 'The action of the nav item',
-    },
-    dropdownTitle: {
-      control: { type: 'text' },
-      description: 'The title on teh dropdown',
-    },
-    dropdownCta: {
-      control: { type: 'object' },
-      description: 'The cta on the dropdown',
-    },
-    dropdownButton: {
-      control: { type: 'object' },
-      description: 'The button on the dropdown',
-    },
-    dropdownItems: {
-      control: { type: 'object' },
-      description: 'The items on the dropdown',
-    },
-    groups: {
-      control: { type: 'object' },
-      description: 'The groups',
-    },
-    rentalLocations: {
-      control: { type: 'object' },
-      description: 'The rental locations',
-    },
-    modDropdown: {
-      control: { type: 'boolean' },
-      description: 'If the dropdown is modified',
-    },
-    modButton: {
-      control: { type: 'boolean' },
-      description: 'If the button should be modified',
-    },
-  },
+const meta: Meta<typeof NavItem> = {
+  title: '3 Components/Molecules/Nav Item',
+  component: NavItem,
 };
 
 export default meta;
@@ -84,12 +31,12 @@ export const Default: Story = {
       {
         label: 'Lokaal en speelweide',
         page: 'lokaal_en_speelweide',
-        link: null,
+        link: '/verhuur/lokaal-en-speelweide',
       },
       {
         label: 'Tentenweide',
         page: 'tentenweide',
-        link: null,
+        link: '/verhuur/tentenweide',
       },
     ],
     groups: [],
@@ -109,4 +56,11 @@ export const Default: Story = {
     modButton: false,
     onClick: () => {},
   },
+  decorators: [
+    (Story: () => JSX.Element): JSX.Element => (
+      <div style={{ listStyleType: 'none', paddingLeft: 0, width: '12rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
