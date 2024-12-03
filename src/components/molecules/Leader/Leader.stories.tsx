@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import { Default as imageStory } from '@/components/atoms/Image/Image.stories';
 import { Leader as LeaderProps } from './types';
 import Leader from '.';
 
@@ -42,7 +42,7 @@ export const Default: Story = {
     lastName: 'Name',
     image: {
       data: {
-        attributes: imagedefault.args!.data!,
+        attributes: imageStory.args!.data!,
       },
     },
   },

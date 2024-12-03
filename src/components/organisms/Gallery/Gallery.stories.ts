@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import { Default as imageStory } from '@/components/atoms/Image/Image.stories';
 import Gallery from '.';
 
 const meta: Meta<typeof Gallery> = {
@@ -31,22 +31,22 @@ export const Default: Story = {
     images: {
       data: [
         {
-          attributes: imagedefault.args!.data!,
+          attributes: imageStory.args!.data!,
         },
         {
-          attributes: imagedefault.args!.data!,
+          attributes: imageStory.args!.data!,
         },
         {
-          attributes: imagedefault.args!.data!,
+          attributes: imageStory.args!.data!,
         },
         {
-          attributes: imagedefault.args!.data!,
+          attributes: imageStory.args!.data!,
         },
         {
-          attributes: imagedefault.args!.data!,
+          attributes: imageStory.args!.data!,
         },
         {
-          attributes: imagedefault.args!.data!,
+          attributes: imageStory.args!.data!,
         },
       ],
     },

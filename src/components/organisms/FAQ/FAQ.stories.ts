@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Default as buttondefault } from '@/components/atoms/Button/Button.stories';
-import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import { Default as buttonStory } from '@/components/atoms/Button/Button.stories';
+import { Default as imageStory } from '@/components/atoms/Image/Image.stories';
 import FAQ from '.';
 
 const meta: Meta<typeof FAQ> = {
@@ -30,8 +30,8 @@ export const Default: Story = {
         attributes: {
           question: 'A test question',
           answer: 'A test answer',
-          image: { data: { attributes: imagedefault.args!.data! } },
-          callToAction: buttondefault.args,
+          image: { data: { attributes: imageStory.args!.data! } },
+          callToAction: buttonStory.args,
         },
       },
       {

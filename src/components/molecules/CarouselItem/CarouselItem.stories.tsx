@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import { Default as imageStory } from '@/components/atoms/Image/Image.stories';
 import CarouselItem from '.';
 
 const meta: Meta<typeof CarouselItem> = {
@@ -16,7 +16,7 @@ export const Default: Story = {
     slug: 'de-leidingsgroep',
     logo: {
       data: {
-        attributes: imagedefault.args!.data!,
+        attributes: imageStory.args!.data!,
       },
     },
   },
