@@ -11,7 +11,9 @@ const FooterHead = ({ siteName, vatNumber, groupNumber }: FooterHeadProps): JSX.
     <div className="footer-head">
       <h2 className="footer-head__title">{siteName}</h2>
       <p className="footer-head__info">
-        {vatNumber ? `${vatNumber} •` : ''} {groupNumber}
+        {vatNumber && vatNumber}
+        {vatNumber && groupNumber && ' • '}
+        {groupNumber && groupNumber}
       </p>
     </div>
   );
