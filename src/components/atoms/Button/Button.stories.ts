@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     variant: 'primary',
-    label: "I'm a button!",
+    label: 'More information',
     loading: false,
     modSmall: false,
   },
@@ -32,7 +32,7 @@ export const Default: Story = {
 export const LinkButton: Story = {
   args: {
     variant: 'primary',
-    label: "I'm a button!",
+    label: 'More information',
     href: '#',
     loading: false,
     modSmall: false,
