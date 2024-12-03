@@ -2,18 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SocialsCta from '.';
 
 const meta: Meta<typeof SocialsCta> = {
-  title: '3 Components/Molecules/SocialsCta',
+  title: '3 Components/Molecules/Socials CTA',
   component: SocialsCta,
-  argTypes: {
-    title: {
-      control: { type: 'text' },
-      description: 'The text of the cta',
-    },
-    socialItems: {
-      control: { type: 'object' },
-      description: 'All social items',
-    },
-  },
 };
 
 export default meta;
