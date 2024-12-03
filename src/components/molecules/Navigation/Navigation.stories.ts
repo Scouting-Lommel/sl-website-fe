@@ -4,20 +4,6 @@ import Navigation from '.';
 const meta: Meta<typeof Navigation> = {
   title: '3 Components/Molecules/Navigation',
   component: Navigation,
-  argTypes: {
-    navItems: {
-      control: { type: 'object' },
-      description: 'The navigation items',
-    },
-    groups: {
-      control: { type: 'object' },
-      description: 'The groups',
-    },
-    rentalLocations: {
-      control: { type: 'object' },
-      description: 'The renatal locations',
-    },
-  },
 };
 
 export default meta;
@@ -42,32 +28,32 @@ export const Default: Story = {
           {
             label: 'Kapoenen',
             page: 'kapoenen',
-            link: null,
+            link: '/takken/kapoenen',
           },
           {
             label: 'Welpen',
             page: 'welpen',
-            link: null,
+            link: '/takken/welpen',
           },
           {
             label: 'Akabe',
             page: 'akabe',
-            link: null,
+            link: '/takken/akabe',
           },
           {
             label: 'Jonggivers',
             page: 'jonggivers',
-            link: null,
+            link: '/takken/jonggivers',
           },
           {
             label: 'Givers',
             page: 'givers',
-            link: null,
+            link: '/takken/givers',
           },
           {
             label: 'Jin',
             page: 'jin',
-            link: null,
+            link: '/takken/jin',
           },
         ],
         dropdownCta: {
@@ -92,12 +78,12 @@ export const Default: Story = {
           {
             label: 'Lokaal en speelweide',
             page: 'lokaal_en_speelweide',
-            link: null,
+            link: '/verhuur/lokaal-en-speelweide',
           },
           {
             label: 'Tentenweide',
             page: 'tentenweide',
-            link: null,
+            link: '/verhuur/tentenweide',
           },
         ],
         dropdownCta: {
