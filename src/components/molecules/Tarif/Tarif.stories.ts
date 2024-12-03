@@ -4,24 +4,6 @@ import Tarif from '.';
 const meta: Meta<typeof Tarif> = {
   title: '3 Components/Molecules/Tarif',
   component: Tarif,
-  argTypes: {
-    name: {
-      control: { type: 'text' },
-      description: 'The name of the tarif',
-    },
-    example: {
-      control: { type: 'text' },
-      description: 'The example on the tarif',
-    },
-    minimumPrice: {
-      control: { type: 'number' },
-      description: 'The minimumprice of the tarif',
-    },
-    dayPrice: {
-      control: { type: 'number' },
-      description: 'The dayprice of the tarif',
-    },
-  },
 };
 
 export default meta;
@@ -29,9 +11,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    name: 'Example name',
-    example: 'Example tarif math',
+    name: 'Erkende jeugdbeweging',
+    example:
+      '3 dagen * 15 euro = 45 euro. <br/>minimumprijs = 100 euro, dus **totale prijs = 100 euro**.',
     minimumPrice: 100,
-    dayPrice: 5,
+    dayPrice: 15,
   },
 };
