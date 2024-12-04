@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import RadioGroup from '.';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: '4 Forms/Elements/Radio',
+  title: '4 Forms/Form Elements/Radio',
   component: RadioGroup,
   argTypes: {
     required: {

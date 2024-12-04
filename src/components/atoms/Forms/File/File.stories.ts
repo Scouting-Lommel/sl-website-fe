@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import File from '.';
 
 const meta: Meta<typeof File> = {
-  title: '4 Forms/Elements/File',
+  title: '4 Forms/Form Elements/File',
   component: File,
   argTypes: {
     required: {

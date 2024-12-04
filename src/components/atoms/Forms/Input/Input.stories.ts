@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Input from '.';
 
 const meta: Meta<typeof Input> = {
-  title: '4 Forms/Elements/Input',
+  title: '4 Forms/Form Elements/Input',
   component: Input,
   argTypes: {
     required: {

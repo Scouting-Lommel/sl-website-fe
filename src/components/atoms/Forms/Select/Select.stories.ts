@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Select from '.';
 
 const meta: Meta<typeof Select> = {
-  title: '4 Forms/Elements/Select',
+  title: '4 Forms/Form Elements/Select',
   component: Select,
   argTypes: {
     required: {

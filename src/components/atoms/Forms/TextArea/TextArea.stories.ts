@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TextArea from '.';
 
 const meta: Meta<typeof TextArea> = {
-  title: '4 Forms/Elements/TextArea',
+  title: '4 Forms/Form Elements/TextArea',
   component: TextArea,
   argTypes: {
     required: {
