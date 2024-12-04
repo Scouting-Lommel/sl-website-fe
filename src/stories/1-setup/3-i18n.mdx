@@ -1,0 +1,163 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="1 Setup / 1.3 I18n" />
+
+## Overview
+
+The i18n system is built using:
+
+- [`next-intl`](https://next-intl-docs.vercel.app/) for translation management
+- JSON-based translation files
+- Support for both client and server-side translations
+- Namespace-based organization
+
+## Configuration
+
+### Locales Setup
+
+```typescript
+// src/i18n/locales.ts
+export enum NextLocale {
+  NlBe = 'nl',
+}
+
+export const DEFAULT_NS = 'common';
+export const NAMESPACES = ['common', 'dashboard', 'forms'];
+
+export const locales = [NextLocale.NlBe];
+export const defaultLocale = NextLocale.NlBe;
+```
+
+### Request Configuration
+
+```typescript
+// src/i18n/request.ts
+import { getRequestConfig } from 'next-intl/server';
+import { defaultLocale, NAMESPACES } from './locales';
+
+export default getRequestConfig(async () => {
+  const messages: { [key: string]: any } = {};
+  const locale = defaultLocale;
+
+  if (NAMESPACES.includes(locale)) return { locale, messages: {} };
+
+  for (const ns in NAMESPACES) {
+    messages[NAMESPACES[ns]] = (
+      await import(`../../locales/${locale}/${NAMESPACES[ns]}.json`)
+    ).default;
+  }
+
+  return { locale, messages };
+});
+```
+
+## Usage
+
+### Client-Side Translations
+
+```tsx
+import { useTranslations } from 'next-intl';
+
+const MyComponent = () => {
+  const t = useTranslations('common');
+
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+      <button>{t('close')}</button>
+    </div>
+  );
+};
+```
+
+### Server-Side Translations
+
+```tsx
+import { getTranslations } from 'next-intl/server';
+
+export async function MyServerComponent() {
+  const t = await getTranslations('common');
+
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+    </div>
+  );
+}
+```
+
+## Translation Files Structure
+
+Translations are organized in JSON files by namespace. Each locale has its own directory containing these files.
+
+```
+locales/
+  ├── nl/
+  │   ├── common.json
+  │   ├── dashboard.json
+  │   └── forms.json
+```
+
+### Translation File Example
+
+```json
+{
+  "attachment": {
+    "link": {
+      "confirmation": "Weet je zeker dat je de link met titel \"{attachmentTitle}\" wil verwijderen?",
+      "deleteLink": "Link verwijderen"
+    }
+  },
+  "close": "Sluiten",
+  "loading": "Aan het laden..."
+}
+```
+
+## Features
+
+### Namespace Support
+
+The application supports multiple namespaces for better organization of translations:
+
+- common: Shared translations
+- dashboard: Dashboard-specific translations
+- forms: Form-related translations
+
+### Dynamic Values
+
+Translations can include dynamic values using placeholders:
+
+```json
+// Translation key in JSON
+{
+  "confirmation": "Weet je zeker dat je de link met titel \"{attachmentTitle}\" wil verwijderen?"
+}
+```
+
+```tsx
+// Usage in component
+t('attachment.link.confirmation', { attachmentTitle: 'Example' });
+```
+
+### Nested Keys
+
+Translations support nested keys for better organization:
+
+```tsx
+t('attachment.link.deleteLink'); // "Link verwijderen"
+```
+
+## Best Practices
+
+1. **Namespace Organization**
+   - Use common for shared translations
+   - Create specific namespaces for feature areas
+   - Keep namespaces focused and well-organized
+2. **Key Structure**
+   - Use descriptive, hierarchical keys
+   - Group related translations under common parents
+   - Use consistent naming conventions
+3. **Dynamic Values**
+   - Use clear placeholder names
+   - Document expected placeholder values
+   - Validate all placeholders are provided
