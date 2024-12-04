@@ -83,10 +83,10 @@
 To run Storybook for component development:
 
 ```bash
-npm run storybook
+npm run storybook:start
 ```
 
-This will start Storybook on port 6006 with CSS processing enabled.
+This will start Storybook on [port 6006](http://localhost:6006) with CSS processing enabled.
 
 ## Building the project
 

@@ -80,7 +80,8 @@ git push --force-with-lease origin your-branch-name
 1. **Branch Naming**
 
 - Use descriptive names
-- Example: feature/add-user-authentication
+- Include the ticket number in the branch name (SLWEB-[number])
+- Example: feature/SLWEB-32-add-user-authentication
 
 2. **Commit Messages**
 
