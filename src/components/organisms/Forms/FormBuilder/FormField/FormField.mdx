@@ -1,0 +1,98 @@
+import { Meta, Story } from '@storybook/blocks';
+import FormField from '.';
+
+<Meta title="4 Forms/Form Builder/Form Field" component={FormField} />
+
+# Form Field Component
+
+A versatile component that renders different types of form inputs based on the specified type. It integrates with React Hook Form for form state management and validation.
+
+## Features
+
+- Seamless [React Hook Form](https://www.react-hook-form.com/) integration
+- Built-in error handling
+- Responsive layout support
+- Accessibility-friendly
+
+## Props
+
+| Prop      | Type            | Required | Description                       |
+| --------- | --------------- | -------- | --------------------------------- |
+| type      | FormFieldType   | Yes      | Type of form field to render      |
+| id        | string          | Yes      | Unique identifier for the field   |
+| name      | string          | Yes      | Field name for form handling      |
+| label     | string          | No       | Field label text                  |
+| register  | UseFormRegister | Yes      | React Hook Form register function |
+| errors    | FieldErrors     | No       | Form validation errors object     |
+| required  | boolean         | No       | Whether the field is required     |
+| className | string          | No       | Additional CSS classes            |
+| value     | string          | No       | Field value                       |
+| disabled  | boolean         | No       | Whether the field is disabled     |
+
+## Supported Field Types
+
+```typescript
+type FormFieldType =
+  | 'text'
+  | 'divider'
+  | 'row'
+  | 'input'
+  | 'number'
+  | 'email'
+  | 'tel'
+  | 'date'
+  | 'url'
+  | 'file'
+  | 'datetime'
+  | 'textarea'
+  | 'select'
+  | 'radioGroup'
+  | 'checkbox'
+  | 'captcha'
+  | 'hidden';
+```
+
+## Error Handling
+
+Errors are automatically displayed below each field when present in the errors object.
+
+## Special Features
+
+### Captcha Integration
+
+```tsx
+<FormField type="captcha" id="form-captcha" name="captcha" />
+```
+
+### Hidden Fields
+
+```tsx
+<FormField type="hidden" id="userId" name="userId" value="123" register={register} />
+```
+
+### Custom Change Behavior
+
+Some field types support custom change behavior:
+
+```tsx
+<FormField
+  type="select"
+  id="category"
+  name="category"
+  label="Category"
+  register={register}
+  customChangeBehaviour={(value) => {
+    // Custom handling
+    console.log('Selected value:', value);
+  }}
+/>
+```
+
+## Accessibility
+
+The component follows accessibility best practices:
+
+- Proper label associations
+- ARIA attributes
+- Keyboard navigation support
+- Error message announcements
