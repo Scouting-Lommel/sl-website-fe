@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FileSection from '.';
 
 const meta: Meta<typeof FileSection> = {
-  title: '3 Components/Organisms/FileSection',
+  title: '3 Components/Organisms/File Section',
   component: FileSection,
 };
 
@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: 'Example title',
+    title: 'Links en bestanden',
     files: {
       data: [
         {
@@ -27,7 +27,7 @@ export const Default: Story = {
           attributes: {
             id: '1',
             ext: '.docx',
-            url: 'randomurl.com',
+            url: 'https://example.com/document.pdf',
             name: 'Document file attachment',
             size: 450,
           },
