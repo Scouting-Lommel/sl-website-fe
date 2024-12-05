@@ -12,6 +12,10 @@
   },
   "close": "Sluiten",
   "closeWindow": "Venster sluiten",
+  "gallery": {
+    "viewAll": "Bekijk alles",
+    "viewLess": "Bekijk minder"
+  },
   "imageNotFound": "Afbeelding niet gevonden",
   "loading": "Aan het laden...",
   "moreInformation": "Meer informatie",
