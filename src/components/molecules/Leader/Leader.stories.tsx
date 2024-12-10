@@ -12,13 +12,27 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    firstName: 'Example',
-    lastName: 'Name',
+    firstName: 'Rikki Tikki',
+    lastName: 'Tavi',
     image: {
       data: {
         attributes: imageStory.args!.data!,
       },
     },
+  },
+  decorators: [
+    (Story: () => JSX.Element): JSX.Element => (
+      <div style={{ width: '11.5rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const WithoutImage: Story = {
+  args: {
+    firstName: 'De',
+    lastName: 'Roy',
   },
   decorators: [
     (Story: () => JSX.Element): JSX.Element => (

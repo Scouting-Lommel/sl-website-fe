@@ -13,7 +13,7 @@ export const links = (): StylesheetLink[] => {
 const Leader = ({ firstName, lastName, image }: LeaderProps): JSX.Element => {
   return (
     <div className="leader__container">
-      {image.data?.attributes ? (
+      {image?.data?.attributes ? (
         <SLImage
           data={image.data?.attributes}
           loadingStrategy="lazy"
@@ -21,7 +21,13 @@ const Leader = ({ firstName, lastName, image }: LeaderProps): JSX.Element => {
           modMaximisable
         />
       ) : (
-        <Image src={ProfilePicture} alt="Default profile picture" className="leader__image" />
+        <Image
+          src={ProfilePicture}
+          width="530"
+          height="530"
+          alt="Default profile picture"
+          className="leader__image"
+        />
       )}
       <Typography className="leader__name">
         <span>{firstName}</span>
