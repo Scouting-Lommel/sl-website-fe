@@ -2,13 +2,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TextImage from '.';
 
 const meta: Meta<typeof TextImage> = {
-  title: '3 Components/Organisms/TextImage',
+  title: '3 Components/Organisms/Text Image',
   component: TextImage,
   argTypes: {
     variant: {
       control: { type: 'select' },
       options: ['default', 'reversed'],
-      description: 'The variant',
     },
   },
 };
@@ -91,8 +90,8 @@ export const MultipleImages: Story = {
     ],
     variant: 'default',
     ctaButton: {
-      label: 'Meer over akabe',
-      link: '/takken/akabe',
+      label: 'Meer informatie',
+      link: '/algemene-informatie',
       variant: 'primary',
     },
   },
