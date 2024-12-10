@@ -18,8 +18,8 @@ const CallToAction = ({
   return (
     <div className={cn('cta', className)}>
       <div className="cta__copy">
-        <div className="cta__copy__title">{title}</div>
-        <div className="cta__copy__intro">{intro}</div>
+        {title && <div className="cta__copy__title">{title}</div>}
+        {intro && <div className="cta__copy__intro">{intro}</div>}
       </div>
       {ctaLabel && ctaLink && (
         <Button label={ctaLabel} href={ctaLink || ''} variant="primary" modSmall />
