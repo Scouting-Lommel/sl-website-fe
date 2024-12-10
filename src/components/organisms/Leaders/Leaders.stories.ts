@@ -5,12 +5,6 @@ import Leaders from '.';
 const meta: Meta<typeof Leaders> = {
   title: '3 Components/Organisms/Leaders',
   component: Leaders,
-  argTypes: {
-    leaders: {
-      control: { type: 'object' },
-      description: 'The leaders',
-    },
-  },
 };
 
 export default meta;
@@ -21,9 +15,8 @@ export const Default: Story = {
     leaders: [
       {
         attributes: {
-          active: true,
-          firstName: 'Example',
-          lastName: 'Name',
+          firstName: 'Akela',
+          lastName: '',
           image: {
             data: {
               attributes: imageStory.args!.data!,
@@ -33,9 +26,8 @@ export const Default: Story = {
       },
       {
         attributes: {
-          active: true,
-          firstName: 'Example',
-          lastName: 'Name',
+          firstName: 'Rikki Tikki',
+          lastName: 'Tavi',
           image: {
             data: {
               attributes: imageStory.args!.data!,
@@ -45,14 +37,8 @@ export const Default: Story = {
       },
       {
         attributes: {
-          active: true,
-          firstName: 'Example',
-          lastName: 'Name',
-          image: {
-            data: {
-              attributes: imageStory.args!.data!,
-            },
-          },
+          firstName: 'De',
+          lastName: 'Roy',
         },
       },
     ],
