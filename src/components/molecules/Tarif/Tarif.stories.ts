@@ -13,8 +13,8 @@ export const Default: Story = {
   args: {
     name: 'Erkende jeugdbeweging',
     example:
-      '3 dagen * 15 euro = 45 euro. <br/>minimumprijs = 100 euro, dus **totale prijs = 100 euro**.',
-    minimumPrice: 100,
-    dayPrice: 15,
+      'Ik kom met 40 personen voor 3 dagen.<br/>• _subtotaal_ = 3 dagen x 40 personen x 5,50 euro = 660 euro. <br/>• _subtotaal (= 660 euro)_ > _minimumprijs_ (= 165 euro) <br/>• **_totale prijs_ = __660 euro__**.',
+    minimumPrice: 165,
+    dayPrice: 5.5,
   },
 };
