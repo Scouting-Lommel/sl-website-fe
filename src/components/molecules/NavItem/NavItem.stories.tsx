@@ -4,6 +4,9 @@ import NavItem from '.';
 const meta: Meta<typeof NavItem> = {
   title: '3 Components/Molecules/Nav Item',
   component: NavItem,
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;

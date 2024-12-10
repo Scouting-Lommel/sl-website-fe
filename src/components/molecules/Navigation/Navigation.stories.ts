@@ -4,6 +4,9 @@ import Navigation from '.';
 const meta: Meta<typeof Navigation> = {
   title: '3 Components/Molecules/Navigation',
   component: Navigation,
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;
