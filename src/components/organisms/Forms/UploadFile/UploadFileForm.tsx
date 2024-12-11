@@ -4,9 +4,11 @@ import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { UploadFileForm as UploadFileFormProps } from './types';
 
-type Props = UploadFileFormProps & React.HTMLAttributes<HTMLElement>;
-
-const UploadFileForm = ({ initialValues, submitForm, groupId }: Props) => {
+const UploadFileForm = ({
+  initialValues,
+  submitForm,
+  groupId,
+}: UploadFileFormProps): JSX.Element => {
   const t = useTranslations('forms');
 
   const formFields: FormField[] = [

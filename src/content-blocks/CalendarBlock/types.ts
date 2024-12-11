@@ -7,4 +7,4 @@ export type CalendarBlock = {
   calendarEvents: CalendarEvent[];
   cta: CallToAction;
   blockProperties: BlockContainer;
-};
+} & React.HTMLAttributes<HTMLElement>;

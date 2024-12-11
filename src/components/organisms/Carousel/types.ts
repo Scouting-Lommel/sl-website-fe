@@ -1,5 +1,5 @@
-import { CarouselItem } from '@/components/molecules/CarouselItem/types';
 import { PropsWithChildren } from 'react';
+import { CarouselItem } from '@/components/molecules/CarouselItem/types';
 
 export type Carousel = {
   carouselItems: {
@@ -7,7 +7,7 @@ export type Carousel = {
       attributes: CarouselItem;
     }[];
   };
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 export type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;

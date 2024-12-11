@@ -1,10 +1,8 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import GoogleMap from '@/components/organisms/Map';
+import GoogleMap from '@/components/atoms/Map';
 import { MapBlock as MapBlockProps } from './types';
 
-type Props = MapBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const MapsBlock = ({ title, query, location, blockProperties }: Props) => {
+const MapsBlock = ({ title, query, location, blockProperties }: MapBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}

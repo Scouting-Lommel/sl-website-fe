@@ -7,4 +7,4 @@ export type TextImage = {
   images?: CloudinaryImage[];
   ctaButton?: Button;
   variant: 'default' | 'reversed';
-};
+} & React.HTMLAttributes<HTMLElement>;

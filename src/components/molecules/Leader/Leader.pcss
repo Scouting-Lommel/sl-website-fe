@@ -3,6 +3,13 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-12);
+
+  &:hover {
+    .leader__image {
+      box-shadow: var(--drop-shadow-lg);
+      transform: scale(1.01);
+    }
+  }
 }
 
 .leader__name {
@@ -19,6 +26,9 @@
   height: 6rem;
   border-radius: var(--border-radius);
   filter: drop-shadow(var(--drop-shadow-lg));
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 
   @media (--mq-from-small) {
     width: 7.5rem;

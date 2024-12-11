@@ -1,16 +1,14 @@
-import Typography from '@/components/atoms/Typography';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLLink from '@/components/atoms/Link';
+import Typography from '@/components/atoms/Typography';
 import { FooterDoormat as FooterDoormatProps, DoormatCol as DoormatColProps } from './types';
 import styles from './FooterDoormat.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type DoormatProps = FooterDoormatProps & React.HTMLAttributes<HTMLElement>;
-type ColProps = DoormatColProps & React.HTMLAttributes<HTMLElement>;
-
-const DoormatCol = ({ title, address, links }: ColProps) => {
+const DoormatCol = ({ title, address, links }: DoormatColProps): JSX.Element => {
   return (
     <div className="doormat-col">
       <h3 className="doormat-col__title">{title}</h3>
@@ -37,7 +35,11 @@ const DoormatCol = ({ title, address, links }: ColProps) => {
   );
 };
 
-const FooterDoormat = ({ address, contactItems, footerNavigation }: DoormatProps) => {
+const FooterDoormat = ({
+  address,
+  contactItems,
+  footerNavigation,
+}: FooterDoormatProps): JSX.Element => {
   return (
     <div className="footer-doormat">
       <div className="footer-doormat__section">

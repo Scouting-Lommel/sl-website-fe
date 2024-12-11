@@ -1,20 +1,19 @@
 import Image from 'next/image';
-import Typography from '@/components/atoms/Typography';
-import SLImage from '@/components/atoms/Image';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import ProfilePicture from '@/assets/img/default-avatar.png';
+import SLImage from '@/components/atoms/Image';
+import Typography from '@/components/atoms/Typography';
 import { Leader as LeaderProps } from './types';
 import styles from './Leader.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = LeaderProps & React.HTMLAttributes<HTMLElement>;
-
-const Leader = ({ firstName, lastName, image }: Props) => {
+const Leader = ({ firstName, lastName, image }: LeaderProps): JSX.Element => {
   return (
     <div className="leader__container">
-      {image.data?.attributes ? (
+      {image?.data?.attributes ? (
         <SLImage
           data={image.data?.attributes}
           loadingStrategy="lazy"
@@ -22,7 +21,13 @@ const Leader = ({ firstName, lastName, image }: Props) => {
           modMaximisable
         />
       ) : (
-        <Image src={ProfilePicture} alt="default profile picture" className="leader__image" />
+        <Image
+          src={ProfilePicture}
+          width="530"
+          height="530"
+          alt="Default profile picture"
+          className="leader__image"
+        />
       )}
       <Typography className="leader__name">
         <span>{firstName}</span>

@@ -1,55 +1,63 @@
 'use client';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { useTranslations } from 'use-intl';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
-import NavItem from '@/components/molecules/NavItem';
+import { Button } from '@/components/atoms/Button/types';
 import { DropdownItem } from '@/components/molecules/Dropdown/types';
 import { DropdownCta } from '@/components/molecules/Dropdown/types';
-import { Button } from '@/components/atoms/Button/types';
+import NavItem from '@/components/molecules/NavItem';
 
-const AuthButton = () => {
-  const { data: session } = useSession();
+const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
+  const t = useTranslations('dashboard.authButton');
 
   if (session) {
     const dropdownItems: DropdownItem[] = [];
     const dropdownCta: DropdownCta = {
-      title: session?.user?.name || 'Leidersprofiel',
-      intro: `Ingelogd als **${session?.role}**`,
-      ctaLabel: 'Uitloggen',
+      title: session.user?.name || t('leaderProfile'),
+      intro: t('loggedInAs', { role: session.role }),
+      ctaLabel: t('signOut'),
       ctaOnClick: () => signOut(),
     };
     const dropdownButton: Button = {
-      label: 'Naar het dashboard',
+      label: t('toTheDashboard'),
       href: '/dashboard',
       variant: 'primary',
     };
 
     if (session.orgUnit && checkOrganisationPermission(session.orgUnit, 'groups')) {
       dropdownItems.push({
-        label: 'Takken',
+        label: t('groups'),
         page: 'dashboard',
         link: '/dashboard/takken',
-        description: 'Takken beheren',
+        description: t('manageGroups'),
       });
     }
 
     return (
       <NavItem
         itemKey={99}
-        label="Leidingsmenu"
+        label={t('leaderMenu')}
         href="/dashboard"
         dropdownItems={dropdownItems}
         dropdownButton={dropdownButton}
         dropdownCta={dropdownCta}
-        dropdownTitle="Dashboard"
+        dropdownTitle={t('dashboard')}
         modDropdown
       />
     );
   }
 
   return (
-    <NavItem itemKey={99} label="Inloggen" href="/inloggen" onClick={() => signIn()} modButton />
+    <NavItem itemKey={99} label={t('login')} href="/inloggen" onClick={() => signIn()} modButton />
   );
 };
 
+const AuthButton = (): JSX.Element => {
+  const { data: session } = useSession();
+
+  return <NavAuthButton session={session} />;
+};
+
 export default AuthButton;
+export { NavAuthButton };

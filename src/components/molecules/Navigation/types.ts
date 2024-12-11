@@ -15,4 +15,4 @@ export type Navigation = {
   navItems: NavItem[];
   groups: DropdownNavItem[];
   rentalLocations: DropdownNavItem[];
-};
+} & React.HTMLAttributes<HTMLElement>;

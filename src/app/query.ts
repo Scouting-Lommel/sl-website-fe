@@ -1,5 +1,4 @@
 import gql from 'graphql-tag';
-
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
 
 const GENERAL_DATA = gql`
@@ -102,4 +101,4 @@ const GENERAL_DATA = gql`
   }
 `;
 
-export default GENERAL_DATA;
+export { GENERAL_DATA };

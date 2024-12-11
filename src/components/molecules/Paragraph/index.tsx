@@ -1,14 +1,13 @@
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { Paragraph as ParagraphProps } from './type';
+import { Paragraph as ParagraphProps } from './types';
 import styles from './Paragraph.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = ParagraphProps & React.HTMLAttributes<HTMLElement>;
-
-const Paragraph = ({ title, content }: Props) => {
+const Paragraph = ({ title, content }: ParagraphProps): JSX.Element => {
   return (
     <section id={title.toLowerCase().replaceAll(' ', '-')} className="paragraph">
       <div className="paragraph__title">

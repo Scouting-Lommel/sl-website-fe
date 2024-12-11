@@ -1,14 +1,13 @@
-import FooterHead from '@/components/molecules/FooterHead';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import FooterDisclosure from '@/components/molecules/FooterDisclosure';
 import FooterDoormat from '@/components/molecules/FooterDoormat';
+import FooterHead from '@/components/molecules/FooterHead';
 import { Footer as FooterProps } from './types';
 import styles from './Footer.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = FooterProps & React.HTMLAttributes<HTMLElement>;
 
 const Footer = ({
   siteName,
@@ -17,7 +16,7 @@ const Footer = ({
   address,
   contactItems,
   footerNavigation,
-}: Props) => {
+}: FooterProps): JSX.Element => {
   return (
     <footer className="footer">
       <div className="sl-layout">

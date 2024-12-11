@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { updateActivity, deleteActivity, createActivity } from '@/lib/api/activities/api';
 
-export async function POST(request: NextRequest) {
+export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { action, data } = await request.json();
 
   try {
@@ -22,4 +22,4 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
-}
+};

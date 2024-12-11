@@ -5,6 +5,6 @@ export type CalendarEvent = {
   end: Date;
 };
 
-export type CalendarProps = {
+export type Calendar = {
   events: CalendarEvent[];
-};
+} & React.HTMLAttributes<HTMLElement>;

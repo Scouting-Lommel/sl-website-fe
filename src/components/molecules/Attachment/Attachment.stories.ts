@@ -4,21 +4,20 @@ import Attachment from '.';
 const meta = {
   title: '3 Components/Molecules/Attachment',
   component: Attachment,
-  tags: ['autodocs'],
 } satisfies Meta<typeof Attachment>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const File = {
+export const File: Story = {
   args: {
     variant: 'file',
     file: { id: '0', ext: '.png', url: 'randomurl.com', name: 'Image file attachment', size: 10 },
     modDeleteable: false,
   },
-} satisfies Story;
+};
 
-export const Link = {
+export const Link: Story = {
   args: {
     variant: 'link',
     link: {
@@ -28,4 +27,4 @@ export const Link = {
     },
     modDeleteable: false,
   },
-} satisfies Story;
+};

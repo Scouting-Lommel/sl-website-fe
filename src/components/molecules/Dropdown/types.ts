@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import type { Button } from '@/components/atoms/Button/types';
+import { Button } from '@/components/atoms/Button/types';
 
 export type DropdownNavItem = {
   name: string;
@@ -32,4 +32,4 @@ export type Dropdown = {
   groups?: DropdownNavItem[];
   rentalLocations?: DropdownNavItem[];
   toggleDropdown: Function;
-};
+} & React.HTMLAttributes<HTMLElement>;

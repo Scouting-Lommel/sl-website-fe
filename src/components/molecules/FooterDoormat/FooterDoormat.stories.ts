@@ -1,30 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import FooterDoormat from '.';
 
-const meta = {
-  title: '3 Components/Molecules/FooterDoormat',
+const meta: Meta<typeof FooterDoormat> = {
+  title: '3 Components/Molecules/Footer Doormat',
   component: FooterDoormat,
-  tags: ['autodocs'],
-  argTypes: {
-    address: {
-      control: { type: 'text' },
-      description: 'The address',
-    },
-    contactItems: {
-      control: { type: 'object' },
-      description: 'The contact items',
-    },
-    footerNavigation: {
-      control: { type: 'object' },
-      description: 'The footer navigation',
-    },
-  },
-} satisfies Meta<typeof FooterDoormat>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     address: 'Nieuwe Kopen 4\n3920 Lommel\nBelgië',
     contactItems: [
@@ -95,4 +80,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

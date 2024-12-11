@@ -5,19 +5,16 @@
 }
 
 .table-of-contents__item {
+  --color-link: var(--color-black);
+
   display: block;
   width: fit-content;
   padding: var(--space-8) 0;
-  color: var(--color-neutral-900);
-  font-weight: var(--font-weight-bold);
+  list-style-type: none;
   text-decoration: none;
-
-  &:hover {
-    color: var(--color-neutral-600);
-    text-decoration: underline;
-  }
 }
 
 .table-of-contents__item__prefix {
   color: var(--color-primary-base);
+  font-weight: var(--font-weight-black);
 }

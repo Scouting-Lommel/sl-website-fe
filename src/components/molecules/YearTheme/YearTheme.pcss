@@ -2,7 +2,15 @@
   overflow: hidden;
   width: fit-content;
   border-radius: var(--border-radius);
-  filter: drop-shadow(var(--drop-shadow-lg));
+  box-shadow: var(--drop-shadow-sm);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+
+  &:hover {
+    box-shadow: var(--drop-shadow-lg);
+    transform: scale(1.03);
+  }
 }
 
 .year-theme__image {

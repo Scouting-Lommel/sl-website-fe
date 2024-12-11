@@ -5,4 +5,4 @@ export type Radio = {
   label: string;
   checked?: boolean;
   hasError?: boolean;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;

@@ -1,9 +1,7 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Hero from '@/components/organisms/Hero';
 import { SocialsCta } from '@/components/molecules/SocialsCta/types';
+import Hero from '@/components/organisms/Hero';
 import { HeroBlock as HeroBlockProps } from './types';
-
-type Props = HeroBlockProps & React.HTMLAttributes<HTMLElement>;
 
 const HeroBlock = ({
   title,
@@ -13,7 +11,7 @@ const HeroBlock = ({
   socialsCta,
   yearTheme,
   bgImage,
-}: Props) => {
+}: HeroBlockProps): JSX.Element => {
   const socialsCallToAction: SocialsCta = {
     title: socialsCta?.title || '',
     socialItems: socialsCta?.socialItems.data.map((item: any) => {

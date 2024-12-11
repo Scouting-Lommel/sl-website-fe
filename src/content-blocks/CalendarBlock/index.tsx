@@ -1,10 +1,13 @@
 import BlockContainer from '@/components/atoms/BlockContainer';
-import { CalendarBlock as CalendarBlockProps } from './types';
 import Calendar from '@/components/atoms/Calendar';
+import { CalendarBlock as CalendarBlockProps } from './types';
 
-type Props = CalendarBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const GroupsBlock = ({ title, calendarEvents, cta, blockProperties }: Props) => {
+const GroupsBlock = ({
+  title,
+  calendarEvents,
+  cta,
+  blockProperties,
+}: CalendarBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties.variant}

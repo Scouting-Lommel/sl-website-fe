@@ -9,7 +9,7 @@ export type BaseField = {
   required?: boolean;
   register?: UseFormRegister<any>;
   errors?: FieldErrors<any>;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 export interface RowField extends BaseField {
   type: 'row';

@@ -1,42 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Footer from '.';
 
-const meta = {
+const meta: Meta<typeof Footer> = {
   title: '3 Components/Organisms/Footer',
   component: Footer,
-  tags: ['autodocs'],
-  argTypes: {
-    siteName: {
-      control: { type: 'text' },
-      description: 'The name of the site',
-    },
-    vatNumber: {
-      control: { type: 'text' },
-      description: 'The vat number',
-    },
-    groupNumber: {
-      control: { type: 'text' },
-      description: 'The number of the group',
-    },
-    address: {
-      control: { type: 'text' },
-      description: 'The address',
-    },
-    contactItems: {
-      control: { type: 'object' },
-      description: 'The contact items',
-    },
-    footerNavigation: {
-      control: { type: 'object' },
-      description: 'The navigation of the footer',
-    },
-  },
-} satisfies Meta<typeof Footer>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     siteName: 'Scouting Sint-Pieter Lommel',
     vatNumber: 'BE 0410.966.531',
@@ -110,4 +83,4 @@ export const Default = {
       },
     ],
   },
-} satisfies Story;
+};

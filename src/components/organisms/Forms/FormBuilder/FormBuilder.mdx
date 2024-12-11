@@ -1,0 +1,175 @@
+import { Meta, Story } from '@storybook/blocks';
+import FormBuilder from '.';
+
+<Meta title="4 Forms/Form Builder/Form Builder" component={FormBuilder} />
+
+# Form Builder Component
+
+A flexible and powerful form generation component that creates dynamic forms based on a field configuration. Built with React Hook Form and Yup validation.
+
+## Features
+
+- Built-in form state management using [React Hook Form](https://www.react-hook-form.com/)
+- Schema-based validation with [Yup](https://github.com/jquense/yup)
+- Responsive design
+- Built-in CSRF protection with [CloudFlare Turnstile](https://developers.cloudflare.com/turnstile/) integration
+- Support for multiple field types and layout configurations
+
+## Props
+
+| Prop                | Type                    | Required | Description                                 |
+| ------------------- | ----------------------- | -------- | ------------------------------------------- |
+| `formId`            | `string`                | Yes      | Unique identifier for the form              |
+| `fields`            | `FormField[]`           | Yes      | Array of field configurations               |
+| `initialValues`     | `object`                | No       | Initial values for form fields              |
+| `formSchema`        | `Yup.ObjectSchema`      | Yes      | Yup validation schema                       |
+| `submitForm`        | `(values: any) => void` | Yes      | Form submission handler                     |
+| `submitButtonLabel` | `string`                | Yes      | Label for the submit button                 |
+| `secondaryButton`   | `ButtonProps`           | No       | Configuration for optional secondary button |
+
+## Field Types
+
+The FormBuilder supports various field types through the FormField interface:
+
+```tsx
+type FormField = {
+  type:
+    | 'input'
+    | 'textarea'
+    | 'select'
+    | 'checkbox'
+    | 'radio'
+    | 'datetime'
+    | 'file'
+    | 'hidden'
+    | 'row';
+  id: string;
+  name: string;
+  label?: string;
+  required?: boolean;
+  // Additional type-specific props
+  fieldChildren?: FormField[]; // For row type
+  options?: { label: string; value: string }[]; // For select type
+  rows?: number; // For textarea
+  // ... other field-specific props
+};
+```
+
+See FormField for full documentation.
+
+## Basic Usage
+
+Here's a simple example of how to use the FormBuilder:
+
+```tsx
+const t = useTranslations('forms');
+
+const formFields = [
+  {
+    type: 'input',
+    id: 'name',
+    name: 'name',
+    label: t('fields.name.label'),
+    required: true,
+  },
+  {
+    type: 'email',
+    id: 'email',
+    name: 'email',
+    label: t('fields.email.label'),
+    required: true,
+  },
+];
+
+const formSchema = generateFormSchema({
+  fields: formFields,
+  t,
+});
+
+const handleSubmit = (data) => {
+  console.log('Form submitted:', data);
+};
+
+return (
+  <FormBuilder
+    formId="my-form"
+    fields={formFields}
+    formSchema={formSchema}
+    submitForm={handleSubmit}
+    submitButtonLabel="Submit"
+  />
+);
+```
+
+## Advanced Usage
+
+### Row Layout
+
+You can create multi-column layouts using the row field type:
+
+```tsx
+const formFields = [
+  {
+    type: 'row',
+    id: 'name-row',
+    name: 'name-row',
+    fieldChildren: [
+      {
+        type: 'input',
+        id: 'firstName',
+        name: 'firstName',
+        label: t('fields.firstName.label'),
+        required: true,
+      },
+      {
+        type: 'input',
+        id: 'lastName',
+        name: 'lastName',
+        label: t('fields.lastName.label'),
+        required: true,
+      },
+    ],
+  },
+];
+```
+
+### File Upload
+
+```tsx
+const formFields = [
+  {
+    type: 'file',
+    id: 'document',
+    name: 'document',
+    label: t('fields.document.label'),
+    required: true,
+    accept: 'application/pdf,image/*',
+  },
+];
+```
+
+## Validation
+
+The FormBuilder uses Yup for validation through the `generateFormSchema` helper. It automatically generates validation schemas based on field types:
+
+- Required fields
+- Email validation
+- Phone number format
+- URL format
+- File size and type restrictions
+- Custom select/radio options validation
+
+```tsx
+import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
+```
+
+```tsx
+const formSchema = generateFormSchema({
+  fields: formFields,
+  t: useTranslations('forms'),
+});
+```
+
+## Security
+
+The FormBuilder includes built-in CSRF protection using Cloudflare Turnstile. The token is automatically included in form submissions and needs to be verified on the server-side.

@@ -4,8 +4,8 @@ import { getTranslations } from 'next-intl/server';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Hero from '@/components/organisms/Hero';
 import Button from '@/components/atoms/Button';
+import Hero from '@/components/organisms/Hero';
 
 type Group = {
   title: string;
@@ -22,13 +22,13 @@ const allGroups: Group[] = [
   { title: 'Jin', slug: 'jin', permission: 'groups:jin' },
 ];
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   return {
     title: 'Takken • Dashboard',
   };
-}
+};
 
-const DashboardGroupsOverviewPage = async () => {
+const DashboardGroupsOverviewPage = async (): Promise<JSX.Element> => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 

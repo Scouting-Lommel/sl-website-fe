@@ -12,10 +12,10 @@ export type DoormatCol = {
   title: string;
   address?: string;
   links?: Link[];
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 export type FooterDoormat = {
   address: string;
   contactItems: Link[];
   footerNavigation: FooterNavigation[];
-};
+} & React.HTMLAttributes<HTMLElement>;

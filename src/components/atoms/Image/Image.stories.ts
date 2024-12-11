@@ -1,26 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Image from '.';
 
-const meta = {
+const meta: Meta<typeof Image> = {
   title: '3 Components/Atoms/Image',
   component: Image,
-  tags: ['autodocs'],
   argTypes: {
-    data: {
-      description: 'The data for the image',
-      control: { type: 'object' },
-    },
     loadingStrategy: {
-      description: 'How the image should be loaded',
-      control: { type: 'text' },
+      control: { type: 'select' },
+      options: ['lazy', 'eager'],
     },
   },
-} satisfies Meta<typeof Image>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     data: {
       name: 'groepsfoto.png',
@@ -33,4 +28,4 @@ export const Default = {
     },
     loadingStrategy: 'lazy',
   },
-} satisfies Story;
+};

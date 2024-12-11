@@ -1,7 +1,7 @@
 'use client';
 
-import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
 import Form from '@/components/organisms/Forms';
@@ -12,7 +12,7 @@ type Props = {
   group: any;
 };
 
-const ActivitiesSection = ({ group }: Props) => {
+const ActivitiesSection = ({ group }: Props): JSX.Element => {
   const [groupActivities, setActivities] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);

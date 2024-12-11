@@ -1,15 +1,14 @@
-import { CarouselItem as CarouselItemProps } from './types';
-import styles from './CarouselItem.css';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
 import Typography from '@/components/atoms/Typography';
+import { CarouselItem as CarouselItemProps } from './types';
+import styles from './CarouselItem.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = CarouselItemProps & React.HTMLAttributes<HTMLElement>;
-
-const CarouselItem = ({ logo, name, slug }: Props) => {
+const CarouselItem = ({ logo, name, slug }: CarouselItemProps): JSX.Element => {
   return (
     <div className="embla__slide">
       <a className="embla__slide__card" href={'/takken/' + slug}>

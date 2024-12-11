@@ -7,4 +7,4 @@ export type Hero = {
   variant: 'default' | 'large' | 'simple';
   callToAction?: Button[];
   yearTheme?: YearTheme;
-};
+} & React.HTMLAttributes<HTMLElement>;

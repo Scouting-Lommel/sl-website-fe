@@ -1,13 +1,15 @@
 import { useTranslations } from 'next-intl';
-import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import { urlRegExValidation } from '@/lib/constants/regexValidation';
+import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { UploadLinkForm as UploadLinkFormProps } from './types';
 
-type Props = UploadLinkFormProps & React.HTMLAttributes<HTMLElement>;
-
-const UploadLinkForm = ({ initialValues, submitForm, groupId }: Props) => {
+const UploadLinkForm = ({
+  initialValues,
+  submitForm,
+  groupId,
+}: UploadLinkFormProps): JSX.Element => {
   const t = useTranslations('forms');
 
   const formFields: FormField[] = [

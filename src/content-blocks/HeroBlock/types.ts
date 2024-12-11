@@ -14,4 +14,4 @@ export type HeroBlock = {
   socialsCta?: { title: string; socialItems: { data: any } };
   yearTheme?: YearThemeData;
   bgImage?: { data: { attributes: CloudinaryImage } };
-};
+} & React.HTMLAttributes<HTMLElement>;

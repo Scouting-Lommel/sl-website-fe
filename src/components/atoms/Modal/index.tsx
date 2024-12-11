@@ -1,16 +1,15 @@
-import { useRef, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
+import { useRef, useEffect, useCallback } from 'react';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import { Modal as ModalProps } from './types';
 import styles from './Modal.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = ModalProps & React.HTMLAttributes<HTMLElement>;
-
-const Modal = ({ id, title, children, open, handleCloseModal }: Props) => {
+const Modal = ({ id, title, children, open, handleCloseModal }: ModalProps): JSX.Element => {
   const t = useTranslations('common');
 
   const modal = useRef<HTMLDialogElement>(null);

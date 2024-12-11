@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { iconMap } from './IconMap';
+import { iconMap, IconNames } from './IconMap';
 import Icon from './';
 
-const CustomIconGallery: React.FC = () => {
+const CustomIconGallery = (): JSX.Element => {
   return (
     <div className="sb-section">
       {Object.entries(iconMap).map(([name, _]) => {
@@ -10,7 +10,7 @@ const CustomIconGallery: React.FC = () => {
           <div className="sb-list__item" key={name}>
             <div className="sb-list__item__cell">
               <div className="sb-icon-swatch">
-                <Icon name={name as keyof typeof iconMap} size="lg" />
+                <Icon name={name as IconNames} size="lg" />
               </div>
             </div>
             <div className="sb-code sb-code--styled">{name}</div>
@@ -21,10 +21,9 @@ const CustomIconGallery: React.FC = () => {
   );
 };
 
-const meta = {
+const meta: Meta<typeof Icon> = {
   title: '3 Components / Atoms / Icons',
   component: Icon,
-  tags: ['autodocs'],
   argTypes: {
     name: {
       description: 'The icon to display',
@@ -37,17 +36,17 @@ const meta = {
       description: 'The size of the icon',
     },
   },
-} satisfies Meta<typeof Icon>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     name: 'arrow-down',
     size: 'lg',
   },
-} satisfies Story;
+};
 
 const AllIconsTemplate = () => <CustomIconGallery />;
 export const IconList = AllIconsTemplate.bind({});

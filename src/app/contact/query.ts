@@ -1,9 +1,8 @@
 import gql from 'graphql-tag';
-
-import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
-import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
+import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
+import PAGE_META_FRAGMENT from '@/graphql/page-meta-fragment.gql';
 
 const CONTACT_PAGE_QUERY = gql`
   ${HERO_BLOCK_FRAGMENT}
@@ -29,4 +28,4 @@ const CONTACT_PAGE_QUERY = gql`
   }
 `;
 
-export default CONTACT_PAGE_QUERY;
+export { CONTACT_PAGE_QUERY };

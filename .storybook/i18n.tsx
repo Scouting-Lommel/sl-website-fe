@@ -15,7 +15,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const Withi18n = ({ children }: Props) => {
+const Withi18n = ({ children }: Props): JSX.Element => {
   const messages: { [key: string]: any } = {};
 
   try {

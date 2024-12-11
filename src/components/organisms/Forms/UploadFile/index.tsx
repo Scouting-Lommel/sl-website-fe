@@ -1,11 +1,11 @@
-import { useContext } from 'react';
 import { useTranslations } from 'next-intl';
-import { FormContext } from '@/lib/contexts/FormContext';
+import { useContext } from 'react';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { FormContext } from '@/lib/contexts/FormContext';
 import Banner from '@/components/atoms/Banner';
 import UploadFileForm from './UploadFileForm';
 
-const UploadFile = (props: any) => {
+const UploadFile = (props: any): JSX.Element => {
   const t = useTranslations('forms.uploadFileForm');
 
   const { formStatus, setFormStatus } = useContext(FormContext);

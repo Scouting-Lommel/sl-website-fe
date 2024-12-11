@@ -1,26 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import SocialsCta from '.';
 
-const meta = {
-  title: '3 Components/Molecules/SocialsCta',
+const meta: Meta<typeof SocialsCta> = {
+  title: '3 Components/Molecules/Socials CTA',
   component: SocialsCta,
-  tags: ['autodocs'],
-  argTypes: {
-    title: {
-      control: { type: 'text' },
-      description: 'The text of the cta',
-    },
-    socialItems: {
-      control: { type: 'object' },
-      description: 'All social items',
-    },
-  },
-} satisfies Meta<typeof SocialsCta>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Volg ons op sociale media!',
     socialItems: [
@@ -29,4 +18,4 @@ export const Default = {
       { title: 'TikTok', link: 'https://tiktok.com', icon: 'tiktok' },
     ],
   },
-} satisfies Story;
+};

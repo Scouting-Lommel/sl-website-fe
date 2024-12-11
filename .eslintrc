@@ -1,5 +1,6 @@
 {
   "extends": ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
+  "plugins": ["import"],
   "rules": {
     "@next/next/no-img-element": "off",
     "jsx-a11y/alt-text": [
@@ -12,5 +13,76 @@
       },
     ],
     "prettier/prettier": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": ["external", "internal", ["parent", "sibling"]],
+        "pathGroups": [
+          {
+            "pattern": "@/i18n/**",
+            "group": "internal",
+            "position": "before",
+          },
+          {
+            "pattern": "@/lib/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/types/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/assets/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/components/atoms/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/components/molecules/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/components/organisms/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "@/content-blocks/**",
+            "group": "internal",
+            "position": "after",
+          },
+          {
+            "pattern": "./types",
+            "group": "sibling",
+            "position": "before",
+          },
+          {
+            "pattern": "./**/*.{css,pcss}",
+            "group": "sibling",
+            "position": "after",
+          },
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true,
+        },
+      },
+    ],
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
   },
 }

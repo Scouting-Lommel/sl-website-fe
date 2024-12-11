@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas } from '@storybook/blocks';
+import AuthButton from '.';
+import * as AuthButtonStories from './AuthButton.stories';
+
+<Meta title="3 Components/Molecules/Auth Button" component={AuthButton} />
+
+# AuthButton Component
+
+A dynamic authentication button component that changes its appearance and functionality based on the user's authentication state.
+It integrates with NextAuth for authentication and provides different navigation options for authenticated users.
+
+## Overview
+
+The AuthButton component serves two main purposes:
+
+1. For **unauthenticated users**: displays a login button
+   <Canvas of={AuthButtonStories.Default} />
+2. For **authenticated users**: shows a dropdown menu with dashboard access and user information
+   <Canvas of={AuthButtonStories.Authenticated} />
+
+## Features
+
+- Integrates with NextAuth for authentication state management
+- Conditional rendering based on authentication state
+- Role-based access control for organization groups
+- Customizable dropdown menu for authenticated users
+
+## Technical Considerations
+
+1. Marked as a client component with `'use client'`
+2. Uses NextAuth session management
+3. Integrates with organization permission system
+4. Dynamic dropdown menu based on user permissions
+5. Consistent navigation item styling through `<NavItem />` component
+
+## Accessibility
+
+- Uses semantic navigation elements
+- Maintains consistent keyboard navigation
+- Provides clear visual feedback for interactive elements
+- Supports screen readers through appropriate ARIA labels (inherited from `<NavItem />`)
+
+## Notes
+
+- The component uses a fixed `itemKey` of `99` for navigation ordering
+- All hardcoded text is internationalized for multi-language support
+- The dropdown menu is only rendered for authenticated users
+- Permission checks affect the available dropdown options

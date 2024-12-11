@@ -6,6 +6,7 @@
   @media (--mq-from-medium) {
     grid-template-columns: 1fr 1fr;
   }
+
   @media (--mq-from-large) {
     column-gap: 4rem;
   }
@@ -15,12 +16,12 @@
   margin-bottom: 4rem !important;
 }
 
-h2,
+h2:has([class*='css']),
 .sb-heading__2 {
   font-family: var(--font-family-title) !important;
 }
 
-h3,
+h3:has([class*='css']),
 .sb-heading__3 {
   margin-top: 1.5rem !important;
   font-family: var(--font-family-title) !important;

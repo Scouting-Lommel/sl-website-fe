@@ -17,7 +17,7 @@ const FormContext = createContext<FormContextType>(defaultContext);
 
 type FormProviderProps = { children: React.ReactNode };
 
-const FormProvider = ({ children }: FormProviderProps) => {
+const FormProvider = ({ children }: FormProviderProps): JSX.Element => {
   const [formStatus, setFormStatusState] = useState<FormStatus>(FormStatus.STATUS_READY);
   const [removeStatusAfterTimeout, setRemoveStatusAfterTimeout] = useState<boolean>(false);
 

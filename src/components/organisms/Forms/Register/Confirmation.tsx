@@ -1,17 +1,16 @@
-import { useContext } from 'react';
 import { useTranslations } from 'next-intl';
+import { useContext } from 'react';
+import { generalEmailAddress } from '@/lib/constants/emailAddress';
+import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';
 import { getCurrentWorkingYear } from '@/lib/helpers/getCurrentWorkingYear';
-import { FormStatus } from '@/lib/constants/enums/formStatus';
-import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import Button from '@/components/atoms/Button';
+import { RegisterConfirmation as RegisterConfirmationProps } from './types';
 
-type Props = {
-  price: number;
-  bankAccountNumber: string;
-};
-
-const RegisterConfirmation = ({ price, bankAccountNumber }: Props) => {
+const RegisterConfirmation = ({
+  price,
+  bankAccountNumber,
+}: RegisterConfirmationProps): JSX.Element => {
   const t = useTranslations('forms.registerForm.confirmation');
   const { setFormStatus } = useContext(FormContext);
 

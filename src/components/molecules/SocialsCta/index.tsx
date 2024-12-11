@@ -1,19 +1,18 @@
-import classNames from 'classnames';
-import { iconMap } from '@/components/atoms/Icon/IconMap';
-import SLLink from '@/components/atoms/Link';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
+import { iconMap, IconNames } from '@/components/atoms/Icon/IconMap';
+import SLLink from '@/components/atoms/Link';
 import { SocialsCta as SocialsCtaProps } from './types';
 import styles from './SocialsCta.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = SocialsCtaProps & React.HTMLAttributes<HTMLElement>;
-
-const SocialsCta = ({ title, socialItems, className }: Props) => {
+const SocialsCta = ({ title, socialItems, className }: SocialsCtaProps): JSX.Element => {
   interface icons {
-    [key: string]: keyof typeof iconMap;
+    [key: string]: IconNames;
   }
   const icons: icons = {
     facebook: 'facebook',
@@ -22,7 +21,7 @@ const SocialsCta = ({ title, socialItems, className }: Props) => {
   };
 
   return (
-    <div className={classNames('socials-cta', className)}>
+    <div className={cn('socials-cta', className)}>
       <div className="socials-cta__copy">
         <div className="socials-cta__copy__title">{title}</div>
       </div>

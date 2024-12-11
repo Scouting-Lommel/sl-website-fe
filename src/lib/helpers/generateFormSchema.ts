@@ -1,5 +1,5 @@
-import * as Yup from 'yup';
 import { useTranslations } from 'next-intl';
+import * as Yup from 'yup';
 import { phoneRegExValidation, urlRegExValidation } from '@/lib/constants/regexValidation';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 

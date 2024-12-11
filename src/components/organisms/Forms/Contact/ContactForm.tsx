@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
-import { Recipients } from '@/lib/constants/enums/recipients';
+import { useEffect, useState } from 'react';
 import { Groups } from '@/lib/constants/enums/groups';
+import { Recipients } from '@/lib/constants/enums/recipients';
+import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import {
   FormField,
@@ -11,9 +11,7 @@ import {
 } from '@/components/organisms/Forms/FormBuilder/FormField/types';
 import { ContactForm as ContactFormProps } from './types';
 
-type Props = ContactFormProps & React.HTMLAttributes<HTMLElement>;
-
-const ContactForm = ({ initialValues, submitForm }: Props) => {
+const ContactForm = ({ initialValues, submitForm }: ContactFormProps): JSX.Element => {
   const t = useTranslations('forms');
 
   const isRowField = (field: FormField): field is RowField & BaseField => field.type === 'row';

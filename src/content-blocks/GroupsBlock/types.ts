@@ -15,4 +15,4 @@ export type GroupsBlock = {
   };
   cta: CallToAction;
   blockProperties: BlockContainer;
-};
+} & React.HTMLAttributes<HTMLElement>;

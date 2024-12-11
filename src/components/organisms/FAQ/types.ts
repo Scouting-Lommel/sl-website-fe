@@ -4,4 +4,4 @@ export type FAQ = {
   title: String;
   bottomText?: string;
   faqItems: { attributes: FaqItem }[];
-};
+} & React.HTMLAttributes<HTMLElement>;

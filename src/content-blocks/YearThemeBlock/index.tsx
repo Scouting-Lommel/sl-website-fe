@@ -2,9 +2,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import YearThemeSection from '@/components/organisms/YearThemeSection';
 import { YearThemeBlock as YearThemeBlockProps } from './types';
 
-type Props = YearThemeBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const YearThemeBlock = ({ title, cta, blockProperties, yearTheme }: Props) => {
+const YearThemeBlock = ({ cta, blockProperties, yearTheme }: YearThemeBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}

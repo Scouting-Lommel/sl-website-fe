@@ -2,9 +2,12 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import FAQ from '@/components/organisms/FAQ';
 import { FaqBlock as TextImageBlockProps } from './types';
 
-type Props = TextImageBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const FaqBlock = ({ title, bottomText, faqItems, blockProperties }: Props) => {
+const FaqBlock = ({
+  title,
+  bottomText,
+  faqItems,
+  blockProperties,
+}: TextImageBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}

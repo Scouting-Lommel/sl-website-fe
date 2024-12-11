@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Button from '@/components/atoms/Button';
 
-const ContactConfirmation = () => {
+const ContactConfirmation = (): JSX.Element => {
   const t = useTranslations('forms.contactForm.confirmation');
 
   return (

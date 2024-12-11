@@ -22,7 +22,7 @@ const blockList: BlockList = {
   ComponentContentBlocksDivider: dynamic(() => import('./Divider')),
 };
 
-const Blocks = ({ content }: { content: any }) => {
+const Blocks = ({ content }: { content: any }): JSX.Element => {
   if (!content || !content.length) return <></>;
 
   const contentBlocks = content.map((block: any) => {

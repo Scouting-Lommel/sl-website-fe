@@ -1,18 +1,24 @@
-import classNames from 'classnames';
-import Typography from '@/components/atoms/Typography';
-import SLImage from '@/components/atoms/Image';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
+import SLImage from '@/components/atoms/Image';
+import Typography from '@/components/atoms/Typography';
 import { TextImage as TextImageProps } from './types';
 import styles from './TextImage.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = TextImageProps & React.HTMLAttributes<HTMLElement>;
-
-const ImageText = ({ title, content, images, variant, ctaButton, className }: Props) => {
-  const textImageClassnames = classNames(
+const ImageText = ({
+  title,
+  content,
+  images,
+  variant,
+  ctaButton,
+  className,
+}: TextImageProps): JSX.Element => {
+  const textImageClassnames = cn(
     'text-image',
     images && images?.length > 0 && `text-image--${variant} text-image--has-images`,
     images && images?.length < 1 && 'text-image--has-no-images',

@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Blocks from '@/content-blocks';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import { generateStructuredData } from '@/lib/helpers/generateStructuredData';
-import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getHomePage } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { homePage } = await getHomePage();
   if (!homePage || !generalData) return {};
@@ -17,9 +17,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const HomePage = async () => {
+const HomePage = async (): Promise<JSX.Element> => {
   const { generalData } = await getGeneralData();
   const { homePage } = await getHomePage();
 

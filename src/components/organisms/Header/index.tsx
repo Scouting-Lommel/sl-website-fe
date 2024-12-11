@@ -1,25 +1,24 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
-import Navigation from '@/components/molecules/Navigation';
 import SLImage from '@/components/atoms/Image';
+import Navigation from '@/components/molecules/Navigation';
 import { Header as HeaderProps } from './types';
 import styles from './Header.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = HeaderProps & React.HTMLAttributes<HTMLElement>;
-
-const Header = ({ logo, mainNavigation, groups, rentalLocations }: Props) => {
+const Header = ({ logo, mainNavigation, groups, rentalLocations }: HeaderProps): JSX.Element => {
   const [navVisible, setNavVisible] = useState(false);
   const pathname = usePathname();
-  const navClassnames = classNames(
+  const navClassnames = cn(
     'header__nav',
     navVisible ? 'header__nav--visible' : 'header__nav--invisible',
   );

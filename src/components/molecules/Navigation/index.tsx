@@ -1,15 +1,14 @@
-import NavItem from '@/components/molecules/NavItem';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import AuthButton from '@/components/molecules/AuthButton';
+import NavItem from '@/components/molecules/NavItem';
 import { Navigation as NavigationProps } from './types';
 import styles from './Navigation.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = NavigationProps & React.HTMLAttributes<HTMLElement>;
-
-const Navigation = ({ navItems, groups, rentalLocations }: Props) => {
+const Navigation = ({ navItems, groups, rentalLocations }: NavigationProps): JSX.Element => {
   return (
     <nav className="navigation__wrapper">
       <ul className="navigation">

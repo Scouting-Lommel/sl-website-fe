@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
+import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import { getGeneralData } from '../api';
 import { getInfoPage, getYearTheme } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { infoPage } = await getInfoPage();
   if (!infoPage || !generalData) return {};
@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const InfoPage = async () => {
+const InfoPage = async (): Promise<JSX.Element> => {
   const { infoPage } = await getInfoPage();
   const { yearThemes } = await getYearTheme();
 

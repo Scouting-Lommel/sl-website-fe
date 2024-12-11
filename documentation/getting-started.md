@@ -16,12 +16,21 @@
 
 - [NextJS](https://nextjs.org/) frontend application
 - [Strapi](https://strapi.io/) headless CMS backend
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [PostCSS](https://postcss.org/) for CSS processing
+- [Storybook](https://storybook.js.org/) for component development
+- [next-intl](https://next-intl-docs.vercel.app/) for internationalization
+- [react-hook-form](https://react-hook-form.com/) for form handling
+- [next-auth](https://next-auth.js.org/) for authentication
 
 ## Requirements
 
 - [Node.js](https://nodejs.org) (v14.6.0 and up)
 - [NPM](https://npmjs.com) (v6 and up)
 - [NVM](https://github.com/nvm-sh/nvm) (optional but recommended)
+
+> Note: Only NPM is allowed as package manager (enforced by preinstall script)
 
 ## Installation
 
@@ -61,7 +70,23 @@
    npm run dev
    ```
 
+   This will start:
+
+   - Next.js development server
+   - PostCSS watcher for component styles
+   - PostCSS watcher for global styles
+
 3. You can now visit the website's frontend on [port 3000](http://localhost:3000).
+
+### Running Storybook
+
+To run Storybook for component development:
+
+```bash
+npm run storybook:start
+```
+
+This will start Storybook on [port 6006](http://localhost:6006) with CSS processing enabled.
 
 ## Building the project
 
@@ -74,6 +99,13 @@
    npm run build
    ```
 
+   This will:
+
+   - Run the prebuild script
+   - Build CSS for components
+   - Build global CSS
+   - Build Next.js application
+
 3. Start the app using
 
    ```bash
@@ -84,10 +116,8 @@
 
 Deployments for this project are fully automated using [Github Actions](https://github.com/features/actions) and [Netlify](https://www.netlify.com/). For more info, check out the [deployment docs](/documentation/deployment.md).
 
-## Development
+## Development and GIT flow
 
-### Trunk based development
+We follow a trunk-based development approach where `main` is our primary branch. All development work is done in feature branches that are eventually merged back into `main` through Pull Requests (PRs).
 
-> Trunk based development: a source-control branching model, where developers collaborate on code in a single branch called ‘trunk’, resist any pressure to create other long-lived development branches by employing documented techniques. They therefore avoid merge hell, do not break the build, and live happily ever after.
-
-Instead of the traditional git-flow, this project is based on the [trunk based development](https://trunkbaseddevelopment.com/) principle.
+For more information, read the [Development and GIT flow documentation](./development-and-git-flow.md).

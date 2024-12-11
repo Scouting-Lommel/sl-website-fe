@@ -1,19 +1,18 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { FormContext } from '@/lib/contexts/FormContext';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { FormContext } from '@/lib/contexts/FormContext';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
+import { FormBuilder as FormBuilderProps } from './types';
 import FormField from './FormField';
 import { FormField as FormFieldType } from './FormField/types';
-import { FormBuilder as FormBuilderProps } from './types';
 import styles from './Form.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = FormBuilderProps & React.HTMLAttributes<HTMLElement>;
 
 const FormBuilder = ({
   formId,
@@ -23,7 +22,7 @@ const FormBuilder = ({
   submitForm,
   submitButtonLabel,
   secondaryButton,
-}: Props) => {
+}: FormBuilderProps): JSX.Element => {
   const { formStatus, setFormStatus } = useContext(FormContext);
 
   const onSubmit = async (_: any, event: any) => {

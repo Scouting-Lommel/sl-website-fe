@@ -2,8 +2,6 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import TextImage from '@/components/organisms/TextImage';
 import { TextImageBlock as TextImageBlockProps } from './types';
 
-type Props = TextImageBlockProps & React.HTMLAttributes<HTMLElement>;
-
 const ImageTextBlock = ({
   title,
   content,
@@ -11,7 +9,7 @@ const ImageTextBlock = ({
   orientation,
   ctaButton,
   blockProperties,
-}: Props) => {
+}: TextImageBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}

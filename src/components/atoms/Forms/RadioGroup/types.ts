@@ -9,4 +9,4 @@ export type RadioGroup = {
   radioButtons?: Radio[];
   register: any;
   error?: any;
-};
+} & React.InputHTMLAttributes<HTMLInputElement>;

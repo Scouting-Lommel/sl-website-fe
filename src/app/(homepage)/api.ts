@@ -1,8 +1,8 @@
 import { generateApiQuery } from '@/lib/api';
-import HOMEPAGE_QUERY from './query';
+import { HOMEPAGE_QUERY } from './query';
 
-export function getHomePage(): Promise<any> {
+export const getHomePage = async (): Promise<any> => {
   return generateApiQuery({
     query: HOMEPAGE_QUERY,
   });
-}
+};

@@ -1,18 +1,17 @@
+import cn from 'classnames';
 import { forwardRef } from 'react';
-import classNames from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { FormTextArea as FormTextAreaProps } from './types';
 import styles from './TextArea.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FormTextAreaProps & React.TextareaHTMLAttributes<HTMLElement>;
-
-const TextArea = forwardRef((props: Props, ref: any) => {
+const TextArea = forwardRef((props: FormTextAreaProps, ref: any): JSX.Element => {
   const { error, ...textareaProps } = props;
-  const textAreaClassName = classNames(
+  const textAreaClassName = cn(
     'text-area',
     props.required && 'text-area--required',
     error && 'text-area--has-error',

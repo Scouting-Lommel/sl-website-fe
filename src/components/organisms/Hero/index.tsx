@@ -1,18 +1,24 @@
-import classNames from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import YearTheme from '@/components/molecules/YearTheme';
 import { Hero as HeroProps } from './types';
 import styles from './Hero.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = HeroProps & React.HTMLAttributes<HTMLElement>;
-
-const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }: Props) => {
-  const heroClassname = classNames('hero', `hero--${variant}`, className);
+const Hero = ({
+  title,
+  subtitle,
+  variant,
+  callToAction,
+  yearTheme,
+  className,
+}: HeroProps): JSX.Element => {
+  const heroClassname = cn('hero', `hero--${variant}`, className);
 
   return (
     <div className={heroClassname}>
@@ -44,7 +50,11 @@ const Hero = ({ title, subtitle, variant, callToAction, yearTheme, className }: 
       )}
 
       {yearTheme && (
-        <YearTheme image={yearTheme.image.data.attributes} className="hero__year-theme" />
+        <YearTheme
+          image={yearTheme.image.data.attributes}
+          href="/algemene-informatie#jaarthema"
+          className="hero__year-theme"
+        />
       )}
     </div>
   );

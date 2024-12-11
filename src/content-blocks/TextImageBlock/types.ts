@@ -9,4 +9,4 @@ export type TextImageBlock = {
   ctaButton: Button;
   blockProperties: BlockContainer;
   orientation: 'default' | 'reversed';
-};
+} & React.HTMLAttributes<HTMLElement>;

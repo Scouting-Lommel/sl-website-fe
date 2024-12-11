@@ -1,8 +1,8 @@
 import { generateApiQuery } from '@/lib/api';
-import CONTACT_PAGE_QUERY from './query';
+import { CONTACT_PAGE_QUERY } from './query';
 
-export function getContactPage(): Promise<any> {
+export const getContactPage = (): Promise<any> => {
   return generateApiQuery({
     query: CONTACT_PAGE_QUERY,
   });
-}
+};

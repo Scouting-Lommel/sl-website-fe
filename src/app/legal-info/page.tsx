@@ -4,7 +4,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import { getGeneralData } from '../api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   if (!generalData) return {};
 
@@ -18,9 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const LegalInfoPage = () => {
+const LegalInfoPage = (): JSX.Element => {
   return (
     <BlockContainer variant="light" orientation="default" slug="legal-info">
       <Hero title="Registratiedetails" variant="simple" className="sl-layout" />

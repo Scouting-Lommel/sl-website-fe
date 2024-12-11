@@ -1,19 +1,18 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { usePathname } from 'next/navigation';
-import classNames from 'classnames';
+import cn from 'classnames';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Dropdown from '@/components/molecules/Dropdown';
 import { NavItem as NavItemProps } from './types';
 import styles from './NavItem.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = NavItemProps & React.HTMLAttributes<HTMLElement>;
 
 const NavItem = ({
   itemKey,
@@ -28,7 +27,7 @@ const NavItem = ({
   modButton,
   modDropdown,
   onClick,
-}: Props) => {
+}: NavItemProps): JSX.Element => {
   const modal = useRef<HTMLDialogElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
   const [toggle, setToggle] = useState<boolean>(false);
@@ -108,7 +107,7 @@ const NavItem = ({
     closeDropdown();
   }, [pathname, closeDropdown]);
 
-  const navItemClassNames = classNames(
+  const navItemClassNames = cn(
     'nav-item',
     toggle ? 'nav-item--toggled' : 'nav-item--untoggled',
     href && href === '/' && pathname === '/' ? 'nav-item--active' : '',

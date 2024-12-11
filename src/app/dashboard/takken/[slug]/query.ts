@@ -62,5 +62,4 @@ const FILES_QUERY = gql`
   }
 `;
 
-export { ACTIVITIES_QUERY, FILES_QUERY };
-export default GROUP_PAGE_QUERY;
+export { GROUP_PAGE_QUERY, ACTIVITIES_QUERY, FILES_QUERY };

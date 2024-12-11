@@ -1,15 +1,14 @@
+import { StylesheetLink } from '@/types/StyleSheetLink';
+import Button from '@/components/atoms/Button';
 import DropdownItem from '@/components/atoms/DropdownItem';
 import Icon from '@/components/atoms/Icon';
-import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
 import { Dropdown as DropdownProps, DropdownNavItem } from './types';
 import styles from './Dropdown.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = DropdownProps & React.HTMLAttributes<HTMLElement>;
 
 const Dropdown = ({
   itemKey,
@@ -21,7 +20,7 @@ const Dropdown = ({
   groups,
   rentalLocations,
   toggleDropdown,
-}: Props) => {
+}: DropdownProps): JSX.Element => {
   let navItem: DropdownNavItem[] = [];
   if (path === '/takken') {
     navItem = groups!;

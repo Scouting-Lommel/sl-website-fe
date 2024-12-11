@@ -1,21 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import cn from 'classnames';
 import { useTranslations } from 'next-intl';
-import cx from 'classnames';
+import { useState, useEffect } from 'react';
 import { slugify } from '@/lib/helpers/slugify';
-import Typography from '@/components/atoms/Typography';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
+import Typography from '@/components/atoms/Typography';
 import { GlobalAlert as GlobalAlertProps } from './types';
 import styles from './GlobalAlert.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = GlobalAlertProps & React.HTMLAttributes<HTMLElement>;
-
-const GlobalAlert = ({ label, variant = 'info' }: Props) => {
+const GlobalAlert = ({ label, variant = 'info' }: GlobalAlertProps): JSX.Element => {
   const t = useTranslations('common');
 
   const [alertVisible, setAlertVisible] = useState<boolean>(false);
@@ -31,7 +30,7 @@ const GlobalAlert = ({ label, variant = 'info' }: Props) => {
     localStorage.setItem(slugify(label), 'false');
   };
 
-  const globalAlertClassNames = cx('global-alert', `global-alert--${variant}`);
+  const globalAlertClassNames = cn('global-alert', `global-alert--${variant}`);
 
   return (
     <>

@@ -2,9 +2,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Carousel from '@/components/organisms/Carousel';
 import { GroupsBlock as GroupsBlockProps } from './types';
 
-type Props = GroupsBlockProps & React.HTMLAttributes<HTMLElement>;
-
-const GroupsBlock = ({ title, groups, cta, blockProperties }: Props) => {
+const GroupsBlock = ({ title, groups, cta, blockProperties }: GroupsBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties.variant}

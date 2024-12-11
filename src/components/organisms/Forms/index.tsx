@@ -2,15 +2,15 @@
 
 import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
-import Contact from './Contact';
-import Register from './Register';
+import { Form as FormProps } from './types';
 import Activity from './Activity';
+import Contact from './Contact';
+import Eetfestijn from './Eetfestijn';
+import Register from './Register';
 import UploadFile from './UploadFile';
 import UploadLink from './UploadLink';
-import Eetfestijn from './Eetfestijn';
-import { Form as FormProps } from './types';
 
-const Form = ({ variant, props, blockProperties }: FormProps) => {
+const Form = ({ variant, props, blockProperties }: FormProps): JSX.Element => {
   let FormComponent = null;
 
   switch (variant) {

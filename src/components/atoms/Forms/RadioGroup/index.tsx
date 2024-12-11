@@ -1,15 +1,14 @@
-import classNames from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import Radio from './Radio';
 import { RadioGroup as RadioGroupProps } from './types';
+import Radio from './Radio';
 import { Radio as RadioProps } from './Radio/types';
 import styles from './RadioGroup.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
-
-type Props = RadioGroupProps & React.InputHTMLAttributes<HTMLInputElement>;
 
 const RadioGroup = ({
   id,
@@ -20,8 +19,8 @@ const RadioGroup = ({
   direction = 'column',
   radioButtons,
   register,
-}: Props) => {
-  const radioGroupClassNames = classNames(
+}: RadioGroupProps): JSX.Element => {
+  const radioGroupClassNames = cn(
     'radio-group',
     `radio-group--${direction}`,
     required && 'radio-group--required',

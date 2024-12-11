@@ -1,17 +1,16 @@
-import classNames from 'classnames';
+import cn from 'classnames';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import FAQItem from '@/components/molecules/FaqItem';
 import { FAQ as FAQProps } from './types';
 import styles from './FAQ.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FAQProps & React.HTMLAttributes<HTMLElement>;
-
-const FAQ = ({ title, bottomText, faqItems, className }: Props) => {
-  const faqClassNames = classNames('faq', className);
+const FAQ = ({ title, bottomText, faqItems, className }: FAQProps): JSX.Element => {
+  const faqClassNames = cn('faq', className);
 
   return (
     <div className={faqClassNames}>

@@ -1,19 +1,18 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { ActivitySection as ActivityProps } from './types';
+import { useState } from 'react';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Activity from '@/components/atoms/Activity';
-import styles from './Activities.css';
 import Button from '@/components/atoms/Button';
+import { ActivitySection as ActivityProps } from './types';
+import styles from './Activities.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
-
-const Activities = ({ activities, initialItems }: Props) => {
+const Activities = ({ activities, initialItems }: ActivityProps): JSX.Element => {
   const t = useTranslations('common');
 
   const [isOpen, setIsOpen] = useState(false);

@@ -1,6 +1,6 @@
 import { CloudinaryImage } from '@/components/atoms/Image/types';
-import { SocialsCta } from '@/components/molecules/SocialsCta/types';
 import { CallToAction } from '@/components/molecules/CallToAction/types';
+import { SocialsCta } from '@/components/molecules/SocialsCta/types';
 
 export type BlockContainer = {
   variant?: 'light' | 'dark';
@@ -12,4 +12,4 @@ export type BlockContainer = {
   modSmallPadding?: boolean;
   modNoPadding?: boolean;
   modMargin?: boolean;
-};
+} & React.HTMLAttributes<HTMLElement>;

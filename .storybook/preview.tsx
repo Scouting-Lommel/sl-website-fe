@@ -15,7 +15,9 @@ export const parameters = {
   },
   options: {
     storySort: {
+      method: 'alphabetical',
       order: ['Atoms', 'Molecules', 'Organisms'],
+      locales: 'nl-BE',
     },
   },
   docs: {
@@ -41,3 +43,5 @@ export const loaders = [
         console.log(`${name} called with`, ...args),
   }),
 ];
+
+export const tags = ['autodocs'];

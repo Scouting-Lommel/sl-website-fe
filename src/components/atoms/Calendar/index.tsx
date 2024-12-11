@@ -1,21 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CalendarProps } from './types';
+import { StylesheetLink } from '@/types/StyleSheetLink';
+import Button from '@/components/atoms/Button';
+import Icon from '@/components/atoms/Icon';
+import Typography from '@/components/atoms/Typography';
+import { Calendar as CalendarProps } from './types';
 import styles from './Calendar.css';
-import Button from '../Button';
-import Typography from '../Typography';
-import Icon from '../Icon';
 
-const daysOfWeek = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
-
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = CalendarProps & React.HTMLAttributes<HTMLElement>;
+const daysOfWeek = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
 
-export default function Calendar({ events }: Props) {
+const Calendar = ({ events }: CalendarProps): JSX.Element => {
   if (!events) events = [];
 
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -97,4 +96,6 @@ export default function Calendar({ events }: Props) {
       </div>
     </div>
   );
-}
+};
+
+export default Calendar;

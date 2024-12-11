@@ -1,9 +1,9 @@
+import { noreplyEmailAddress } from '@/lib/constants/emailAddress';
 import {
   emailRegExValidation,
   phoneRegExValidation,
   urlRegExValidation,
 } from '@/lib/constants/regexValidation';
-import { noreplyEmailAddress } from '@/lib/constants/emailAddress';
 
 export type Email = {
   from: string;

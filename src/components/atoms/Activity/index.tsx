@@ -1,14 +1,13 @@
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { Activity as ActivityProps } from './types';
+import { Activity as ActivityProps, Day as DayProps } from './types';
 import styles from './Activity.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = ActivityProps & React.HTMLAttributes<HTMLElement>;
-
-const dayMap: { [key: number]: string } = {
+const dayMap: DayProps = {
   0: 'Zo',
   1: 'Ma',
   2: 'Di',
@@ -18,9 +17,19 @@ const dayMap: { [key: number]: string } = {
   6: 'Za',
 };
 
-const Activity = ({ title, startDate, startTime, endDate, endTime, description }: Props) => {
+const Activity = ({
+  title,
+  startDate,
+  startTime,
+  endDate,
+  endTime,
+  description,
+}: ActivityProps): JSX.Element => {
   let firstLine = '';
   let secondLine = '';
+
+  console.log('startDate', startDate);
+  console.log('startTime', startTime);
 
   if (startDate === endDate) {
     const date = new Date(startDate);
@@ -40,10 +49,10 @@ const Activity = ({ title, startDate, startTime, endDate, endTime, description }
 
   return (
     <>
-      <div className="activity">
+      <article className="activity">
         <div className="activity__header">
-          <div className="activity__header__title">{title}</div>
-          <div className="activity__header__time">
+          <h3 className="activity__header__title">{title}</h3>
+          <time dateTime={`${startDate}T${startTime}`} className="activity__header__time">
             {firstLine}
             {secondLine && (
               <>
@@ -51,10 +60,10 @@ const Activity = ({ title, startDate, startTime, endDate, endTime, description }
                 {secondLine}
               </>
             )}
-          </div>
+          </time>
         </div>
         <Typography className="activity__description" data={description} />
-      </div>
+      </article>
     </>
   );
 };

@@ -1,22 +1,29 @@
 'use client';
 
-import { useContext, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { FormContext } from '@/lib/contexts/FormContext';
+import { useContext, useEffect, useState } from 'react';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
+import { FormContext } from '@/lib/contexts/FormContext';
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Loader from '@/components/atoms/Loader';
 import Typography from '@/components/atoms/Typography';
-import { Link as LinkProps } from '../types';
 import styles from '../Attachment.css';
+import { Link as LinkProps } from '../types';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = LinkProps & React.HTMLAttributes<HTMLElement>;
-
-const Link = ({ id, label, link, groupId, allLinks, modDeleteable, deleteCallback }: Props) => {
+const Link = ({
+  id,
+  label,
+  link,
+  groupId,
+  allLinks,
+  modDeleteable,
+  deleteCallback,
+}: LinkProps): JSX.Element => {
   const t = useTranslations('common.attachment.link');
 
   const [loading, setLoading] = useState<boolean>(false);

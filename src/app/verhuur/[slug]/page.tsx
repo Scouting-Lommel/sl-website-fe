@@ -1,10 +1,13 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
-import { getGeneralData } from '../../api';
+import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import { getRentalLocationPage } from './api';
+import { getGeneralData } from '../../api';
 
-export async function generateMetadata({ params: { slug } }: { params: { slug: string } }) {
+type Props = { params: { slug: string } };
+
+export const generateMetadata = async ({ params: { slug } }: Props): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];
@@ -18,9 +21,9 @@ export async function generateMetadata({ params: { slug } }: { params: { slug: s
   );
 
   return { ...metadata };
-}
+};
 
-const RentalLocationPage = async ({ params: { slug } }: { params: { slug: string } }) => {
+const RentalLocationPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];
 

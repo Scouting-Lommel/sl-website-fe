@@ -1,50 +1,44 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Default as imagedefault } from '@/components/atoms/Image/Image.stories';
+import { Default as imageStory } from '@/components/atoms/Image/Image.stories';
 import Leader from '.';
-import { Leader as LeaderProps } from './types';
 
-const LeaderItemContainer = (args: LeaderProps) => {
-  const styles = { width: '11.5rem' };
-
-  return (
-    <div style={styles}>
-      <Leader {...args} />
-    </div>
-  );
-};
-
-const meta = {
+const meta: Meta<typeof Leader> = {
   title: '3 Components/Molecules/Leader',
-  component: LeaderItemContainer,
-  tags: ['autodocs'],
-  argTypes: {
-    firstName: {
-      control: { type: 'text' },
-      description: 'The first name of the leader',
-    },
-    lastName: {
-      control: { type: 'text' },
-      description: 'The last name of the leader',
-    },
-    image: {
-      control: { type: 'object' },
-      description: 'The image of the leader',
-    },
-  },
-} satisfies Meta<typeof LeaderItemContainer>;
+  component: Leader,
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
-    active: true,
-    firstName: 'Example',
-    lastName: 'Name',
+    firstName: 'Rikki Tikki',
+    lastName: 'Tavi',
     image: {
       data: {
-        attributes: imagedefault.args.data,
+        attributes: imageStory.args!.data!,
       },
     },
   },
-} satisfies Story;
+  decorators: [
+    (Story: () => JSX.Element): JSX.Element => (
+      <div style={{ width: '11.5rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const WithoutImage: Story = {
+  args: {
+    firstName: 'De',
+    lastName: 'Roy',
+  },
+  decorators: [
+    (Story: () => JSX.Element): JSX.Element => (
+      <div style={{ width: '11.5rem' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};

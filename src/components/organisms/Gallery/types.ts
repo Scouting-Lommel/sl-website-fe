@@ -4,4 +4,4 @@ export type Gallery = {
   title: string;
   initialItems: number;
   images: { data: { attributes: CloudinaryImage }[] };
-};
+} & React.HTMLAttributes<HTMLElement>;

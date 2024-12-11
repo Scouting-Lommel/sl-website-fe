@@ -1,8 +1,8 @@
 export const dynamic = 'force-dynamic';
 
 import { Metadata, Viewport } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
 import { getServerSession } from 'next-auth';
+import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import { generateMetadataForRootLayout } from '@/lib/helpers/generateMetadata';
@@ -15,20 +15,22 @@ import { getGeneralData } from './api';
 
 import '@/app/global.css';
 
-export async function viewport(): Promise<Viewport> {
-  return { themeColor: 'ffffff' };
-}
+type Props = { children: React.ReactNode };
 
-export async function generateMetadata(): Promise<Metadata> {
+export const viewport = async (): Promise<Viewport> => {
+  return { themeColor: 'ffffff' };
+};
+
+export const generateMetadata = async (): Promise<Metadata> => {
   const data = await getGeneralData();
   if (!data) return {};
 
   const metadata = generateMetadataForRootLayout(data.generalData.data.attributes);
 
   return { ...metadata };
-}
+};
 
-const RootLayout = async ({ children }: { children: React.ReactNode }) => {
+const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
   const locale = await getLocale();
   const messages = await getMessages();
 

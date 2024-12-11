@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
+import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import { getGeneralData } from '../api';
 import { getPrivacyPage } from './api';
 
-export async function generateMetadata(): Promise<Metadata> {
+export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   const { privacyPolicyPage } = await getPrivacyPage();
   if (!privacyPolicyPage || !generalData) return {};
@@ -16,9 +16,9 @@ export async function generateMetadata(): Promise<Metadata> {
   );
 
   return { ...metadata };
-}
+};
 
-const ContactPage = async () => {
+const ContactPage = async (): Promise<JSX.Element> => {
   const { privacyPolicyPage } = await getPrivacyPage();
 
   if (!privacyPolicyPage) notFound();

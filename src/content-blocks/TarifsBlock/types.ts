@@ -7,4 +7,4 @@ export type TarifsBlock = {
   tarifs: { data: { attributes: Tarif }[] };
   blockProperties: BlockContainer;
   cta: CallToAction;
-};
+} & React.HTMLAttributes<HTMLElement>;

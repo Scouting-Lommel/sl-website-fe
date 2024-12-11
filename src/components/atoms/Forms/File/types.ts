@@ -3,4 +3,4 @@ export type FormFile = {
   id: string;
   name: string;
   error?: any;
-};
+} & React.InputHTMLAttributes<HTMLElement>;

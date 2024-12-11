@@ -1,30 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import YearTheme from '.';
 
-const meta = {
-  title: '3 Components/Molecules/YearTheme',
+const meta: Meta<typeof YearTheme> = {
+  title: '3 Components/Molecules/Year Theme',
   component: YearTheme,
-  tags: ['autodocs'],
-  argTypes: {
-    title: {
-      control: { type: 'text' },
-      description: 'The title of the yeartheme',
-    },
-    description: {
-      control: { type: 'text' },
-      description: 'The description of the yeartheme',
-    },
-    image: {
-      control: { type: 'object' },
-      description: 'The image on the yeartheme',
-    },
-  },
-} satisfies Meta<typeof YearTheme>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Das goesting!',
     description:
@@ -37,4 +22,4 @@ export const Default = {
       hash: 'DAS_Goesting_JPG_website_fde3a9c757',
     },
   },
-} satisfies Story;
+};

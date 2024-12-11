@@ -4,4 +4,4 @@ export type EmbeddedMapProps = {
   query?: string;
   zoom?: number;
   address?: string;
-};
+} & React.HTMLAttributes<HTMLElement>;

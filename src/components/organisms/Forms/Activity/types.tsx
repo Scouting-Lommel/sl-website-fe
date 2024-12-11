@@ -3,4 +3,4 @@ export type ActivityForm = {
   activityId?: string;
   submitForm: any;
   deleteActivity: any;
-};
+} & React.HTMLAttributes<HTMLElement>;

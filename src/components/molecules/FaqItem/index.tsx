@@ -1,41 +1,39 @@
 'use client';
 
+import cn from 'classnames';
 import { useState } from 'react';
-import cx from 'classnames';
-import Typography from '@/components/atoms/Typography';
+import { StylesheetLink } from '@/types/StyleSheetLink';
+import Button from '@/components/atoms/Button';
 import Icon from '@/components/atoms/Icon';
 import SLImage from '@/components/atoms/Image';
-import Button from '@/components/atoms/Button';
+import Typography from '@/components/atoms/Typography';
 import { FaqItem as FAQProps } from './types';
 import styles from './FaqItem.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = FAQProps & React.HTMLAttributes<HTMLElement>;
+const FAQItem = ({ question, answer, image, callToAction }: FAQProps): JSX.Element => {
+  const [isOpen, setOpen] = useState<boolean>(false);
 
-const FAQItem = ({ question, answer, image, callToAction }: Props) => {
-  const [isOpen, setOpen] = useState(false);
-  const faqClasses = cx('faq-item', {
+  const handleToggle = (e: React.SyntheticEvent<HTMLDetailsElement>) => {
+    setOpen((e.target as HTMLDetailsElement).open);
+  };
+
+  const faqClasses = cn('faq-item', {
     'faq-item--open': isOpen,
   });
 
   return (
-    <div className={faqClasses}>
-      <button className="faq-item__title" onClick={() => setOpen(!isOpen)}>
+    <details className={faqClasses} onToggle={handleToggle}>
+      <summary className="faq-item__title">
         <Typography>{question}</Typography>
-        <Icon
-          name="chevron-down"
-          aria-label="Chevron"
-          size="lg"
-          className="faq-item__title__chevron"
-        />
-      </button>
+        <Icon name="chevron-down" size="lg" className="faq-item__title__chevron" />
+      </summary>
       <div
-        className={cx('faq-item__answer', {
+        className={cn('faq-item__answer', {
           'faq-item__answer--with-image': image?.data,
-          'faq-item__answer--hidden': !isOpen,
         })}
       >
         <div className="faq-item__answer__content">
@@ -62,7 +60,7 @@ const FAQItem = ({ question, answer, image, callToAction }: Props) => {
           </div>
         )}
       </div>
-    </div>
+    </details>
   );
 };
 

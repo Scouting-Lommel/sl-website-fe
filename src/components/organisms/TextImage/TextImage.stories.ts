@@ -1,39 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import TextImage from '.';
 
-const meta = {
-  title: '3 Components/Organisms/TextImage',
+const meta: Meta<typeof TextImage> = {
+  title: '3 Components/Organisms/Text Image',
   component: TextImage,
-  tags: ['autodocs'],
   argTypes: {
     variant: {
       control: { type: 'select' },
       options: ['default', 'reversed'],
-      description: 'The variant',
-    },
-    title: {
-      control: { type: 'text' },
-      description: 'The title',
-    },
-    content: {
-      control: { type: 'text' },
-      description: 'The content',
-    },
-    images: {
-      control: { type: 'object' },
-      description: 'The images',
-    },
-    ctaButton: {
-      control: { type: 'object' },
-      description: 'The cta buttons',
     },
   },
-} satisfies Meta<typeof TextImage>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default = {
+export const Default: Story = {
   args: {
     title: 'Woordje van de groepsleiding',
     content:
@@ -51,9 +33,9 @@ export const Default = {
     ],
     variant: 'default',
   },
-} satisfies Story;
+};
 
-export const WithCallToAction = {
+export const WithCallToAction: Story = {
   args: {
     title: 'Woordje van de groepsleiding',
     content:
@@ -76,9 +58,9 @@ export const WithCallToAction = {
       variant: 'primary',
     },
   },
-} satisfies Story;
+};
 
-export const MultipleImages = {
+export const MultipleImages: Story = {
   args: {
     title: 'Woordje van de groepsleiding',
     content:
@@ -108,9 +90,9 @@ export const MultipleImages = {
     ],
     variant: 'default',
     ctaButton: {
-      label: 'Meer over akabe',
-      link: '/takken/akabe',
+      label: 'Meer informatie',
+      link: '/algemene-informatie',
       variant: 'primary',
     },
   },
-} satisfies Story;
+};

@@ -1,8 +1,5 @@
 import { LucideProps } from 'lucide-react';
-
-import { iconMap } from './IconMap';
-
-export type IconNames = keyof typeof iconMap;
+import { iconMap, IconNames } from './IconMap';
 
 export interface Icon extends LucideProps {
   name: IconNames;

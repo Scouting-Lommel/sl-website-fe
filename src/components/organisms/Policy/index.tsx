@@ -1,15 +1,14 @@
+import { StylesheetLink } from '@/types/StyleSheetLink';
 import Paragraph from '@/components/molecules/Paragraph';
 import TableOfContents from '@/components/molecules/TableOfContents';
 import { Policy as PolicyProps } from './types';
 import styles from './Policy.css';
 
-export const links = () => {
+export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-type Props = PolicyProps & React.HTMLAttributes<HTMLElement>;
-
-const Policy = ({ sections }: Props) => {
+const Policy = ({ sections }: PolicyProps): JSX.Element => {
   return (
     <>
       <TableOfContents sections={sections} />

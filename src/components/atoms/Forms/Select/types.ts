@@ -12,4 +12,4 @@ export type FormSelect = {
   options: SelectOption[];
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
   error?: any;
-};
+} & React.SelectHTMLAttributes<HTMLElement>;
