@@ -5,7 +5,7 @@ import BlockContainer from '.';
 const BlockContent = () => {
   return (
     <div className="sl-layout">
-      <h2>Lorem ipsum</h2>
+      <h2>Het marktplein</h2>
       <Typography>
         <p>
           Op het marktplein verkopen handelaren hun kazen en haring, terwijl toeristen foto&apos;s
@@ -44,7 +44,7 @@ export const Default: Story = {
   args: {
     variant: 'dark',
     orientation: 'default',
-    slug: 'storybook',
+    slug: 'het-marktplein',
     modSmallPadding: false,
     modNoPadding: false,
     modMargin: false,

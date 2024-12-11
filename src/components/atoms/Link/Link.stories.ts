@@ -7,7 +7,7 @@ const meta: Meta<typeof Link> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['link1', 'link2', 'link3'],
+      options: ['link1', 'link2'],
     },
   },
 };
@@ -17,8 +17,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "I'm a link!",
-    href: '#/',
+    children: 'Scouts en Gidsen Vlaanderen',
+    href: 'https://scoutsengidsenvlaanderen.be',
     variant: 'link1',
   },
 };
