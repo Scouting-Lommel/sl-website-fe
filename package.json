@@ -2,6 +2,7 @@
   "name": "scouting-lommel-website",
   "private": true,
   "scripts": {
+    "build:css": "run-p build:css:*",
     "build:css:components": "postcss src/components/**/*.pcss --base src/components --dir src/components --ext css --env production",
     "build:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css --env production",
     "build:next": "next build",
