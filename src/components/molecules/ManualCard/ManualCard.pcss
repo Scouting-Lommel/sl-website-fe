@@ -1,0 +1,81 @@
+.manual-card {
+  position: relative;
+  display: block;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-neutral-100);
+  }
+}
+
+.manual-card__link {
+  display: block;
+  padding: var(--space-40) var(--space-28);
+  text-decoration: none;
+}
+
+.manual-card__title {
+  margin-top: 0;
+  margin-bottom: 0 0 var(--space-8);
+}
+
+.manual-card__last-changed {
+  margin-top: var(--space-8);
+  color: var(--color-primary-600);
+  font-size: 0.92rem;
+}
+
+.manual-card__lock {
+  position: absolute;
+  top: var(--space-40);
+  right: var(--space-28);
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  color: var(--color-neutral-600);
+  gap: var(--space-8);
+
+  &--shaking {
+    .manual-card__lock__icon {
+      animation: shake 0.4s ease-in-out;
+    }
+  }
+
+  &--message-visible {
+    .manual-card__lock__message {
+      transform: translateX(0);
+      transition: transform var(--transition);
+    }
+  }
+}
+
+.manual-card__lock__message {
+  font-size: 0.92rem;
+  transform: translateX(500%);
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  20% {
+    transform: rotate(-25deg) scale(1.4);
+  }
+
+  40% {
+    transform: rotate(20deg) scale(1.05);
+  }
+
+  60% {
+    transform: rotate(-15deg) scale(1.03);
+  }
+
+  80% {
+    transform: rotate(10deg) scale(1.01);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
