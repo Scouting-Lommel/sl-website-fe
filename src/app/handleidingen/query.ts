@@ -28,4 +28,22 @@ const MANUALS_PAGE_QUERY = gql`
   }
 `;
 
-export { MANUALS_PAGE_QUERY };
+const MANUALS_QUERY = gql`
+  query {
+    manuals {
+      data {
+        id
+        attributes {
+          title
+          description
+          slug
+          locked
+          body
+          updatedAt
+        }
+      }
+    }
+  }
+`;
+
+export { MANUALS_PAGE_QUERY, MANUALS_QUERY };

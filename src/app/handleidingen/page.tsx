@@ -2,8 +2,9 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
+import ManualCards from '@/components/organisms/ManualCards';
 import { getGeneralData } from '../api';
-import { getManualsPage } from './api';
+import { getManuals, getManualsPage } from './api';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
@@ -21,14 +22,19 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 const ManualsPage = async (): Promise<JSX.Element> => {
   const { manualsOverviewPage } = await getManualsPage();
+  const { manuals } = await getManuals();
 
   if (!manualsOverviewPage?.data) notFound();
-
-  console.log(manualsOverviewPage.data.attributes);
 
   return (
     <>
       <Blocks content={manualsOverviewPage.data.attributes.blocks} />
+      <ManualCards
+        manualCards={manuals?.data?.map((manual: any) => ({
+          id: manual.id,
+          ...manual.attributes,
+        }))}
+      />
     </>
   );
 };
