@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const Dashboard = async (): Promise<JSX.Element> => {
+const DashboardPage = async (): Promise<JSX.Element> => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 
@@ -62,4 +62,4 @@ const Dashboard = async (): Promise<JSX.Element> => {
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

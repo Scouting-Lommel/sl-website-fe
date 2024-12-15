@@ -18,7 +18,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const ContactPage = async (): Promise<JSX.Element> => {
+const PrivacyPolicyPage = async (): Promise<JSX.Element> => {
   const { privacyPolicyPage } = await getPrivacyPage();
 
   if (!privacyPolicyPage) notFound();
@@ -30,4 +30,4 @@ const ContactPage = async (): Promise<JSX.Element> => {
   );
 };
 
-export default ContactPage;
+export default PrivacyPolicyPage;
