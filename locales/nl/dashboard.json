@@ -5,10 +5,20 @@
     "loggedInAs": "Ingelogd als **{role}**",
     "login": "Inloggen",
     "signOut": "Uitloggen",
+    "welcome": "Welkom!",
+    "notLoggedIn": "Om toegang te krijgen tot het dashboard moet je ingelogd zijn.",
     "toTheDashboard": "Naar het dashboard",
-    "groups": "Takken",
-    "manageGroups": "Takken beheren",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "dropdownItems": {
+      "groups": {
+        "title": "Takken",
+        "description": "Takken beheren"
+      },
+      "manuals": {
+        "title": "Handleidingen",
+        "description": "Handleidingen raadplegen"
+      }
+    }
   },
   "dashboard": {
     "title": "Dashboard",

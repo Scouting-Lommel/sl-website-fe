@@ -11,45 +11,75 @@ import NavItem from '@/components/molecules/NavItem';
 const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
   const t = useTranslations('dashboard.authButton');
 
-  if (session) {
-    const dropdownItems: DropdownItem[] = [];
-    const dropdownCta: DropdownCta = {
-      title: session.user?.name || t('leaderProfile'),
-      intro: t('loggedInAs', { role: session.role }),
-      ctaLabel: t('signOut'),
-      ctaOnClick: () => signOut(),
-    };
-    const dropdownButton: Button = {
-      label: t('toTheDashboard'),
-      href: '/dashboard',
-      variant: 'primary',
-    };
-
-    if (session.orgUnit && checkOrganisationPermission(session.orgUnit, 'groups')) {
-      dropdownItems.push({
-        label: t('groups'),
+  const getDropdownItems = (): DropdownItem[] => {
+    if (session) {
+      const items: DropdownItem[] = [];
+      if (session.orgUnit && checkOrganisationPermission(session.orgUnit, 'groups')) {
+        items.push({
+          label: t('dropdownItems.groups.title'),
+          page: 'dashboard',
+          link: '/dashboard/takken',
+          description: t('dropdownItems.groups.description'),
+        });
+        items.push({
+          label: t('dropdownItems.manuals.title'),
+          page: 'manuals',
+          link: '/handleidingen',
+          description: t('dropdownItems.manuals.description'),
+        });
+      }
+      return items;
+    }
+    return [
+      {
+        label: t('dropdownItems.groups.title'),
         page: 'dashboard',
         link: '/dashboard/takken',
-        description: t('manageGroups'),
-      });
-    }
+        description: t('dropdownItems.groups.description'),
+      },
+      {
+        label: t('dropdownItems.manuals.title'),
+        page: 'manuals',
+        link: '/handleidingen',
+        description: t('dropdownItems.manuals.description'),
+      },
+    ];
+  };
 
-    return (
-      <NavItem
-        itemKey={99}
-        label={t('leaderMenu')}
-        href="/dashboard"
-        dropdownItems={dropdownItems}
-        dropdownButton={dropdownButton}
-        dropdownCta={dropdownCta}
-        dropdownTitle={t('dashboard')}
-        modDropdown
-      />
-    );
-  }
+  const getDropdownCta = (): DropdownCta => {
+    if (session) {
+      return {
+        title: session.user?.name || t('leaderProfile'),
+        intro: t('loggedInAs', { role: session.role }),
+        ctaLabel: t('signOut'),
+        ctaOnClick: () => signOut(),
+      };
+    }
+    return {
+      title: t('welcome'),
+      intro: t('notLoggedIn'),
+      ctaLabel: t('login'),
+      ctaOnClick: () => signIn(),
+    };
+  };
+
+  const getDropdownButton = (): Button => ({
+    label: t('toTheDashboard'),
+    href: '/dashboard',
+    variant: 'primary',
+  });
 
   return (
-    <NavItem itemKey={99} label={t('login')} href="/inloggen" onClick={() => signIn()} modButton />
+    <NavItem
+      itemKey={99}
+      label={t('leaderMenu')}
+      href="/dashboard"
+      dropdownItems={getDropdownItems()}
+      dropdownButton={getDropdownButton()}
+      dropdownCta={getDropdownCta()}
+      dropdownTitle={t('dashboard')}
+      modDropdown
+    />
   );
 };
 
