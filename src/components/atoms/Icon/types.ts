@@ -1,5 +1,5 @@
 import { LucideProps } from 'lucide-react';
-import { iconMap, IconNames } from './IconMap';
+import { IconNames } from './IconMap';
 
 export interface Icon extends LucideProps {
   name: IconNames;
