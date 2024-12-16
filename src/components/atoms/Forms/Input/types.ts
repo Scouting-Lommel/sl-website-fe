@@ -5,5 +5,6 @@ export type FormInput = {
   id: string;
   name: string;
   error?: any;
+  modShowLabel?: boolean;
   customChangeBehaviour?: ChangeEventHandler<HTMLElement>;
 } & React.InputHTMLAttributes<HTMLElement>;
