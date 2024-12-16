@@ -26,11 +26,11 @@
 }
 
 .manual-card__lock {
-  position: absolute;
-  top: var(--space-40);
-  right: var(--space-28);
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
+  justify-content: start;
+  margin-top: var(--space-16);
   background-color: var(--white);
   color: var(--color-neutral-600);
   gap: var(--space-8);
@@ -41,17 +41,36 @@
     }
   }
 
-  &--message-visible {
-    .manual-card__lock__message {
-      transform: translateX(0);
-      transition: transform var(--transition);
+  @media (--mq-from-large) {
+    position: absolute;
+    top: var(--space-40);
+    right: var(--space-28);
+    flex-direction: row;
+    margin-top: 0;
+
+    &--message-visible {
+      .manual-card__lock__message {
+        transform: translateX(0);
+        transition: transform var(--transition);
+      }
+    }
+
+    &--message-invisible {
+      .manual-card__lock__message {
+        transform: translateX(500%);
+        transition: transform var(--transition);
+      }
     }
   }
 }
 
+.manual-card__lock__icon {
+  flex-shrink: 0;
+}
+
 .manual-card__lock__message {
   font-size: 0.92rem;
-  transform: translateX(500%);
+  transform: translateX(0);
 }
 
 @keyframes shake {

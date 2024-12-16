@@ -13,9 +13,9 @@ export const Default: Story = {
   args: {
     manualCards: [
       {
-        title: 'Scouting Lommel mail',
+        title: 'Takpagina beheren',
         description:
-          'Je Scouting Lommel emailadres (voornaam.familienaam@scoutinglommel.be) toevoegen aan je e-mail app op je smartphone of laptop/PC. [iOS, Android, Windows, MacOS]',
+          'Een activiteit of bijlage aan de pagina van je tak toevoegen via het dashboard.',
         updatedAt: '2021-09-01',
         slug: 'scouting-lommel-mail',
         locked: false,
@@ -26,7 +26,7 @@ export const Default: Story = {
           'Je Scouting Lommel emailadres (voornaam.familienaam@scoutinglommel.be) toevoegen aan je e-mail app op je smartphone of laptop/PC. [iOS, Android, Windows, MacOS]',
         updatedAt: '2021-09-01',
         slug: 'scouting-lommel-mail',
-        locked: false,
+        locked: true,
       },
     ],
   },

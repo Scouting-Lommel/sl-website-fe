@@ -31,6 +31,10 @@ const ManualCard = ({
 
   const handleLockedClick = () => {
     setLockedMessageVisible(true);
+    setTimeout(() => {
+      setLockedMessageVisible(false);
+    }, 10000);
+
     setIsShaking(true);
     setTimeout(() => {
       setIsShaking(false);
@@ -53,6 +57,7 @@ const ManualCard = ({
               'manual-card__lock',
               isShaking && 'manual-card__lock--shaking',
               lockedMessageVisible && 'manual-card__lock--message-visible',
+              !lockedMessageVisible && 'manual-card__lock--message-invisible',
             )}
           >
             <div className="manual-card__lock__message">
