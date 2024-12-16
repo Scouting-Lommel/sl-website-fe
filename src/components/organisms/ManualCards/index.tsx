@@ -1,15 +1,15 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { Fragment, useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Forms/Input';
 import Icon from '@/components/atoms/Icon';
+import IconButton from '@/components/atoms/IconButton';
 import ManualCard from '@/components/molecules/ManualCard';
 import { ManualCards as ManualCardsProps } from './types';
 import styles from './ManualCards.css';
-import IconButton from '@/components/atoms/IconButton';
-import { useTranslations } from 'next-intl';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
@@ -24,11 +24,18 @@ const ManualCards = ({ manualCards }: ManualCardsProps): JSX.Element => {
     setSearchString(e.target.value);
   };
 
-  const filteredManuals = manualCards?.filter(
-    (manual) =>
-      manual.title.toLowerCase().includes(searchString.toLowerCase()) ||
-      manual.description.toLowerCase().includes(searchString.toLowerCase()),
-  );
+  const filteredManuals = manualCards
+    ?.filter(
+      (manual) =>
+        manual.title.toLowerCase().includes(searchString.toLowerCase()) ||
+        manual.description.toLowerCase().includes(searchString.toLowerCase()),
+    )
+    .sort((a, b) => {
+      if (a.locked === b.locked) {
+        return a.title.localeCompare(b.title);
+      }
+      return a.locked ? 1 : -1;
+    });
 
   const handleClearSearch = () => {
     setSearchString('');
