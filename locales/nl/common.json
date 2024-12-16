@@ -29,6 +29,12 @@
       "label": "Terug naar de homepagina"
     }
   },
+  "search": {
+    "label": "Zoeken",
+    "placeholder": "Zoeken",
+    "remove": "Verwijder zoekopdracht",
+    "noResults": "Geen resultaten gevonden."
+  },
   "skipToContent": "Naar de inhoud",
   "tarifs": {
     "minPrice": "Minimumprijs",

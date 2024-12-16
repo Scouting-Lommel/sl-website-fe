@@ -1,8 +1,8 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { getProviders, signIn } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Button from '@/components/atoms/Button';
 import Loader from '@/components/atoms/Loader';
