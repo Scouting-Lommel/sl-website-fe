@@ -4,11 +4,24 @@
   margin-bottom: var(--space-80);
 }
 
+.article-grid__toolbar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-16);
+  gap: var(--space-16) var(--space-40);
+
+  @media (--mq-from-medium) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
 .article-grid__search {
   display: flex;
-  max-width: 32rem;
+  max-width: 40rem;
+  flex: 1;
   align-items: center;
-  margin-bottom: var(--space-16);
   gap: var(--space-8);
 }
 

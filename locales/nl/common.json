@@ -33,7 +33,8 @@
     "label": "Zoeken",
     "placeholder": "Zoeken",
     "remove": "Verwijder zoekopdracht",
-    "noResults": "Geen resultaten gevonden."
+    "noResults": "Geen resultaten gevonden.",
+    "countItemsVisible": "{count} van {total} items zichtbaar"
   },
   "showLess": "Toon minder artikels",
   "showMore": "Toon meer artikels",

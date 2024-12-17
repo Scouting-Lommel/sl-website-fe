@@ -50,17 +50,26 @@ const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
 
   return (
     <div className="article-grid sl-layout">
-      <div className="article-grid__search">
-        <Input
-          label={t('search.label')}
-          id="article-search"
-          name="article-search"
-          value={searchString}
-          placeholder={t('search.placeholder')}
-          customChangeBehaviour={handleSearch}
-          modShowLabel={false}
-        />
-        <IconButton icon="x" label={t('search.remove')} onClick={handleClearSearch} />
+      <div className="article-grid__toolbar">
+        <div className="article-grid__search">
+          <Input
+            label={t('search.label')}
+            id="article-search"
+            name="article-search"
+            value={searchString}
+            placeholder={t('search.placeholder')}
+            customChangeBehaviour={handleSearch}
+            modShowLabel={false}
+          />
+          <IconButton icon="x" label={t('search.remove')} onClick={handleClearSearch} />
+        </div>
+
+        <div>
+          {t('search.countItemsVisible', {
+            count: filteredArticles.length,
+            total: articles.length,
+          })}
+        </div>
       </div>
 
       <hr />
