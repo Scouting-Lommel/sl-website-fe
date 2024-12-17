@@ -35,6 +35,8 @@
     "remove": "Verwijder zoekopdracht",
     "noResults": "Geen resultaten gevonden."
   },
+  "showLess": "Toon minder artikels",
+  "showMore": "Toon meer artikels",
   "skipToContent": "Naar de inhoud",
   "tarifs": {
     "minPrice": "Minimumprijs",

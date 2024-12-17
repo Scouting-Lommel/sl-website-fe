@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Fragment, useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
+import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Forms/Input';
 import IconButton from '@/components/atoms/IconButton';
 import ArticleCard from '@/components/molecules/ArticleCard';
@@ -13,13 +14,20 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
+const MAX_ARTICLES = 10;
+
 const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
   const [searchString, setSearchString] = useState('');
+  const [showMore, setShowMore] = useState(false);
 
-  const t = useTranslations('common.search');
+  const t = useTranslations('common');
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchString(e.target.value);
+  };
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
   };
 
   const filteredArticles = articles
@@ -33,7 +41,8 @@ const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
         return a.title.localeCompare(b.title);
       }
       return a.locked ? 1 : -1;
-    });
+    })
+    .slice(0, showMore ? articles.length : MAX_ARTICLES);
 
   const handleClearSearch = () => {
     setSearchString('');
@@ -43,15 +52,15 @@ const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
     <div className="article-grid sl-layout">
       <div className="article-grid__search">
         <Input
-          label={t('label')}
+          label={t('search.label')}
           id="article-search"
           name="article-search"
           value={searchString}
-          placeholder={t('placeholder')}
+          placeholder={t('search.placeholder')}
           customChangeBehaviour={handleSearch}
           modShowLabel={false}
         />
-        <IconButton icon="x" label={t('remove')} onClick={handleClearSearch} />
+        <IconButton icon="x" label={t('search.remove')} onClick={handleClearSearch} />
       </div>
 
       <hr />
@@ -61,10 +70,19 @@ const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
         filteredArticles.map((article, i) => (
           <Fragment key={article.id}>
             <ArticleCard {...article} />
-            {i < articles.length - 1 && <hr />}
+            <hr />
           </Fragment>
         ))}
-      {(!filteredArticles || !Boolean(filteredArticles.length)) && <p>{t('noResults')}</p>}
+
+      {filteredArticles && articles.length > MAX_ARTICLES && (
+        <Button
+          label={showMore ? t('showLess') : t('showMore')}
+          onClick={toggleShowMore}
+          className="article-grid__button"
+        />
+      )}
+
+      {(!filteredArticles || !Boolean(filteredArticles.length)) && <p>{t('search.noResults')}</p>}
     </div>
   );
 };
