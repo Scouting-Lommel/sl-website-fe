@@ -77,7 +77,7 @@ const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
       dropdownItems={getDropdownItems()}
       dropdownButton={getDropdownButton()}
       dropdownCta={getDropdownCta()}
-      dropdownTitle={t('dashboard')}
+      dropdownTitle={t('leaderMenu')}
       modDropdown
     />
   );
