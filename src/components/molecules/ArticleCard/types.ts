@@ -1,4 +1,4 @@
-export type ManualCard = {
+export type ArticleCard = {
   title: string;
   description: string;
   updatedAt: string;

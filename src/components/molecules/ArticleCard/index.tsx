@@ -8,20 +8,20 @@ import { formatDateTime } from '@/lib/helpers/dateTime';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
-import { ManualCard as ManualCardProps } from './types';
-import styles from './ManualCard.css';
+import { ArticleCard as ArticleCardProps } from './types';
+import styles from './ArticleCard.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const ManualCard = ({
+const ArticleCard = ({
   title,
   description,
   updatedAt,
   locked,
   slug,
-}: ManualCardProps): JSX.Element => {
+}: ArticleCardProps): JSX.Element => {
   const t = useTranslations('common');
 
   const [isShaking, setIsShaking] = useState(false);
@@ -43,10 +43,10 @@ const ManualCard = ({
 
   if (locked && status !== 'authenticated') {
     return (
-      <article className="manual-card">
-        <div className="manual-card__link" onClick={handleLockedClick}>
-          <h2 className="manual-card__title">{title}</h2>
-          <p className="manual-card__last-changed">
+      <article className="article-card">
+        <div className="article-card__link" onClick={handleLockedClick}>
+          <h2 className="article-card__title">{title}</h2>
+          <p className="article-card__last-changed">
             {t('lastChanged')}: {formatDateTime(updatedAt)}
           </p>
 
@@ -54,18 +54,18 @@ const ManualCard = ({
 
           <div
             className={cn(
-              'manual-card__lock',
-              isShaking && 'manual-card__lock--shaking',
-              lockedMessageVisible && 'manual-card__lock--message-visible',
-              !lockedMessageVisible && 'manual-card__lock--message-invisible',
+              'article-card__lock',
+              isShaking && 'article-card__lock--shaking',
+              lockedMessageVisible && 'article-card__lock--message-visible',
+              !lockedMessageVisible && 'article-card__lock--message-invisible',
             )}
           >
-            <div className="manual-card__lock__message">
+            <div className="article-card__lock__message">
               {t.rich('needToBeLoggedIn', {
                 link: (children) => <a href="/inloggen?callbackUrl=%2Fhandleidingen">{children}</a>,
               })}
             </div>
-            <Icon name="lock" size="sm" className="manual-card__lock__icon" />
+            <Icon name="lock" size="sm" className="article-card__lock__icon" />
           </div>
         </div>
       </article>
@@ -73,10 +73,10 @@ const ManualCard = ({
   }
 
   return (
-    <article className="manual-card">
-      <a className="manual-card__link" href={`/handleidingen/${slug}`}>
-        <h2 className="manual-card__title">{title}</h2>
-        <p className="manual-card__last-changed">
+    <article className="article-card">
+      <a className="article-card__link" href={`/handleidingen/${slug}`}>
+        <h2 className="article-card__title">{title}</h2>
+        <p className="article-card__last-changed">
           {t('lastChanged')}: {formatDateTime(updatedAt)}
         </p>
 
@@ -86,4 +86,4 @@ const ManualCard = ({
   );
 };
 
-export default ManualCard;
+export default ArticleCard;

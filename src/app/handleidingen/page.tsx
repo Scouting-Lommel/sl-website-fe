@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
-import ManualCards from '@/components/organisms/ManualCards';
+import ArticleGrid from '@/components/organisms/ArticleGrid';
 import { getGeneralData } from '../api';
 import { getManuals, getManualsPage } from './api';
 
@@ -29,8 +29,8 @@ const ManualsPage = async (): Promise<JSX.Element> => {
   return (
     <>
       <Blocks content={manualsOverviewPage.data.attributes.blocks} />
-      <ManualCards
-        manualCards={manuals?.data?.map((manual: any) => ({
+      <ArticleGrid
+        articles={manuals?.data?.map((manual: any) => ({
           id: manual.id,
           ...manual.attributes,
         }))}

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ManualCard from '.';
+import ArticleCard from '.';
 
-const meta: Meta<typeof ManualCard> = {
-  title: '3 Components/Molecules/Manual Card',
-  component: ManualCard,
+const meta: Meta<typeof ArticleCard> = {
+  title: '3 Components/Molecules/Article Card',
+  component: ArticleCard,
 };
 
 export default meta;

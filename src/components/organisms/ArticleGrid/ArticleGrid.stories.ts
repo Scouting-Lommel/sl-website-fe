@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ManualCards from '.';
+import ArticleGrid from '.';
 
-const meta: Meta<typeof ManualCards> = {
-  title: '3 Components/Organisms/Manual Cards',
-  component: ManualCards,
+const meta: Meta<typeof ArticleGrid> = {
+  title: '3 Components/Organisms/Article Grid',
+  component: ArticleGrid,
 };
 
 export default meta;
@@ -11,7 +11,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    manualCards: [
+    articles: [
       {
         title: 'Takpagina beheren',
         description:

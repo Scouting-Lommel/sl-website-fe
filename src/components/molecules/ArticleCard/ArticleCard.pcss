@@ -1,4 +1,4 @@
-.manual-card {
+.article-card {
   position: relative;
   display: block;
   cursor: pointer;
@@ -8,24 +8,24 @@
   }
 }
 
-.manual-card__link {
+.article-card__link {
   display: block;
   padding: var(--space-40) var(--space-28);
   text-decoration: none;
 }
 
-.manual-card__title {
+.article-card__title {
   margin-top: 0;
   margin-bottom: 0 0 var(--space-8);
 }
 
-.manual-card__last-changed {
+.article-card__last-changed {
   margin-top: var(--space-8);
   color: var(--color-primary-600);
   font-size: 0.92rem;
 }
 
-.manual-card__lock {
+.article-card__lock {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -36,7 +36,7 @@
   gap: var(--space-8);
 
   &--shaking {
-    .manual-card__lock__icon {
+    .article-card__lock__icon {
       animation: shake 0.4s ease-in-out;
     }
   }
@@ -49,14 +49,14 @@
     margin-top: 0;
 
     &--message-visible {
-      .manual-card__lock__message {
+      .article-card__lock__message {
         transform: translateX(0);
         transition: transform var(--transition);
       }
     }
 
     &--message-invisible {
-      .manual-card__lock__message {
+      .article-card__lock__message {
         transform: translateX(500%);
         transition: transform var(--transition);
       }
@@ -64,11 +64,11 @@
   }
 }
 
-.manual-card__lock__icon {
+.article-card__lock__icon {
   flex-shrink: 0;
 }
 
-.manual-card__lock__message {
+.article-card__lock__message {
   font-size: 0.92rem;
   transform: translateX(0);
 }

@@ -3,19 +3,17 @@
 import { useTranslations } from 'next-intl';
 import { Fragment, useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
-import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Forms/Input';
-import Icon from '@/components/atoms/Icon';
 import IconButton from '@/components/atoms/IconButton';
-import ManualCard from '@/components/molecules/ManualCard';
-import { ManualCards as ManualCardsProps } from './types';
-import styles from './ManualCards.css';
+import ArticleCard from '@/components/molecules/ArticleCard';
+import { ArticleGrid as ArticleGridProps } from './types';
+import styles from './ArticleGrid.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const ManualCards = ({ manualCards }: ManualCardsProps): JSX.Element => {
+const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
   const [searchString, setSearchString] = useState('');
 
   const t = useTranslations('common.search');
@@ -24,11 +22,11 @@ const ManualCards = ({ manualCards }: ManualCardsProps): JSX.Element => {
     setSearchString(e.target.value);
   };
 
-  const filteredManuals = manualCards
+  const filteredArticles = articles
     ?.filter(
-      (manual) =>
-        manual.title.toLowerCase().includes(searchString.toLowerCase()) ||
-        manual.description.toLowerCase().includes(searchString.toLowerCase()),
+      (article) =>
+        article.title.toLowerCase().includes(searchString.toLowerCase()) ||
+        article.description.toLowerCase().includes(searchString.toLowerCase()),
     )
     .sort((a, b) => {
       if (a.locked === b.locked) {
@@ -42,12 +40,12 @@ const ManualCards = ({ manualCards }: ManualCardsProps): JSX.Element => {
   };
 
   return (
-    <div className="manual-cards sl-layout">
-      <div className="manual-cards__search">
+    <div className="article-grid sl-layout">
+      <div className="article-grid__search">
         <Input
           label={t('label')}
-          id="manuals-search"
-          name="manuals-search"
+          id="article-search"
+          name="article-search"
           value={searchString}
           placeholder={t('placeholder')}
           customChangeBehaviour={handleSearch}
@@ -58,17 +56,17 @@ const ManualCards = ({ manualCards }: ManualCardsProps): JSX.Element => {
 
       <hr />
 
-      {filteredManuals &&
-        Boolean(filteredManuals.length) &&
-        filteredManuals.map((manualCard, i) => (
-          <Fragment key={manualCard.id}>
-            <ManualCard {...manualCard} />
-            {i < manualCards.length - 1 && <hr />}
+      {filteredArticles &&
+        Boolean(filteredArticles.length) &&
+        filteredArticles.map((article, i) => (
+          <Fragment key={article.id}>
+            <ArticleCard {...article} />
+            {i < articles.length - 1 && <hr />}
           </Fragment>
         ))}
-      {(!filteredManuals || !Boolean(filteredManuals.length)) && <p>{t('noResults')}</p>}
+      {(!filteredArticles || !Boolean(filteredArticles.length)) && <p>{t('noResults')}</p>}
     </div>
   );
 };
 
-export default ManualCards;
+export default ArticleGrid;
