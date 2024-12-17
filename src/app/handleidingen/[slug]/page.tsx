@@ -1,7 +1,8 @@
+import { BlocksRenderer, type BlocksContent } from '@strapi/blocks-react-renderer';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
-import Typography from '@/components/atoms/Typography';
+import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import { getManualPage } from './api';
 import { getGeneralData } from '../../api';
@@ -30,12 +31,21 @@ const ManualPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => 
 
   if (!manual) notFound();
 
-  console.log(manual);
+  console.dir(manual, { depth: null });
 
   return (
-    <article className="sl-layout">
-      <Hero variant="simple" title={manual?.attributes?.title} />
-      <Typography data={manual?.attributes?.description} />
+    <article className="sl-layout--narrow">
+      <BlockContainer slug={`${manual?.attributes?.slug}-hero`}>
+        <Hero
+          variant="simple"
+          title={manual?.attributes?.title}
+          subtitle={manual?.attributes?.description}
+        />
+      </BlockContainer>
+
+      <BlockContainer slug={`${manual?.attributes?.slug}-content`}>
+        <BlocksRenderer content={manual?.attributes?.body as BlocksContent} />
+      </BlockContainer>
     </article>
   );
 };
