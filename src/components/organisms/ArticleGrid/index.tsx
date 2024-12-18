@@ -16,7 +16,7 @@ export const links = (): StylesheetLink[] => {
 
 const MAX_ARTICLES = 5;
 
-const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
+const ArticleGrid = ({ articles, modWithToolbar, showMoreHref }: ArticleGridProps): JSX.Element => {
   const [searchString, setSearchString] = useState('');
   const [showMore, setShowMore] = useState(false);
 
@@ -50,29 +50,33 @@ const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
 
   return (
     <div className="article-grid sl-layout">
-      <div className="article-grid__toolbar">
-        <div className="article-grid__search">
-          <Input
-            label={t('search.label')}
-            id="article-search"
-            name="article-search"
-            value={searchString}
-            placeholder={t('search.placeholder')}
-            customChangeBehaviour={handleSearch}
-            modShowLabel={false}
-          />
-          <IconButton icon="x" label={t('search.remove')} onClick={handleClearSearch} />
-        </div>
+      {modWithToolbar && (
+        <>
+          <div className="article-grid__toolbar">
+            <div className="article-grid__search">
+              <Input
+                label={t('search.label')}
+                id="article-search"
+                name="article-search"
+                value={searchString}
+                placeholder={t('search.placeholder')}
+                customChangeBehaviour={handleSearch}
+                modShowLabel={false}
+              />
+              <IconButton icon="x" label={t('search.remove')} onClick={handleClearSearch} />
+            </div>
 
-        <div>
-          {t('search.countItemsVisible', {
-            count: filteredArticles.length,
-            total: articles.length,
-          })}
-        </div>
-      </div>
+            <div>
+              {t('search.countItemsVisible', {
+                count: filteredArticles.length,
+                total: articles.length,
+              })}
+            </div>
+          </div>
 
-      <hr />
+          <hr />
+        </>
+      )}
 
       {filteredArticles &&
         Boolean(filteredArticles.length) &&
@@ -83,7 +87,9 @@ const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
           </Fragment>
         ))}
 
-      {filteredArticles && articles.length > MAX_ARTICLES && (
+      {(!filteredArticles || !Boolean(filteredArticles.length)) && <p>{t('search.noResults')}</p>}
+
+      {!showMoreHref && filteredArticles && articles.length > MAX_ARTICLES && (
         <Button
           label={showMore ? t('showLess') : t('showMore')}
           onClick={toggleShowMore}
@@ -91,7 +97,9 @@ const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
         />
       )}
 
-      {(!filteredArticles || !Boolean(filteredArticles.length)) && <p>{t('search.noResults')}</p>}
+      {showMoreHref && (
+        <Button label={t('showMore')} href={showMoreHref} className="article-grid__button" />
+      )}
     </div>
   );
 };

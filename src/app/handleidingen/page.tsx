@@ -34,6 +34,7 @@ const ManualsPage = async (): Promise<JSX.Element> => {
           id: manual.id,
           ...manual.attributes,
         }))}
+        modWithToolbar
       />
     </>
   );
