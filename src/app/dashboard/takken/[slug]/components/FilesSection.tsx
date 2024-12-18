@@ -76,9 +76,10 @@ const FilesSection = ({ group }: Props): JSX.Element => {
           <FileStatus />
           {error && !loading && <p>{t('error')}</p>}
           {!error && loading && <Loader size="sm" modLabelVisible />}
-          {!error && !loading && groupFiles?.length === 0 && groupLinks === 0 && (
-            <p>{t('noFilesFound')}</p>
-          )}
+          {!error &&
+            !loading &&
+            (!Boolean(groupFiles) || groupFiles?.length === 0) &&
+            (!Boolean(groupLinks) || groupLinks?.length === 0) && <p>{t('noFilesFound')}</p>}
           {!error && !loading && (groupFiles?.length > 0 || groupLinks?.length > 0) && (
             <ul style={{ paddingLeft: 0 }}>
               {groupFiles?.length > 0 &&
