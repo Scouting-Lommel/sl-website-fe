@@ -13,12 +13,14 @@ const Typography = ({
   data,
   modNoStyle,
   modPreWrap,
+  variant = 'default',
   tagName = 'div',
   children,
   className,
 }: TypographyProps): JSX.Element => {
   const typographyClasses = cn(
     'typography',
+    `typography--${variant}`,
     !modNoStyle && 'typography--styled',
     modPreWrap && 'typography--pre-wrap',
     className,
@@ -27,7 +29,11 @@ const Typography = ({
   const TagName = tagName as keyof JSX.IntrinsicElements;
 
   if (data && Array.isArray(data) && 'type' in (data[0] || {})) {
-    return <StructuredTextRenderer data={data} />;
+    return (
+      <div className={typographyClasses}>
+        <StructuredTextRenderer data={data} />
+      </div>
+    );
   }
 
   if (data && typeof data === 'string') {
