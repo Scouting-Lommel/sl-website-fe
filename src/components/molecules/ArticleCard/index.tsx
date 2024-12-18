@@ -50,7 +50,7 @@ const ArticleCard = ({
             {t('lastChanged')}: {formatDateTime(updatedAt)}
           </p>
 
-          <Typography tagName="p">{description}</Typography>
+          <Typography tagName="p" data={description} />
 
           <div
             className={cn(

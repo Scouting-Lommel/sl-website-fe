@@ -14,7 +14,7 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const MAX_ARTICLES = 10;
+const MAX_ARTICLES = 5;
 
 const ArticleGrid = ({ articles }: ArticleGridProps): JSX.Element => {
   const [searchString, setSearchString] = useState('');
