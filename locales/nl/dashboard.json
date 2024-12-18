@@ -26,6 +26,7 @@
   },
   "groupsDetail": {
     "subtitle": "Takpagina beheren",
+    "alert": "OPGELET! Het zou kunnen dat je je updates niet meteen ziet verschijnen in real-time. Door technische beperkingen wordt je aangepaste inhoud pas na enkele uren zichtbaar op de website. We werken aan een oplossing.",
     "sections": {
       "sectionTitle": {
         "activity": {

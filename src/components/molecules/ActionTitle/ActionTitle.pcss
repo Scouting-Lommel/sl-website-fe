@@ -1,6 +1,7 @@
 .action-title {
   display: flex;
   flex-direction: column;
+  margin: var(--space-32) 0;
   gap: var(--space-16);
 
   @media (--mq-from-medium) {
@@ -8,4 +9,8 @@
     align-items: center;
     justify-content: space-between;
   }
+}
+
+.action-title__title {
+  margin: 0;
 }

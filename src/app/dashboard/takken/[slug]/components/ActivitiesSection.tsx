@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Fragment, useCallback, useEffect, useState } from 'react';
+import Banner from '@/components/atoms/Banner';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
 import Form from '@/components/organisms/Forms';
@@ -18,6 +19,7 @@ const ActivitiesSection = ({ group }: Props): JSX.Element => {
   const [error, setError] = useState<boolean>(false);
 
   const t = useTranslations('dashboard.groupsDetail.sections.activitiesSection');
+  const tAlert = useTranslations('dashboard.groupsDetail');
 
   const fetchActivities = useCallback(async () => {
     setError(false);
@@ -59,38 +61,43 @@ const ActivitiesSection = ({ group }: Props): JSX.Element => {
         type="activity"
         callback={addActivityCallback}
       />
+
+      <Banner variant="neutral">{tAlert('alert')}</Banner>
+
       {error && !loading && (
-        <BlockContainer slug="group-activities-error" modSmallPadding>
+        <BlockContainer slug="group-activities-error" modNoPadding>
           <p>{t('error')}</p>
         </BlockContainer>
       )}
       {!error && loading && (
-        <BlockContainer slug="group-activities-loading" modSmallPadding>
+        <BlockContainer slug="group-activities-loading" modNoPadding>
           <Loader size="sm" modLabelVisible />
         </BlockContainer>
       )}
       {!error && !loading && groupActivities?.length === 0 && (
-        <BlockContainer slug="group-activities-empty-state" modSmallPadding>
+        <BlockContainer slug="group-activities-empty-state" modNoPadding>
           <p>{t('noActivitiesFound')}</p>
         </BlockContainer>
       )}
 
-      {!error &&
-        !loading &&
-        groupActivities?.length > 0 &&
-        groupActivities?.map((activity: any, key: any) => (
-          <Fragment key={`activity-${key}`}>
-            <Form
-              variant="activity"
-              props={{
-                activity: { ...activity.attributes, id: activity.id },
-                callback: fetchActivities,
-              }}
-              blockProperties={{ slug: `activity-${activity.id}`, modSmallPadding: true }}
-            />
-            {key + 1 < groupActivities?.length && <hr />}
-          </Fragment>
-        ))}
+      {!error && !loading && groupActivities?.length > 0 && (
+        <>
+          <hr />
+          {groupActivities?.map((activity: any, key: any) => (
+            <Fragment key={`activity-${key}`}>
+              <Form
+                variant="activity"
+                props={{
+                  activity: { ...activity.attributes, id: activity.id },
+                  callback: fetchActivities,
+                }}
+                blockProperties={{ slug: `activity-${activity.id}`, modSmallPadding: true }}
+              />
+              {key + 1 < groupActivities?.length && <hr />}
+            </Fragment>
+          ))}
+        </>
+      )}
     </BlockContainer>
   );
 };
