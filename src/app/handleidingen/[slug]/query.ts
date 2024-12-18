@@ -13,6 +13,7 @@ const MANUAL_PAGE_QUERY = gql`
           pageMeta {
             ...PageMetaFragment
           }
+          updatedAt
           title
           slug
           description

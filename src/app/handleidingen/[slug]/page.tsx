@@ -6,6 +6,8 @@ import Typography from '@/components/atoms/Typography';
 import Hero from '@/components/organisms/Hero';
 import { getManualPage } from './api';
 import { getGeneralData } from '../../api';
+import { formatDateTime } from '@/lib/helpers/dateTime';
+import { getTranslations } from 'next-intl/server';
 
 type Props = { params: { slug: string } };
 
@@ -29,6 +31,8 @@ const ManualPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => 
   const { manuals } = await getManualPage(slug);
   const manual = manuals.data[0];
 
+  const t = await getTranslations('common');
+
   if (!manual) notFound();
 
   return (
@@ -41,8 +45,15 @@ const ManualPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => 
         />
       </BlockContainer>
 
-      <BlockContainer slug={`${manual?.attributes?.slug}-content`}>
+      <BlockContainer slug={`${manual?.attributes?.slug}-body`} modSmallPadding>
         <Typography data={manual?.attributes?.body} />
+      </BlockContainer>
+
+      <BlockContainer slug={`${manual?.attributes?.slug}-body`} modSmallPadding>
+        <Typography
+          variant="muted"
+          data={`${t('lastChanged')}: ${formatDateTime(manual?.attributes?.updatedAt)}`}
+        />
       </BlockContainer>
     </article>
   );
