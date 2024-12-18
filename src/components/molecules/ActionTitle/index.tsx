@@ -12,7 +12,7 @@ const ActionTitle = ({ title, tagName = 'h2', button }: ActionTitleProps): JSX.E
 
   return (
     <div className="action-title">
-      <TagName>{title}</TagName>
+      <TagName className="t-headline-2 action-title__title">{title}</TagName>
       <Button {...button} />
     </div>
   );
