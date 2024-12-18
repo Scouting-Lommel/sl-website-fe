@@ -65,17 +65,17 @@ const ActivitiesSection = ({ group }: Props): JSX.Element => {
       <Banner variant="neutral">{tAlert('alert')}</Banner>
 
       {error && !loading && (
-        <BlockContainer slug="group-activities-error" modSmallPadding>
+        <BlockContainer slug="group-activities-error" modNoPadding>
           <p>{t('error')}</p>
         </BlockContainer>
       )}
       {!error && loading && (
-        <BlockContainer slug="group-activities-loading" modSmallPadding>
+        <BlockContainer slug="group-activities-loading" modNoPadding>
           <Loader size="sm" modLabelVisible />
         </BlockContainer>
       )}
       {!error && !loading && groupActivities?.length === 0 && (
-        <BlockContainer slug="group-activities-empty-state" modSmallPadding>
+        <BlockContainer slug="group-activities-empty-state" modNoPadding>
           <p>{t('noActivitiesFound')}</p>
         </BlockContainer>
       )}
