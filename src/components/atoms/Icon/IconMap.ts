@@ -13,6 +13,7 @@ export const iconMap = {
   'loader-spinner': 'LoaderCircle',
   close: 'X',
   document: 'FileText',
+  house: 'House',
   image: 'Image',
   presentation: 'FileChartColumnIncreasing',
   file: 'File',
