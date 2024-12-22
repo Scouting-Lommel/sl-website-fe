@@ -32,6 +32,15 @@
       "button": {
         "label": "Naar takken beheren"
       }
+    },
+    "manuals": {
+      "title": "Handleidingen",
+      "subtitle": "Raadpleeg de handleidingen:",
+      "internalManuals": "Interne handleidingen",
+      "publicManuals": "Openbare handleidingen",
+      "button": {
+        "label": "Naar handleidingen"
+      }
     }
   },
   "groupsDetail": {
