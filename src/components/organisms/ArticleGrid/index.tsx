@@ -16,7 +16,12 @@ export const links = (): StylesheetLink[] => {
 
 const MAX_ARTICLES = 5;
 
-const ArticleGrid = ({ articles, modWithToolbar, showMoreHref }: ArticleGridProps): JSX.Element => {
+const ArticleGrid = ({
+  articles,
+  modWithToolbar,
+  showMoreHref,
+  loginCallbackUrl,
+}: ArticleGridProps): JSX.Element => {
   const [searchString, setSearchString] = useState('');
   const [showMore, setShowMore] = useState(false);
 
@@ -82,7 +87,7 @@ const ArticleGrid = ({ articles, modWithToolbar, showMoreHref }: ArticleGridProp
         Boolean(filteredArticles.length) &&
         filteredArticles.map((article, i) => (
           <Fragment key={article.id}>
-            <ArticleCard {...article} />
+            <ArticleCard {...article} loginCallbackUrl={loginCallbackUrl} />
             <hr />
           </Fragment>
         ))}

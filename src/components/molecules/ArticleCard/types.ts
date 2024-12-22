@@ -4,4 +4,5 @@ export type ArticleCard = {
   updatedAt: string;
   slug: string;
   locked?: boolean;
+  loginCallbackUrl: string;
 } & React.HTMLAttributes<HTMLElement>;

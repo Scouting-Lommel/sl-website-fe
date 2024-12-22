@@ -19,6 +19,7 @@ export const Default: Story = {
         updatedAt: '2021-09-01',
         slug: 'scouting-lommel-mail',
         locked: false,
+        loginCallbackUrl: '#',
       },
       {
         title: 'Scouting Lommel mail',
@@ -27,6 +28,7 @@ export const Default: Story = {
         updatedAt: '2021-09-01',
         slug: 'scouting-lommel-mail',
         locked: true,
+        loginCallbackUrl: '#',
       },
     ],
   },

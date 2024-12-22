@@ -5,6 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { formatDateTime } from '@/lib/helpers/dateTime';
+import { formatCallbackUrl } from '@/lib/helpers/formatCallbackUrl';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';
@@ -21,6 +22,7 @@ const ArticleCard = ({
   updatedAt,
   locked,
   slug,
+  loginCallbackUrl,
 }: ArticleCardProps): JSX.Element => {
   const t = useTranslations('common');
 
@@ -62,7 +64,11 @@ const ArticleCard = ({
           >
             <div className="article-card__lock__message">
               {t.rich('needToBeLoggedIn', {
-                link: (children) => <a href="/inloggen?callbackUrl=%2Fhandleidingen">{children}</a>,
+                link: (children) => (
+                  <a href={`inloggen?callbackUrl=${formatCallbackUrl(loginCallbackUrl)}`}>
+                    {children}
+                  </a>
+                ),
               })}
             </div>
             <Icon name="lock" size="sm" className="article-card__lock__icon" />

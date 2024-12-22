@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
+import { formatDateTime } from '@/lib/helpers/dateTime';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Typography from '@/components/atoms/Typography';
 import Hero from '@/components/organisms/Hero';
 import { getManualPage } from './api';
 import { getGeneralData } from '../../api';
-import { formatDateTime } from '@/lib/helpers/dateTime';
-import { getTranslations } from 'next-intl/server';
 
 type Props = { params: { slug: string } };
 
