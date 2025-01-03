@@ -24,3 +24,17 @@ export function formatTime(date: Date | string): string {
   const minutes = String(dateTime.getMinutes()).padStart(2, '0');
   return `${hours}:${minutes}`;
 }
+
+/**
+ * Formats a given date or date string into a datetime string in the format "YYYY-MM-DD HH:mm".
+ *
+ * @param date - The date or date string to format.
+ * @returns The formatted datetime string in "YYYY-MM-DD HH:mm" format.
+ */
+export function formatDateTime(date: Date | string): string {
+  const dateTime = new Date(typeof date === 'string' ? date.toString() : date);
+
+  const formattedDate = formatDate(dateTime);
+  const formattedTime = formatTime(dateTime);
+  return `${formattedDate} ${formattedTime}`;
+}

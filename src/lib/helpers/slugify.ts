@@ -24,4 +24,14 @@ const slugify = (str: string): string => {
     .replace(/^-+|-+$/g, '');
 };
 
-export { slugify };
+/**
+ * Converts a slugified string back to a normal string by replacing hyphens with spaces.
+ *
+ * @param str - The slugified string to be converted.
+ * @returns The desluggified string with hyphens replaced by spaces.
+ */
+const desluggify = (str: string): string => {
+  return str.replace(/-/g, ' ');
+};
+
+export { slugify, desluggify };
