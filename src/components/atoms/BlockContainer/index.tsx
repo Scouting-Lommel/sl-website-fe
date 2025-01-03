@@ -21,6 +21,7 @@ const BlockContainer = ({
   modNoPadding,
   modMargin,
   children,
+  ...props
 }: BlockContainerProps): JSX.Element => {
   const blockContainerClassNames = cn(
     'block-container',
@@ -43,7 +44,7 @@ const BlockContainer = ({
   );
 
   return (
-    <section id={slug} className={blockContainerClassNames}>
+    <section {...props} id={slug} className={blockContainerClassNames}>
       <div className={bgClassnames}>
         {bgImage && (
           <div className="block-container__bg-image__img">

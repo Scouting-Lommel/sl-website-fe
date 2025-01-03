@@ -16,6 +16,11 @@
   margin-bottom: 4rem !important;
 }
 
+h1:has([class*='css']),
+.sb-heading__2 {
+  font-family: var(--font-family-title) !important;
+}
+
 h2:has([class*='css']),
 .sb-heading__2 {
   font-family: var(--font-family-title) !important;

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Blocks from '@/content-blocks';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
+import Blocks from '@/content-blocks';
 import { getGeneralData } from '../api';
 import { getCookiePage } from './api';
 
@@ -18,7 +18,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const ContactPage = async (): Promise<JSX.Element> => {
+const CookiePolicyPage = async (): Promise<JSX.Element> => {
   const { cookiePolicyPage } = await getCookiePage();
 
   if (!cookiePolicyPage) notFound();
@@ -30,4 +30,4 @@ const ContactPage = async (): Promise<JSX.Element> => {
   );
 };
 
-export default ContactPage;
+export default CookiePolicyPage;

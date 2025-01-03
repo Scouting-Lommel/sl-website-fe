@@ -13,6 +13,7 @@ export const iconMap = {
   'loader-spinner': 'LoaderCircle',
   close: 'X',
   document: 'FileText',
+  house: 'House',
   image: 'Image',
   presentation: 'FileChartColumnIncreasing',
   file: 'File',
@@ -24,6 +25,8 @@ export const iconMap = {
   facebook: 'Facebook',
   instagram: 'Instagram',
   tiktok: 'Music2',
+  lock: 'Lock',
+  x: 'X',
 } as const;
 
 export type IconNames = keyof typeof iconMap;

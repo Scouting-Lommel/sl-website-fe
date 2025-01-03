@@ -1,10 +1,8 @@
 import cn from 'classnames';
-import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
-import remarkGfm from 'remark-gfm';
-import sanitizeHtml from 'sanitize-html';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Typography as TypographyProps } from './types';
+import MarkdownRenderer from './renderers/MarkdownRenderer';
+import StructuredTextRenderer from './renderers/StructuredTextRenderer';
 import styles from './Typography.css';
 
 export const links = (): StylesheetLink[] => {
@@ -15,12 +13,14 @@ const Typography = ({
   data,
   modNoStyle,
   modPreWrap,
+  variant = 'default',
   tagName = 'div',
   children,
   className,
 }: TypographyProps): JSX.Element => {
   const typographyClasses = cn(
     'typography',
+    `typography--${variant}`,
     !modNoStyle && 'typography--styled',
     modPreWrap && 'typography--pre-wrap',
     className,
@@ -28,20 +28,23 @@ const Typography = ({
 
   const TagName = tagName as keyof JSX.IntrinsicElements;
 
-  if (data) {
+  if (data && Array.isArray(data) && 'type' in (data[0] || {})) {
     return (
-      <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
-        className={typographyClasses}
-        // @ts-ignore
-        rehypePlugins={[rehypeRaw]}
-      >
-        {sanitizeHtml(data)}
-      </ReactMarkdown>
+      <div className={typographyClasses}>
+        <StructuredTextRenderer data={data} />
+      </div>
     );
   }
 
-  return <TagName className={typographyClasses}>{children}</TagName>;
+  if (data && typeof data === 'string') {
+    return <MarkdownRenderer data={data} className={typographyClasses} />;
+  }
+
+  if (children) {
+    return <TagName className={typographyClasses}>{children}</TagName>;
+  }
+
+  return <></>;
 };
 
 export default Typography;

@@ -12,10 +12,7 @@ const SLLink = ({ href, variant, children, className }: LinkProps): JSX.Element 
   const linkClassnames = cn('link', `link--${variant}`, className);
 
   let LinkComponent: typeof NextLink | 'a' = NextLink;
-  if (typeof href === 'string' && href.startsWith('#')) {
-    LinkComponent = 'a';
-  }
-  if (typeof href === 'string' && href.startsWith('https://')) {
+  if (typeof href === 'string' && (href.startsWith('#') || href.startsWith('https://'))) {
     LinkComponent = 'a';
   }
 

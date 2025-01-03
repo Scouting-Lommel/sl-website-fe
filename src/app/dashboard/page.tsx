@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const Dashboard = async (): Promise<JSX.Element> => {
+const DashboardPage = async (): Promise<JSX.Element> => {
   const session = await getServerSession();
   let orgUnitData: { orgUnitPath?: OrganisationRoles } | null = null;
 
@@ -40,15 +40,27 @@ const Dashboard = async (): Promise<JSX.Element> => {
         {orgUnitData &&
           orgUnitData.orgUnitPath &&
           checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups') && (
-            <div>
-              <h2>{t('manageGroups.title')}</h2>
-              <p>{t('manageGroups.subtitle')}</p>
-              <ul>
-                <li>{t('manageGroups.manageActivities')}</li>
-                <li>{t('manageGroups.manageFiles')}</li>
-              </ul>
-              <Button label={t('manageGroups.button.label')} href="/dashboard/takken" />
-            </div>
+            <>
+              <BlockContainer slug="dashboard-groups" style={{ paddingTop: 0 }}>
+                <h2>{t('manageGroups.title')}</h2>
+                <p>{t('manageGroups.subtitle')}</p>
+                <ul>
+                  <li>{t('manageGroups.manageActivities')}</li>
+                  <li>{t('manageGroups.manageFiles')}</li>
+                </ul>
+                <Button label={t('manageGroups.button.label')} href="/dashboard/takken" />
+              </BlockContainer>
+
+              <BlockContainer slug="dashboard-manuals">
+                <h2>{t('manuals.title')}</h2>
+                <p>{t('manuals.subtitle')}</p>
+                <ul>
+                  <li>{t('manuals.internalManuals')}</li>
+                  <li>{t('manuals.publicManuals')}</li>
+                </ul>
+                <Button label={t('manuals.button.label')} href="/handleidingen" />
+              </BlockContainer>
+            </>
           )}
         {orgUnitData &&
           orgUnitData.orgUnitPath &&
@@ -62,4 +74,4 @@ const Dashboard = async (): Promise<JSX.Element> => {
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

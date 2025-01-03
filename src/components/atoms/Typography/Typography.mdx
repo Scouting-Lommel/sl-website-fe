@@ -1,0 +1,74 @@
+import { Meta, Story, Canvas } from '@storybook/blocks';
+import Typography from '.';
+
+<Meta title="3 Components/Atoms/Typography" component={Typography} />
+
+# Typography Component
+
+A versatile typography component that supports multiple content formats including plain text,
+markdown, and Strapi's structured text blocks.
+
+## Features
+
+- Multiple style variants
+- Markdown rendering support
+- Strapi blocks rendering support
+- Flexible HTML tag selection
+- Sanitized HTML output
+
+## Usage
+
+### Basic Usage
+
+```jsx
+<Typography>Hello World</Typography>
+```
+
+### With Markdown
+
+```tsx
+<Typography data="# Hello World\n\nThis is **bold** and this is *italic*" />
+```
+
+### With Strapi Blocks
+
+```tsx
+<Typography
+  data={[
+    {
+      type: 'paragraph',
+      children: [{ type: 'text', text: 'Hello World' }],
+    },
+  ]}
+/>
+```
+
+## Sub-components
+
+### `MarkdownRenderer`
+
+Internal component that handles Markdown content rendering using react-markdown.
+
+#### Features:
+
+- GitHub Flavored Markdown support
+- HTML sanitization
+- Raw HTML rendering capability
+
+### `StructuredTextRenderer`
+
+Internal component that handles Strapi's structured text blocks using `@strapi/blocks-react-renderer.`
+
+#### Features:
+
+- Custom block renderers
+- Image block support
+- Integration with custom Image component
+
+## Technical Details
+
+The component determines the rendering method based on the type of data prop:
+
+- If `data` is a `string`, it uses `MarkdownRenderer`
+- If `data` is an `array` with type property, it uses `StructuredTextRenderer`
+- If neither, it renders children directly

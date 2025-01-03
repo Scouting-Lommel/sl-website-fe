@@ -1,5 +1,6 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { getProviders, signIn } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
@@ -13,6 +14,9 @@ interface Provider {
 }
 
 const SignInPage = (): JSX.Element => {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams?.get('callbackUrl');
+
   const [providers, setProviders] = useState<Record<string, Provider> | null>(null);
 
   useEffect(() => {
@@ -47,7 +51,10 @@ const SignInPage = (): JSX.Element => {
       <BlockContainer slug="signin-providers">
         {Object.values(providers).map((provider) => (
           <div key={provider.name}>
-            <Button label={`Log in met ${provider.name}`} onClick={() => signIn(provider.id)} />
+            <Button
+              label={`Log in met ${provider.name}`}
+              onClick={() => signIn(provider.id, { callbackUrl: callbackUrl || '/dashboard' })}
+            />
           </div>
         ))}
       </BlockContainer>

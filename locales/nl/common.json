@@ -17,8 +17,10 @@
     "viewLess": "Bekijk minder"
   },
   "imageNotFound": "Afbeelding niet gevonden",
+  "lastChanged": "Laatst gewijzigd",
   "loading": "Aan het laden...",
   "moreInformation": "Meer informatie",
+  "needToBeLoggedIn": "Hiervoor moet je <link>ingelogd zijn</link>",
   "noActivitiesFound": "Geen activiteiten gevonden.",
   "noFilesFound": "Geen bestanden gevonden.",
   "notFound": {
@@ -27,6 +29,15 @@
       "label": "Terug naar de homepagina"
     }
   },
+  "search": {
+    "label": "Zoeken",
+    "placeholder": "Zoeken",
+    "remove": "Verwijder zoekopdracht",
+    "noResults": "Geen resultaten gevonden.",
+    "countItemsVisible": "{count} van {total} items zichtbaar"
+  },
+  "showLess": "Toon minder artikels",
+  "showMore": "Toon meer artikels",
   "skipToContent": "Naar de inhoud",
   "tarifs": {
     "minPrice": "Minimumprijs",

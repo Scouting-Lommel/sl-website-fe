@@ -2,6 +2,7 @@ import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';
+import AutoBreadcrumbs from '@/components/molecules/Breadcrumbs';
 import YearTheme from '@/components/molecules/YearTheme';
 import { Hero as HeroProps } from './types';
 import styles from './Hero.css';
@@ -22,6 +23,8 @@ const Hero = ({
 
   return (
     <div className={heroClassname}>
+      <AutoBreadcrumbs />
+
       <h1
         className={
           variant === 'simple'
