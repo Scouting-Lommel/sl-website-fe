@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { getActivities } from '@/app/takken/[slug]/api';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Activity from '@/components/atoms/Activity';
 import Button from '@/components/atoms/Button';
@@ -12,16 +13,48 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const Activities = ({ activities, initialItems }: ActivityProps): JSX.Element => {
+const Activities = ({ groupSlug, initialItems }: ActivityProps): JSX.Element => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [groupActivities, setActivities] = useState<any>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
   const t = useTranslations('common');
 
-  const [isOpen, setIsOpen] = useState(false);
+  const fetchActivities = useCallback(async () => {
+    setActivities(null);
+    setError(false);
+    setLoading(true);
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const dateString = `${year}-${month}-${day}`;
+
+    const { activities } = await getActivities(groupSlug, dateString);
+
+    if (!activities) {
+      setError(true);
+      setLoading(false);
+      return;
+    }
+
+    setActivities(activities.data);
+    setLoading(false);
+  }, [groupSlug]);
+
+  useEffect(() => {
+    if (groupSlug) {
+      fetchActivities();
+    }
+  }, [groupSlug, fetchActivities]);
 
   return (
     <div className="activities">
-      {activities.length > 0 && (
+      {groupActivities && groupActivities.length > 0 && (
         <>
-          {activities.map((act, i) => {
+          {groupActivities.map((act: any, i: number) => {
             if (isOpen || i < initialItems) {
               return (
                 <Activity
@@ -36,7 +69,7 @@ const Activities = ({ activities, initialItems }: ActivityProps): JSX.Element =>
               );
             }
           })}
-          {!isOpen && initialItems < activities.length && (
+          {!isOpen && initialItems < groupActivities.length && (
             <div className="activities__button">
               <Button
                 label="Toon alle activiteiten"
@@ -56,7 +89,12 @@ const Activities = ({ activities, initialItems }: ActivityProps): JSX.Element =>
           )}
         </>
       )}
-      {activities.length === 0 && <p>{t('noActivitiesFound')}</p>}
+
+      {groupActivities && groupActivities.length === 0 && <p>{t('noActivitiesFound')}</p>}
+
+      {!groupActivities && loading && <p>{t('loading')}</p>}
+
+      {!groupActivities && error && <p>{t('fetchActivitiesError')}</p>}
     </div>
   );
 };

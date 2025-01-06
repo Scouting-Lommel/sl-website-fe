@@ -1,6 +1,4 @@
-import { Activity } from '@/components/atoms/Activity/types';
-
 export type ActivitySection = {
-  activities: { attributes: Activity }[];
+  groupSlug: string;
   initialItems: number;
 } & React.HTMLAttributes<HTMLElement>;

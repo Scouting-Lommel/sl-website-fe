@@ -12,6 +12,7 @@
   },
   "close": "Sluiten",
   "closeWindow": "Venster sluiten",
+  "fetchActivitiesError": "Er ging iets fout tijdens het ophalen van de activiteiten. Probeer het later opnieuw.",
   "gallery": {
     "viewAll": "Bekijk alles",
     "viewLess": "Bekijk minder"
