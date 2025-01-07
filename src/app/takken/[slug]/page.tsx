@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
-import { getActivities, getGroupPage } from './api';
+import { getGroupPage } from './api';
 import { getGeneralData } from '../../api';
 
 type Props = { params: { slug: string } };
@@ -26,12 +26,6 @@ export const generateMetadata = async ({ params: { slug } }: Props): Promise<Met
 const GroupPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, '0');
-  const day = date.getDate().toString().padStart(2, '0');
-  const dateString = year + '-' + month + '-' + day;
-  const { activities } = await getActivities(slug, dateString);
 
   if (!group) notFound();
 
@@ -41,7 +35,7 @@ const GroupPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
       block.links = group.attributes.links;
     }
     if (block.__typename === 'ComponentContentBlocksActivitiesBlock') {
-      block.activities = activities.data;
+      block.groupSlug = group.attributes.pageMeta.slug;
     }
     if (block.__typename === 'ComponentContentBlocksLeadersBlock') {
       block.leaders = group.attributes.leaders;

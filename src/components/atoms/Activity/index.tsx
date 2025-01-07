@@ -28,9 +28,6 @@ const Activity = ({
   let firstLine = '';
   let secondLine = '';
 
-  console.log('startDate', startDate);
-  console.log('startTime', startTime);
-
   if (startDate === endDate) {
     const date = new Date(startDate);
     firstLine = `${dayMap[date.getDay()]} ${date.getDate()}/${
