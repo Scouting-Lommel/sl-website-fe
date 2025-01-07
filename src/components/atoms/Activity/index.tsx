@@ -48,7 +48,7 @@ const Activity = ({
     <>
       <article className="activity">
         <div className="activity__header">
-          <h3 className="activity__header__title">{title}</h3>
+          <h3 className="activity__header__title t-headline-3 t-uppercase">{title}</h3>
           <time dateTime={`${startDate}T${startTime}`} className="activity__header__time">
             {firstLine}
             {secondLine && (
