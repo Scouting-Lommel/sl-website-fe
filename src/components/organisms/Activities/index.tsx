@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useCallback, useEffect, useState } from 'react';
-import { getActivities } from '@/app/takken/[slug]/api';
+import { getActivities } from '@/lib/api/activities/api';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Activity from '@/components/atoms/Activity';
 import Button from '@/components/atoms/Button';

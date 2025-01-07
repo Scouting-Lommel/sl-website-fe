@@ -4,6 +4,14 @@ import {
   DELETE_ACTIVITY_MUTATION,
   UPDATE_ACTIVITY_MUTATION,
 } from './mutations';
+import { GET_ACTIVITIES_QUERY } from './queries';
+
+export const getActivities = (slug: string, date: string): Promise<any> => {
+  return generateApiQuery({
+    variables: { slug: slug, currDate: date },
+    query: GET_ACTIVITIES_QUERY,
+  });
+};
 
 export function createActivity({
   title,

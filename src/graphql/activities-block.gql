@@ -7,8 +7,9 @@ fragment ActivityBlockFragment on ComponentContentBlocksActivitiesBlock {
     slug
   }
   cta: callToAction {
-    variant
-    orientation
-    slug
+    title
+    intro
+    ctaLabel
+    ctaLink
   }
 }
