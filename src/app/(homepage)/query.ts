@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import DIVIDER_FRAGMENT from '@/graphql/divider.gql';
+import EVENTS_BLOCK_FRAGMENT from '@/graphql/events-block.gql';
 import GROUPS_BLOCK_FRAGMENT from '@/graphql/groups-block.gql';
 import HERO_BLOCK_FRAGMENT from '@/graphql/hero-block.gql';
 import IMAGE_FRAGEMENT from '@/graphql/image-fragment.gql';
@@ -10,6 +11,7 @@ const HOMEPAGE_QUERY = gql`
     ${HERO_BLOCK_FRAGMENT}, 
     ${TEXT_IMAGE_BLOCK_FRAGMENT}, 
     ${GROUPS_BLOCK_FRAGMENT}
+    ${EVENTS_BLOCK_FRAGMENT}
     ${DIVIDER_FRAGMENT}
     ${PAGE_META_FRAGMENT}
     ${IMAGE_FRAGEMENT}
@@ -27,6 +29,7 @@ const HOMEPAGE_QUERY = gql`
               ...HeroBlockFragment
               ...TextImageBlockFragment
               ...GroupsBlockFragment
+              ...EventsBlockFragment
               ...DividerFragment
             }
           }
