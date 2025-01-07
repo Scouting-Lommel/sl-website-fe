@@ -6,10 +6,4 @@ fragment ActivityBlockFragment on ComponentContentBlocksActivitiesBlock {
     orientation
     slug
   }
-  cta: callToAction {
-    title
-    intro
-    ctaLabel
-    ctaLink
-  }
 }

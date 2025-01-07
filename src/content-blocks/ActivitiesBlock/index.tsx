@@ -19,7 +19,7 @@ const ActivitiesBlock = ({
       >
         <section className="sl-layout">
           <h2 className="t-headline-2 t-align-center">{title}</h2>
-          <Activities groupSlug={groupSlug} initialItems={initialItems} />
+          <Activities variant="activities" groupSlug={groupSlug} initialItems={initialItems} />
         </section>
       </BlockContainer>
     </>

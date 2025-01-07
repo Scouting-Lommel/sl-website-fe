@@ -13,6 +13,7 @@
   "close": "Sluiten",
   "closeWindow": "Venster sluiten",
   "fetchActivitiesError": "Er ging iets fout tijdens het ophalen van de activiteiten. Probeer het later opnieuw.",
+  "fetchEventsError": "Er ging iets fout tijdens het ophalen van de evenementen. Probeer het later opnieuw.",
   "gallery": {
     "viewAll": "Bekijk alles",
     "viewLess": "Bekijk minder"
@@ -22,7 +23,8 @@
   "loading": "Aan het laden...",
   "moreInformation": "Meer informatie",
   "needToBeLoggedIn": "Hiervoor moet je <link>ingelogd zijn</link>",
-  "noActivitiesFound": "Geen activiteiten gevonden.",
+  "noActivitiesFound": "Er staan geen nieuwe activiteiten in de nabije toekomst gepland.",
+  "noEventsFound": "Er staan geen nieuwe evenementen in de nabije toekomst gepland.",
   "noFilesFound": "Geen bestanden gevonden.",
   "notFound": {
     "title": "We hebben de pagina die je zocht, niet gevonden.",
