@@ -1,20 +1,12 @@
+import { useTranslations } from 'next-intl';
+import { formatDate, formatStrapiTime } from '@/lib/helpers/dateTime';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
-import { Activity as ActivityProps, Day as DayProps } from './types';
+import { Activity as ActivityProps } from './types';
 import styles from './Activity.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
-};
-
-const dayMap: DayProps = {
-  0: 'Zo',
-  1: 'Ma',
-  2: 'Di',
-  3: 'Wo',
-  4: 'Do',
-  5: 'Vr',
-  6: 'Za',
 };
 
 const Activity = ({
@@ -25,43 +17,55 @@ const Activity = ({
   endTime,
   description,
 }: ActivityProps): JSX.Element => {
-  let firstLine = '';
-  let secondLine = '';
+  const t = useTranslations('common.days');
 
-  if (startDate === endDate) {
-    const date = new Date(startDate);
-    firstLine = `${dayMap[date.getDay()]} ${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}, ${startTime?.slice(0, 5)} tot ${endTime?.slice(0, 5)}`;
-  } else {
-    let date = new Date(startDate);
-    firstLine = `Van ${dayMap[date.getDay()]} ${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}, ${startTime?.slice(0, 5)}`;
-    date = new Date(endDate);
-    secondLine = `Tot ${dayMap[date.getDay()]} ${date.getDate()}/${
-      date.getMonth() + 1
-    }/${date.getFullYear()}, ${endTime?.slice(0, 5)}`;
-  }
+  const timeString = (() => {
+    if (!startDate) return '';
+
+    const start = formatDate(startDate, 'DD/MM/YYYY');
+    const startTimeFormatted = formatStrapiTime(startTime);
+    const startDay = String(new Date(startDate).getDay());
+
+    // If no end date/time, just show start date (and time if available)
+    if (!endDate) {
+      return startTimeFormatted
+        ? `${t(startDay)} ${start}, ${startTimeFormatted}`
+        : `${t(startDay)} ${start}`;
+    }
+
+    // If same date, show single line
+    if (startDate === endDate) {
+      return startTime && endTime
+        ? `${t(startDay)} ${start}, ${formatStrapiTime(startTime)} tot ${formatStrapiTime(endTime)}`
+        : start;
+    }
+
+    // Different dates
+    const end = formatDate(endDate, 'DD/MM/YYYY');
+    const endDay = String(new Date(endDate).getDay());
+
+    // If we have both start and end times
+    if (startTime && endTime) {
+      return `${t(startDay)} ${start}, ${startTimeFormatted} tot ${t(endDay).toLowerCase()} ${end}, ${formatStrapiTime(endTime)}`;
+    }
+
+    // If we only have dates
+    return `${t(startDay)} ${start} tot ${t(endDay).toLowerCase()} ${end}`;
+  })();
 
   return (
-    <>
-      <article className="activity">
-        <div className="activity__header">
-          <h3 className="activity__header__title t-headline-3 t-uppercase">{title}</h3>
-          <time dateTime={`${startDate}T${startTime}`} className="activity__header__time">
-            {firstLine}
-            {secondLine && (
-              <>
-                <br />
-                {secondLine}
-              </>
-            )}
-          </time>
-        </div>
-        <Typography className="activity__description" data={description} />
-      </article>
-    </>
+    <article className="activity">
+      <div className="activity__header">
+        <h3 className="activity__header__title t-headline-3 t-uppercase">{title}</h3>
+        <time
+          dateTime={startTime ? `${startDate}T${startTime}` : startDate}
+          className="activity__header__time"
+        >
+          {timeString}
+        </time>
+      </div>
+      <Typography className="activity__description" data={description} />
+    </article>
   );
 };
 

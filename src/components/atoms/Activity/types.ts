@@ -6,7 +6,3 @@ export type Activity = {
   endTime: string;
   description: string;
 } & React.HTMLAttributes<HTMLElement>;
-
-export type Day = {
-  [key: number]: string;
-};

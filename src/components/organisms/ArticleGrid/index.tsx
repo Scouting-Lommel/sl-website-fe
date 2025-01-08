@@ -103,7 +103,12 @@ const ArticleGrid = ({
       )}
 
       {showMoreHref && (
-        <Button label={t('showMore')} href={showMoreHref} className="article-grid__button" />
+        <Button
+          label={t('showMore')}
+          href={showMoreHref}
+          className="article-grid__button"
+          modSmall
+        />
       )}
     </div>
   );
