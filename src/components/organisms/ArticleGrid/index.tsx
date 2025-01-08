@@ -58,7 +58,7 @@ const ArticleGrid = ({
       {modWithToolbar && (
         <>
           <div className="article-grid__toolbar">
-            <div className="article-grid__search">
+            <search className="article-grid__search">
               <Input
                 label={t('search.label')}
                 id="article-search"
@@ -69,7 +69,7 @@ const ArticleGrid = ({
                 modShowLabel={false}
               />
               <IconButton icon="x" label={t('search.remove')} onClick={handleClearSearch} />
-            </div>
+            </search>
 
             <div>
               {t('search.countItemsVisible', {
