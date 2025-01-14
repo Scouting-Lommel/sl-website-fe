@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Fragment, useCallback, useEffect, useState } from 'react';
-import Banner from '@/components/atoms/Banner';
+// import Banner from '@/components/atoms/Banner';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
 import Form from '@/components/organisms/Forms';
@@ -19,7 +19,7 @@ const ActivitiesSection = ({ group }: Props): JSX.Element => {
   const [error, setError] = useState<boolean>(false);
 
   const t = useTranslations('dashboard.groupsDetail.sections.activitiesSection');
-  const tAlert = useTranslations('dashboard.groupsDetail');
+  // const tAlert = useTranslations('dashboard.groupsDetail');
 
   const fetchActivities = useCallback(async () => {
     setError(false);
@@ -62,7 +62,7 @@ const ActivitiesSection = ({ group }: Props): JSX.Element => {
         callback={addActivityCallback}
       />
 
-      <Banner variant="neutral">{tAlert('alert')}</Banner>
+      {/* <Banner variant="neutral">{tAlert('alert')}</Banner> */}
 
       {error && !loading && (
         <BlockContainer slug="group-activities-error" modNoPadding>

@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { FormProvider } from '@/lib/contexts/FormContext';
-import Banner from '@/components/atoms/Banner';
+// import Banner from '@/components/atoms/Banner';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Loader from '@/components/atoms/Loader';
 import Attachment from '@/components/molecules/Attachment';
@@ -22,7 +22,7 @@ const FilesSection = ({ group }: Props): JSX.Element => {
   const [error, setError] = useState<boolean>(false);
 
   const t = useTranslations('dashboard.groupsDetail.sections.filesSection');
-  const tAlert = useTranslations('dashboard.groupsDetail');
+  // const tAlert = useTranslations('dashboard.groupsDetail');
 
   const fetchFiles = useCallback(async () => {
     setError(false);
@@ -70,7 +70,7 @@ const FilesSection = ({ group }: Props): JSX.Element => {
           callback={addFileCallback}
         />
 
-        <Banner variant="neutral">{tAlert('alert')}</Banner>
+        {/* <Banner variant="neutral">{tAlert('alert')}</Banner> */}
 
         <BlockContainer slug="group-files" modNoPadding>
           <FileStatus />
