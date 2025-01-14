@@ -41,6 +41,8 @@
       "label": "Terug naar de homepagina"
     }
   },
+  "readLess": "Lees minder",
+  "readMore": "Lees meer",
   "search": {
     "label": "Zoeken",
     "placeholder": "Zoeken",

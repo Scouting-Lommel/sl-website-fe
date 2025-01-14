@@ -64,7 +64,12 @@ const Activity = ({
           {timeString}
         </time>
       </div>
-      <Typography className="activity__description" data={description} modNoStyle />
+      <Typography
+        className="activity__description"
+        data={description}
+        numberOfLines={2}
+        modNoStyle
+      />
     </article>
   );
 };
