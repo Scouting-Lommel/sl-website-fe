@@ -35,31 +35,4 @@ const ACTIVITIES_QUERY = gql`
   }
 `;
 
-const FILES_QUERY = gql`
-  query getGroupWithFiles($slug: String) {
-    groups(filters: { slug: { eq: $slug } }) {
-      data {
-        attributes {
-          files {
-            data {
-              id
-              attributes {
-                ext
-                url
-                name
-                size
-              }
-            }
-          }
-          links {
-            id
-            label
-            link
-          }
-        }
-      }
-    }
-  }
-`;
-
-export { GROUP_PAGE_QUERY, ACTIVITIES_QUERY, FILES_QUERY };
+export { GROUP_PAGE_QUERY, ACTIVITIES_QUERY };

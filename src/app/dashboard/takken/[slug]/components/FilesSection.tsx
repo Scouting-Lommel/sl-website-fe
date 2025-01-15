@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Fragment, useCallback, useEffect, useState } from 'react';
+import { getFiles } from '@/lib/api/files/api';
 import { FormProvider } from '@/lib/contexts/FormContext';
 // import Banner from '@/components/atoms/Banner';
 import BlockContainer from '@/components/atoms/BlockContainer';
@@ -9,7 +10,6 @@ import Loader from '@/components/atoms/Loader';
 import Attachment from '@/components/molecules/Attachment';
 import FileStatus from './FileStatus';
 import SectionTitle from './SectionTitle';
-import { getFiles } from '../api';
 
 type Props = {
   group: any;
