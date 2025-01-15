@@ -27,6 +27,7 @@ export const iconMap = {
   tiktok: 'Music2',
   lock: 'Lock',
   x: 'X',
+  refresh: 'RefreshCw',
 } as const;
 
 export type IconNames = keyof typeof iconMap;
