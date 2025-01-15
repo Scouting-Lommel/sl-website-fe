@@ -57,6 +57,7 @@
     "minPrice": "Minimumprijs",
     "pricePerPersonPerNight": "Prijs pp/nacht"
   },
+  "tryAgain": "Probeer opnieuw",
   "unauthorized": {
     "title": "Je hebt geen toegang tot deze pagina.",
     "button": {

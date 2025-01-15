@@ -7,6 +7,8 @@ import { getEvents } from '@/lib/api/events/api';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Activity from '@/components/atoms/Activity';
 import Button from '@/components/atoms/Button';
+import Link from '@/components/atoms/Link';
+import Loader from '@/components/atoms/Loader';
 import { ActivitySection as ActivityProps } from './types';
 import styles from './Activities.css';
 
@@ -86,7 +88,7 @@ const Activities = ({ variant, groupSlug, initialItems }: ActivityProps): JSX.El
     }
   }, []);
 
-  useEffect(() => {
+  const fetchData = useCallback(async () => {
     switch (variant) {
       case 'activities':
         fetchActivities();
@@ -98,6 +100,10 @@ const Activities = ({ variant, groupSlug, initialItems }: ActivityProps): JSX.El
         break;
     }
   }, [fetchActivities, fetchEvents, variant]);
+
+  useEffect(() => {
+    fetchData();
+  }, [variant, fetchData]);
 
   return (
     <div className="activities">
@@ -145,12 +151,21 @@ const Activities = ({ variant, groupSlug, initialItems }: ActivityProps): JSX.El
         </p>
       )}
 
-      {!groupActivities && loading && <p className="t-align-center">{t('loading')}</p>}
+      {!groupActivities && loading && (
+        <Loader className="activities__loader" size="sm" modLabelVisible />
+      )}
 
       {!groupActivities && error && (
-        <p className="t-align-center">
-          {variant === 'activities' ? t('fetchActivitiesError') : t('fetchEventsError')}
-        </p>
+        <>
+          <p className="t-align-center">
+            {variant === 'activities' ? t('fetchActivitiesError') : t('fetchEventsError')}
+          </p>
+          <div className="activities__try-again">
+            <Link className="activities__try-again__btn" variant="link3" onClick={fetchData}>
+              {t('tryAgain')}
+            </Link>
+          </div>
+        </>
       )}
     </div>
   );
