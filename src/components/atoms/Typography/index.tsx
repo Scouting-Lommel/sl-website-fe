@@ -70,13 +70,15 @@ const Typography = ({
     className,
   );
 
-  const typographyStyles: React.CSSProperties = {
-    WebkitLineClamp: !isExpanded ? numberOfLines : undefined,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    display: '-webkit-box',
-    WebkitBoxOrient: 'vertical',
-  };
+  const typographyStyles: React.CSSProperties | undefined = numberOfLines
+    ? {
+        WebkitLineClamp: !isExpanded ? numberOfLines : undefined,
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        display: '-webkit-box',
+        WebkitBoxOrient: 'vertical',
+      }
+    : undefined;
 
   const TagName: any = tagName as keyof JSX.IntrinsicElements;
 
