@@ -30,15 +30,14 @@ const GroupPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
   if (!group) notFound();
 
   group.attributes.blocks.forEach((block: any) => {
-    if (block.__typename == 'ComponentContentBlocksFilesBlock') {
-      block.files = group.attributes.files;
-      block.links = group.attributes.links;
-    }
-    if (block.__typename === 'ComponentContentBlocksActivitiesBlock') {
-      block.groupSlug = group.attributes.pageMeta.slug;
-    }
-    if (block.__typename === 'ComponentContentBlocksLeadersBlock') {
-      block.leaders = group.attributes.leaders;
+    switch (block.__typename) {
+      case 'ComponentContentBlocksFilesBlock':
+      case 'ComponentContentBlocksActivitiesBlock':
+        block.groupSlug = group.attributes.pageMeta.slug;
+        break;
+      case 'ComponentContentBlocksLeadersBlock':
+        block.leaders = group.attributes.leaders;
+        break;
     }
   });
 
