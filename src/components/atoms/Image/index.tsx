@@ -53,7 +53,7 @@ const SLImage = ({
         <img
           ref={imageRef}
           className="image__img"
-          alt={data?.alternativeText}
+          alt={data?.alternativeText || undefined}
           src={data?.url}
           loading={loadingStrategy}
         />
@@ -85,7 +85,7 @@ const SLImage = ({
         <img
           ref={imageRef}
           className="image__img"
-          alt={data?.alternativeText}
+          alt={data?.alternativeText || undefined}
           src={generateImageUrl(data?.hash)}
           loading={loadingStrategy}
         />
@@ -94,7 +94,7 @@ const SLImage = ({
       {modMaximisable && imgModalActive && (
         <Lightbox
           large={generateImageUrl(data?.hash)}
-          alt={data?.alternativeText}
+          alt={data?.alternativeTex || undefined}
           onClose={() => setImgModalActive(false)}
         />
       )}
