@@ -18,6 +18,9 @@ const SLImage = ({
   data,
   loadingStrategy = 'lazy',
   modMaximisable,
+  modWithShadow,
+  modRounded,
+  modWithCaption,
   className,
 }: ImageProps): JSX.Element => {
   const t = useTranslations('common');
@@ -29,8 +32,12 @@ const SLImage = ({
     'image',
     loadingStrategy === 'lazy' && !imgLoaded && 'image--loading',
     modMaximisable && 'image--maximisable',
+    modWithShadow && 'image--with-shadow',
+    modRounded && 'image--rounded',
     className,
   );
+
+  console.log(data);
 
   // Preload the image
   useEffect(() => {
@@ -57,6 +64,9 @@ const SLImage = ({
           src={data?.url}
           loading={loadingStrategy}
         />
+        {modWithCaption && data.caption && (
+          <figcaption className="image__caption">{data.caption}</figcaption>
+        )}
       </picture>
     );
   }
@@ -89,6 +99,10 @@ const SLImage = ({
           src={generateImageUrl(data?.hash)}
           loading={loadingStrategy}
         />
+
+        {modWithCaption && data.caption && (
+          <figcaption className="image__caption">{data.caption}</figcaption>
+        )}
       </picture>
 
       {modMaximisable && imgModalActive && (
