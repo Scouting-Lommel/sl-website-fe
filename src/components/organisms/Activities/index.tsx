@@ -127,7 +127,7 @@ const Activities = ({ variant, groupSlug, initialItems }: ActivityProps): JSX.El
           {!isOpen && initialItems < groupActivities.length && (
             <div className="activities__button">
               <Button
-                label="Toon alle activiteiten"
+                label={variant === 'activities' ? t('showMoreActivities') : t('showMoreEvents')}
                 variant="primary"
                 onClick={() => setIsOpen(true)}
               />
@@ -136,7 +136,7 @@ const Activities = ({ variant, groupSlug, initialItems }: ActivityProps): JSX.El
           {isOpen && (
             <div className="activities__button">
               <Button
-                label="Toon minder activiteiten"
+                label={variant === 'activities' ? t('showLessActivities') : t('showLessEvents')}
                 variant="primary"
                 onClick={() => setIsOpen(false)}
               />

@@ -52,7 +52,11 @@
     "countItemsVisible": "{count} van {total} items zichtbaar"
   },
   "showLess": "Toon minder artikels",
+  "showLessActivities": "Toon minder activiteiten",
+  "showLessEvents": "Toon minder evenementen",
   "showMore": "Toon meer artikels",
+  "showMoreActivities": "Toon alle activiteiten",
+  "showMoreEvents": "Toon alle evenementen",
   "skipToContent": "Naar de inhoud",
   "tarifs": {
     "minPrice": "Minimumprijs",
