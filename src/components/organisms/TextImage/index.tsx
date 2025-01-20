@@ -32,15 +32,7 @@ const ImageText = ({
       {images && images.length > 0 && (
         <div className="text-image__image-container">
           {images.map((image, i) => {
-            return (
-              <SLImage
-                key={i}
-                data={image}
-                loadingStrategy={'lazy'}
-                className="text-image__image"
-                modMaximisable
-              />
-            );
+            return <SLImage key={i} data={image} className="text-image__image" modMaximisable />;
           })}
         </div>
       )}
