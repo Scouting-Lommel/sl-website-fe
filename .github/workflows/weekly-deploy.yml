@@ -1,0 +1,50 @@
+name: Weekly Deploy to Netlify
+
+on:
+  schedule:
+    # Runs at 00:00 every Monday
+    - cron: '0 0 * * 1'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      APP_ENV: production
+      SITE_URL: ${{ secrets.SITE_URL }}
+      NEXT_PUBLIC_APP_BACKEND_URL: ${{ secrets.NEXT_PUBLIC_APP_BACKEND_URL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Get latest release tag
+        id: latest_release
+        run: |
+          LATEST_TAG=$(curl -s https://api.github.com/repos/scoutinglommel/releases/latest | jq -r .tag_name)
+          echo "LATEST_TAG=${LATEST_TAG}" >> $GITHUB_ENV
+
+      - name: Checkout latest release
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.LATEST_TAG }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Install Netlify CLI and Plugins
+        run: npm install netlify-cli -g
+
+      - name: Build CSS
+        run: npm run build:css
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: netlify deploy --build --prod
