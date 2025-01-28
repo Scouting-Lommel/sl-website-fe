@@ -23,7 +23,7 @@ const Hero = ({
 
   return (
     <div className={heroClassname}>
-      <AutoBreadcrumbs />
+      <AutoBreadcrumbs is404={title === '404'} />
 
       <h1
         className={

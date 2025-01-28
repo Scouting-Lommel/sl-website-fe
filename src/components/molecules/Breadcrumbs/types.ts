@@ -6,3 +6,7 @@ export type Breadcrumb = {
 export type Breadcrumbs = {
   items: Breadcrumb[];
 } & React.HTMLAttributes<HTMLElement>;
+
+export type AutoBreadcrumbs = {
+  is404?: boolean;
+} & React.HTMLAttributes<HTMLElement>;
