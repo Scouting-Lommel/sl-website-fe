@@ -6,6 +6,7 @@ export type Typography = {
   modPreWrap?: boolean;
   tagName?: 'div' | 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   variant?: 'default' | 'muted';
+  numberOfLines?: number;
 } & React.HTMLAttributes<HTMLElement>;
 
 export type MarkdownRendererProps = {

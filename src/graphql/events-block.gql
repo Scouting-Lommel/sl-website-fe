@@ -1,0 +1,9 @@
+fragment EventsBlockFragment on ComponentContentBlocksEventsBlock {
+  blockTitle: title
+  initialItems
+  blockProperties {
+    variant
+    orientation
+    slug
+  }
+}

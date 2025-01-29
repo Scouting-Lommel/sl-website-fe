@@ -2,7 +2,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import FileSection from '@/components/organisms/FileSection';
 import { FileBlock as FileBlockProps } from './types';
 
-const FilesBlock = ({ title, files, links, blockProperties }: FileBlockProps): JSX.Element => {
+const FilesBlock = ({ title, groupSlug, blockProperties }: FileBlockProps): JSX.Element => {
   return (
     <BlockContainer
       variant={blockProperties?.variant}
@@ -10,7 +10,7 @@ const FilesBlock = ({ title, files, links, blockProperties }: FileBlockProps): J
       slug={blockProperties?.slug}
       modMargin
     >
-      <FileSection title={title} files={files} links={links} className="sl-layout" />
+      <FileSection title={title} groupSlug={groupSlug} className="sl-layout" />
     </BlockContainer>
   );
 };

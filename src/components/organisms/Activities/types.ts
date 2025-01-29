@@ -1,4 +1,5 @@
 export type ActivitySection = {
-  groupSlug: string;
+  variant: 'activities' | 'events';
+  groupSlug?: string;
   initialItems: number;
 } & React.HTMLAttributes<HTMLElement>;

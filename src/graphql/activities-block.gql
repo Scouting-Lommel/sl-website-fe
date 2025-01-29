@@ -6,9 +6,4 @@ fragment ActivityBlockFragment on ComponentContentBlocksActivitiesBlock {
     orientation
     slug
   }
-  cta: callToAction {
-    variant
-    orientation
-    slug
-  }
 }

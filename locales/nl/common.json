@@ -12,7 +12,18 @@
   },
   "close": "Sluiten",
   "closeWindow": "Venster sluiten",
+  "days": {
+    "0": "Maandag",
+    "1": "Dinsdag",
+    "2": "Woensdag",
+    "3": "Donderdag",
+    "4": "Vrijdag",
+    "5": "Zaterdag",
+    "6": "Zondag"
+  },
   "fetchActivitiesError": "Er ging iets fout tijdens het ophalen van de activiteiten. Probeer het later opnieuw.",
+  "fetchEventsError": "Er ging iets fout tijdens het ophalen van de evenementen. Probeer het later opnieuw.",
+  "fetchFilesError": "Er ging iets fout tijdens het ophalen van de links en bestanden. Probeer het later opnieuw.",
   "gallery": {
     "viewAll": "Bekijk alles",
     "viewLess": "Bekijk minder"
@@ -22,7 +33,8 @@
   "loading": "Aan het laden...",
   "moreInformation": "Meer informatie",
   "needToBeLoggedIn": "Hiervoor moet je <link>ingelogd zijn</link>",
-  "noActivitiesFound": "Geen activiteiten gevonden.",
+  "noActivitiesFound": "Er staan geen nieuwe activiteiten in de nabije toekomst gepland.",
+  "noEventsFound": "Er staan geen nieuwe evenementen in de nabije toekomst gepland.",
   "noFilesFound": "Geen bestanden gevonden.",
   "notFound": {
     "title": "We hebben de pagina die je zocht, niet gevonden.",
@@ -30,6 +42,8 @@
       "label": "Terug naar de homepagina"
     }
   },
+  "readLess": "Lees minder",
+  "readMore": "Lees meer",
   "search": {
     "label": "Zoeken",
     "placeholder": "Zoeken",
@@ -38,12 +52,17 @@
     "countItemsVisible": "{count} van {total} items zichtbaar"
   },
   "showLess": "Toon minder artikels",
+  "showLessActivities": "Toon minder activiteiten",
+  "showLessEvents": "Toon minder evenementen",
   "showMore": "Toon meer artikels",
+  "showMoreActivities": "Toon alle activiteiten",
+  "showMoreEvents": "Toon alle evenementen",
   "skipToContent": "Naar de inhoud",
   "tarifs": {
     "minPrice": "Minimumprijs",
     "pricePerPersonPerNight": "Prijs pp/nacht"
   },
+  "tryAgain": "Probeer opnieuw",
   "unauthorized": {
     "title": "Je hebt geen toegang tot deze pagina.",
     "button": {

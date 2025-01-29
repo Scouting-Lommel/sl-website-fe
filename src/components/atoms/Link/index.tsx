@@ -8,12 +8,26 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const SLLink = ({ href, variant, children, className }: LinkProps): JSX.Element => {
+const SLLink = ({
+  href,
+  variant = 'link1',
+  onClick,
+  children,
+  className,
+}: LinkProps): JSX.Element => {
   const linkClassnames = cn('link', `link--${variant}`, className);
 
   let LinkComponent: typeof NextLink | 'a' = NextLink;
   if (typeof href === 'string' && (href.startsWith('#') || href.startsWith('https://'))) {
     LinkComponent = 'a';
+  }
+
+  if (onClick) {
+    return (
+      <button onClick={onClick} className={linkClassnames}>
+        {children}
+      </button>
+    );
   }
 
   return (

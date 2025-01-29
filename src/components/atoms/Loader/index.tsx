@@ -8,10 +8,10 @@ export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const Loader = ({ size = 'md', modLabelVisible }: LoaderProps): JSX.Element => {
+const Loader = ({ size = 'md', modLabelVisible, className }: LoaderProps): JSX.Element => {
   const t = useTranslations('common');
 
-  const classNames = cn('loader', `loader--${size}`);
+  const classNames = cn('loader', `loader--${size}`, className);
 
   return (
     <div className={classNames}>

@@ -18,6 +18,9 @@ const SLImage = ({
   data,
   loadingStrategy = 'lazy',
   modMaximisable,
+  modWithShadow,
+  modRounded,
+  modWithCaption,
   className,
 }: ImageProps): JSX.Element => {
   const t = useTranslations('common');
@@ -25,11 +28,14 @@ const SLImage = ({
   const [imgLoaded, setImgLoaded] = useState<boolean>(false);
   const [imgModalActive, setImgModalActive] = useState<boolean>(false);
 
+  const imageWrapperClassNames = cn('image__wrapper', className);
+
   const imageClassNames = cn(
     'image',
     loadingStrategy === 'lazy' && !imgLoaded && 'image--loading',
     modMaximisable && 'image--maximisable',
-    className,
+    modWithShadow && 'image--with-shadow',
+    modRounded && 'image--rounded',
   );
 
   // Preload the image
@@ -46,55 +52,71 @@ const SLImage = ({
   if (!data?.url) {
     return <>{t('imageNotFound')}</>;
   }
-
   if (data.ext === '.svg') {
     return (
-      <picture className={imageClassNames}>
-        <img
-          ref={imageRef}
-          className="image__img"
-          alt={data?.alternativeText}
-          src={data?.url}
-          loading={loadingStrategy}
-        />
-      </picture>
+      <figure className={imageWrapperClassNames}>
+        <div className={imageClassNames}>
+          <img
+            ref={imageRef}
+            className="image__img"
+            alt={data?.alternativeText || undefined}
+            src={data?.url}
+            loading={loadingStrategy}
+          />
+        </div>
+        {modWithCaption && data.caption && (
+          <figcaption className="image__caption">{data.caption}</figcaption>
+        )}
+      </figure>
     );
   }
 
   return (
     <>
-      <picture
-        className={imageClassNames}
-        style={{ aspectRatio: `${data.width}/${data.height}` }}
-        onClick={() => {
-          if (modMaximisable) setImgModalActive(true);
-        }}
-      >
-        <div className="image__blur-container">
-          {!imgLoaded && (
-            <Blurhash
-              className="image__blur"
-              hash={data.blurhash || 'L6PZfSjE.AyE_3t7t7R**0o#DgR4'}
-              width={data.width}
-              height={data.height}
-              style={{ width: '100%', height: '100%' }}
+      <figure className={imageWrapperClassNames}>
+        <div
+          className={imageClassNames}
+          style={{ aspectRatio: `${data.width}/${data.height}` }}
+          onClick={() => {
+            if (modMaximisable) setImgModalActive(true);
+          }}
+        >
+          <span className="image__blur-container">
+            {!imgLoaded && (
+              <Blurhash
+                className="image__blur"
+                hash={data.blurhash || 'L6PZfSjE.AyE_3t7t7R**0o#DgR4'}
+                width={data.width}
+                height={data.height}
+                style={{ width: '100%', height: '100%' }}
+              />
+            )}
+          </span>
+
+          <picture>
+            <img
+              ref={imageRef}
+              className={cn(
+                'image__img',
+                data.width > data.height ? 'image__img--landscape' : 'image__img--portrait',
+              )}
+              style={{ aspectRatio: `${data.width}/${data.height}` }}
+              alt={data?.alternativeText || undefined}
+              src={generateImageUrl(data?.hash)}
+              loading={loadingStrategy}
             />
-          )}
+          </picture>
         </div>
 
-        <img
-          ref={imageRef}
-          className="image__img"
-          alt={data?.alternativeText}
-          src={generateImageUrl(data?.hash)}
-          loading={loadingStrategy}
-        />
-      </picture>
+        {modWithCaption && data.caption && (
+          <figcaption className="image__caption">{data.caption}</figcaption>
+        )}
+      </figure>
 
       {modMaximisable && imgModalActive && (
         <Lightbox
           large={generateImageUrl(data?.hash)}
-          alt={data?.alternativeText}
+          alt={data?.alternativeTex || undefined}
           onClose={() => setImgModalActive(false)}
         />
       )}

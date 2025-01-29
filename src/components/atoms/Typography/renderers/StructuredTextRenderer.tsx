@@ -10,7 +10,7 @@ const StructuredTextRenderer = ({ data }: StructuredTextRendererProps): JSX.Elem
       content={data}
       blocks={{
         image: ({ image }) => {
-          return <SLImage data={image} />;
+          return <SLImage data={image} modWithShadow modRounded modWithCaption />;
         },
       }}
     />

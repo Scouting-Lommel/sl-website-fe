@@ -1,27 +1,12 @@
 import gql from 'graphql-tag';
 
-const GROUP_PAGE_QUERY = gql`
-  query getGroupPage($slug: String) {
-    groups(filters: { slug: { eq: $slug } }) {
-      data {
-        id
-        attributes {
-          pageTitle
-          slug
-        }
-      }
-    }
-  }
-`;
-
-const ACTIVITIES_QUERY = gql`
+const GET_ACTIVITIES_QUERY = gql`
   query getActivities($slug: String, $currDate: Date) {
     activities(
       filters: { group: { slug: { eq: $slug } }, endDate: { gte: $currDate } }
       sort: "startDate:asc"
     ) {
       data {
-        id
         attributes {
           title
           startDate
@@ -35,4 +20,4 @@ const ACTIVITIES_QUERY = gql`
   }
 `;
 
-export { GROUP_PAGE_QUERY, ACTIVITIES_QUERY };
+export { GET_ACTIVITIES_QUERY };
