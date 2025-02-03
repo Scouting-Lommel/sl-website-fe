@@ -4,6 +4,7 @@ on:
   schedule:
     # Runs at 00:00 every Monday
     - cron: '0 0 * * 1'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -21,13 +22,20 @@ jobs:
       - name: Get latest release tag
         id: latest_release
         run: |
-          LATEST_TAG=$(curl -s https://api.github.com/repos/scoutinglommel/releases/latest | jq -r .tag_name)
-          echo "LATEST_TAG=${LATEST_TAG}" >> $GITHUB_ENV
+          LATEST_TAG=$(curl -s https://api.github.com/repos/Scouting-Lommel/sl-website-fe/releases/latest | jq -r .tag_name)
+          if [ "$LATEST_TAG" = "null" ] || [ -z "$LATEST_TAG" ]; then
+            echo "No release tag found. Stopping deployment."
+            exit 1
+          else
+            echo "Found release tag: $LATEST_TAG"
+            echo "LATEST_TAG=${LATEST_TAG}" >> $GITHUB_ENV
+          fi
 
-      - name: Checkout latest release
+      - name: Checkout target branch or tag
         uses: actions/checkout@v3
         with:
           ref: ${{ env.LATEST_TAG }}
+          fetch-depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
