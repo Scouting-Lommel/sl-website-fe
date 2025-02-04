@@ -16,6 +16,7 @@ const MANUAL_PAGE_QUERY = gql`
           updatedAt
           title
           slug
+          locked
           description
           body
         }
