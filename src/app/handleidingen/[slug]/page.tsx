@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
+import { getServerSession } from 'next-auth';
 import { getTranslations } from 'next-intl/server';
 import { formatDateTime } from '@/lib/helpers/dateTime';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
@@ -28,12 +29,18 @@ export const generateMetadata = async ({ params: { slug } }: Props): Promise<Met
 };
 
 const ManualPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
+  const session = await getServerSession();
+
   const { manuals } = await getManualPage(slug);
   const manual = manuals.data[0];
 
   const t = await getTranslations('common');
 
   if (!manual) notFound();
+
+  if (!(session && session.user) && manual.attributes.locked) {
+    redirect(`/inloggen?callbackUrl=/handleidingen/${manual.attributes.slug}`);
+  }
 
   return (
     <article className="sl-layout--narrow">
