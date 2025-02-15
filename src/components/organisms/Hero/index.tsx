@@ -26,11 +26,11 @@ const Hero = ({
       <AutoBreadcrumbs is404={title === '404'} />
 
       <h1
-        className={
+        className={cn(
           variant === 'simple'
             ? 't-headline-1-alt hero__title hero__title--alt'
-            : 't-headline-1 hero__title hero__title'
-        }
+            : 't-headline-1 hero__title hero__title',
+        )}
       >
         <Typography data={title} modNoStyle modPreWrap />
       </h1>

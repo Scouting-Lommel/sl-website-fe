@@ -22,7 +22,7 @@ export const generateMetadata = async ({ params: { slug } }: Props): Promise<Met
   const metadata = generateMetadataForPage(
     manual.attributes.pageMeta,
     generalData.data.attributes,
-    'verhuur',
+    'handleidingen',
   );
 
   return { ...metadata };
