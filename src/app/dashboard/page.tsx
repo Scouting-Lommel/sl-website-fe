@@ -40,27 +40,41 @@ const DashboardPage = async (): Promise<JSX.Element> => {
         {orgUnitData &&
           orgUnitData.orgUnitPath &&
           checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups') && (
-            <>
-              <BlockContainer slug="dashboard-groups" style={{ paddingTop: 0 }}>
-                <h2>{t('manageGroups.title')}</h2>
-                <p>{t('manageGroups.subtitle')}</p>
-                <ul>
-                  <li>{t('manageGroups.manageActivities')}</li>
-                  <li>{t('manageGroups.manageFiles')}</li>
-                </ul>
-                <Button label={t('manageGroups.button.label')} href="/dashboard/takken" />
-              </BlockContainer>
-
-              <BlockContainer slug="dashboard-manuals">
-                <h2>{t('manuals.title')}</h2>
-                <p>{t('manuals.subtitle')}</p>
-                <ul>
-                  <li>{t('manuals.internalManuals')}</li>
-                  <li>{t('manuals.publicManuals')}</li>
-                </ul>
-                <Button label={t('manuals.button.label')} href="/handleidingen" />
-              </BlockContainer>
-            </>
+            <BlockContainer slug="dashboard-groups" style={{ paddingTop: 0 }}>
+              <h2>{t('manageGroups.title')}</h2>
+              <p>{t('manageGroups.subtitle')}</p>
+              <ul>
+                <li>{t('manageGroups.manageActivities')}</li>
+                <li>{t('manageGroups.manageFiles')}</li>
+              </ul>
+              <Button label={t('manageGroups.button.label')} href="/dashboard/takken" />
+            </BlockContainer>
+          )}
+        {orgUnitData &&
+          orgUnitData.orgUnitPath &&
+          checkOrganisationPermission(orgUnitData.orgUnitPath, 'manuals') && (
+            <BlockContainer slug="dashboard-manuals">
+              <h2>{t('manuals.title')}</h2>
+              <p>{t('manuals.subtitle')}</p>
+              <ul>
+                <li>{t('manuals.internalManuals')}</li>
+                <li>{t('manuals.publicManuals')}</li>
+              </ul>
+              <Button label={t('manuals.button.label')} href="/handleidingen" />
+            </BlockContainer>
+          )}
+        {orgUnitData &&
+          orgUnitData.orgUnitPath &&
+          checkOrganisationPermission(orgUnitData.orgUnitPath, 'adminpanel') && (
+            <BlockContainer slug="dashboard-manuals">
+              <h2>{t('adminPanel.title')}</h2>
+              <p>{t('adminPanel.subtitle')}</p>
+              <Button
+                label={t('adminPanel.button.label')}
+                href="https://admin.scoutinglommel.be/admin"
+                target="_blank"
+              />
+            </BlockContainer>
           )}
         {orgUnitData &&
           orgUnitData.orgUnitPath &&

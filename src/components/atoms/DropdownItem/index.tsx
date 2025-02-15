@@ -2,13 +2,32 @@ import Link from 'next/link';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { DropdownItem as DropdownItemProps } from './types';
+import Icon from '../Icon';
 import styles from './DropdownItem.css';
 
 export const links = (): StylesheetLink[] => {
   return [{ rel: 'stylesheet', href: styles }];
 };
 
-const DropdownItem = ({ title, description, href }: DropdownItemProps): JSX.Element => {
+const DropdownItem = ({
+  title,
+  description,
+  href,
+  modTargetBlank,
+}: DropdownItemProps): JSX.Element => {
+  if (modTargetBlank) {
+    return (
+      <li>
+        <a href={href} className="dropdown-item" target="_blank">
+          <div className="dropdown-item__title">
+            {title} <Icon name="arrow-up-right" size="xs" className="dropdown-item__title__icon" />
+          </div>
+          <Typography data={description} className="dropdown-item__description" modNoStyle />
+        </a>
+      </li>
+    );
+  }
+
   return (
     <li>
       <Link href={href} className="dropdown-item">

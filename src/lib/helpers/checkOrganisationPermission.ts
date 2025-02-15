@@ -4,6 +4,8 @@ const organisationPermissions = {
   '/': [
     'dashboard',
     'groups',
+    'manuals',
+    'adminpanel',
     'groups:kapoenen',
     'groups:welpen',
     'groups:akabe',
@@ -14,6 +16,8 @@ const organisationPermissions = {
   '/Leiding': [
     'dashboard',
     'groups',
+    'manuals',
+    'adminpanel',
     'groups:kapoenen',
     'groups:welpen',
     'groups:akabe',
@@ -21,13 +25,13 @@ const organisationPermissions = {
     'groups:givers',
     'groups:jin',
   ],
-  '/Leiding/Kapoenen': ['dashboard', 'groups', 'groups:kapoenen'],
-  '/Leiding/Welpen': ['dashboard', 'groups', 'groups:welpen'],
-  '/Leiding/Akabe': ['dashboard', 'groups', 'groups:akabe'],
-  '/Leiding/Jonggivers': ['dashboard', 'groups', 'groups:jonggivers'],
-  '/Leiding/Givers': ['dashboard', 'groups', 'groups:givers'],
-  '/Leiding/Jin': ['dashboard', 'groups', 'groups:jin'],
-  '/VZW': ['dashboard'],
+  '/Leiding/Kapoenen': ['dashboard', 'groups', 'manuals', 'groups:kapoenen'],
+  '/Leiding/Welpen': ['dashboard', 'groups', 'manuals', 'groups:welpen'],
+  '/Leiding/Akabe': ['dashboard', 'groups', 'manuals', 'groups:akabe'],
+  '/Leiding/Jonggivers': ['dashboard', 'groups', 'manuals', 'groups:jonggivers'],
+  '/Leiding/Givers': ['dashboard', 'groups', 'manuals', 'groups:givers'],
+  '/Leiding/Jin': ['dashboard', 'groups', 'manuals', 'groups:jin'],
+  '/VZW': ['dashboard', 'manuals'],
 };
 
 /**

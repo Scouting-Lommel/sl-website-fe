@@ -10,6 +10,10 @@
     "toTheDashboard": "Naar het dashboard",
     "dashboard": "Dashboard",
     "dropdownItems": {
+      "adminPanel": {
+        "title": "Admin panel",
+        "description": "Beheer de website via het adminpaneel"
+      },
       "groups": {
         "title": "Takken",
         "description": "Takken beheren"
@@ -40,6 +44,13 @@
       "publicManuals": "Openbare handleidingen",
       "button": {
         "label": "Naar handleidingen"
+      }
+    },
+    "adminPanel": {
+      "title": "Admin panel",
+      "subtitle": "Beheer de website via het adminpaneel.",
+      "button": {
+        "label": "Naar admin panel"
       }
     }
   },

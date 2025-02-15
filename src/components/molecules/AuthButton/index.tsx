@@ -12,25 +12,7 @@ const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
   const t = useTranslations('dashboard.authButton');
 
   const getDropdownItems = (): DropdownItem[] => {
-    if (session) {
-      const items: DropdownItem[] = [];
-      if (session.orgUnit && checkOrganisationPermission(session.orgUnit, 'groups')) {
-        items.push({
-          label: t('dropdownItems.groups.title'),
-          page: 'dashboard',
-          link: '/dashboard/takken',
-          description: t('dropdownItems.groups.description'),
-        });
-        items.push({
-          label: t('dropdownItems.manuals.title'),
-          page: 'manuals',
-          link: '/handleidingen',
-          description: t('dropdownItems.manuals.description'),
-        });
-      }
-      return items;
-    }
-    return [
+    const items: DropdownItem[] = [
       {
         label: t('dropdownItems.groups.title'),
         page: 'dashboard',
@@ -44,6 +26,20 @@ const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
         description: t('dropdownItems.manuals.description'),
       },
     ];
+
+    if (session) {
+      if (session.orgUnit && checkOrganisationPermission(session.orgUnit, 'adminpanel')) {
+        items.push({
+          label: t('dropdownItems.adminPanel.title'),
+          page: 'dashboard',
+          link: 'https://admin.scoutinglommel.be/admin',
+          description: t('dropdownItems.adminPanel.description'),
+          modTargetBlank: true,
+        });
+      }
+    }
+
+    return items;
   };
 
   const getDropdownCta = (): DropdownCta => {

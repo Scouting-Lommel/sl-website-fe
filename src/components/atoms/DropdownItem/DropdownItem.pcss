@@ -19,9 +19,16 @@
 }
 
 .dropdown-item__title {
+  display: flex;
+  align-items: center;
   color: var(--color-foreground);
   font-family: var(--font-family-title);
   font-size: 0.875rem;
+  gap: var(--space-4);
+}
+
+.dropdown-item__title__icon {
+  color: var(--color-theme-primary);
 }
 
 .dropdown-item__description {

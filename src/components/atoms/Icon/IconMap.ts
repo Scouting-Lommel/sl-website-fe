@@ -6,6 +6,7 @@ export const iconMap = {
   'arrow-right': 'ArrowRight',
   'arrow-down': 'ArrowDown',
   'arrow-up': 'ArrowUp',
+  'arrow-up-right': 'ArrowUpRight',
   'chevron-left': 'ChevronLeft',
   'chevron-right': 'ChevronRight',
   'chevron-down': 'ChevronDown',

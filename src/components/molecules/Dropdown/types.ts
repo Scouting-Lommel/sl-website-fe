@@ -12,6 +12,7 @@ export type DropdownItem = {
   page: string;
   link: string | null;
   description?: string;
+  modTargetBlank?: boolean;
 };
 
 export type DropdownCta = {

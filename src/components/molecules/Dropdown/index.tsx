@@ -62,6 +62,7 @@ const Dropdown = ({
                       title={item.label}
                       description={description}
                       href={item.link.replace(new RegExp('_', 'g'), '-')}
+                      modTargetBlank={item.modTargetBlank}
                     />
                   );
                 }

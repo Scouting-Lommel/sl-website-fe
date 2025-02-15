@@ -31,7 +31,17 @@ const Button = ({
       <NextLink className={buttonClassNames} href={href} {...props}>
         <span className="button__label">
           {children || label}
-          {loading && <Icon name="loader-spinner" aria-label="Laden..." size="xs" />}
+          {props.target === '_blank' && (
+            <Icon name="arrow-up-right" size="xs" className="button__label__icon" />
+          )}
+          {loading && (
+            <Icon
+              name="loader-spinner"
+              aria-label="Laden..."
+              size="xs"
+              className="button__label__spinner"
+            />
+          )}
         </span>
       </NextLink>
     );
