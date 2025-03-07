@@ -56,7 +56,7 @@ const Typography = ({
         }
       : undefined;
 
-  const TagName = tagName as keyof JSX.IntrinsicElements;
+  const TagName: keyof JSX.IntrinsicElements = tagName;
 
   useEffect(() => {
     const element = ref.current;
@@ -109,6 +109,8 @@ const Typography = ({
       )}
     </div>
   );
+
+  return <></>;
 };
 
 export default Typography;
