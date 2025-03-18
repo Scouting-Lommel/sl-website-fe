@@ -15,7 +15,7 @@ export const links = (): StylesheetLink[] => {
 };
 
 const hasMoreLines = (element: HTMLElement, maxLines: number) => {
-  const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
+  const lineHeight = parseInt(window.getComputedStyle(element).lineHeight) || 1.3;
   const height = element.scrollHeight;
   return height > lineHeight * (maxLines + 1);
 };
