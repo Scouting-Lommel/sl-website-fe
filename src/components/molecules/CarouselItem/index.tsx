@@ -20,7 +20,7 @@ const CarouselItem = ({ logo, name, slug }: CarouselItemProps): JSX.Element => {
           />
         </div>
         <div className="embla__slide__number t-headline-2">
-          <Typography>{name}</Typography>
+          <Typography className="t-align-center">{name}</Typography>
         </div>
       </a>
     </div>

@@ -15,34 +15,9 @@ export const links = (): StylesheetLink[] => {
 };
 
 const hasMoreLines = (element: HTMLElement, maxLines: number) => {
-  const getTextNodes = (node: Node): Text[] => {
-    const textNodes: Text[] = [];
-
-    const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null);
-
-    let currentNode = walker.nextNode();
-    while (currentNode) {
-      textNodes.push(currentNode as Text);
-      currentNode = walker.nextNode();
-    }
-
-    return textNodes;
-  };
-
-  const linePositions = new Set<number>();
-  const textNodes = getTextNodes(element);
-
-  textNodes.forEach((textNode) => {
-    const range = document.createRange();
-    range.selectNodeContents(textNode);
-    const rects = range.getClientRects();
-
-    for (let i = 0; i < rects.length; i++) {
-      linePositions.add(Math.round(rects[i].top));
-    }
-  });
-
-  return linePositions.size > maxLines;
+  const lineHeight = parseInt(window.getComputedStyle(element).lineHeight) || 1.3;
+  const height = element.scrollHeight;
+  return height > lineHeight * (maxLines + 1);
 };
 
 const Typography = ({
@@ -56,106 +31,84 @@ const Typography = ({
   className,
 }: TypographyProps): JSX.Element => {
   const t = useTranslations('common');
-
   const ref = useRef<HTMLDivElement>(null);
-
-  const [isExpanded, setIsExpanded] = useState<Boolean>(false);
-  const [shouldClamp, setShouldClamp] = useState<Boolean>(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [shouldClamp, setShouldClamp] = useState(false);
 
   const typographyClasses = cn(
     'typography',
     `typography--${variant}`,
     !modNoStyle && 'typography--styled',
     modPreWrap && 'typography--pre-wrap',
+    isExpanded && 'typography--expanded',
     className,
   );
 
-  const typographyStyles: React.CSSProperties | undefined = numberOfLines
-    ? {
-        WebkitLineClamp: !isExpanded ? numberOfLines : undefined,
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        display: '-webkit-box',
-        WebkitBoxOrient: 'vertical',
-      }
-    : undefined;
+  const typographyStyles: React.CSSProperties | undefined =
+    numberOfLines && !isExpanded
+      ? {
+          WebkitLineClamp: numberOfLines,
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          display: '-webkit-box',
+          WebkitBoxOrient: 'vertical',
+          maxHeight: isExpanded ? 'none' : undefined,
+        }
+      : undefined;
 
-  const TagName: any = tagName as keyof JSX.IntrinsicElements;
+  const TagName: keyof JSX.IntrinsicElements = tagName;
 
   useEffect(() => {
     const element = ref.current;
-    if (!element) return;
+    if (!element || !numberOfLines) return;
 
     const checkOverflow = () => {
-      setShouldClamp(hasMoreLines(element, numberOfLines || 2));
+      setShouldClamp(hasMoreLines(element, numberOfLines));
     };
 
-    checkOverflow();
+    setTimeout(checkOverflow, 0);
 
-    const resizeObserver = new ResizeObserver(checkOverflow);
+    const resizeObserver = new ResizeObserver(() => {
+      setTimeout(checkOverflow, 100);
+    });
+
     resizeObserver.observe(element);
 
     return () => {
       resizeObserver.disconnect();
     };
-  }, [numberOfLines]);
+  }, [numberOfLines, data, children]);
 
-  if (data && Array.isArray(data) && 'type' in (data[0] || {})) {
-    return (
-      <>
-        <div ref={ref} className={typographyClasses} style={typographyStyles}>
-          <StructuredTextRenderer data={data} />
-        </div>
-        {Boolean(numberOfLines) && shouldClamp && (
-          <Link
-            variant="link3"
-            className="typography__read-more"
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            {isExpanded ? t('readLess') : t('readMore')}
-          </Link>
-        )}
-      </>
-    );
-  }
+  const handleToggle = () => {
+    setIsExpanded((prev) => !prev);
+  };
 
-  if (data && typeof data === 'string') {
-    return (
-      <>
-        <div ref={ref} style={typographyStyles}>
-          <MarkdownRenderer data={data} className={typographyClasses} />
-        </div>
-        {Boolean(numberOfLines) && shouldClamp && (
-          <Link
-            variant="link3"
-            className="typography__read-more"
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            {isExpanded ? t('readLess') : t('readMore')}
-          </Link>
-        )}
-      </>
-    );
-  }
+  const renderContent = () => {
+    if (data && Array.isArray(data) && 'type' in (data[0] || {})) {
+      return <StructuredTextRenderer data={data} />;
+    }
 
-  if (children) {
-    return (
-      <>
-        <TagName ref={ref} className={typographyClasses} style={typographyStyles}>
-          {children}
-        </TagName>
-        {Boolean(numberOfLines) && shouldClamp && (
-          <Link
-            variant="link3"
-            className="typography__read-more"
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            {isExpanded ? t('readLess') : t('readMore')}
-          </Link>
-        )}
-      </>
-    );
-  }
+    if (data && typeof data === 'string') {
+      return <MarkdownRenderer data={data} className={typographyClasses} />;
+    }
+
+    return children;
+  };
+
+  if (!data && !children) return <></>;
+
+  return (
+    <div className="typography-wrapper">
+      <TagName ref={ref} className={typographyClasses} style={typographyStyles}>
+        {renderContent()}
+      </TagName>
+      {Boolean(numberOfLines) && shouldClamp && (
+        <Link variant="link3" className="typography__read-more" onClick={handleToggle}>
+          {isExpanded ? t('readLess') : t('readMore')}
+        </Link>
+      )}
+    </div>
+  );
 
   return <></>;
 };
