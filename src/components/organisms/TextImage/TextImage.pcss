@@ -3,7 +3,7 @@
   gap: var(--space-40);
   grid-template-columns: 1fr;
 
-  @media (--mq-from-large) {
+  @media (--mq-from-medium) {
     align-items: center;
 
     &--has-images {
@@ -65,6 +65,14 @@
 .text-image__image-container {
   position: relative;
   height: fit-content;
+  border-radius: var(--border-radius);
+
+  :not(.text-image--multiple-images) & {
+    @media (--mq-up-to-medium) {
+      overflow: hidden;
+      max-height: 22rem;
+    }
+  }
 
   .text-image--multiple-images & {
     width: 100%;
@@ -128,6 +136,10 @@
   height: fit-content;
   border-radius: var(--border-radius);
   filter: drop-shadow(var(--drop-shadow-lg));
+
+  & .image__img {
+    max-width: 100%;
+  }
 
   .text-image--multiple-images & {
     position: absolute;
