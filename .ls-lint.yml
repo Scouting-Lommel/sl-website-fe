@@ -1,0 +1,68 @@
+ls:
+  migrations:
+    .dir: snake_case
+
+  documentation:
+    .dir: kebab-case
+    .md: kebab-case
+
+  locales:
+    .dir: kebab-case
+    .json: kebab-case
+
+  src/_mocks_:
+    .dir: regex:_([^_]*[^_-]|[^_-]*)_
+    .*: kebab-case
+    '*':
+      .dir: kebab-case
+
+  src/app:
+    .dir: regex:^[a-z0-9()[\].-]+$
+    '*': kebab-case
+
+  src/components:
+    .js: regex:^(types|[A-Z][a-zA-Z]*)$
+    .ts: regex:^(types|[A-Z][a-zA-Z]*)$
+    .tsx: regex:^(index|[A-Z][a-zA-Z]*)$
+    .jsx: regex:^(index|[A-Z][a-zA-Z]*)$
+    .pcss: PascalCase
+    .css: PascalCase
+    '*':
+      '*':
+        .stories.*: exists:0-1
+
+  src/types:
+    .ts: PascalCase
+    .d.ts: kebab-case
+
+  src/lib:
+    api:
+      .ts: kebab-case
+    constants:
+      .ts: camelCase
+    contexts:
+      .ts: PascalCase
+    helpers:
+      .ts: camelCase
+    providers:
+      .ts: PascalCase
+
+  src/middlewares:
+    .ts: camelCase
+
+  .js: kebab-case
+  .ts: kebab-case
+  .tsx: regex:^(index|[A-Z][a-zA-Z]*)$
+  .jsx: regex:^(index|[A-Z][a-zA-Z]*)$
+  .stories.*: PascalCase
+  .mdx: kebab-case
+  .gql: kebab-case
+  .graphql: kebab-case
+  .json: kebab-case
+  .d.ts: kebab-case
+
+ignore:
+  - .git
+  - .next
+  - .storybook
+  - node_modules
