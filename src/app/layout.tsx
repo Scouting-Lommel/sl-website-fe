@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-
 import { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 import { NextIntlClientProvider } from 'next-intl';
