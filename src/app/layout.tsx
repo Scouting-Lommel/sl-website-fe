@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 import { NextIntlClientProvider } from 'next-intl';
@@ -27,7 +28,12 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
   const metadata = generateMetadataForRootLayout(data.generalData.data.attributes);
 
-  return { ...metadata };
+  return {
+    ...metadata,
+    other: {
+      ...Sentry.getTraceData(),
+    },
+  };
 };
 
 const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {

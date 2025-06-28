@@ -34,6 +34,7 @@ npm run dev:css:global         # Watch global styles
 - PostCSS for styling (not Tailwind/CSS-in-JS)
 - Strapi GraphQL API backend
 - NextAuth.js with Google Workspace integration
+- Sentry for error tracking (production only)
 
 **Component Architecture:**
 - Atomic Design Pattern: `atoms/` → `molecules/` → `organisms/`
@@ -90,6 +91,12 @@ npm run dev:css:global         # Watch global styles
 **Package Management:**
 - NPM only (enforced by preinstall script)
 - No Yarn or other package managers allowed
+
+**Error Monitoring:**
+- Sentry integration for production error tracking
+- Only initializes when `APP_ENV=production`
+- Configuration files: `sentry.server.config.ts`, `sentry.edge.config.ts`, `src/instrumentation-client.ts`
+- Automatic error capture for server, edge, and client-side errors
 
 **Deployment:**
 - Frontend: Netlify with Next.js plugin
