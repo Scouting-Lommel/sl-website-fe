@@ -1,4 +1,3 @@
-import * as Sentry from '@sentry/nextjs';
 import { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 import { NextIntlClientProvider } from 'next-intl';
@@ -28,11 +27,17 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
   const metadata = generateMetadataForRootLayout(data.generalData.data.attributes);
 
+  const otherMetadata: Record<string, any> = {};
+  
+  // Only add Sentry trace data in production
+  if (process.env.APP_ENV === 'production') {
+    const Sentry = await import('@sentry/nextjs');
+    Object.assign(otherMetadata, Sentry.getTraceData());
+  }
+
   return {
     ...metadata,
-    other: {
-      ...Sentry.getTraceData(),
-    },
+    other: otherMetadata,
   };
 };
 
