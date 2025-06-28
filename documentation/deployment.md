@@ -47,3 +47,28 @@ This project consists of different environments, all of which having a different
 | :---------- | :----------------------- | :-------------------- |
 | Production  | `main (tagged releases)` | Public website        |
 | UAT         | `main`                   | Development & testing |
+
+## Performance & Optimization
+
+### Netlify Configuration
+
+The project includes `netlify.toml` with:
+
+- Proper caching headers for static assets (1 year)
+- Image optimization (1 month cache)
+- Security headers (CSRF, XSS protection)
+- Compression enabled for assets
+
+### Next.js Optimization
+
+- **ISR Caching**: 1-hour cache for static data (navigation/footer), 5-minute for dynamic content
+- **Bundle Splitting**: Dynamic imports for content blocks
+- **Image Optimization**: Next.js Image component with Cloudinary integration
+
+### Monitoring
+
+- **Netlify Analytics**: Built-in performance monitoring
+- **Sentry Integration**: Error tracking and performance metrics
+- **Browser Performance**: Lighthouse scores monitored in CI/CD
+
+For detailed performance troubleshooting, see [Performance & Troubleshooting Guide](./performance-troubleshooting.md).
