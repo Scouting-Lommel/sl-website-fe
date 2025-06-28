@@ -1,26 +1,24 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { getSeoData } from '@/lib/api/general/api';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
-import { generateStructuredData } from '@/lib/helpers/generateStructuredData';
 import Blocks from '@/content-blocks';
-import { getGeneralData } from '../api';
 import { getHomePage } from './api';
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  const { generalData } = await getGeneralData();
-  const { homePage } = await getHomePage();
-  if (!homePage || !generalData) return {};
+  const [seoData, homePage] = await Promise.all([getSeoData(), getHomePage()]);
+
+  if (!homePage?.homePage || !seoData?.generalData) return {};
 
   const metadata = generateMetadataForPage(
-    homePage.data.attributes.pageMeta,
-    generalData.data.attributes,
+    homePage.homePage.data.attributes.pageMeta,
+    seoData.generalData.data.attributes,
   );
 
   return { ...metadata };
 };
 
 const HomePage = async (): Promise<JSX.Element> => {
-  const { generalData } = await getGeneralData();
   const { homePage } = await getHomePage();
 
   if (!homePage) notFound();
@@ -28,12 +26,6 @@ const HomePage = async (): Promise<JSX.Element> => {
   return (
     <>
       <Blocks content={homePage.data.attributes.blocks} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateStructuredData(generalData?.data?.attributes)),
-        }}
-      />
     </>
   );
 };

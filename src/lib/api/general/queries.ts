@@ -1,43 +1,19 @@
 import gql from 'graphql-tag';
 import IMAGE_FRAGMENT from '@/graphql/image-fragment.gql';
 
-const GENERAL_DATA = gql`
+export const NAVIGATION_DATA = gql`
   ${IMAGE_FRAGMENT}
 
   query {
     generalData {
       data {
         attributes {
-          updatedAt
-          siteName
-          siteDescription
-          url
           logo {
             data {
               attributes {
                 ...ImageFragment
               }
             }
-          }
-          image {
-            data {
-              attributes {
-                ...ImageFragment
-              }
-            }
-          }
-          address
-          groupNumber
-          bankAccountNumber
-          vatNumber
-          globalAlert {
-            label
-            variant
-            enabled
-          }
-          contactItems {
-            label
-            link
           }
           mainNavigation {
             label
@@ -61,21 +37,10 @@ const GENERAL_DATA = gql`
               variant
             }
           }
-          footerNavigation {
-            title
-            navItems {
-              label
-              link
-            }
-          }
-          socials {
-            data {
-              attributes {
-                title
-                link
-                icon
-              }
-            }
+          globalAlert {
+            label
+            variant
+            enabled
           }
         }
       }
@@ -101,4 +66,62 @@ const GENERAL_DATA = gql`
   }
 `;
 
-export { GENERAL_DATA };
+export const FOOTER_DATA = gql`
+  query {
+    generalData {
+      data {
+        attributes {
+          siteName
+          address
+          groupNumber
+          bankAccountNumber
+          vatNumber
+          contactItems {
+            label
+            link
+          }
+          footerNavigation {
+            title
+            navItems {
+              label
+              link
+            }
+          }
+          socials {
+            data {
+              attributes {
+                title
+                link
+                icon
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const SEO_DATA = gql`
+  ${IMAGE_FRAGMENT}
+
+  query {
+    generalData {
+      data {
+        attributes {
+          updatedAt
+          siteName
+          siteDescription
+          url
+          image {
+            data {
+              attributes {
+                ...ImageFragment
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;

@@ -6,17 +6,28 @@ const fetchAPI = async (
   operation: 'query' | 'mutation' = 'query',
 ) => {
   let headers: any;
+  let cacheOptions: any = {};
+
   switch (operation) {
     case 'mutation': {
       headers = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.STRAPI_API_TOKEN}`,
       };
+      cacheOptions = { cache: 'no-store' };
       break;
     }
     default: {
       headers = {
         'Content-Type': 'application/json',
+      };
+      // Longer cache for static data like navigation/footer
+      const isStaticData = print(query).includes('generalData');
+      cacheOptions = {
+        next: {
+          revalidate: isStaticData ? 3600 : process?.env?.APP_ENV === 'production' ? 300 : 10,
+          tags: isStaticData ? ['general-data'] : ['dynamic-data'],
+        },
       };
     }
   }
@@ -28,7 +39,7 @@ const fetchAPI = async (
       query: print(query),
       variables,
     }),
-    next: { revalidate: process?.env?.APP_ENV === 'production' ? 86400 : 10 },
+    ...cacheOptions,
   });
 
   const json = await res.json();
