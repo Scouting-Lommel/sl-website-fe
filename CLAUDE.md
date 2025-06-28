@@ -98,6 +98,13 @@ npm run dev:css:global         # Watch global styles
 - Configuration files: `sentry.server.config.ts`, `sentry.edge.config.ts`, `src/instrumentation-client.ts`
 - Automatic error capture for server, edge, and client-side errors
 
+**CI/CD:**
+- GitHub Actions workflows in `.github/workflows/`
+- `deploy.yml`: Triggers on GitHub releases, builds and deploys to Netlify
+- `weekly-deploy.yml`: Scheduled weekly deployment (Mondays 00:00) + manual trigger
+- Both workflows use Node.js 20, build CSS separately, then deploy via Netlify CLI
+- No build caching currently configured
+
 **Deployment:**
 - Frontend: Netlify with Next.js plugin
 - Backend: Heroku Basic plan (Strapi)
