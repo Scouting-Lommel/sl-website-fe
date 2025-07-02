@@ -66,4 +66,3 @@ ignore:
   - .next
   - .storybook
   - node_modules
-  - src/pages/_error.jsx
