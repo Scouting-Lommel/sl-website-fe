@@ -4,7 +4,7 @@
 
 import * as Sentry from '@sentry/nextjs';
 
-if (process.env.APP_ENV === 'production') {
+if (process.env.NEXT_PUBLIC_APP_ENV === 'production') {
   Sentry.init({
     dsn: 'https://6510ed320654d1bb51389082a96fff9f@o4509578216669184.ingest.de.sentry.io/4509578290397264',
 

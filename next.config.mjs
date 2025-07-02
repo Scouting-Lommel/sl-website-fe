@@ -32,7 +32,7 @@ const nextConfig = {
 
 // Only wrap with Sentry in production
 let finalConfig;
-if (process.env.APP_ENV === 'production') {
+if (process.env.NEXT_PUBLIC_APP_ENV === 'production') {
   const { withSentryConfig } = await import('@sentry/nextjs');
 
   finalConfig = withSentryConfig(withNextIntl(nextConfig), {

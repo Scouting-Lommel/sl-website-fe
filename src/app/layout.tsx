@@ -30,7 +30,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const otherMetadata: Record<string, any> = {};
   
   // Only add Sentry trace data in production
-  if (process.env.APP_ENV === 'production') {
+  if (process.env.NEXT_PUBLIC_APP_ENV === 'production') {
     const Sentry = await import('@sentry/nextjs');
     Object.assign(otherMetadata, Sentry.getTraceData());
   }

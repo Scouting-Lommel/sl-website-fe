@@ -6,7 +6,7 @@ const CustomErrorComponent = (props) => {
 
 CustomErrorComponent.getInitialProps = async (contextData) => {
   // Only capture errors in production
-  if (process.env.APP_ENV === 'production') {
+  if (process.env.NEXT_PUBLIC_APP_ENV === 'production') {
     const Sentry = await import('@sentry/nextjs');
     // In case this is running in a serverless function, await this in order to give Sentry
     // time to send the error before the lambda exits

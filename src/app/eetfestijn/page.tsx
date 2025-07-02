@@ -25,7 +25,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 const EetfestijnPage = async (): Promise<JSX.Element> => {
   // Return not found page if page is accessed in production or staging
-  if (process.env.APP_ENV !== 'development') return notFound();
+  if (process.env.NEXT_PUBLIC_APP_ENV !== 'development') return notFound();
 
   const t = await getTranslations('forms.eetfestijnForm');
 
