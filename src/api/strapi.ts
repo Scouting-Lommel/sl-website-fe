@@ -25,7 +25,11 @@ const fetchAPI = async (
       const isStaticData = print(query).includes('generalData');
       cacheOptions = {
         next: {
-          revalidate: isStaticData ? 3600 : process?.env?.NEXT_PUBLIC_APP_ENV === 'production' ? 300 : 10,
+          revalidate: isStaticData
+            ? 3600
+            : process?.env?.NEXT_PUBLIC_APP_ENV === 'production'
+              ? 300
+              : 10,
           tags: isStaticData ? ['general-data'] : ['dynamic-data'],
         },
       };

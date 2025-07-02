@@ -5,7 +5,8 @@ const robots = (): MetadataRoute.Robots => {
     rules: {
       userAgent: '*',
       allow: process.env.NEXT_PUBLIC_APP_ENV === 'production' ? ['/'] : [],
-      disallow: process.env.NEXT_PUBLIC_APP_ENV === 'production' ? ['/dashboard', '/dashboard/*'] : ['/*'],
+      disallow:
+        process.env.NEXT_PUBLIC_APP_ENV === 'production' ? ['/dashboard', '/dashboard/*'] : ['/*'],
     },
     sitemap: `${process.env.SITE_URL}/sitemap.xml`,
   };
