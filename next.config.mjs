@@ -3,7 +3,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
-  transpilePackages: ['lucide-react'],
+  transpilePackages: ['lucide-react', '@sentry/nextjs'],
   reactStrictMode: true,
   distDir: '.next',
   images: {
