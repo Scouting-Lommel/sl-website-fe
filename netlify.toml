@@ -10,7 +10,7 @@
   package = "@netlify/plugin-nextjs"
 
 [functions]
-  external_node_modules = ["sharp"]
+  external_node_modules = ["sharp", "@sentry/nextjs"]
 
 # Cache static assets for 1 year
 [[headers]]
