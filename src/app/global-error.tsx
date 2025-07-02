@@ -3,6 +3,14 @@
 import NextError from 'next/error';
 import { useEffect } from 'react';
 
+/**
+ * Displays a generic error page and reports the error to Sentry in production environments.
+ *
+ * Renders the default Next.js error page with a status code of 0, and conditionally sends the provided error to Sentry if the app is running in production.
+ *
+ * @param error - The error object to display and report, optionally including a `digest` property.
+ * @returns The rendered error page as a React element.
+ */
 export default function GlobalError({ error }: { error: Error & { digest?: string } }) {
   useEffect(() => {
     // Only capture errors in production
