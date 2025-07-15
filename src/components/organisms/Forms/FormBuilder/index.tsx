@@ -69,7 +69,13 @@ const FormBuilder = ({
   });
 
   return (
-    <form noValidate id={formId} className="form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      noValidate
+      id={formId}
+      className="form"
+      onSubmit={handleSubmit(onSubmit)}
+      data-netlify="true"
+    >
       {/* Form Fields */}
       {fields?.map((field) => (
         <FormField key={field.id} register={register} errors={errors} {...field} />

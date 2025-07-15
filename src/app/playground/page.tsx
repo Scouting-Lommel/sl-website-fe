@@ -1,5 +1,9 @@
 import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
+import BlockContainer from '@/components/atoms/BlockContainer';
+import Form from '@/components/organisms/Forms';
+import Hero from '@/components/organisms/Hero';
 import { getGeneralData } from '../api';
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -19,7 +23,21 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const PlaygroundPage = async (): Promise<JSX.Element> => {
-  return <>Playground</>;
+  const t = await getTranslations('forms.eetfestijnForm');
+  return (
+    <>
+      <BlockContainer variant="light" orientation="default" slug="eetfestijn-hero" modSmallPadding>
+        <Hero
+          title={t('hero.title')}
+          subtitle={t('hero.subtitle')}
+          variant="simple"
+          className="sl-layout"
+        />
+      </BlockContainer>
+
+      <Form variant="eetfestijn" blockProperties={{ slug: 'eetfestijn-form' }} />
+    </>
+  );
 };
 
 export default PlaygroundPage;
