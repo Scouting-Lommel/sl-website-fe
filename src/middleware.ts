@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import {
-  dashboardMiddleware,
-  dashboardMiddlewareConfig,
+  authMiddleware,
+  authMiddlewareConfig,
   groupsMiddleware,
   groupsMiddlewareConfig,
   signinMiddleware,
@@ -15,8 +15,8 @@ export default function middleware(req: NextRequest) {
     return signinMiddleware(req);
   }
 
-  if (dashboardMiddlewareConfig.some((item: string) => new RegExp(`^${item}$`).test(url))) {
-    return dashboardMiddleware(req);
+  if (authMiddlewareConfig.some((item: string) => new RegExp(`^${item}$`).test(url))) {
+    return authMiddleware(req);
   }
 
   if (groupsMiddlewareConfig.some((item: string) => new RegExp(`^${item}$`).test(url))) {
