@@ -36,4 +36,4 @@ export async function dashboardMiddleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-export const dashboardMiddlewareConfig = ['/dashboard', '/playground'];
+export const dashboardMiddlewareConfig = ['/dashboard'];
