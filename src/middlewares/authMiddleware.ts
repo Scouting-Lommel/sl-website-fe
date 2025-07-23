@@ -36,4 +36,4 @@ export async function authMiddleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-export const authMiddlewareConfig = ['/dashboard'];
+export const authMiddlewareConfig = ['/dashboard', '/playground'];
