@@ -7,10 +7,10 @@ import {
 
 export type Email = {
   from: string;
-  to: string;
+  to: string[];
   cc?: string;
   bcc?: string;
-  replyTo?: string;
+  'h:Reply-To'?: string;
   subject?: string;
   text?: string;
   html?: string;
@@ -132,12 +132,12 @@ const generateEmail = ({
 
   const email: Email = {
     from: noreplyEmailAddress,
-    to: process.env.NEXT_PUBLIC_EMAIL_DEV_OVERRIDE || to,
+    to: [process.env.NEXT_PUBLIC_EMAIL_DEV_OVERRIDE || to],
     subject: formTitle,
     html: emailBody,
   };
 
-  if (replyTo) email.replyTo = replyTo;
+  if (replyTo) email['h:Reply-To'] = replyTo;
   if (cc) email.cc = cc;
   if (bcc) email.bcc = bcc;
 
