@@ -52,6 +52,13 @@
       "button": {
         "label": "Naar admin panel"
       }
+    },
+    "playground": {
+      "title": "Playground",
+      "subtitle": "Development playground voor aankomende features.",
+      "button": {
+        "label": "Naar playground"
+      }
     }
   },
   "groupsDetail": {
