@@ -78,6 +78,15 @@ const DashboardPage = async (): Promise<JSX.Element> => {
           )}
         {orgUnitData &&
           orgUnitData.orgUnitPath &&
+          checkOrganisationPermission(orgUnitData.orgUnitPath, 'playground') && (
+            <BlockContainer slug="dashboard-playground">
+              <h2>{t('playground.title')}</h2>
+              <p>{t('playground.subtitle')}</p>
+              <Button label={t('playground.button.label')} href="/playground" />
+            </BlockContainer>
+          )}
+        {orgUnitData &&
+          orgUnitData.orgUnitPath &&
           !checkOrganisationPermission(orgUnitData.orgUnitPath, 'groups') && (
             <div>
               <p>{t('notFound')}</p>

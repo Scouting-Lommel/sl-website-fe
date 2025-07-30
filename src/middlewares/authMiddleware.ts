@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 
-export async function dashboardMiddleware(req: NextRequest) {
+export async function authMiddleware(req: NextRequest) {
   const token = await getToken({ req });
 
   if (!token) {
@@ -36,4 +36,4 @@ export async function dashboardMiddleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-export const dashboardMiddlewareConfig = ['/dashboard'];
+export const authMiddlewareConfig = ['/dashboard', '/playground'];

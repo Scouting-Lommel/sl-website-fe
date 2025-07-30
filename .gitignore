@@ -42,3 +42,10 @@ src/**/*.css
 
 # typescript 
 tsconfig.tsbuildinfo
+
+# claude
+CLAUDE.md
+
+
+# cursor
+.cursor/rules

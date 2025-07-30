@@ -12,6 +12,7 @@ const organisationPermissions = {
     'groups:jonggivers',
     'groups:givers',
     'groups:jin',
+    'playground',
   ],
   '/Leiding': [
     'dashboard',
