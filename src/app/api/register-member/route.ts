@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { handleCaptcha } from '@/lib/api/forms/handleCaptcha';
-import { handleSendEmail } from '@/lib/api/forms/handleSendEmail';
+import { handleCaptcha } from '@/lib/api/forms/handle-captcha';
+import { handleSendEmail } from '@/lib/api/forms/handle-send-email';
 import { registerMemberWithGoogleSheets } from '@/lib/api/register/api';
 
 export const POST = async (request: NextRequest): Promise<NextResponse> => {

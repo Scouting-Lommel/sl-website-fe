@@ -1,10 +1,10 @@
 import { generateApiQuery } from '@/lib/api';
-import { REGISTER_MEMBER_MUTATION } from './mutations';
-import { appendToGoogleSheet } from '@/lib/services/google-sheets';
 import {
   formatDataForGoogleSheets,
   validateGoogleSheetsData,
 } from '@/lib/helpers/formatDataForGoogleSheets';
+import { appendToGoogleSheet } from '@/lib/services/google-sheets';
+import { REGISTER_MEMBER_MUTATION } from './mutations';
 
 type RegisterMemberProps = {
   firstName: string;
