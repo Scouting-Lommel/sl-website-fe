@@ -1,49 +1,89 @@
 import { generateApiQuery } from '@/lib/api';
 import { REGISTER_MEMBER_MUTATION } from './mutations';
+import { appendToGoogleSheet } from '@/lib/services/google-sheets';
+import {
+  formatDataForGoogleSheets,
+  validateGoogleSheetsData,
+} from '@/lib/helpers/formatDataForGoogleSheets';
+
+type RegisterMemberProps = {
+  firstName: string;
+  lastName: string;
+  birthday: Date;
+  memberGroup?: string;
+  gender: 'm' | 'v' | 'x';
+  telephoneNumber: string;
+  email: string;
+  address: string;
+  postalCode: string;
+  city: string;
+  comments: string;
+  workingYear: string;
+};
 
 export function registerMember({
   firstName,
   lastName,
   birthday,
-  address,
-  postCode,
-  locality,
+  memberGroup,
+  gender,
   telephoneNumber,
   email,
-  isAkabe,
-  gender,
+  address,
+  postalCode,
+  city,
   comments,
   workingYear,
-}: {
-  firstName: string;
-  lastName: string;
-  birthday: Date;
-  address: string;
-  postCode: string;
-  locality: string;
-  telephoneNumber: string;
-  email: string;
-  isAkabe: boolean;
-  gender: 'm' | 'v' | 'x';
-  comments: string;
-  workingYear: string;
-}): Promise<any> {
+}: RegisterMemberProps): Promise<any> {
   return generateApiQuery({
     variables: {
       firstName,
       lastName,
       birthday,
-      address,
-      postCode,
-      locality,
+      memberGroup,
+      gender,
       telephoneNumber,
       email,
-      isAkabe,
-      gender,
+      address,
+      postalCode,
+      city,
       comments,
       workingYear,
     },
     query: REGISTER_MEMBER_MUTATION,
     operation: 'mutation',
   });
+}
+
+export async function registerMemberWithGoogleSheets(memberData: {
+  firstName: string;
+  lastName: string;
+  birthday: Date;
+  memberGroup?: string;
+  gender: 'm' | 'v' | 'x';
+  telephoneNumber: string;
+  email: string;
+  address: string;
+  postalCode: string;
+  city: string;
+  comments: string;
+  workingYear: string;
+}): Promise<void> {
+  try {
+    // First, register the member with the existing API
+    await registerMember(memberData);
+
+    // Then, format and validate data for Google Sheets
+    const googleSheetsData = formatDataForGoogleSheets(memberData);
+
+    if (!validateGoogleSheetsData(googleSheetsData)) {
+      throw new Error('Invalid data for Google Sheets');
+    }
+
+    // Save to Google Sheets
+    await appendToGoogleSheet(googleSheetsData);
+  } catch (error) {
+    console.error('Error in registerMemberWithGoogleSheets:', error);
+    throw error;
+  }
 }

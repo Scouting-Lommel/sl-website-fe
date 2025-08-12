@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { handleCaptcha } from '@/lib/api/forms/handleCaptcha';
 import { handleSendEmail } from '@/lib/api/forms/handleSendEmail';
-import { registerMember } from '@/lib/api/register/api';
+import { registerMemberWithGoogleSheets } from '@/lib/api/register/api';
 
 export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { email, captchaToken, member } = await request.json();
@@ -12,9 +12,9 @@ export const POST = async (request: NextRequest): Promise<NextResponse> => {
     return captchaResponse;
   }
 
-  // Create user request
+  // Create user request and save to Google Sheets
   try {
-    await registerMember(member);
+    await registerMemberWithGoogleSheets(member);
   } catch (error) {
     console.error(error);
     return NextResponse.json(

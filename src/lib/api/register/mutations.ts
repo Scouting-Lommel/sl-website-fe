@@ -6,8 +6,8 @@ const REGISTER_MEMBER_MUTATION = gql`
     $lastName: String
     $birthday: Date
     $address: String
-    $postCode: String
-    $locality: String
+    $postalCode: String
+    $city: String
     $telephoneNumber: String
     $email: String
     $isAkabe: Boolean
@@ -21,8 +21,8 @@ const REGISTER_MEMBER_MUTATION = gql`
         lastName: $lastName
         birthday: $birthday
         address: $address
-        postCode: $postCode
-        locality: $locality
+        postCode: $postalCode
+        locality: $city
         phone: $telephoneNumber
         email: $email
         isAkabe: $isAkabe
