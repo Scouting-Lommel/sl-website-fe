@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 import { NextIntlClientProvider } from 'next-intl';
@@ -79,6 +81,8 @@ const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
             __html: JSON.stringify(generateStructuredData(data.generalData?.data?.attributes)),
           }}
         />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

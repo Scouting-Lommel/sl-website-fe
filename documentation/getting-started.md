@@ -26,11 +26,17 @@
 
 ## Requirements
 
-- [Node.js](https://nodejs.org) (v14.6.0 and up)
-- [NPM](https://npmjs.com) (v6 and up)
+- [Node.js](https://nodejs.org) (v18 or higher, recommended v20)
+- [NPM](https://npmjs.com) (v8 and up)
 - [NVM](https://github.com/nvm-sh/nvm) (optional but recommended)
 
-> Note: Only NPM is allowed as package manager (enforced by preinstall script)
+> **Important**: Only NPM is allowed as package manager (enforced by preinstall script). Attempting to use Yarn or pnpm will fail.
+
+### Environment Variables Required
+
+Create a `.env` file with the required environment variables. See `.env.example` for the complete list of variables needed.
+
+Contact the project maintainer for the actual values to use in development.
 
 ## Installation
 
@@ -71,7 +77,6 @@
    ```
 
    This will start:
-
    - Next.js development server
    - PostCSS watcher for component styles
    - PostCSS watcher for global styles
@@ -88,6 +93,42 @@ npm run storybook:start
 
 This will start Storybook on [port 6006](http://localhost:6006) with CSS processing enabled.
 
+## Code Quality & Testing
+
+### Linting and Formatting
+
+```bash
+npm run lint                   # Run all linters (ESLint, TypeScript, Stylelint, ls-lint)
+npm run lint:eslint            # ESLint with auto-fix
+npm run lint:typescript        # TypeScript type checking
+npm run lint:stylelint         # Stylelint for .pcss files with auto-fix
+npm run lint:ls-lint           # File/directory naming conventions
+```
+
+### Important Linting Rules
+
+- **Import Order**: Strictly enforced ESLint rule with specific path group ordering
+- **TypeScript**: Strict mode enabled, all types must be properly defined
+- **CSS**: PostCSS files must follow naming conventions
+- **File Naming**: Directory and file names must follow ls-lint rules
+
+### Manual Code Quality Checks
+
+Before committing, manually run the linting commands:
+
+```bash
+npm run lint              # Run all quality checks
+```
+
+This will check:
+
+- ESLint rules and auto-fix issues
+- TypeScript type checking
+- Stylelint for CSS files
+- File naming conventions (ls-lint)
+
+**Best Practice**: Always run `npm run lint` before committing to ensure code quality.
+
 ## Building the project
 
 ### Local build
@@ -100,7 +141,6 @@ This will start Storybook on [port 6006](http://localhost:6006) with CSS process
    ```
 
    This will:
-
    - Run the prebuild script
    - Build CSS for components
    - Build global CSS
@@ -114,7 +154,7 @@ This will start Storybook on [port 6006](http://localhost:6006) with CSS process
 
 ### Deployment
 
-Deployments for this project are fully automated using [Github Actions](https://github.com/features/actions) and [Netlify](https://www.netlify.com/). For more info, check out the [deployment docs](/documentation/deployment.md).
+Deployments for this project are fully automated using [Vercel](https://vercel.com). Every push to the `main` branch automatically triggers a build and deployment. For more info, check out the [deployment docs](/documentation/deployment.md).
 
 ## Development and GIT flow
 

@@ -14,7 +14,7 @@
 | Resource       | Provider                                                          | Comments                                                                         |
 | :------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------------- |
 | DNS            | [CloudFlare](https://www.cloudflare.com/)                         | DNS management with caching & DDoS protection.                                   |
-| Frontend app   | [Netlify](https://www.netlify.app)                                | Dynamic hosting with CI/CD capabilities for FE app.                              |
+| Frontend app   | [Vercel](https://vercel.com)                                      | Dynamic hosting with automatic CI/CD for FE app.                                 |
 | Backend CMS    | [Heroku](https://www.heroku.com)                                  | Dynamic hosting with CI/CD capabilities for BE CMS.                              |
 | Database       | MySQL database hosted on [Vimexx](https://www.vimexx.be/)         | Both the development and production environments have a separate MySQL database. |
 | Error tracking | [Sentry](https://www.sentry.com)                                  | Error tracking in a Sentry dashboard.                                            |
@@ -26,10 +26,11 @@ DNS records are managed by [CloudFlare](https://www.cloudflare.com). Other than 
 
 ### Frontend hosting
 
-Deployments for this project are fully automated using [Github Actions](https://github.com/features/actions) and [Netlify](https://www.netlify.com/) using the following strategies:
+Deployments for this project are fully automated using [Vercel](https://vercel.com) with the following deployment strategy:
 
-- **Continuous delivery:** every change to the `main` branch gets deployed to the `uat` environment.
-- **Environment promotion:** a new production deploy will get triggered after tagging a new release in Github. The tags follow the [semver](https://semver.org/) versioning standard. After tagging a new release, a Github Actions workflow builds and deploys the application to the Netlify production environment.
+- **Automatic deployment:** every push to the `main` branch automatically triggers a build and deployment to the production environment.
+- **Build process:** Vercel automatically runs `npm run build` and deploys the built application from the `.next` directory.
+- **Environment:** The application is deployed directly to the production environment on each push to main.
 
 ### Backend hosting
 
@@ -41,9 +42,33 @@ Errors will be collected in a [Sentry](https://www.sentry.com) dashboard.
 
 ## Environments
 
-This project consists of different environments, all of which having a different purpose.
+This project consists of a single production environment that is automatically updated on each push to the main branch.
 
-| Environment | Branch                   | Purpose               |
-| :---------- | :----------------------- | :-------------------- |
-| Production  | `main (tagged releases)` | Public website        |
-| UAT         | `main`                   | Development & testing |
+| Environment | Branch | Purpose        |
+| :---------- | :----- | :------------- |
+| Production  | `main` | Public website |
+
+## Performance & Optimization
+
+### Vercel Configuration
+
+The project is configured for Vercel deployment with:
+
+- Automatic Next.js optimization and caching
+- Built-in image optimization
+- Automatic compression and performance optimizations
+- Edge network distribution for global performance
+
+### Next.js Optimization
+
+- **ISR Caching**: 1-hour cache for static data (navigation/footer), 5-minute for dynamic content
+- **Bundle Splitting**: Dynamic imports for content blocks
+- **Image Optimization**: Next.js Image component with Cloudinary integration
+
+### Monitoring
+
+- **Vercel Analytics**: Built-in performance monitoring and insights
+- **Sentry Integration**: Error tracking and performance metrics
+- **Browser Performance**: Lighthouse scores monitored in CI/CD
+
+For detailed performance troubleshooting, see [Performance & Troubleshooting Guide](./performance-troubleshooting.md).
