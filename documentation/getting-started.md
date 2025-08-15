@@ -77,7 +77,6 @@ Contact the project maintainer for the actual values to use in development.
    ```
 
    This will start:
-
    - Next.js development server
    - PostCSS watcher for component styles
    - PostCSS watcher for global styles
@@ -122,6 +121,7 @@ npm run lint              # Run all quality checks
 ```
 
 This will check:
+
 - ESLint rules and auto-fix issues
 - TypeScript type checking
 - Stylelint for CSS files
@@ -141,7 +141,6 @@ This will check:
    ```
 
    This will:
-
    - Run the prebuild script
    - Build CSS for components
    - Build global CSS
@@ -155,7 +154,7 @@ This will check:
 
 ### Deployment
 
-Deployments for this project are fully automated using [Github Actions](https://github.com/features/actions) and [Netlify](https://www.netlify.com/). For more info, check out the [deployment docs](/documentation/deployment.md).
+Deployments for this project are fully automated using [Vercel](https://vercel.com). Every push to the `main` branch automatically triggers a build and deployment. For more info, check out the [deployment docs](/documentation/deployment.md).
 
 ## Development and GIT flow
 

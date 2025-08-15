@@ -22,7 +22,7 @@ The application implements several performance optimizations:
 
 - **Static Data**: 1-hour cache for navigation/footer data (rarely changes)
 - **Dynamic Data**: 5-minute cache for page content
-- **Assets**: CDN caching via Netlify (1 year for versioned assets, 1 month for images)
+- **Assets**: CDN caching via Vercel (automatic optimization and edge caching)
 
 ## Caching Strategy
 
@@ -42,21 +42,14 @@ next: {
 }
 ```
 
-### Netlify CDN Headers
+### Vercel CDN Configuration
 
-```toml
-# Static assets
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+Vercel automatically handles CDN caching and optimization:
 
-# Images
-[[headers]]
-  for = "*.{png,jpg,jpeg,gif,webp,svg,ico}"
-  [headers.values]
-    Cache-Control = "public, max-age=2592000"
-```
+- **Static assets**: Automatic caching with version-based invalidation
+- **Images**: Built-in image optimization with automatic format selection
+- **JavaScript/CSS**: Automatic compression and edge caching
+- **Global distribution**: Edge network for optimal worldwide performance
 
 ## Common Performance Issues
 
@@ -136,7 +129,7 @@ export const getLayoutData = async () => {
 
 ### Tools & Services
 
-- **Netlify Analytics**: Basic performance metrics
+- **Vercel Analytics**: Built-in performance metrics and insights
 - **Sentry**: Error tracking and performance monitoring
 - **Browser DevTools**: Lighthouse performance audits
 - **GTmetrix/PageSpeed Insights**: External performance analysis
@@ -152,7 +145,7 @@ export const getLayoutData = async () => {
 
 ### Current Setup
 
-- **Frontend**: Netlify (Global CDN)
+- **Frontend**: Vercel (Global Edge Network)
 - **Backend**: Heroku Basic plan (no sleep time)
 - **Database**: Vimexx MySQL (Netherlands)
 - **Images**: Cloudinary CDN

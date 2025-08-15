@@ -30,9 +30,6 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# netlify
-.netlify
-
 # storybook
 /storybook-static
 build-storybook.log
