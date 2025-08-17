@@ -35,13 +35,14 @@ const Typography = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [shouldClamp, setShouldClamp] = useState(false);
 
+  const wrapperClasses = cn('typography-wrapper', className);
+
   const typographyClasses = cn(
     'typography',
     `typography--${variant}`,
     !modNoStyle && 'typography--styled',
     modPreWrap && 'typography--pre-wrap',
     isExpanded && 'typography--expanded',
-    className,
   );
 
   const typographyStyles: React.CSSProperties | undefined =
@@ -98,7 +99,7 @@ const Typography = ({
   if (!data && !children) return <></>;
 
   return (
-    <div className="typography-wrapper">
+    <div className={wrapperClasses}>
       <TagName ref={ref} className={typographyClasses} style={typographyStyles}>
         {renderContent()}
       </TagName>
