@@ -28,6 +28,7 @@ const Typography = ({
   tagName = 'div',
   numberOfLines,
   children,
+  wrapperClassName,
   className,
 }: TypographyProps): JSX.Element => {
   const t = useTranslations('common');
@@ -35,7 +36,7 @@ const Typography = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [shouldClamp, setShouldClamp] = useState(false);
 
-  const wrapperClasses = cn('typography-wrapper', className);
+  const wrapperClasses = cn('typography-wrapper', wrapperClassName);
 
   const typographyClasses = cn(
     'typography',
@@ -43,6 +44,7 @@ const Typography = ({
     !modNoStyle && 'typography--styled',
     modPreWrap && 'typography--pre-wrap',
     isExpanded && 'typography--expanded',
+    className,
   );
 
   const typographyStyles: React.CSSProperties | undefined =

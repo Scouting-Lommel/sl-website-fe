@@ -18,8 +18,8 @@ const Tarifs = ({ tarifs, cta }: TarifsProps): JSX.Element => {
       <div className="tarifs__wrapper">
         <div className="tarifs__tarifs">
           <div className="tarifs__header">
-            <Typography className="tarifs__header__min-price">{t('minPrice')}</Typography>
-            <Typography className="tarifs__header__price-pp">
+            <Typography wrapperClassName="tarifs__header__min-price">{t('minPrice')}</Typography>
+            <Typography wrapperClassName="tarifs__header__price-pp">
               {t('pricePerPersonPerNight')}
             </Typography>
           </div>
