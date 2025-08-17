@@ -2,6 +2,7 @@
 
 import cn from 'classnames';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
@@ -16,6 +17,8 @@ export const links = (): StylesheetLink[] => {
 };
 
 const Header = ({ logo, mainNavigation, groups, rentalLocations }: HeaderProps): JSX.Element => {
+  const t = useTranslations('common.header');
+
   const [navVisible, setNavVisible] = useState(false);
   const pathname = usePathname();
   const navClassnames = cn(
@@ -60,6 +63,7 @@ const Header = ({ logo, mainNavigation, groups, rentalLocations }: HeaderProps):
               ) : (
                 <Icon name="menu" aria-label="Menu" size="lg" />
               )}
+              <span className="u-visually-hidden">{navVisible ? t('closeMenu') : t('menu')}</span>
             </button>
           </div>
         </header>

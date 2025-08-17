@@ -28,6 +28,10 @@
     "viewAll": "Bekijk alles",
     "viewLess": "Bekijk minder"
   },
+  "header": {
+    "menu": "Menu",
+    "closeMenu": "Sluit menu"
+  },
   "imageNotFound": "Afbeelding niet gevonden",
   "lastChanged": "Laatst gewijzigd",
   "loading": "Aan het laden...",
