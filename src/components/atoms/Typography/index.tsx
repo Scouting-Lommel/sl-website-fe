@@ -28,12 +28,15 @@ const Typography = ({
   tagName = 'div',
   numberOfLines,
   children,
+  wrapperClassName,
   className,
 }: TypographyProps): JSX.Element => {
   const t = useTranslations('common');
   const ref = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const [shouldClamp, setShouldClamp] = useState(false);
+
+  const wrapperClasses = cn('typography-wrapper', wrapperClassName);
 
   const typographyClasses = cn(
     'typography',
@@ -98,7 +101,7 @@ const Typography = ({
   if (!data && !children) return <></>;
 
   return (
-    <div className="typography-wrapper">
+    <div className={wrapperClasses}>
       <TagName ref={ref} className={typographyClasses} style={typographyStyles}>
         {renderContent()}
       </TagName>
