@@ -10,6 +10,10 @@
       "deleteFile": "Bestand verwijderen"
     }
   },
+  "carousel": {
+    "previous": "Vorige",
+    "next": "Volgende"
+  },
   "close": "Sluiten",
   "closeWindow": "Venster sluiten",
   "days": {

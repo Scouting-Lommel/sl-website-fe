@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
@@ -50,21 +51,27 @@ const usePrevNextButtons = (emblaApi: EmblaCarouselType | undefined): UsePrevNex
 };
 
 export const PrevButton = (props: PropType): JSX.Element => {
+  const t = useTranslations('common.carousel');
+
   const { children, ...restProps } = props;
 
   return (
     <button className="embla__button embla__button--prev" type="button" {...restProps}>
       <Icon name="arrow-left" aria-label="arrow left" size="xl" />
+      <span className="u-visually-hidden">{t('previous')}</span>
     </button>
   );
 };
 
 export const NextButton = (props: PropType): JSX.Element => {
+  const t = useTranslations('common.carousel');
+
   const { children, ...restProps } = props;
 
   return (
     <button className="embla__button embla__button--next" type="button" {...restProps}>
       <Icon name="arrow-right" aria-label="arrow right" size="xl" />
+      <span className="u-visually-hidden">{t('next')}</span>
     </button>
   );
 };
