@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
-import { iconMap, IconNames } from '@/components/atoms/Icon/IconMap';
+import { IconNames } from '@/components/atoms/Icon/IconMap';
 import SLLink from '@/components/atoms/Link';
 import { SocialsCta as SocialsCtaProps } from './types';
 import styles from './SocialsCta.css';
@@ -36,11 +36,11 @@ const SocialsCta = ({ title, socialItems, className }: SocialsCtaProps): JSX.Ele
             >
               <Icon
                 name={icons[item.icon]}
-                aria-label={item.title}
                 size="lg"
                 strokeWidth={2.5}
                 className="socials-cta__socials__item__icon"
               />
+              <span className="u-visually-hidden">{item.title}</span>
             </SLLink>
           );
         })}
