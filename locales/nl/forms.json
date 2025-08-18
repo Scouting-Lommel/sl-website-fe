@@ -222,7 +222,7 @@
       "summary": {
         "price": "<bold>Te betalen:</bold> € {price}",
         "accountNo": "<bold>Rekeningnummer:</bold> {accountNo}",
-        "message": "<bold>Mededeling:</bold> \"Inschrijving Voornaam Familienaam {workingYear}\""
+        "message": "<bold>Mededeling:</bold> \"Inschrijving {firstName} {lastName} {workingYear}\""
       },
       "body": "Je inschrijving is pas definitief na betaling. Wil je weten waarvoor je inschrijvingsgeld gebruikt wordt? Neem dan een kijkje bij de <link>veelgestelde vragen</link>.",
       "button": {

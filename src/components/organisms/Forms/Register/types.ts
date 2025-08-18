@@ -4,6 +4,8 @@ export type RegisterForm = {
 } & React.HTMLAttributes<HTMLElement>;
 
 export type RegisterConfirmation = {
+  firstName: string;
+  lastName: string;
   price: number;
   bankAccountNumber: string;
 } & React.HTMLAttributes<HTMLElement>;

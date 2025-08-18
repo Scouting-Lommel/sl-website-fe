@@ -16,6 +16,7 @@ const Register = (props: any): JSX.Element => {
 
   const { formStatus, setFormStatus } = useContext(FormContext);
   const [registerPrice, setRegisterPrice] = useState<number>(props.memberPrice);
+  const [member, setMember] = useState<any>({});
 
   const initialValues = {};
 
@@ -42,6 +43,7 @@ const Register = (props: any): JSX.Element => {
     const callback = (resp: any) => {
       if (resp.status === 200) {
         setFormStatus(FormStatus.STATUS_SUCCESS);
+        setMember(member);
         return;
       }
 
@@ -66,7 +68,12 @@ const Register = (props: any): JSX.Element => {
       {formStatus === FormStatus.STATUS_SUCCESS && (
         <>
           <Banner variant="success">{t('formStatus.success')}</Banner>
-          <RegisterConfirmation price={registerPrice} bankAccountNumber={props.bankAccountNumber} />
+          <RegisterConfirmation
+            firstName={member.firstName}
+            lastName={member.lastName}
+            price={registerPrice}
+            bankAccountNumber={props.bankAccountNumber}
+          />
         </>
       )}
 
