@@ -3,7 +3,7 @@ import BlockContainer from '@/components/atoms/BlockContainer';
 import Calendar from '@/components/atoms/Calendar';
 import { CalendarBlock as CalendarBlockProps } from './types';
 
-const GroupsBlock = ({
+const CalendarBlock = ({
   title,
   calendarEvents,
   cta,
@@ -24,4 +24,4 @@ const GroupsBlock = ({
   );
 };
 
-export default GroupsBlock;
+export default CalendarBlock;
