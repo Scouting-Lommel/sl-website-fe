@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { formatPrice } from '@/lib/helpers/formatPrice';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';

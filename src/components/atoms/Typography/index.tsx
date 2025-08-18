@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Link from '@/components/atoms/Link';
 import { Typography as TypographyProps } from './types';

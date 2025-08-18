@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import ProfilePicture from '@/assets/img/default-avatar.png';
 import SLImage from '@/components/atoms/Image';

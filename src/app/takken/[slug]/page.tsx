@@ -1,13 +1,16 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import type { JSX } from 'react';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
 import { getGroupPage } from './api';
 import { getGeneralData } from '../../api';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
-export const generateMetadata = async ({ params: { slug } }: Props): Promise<Metadata> => {
+export const generateMetadata = async (props: Props): Promise<Metadata> => {
+  const { slug } = await props.params;
+
   const { generalData } = await getGeneralData();
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
@@ -23,7 +26,9 @@ export const generateMetadata = async ({ params: { slug } }: Props): Promise<Met
   return { ...metadata };
 };
 
-const GroupPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
+const GroupPage = async (props: Props): Promise<JSX.Element> => {
+  const { slug } = await props.params;
+
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
 

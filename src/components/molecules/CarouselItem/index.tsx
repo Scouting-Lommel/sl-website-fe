@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import SLImage from '@/components/atoms/Image';
 import Typography from '@/components/atoms/Typography';

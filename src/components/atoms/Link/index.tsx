@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import NextLink from 'next/link';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Link as LinkProps } from './types';
 import styles from './Link.css';

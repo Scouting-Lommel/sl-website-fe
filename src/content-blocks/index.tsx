@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { ComponentType } from 'react';
+import { ComponentType, type JSX } from 'react';
 
 type BlockList = {
   [key: string]: ComponentType<any>;

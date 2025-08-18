@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Paragraph from '@/components/molecules/Paragraph';
 import TableOfContents from '@/components/molecules/TableOfContents';

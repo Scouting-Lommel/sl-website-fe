@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import SLImage from '@/components/atoms/Image';

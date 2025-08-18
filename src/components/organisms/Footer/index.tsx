@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import FooterDisclosure from '@/components/molecules/FooterDisclosure';
 import FooterDoormat from '@/components/molecules/FooterDoormat';

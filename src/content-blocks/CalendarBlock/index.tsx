@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Calendar from '@/components/atoms/Calendar';
 import { CalendarBlock as CalendarBlockProps } from './types';

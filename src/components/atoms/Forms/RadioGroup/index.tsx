@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { RadioGroup as RadioGroupProps } from './types';

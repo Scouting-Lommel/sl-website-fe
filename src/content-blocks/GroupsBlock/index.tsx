@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Carousel from '@/components/organisms/Carousel';
 import { GroupsBlock as GroupsBlockProps } from './types';

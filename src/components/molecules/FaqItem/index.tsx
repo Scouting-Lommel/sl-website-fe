@@ -1,7 +1,7 @@
 'use client';
 
 import cn from 'classnames';
-import { useState } from 'react';
+import { useState, type JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Icon from '@/components/atoms/Icon';

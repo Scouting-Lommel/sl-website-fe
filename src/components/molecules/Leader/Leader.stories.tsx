@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import type { JSX } from 'react';
 import { Default as imageStory } from '@/components/atoms/Image/Image.stories';
 import Leader from '.';
 

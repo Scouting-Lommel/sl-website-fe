@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import DropdownItem from '@/components/atoms/DropdownItem';

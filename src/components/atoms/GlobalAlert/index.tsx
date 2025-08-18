@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 import { useTranslations } from 'next-intl';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type JSX } from 'react';
 import { slugify } from '@/lib/helpers/slugify';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';

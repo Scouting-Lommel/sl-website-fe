@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import AuthButton from '@/components/molecules/AuthButton';
 import NavItem from '@/components/molecules/NavItem';

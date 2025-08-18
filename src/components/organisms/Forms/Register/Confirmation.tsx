@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { useContext } from 'react';
+import { useContext, type JSX } from 'react';
 import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';

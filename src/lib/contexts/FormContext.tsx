@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, type JSX } from 'react';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 
 interface FormContextType {

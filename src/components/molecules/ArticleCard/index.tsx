@@ -3,7 +3,7 @@
 import cn from 'classnames';
 import { useSession } from 'next-auth/react';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useState, type JSX } from 'react';
 import { formatDateTime } from '@/lib/helpers/dateTime';
 import { formatCallbackUrl } from '@/lib/helpers/formatCallbackUrl';
 import { StylesheetLink } from '@/types/StyleSheetLink';

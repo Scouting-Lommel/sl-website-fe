@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { getTranslations } from 'next-intl/server';
+import type { JSX } from 'react';
 import { formatDateTime } from '@/lib/helpers/dateTime';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import BlockContainer from '@/components/atoms/BlockContainer';
@@ -10,9 +11,11 @@ import Hero from '@/components/organisms/Hero';
 import { getManualPage } from './api';
 import { getGeneralData } from '../../api';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
-export const generateMetadata = async ({ params: { slug } }: Props): Promise<Metadata> => {
+export const generateMetadata = async (props: Props): Promise<Metadata> => {
+  const { slug } = await props.params;
+
   const { generalData } = await getGeneralData();
   const { manuals } = await getManualPage(slug);
   const manual = manuals.data[0];
@@ -28,7 +31,9 @@ export const generateMetadata = async ({ params: { slug } }: Props): Promise<Met
   return { ...metadata };
 };
 
-const ManualPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
+const ManualPage = async (props: Props): Promise<JSX.Element> => {
+  const { slug } = await props.params;
+
   const session = await getServerSession();
 
   const { manuals } = await getManualPage(slug);

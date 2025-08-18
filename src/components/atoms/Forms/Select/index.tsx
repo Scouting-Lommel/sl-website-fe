@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { ChangeEvent, forwardRef } from 'react';
+import { ChangeEvent, forwardRef, type JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Icon from '@/components/atoms/Icon';
 import Typography from '@/components/atoms/Typography';

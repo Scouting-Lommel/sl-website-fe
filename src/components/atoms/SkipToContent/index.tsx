@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { useTranslations } from 'next-intl';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { SkipToContent as SkipToContentProps } from './types';
 import styles from './SkipToContent.css';

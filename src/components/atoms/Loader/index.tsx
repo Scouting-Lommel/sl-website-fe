@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import { useTranslations } from 'next-intl';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Loader as LoaderProps } from './types';
 import styles from './Loader.css';

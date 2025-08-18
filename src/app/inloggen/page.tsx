@@ -2,7 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import { getProviders, signIn } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Button from '@/components/atoms/Button';
 import Loader from '@/components/atoms/Loader';

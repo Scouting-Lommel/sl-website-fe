@@ -1,7 +1,7 @@
 'use client';
 
 import cn from 'classnames';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type JSX } from 'react';
 import { Blurhash } from 'react-blurhash';
 import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';

@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { FooterDisclosure as FooterDisclosureProps } from './types';
 import styles from './FooterDisclosure.css';

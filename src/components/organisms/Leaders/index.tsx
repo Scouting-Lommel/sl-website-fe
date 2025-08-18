@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Leader from '@/components/molecules/Leader';
 import { Leaders as LeadersProps } from './types';

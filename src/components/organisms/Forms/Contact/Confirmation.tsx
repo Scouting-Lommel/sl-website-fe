@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { JSX } from 'react';
 import Button from '@/components/atoms/Button';
 
 const ContactConfirmation = (): JSX.Element => {

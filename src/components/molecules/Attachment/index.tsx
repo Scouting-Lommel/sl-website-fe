@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { Attachment as AttachmentProps } from './types';
 import File from './components/File';
 import Link from './components/Link';

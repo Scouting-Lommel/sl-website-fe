@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, type JSX } from 'react';
 import { getActivities } from '@/lib/api/activities/api';
 import { getEvents } from '@/lib/api/events/api';
 import { StylesheetLink } from '@/types/StyleSheetLink';

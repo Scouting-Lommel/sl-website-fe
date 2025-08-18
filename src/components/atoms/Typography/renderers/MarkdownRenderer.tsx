@@ -1,5 +1,5 @@
 'use client';
-
+import type { JSX } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
@@ -8,14 +8,11 @@ import { MarkdownRendererProps } from '../types';
 
 const MarkdownRenderer = ({ data, className }: MarkdownRendererProps): JSX.Element => {
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      className={className}
-      // @ts-ignore
-      rehypePlugins={[rehypeRaw]}
-    >
-      {sanitizeHtml(data)}
-    </ReactMarkdown>
+    <div className={className}>
+      <ReactMarkdown remarkPlugins={[remarkGfm as any]} rehypePlugins={[rehypeRaw as any]}>
+        {sanitizeHtml(data)}
+      </ReactMarkdown>
+    </div>
   );
 };
 

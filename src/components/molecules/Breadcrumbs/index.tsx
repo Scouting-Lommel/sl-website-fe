@@ -1,6 +1,6 @@
 'use client';
-
 import { usePathname } from 'next/navigation';
+import type { JSX } from 'react';
 import { getBreadcrumbs } from '@/lib/helpers/getBreadcrumbs';
 import { AutoBreadcrumbs as AutoBreadcrumbsProps } from './types';
 import Breadcrumbs from './Breadcrumbs';

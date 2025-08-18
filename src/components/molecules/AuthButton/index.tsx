@@ -1,6 +1,6 @@
 'use client';
-
 import { signIn, signOut, useSession } from 'next-auth/react';
+import type { JSX } from 'react';
 import { useTranslations } from 'use-intl';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { Button } from '@/components/atoms/Button/types';

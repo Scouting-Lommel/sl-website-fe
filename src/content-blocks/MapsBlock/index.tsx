@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import GoogleMap from '@/components/atoms/Map';
 import { MapBlock as MapBlockProps } from './types';

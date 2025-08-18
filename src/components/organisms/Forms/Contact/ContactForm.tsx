@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type JSX } from 'react';
 import { Groups } from '@/lib/constants/enums/groups';
 import { Recipients } from '@/lib/constants/enums/recipients';
 import { generateFormSchema } from '@/lib/helpers/generateFormSchema';

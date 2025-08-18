@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState, type JSX } from 'react';
 import { getFiles } from '@/lib/api/files/api';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Link from '@/components/atoms/Link';

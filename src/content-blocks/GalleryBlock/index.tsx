@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Gallery from '@/components/organisms/Gallery';
 import { GalleryBlock as GalleryBlockProps } from './types';
