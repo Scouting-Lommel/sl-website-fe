@@ -1,8 +1,7 @@
 'use client';
-
 import cn from 'classnames';
-import { useEffect, useRef, useState, type JSX } from 'react';
-import { Blurhash } from 'react-blurhash';
+import Image from 'next/image';
+import { useRef, useState, type JSX } from 'react';
 import { Lightbox } from 'react-modal-image';
 import { useTranslations } from 'use-intl';
 import { generateImageUrl } from '@/lib/helpers/image';
@@ -25,33 +24,21 @@ const SLImage = ({
 }: ImageProps): JSX.Element => {
   const t = useTranslations('common');
   const imageRef = useRef<HTMLImageElement>(null);
-  const [imgLoaded, setImgLoaded] = useState<boolean>(false);
   const [imgModalActive, setImgModalActive] = useState<boolean>(false);
 
   const imageWrapperClassNames = cn('image__wrapper', className);
 
   const imageClassNames = cn(
     'image',
-    loadingStrategy === 'lazy' && !imgLoaded && 'image--loading',
     modMaximisable && 'image--maximisable',
     modWithShadow && 'image--with-shadow',
     modRounded && 'image--rounded',
   );
 
-  // Preload the image
-  useEffect(() => {
-    if (data?.url) {
-      const img = new Image();
-      img.src = data.url;
-      img.onload = () => {
-        setImgLoaded(true);
-      };
-    }
-  }, [data?.url]);
-
   if (!data?.url) {
     return <>{t('imageNotFound')}</>;
   }
+
   if (data.ext === '.svg') {
     return (
       <figure className={imageWrapperClassNames}>
@@ -81,28 +68,21 @@ const SLImage = ({
             if (modMaximisable) setImgModalActive(true);
           }}
         >
-          <span className="image__blur-container">
-            {!imgLoaded && (
-              <Blurhash
-                className="image__blur"
-                hash={data.blurhash || 'L6PZfSjE.AyE_3t7t7R**0o#DgR4'}
-                width={data.width}
-                height={data.height}
-                style={{ width: '100%', height: '100%' }}
-              />
-            )}
-          </span>
-
           <picture>
-            <img
+            <Image
               ref={imageRef}
               className={cn(
                 'image__img',
                 data.width > data.height ? 'image__img--landscape' : 'image__img--portrait',
               )}
               style={{ aspectRatio: `${data.width}/${data.height}` }}
-              alt={data?.alternativeText || undefined}
+              alt={data?.alternativeText || ''}
+              width={data.width}
+              height={data.height}
               src={generateImageUrl(data?.hash)}
+              blurDataURL={`data:image/svg+xml;base64,${btoa(
+                `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${data.width} ${data.height}"><rect width="100%" height="100%" fill="#f0f0f0"/></svg>`,
+              )}`}
               loading={loadingStrategy}
             />
           </picture>
