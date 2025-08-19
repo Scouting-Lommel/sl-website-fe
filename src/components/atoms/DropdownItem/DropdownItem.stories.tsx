@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import type { JSX } from 'react';
 import { DropdownItem as DropdownItemProps } from './types';
 import DropdownItem from '.';
 

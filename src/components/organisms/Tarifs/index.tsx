@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Typography from '@/components/atoms/Typography';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, type JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Forms/Input';

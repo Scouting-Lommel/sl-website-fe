@@ -1,7 +1,7 @@
 'use client';
 
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React, { useState, type JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Tabs as TabsProps, Tab as TabProps } from './types';
 import Tab from './Tab';

@@ -1,5 +1,5 @@
 'use client';
-
+import type { JSX } from 'react';
 import { FormProvider } from '@/lib/contexts/FormContext';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import { Form as FormProps } from './types';

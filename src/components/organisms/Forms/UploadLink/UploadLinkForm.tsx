@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { JSX } from 'react';
 import { urlRegExValidation } from '@/lib/constants/regexValidation';
 import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';

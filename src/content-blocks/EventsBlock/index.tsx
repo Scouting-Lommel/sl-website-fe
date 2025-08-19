@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Activities from '@/components/organisms/Activities';
 import ArticleGrid from '@/components/organisms/ArticleGrid';

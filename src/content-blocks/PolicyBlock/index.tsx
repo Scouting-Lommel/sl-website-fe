@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Policy from '@/components/organisms/Policy';
 import { PolicyBlock as PolicyBlockProps } from './types';

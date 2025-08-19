@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { getTranslations } from 'next-intl/server';
+import type { JSX } from 'react';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
 import BlockContainer from '@/components/atoms/BlockContainer';

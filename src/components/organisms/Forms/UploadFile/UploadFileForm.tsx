@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { JSX } from 'react';
 import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import FormBuilder from '@/components/organisms/Forms/FormBuilder';
 import { FormField } from '@/components/organisms/Forms/FormBuilder/FormField/types';

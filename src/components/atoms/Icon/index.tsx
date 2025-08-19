@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import * as icons from 'lucide-react';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Icon as IconProps } from './types';
 import { iconMap } from './IconMap';

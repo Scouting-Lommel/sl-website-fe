@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { Tab as TabProps } from './types';
 
 const Tab = ({ children }: TabProps): JSX.Element => {

@@ -5,9 +5,11 @@ import CalendarRevalidator from '@/components/molecules/CalendarRevalidator';
 import { getGeneralData } from '../../../api';
 import { getRentalLocationPage } from '../api';
 
-type Props = { params: { slug: string; key: string } };
+type Props = { params: Promise<{ slug: string; key: string }> };
 
-export async function generateMetadata({ params: { slug } }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const { slug } = await props.params;
+
   const { generalData } = await getGeneralData();
   const { rentalLocations } = await getRentalLocationPage(slug);
   const rentalLocation = rentalLocations.data[0];
@@ -23,11 +25,11 @@ export async function generateMetadata({ params: { slug } }: Props): Promise<Met
   return { ...metadata };
 }
 
-const RentalLocationPage = async ({
-  params: { slug, key },
-}: {
-  params: { slug: string; key: string };
-}) => {
+const RentalLocationPage = async (props: { params: Promise<{ slug: string; key: string }> }) => {
+  const params = await props.params;
+
+  const { slug, key } = params;
+
   if (slug != 'settings' || key != 'revalidate') notFound();
 
   return (

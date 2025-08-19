@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import type { JSX } from 'react';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import UnauthorizedBlock from '@/components/organisms/Unauthorized';
 import { getGeneralData } from '../api';

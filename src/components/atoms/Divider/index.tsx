@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Divider as DividerProps } from './types';
 import styles from './Divider.css';

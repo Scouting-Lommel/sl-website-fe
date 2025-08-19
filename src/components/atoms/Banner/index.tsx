@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Banner as BannerProps } from './types';
 import styles from './Banner.css';

@@ -4,6 +4,7 @@ import { Metadata, Viewport } from 'next';
 import { getServerSession } from 'next-auth';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
+import type { JSX } from 'react';
 import { getLayoutData, getSeoData } from '@/lib/api/general/api';
 import { DataProvider } from '@/lib/contexts/DataContext';
 import { generateMetadataForRootLayout } from '@/lib/helpers/generateMetadata';

@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { ChangeEvent, forwardRef } from 'react';
+import { ChangeEvent, forwardRef, type JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';
 import { FormInput as FormInputProps } from './types';

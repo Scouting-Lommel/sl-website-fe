@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import type { JSX } from 'react';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import NotFoundBlock from '@/components/organisms/NotFound';
 import { getGeneralData } from './api';

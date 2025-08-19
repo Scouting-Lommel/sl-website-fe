@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { FooterHead as FooterHeadProps } from './types';
 import styles from './FooterHead.css';

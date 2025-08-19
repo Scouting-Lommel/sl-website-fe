@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useState, type JSX } from 'react';
 import { Groups } from '@/lib/constants/enums/groups';
 import { generateFormSchema } from '@/lib/helpers/generateFormSchema';
 import { getCurrentWorkingYear } from '@/lib/helpers/getCurrentWorkingYear';

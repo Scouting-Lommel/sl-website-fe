@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import FileSection from '@/components/organisms/FileSection';
 import { FileBlock as FileBlockProps } from './types';

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import type { JSX } from 'react';
 
 type Props = {
   children: React.ReactNode;

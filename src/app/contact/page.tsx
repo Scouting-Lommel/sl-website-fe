@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound, ReadonlyURLSearchParams } from 'next/navigation';
+import type { JSX } from 'react';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
 import Form from '@/components/organisms/Forms';
@@ -7,7 +8,7 @@ import { getGeneralData } from '../api';
 import { getContactPage } from './api';
 
 type Props = {
-  searchParams: ReadonlyURLSearchParams;
+  searchParams: Promise<ReadonlyURLSearchParams>;
 };
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -23,7 +24,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const ContactPage = async ({ searchParams }: Props): Promise<JSX.Element> => {
+const ContactPage = async (props: Props): Promise<JSX.Element> => {
+  const searchParams = await props.searchParams;
   const { contactPage } = await getContactPage();
 
   if (!contactPage) notFound();

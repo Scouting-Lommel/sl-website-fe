@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { useContext } from 'react';
+import { useContext, type JSX } from 'react';
 import { generalEmailAddress } from '@/lib/constants/emailAddress';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';
@@ -8,11 +8,15 @@ import Button from '@/components/atoms/Button';
 import { RegisterConfirmation as RegisterConfirmationProps } from './types';
 
 const RegisterConfirmation = ({
+  firstName,
+  lastName,
   price,
   bankAccountNumber,
 }: RegisterConfirmationProps): JSX.Element => {
   const t = useTranslations('forms.registerForm.confirmation');
   const { setFormStatus } = useContext(FormContext);
+
+  console.log(firstName, lastName);
 
   const setFormReady = () => {
     setFormStatus(FormStatus.STATUS_READY);
@@ -48,6 +52,8 @@ const RegisterConfirmation = ({
         <li>
           {t.rich('summary.message', {
             bold: (chunks) => <span className="t-weight-bold">{chunks}</span>,
+            firstName,
+            lastName,
             workingYear: getCurrentWorkingYear(),
           })}
         </li>

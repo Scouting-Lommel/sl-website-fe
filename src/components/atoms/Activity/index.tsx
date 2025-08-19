@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import type { JSX } from 'react';
 import { formatDate, formatStrapiTime } from '@/lib/helpers/dateTime';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Typography from '@/components/atoms/Typography';

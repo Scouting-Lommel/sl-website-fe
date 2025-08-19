@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import FAQ from '@/components/organisms/FAQ';
 import { FaqBlock as TextImageBlockProps } from './types';

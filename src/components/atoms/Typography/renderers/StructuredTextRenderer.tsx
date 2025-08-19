@@ -1,6 +1,6 @@
 'use client';
-
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import type { JSX } from 'react';
 import SLImage from '@/components/atoms/Image';
 import { StructuredTextRendererProps } from '../types';
 

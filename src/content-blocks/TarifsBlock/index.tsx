@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Tarifs from '@/components/organisms/Tarifs';
 import { TarifsBlock as TarifsBlockProps } from './types';

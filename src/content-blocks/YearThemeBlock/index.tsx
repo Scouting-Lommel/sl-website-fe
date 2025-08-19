@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import YearThemeSection from '@/components/organisms/YearThemeSection';
 import { YearThemeBlock as YearThemeBlockProps } from './types';

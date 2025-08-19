@@ -2,7 +2,7 @@
 
 import cn from 'classnames';
 import { useTranslations } from 'next-intl';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, type JSX } from 'react';
 import { Lightbox } from 'react-modal-image';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';

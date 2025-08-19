@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { useContext, useState } from 'react';
+import { useContext, useState, type JSX } from 'react';
 import { FormStatus } from '@/lib/constants/enums/formStatus';
 import { FormContext } from '@/lib/contexts/FormContext';
 import Banner from '@/components/atoms/Banner';

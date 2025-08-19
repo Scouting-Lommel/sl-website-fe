@@ -2,7 +2,13 @@
   "extends": ["next", "next/core-web-vitals", "plugin:prettier/recommended"],
   "plugins": ["import"],
   "rules": {
+    "@next/next/no-html-link-for-pages": "off",
     "@next/next/no-img-element": "off",
+    "@next/next/no-page-custom-font": "off",
+    "@next/next/no-duplicate-head": "off",
+    "@next/next/no-typos": "off",
+    "@next/next/no-before-interactive-script-outside-document": "off",
+    "@next/next/no-styled-jsx-in-document": "off",
     "jsx-a11y/alt-text": [
       2,
       {
@@ -83,6 +89,10 @@
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"],
       },
+    },
+    "next": {
+      "rootDir": ".",
+      "pagesDirectory": "src/app",
     },
   },
 }

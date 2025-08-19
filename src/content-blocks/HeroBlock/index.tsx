@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import { SocialsCta } from '@/components/molecules/SocialsCta/types';
 import Hero from '@/components/organisms/Hero';

@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Leaders from '@/components/organisms/Leaders';
 import { LeadersBLock as LeadersBlockProps } from './types';

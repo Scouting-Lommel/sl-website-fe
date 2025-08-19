@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
+import type { JSX } from 'react';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import { getGroupPage } from './api';
@@ -8,7 +9,7 @@ import ActivitiesSection from './components/ActivitiesSection';
 import FileSection from './components/FilesSection';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -17,7 +18,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
   };
 };
 
-const DashboardGroupPage = async ({ params: { slug } }: Props): Promise<JSX.Element> => {
+const DashboardGroupPage = async (props: Props): Promise<JSX.Element> => {
+  const { slug } = await props.params;
+
   const { groups } = await getGroupPage(slug);
   const group = groups.data[0];
 

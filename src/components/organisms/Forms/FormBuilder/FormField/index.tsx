@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import type { JSX } from 'react';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import Divider from '@/components/atoms/Divider';
 import Captcha from '@/components/atoms/Forms/Captcha';
