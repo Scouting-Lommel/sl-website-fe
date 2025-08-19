@@ -8,7 +8,7 @@ import { getGeneralData } from '../api';
 import { getContactPage } from './api';
 
 type Props = {
-  searchParams: ReadonlyURLSearchParams;
+  searchParams: Promise<ReadonlyURLSearchParams>;
 };
 
 export const generateMetadata = async (): Promise<Metadata> => {
