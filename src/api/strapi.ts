@@ -45,8 +45,14 @@ const fetchAPI = async (
   const json = await res.json();
 
   if (json.errors) {
-    console.error(json.errors);
-    throw new Error('Failed to fetch API');
+    console.error('GraphQL Errors:', json.errors);
+    const errorMessage = json.errors.map((error: any) => error.message).join(', ');
+    throw new Error(`GraphQL Error: ${errorMessage}`);
+  }
+
+  if (!res.ok) {
+    console.error('HTTP Error:', res.status, res.statusText);
+    throw new Error(`HTTP Error: ${res.status} ${res.statusText}`);
   }
 
   return json.data;
