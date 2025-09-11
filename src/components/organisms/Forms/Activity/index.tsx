@@ -89,7 +89,7 @@ const Activity = (props: any): JSX.Element => {
   };
 
   const handleDeleteActivity = async () => {
-    if (confirm(t('deleteConfirmation', { title: props.activity.title }))) {
+    if (confirm(t('deleteConfirmation', { activityTitle: props.activity.title }))) {
       try {
         await callApi('delete', props.activity.id);
         setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);
@@ -102,19 +102,32 @@ const Activity = (props: any): JSX.Element => {
   };
 
   const callApi = async (action: 'update' | 'create' | 'delete', data: any) => {
-    const response = await fetch('/api/activity', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ action, data }),
-    });
+    try {
+      const response = await fetch('/api/activity', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ action, data }),
+      });
 
-    if (!response.ok) {
-      throw new Error('Failed to perform action');
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error(`API Error (${action}):`, result);
+        throw new Error(result.error || `Failed to ${action} activity`);
+      }
+
+      if (!result.success) {
+        console.error(`API Warning (${action}):`, result);
+        throw new Error(`Activity ${action} did not succeed`);
+      }
+
+      return result;
+    } catch (error) {
+      console.error(`Network/API Error (${action}):`, error);
+      throw error;
     }
-
-    return response.json();
   };
 
   return (

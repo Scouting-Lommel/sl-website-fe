@@ -5,21 +5,36 @@ export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { action, data } = await request.json();
 
   try {
+    let result;
     switch (action) {
       case 'create':
-        await createActivity(data);
+        result = await createActivity(data);
         break;
       case 'update':
-        await updateActivity(data);
+        result = await updateActivity(data);
         break;
       case 'delete':
-        await deleteActivity(data);
+        result = await deleteActivity(data);
         break;
       default:
         return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
-    return NextResponse.json({ success: true });
+
+    // Validate that the operation actually succeeded
+    if (!result) {
+      throw new Error(`Failed to ${action} activity: No result returned`);
+    }
+
+    return NextResponse.json({ success: true, data: result });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error(`Activity API Error (${action}):`, error);
+    return NextResponse.json(
+      {
+        error: error.message || 'Unknown error occurred',
+        action,
+        data: data ? { ...data, groupId: data.groupId ? '[REDACTED]' : undefined } : undefined,
+      },
+      { status: 500 },
+    );
   }
 };
