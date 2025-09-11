@@ -4,6 +4,8 @@ import { updateActivity, deleteActivity, createActivity } from '@/lib/api/activi
 export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { action, data } = await request.json();
 
+  console.log(action, data);
+
   try {
     switch (action) {
       case 'create':
@@ -18,8 +20,9 @@ export const POST = async (request: NextRequest): Promise<NextResponse> => {
       default:
         return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
     }
-    return NextResponse.json({ success: true });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  return NextResponse.json({ success: true });
 };
