@@ -89,7 +89,7 @@ const Activity = (props: any): JSX.Element => {
   };
 
   const handleDeleteActivity = async () => {
-    if (confirm(t('deleteConfirmation', { title: props.activity.title }))) {
+    if (confirm(t('deleteConfirmation', { activityTitle: props.activity.title }))) {
       try {
         await callApi('delete', props.activity.id);
         setFormStatus(FormStatus.STATUS_DELETE_SUCCESS);

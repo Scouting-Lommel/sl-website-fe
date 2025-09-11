@@ -29,7 +29,7 @@
       "success": "De activiteit is met succes opgeslagen.",
       "deleteSuccess": "De activiteit is met succes verwijderd."
     },
-    "deleteConfirmation": "Weet je zeker dat je de activiteit met titel\"{activityTitle}\" wil verwijderen?"
+    "deleteConfirmation": "Weet je zeker dat je de activiteit met titel \"{activityTitle}\" wil verwijderen?"
   },
   "contactForm": {
     "fields": {
