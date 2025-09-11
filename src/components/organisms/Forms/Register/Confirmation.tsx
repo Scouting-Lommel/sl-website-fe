@@ -16,8 +16,6 @@ const RegisterConfirmation = ({
   const t = useTranslations('forms.registerForm.confirmation');
   const { setFormStatus } = useContext(FormContext);
 
-  console.log(firstName, lastName);
-
   const setFormReady = () => {
     setFormStatus(FormStatus.STATUS_READY);
   };

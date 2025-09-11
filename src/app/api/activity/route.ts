@@ -4,22 +4,17 @@ import { updateActivity, deleteActivity, createActivity } from '@/lib/api/activi
 export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { action, data } = await request.json();
 
-  console.log('Activity API:', action, data);
-
   try {
     let result;
     switch (action) {
       case 'create':
         result = await createActivity(data);
-        console.log('Create activity result:', result);
         break;
       case 'update':
         result = await updateActivity(data);
-        console.log('Update activity result:', result);
         break;
       case 'delete':
         result = await deleteActivity(data);
-        console.log('Delete activity result:', result);
         break;
       default:
         return NextResponse.json({ error: 'Invalid action' }, { status: 400 });
