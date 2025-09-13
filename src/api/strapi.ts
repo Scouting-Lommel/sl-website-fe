@@ -1,4 +1,5 @@
 import { DocumentNode, print } from 'graphql';
+import { getCacheOptions } from '@/lib/api/cache';
 
 const fetchAPI = async (
   query: DocumentNode,
@@ -21,14 +22,22 @@ const fetchAPI = async (
       headers = {
         'Content-Type': 'application/json',
       };
-      // Longer cache for static data like navigation/footer
-      const isStaticData = print(query).includes('generalData');
-      cacheOptions = {
-        next: {
-          revalidate: isStaticData ? 3600 : process?.env?.APP_ENV === 'production' ? 300 : 10,
-          tags: isStaticData ? ['general-data'] : ['dynamic-data'],
-        },
-      };
+
+      // Determine cache strategy based on query content
+      const queryString = print(query);
+      const isStaticData =
+        queryString.includes('generalData') ||
+        queryString.includes('groups') ||
+        queryString.includes('rentalLocations');
+      const isUserData = queryString.includes('activities') || queryString.includes('files');
+
+      if (isStaticData) {
+        cacheOptions = getCacheOptions('STATIC');
+      } else if (isUserData) {
+        cacheOptions = getCacheOptions('USER');
+      } else {
+        cacheOptions = getCacheOptions('DYNAMIC');
+      }
     }
   }
 

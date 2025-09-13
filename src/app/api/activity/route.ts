@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { updateActivity, deleteActivity, createActivity } from '@/lib/api/activities/api';
+import { getCacheHeaders } from '@/lib/api/cache';
 
 export const POST = async (request: NextRequest): Promise<NextResponse> => {
   const { action, data } = await request.json();
@@ -25,7 +26,12 @@ export const POST = async (request: NextRequest): Promise<NextResponse> => {
       throw new Error(`Failed to ${action} activity: No result returned`);
     }
 
-    return NextResponse.json({ success: true, data: result });
+    return NextResponse.json(
+      { success: true, data: result },
+      {
+        headers: getCacheHeaders('WRITE'),
+      },
+    );
   } catch (error: any) {
     console.error(`Activity API Error (${action}):`, error);
     return NextResponse.json(
@@ -34,7 +40,10 @@ export const POST = async (request: NextRequest): Promise<NextResponse> => {
         action,
         data: data ? { ...data, groupId: data.groupId ? '[REDACTED]' : undefined } : undefined,
       },
-      { status: 500 },
+      {
+        status: 500,
+        headers: getCacheHeaders('WRITE'),
+      },
     );
   }
 };
