@@ -1,6 +1,7 @@
 import { JWT } from 'google-auth-library';
 import { google } from 'googleapis';
 import { NextRequest, NextResponse } from 'next/server';
+import { getCacheHeaders } from '@/lib/api/cache';
 
 const admin = google.admin('directory_v1');
 
@@ -28,9 +29,20 @@ export const GET = async (req: NextRequest): Promise<NextResponse> => {
 
     const orgUnitPath = response.data.orgUnitPath;
 
-    return NextResponse.json({ orgUnitPath });
+    return NextResponse.json(
+      { orgUnitPath },
+      {
+        headers: getCacheHeaders('USER'),
+      },
+    );
   } catch (error: any) {
     console.error(`Error fetching org unit data: ${error.message}`);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error.message },
+      {
+        status: 500,
+        headers: getCacheHeaders('WRITE'),
+      },
+    );
   }
 };

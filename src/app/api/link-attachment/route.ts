@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getCacheHeaders } from '@/lib/api/cache';
 import { editLinks } from '@/lib/api/groups/api';
 
 export const POST = async (request: NextRequest): Promise<NextResponse> => {
@@ -6,8 +7,20 @@ export const POST = async (request: NextRequest): Promise<NextResponse> => {
 
   try {
     await editLinks(data.id, data.links);
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json(
+      { success: true },
+      {
+        status: 200,
+        headers: getCacheHeaders('WRITE'),
+      },
+    );
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json(
+      { error: error.message },
+      {
+        status: 500,
+        headers: getCacheHeaders('WRITE'),
+      },
+    );
   }
 };
