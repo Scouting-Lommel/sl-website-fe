@@ -67,7 +67,7 @@
       "success": "Het bericht is met succes verstuurd."
     },
     "email": {
-      "title": "Nieuwe inzending: contactformulier website"
+      "title": "Contactformulier"
     },
     "confirmation": {
       "title": "Bedankt voor je bericht! We proberen je contactaanvraag zo snel mogelijk te beantwoorden.",
@@ -209,7 +209,7 @@
       }
     },
     "email": {
-      "title": "Nieuwe inschrijving via Scouting Lommel website"
+      "title": "Inschrijvingsformulier"
     },
     "formStatus": {
       "loading": "Inschrijving versturen...",
