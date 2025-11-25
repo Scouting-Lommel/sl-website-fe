@@ -20,7 +20,7 @@ const Register = (props: any): JSX.Element => {
 
   const initialValues = {};
 
-  const submitForm = (data: any, formFields: FormField[]) => {
+  const submitForm = async (data: any, formFields: FormField[]) => {
     const captchaToken = data['captcha-token'];
     const member = { ...data };
 
@@ -34,7 +34,7 @@ const Register = (props: any): JSX.Element => {
       setRegisterPrice(props.leaderPrice);
     }
 
-    const email: Email = generateEmail({
+    const email: Email = await generateEmail({
       formTitle: t('email.title'),
       formData: generateFormDataWithLabel(data, formFields),
       to: registerEmailAddress,
