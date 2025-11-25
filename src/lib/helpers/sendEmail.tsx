@@ -1,6 +1,6 @@
 import { noreplyEmailAddress } from '@/lib/constants/emailAddress';
-import { renderEmail } from '@/email-templates/helpers/render-email';
 import { FormSubmissionEmail } from '@/email-templates/emails/form-submission';
+import { renderEmail } from '@/email-templates/helpers/render-email';
 
 export type Email = {
   from: string;
