@@ -26,7 +26,7 @@ const Contact = (props: any): JSX.Element => {
     body: '',
   };
 
-  const submitForm = (data: any, formFields: FormField[]) => {
+  const submitForm = async (data: any, formFields: FormField[]) => {
     let recipient: string;
     const captchaToken = data['captcha-token'];
 
@@ -49,7 +49,7 @@ const Contact = (props: any): JSX.Element => {
     delete data['terms-and-conditions'];
     delete data['captcha-token'];
 
-    const email: Email = generateEmail({
+    const email: Email = await generateEmail({
       formTitle: t('email.title'),
       formData: generateFormDataWithLabel(data, formFields),
       to: recipient,
