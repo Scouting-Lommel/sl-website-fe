@@ -29,6 +29,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@mdx-js/react": "^3.0.1",
+    "@react-email/components": "^0.5.7",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@svgr/webpack": "^6.5.1",
     "@vercel/analytics": "^1.5.0",
