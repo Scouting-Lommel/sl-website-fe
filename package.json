@@ -19,7 +19,7 @@
     "lint:stylelint": "npx stylelint \"**/*.pcss\" --fix",
     "lint:typescript": "tsc",
     "lint": "run-p lint:**",
-    "preinstall": "npx only-allow npm",
+    "preinstall": "npx only-allow pnpm",
     "start": "next start",
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
@@ -108,7 +108,9 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-order": "^6.0.4"
   },
-  "overrides": {
-    "@types/react": "19.1.10"
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.1.10"
+    }
   }
 }

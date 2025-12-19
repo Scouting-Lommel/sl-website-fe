@@ -29,7 +29,7 @@ DNS records are managed by [CloudFlare](https://www.cloudflare.com). Other than 
 Deployments for this project are fully automated using [Vercel](https://vercel.com) with the following deployment strategy:
 
 - **Automatic deployment:** every push to the `main` branch automatically triggers a build and deployment to the production environment.
-- **Build process:** Vercel automatically runs `npm run build` and deploys the built application from the `.next` directory.
+- **Build process:** Vercel automatically runs `pnpm run build` and deploys the built application from the `.next` directory.
 - **Environment:** The application is deployed directly to the production environment on each push to main.
 
 ### Backend hosting

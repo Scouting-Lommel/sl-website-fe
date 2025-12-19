@@ -27,10 +27,10 @@
 ## Requirements
 
 - [Node.js](https://nodejs.org) (v18 or higher, recommended v20)
-- [NPM](https://npmjs.com) (v8 and up)
+- [pnpm](https://pnpm.io) (v8 and up)
 - [NVM](https://github.com/nvm-sh/nvm) (optional but recommended)
 
-> **Important**: Only NPM is allowed as package manager (enforced by preinstall script). Attempting to use Yarn or pnpm will fail.
+> **Important**: Only pnpm is allowed as package manager (enforced by preinstall script). Attempting to use npm or Yarn will fail.
 
 ### Environment Variables Required
 
@@ -61,10 +61,16 @@ Contact the project maintainer for the actual values to use in development.
    nvm use
    ```
 
-5. Install dependencies
+5. Install pnpm (if not already installed)
 
    ```bash
-   npm install
+   npm install -g pnpm
+   ```
+
+6. Install dependencies
+
+   ```bash
+   pnpm install
    ```
 
 ## Running locally
@@ -73,7 +79,7 @@ Contact the project maintainer for the actual values to use in development.
 2. Start the development server
 
    ```bash
-   npm run dev
+   pnpm run dev
    ```
 
    This will start:
@@ -88,7 +94,7 @@ Contact the project maintainer for the actual values to use in development.
 To run Storybook for component development:
 
 ```bash
-npm run storybook:start
+pnpm run storybook:start
 ```
 
 This will start Storybook on [port 6006](http://localhost:6006) with CSS processing enabled.
@@ -98,11 +104,11 @@ This will start Storybook on [port 6006](http://localhost:6006) with CSS process
 ### Linting and Formatting
 
 ```bash
-npm run lint                   # Run all linters (ESLint, TypeScript, Stylelint, ls-lint)
-npm run lint:eslint            # ESLint with auto-fix
-npm run lint:typescript        # TypeScript type checking
-npm run lint:stylelint         # Stylelint for .pcss files with auto-fix
-npm run lint:ls-lint           # File/directory naming conventions
+pnpm run lint                   # Run all linters (ESLint, TypeScript, Stylelint, ls-lint)
+pnpm run lint:eslint            # ESLint with auto-fix
+pnpm run lint:typescript        # TypeScript type checking
+pnpm run lint:stylelint         # Stylelint for .pcss files with auto-fix
+pnpm run lint:ls-lint           # File/directory naming conventions
 ```
 
 ### Important Linting Rules
@@ -117,7 +123,7 @@ npm run lint:ls-lint           # File/directory naming conventions
 Before committing, manually run the linting commands:
 
 ```bash
-npm run lint              # Run all quality checks
+pnpm run lint              # Run all quality checks
 ```
 
 This will check:
@@ -127,17 +133,17 @@ This will check:
 - Stylelint for CSS files
 - File naming conventions (ls-lint)
 
-**Best Practice**: Always run `npm run lint` before committing to ensure code quality.
+**Best Practice**: Always run `pnpm run lint` before committing to ensure code quality.
 
 ## Building the project
 
 ### Local build
 
 1. [Clone and install](#installation) this repo
-2. Produce a production build using `npm`
+2. Produce a production build using `pnpm`
 
    ```bash
-   npm run build
+   pnpm run build
    ```
 
    This will:
@@ -149,7 +155,7 @@ This will check:
 3. Start the app using
 
    ```bash
-   npm start
+   pnpm start
    ```
 
 ### Deployment

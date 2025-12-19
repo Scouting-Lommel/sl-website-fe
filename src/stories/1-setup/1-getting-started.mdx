@@ -5,61 +5,70 @@ import { Meta } from '@storybook/blocks';
 <div className="sb-section">
   <h2 className="sb-heading__2" id="installation">Installation</h2>
 
-  1. Clone this repo onto your machine and navigate to the local repo
-     ```bash
-     git clone https://github.com/Scouting-Lommel/sl-website-fe.git
-     cd sl-website-fe
-     ```
+1. Clone this repo onto your machine and navigate to the local repo
 
-  2. Copy the example environment file
+   ```bash
+   git clone https://github.com/Scouting-Lommel/sl-website-fe.git
+   cd sl-website-fe
+   ```
 
-     ```bash
-     cp .env.example .env
-     ```
+2. Copy the example environment file
 
-  3. Fill in `.env`. For environment values, contact repo owner.
+   ```bash
+   cp .env.example .env
+   ```
 
-  4. Set the `Node.js` version
-     ```bash
-     nvm use
-     ```
+3. Fill in `.env`. For environment values, contact repo owner.
 
-  5. Install dependencies
-     ```bash
-     npm install
-     ```
-</div>
+4. Set the `Node.js` version
+
+   ```bash
+   nvm use
+   ```
+
+5. Install pnpm (if not already installed)
+
+   ```bash
+   npm install -g pnpm
+   ```
+
+6. Install dependencies
+   `bash
+     pnpm install
+     `
+   </div>
 
 <div className="sb-section">
   <h2 className="sb-heading__2" id="running-locally">Running locally</h2>
 
-  1. [Clone and install](#installation) this repo
-  2. Start the development server
-     ```bash
-     npm run dev
-     ```
-  3. You can now visit the website's frontend on [port 3000](http://localhost:3000).
-</div>
+1. [Clone and install](#installation) this repo
+2. Start the development server
+   ```bash
+   pnpm run dev
+   ```
+3. You can now visit the website's frontend on [port 3000](http://localhost:3000).
+   </div>
 
 <div className="sb-section">
   <h2 className="sb-heading__2" id="building-the-project">Building the project</h2>
   <h3 className="sb-heading__3">Local build</h3>
 
-  1. [Clone and install](#installation) this repo
-  2. Produce a production build using `npm`
-     ```bash
-     npm run build
-     ```
-  3. Start the app using
-     ```bash
-     npm start
-     ```
+1. [Clone and install](#installation) this repo
+2. Produce a production build using `pnpm`
+   ```bash
+   pnpm run build
+   ```
+3. Start the app using
+   ```bash
+   pnpm start
+   ```
 
-  <h3 className="sb-heading__3">Production build</h3>
+<h3 className="sb-heading__3">Production build</h3>
 
-  It is not necessary to build for production manually. A CI/CD pipeline has been set up for automatic deployment when pushing changes and/or features to the `main` branch.
+It is not necessary to build for production manually. A CI/CD pipeline has been set up for automatic deployment when pushing changes and/or features to the `main` branch.
 
-  <h3 className="sb-heading__3">More info</h3>
+<h3 className="sb-heading__3">More info</h3>
 
-  For more information and detailed instructions, check out the [getting started docs on the GIT repo](https://github.com/Scouting-Lommel/sl-website-fe/blob/main/documentation/getting-started.md).
+For more information and detailed instructions, check out the [getting started docs on the GIT repo](https://github.com/Scouting-Lommel/sl-website-fe/blob/main/documentation/getting-started.md).
+
 </div>
