@@ -17,8 +17,10 @@
   "i18n-ally.localesPaths": ["locales"],
   "i18n-ally.namespace": true,
   "i18n-ally.pathMatcher": "{locale}/{namespace}.json",
+  "npm.packageManager": "pnpm",
   "stylelint.validate": ["css", "postcss"],
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.preferences.autoImportFileExcludePatterns": ["lucide-react"],
+  "typescript.preferences.useAliasesForRenames": false,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

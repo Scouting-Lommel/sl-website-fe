@@ -20,7 +20,7 @@ Frontend to the new and refreshed [Scouting Lommel website](https://www.scouting
 ### Installation
 
 ```bash
-npm install
+pnpm install
 ```
 
 For detailed instructions and requirements, check out the [getting started docs](/documentation/getting-started.md).
@@ -28,7 +28,7 @@ For detailed instructions and requirements, check out the [getting started docs]
 ### Running locally
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 For detailed instructions, check out the [getting started docs](/documentation/getting-started.md#running-locally).
