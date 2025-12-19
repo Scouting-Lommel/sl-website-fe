@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata, Viewport } from 'next';
+import { Montserrat, Nunito_Sans } from 'next/font/google';
 import { getServerSession } from 'next-auth';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
@@ -17,6 +18,22 @@ import Footer from '@/components/organisms/Footer';
 import Header from '@/components/organisms/Header';
 
 import '@/app/global.css';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '900'],
+  display: 'swap',
+  variable: '--font-montserrat',
+  preload: true,
+});
+
+const nunitoSans = Nunito_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '900'],
+  display: 'swap',
+  variable: '--font-nunito-sans',
+  preload: true,
+});
 
 type Props = { children: React.ReactNode };
 
@@ -43,7 +60,7 @@ const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
   const globalAlert = data.generalData.data.attributes.globalAlert;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${montserrat.variable} ${nunitoSans.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <SessionProvider session={session}>
