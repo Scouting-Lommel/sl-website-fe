@@ -1,9 +1,10 @@
 'use client';
+
 import cn from 'classnames';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useRef, useState, type JSX } from 'react';
 import { Lightbox } from 'react-modal-image';
-import { useTranslations } from 'use-intl';
 import { generateImageUrl } from '@/lib/helpers/image';
 import { StylesheetLink } from '@/types/StyleSheetLink';
 import { Image as ImageProps } from './types';
