@@ -2,13 +2,13 @@
   "name": "scouting-lommel-website",
   "private": true,
   "scripts": {
-    "build:css": "pnpm run \"/^build:css:[^:]+$/\" --parallel",
+    "build:css": "pnpm run \"/^build:css:[^:]+$/\"",
     "build:css:components": "postcss src/components/**/*.pcss --base src/components --dir src/components --ext css --env production",
     "build:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css --env production",
     "build:next": "next build",
     "build": "pnpm run \"/^build:[^:]+$/\"",
     "chromatic": "npx chromatic --project-token=chpt_8d08d2bcd7ac9cd",
-    "dev:css": "pnpm run \"/^dev:css:[^:]+$/\" --parallel",
+    "dev:css": "pnpm run \"/^dev:css:[^:]+$/\"",
     "dev:css:components": "postcss src/components/**/*.pcss --base src/components --dir src/components --ext css -w",
     "dev:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css -w",
     "dev:next": "next dev",
@@ -23,8 +23,8 @@
     "start": "next start",
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
-    "storybook": "pnpm run \"/^dev:css:[^:]+$/\" storybook:start --parallel",
-    "build-storybook": "pnpm run \"/^build:css:[^:]+$/\" storybook:build --parallel"
+    "storybook": "pnpm run \"/^dev:css:[^:]+$/\" storybook:start",
+    "build-storybook": "pnpm run \"/^build:css:[^:]+$/\" storybook:build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
