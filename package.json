@@ -14,7 +14,7 @@
     "dev:next": "next dev",
     "dev": "pnpm run \"/^dev:[^:]+$/\"",
     "export": "next export",
-    "lint:eslint": "eslint --fix",
+    "lint:eslint": "eslint . --fix",
     "lint:ls-lint": "npx ls-lint",
     "lint:stylelint": "npx stylelint \"**/*.pcss\" --fix",
     "lint:typescript": "tsc",
@@ -23,8 +23,8 @@
     "start": "next start",
     "storybook:build": "storybook build",
     "storybook:start": "storybook dev -p 6006",
-    "storybook": "pnpm run \"/^dev:css:[^:]+$/\" storybook:start",
-    "build-storybook": "pnpm run \"/^build:css:[^:]+$/\" storybook:build"
+    "storybook": "pnpm run \"/^dev:css:[^:]+$/\" && pnpm run storybook:start",
+    "build-storybook": "pnpm run \"/^build:css:[^:]+$/\" && pnpm run storybook:build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",

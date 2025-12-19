@@ -1,9 +1,6 @@
 import { fixupPluginRules } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
-import { defineConfig } from 'eslint/config';
-import next from 'eslint-config-next';
-import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
 import _import from 'eslint-plugin-import';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -16,9 +13,13 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-export default defineConfig([
+export default [
   {
-    extends: [...next, ...nextCoreWebVitals, ...compat.extends('plugin:prettier/recommended')],
+    ...compat.extends(
+      'eslint-config-next',
+      'eslint-config-next/core-web-vitals',
+      'plugin:prettier/recommended',
+    )[0],
 
     plugins: {
       import: fixupPluginRules(_import),
@@ -127,4 +128,4 @@ export default defineConfig([
       ],
     },
   },
-]);
+];
