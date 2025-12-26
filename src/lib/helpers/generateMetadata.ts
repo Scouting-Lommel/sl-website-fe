@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getSiteUrl } from './getSiteUrl';
 
 type PageMetaObj = {
   pageTitle: string;
@@ -31,14 +32,16 @@ type MetaDataObj = {
  *
  * @returns {Metadata} An object containing metadata properties for the website.
  */
-const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata => {
+const generateMetadataForRootLayout = async (metaData: MetaDataObj): Promise<Metadata> => {
+  const siteUrl = await getSiteUrl();
+  
   return {
     title: {
       default: metaData.siteName || 'Scouting Sint-Pieter Lommel',
       template: `%s • ${metaData.siteName || 'Scouting Sint-Pieter Lommel'}`,
     },
     description: metaData.siteDescription,
-    metadataBase: new URL(metaData.url || process.env.SITE_URL || '') || null,
+    metadataBase: new URL(metaData.url || siteUrl || '') || null,
     manifest: '/assets/head/site.webmanifest',
     icons: {
       icon: [
@@ -73,16 +76,18 @@ const generateMetadataForRootLayout = (metaData: MetaDataObj): Metadata => {
  * @param {string} [path] - The optional path for the page.
  * @returns {Metadata} The generated metadata object.
  */
-const generateMetadataForPage = (
+const generateMetadataForPage = async (
   pageMeta: PageMetaObj,
   metaData: MetaDataObj,
   path?: string,
-): Metadata => {
+): Promise<Metadata> => {
+  const siteUrl = await getSiteUrl();
+  
   return {
     title: pageMeta?.pageTitle,
     description: pageMeta?.pageDescription,
     alternates: {
-      canonical: `${process.env.SITE_URL}${path ? '/' + path : ''}${
+      canonical: `${siteUrl}${path ? '/' + path : ''}${
         pageMeta?.slug ? '/' + pageMeta?.slug : ''
       }`,
     },

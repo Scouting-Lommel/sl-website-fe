@@ -3,11 +3,12 @@ import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { isValidOrgUnitPath } from '@/lib/helpers/getOrganisationRole';
+import { getSiteUrl } from '@/lib/helpers/getSiteUrl';
 
 export async function groupsMiddleware(req: NextRequest) {
   const token = await getToken({ req });
   const url: string = req.nextUrl.pathname;
-  const origin = req.nextUrl.origin;
+  const origin = await getSiteUrl(req);
 
   const signInRedirect = NextResponse.redirect(`${origin}/api/auth/signin`);
   const unauthorizedRedirect = NextResponse.redirect(`${origin}/geen-toegang`);

@@ -45,7 +45,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const data = await getSeoData();
   if (!data) return {};
 
-  const metadata = generateMetadataForRootLayout(data.generalData.data.attributes);
+  const metadata = await generateMetadataForRootLayout(data.generalData.data.attributes);
 
   return { ...metadata };
 };

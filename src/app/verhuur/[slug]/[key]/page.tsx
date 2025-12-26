@@ -16,7 +16,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
   if (!rentalLocation || !generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     rentalLocation.attributes.pageMeta,
     generalData.data.attributes,
     'verhuur/verhuursettings/revalidate',

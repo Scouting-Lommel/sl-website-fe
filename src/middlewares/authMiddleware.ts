@@ -2,10 +2,11 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 import { isValidOrgUnitPath } from '@/lib/helpers/getOrganisationRole';
+import { getSiteUrl } from '@/lib/helpers/getSiteUrl';
 
 export async function authMiddleware(req: NextRequest) {
   const token = await getToken({ req });
-  const origin = req.nextUrl.origin;
+  const origin = await getSiteUrl(req);
 
   if (!token) {
     return NextResponse.redirect(`${origin}/api/auth/signin`);

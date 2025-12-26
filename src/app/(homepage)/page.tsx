@@ -15,7 +15,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
   if (!homePage?.homePage || !seoData?.generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     homePage.homePage.data.attributes.pageMeta,
     seoData.generalData.data.attributes,
   );

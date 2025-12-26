@@ -1,6 +1,7 @@
 import { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { getOrganisationRole } from '@/lib/helpers/getOrganisationRole';
+import { getSiteUrl } from '@/lib/helpers/getSiteUrl';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -31,9 +32,8 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       const { name, email, picture, ...tokenProps } = token;
 
-      const response = await fetch(
-        `${process.env.SITE_URL}/api/auth/get-org-unit?email=${token.email}`,
-      );
+      const siteUrl = await getSiteUrl();
+      const response = await fetch(`${siteUrl}/api/auth/get-org-unit?email=${token.email}`);
       const data = await response.json();
 
       return {

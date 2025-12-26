@@ -1,18 +1,18 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
+import { getSiteUrl } from '@/lib/helpers/getSiteUrl';
 
 export async function signinMiddleware(req: NextRequest) {
   const token = await getToken({ req });
+  const origin = await getSiteUrl(req);
 
   if (token) {
-    return NextResponse.redirect(`${process.env.SITE_URL}/dashboard`);
+    return NextResponse.redirect(`${origin}/dashboard`);
   }
 
   if (!req.nextUrl.search.includes('callbackUrl=')) {
-    return NextResponse.redirect(
-      `${process.env.SITE_URL}/inloggen?callbackUrl=${process.env.SITE_URL}`,
-    );
+    return NextResponse.redirect(`${origin}/inloggen?callbackUrl=${origin}`);
   }
 
   return NextResponse.next();

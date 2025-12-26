@@ -9,7 +9,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
   if (!generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     {
       pageTitle: 'Registratiedetails',
       pageDescription: 'Scouting Sint-Pieter Lommel',
