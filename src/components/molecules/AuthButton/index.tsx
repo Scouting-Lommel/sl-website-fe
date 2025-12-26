@@ -1,6 +1,7 @@
 'use client';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import type { JSX } from 'react';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
@@ -11,6 +12,7 @@ import NavItem from '@/components/molecules/NavItem';
 
 const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
   const t = useTranslations('dashboard.authButton');
+  const router = useRouter();
 
   const getDropdownItems = (): DropdownItem[] => {
     const items: DropdownItem[] = [
@@ -56,7 +58,10 @@ const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
       title: t('welcome'),
       intro: t('notLoggedIn'),
       ctaLabel: t('login'),
-      ctaOnClick: () => signIn(),
+      ctaOnClick: async () => {
+        await signIn();
+        router.refresh();
+      },
     };
   };
 
