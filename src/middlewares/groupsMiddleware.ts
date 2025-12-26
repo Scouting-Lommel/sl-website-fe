@@ -6,9 +6,10 @@ import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPerm
 export async function groupsMiddleware(req: NextRequest) {
   const token = await getToken({ req });
   const url: string = req.nextUrl.pathname;
+  const origin = req.nextUrl.origin;
 
-  const signInRedirect = NextResponse.redirect(`${process.env.SITE_URL}/api/auth/signin`);
-  const unauthorizedRedirect = NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
+  const signInRedirect = NextResponse.redirect(`${origin}/api/auth/signin`);
+  const unauthorizedRedirect = NextResponse.redirect(`${origin}/geen-toegang`);
 
   const getGroup = () => {
     const regex = new RegExp(`/dashboard/takken/(.*)`);
@@ -23,21 +24,33 @@ export async function groupsMiddleware(req: NextRequest) {
     return signInRedirect;
   }
 
+  if (!token.email) {
+    console.error('Token exists but email is missing');
+    return unauthorizedRedirect;
+  }
+
   try {
     const response = await fetch(
-      `${process.env.SITE_URL}/api/auth/get-org-unit?email=${token.email}`,
+      `${origin}/api/auth/get-org-unit?email=${encodeURIComponent(token.email)}`,
     );
 
     const contentType = response.headers.get('content-type');
     if (!response.ok) {
+      console.error(`API response not OK: ${response.status} ${response.statusText}`);
       return unauthorizedRedirect;
     }
 
     if (!contentType || !contentType.includes('application/json')) {
+      console.error(`Unexpected content type: ${contentType}`);
       return unauthorizedRedirect;
     }
 
     const data = await response.json();
+
+    if (!data?.orgUnitPath) {
+      console.error(`Invalid orgUnitPath: ${data?.orgUnitPath}`);
+      return unauthorizedRedirect;
+    }
 
     if (getGroup() && checkOrganisationPermission(data.orgUnitPath, `groups:${getGroup()}`)) {
       return NextResponse.next();
@@ -47,7 +60,7 @@ export async function groupsMiddleware(req: NextRequest) {
       return NextResponse.next();
     }
   } catch (error: any) {
-    console.error(`Error fetching org unit data: ${error.message}`);
+    console.error(`Error fetching org unit data: ${error.message}`, error);
     return unauthorizedRedirect;
   }
 
