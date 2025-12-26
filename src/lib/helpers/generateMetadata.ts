@@ -34,14 +34,16 @@ type MetaDataObj = {
  */
 const generateMetadataForRootLayout = async (metaData: MetaDataObj): Promise<Metadata> => {
   const siteUrl = await getSiteUrl();
-  
+
+  const baseUrl = metaData.url || siteUrl;
+
   return {
     title: {
       default: metaData.siteName || 'Scouting Sint-Pieter Lommel',
       template: `%s • ${metaData.siteName || 'Scouting Sint-Pieter Lommel'}`,
     },
     description: metaData.siteDescription,
-    metadataBase: new URL(metaData.url || siteUrl || '') || null,
+    metadataBase: baseUrl ? new URL(baseUrl) : null,
     manifest: '/assets/head/site.webmanifest',
     icons: {
       icon: [
@@ -82,14 +84,12 @@ const generateMetadataForPage = async (
   path?: string,
 ): Promise<Metadata> => {
   const siteUrl = await getSiteUrl();
-  
+
   return {
     title: pageMeta?.pageTitle,
     description: pageMeta?.pageDescription,
     alternates: {
-      canonical: `${siteUrl}${path ? '/' + path : ''}${
-        pageMeta?.slug ? '/' + pageMeta?.slug : ''
-      }`,
+      canonical: `${siteUrl}${path ? '/' + path : ''}${pageMeta?.slug ? '/' + pageMeta?.slug : ''}`,
     },
     robots: {
       index: pageMeta?.noIndex || true,

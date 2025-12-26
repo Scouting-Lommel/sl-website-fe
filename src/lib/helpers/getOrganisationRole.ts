@@ -12,17 +12,9 @@ const organisationRoles = {
 
 export type OrganisationRoles = keyof typeof organisationRoles;
 
-const validOrgUnitPaths: OrganisationRoles[] = [
-  '/',
-  '/Leiding',
-  '/Leiding/Kapoenen',
-  '/Leiding/Welpen',
-  '/Leiding/Akabe',
-  '/Leiding/Jonggivers',
-  '/Leiding/Givers',
-  '/Leiding/Jin',
-  '/VZW',
-];
+const validOrgUnitPaths: OrganisationRoles[] = Object.keys(
+  organisationRoles,
+) as OrganisationRoles[];
 
 /**
  * Type guard to check if a value is a valid OrganisationRoles.
