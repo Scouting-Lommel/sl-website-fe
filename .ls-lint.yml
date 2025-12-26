@@ -31,6 +31,10 @@ ls:
       '*':
         .stories.*: exists:0-1
 
+  src/emails:
+    .jsx: kebab-case
+    '*': kebab-case
+
   src/types:
     .ts: PascalCase
     .d.ts: kebab-case

@@ -13,6 +13,7 @@
     "dev:css:global": "postcss src/assets/styles/global.pcss --output src/app/global.css -w",
     "dev:next": "next dev",
     "dev": "concurrently \"pnpm run dev:css\" \"pnpm run dev:next\"",
+    "emails": "email dev --dir src/emails/templates --port 3001",
     "export": "next export",
     "lint:eslint": "eslint . --fix",
     "lint:ls-lint": "npx ls-lint",
@@ -29,6 +30,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@mdx-js/react": "^3.0.1",
+    "@react-email/components": "^0.5.7",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@svgr/webpack": "^6.5.1",
     "@vercel/analytics": "^1.5.0",
@@ -67,6 +69,7 @@
     "@chromatic-com/storybook": "^3.2.2",
     "@csstools/postcss-global-data": "^3.0.0",
     "@ls-lint/ls-lint": "^2.3.0",
+    "@react-email/preview-server": "5.0.5",
     "@storybook/addon-a11y": "^8.4.5",
     "@storybook/addon-actions": "^8.4.5",
     "@storybook/addon-essentials": "^8.4.5",
@@ -102,6 +105,7 @@
     "postcss-preset-env": "^10.0.5",
     "prettier": "^3.3.3",
     "prettier-plugin-sort-json": "^4.0.0",
+    "react-email": "5.0.5",
     "storybook": "^8.4.5",
     "storybook-css-modules-preset": "^1.1.1",
     "stylelint": "^16.9.0",
@@ -113,7 +117,9 @@
   "pnpm": {
     "overrides": {
       "@types/react": "19.1.10",
-      "google-auth-library": "^9.15.1"
+      "google-auth-library": "^9.15.1",
+      "next@>=16.0.0-canary.0 <16.0.7": ">=16.0.7",
+      "next@>=16.0.0-beta.0 <16.0.9": ">=16.0.9"
     }
   }
 }
