@@ -1,6 +1,7 @@
 'use client';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
+import type { Session } from 'next-auth';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import type { JSX } from 'react';
@@ -10,7 +11,7 @@ import { DropdownItem } from '@/components/molecules/Dropdown/types';
 import { DropdownCta } from '@/components/molecules/Dropdown/types';
 import NavItem from '@/components/molecules/NavItem';
 
-const NavAuthButton = ({ session }: { session: any }): JSX.Element => {
+const NavAuthButton = ({ session }: { session: Session | null }): JSX.Element => {
   const t = useTranslations('dashboard.authButton');
   const router = useRouter();
 

@@ -12,6 +12,28 @@ const organisationRoles = {
 
 export type OrganisationRoles = keyof typeof organisationRoles;
 
+const validOrgUnitPaths: OrganisationRoles[] = [
+  '/',
+  '/Leiding',
+  '/Leiding/Kapoenen',
+  '/Leiding/Welpen',
+  '/Leiding/Akabe',
+  '/Leiding/Jonggivers',
+  '/Leiding/Givers',
+  '/Leiding/Jin',
+  '/VZW',
+];
+
+/**
+ * Type guard to check if a value is a valid OrganisationRoles.
+ *
+ * @param path - The value to check.
+ * @returns `true` if the value is a valid OrganisationRoles, otherwise `false`.
+ */
+function isValidOrgUnitPath(path: unknown): path is OrganisationRoles {
+  return typeof path === 'string' && validOrgUnitPaths.includes(path as OrganisationRoles);
+}
+
 /**
  * Retrieves the role of an organization unit.
  *
@@ -22,4 +44,4 @@ const getOrganisationRole = (orgUnit: OrganisationRoles) => {
   return organisationRoles[orgUnit];
 };
 
-export { getOrganisationRole };
+export { getOrganisationRole, isValidOrgUnitPath };

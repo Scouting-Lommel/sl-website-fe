@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
+import { isValidOrgUnitPath } from '@/lib/helpers/getOrganisationRole';
 
 export async function authMiddleware(req: NextRequest) {
   const token = await getToken({ req });
@@ -37,8 +38,14 @@ export async function authMiddleware(req: NextRequest) {
       console.error(`Invalid orgUnitPath: ${data?.orgUnitPath}`);
       return NextResponse.redirect(`${origin}/geen-toegang`);
     }
-  } catch (error: any) {
-    console.error(`Error fetching org unit data: ${error.message}`, error);
+
+    if (!isValidOrgUnitPath(data.orgUnitPath)) {
+      console.error(`Invalid orgUnitPath: ${data.orgUnitPath} is not a valid OrganisationRoles`);
+      return NextResponse.redirect(`${origin}/geen-toegang`);
+    }
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error(`Error fetching org unit data: ${errorMessage}`, error);
     return NextResponse.redirect(`${origin}/geen-toegang`);
   }
 
