@@ -11,7 +11,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { privacyPolicyPage } = await getPrivacyPage();
   if (!privacyPolicyPage || !generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     privacyPolicyPage.data.attributes.pageMeta,
     generalData.data.attributes,
   );

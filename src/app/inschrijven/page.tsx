@@ -12,7 +12,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { registerPage } = await getRegisterPage();
   if (!registerPage || !generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     registerPage.data.attributes.pageMeta,
     generalData.data.attributes,
   );

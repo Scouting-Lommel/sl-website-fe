@@ -11,7 +11,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { cookiePolicyPage } = await getCookiePage();
   if (!cookiePolicyPage || !generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     cookiePolicyPage.data.attributes.pageMeta,
     generalData.data.attributes,
   );

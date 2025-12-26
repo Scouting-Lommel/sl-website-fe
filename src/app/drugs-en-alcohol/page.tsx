@@ -11,7 +11,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { drugsAlcoholPolicyPage } = await getDAPage();
   if (!drugsAlcoholPolicyPage || !generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     drugsAlcoholPolicyPage.data.attributes.pageMeta,
     generalData.data.attributes,
   );
@@ -19,7 +19,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   return { ...metadata };
 };
 
-const ContactPage = async (): Promise<JSX.Element> => {
+const DrugsAndAlcoholPage = async (): Promise<JSX.Element> => {
   const { drugsAlcoholPolicyPage } = await getDAPage();
 
   if (!drugsAlcoholPolicyPage) notFound();
@@ -31,4 +31,4 @@ const ContactPage = async (): Promise<JSX.Element> => {
   );
 };
 
-export default ContactPage;
+export default DrugsAndAlcoholPage;

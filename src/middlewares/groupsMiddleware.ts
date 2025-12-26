@@ -2,13 +2,16 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
+import { isValidOrgUnitPath } from '@/lib/helpers/getOrganisationRole';
+import { getSiteUrl } from '@/lib/helpers/getSiteUrl';
 
 export async function groupsMiddleware(req: NextRequest) {
   const token = await getToken({ req });
   const url: string = req.nextUrl.pathname;
+  const origin = await getSiteUrl(req);
 
-  const signInRedirect = NextResponse.redirect(`${process.env.SITE_URL}/api/auth/signin`);
-  const unauthorizedRedirect = NextResponse.redirect(`${process.env.SITE_URL}/geen-toegang`);
+  const signInRedirect = NextResponse.redirect(`${origin}/api/auth/signin`);
+  const unauthorizedRedirect = NextResponse.redirect(`${origin}/geen-toegang`);
 
   const getGroup = () => {
     const regex = new RegExp(`/dashboard/takken/(.*)`);
@@ -23,31 +26,50 @@ export async function groupsMiddleware(req: NextRequest) {
     return signInRedirect;
   }
 
+  if (!token.email) {
+    console.error('Token exists but email is missing');
+    return unauthorizedRedirect;
+  }
+
   try {
     const response = await fetch(
-      `${process.env.SITE_URL}/api/auth/get-org-unit?email=${token.email}`,
+      `${origin}/api/auth/get-org-unit?email=${encodeURIComponent(token.email)}`,
     );
 
     const contentType = response.headers.get('content-type');
     if (!response.ok) {
+      console.error(`API response not OK: ${response.status} ${response.statusText}`);
       return unauthorizedRedirect;
     }
 
     if (!contentType || !contentType.includes('application/json')) {
+      console.error(`Unexpected content type: ${contentType}`);
       return unauthorizedRedirect;
     }
 
     const data = await response.json();
 
-    if (getGroup() && checkOrganisationPermission(data.orgUnitPath, `groups:${getGroup()}`)) {
+    if (!data?.orgUnitPath || !data.orgUnitPath.startsWith('/')) {
+      console.error(`Invalid orgUnitPath: ${data?.orgUnitPath}`);
+      return unauthorizedRedirect;
+    }
+
+    if (!isValidOrgUnitPath(data.orgUnitPath)) {
+      console.error(`Invalid orgUnitPath: ${data.orgUnitPath} is not a valid OrganisationRoles`);
+      return unauthorizedRedirect;
+    }
+
+    const group = getGroup();
+    if (group && checkOrganisationPermission(data.orgUnitPath, `groups:${group}`)) {
       return NextResponse.next();
     }
 
-    if (!getGroup() && checkOrganisationPermission(data.orgUnitPath, 'groups')) {
+    if (!group && checkOrganisationPermission(data.orgUnitPath, 'groups')) {
       return NextResponse.next();
     }
-  } catch (error: any) {
-    console.error(`Error fetching org unit data: ${error.message}`);
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error(`Error fetching org unit data: ${errorMessage}`, error);
     return unauthorizedRedirect;
   }
 

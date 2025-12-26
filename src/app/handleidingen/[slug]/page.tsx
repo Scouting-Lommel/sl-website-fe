@@ -22,7 +22,7 @@ export const generateMetadata = async (props: Props): Promise<Metadata> => {
 
   if (!manual || !generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     manual.attributes.pageMeta,
     generalData.data.attributes,
     'handleidingen',

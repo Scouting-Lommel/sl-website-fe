@@ -11,7 +11,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
   const { groupsPage } = await getGroupsPage();
   if (!groupsPage || !generalData) return {};
 
-  const metadata = generateMetadataForPage(
+  const metadata = await generateMetadataForPage(
     groupsPage.data.attributes.pageMeta,
     generalData.data.attributes,
   );

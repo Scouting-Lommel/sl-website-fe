@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import type { JSX } from 'react';
 import { checkOrganisationPermission } from '@/lib/helpers/checkOrganisationPermission';
 import { OrganisationRoles } from '@/lib/helpers/getOrganisationRole';
+import { getSiteUrl } from '@/lib/helpers/getSiteUrl';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Button from '@/components/atoms/Button';
 import Hero from '@/components/organisms/Hero';
@@ -21,8 +22,9 @@ const DashboardPage = async (): Promise<JSX.Element> => {
   const t = await getTranslations('dashboard.dashboard');
 
   if (session && session.user) {
+    const siteUrl = await getSiteUrl();
     const orgUnitResponse = await fetch(
-      `${process.env.SITE_URL}/api/auth/get-org-unit?email=${session.user.email}`,
+      `${siteUrl}/api/auth/get-org-unit?email=${session.user.email}`,
     );
     orgUnitData = await orgUnitResponse.json();
   }
