@@ -60,7 +60,7 @@ const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
     <html lang={defaultLocale} className={`${montserrat.variable} ${nunitoSans.variable}`}>
       <body>
         <NextIntlClientProvider messages={{ common: commonMessages, dashboard: dashboardMessages, forms: formsMessages }}>
-          <SessionProvider session={null}>
+          <SessionProvider>
             <DataProvider data={data}>
               <SkipToContent className="skip-to-content" />
 
