@@ -9,14 +9,6 @@ export const GET = async (): Promise<NextResponse> => {
 };
 
 export const POST = async (req: NextRequest): Promise<NextResponse> => {
-  const secret = req.headers.get('x-revalidate-secret');
-  if (secret !== process.env.REVALIDATE_SECRET) {
-    return NextResponse.json({
-      error: 'Unauthorized',
-      received: secret ? `${secret.slice(0, 6)}…` : 'none',
-      expected: process.env.REVALIDATE_SECRET ? `${process.env.REVALIDATE_SECRET.slice(0, 6)}…` : 'not set',
-    }, { status: 401 });
-  }
 
   const body = await req.json();
   const model: string = body.model ?? '';
