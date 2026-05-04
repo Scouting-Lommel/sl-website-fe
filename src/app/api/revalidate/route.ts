@@ -4,6 +4,10 @@ import { NextRequest, NextResponse } from 'next/server';
 // Models that feed into layout/navigation data (STATIC cache tier)
 const STATIC_MODELS = new Set(['general', 'group', 'rental-location']);
 
+export const GET = async (): Promise<NextResponse> => {
+  return NextResponse.json({ ok: true });
+};
+
 export const POST = async (req: NextRequest): Promise<NextResponse> => {
   const secret = req.headers.get('x-revalidate-secret');
   if (secret !== process.env.REVALIDATE_SECRET) {
