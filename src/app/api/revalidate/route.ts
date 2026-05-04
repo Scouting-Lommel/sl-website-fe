@@ -14,7 +14,12 @@ export const POST = async (req: NextRequest): Promise<NextResponse> => {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const body = await req.json();
+  let body: Record<string, any>;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: 'Invalid request body' }, { status: 400 });
+  }
   const model: string = body.model ?? '';
   const slug: string | undefined = body.entry?.slug;
 
