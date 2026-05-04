@@ -9,6 +9,10 @@ export const GET = async (): Promise<NextResponse> => {
 };
 
 export const POST = async (req: NextRequest): Promise<NextResponse> => {
+  const secret = req.headers.get('x-revalidate-secret');
+  if (secret !== process.env.REVALIDATE_SECRET) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
 
   const body = await req.json();
   const model: string = body.model ?? '';
