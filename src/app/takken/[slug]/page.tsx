@@ -1,10 +1,22 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { JSX } from 'react';
+import { getNavigationData } from '@/lib/api/general/api';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import Blocks from '@/content-blocks';
 import { getGroupPage } from './api';
 import { getGeneralData } from '../../api';
+
+export async function generateStaticParams() {
+  try {
+    const data = await getNavigationData();
+    return data.groups.data.map((group: any) => ({
+      slug: group.attributes.slug,
+    }));
+  } catch {
+    return [];
+  }
+}
 
 type Props = { params: Promise<{ slug: string }> };
 

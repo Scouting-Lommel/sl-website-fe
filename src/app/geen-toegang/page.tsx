@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+
+export const revalidate = 3600;
 import type { JSX } from 'react';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import UnauthorizedBlock from '@/components/organisms/Unauthorized';

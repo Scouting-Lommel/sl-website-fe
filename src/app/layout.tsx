@@ -2,7 +2,6 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata, Viewport } from 'next';
 import { Montserrat, Nunito_Sans } from 'next/font/google';
-import { getServerSession } from 'next-auth';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import type { JSX } from 'react';
@@ -11,7 +10,6 @@ import { DataProvider } from '@/lib/contexts/DataContext';
 import { generateMetadataForRootLayout } from '@/lib/helpers/generateMetadata';
 import { generateStructuredData } from '@/lib/helpers/generateStructuredData';
 import SessionProvider from '@/lib/providers/SessionProvider';
-import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import GlobalAlert from '@/components/atoms/GlobalAlert';
 import SkipToContent from '@/components/atoms/SkipToContent';
 import Footer from '@/components/organisms/Footer';
@@ -55,7 +53,6 @@ const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
   const messages = await getMessages();
 
   const data = await getLayoutData();
-  const session = await getServerSession(authOptions);
 
   const globalAlert = data.generalData.data.attributes.globalAlert;
 
@@ -63,7 +60,7 @@ const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
     <html lang={locale} className={`${montserrat.variable} ${nunitoSans.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <SessionProvider session={session}>
+          <SessionProvider session={null}>
             <DataProvider data={data}>
               <SkipToContent className="skip-to-content" />
 
