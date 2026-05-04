@@ -13,7 +13,8 @@ export async function generateStaticParams() {
     return data.rentalLocations.data.map((location: any) => ({
       slug: location.attributes.slug,
     }));
-  } catch {
+  } catch (error) {
+    console.warn('[generateStaticParams] Failed to fetch rental location slugs, falling back to SSR:', error);
     return [];
   }
 }

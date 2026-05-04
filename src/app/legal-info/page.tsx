@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
-
-export const revalidate = 3600;
 import type { JSX } from 'react';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
 import BlockContainer from '@/components/atoms/BlockContainer';
 import Hero from '@/components/organisms/Hero';
 import { getGeneralData } from '../api';
+
+export const revalidate = 3600;
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();

@@ -13,7 +13,8 @@ export async function generateStaticParams() {
     return data.groups.data.map((group: any) => ({
       slug: group.attributes.slug,
     }));
-  } catch {
+  } catch (error) {
+    console.warn('[generateStaticParams] Failed to fetch group slugs, falling back to SSR:', error);
     return [];
   }
 }

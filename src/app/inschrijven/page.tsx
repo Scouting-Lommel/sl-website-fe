@@ -1,6 +1,4 @@
 import { Metadata } from 'next';
-
-export const revalidate = 3600;
 import { notFound } from 'next/navigation';
 import type { JSX } from 'react';
 import { generateMetadataForPage } from '@/lib/helpers/generateMetadata';
@@ -8,6 +6,8 @@ import Blocks from '@/content-blocks';
 import Form from '@/components/organisms/Forms';
 import { getGeneralData } from '../api';
 import { getRegisterPage, getGeneralDataForRegisterPage } from './api';
+
+export const revalidate = 3600;
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const { generalData } = await getGeneralData();
