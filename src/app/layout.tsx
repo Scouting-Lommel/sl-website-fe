@@ -3,8 +3,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata, Viewport } from 'next';
 import { Montserrat, Nunito_Sans } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
 import type { JSX } from 'react';
+import { defaultLocale } from '@/i18n/locales';
 import { getLayoutData, getSeoData } from '@/lib/api/general/api';
 import { DataProvider } from '@/lib/contexts/DataContext';
 import { generateMetadataForRootLayout } from '@/lib/helpers/generateMetadata';
@@ -14,6 +14,9 @@ import GlobalAlert from '@/components/atoms/GlobalAlert';
 import SkipToContent from '@/components/atoms/SkipToContent';
 import Footer from '@/components/organisms/Footer';
 import Header from '@/components/organisms/Header';
+import commonMessages from '../../locales/nl/common.json';
+import dashboardMessages from '../../locales/nl/dashboard.json';
+import formsMessages from '../../locales/nl/forms.json';
 
 import '@/app/global.css';
 
@@ -49,17 +52,14 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const RootLayout = async ({ children }: Props): Promise<JSX.Element> => {
-  const locale = await getLocale();
-  const messages = await getMessages();
-
   const data = await getLayoutData();
 
   const globalAlert = data.generalData.data.attributes.globalAlert;
 
   return (
-    <html lang={locale} className={`${montserrat.variable} ${nunitoSans.variable}`}>
+    <html lang={defaultLocale} className={`${montserrat.variable} ${nunitoSans.variable}`}>
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={{ common: commonMessages, dashboard: dashboardMessages, forms: formsMessages }}>
           <SessionProvider session={null}>
             <DataProvider data={data}>
               <SkipToContent className="skip-to-content" />
